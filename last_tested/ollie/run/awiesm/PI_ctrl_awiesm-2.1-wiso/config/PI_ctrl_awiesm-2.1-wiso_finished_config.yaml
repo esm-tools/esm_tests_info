@@ -220,13 +220,13 @@ echam:
                 branch: ice
                 clean_command: rm -rf src/echam/bin; rm -rf bin; make clean
                 comp_command: ./config/createMakefiles.pl; autoreconf -i --force; mkdir -p src/.deps yaxt/src/.deps yaxt/tests/.deps; ./configure $configure_opts --with-fortran=intel INSTALL='/usr/bin/install -p'; make -j `nproc --all`; make install -j `nproc --all`; mkdir -p src/echam/bin; cp  bin/echam6 src/echam/bin/echam6
-                git-repository: https://gitlab.awi.de/pgierz/echam6.git
+                git-repository: https://gitlab.awi.de/paleodyn/Models/echam6.git
             6.3.05p2-concurrent_radiation-paleodyn-hammoz:
                 branch: hammoz
                 clean_command: rm -rf src/echam/bin; make clean
                 comp_command: make -j `nproc --all`; make install -j `nproc --all`; mkdir -p src/echam/bin; cp  bin/echam6 src/echam/bin/echam6
                 conf_command: export OASIS3MCT_FC_LIB=$(pwd)/../lib/; export OASIS3MCTROOT=$(pwd)/../oasis/; ./config/createMakefiles.pl; autoreconf -i --force; mkdir -p src/.deps yaxt/src/.deps yaxt/tests/.deps; ./configure --with-coupler=oasis3-mct --with-fortran=intel FCFLAGS="-cpp -DHAMMOZ" INSTALL='/usr/bin/install -p'
-                git-repository: https://gitlab.awi.de/pgierz/echam6.git
+                git-repository: https://gitlab.awi.de/paleodyn/Models/echam6.git
             6.3.05p2-foci:
                 branch: esm-tools
                 git-repository: https://git.geomar.de/foci/src/echam.git
@@ -238,7 +238,7 @@ echam:
                 clean_command: rm -rf src/echam/bin; rm -rf bin; make clean
                 comp_command: ./config/createMakefiles.pl; autoreconf -i --force; mkdir -p src/.deps yaxt/src/.deps yaxt/tests/.deps; ./configure $configure_opts --with-fortran=intel INSTALL='/usr/bin/install -p'; make -j `nproc --all`; make install -j `nproc --all`; mkdir -p src/echam/bin; cp  bin/echam6 src/echam/bin/echam6
                 destination: echam-6.3.05p2-wiso
-                git-repository: https://gitlab.awi.de/pgierz/echam6.git
+                git-repository: https://gitlab.awi.de/paleodyn/Models/echam6.git
         clean_command: rm -rf build CMakeCache.txt
         comp_command: mkdir -p build; cd build; cmake ..;   make install -j `nproc --all`
         git-repository: https://gitlab.dkrz.de/modular_esm/echam6.git
@@ -1588,7 +1588,7 @@ fesom:
             work_to_run: copy
     forcing_data_dir: ''
     git-repository:
-    - https://gitlab.dkrz.de/FESOM/fesom2.git
+    - https://github.com/FESOM/fesom2.git
     grids:
         feom:
             name: feom
@@ -1945,7 +1945,7 @@ general:
     initial_date: '2001-01-01T00:00:00'
     inspect: null
     jP: /work/ollie/dsidoren/input/fesom2.0/meshes/mesh_CORE2_finaltopo_mean/tarfilesT63/input/jsbach/jsbach_T63CORE2_11tiles_5layers_1850.nc
-    jobid: 7634
+    jobid: 83016
     jobtype: prepcompute
     last_run_datestamp: 20001201-20001231
     last_run_in_chunk: false
@@ -2713,7 +2713,6 @@ oasis3mct:
     - 2.8
     - 3
     - 4
-    - 4.0-oifsdeck
     - 4.0-awicm-frontiers
     - 4.0-awicm-3.0
     branch: '2.8'

@@ -260,6 +260,7 @@ fesom:
     daynew: 1
     debug_info:
         loaded_from_file: /home/ollie/mandresm/esm_tools/configs/.//components/fesom/fesom-2.0.yaml
+    destination: fesom-2.0
     executable: fesom
     experiment_analysis_dir: /work/ollie/mandresm/testing//run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/analysis/fesom/
     experiment_bin_dir: /work/ollie/mandresm/testing//run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/bin/fesom/
@@ -538,7 +539,6 @@ general:
     - master
     - frontiers
     - frontiers-xios
-    - deck
     base_dir: /work/ollie/mandresm/testing//run/awicm3/
     batch: slurm
     calendar: esm_calendar object with allowed leap years
@@ -676,6 +676,7 @@ general:
                 - OIFS_CC=$CC
                 - OIFS_CFLAGS="-fp-model precise -O1 -xCORE_AVX2 -g -traceback -qopt-report=0 -fpe0 -qopenmp"
                 - OIFS_CCDEFS="LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS _OPENMP"
+                - MAIN_LDFLAGS=-openmp
             mistral:
                 add_export_vars:
                     DR_HOOK_IGNORE_SIGNALS: -1
@@ -947,7 +948,7 @@ general:
     - restart_in
     initial_date: '2000-01-01T00:00:00'
     inspect: null
-    jobid: 5006
+    jobid: 79347
     jobtype: prepcompute
     last_run_datestamp: 19991231-19991231
     last_run_in_chunk: false
@@ -1075,6 +1076,7 @@ general:
                 - DR_HOOK_IGNORE_SIGNALS=-1
                 - OMP_SCHEDULE=STATIC
                 - OMP_STACKSIZE=128M
+                - MAIN_LDFLAGS=-openmp
             mistral:
                 add_export_vars:
                     DR_HOOK_IGNORE_SIGNALS: -1
@@ -1267,7 +1269,6 @@ oasis3mct:
     - 2.8
     - 3
     - 4
-    - 4.0-oifsdeck
     - 4.0-awicm-frontiers
     - 4.0-awicm-3.0
     branch: '2.8'
@@ -1777,7 +1778,6 @@ oifs:
         - 43r3-awicm-3.0
         - 43r3-awicm-frontiers
         - 43r3-awicm-frontiers-xios
-        - 43r3-awicm-deck
         - 43r3
         - 40r1-foci
         - 43r3-foci
@@ -1807,14 +1807,6 @@ oifs:
                 requires:
                 - oasis3mct-4.0-awicm-3.0
                 with_xios: false
-            43r3-awicm-deck:
-                branch: awicm-3-deck-hotfix-1
-                comp_command: export OIFS_TOPLEVEL_DIR=/work/ollie/mandresm/testing//comp/awicm3/awicm3-frontiers/oifs-43r3; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.cfg; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
-                destination: oifs-43r3
-                git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3.git
-                install_bins: make/esm/oifs/bin/oifs
-                requires:
-                - oasis3mct-4.0-oifsdeck
             43r3-awicm-frontiers:
                 branch: awicm-3-frontiers
                 comp_command: export OIFS_TOPLEVEL_DIR=/work/ollie/mandresm/testing//comp/awicm3/awicm3-frontiers/oifs-43r3; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.cfg ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
@@ -1980,7 +1972,8 @@ oifs:
                 - OIFS_CC=$CC
                 - OIFS_CFLAGS="-fp-model precise -O1 -xCORE_AVX2 -g -traceback -qopt-report=0 -fpe0 -qopenmp"
                 - OIFS_CCDEFS="LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS _OPENMP"
-                compiler_mpi: intel_2019a_psmpi2019
+                - MAIN_LDFLAGS=-openmp
+                compiler_mpi: intel2022_ompi2022
             mistral:
                 add_export_vars:
                     DR_HOOK_IGNORE_SIGNALS: -1
@@ -2243,10 +2236,10 @@ oifs:
             run_to_work: copy
             work_to_run: copy
         outdata:
-            exp_to_run: copy
-            init_to_exp: copy
-            run_to_work: copy
-            work_to_run: copy
+            exp_to_run: move
+            init_to_exp: move
+            run_to_work: move
+            work_to_run: move
         rcf_in:
             exp_to_run: copy
             init_to_exp: copy
@@ -2940,7 +2933,8 @@ oifs:
                 - DR_HOOK_IGNORE_SIGNALS=-1
                 - OMP_SCHEDULE=STATIC
                 - OMP_STACKSIZE=128M
-                compiler_mpi: intel_2019a_psmpi2019
+                - MAIN_LDFLAGS=-openmp
+                compiler_mpi: intel2022_ompi2022
             mistral:
                 add_export_vars:
                     DR_HOOK_IGNORE_SIGNALS: -1
