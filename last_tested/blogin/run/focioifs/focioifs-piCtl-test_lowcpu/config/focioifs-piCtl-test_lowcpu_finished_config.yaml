@@ -48,7 +48,7 @@ computer:
         'srun: error:':
             file: stdout
             frequency: 30
-            message: 'SLURM ERROR: slurm endet with an error, exiting.'
+            message: 'SLURM ERROR: slurm ended with an error, exiting.'
             method: kill
     choose_heterogeneous_parallelization: *id001
     compiler_mpi: intel2019_impi2019
@@ -116,7 +116,7 @@ computer:
     name_flag: --job-name=focioifs-piCtl-test_lowcpu
     nodes_flag: --nodes=@nodes@
     notification_flag: --mail-type=NONE
-    output_flags: --output=/scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/log/focioifs-piCtl-test_lowcpu_focioifs_@jobtype@_18500101-18500105.log --error=/scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/log/focioifs-piCtl-test_lowcpu_focioifs_@jobtype@_18500101-18500105.log
+    output_flags: --output=/scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/log/focioifs-piCtl-test_lowcpu_focioifs_@jobtype@_18500101-18500105_%j.log --error=/scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/log/focioifs-piCtl-test_lowcpu_focioifs_@jobtype@_18500101-18500105_%j.log
     output_path: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/log/
     overcommit_flag: ''
     overcommit_nodes: None
@@ -147,7 +147,7 @@ computer:
     submit: sbatch
     submitted: false
     tasks_flag: --ntasks=@tasks@
-    thisrun_logfile: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/log/focioifs-piCtl-test_lowcpu_focioifs_@jobtype@_18500101-18500105.log
+    thisrun_logfile: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/log/focioifs-piCtl-test_lowcpu_focioifs_@jobtype@_18500101-18500105_%j.log
     threads_per_core: 1
     time_flag: --time=01:00:00
     use_hyperthreading: false
@@ -190,6 +190,7 @@ general:
     available_versions:
     - agrif
     - 2
+    - 2.1
     base_dir: /scratch/usr/hbkmandr/testing//run/focioifs/
     batch: slurm
     calendar: esm_calendar object with allowed leap years
@@ -341,7 +342,7 @@ general:
     ini_parent_exp_id: unset
     initial_date: '1850-01-01T00:00:00'
     inspect: null
-    jobid: 97745
+    jobid: 262767
     jobtype: prepcompute
     last_run_datestamp: 18491227-18491231
     last_run_in_chunk: false
@@ -591,6 +592,7 @@ nemo:
     - ignore
     available_versions:
     - ORCA05_LIM2_KCM_AOW
+    - ORCA05_LIM2_KCM_AOW_FS
     - ORCA05_LIM2_FOCI_AGRIF_AOW
     - ORCA05_LIM2_KCM_AGRIF_OASISMCT4
     - ORCA05_LIM2_KCM_AOW_FS_OASISMCT4
@@ -626,6 +628,8 @@ nemo:
             grid: opac
         OIceFrac:
             grid: opat
+        OTotEvap:
+            grid: opac
         OTotRain:
             grid: opac
         OTotSnow:
@@ -917,6 +921,12 @@ nemo:
             namsbc:
                 nn_fsbc: 6
             namsbc_cpl:
+                sn_rcv_emp:
+                - conservative
+                - 'no'
+                - ''
+                - ''
+                - ''
                 sn_rcv_rnf:
                 - coupled
                 - 'no'
@@ -982,6 +992,7 @@ nemo:
     - OTotRain
     - OTotSnow
     - OIceEvap
+    - OTotEvap
     - O_dQnsdT
     opat_fields:
     - OIceFrac
@@ -1002,6 +1013,7 @@ nemo:
     outdata_sources_wild_card:
         1d: '*focioifs-piCtl-test_lowcpu_1d_18500101_18500105_*.nc'
         1m: '*focioifs-piCtl-test_lowcpu_1m_18500101_18500105_*.nc'
+        3h: '*focioifs-piCtl-test_lowcpu_3h_18500101_18500105_*.nc'
         5d: '*focioifs-piCtl-test_lowcpu_5d_18500101_18500105_*.nc'
         6h: '*focioifs-piCtl-test_lowcpu_6h_18500101_18500105_*.nc'
         mesh_mask: '*mesh_mask*.nc'
@@ -1079,6 +1091,7 @@ oasis3mct:
     - 2.8
     - 3
     - 4
+    - 4.0-geomar
     - 4.0-oifsdeck
     - 4.0-awicm-frontiers
     - 4.0-awicm-3.0
@@ -1377,6 +1390,9 @@ oasis3mct:
         - O_QsrMix <--a2ogauswgtcn-- A_QsrMix
         - O_QnsMix <--a2ogauswgtcn-- A_QnsMix
         - OTotRain <--a2ogauswgtcn-- ATotRain
+        - OTotSnow <--a2ogauswgtcn-- ATotSnow
+        - OIceEvap <--a2ogauswgtcn-- AIceEvap
+        - OTotEvap <--a2ogauswgtcn-- ATotEvap
         atmtau:
         - O_OTaux1 <--a2ogauswgtnc-- A_OTaux1
         - O_OTauy1 <--a2ogauswgtnc-- A_OTauy1
@@ -1385,8 +1401,6 @@ oasis3mct:
         flxatmos:
         - O_QsrIce <--a2ogauswgtnc-- A_QsrIce
         - O_QnsIce <--a2ogauswgtnc-- A_QnsIce
-        - OTotSnow <--a2ogauswgtnc-- ATotSnow
-        - OIceEvap <--a2ogauswgtnc-- AIceEvap
         - O_dQnsdT <--a2ogauswgtnc-- A_dQnsdT
         rnfatm:
         - R_Runoff_atm <--a2rgauswgt-- A_Runoff
@@ -1555,134 +1569,140 @@ oasis3mct:
     o2a_seq: 1
     oasis_date_stamp: ''
     outdata_intermediate:
-        AIceEvap_oifs_12.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/AIceEvap_oifs_12.nc
+        AIceEvap_oifs_20.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/AIceEvap_oifs_20.nc
         AIceFrac_oifs_01.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/AIceFrac_oifs_01.nc
-        ATotRain_oifs_20.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/ATotRain_oifs_20.nc
-        ATotSnow_oifs_11.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/ATotSnow_oifs_11.nc
-        A_ITaux1_oifs_16.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/A_ITaux1_oifs_16.nc
-        A_ITauy1_oifs_17.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/A_ITauy1_oifs_17.nc
+        ATotEvap_oifs_21.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/ATotEvap_oifs_21.nc
+        ATotRain_oifs_18.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/ATotRain_oifs_18.nc
+        ATotSnow_oifs_19.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/ATotSnow_oifs_19.nc
+        A_ITaux1_oifs_14.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/A_ITaux1_oifs_14.nc
+        A_ITauy1_oifs_15.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/A_ITauy1_oifs_15.nc
         A_IceTck_oifs_04.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/A_IceTck_oifs_04.nc
         A_OCurx1_oifs_06.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/A_OCurx1_oifs_06.nc
         A_OCury1_oifs_07.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/A_OCury1_oifs_07.nc
-        A_OTaux1_oifs_14.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/A_OTaux1_oifs_14.nc
-        A_OTauy1_oifs_15.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/A_OTauy1_oifs_15.nc
+        A_OTaux1_oifs_12.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/A_OTaux1_oifs_12.nc
+        A_OTauy1_oifs_13.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/A_OTauy1_oifs_13.nc
         A_QnsIce_oifs_10.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/A_QnsIce_oifs_10.nc
-        A_QnsMix_oifs_19.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/A_QnsMix_oifs_19.nc
+        A_QnsMix_oifs_17.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/A_QnsMix_oifs_17.nc
         A_QsrIce_oifs_09.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/A_QsrIce_oifs_09.nc
-        A_QsrMix_oifs_18.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/A_QsrMix_oifs_18.nc
+        A_QsrMix_oifs_16.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/A_QsrMix_oifs_16.nc
         A_Runoff_oifs_08.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/A_Runoff_oifs_08.nc
         A_SSTSST_oifs_02.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/A_SSTSST_oifs_02.nc
         A_SnwTck_oifs_05.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/A_SnwTck_oifs_05.nc
         A_TepIce_oifs_03.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/A_TepIce_oifs_03.nc
-        A_dQnsdT_oifs_13.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/A_dQnsdT_oifs_13.nc
-        OIceEvap_oceanx_12.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/OIceEvap_oceanx_12.nc
+        A_dQnsdT_oifs_11.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/A_dQnsdT_oifs_11.nc
+        OIceEvap_oceanx_20.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/OIceEvap_oceanx_20.nc
         OIceFrac_oceanx_01.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/OIceFrac_oceanx_01.nc
-        OTotRain_oceanx_20.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/OTotRain_oceanx_20.nc
-        OTotSnow_oceanx_11.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/OTotSnow_oceanx_11.nc
-        O_ITaux1_oceanx_16.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/O_ITaux1_oceanx_16.nc
-        O_ITauy1_oceanx_17.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/O_ITauy1_oceanx_17.nc
+        OTotEvap_oceanx_21.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/OTotEvap_oceanx_21.nc
+        OTotRain_oceanx_18.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/OTotRain_oceanx_18.nc
+        OTotSnow_oceanx_19.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/OTotSnow_oceanx_19.nc
+        O_ITaux1_oceanx_14.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/O_ITaux1_oceanx_14.nc
+        O_ITauy1_oceanx_15.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/O_ITauy1_oceanx_15.nc
         O_IceTck_oceanx_04.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/O_IceTck_oceanx_04.nc
         O_OCurx1_oceanx_06.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/O_OCurx1_oceanx_06.nc
         O_OCury1_oceanx_07.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/O_OCury1_oceanx_07.nc
-        O_OTaux1_oceanx_14.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/O_OTaux1_oceanx_14.nc
-        O_OTauy1_oceanx_15.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/O_OTauy1_oceanx_15.nc
+        O_OTaux1_oceanx_12.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/O_OTaux1_oceanx_12.nc
+        O_OTauy1_oceanx_13.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/O_OTauy1_oceanx_13.nc
         O_QnsIce_oceanx_10.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/O_QnsIce_oceanx_10.nc
-        O_QnsMix_oceanx_19.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/O_QnsMix_oceanx_19.nc
+        O_QnsMix_oceanx_17.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/O_QnsMix_oceanx_17.nc
         O_QsrIce_oceanx_09.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/O_QsrIce_oceanx_09.nc
-        O_QsrMix_oceanx_18.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/O_QsrMix_oceanx_18.nc
-        O_Runoff_oceanx_21.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/O_Runoff_oceanx_21.nc
+        O_QsrMix_oceanx_16.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/O_QsrMix_oceanx_16.nc
+        O_Runoff_oceanx_22.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/O_Runoff_oceanx_22.nc
         O_SSTSST_oceanx_02.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/O_SSTSST_oceanx_02.nc
         O_SnwTck_oceanx_05.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/O_SnwTck_oceanx_05.nc
         O_TepIce_oceanx_03.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/O_TepIce_oceanx_03.nc
-        O_dQnsdT_oceanx_13.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/O_dQnsdT_oceanx_13.nc
+        O_dQnsdT_oceanx_11.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/O_dQnsdT_oceanx_11.nc
         R_Runoff_atm_rnfma_08.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/R_Runoff_atm_rnfma_08.nc
-        R_Runoff_oce_rnfma_21.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/R_Runoff_oce_rnfma_21.nc
+        R_Runoff_oce_rnfma_22.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/R_Runoff_oce_rnfma_22.nc
     outdata_sources:
-        AIceEvap_oifs_12.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//AIceEvap_oifs_12.nc
+        AIceEvap_oifs_20.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//AIceEvap_oifs_20.nc
         AIceFrac_oifs_01.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//AIceFrac_oifs_01.nc
-        ATotRain_oifs_20.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//ATotRain_oifs_20.nc
-        ATotSnow_oifs_11.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//ATotSnow_oifs_11.nc
-        A_ITaux1_oifs_16.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//A_ITaux1_oifs_16.nc
-        A_ITauy1_oifs_17.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//A_ITauy1_oifs_17.nc
+        ATotEvap_oifs_21.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//ATotEvap_oifs_21.nc
+        ATotRain_oifs_18.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//ATotRain_oifs_18.nc
+        ATotSnow_oifs_19.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//ATotSnow_oifs_19.nc
+        A_ITaux1_oifs_14.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//A_ITaux1_oifs_14.nc
+        A_ITauy1_oifs_15.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//A_ITauy1_oifs_15.nc
         A_IceTck_oifs_04.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//A_IceTck_oifs_04.nc
         A_OCurx1_oifs_06.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//A_OCurx1_oifs_06.nc
         A_OCury1_oifs_07.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//A_OCury1_oifs_07.nc
-        A_OTaux1_oifs_14.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//A_OTaux1_oifs_14.nc
-        A_OTauy1_oifs_15.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//A_OTauy1_oifs_15.nc
+        A_OTaux1_oifs_12.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//A_OTaux1_oifs_12.nc
+        A_OTauy1_oifs_13.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//A_OTauy1_oifs_13.nc
         A_QnsIce_oifs_10.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//A_QnsIce_oifs_10.nc
-        A_QnsMix_oifs_19.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//A_QnsMix_oifs_19.nc
+        A_QnsMix_oifs_17.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//A_QnsMix_oifs_17.nc
         A_QsrIce_oifs_09.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//A_QsrIce_oifs_09.nc
-        A_QsrMix_oifs_18.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//A_QsrMix_oifs_18.nc
+        A_QsrMix_oifs_16.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//A_QsrMix_oifs_16.nc
         A_Runoff_oifs_08.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//A_Runoff_oifs_08.nc
         A_SSTSST_oifs_02.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//A_SSTSST_oifs_02.nc
         A_SnwTck_oifs_05.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//A_SnwTck_oifs_05.nc
         A_TepIce_oifs_03.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//A_TepIce_oifs_03.nc
-        A_dQnsdT_oifs_13.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//A_dQnsdT_oifs_13.nc
-        OIceEvap_oceanx_12.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//OIceEvap_oceanx_12.nc
+        A_dQnsdT_oifs_11.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//A_dQnsdT_oifs_11.nc
+        OIceEvap_oceanx_20.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//OIceEvap_oceanx_20.nc
         OIceFrac_oceanx_01.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//OIceFrac_oceanx_01.nc
-        OTotRain_oceanx_20.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//OTotRain_oceanx_20.nc
-        OTotSnow_oceanx_11.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//OTotSnow_oceanx_11.nc
-        O_ITaux1_oceanx_16.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//O_ITaux1_oceanx_16.nc
-        O_ITauy1_oceanx_17.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//O_ITauy1_oceanx_17.nc
+        OTotEvap_oceanx_21.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//OTotEvap_oceanx_21.nc
+        OTotRain_oceanx_18.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//OTotRain_oceanx_18.nc
+        OTotSnow_oceanx_19.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//OTotSnow_oceanx_19.nc
+        O_ITaux1_oceanx_14.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//O_ITaux1_oceanx_14.nc
+        O_ITauy1_oceanx_15.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//O_ITauy1_oceanx_15.nc
         O_IceTck_oceanx_04.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//O_IceTck_oceanx_04.nc
         O_OCurx1_oceanx_06.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//O_OCurx1_oceanx_06.nc
         O_OCury1_oceanx_07.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//O_OCury1_oceanx_07.nc
-        O_OTaux1_oceanx_14.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//O_OTaux1_oceanx_14.nc
-        O_OTauy1_oceanx_15.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//O_OTauy1_oceanx_15.nc
+        O_OTaux1_oceanx_12.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//O_OTaux1_oceanx_12.nc
+        O_OTauy1_oceanx_13.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//O_OTauy1_oceanx_13.nc
         O_QnsIce_oceanx_10.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//O_QnsIce_oceanx_10.nc
-        O_QnsMix_oceanx_19.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//O_QnsMix_oceanx_19.nc
+        O_QnsMix_oceanx_17.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//O_QnsMix_oceanx_17.nc
         O_QsrIce_oceanx_09.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//O_QsrIce_oceanx_09.nc
-        O_QsrMix_oceanx_18.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//O_QsrMix_oceanx_18.nc
-        O_Runoff_oceanx_21.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//O_Runoff_oceanx_21.nc
+        O_QsrMix_oceanx_16.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//O_QsrMix_oceanx_16.nc
+        O_Runoff_oceanx_22.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//O_Runoff_oceanx_22.nc
         O_SSTSST_oceanx_02.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//O_SSTSST_oceanx_02.nc
         O_SnwTck_oceanx_05.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//O_SnwTck_oceanx_05.nc
         O_TepIce_oceanx_03.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//O_TepIce_oceanx_03.nc
-        O_dQnsdT_oceanx_13.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//O_dQnsdT_oceanx_13.nc
+        O_dQnsdT_oceanx_11.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//O_dQnsdT_oceanx_11.nc
         R_Runoff_atm_rnfma_08.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//R_Runoff_atm_rnfma_08.nc
-        R_Runoff_oce_rnfma_21.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//R_Runoff_oce_rnfma_21.nc
+        R_Runoff_oce_rnfma_22.nc: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//R_Runoff_oce_rnfma_22.nc
     outdata_targets:
-        AIceEvap_oifs_12.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/AIceEvap_oifs_12.nc
+        AIceEvap_oifs_20.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/AIceEvap_oifs_20.nc
         AIceFrac_oifs_01.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/AIceFrac_oifs_01.nc
-        ATotRain_oifs_20.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/ATotRain_oifs_20.nc
-        ATotSnow_oifs_11.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/ATotSnow_oifs_11.nc
-        A_ITaux1_oifs_16.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/A_ITaux1_oifs_16.nc
-        A_ITauy1_oifs_17.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/A_ITauy1_oifs_17.nc
+        ATotEvap_oifs_21.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/ATotEvap_oifs_21.nc
+        ATotRain_oifs_18.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/ATotRain_oifs_18.nc
+        ATotSnow_oifs_19.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/ATotSnow_oifs_19.nc
+        A_ITaux1_oifs_14.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/A_ITaux1_oifs_14.nc
+        A_ITauy1_oifs_15.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/A_ITauy1_oifs_15.nc
         A_IceTck_oifs_04.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/A_IceTck_oifs_04.nc
         A_OCurx1_oifs_06.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/A_OCurx1_oifs_06.nc
         A_OCury1_oifs_07.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/A_OCury1_oifs_07.nc
-        A_OTaux1_oifs_14.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/A_OTaux1_oifs_14.nc
-        A_OTauy1_oifs_15.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/A_OTauy1_oifs_15.nc
+        A_OTaux1_oifs_12.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/A_OTaux1_oifs_12.nc
+        A_OTauy1_oifs_13.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/A_OTauy1_oifs_13.nc
         A_QnsIce_oifs_10.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/A_QnsIce_oifs_10.nc
-        A_QnsMix_oifs_19.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/A_QnsMix_oifs_19.nc
+        A_QnsMix_oifs_17.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/A_QnsMix_oifs_17.nc
         A_QsrIce_oifs_09.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/A_QsrIce_oifs_09.nc
-        A_QsrMix_oifs_18.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/A_QsrMix_oifs_18.nc
+        A_QsrMix_oifs_16.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/A_QsrMix_oifs_16.nc
         A_Runoff_oifs_08.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/A_Runoff_oifs_08.nc
         A_SSTSST_oifs_02.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/A_SSTSST_oifs_02.nc
         A_SnwTck_oifs_05.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/A_SnwTck_oifs_05.nc
         A_TepIce_oifs_03.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/A_TepIce_oifs_03.nc
-        A_dQnsdT_oifs_13.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/A_dQnsdT_oifs_13.nc
-        OIceEvap_oceanx_12.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/OIceEvap_oceanx_12.nc
+        A_dQnsdT_oifs_11.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/A_dQnsdT_oifs_11.nc
+        OIceEvap_oceanx_20.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/OIceEvap_oceanx_20.nc
         OIceFrac_oceanx_01.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/OIceFrac_oceanx_01.nc
-        OTotRain_oceanx_20.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/OTotRain_oceanx_20.nc
-        OTotSnow_oceanx_11.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/OTotSnow_oceanx_11.nc
-        O_ITaux1_oceanx_16.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/O_ITaux1_oceanx_16.nc
-        O_ITauy1_oceanx_17.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/O_ITauy1_oceanx_17.nc
+        OTotEvap_oceanx_21.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/OTotEvap_oceanx_21.nc
+        OTotRain_oceanx_18.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/OTotRain_oceanx_18.nc
+        OTotSnow_oceanx_19.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/OTotSnow_oceanx_19.nc
+        O_ITaux1_oceanx_14.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/O_ITaux1_oceanx_14.nc
+        O_ITauy1_oceanx_15.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/O_ITauy1_oceanx_15.nc
         O_IceTck_oceanx_04.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/O_IceTck_oceanx_04.nc
         O_OCurx1_oceanx_06.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/O_OCurx1_oceanx_06.nc
         O_OCury1_oceanx_07.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/O_OCury1_oceanx_07.nc
-        O_OTaux1_oceanx_14.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/O_OTaux1_oceanx_14.nc
-        O_OTauy1_oceanx_15.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/O_OTauy1_oceanx_15.nc
+        O_OTaux1_oceanx_12.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/O_OTaux1_oceanx_12.nc
+        O_OTauy1_oceanx_13.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/O_OTauy1_oceanx_13.nc
         O_QnsIce_oceanx_10.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/O_QnsIce_oceanx_10.nc
-        O_QnsMix_oceanx_19.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/O_QnsMix_oceanx_19.nc
+        O_QnsMix_oceanx_17.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/O_QnsMix_oceanx_17.nc
         O_QsrIce_oceanx_09.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/O_QsrIce_oceanx_09.nc
-        O_QsrMix_oceanx_18.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/O_QsrMix_oceanx_18.nc
-        O_Runoff_oceanx_21.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/O_Runoff_oceanx_21.nc
+        O_QsrMix_oceanx_16.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/O_QsrMix_oceanx_16.nc
+        O_Runoff_oceanx_22.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/O_Runoff_oceanx_22.nc
         O_SSTSST_oceanx_02.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/O_SSTSST_oceanx_02.nc
         O_SnwTck_oceanx_05.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/O_SnwTck_oceanx_05.nc
         O_TepIce_oceanx_03.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/O_TepIce_oceanx_03.nc
-        O_dQnsdT_oceanx_13.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/O_dQnsdT_oceanx_13.nc
+        O_dQnsdT_oceanx_11.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/O_dQnsdT_oceanx_11.nc
         R_Runoff_atm_rnfma_08.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/R_Runoff_atm_rnfma_08.nc
-        R_Runoff_oce_rnfma_21.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/R_Runoff_oce_rnfma_21.nc
+        R_Runoff_oce_rnfma_22.nc: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/R_Runoff_oce_rnfma_22.nc
     output_exchanged_vars: false
     parent_date: '18500101'
     parent_expid: unset
@@ -1859,7 +1879,6 @@ oifs:
         - 43r3-awicm-3.0
         - 43r3-awicm-frontiers
         - 43r3-awicm-frontiers-xios
-        - 43r3-awicm-deck
         - 43r3
         - 40r1-foci
         - 43r3-foci
@@ -1889,14 +1908,6 @@ oifs:
                 requires:
                 - oasis3mct-4.0-awicm-3.0
                 with_xios: false
-            43r3-awicm-deck:
-                branch: awicm-3-deck-hotfix-1
-                comp_command: export OIFS_TOPLEVEL_DIR=/scratch/usr/hbkmandr/testing//comp/focioifs/focioifs-2.0/oifs-43r3; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.cfg; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
-                destination: oifs-43r3
-                git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3.git
-                install_bins: make/esm/oifs/bin/oifs
-                requires:
-                - oasis3mct-4.0-oifsdeck
             43r3-awicm-frontiers:
                 branch: awicm-3-frontiers
                 comp_command: export OIFS_TOPLEVEL_DIR=/scratch/usr/hbkmandr/testing//comp/focioifs/focioifs-2.0/oifs-43r3; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.cfg ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
@@ -2062,6 +2073,7 @@ oifs:
                 - OIFS_CC=$CC
                 - OIFS_CFLAGS="-fp-model precise -O1 -xCORE_AVX2 -g -traceback -qopt-report=0 -fpe0 "
                 - OIFS_CCDEFS="LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS "
+                - MAIN_LDFLAGS=-openmp
                 compiler_mpi: intel2020_psmpi2020
             mistral:
                 add_export_vars:
@@ -2182,13 +2194,15 @@ oifs:
     copy_forcing: false
     coupling_fields:
         AIceEvap:
-            grid: atml
+            grid: atma
         AIceFrac:
             grid: atml
+        ATotEvap:
+            grid: atma
         ATotRain:
             grid: atma
         ATotSnow:
-            grid: atml
+            grid: atma
         A_ITaux1:
             grid: atml
         A_ITauy1:
@@ -2339,10 +2353,10 @@ oifs:
             run_to_work: copy
             work_to_run: copy
         outdata:
-            exp_to_run: copy
-            init_to_exp: copy
-            run_to_work: copy
-            work_to_run: copy
+            exp_to_run: move
+            init_to_exp: move
+            run_to_work: move
+            work_to_run: move
         rcf_in:
             exp_to_run: copy
             init_to_exp: copy
@@ -2384,6 +2398,9 @@ oifs:
     - A_QsrMix
     - A_QnsMix
     - ATotRain
+    - ATotEvap
+    - ATotSnow
+    - AIceEvap
     foci_fields_l:
     - AIceFrac
     - A_SSTSST
@@ -2398,8 +2415,6 @@ oifs:
     - A_ITauy1
     - A_QsrIce
     - A_QnsIce
-    - ATotSnow
-    - AIceEvap
     - A_dQnsdT
     foci_fields_r:
     - A_Runoff
@@ -2848,7 +2863,7 @@ oifs:
     outdata_sources: {}
     outdata_sources_wild_card:
         ICMUA: ICMUAECE3+*
-        awi_cm3: awi_cm3*
+        atm: atm*
         oifsnc: ECE3_*_18500101_*.nc
     outdata_targets: {}
     output: default
@@ -2956,6 +2971,7 @@ oifs:
                 - DR_HOOK_IGNORE_SIGNALS=-1
                 - OMP_SCHEDULE=STATIC
                 - OMP_STACKSIZE=128M
+                - MAIN_LDFLAGS=-openmp
                 compiler_mpi: intel2020_psmpi2020
             mistral:
                 add_export_vars:
@@ -3340,18 +3356,22 @@ xios:
         ifs_xml_glob_2: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/config/xios/ifs_xml/axis_def_ifs.xml
         ifs_xml_glob_3: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/config/xios/ifs_xml/domain_def_ifs.xml
         ifs_xml_glob_4: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/config/xios/ifs_xml/grid_def_ifs.xml
+        ifs_xml_glob_5: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/config/xios/ifs_xml/axis_def_ifs.xml~
+        ifs_xml_glob_6: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/config/xios/ifs_xml/file_def_ifs.xml~
         io_def: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/config/xios/iodef.xml
     config_sources:
-        context_ifs: /scratch/usr/shkifmsw/foci_input2/OASIS3_OPENIFS43R3-TCO95_ORCA05/output_3h+6hrLev_5dUVTS/context_ifs.xml
-        domain_def: /scratch/usr/shkifmsw/foci_input2/OASIS3_OPENIFS43R3-TCO95_ORCA05/output_3h+6hrLev_5dUVTS/domain_def.xml
-        field_def: /scratch/usr/shkifmsw/foci_input2/OASIS3_OPENIFS43R3-TCO95_ORCA05/output_3h+6hrLev_5dUVTS/field_def.xml
-        file_def: /scratch/usr/shkifmsw/foci_input2/OASIS3_OPENIFS43R3-TCO95_ORCA05/output_3h+6hrLev_5dUVTS/file_def.xml
-        ifs_xml_glob_0: /scratch/usr/shkifmsw/foci_input2/OASIS3_OPENIFS43R3-TCO95_ORCA05/output_3h+6hrLev_5dUVTS/ifs_xml/file_def_ifs.xml
-        ifs_xml_glob_1: /scratch/usr/shkifmsw/foci_input2/OASIS3_OPENIFS43R3-TCO95_ORCA05/output_3h+6hrLev_5dUVTS/ifs_xml/field_def_ifs.xml
-        ifs_xml_glob_2: /scratch/usr/shkifmsw/foci_input2/OASIS3_OPENIFS43R3-TCO95_ORCA05/output_3h+6hrLev_5dUVTS/ifs_xml/axis_def_ifs.xml
-        ifs_xml_glob_3: /scratch/usr/shkifmsw/foci_input2/OASIS3_OPENIFS43R3-TCO95_ORCA05/output_3h+6hrLev_5dUVTS/ifs_xml/domain_def_ifs.xml
-        ifs_xml_glob_4: /scratch/usr/shkifmsw/foci_input2/OASIS3_OPENIFS43R3-TCO95_ORCA05/output_3h+6hrLev_5dUVTS/ifs_xml/grid_def_ifs.xml
-        io_def: /scratch/usr/shkifmsw/foci_input2/OASIS3_OPENIFS43R3-TCO95_ORCA05/output_3h+6hrLev_5dUVTS/iodef.xml
+        context_ifs: /scratch/usr/shkifmsw/foci_input2/OASIS3_OPENIFS43R3-TCO95_ORCA05/output_esm_tests//context_ifs.xml
+        domain_def: /scratch/usr/shkifmsw/foci_input2/OASIS3_OPENIFS43R3-TCO95_ORCA05/output_esm_tests//domain_def.xml
+        field_def: /scratch/usr/shkifmsw/foci_input2/OASIS3_OPENIFS43R3-TCO95_ORCA05/output_esm_tests//field_def.xml
+        file_def: /scratch/usr/shkifmsw/foci_input2/OASIS3_OPENIFS43R3-TCO95_ORCA05/output_esm_tests//file_def.xml
+        ifs_xml_glob_0: /scratch/usr/shkifmsw/foci_input2/OASIS3_OPENIFS43R3-TCO95_ORCA05/output_esm_tests//ifs_xml/file_def_ifs.xml
+        ifs_xml_glob_1: /scratch/usr/shkifmsw/foci_input2/OASIS3_OPENIFS43R3-TCO95_ORCA05/output_esm_tests//ifs_xml/field_def_ifs.xml
+        ifs_xml_glob_2: /scratch/usr/shkifmsw/foci_input2/OASIS3_OPENIFS43R3-TCO95_ORCA05/output_esm_tests//ifs_xml/axis_def_ifs.xml
+        ifs_xml_glob_3: /scratch/usr/shkifmsw/foci_input2/OASIS3_OPENIFS43R3-TCO95_ORCA05/output_esm_tests//ifs_xml/domain_def_ifs.xml
+        ifs_xml_glob_4: /scratch/usr/shkifmsw/foci_input2/OASIS3_OPENIFS43R3-TCO95_ORCA05/output_esm_tests//ifs_xml/grid_def_ifs.xml
+        ifs_xml_glob_5: /scratch/usr/shkifmsw/foci_input2/OASIS3_OPENIFS43R3-TCO95_ORCA05/output_esm_tests//ifs_xml/axis_def_ifs.xml~
+        ifs_xml_glob_6: /scratch/usr/shkifmsw/foci_input2/OASIS3_OPENIFS43R3-TCO95_ORCA05/output_esm_tests//ifs_xml/file_def_ifs.xml~
+        io_def: /scratch/usr/shkifmsw/foci_input2/OASIS3_OPENIFS43R3-TCO95_ORCA05/output_esm_tests//iodef.xml
     config_sources_wild_card:
         ifs_xml: '*'
     config_targets:
@@ -3364,6 +3384,8 @@ xios:
         ifs_xml_glob_2: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/work/ifs_xml/axis_def_ifs.xml
         ifs_xml_glob_3: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/work/ifs_xml/domain_def_ifs.xml
         ifs_xml_glob_4: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/work/ifs_xml/grid_def_ifs.xml
+        ifs_xml_glob_5: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/work/ifs_xml/axis_def_ifs.xml~
+        ifs_xml_glob_6: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/work/ifs_xml/file_def_ifs.xml~
         io_def: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/work/iodef.xml
     debug_info:
         loaded_from_file:
@@ -3466,13 +3488,16 @@ xios:
             run_to_work: copy
             work_to_run: copy
     git-repository: https://git.geomar.de/foci/src/xios.git
-    ignore_intermediate: {}
-    ignore_sources: {}
+    ignore_intermediate:
+        xios_registry: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/ignore/xios/xios_registry.bin
+    ignore_sources:
+        xios_registry: /scratch/usr/hbkmandr/testing//run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//xios_registry.bin
     ignore_sources_wild_card:
         xios_err: xios*.err
         xios_int: xios_interpolation_weights*
         xios_out: xios*.out
-    ignore_targets: {}
+    ignore_targets:
+        xios_registry: /scratch/usr/hbkmandr/testing/run/focioifs/focioifs-piCtl-test_lowcpu/ignore/xios/xios_registry.bin
     ini_parent_date: '18500101'
     ini_parent_dir: /path/to/restart/data//xios
     ini_parent_exp_id: unset
@@ -3509,4 +3534,4 @@ xios:
     use_oasis: ''
     version: 2.0r982
     with_model: focioifs
-    xml_dir: /scratch/usr/shkifmsw/foci_input2/OASIS3_OPENIFS43R3-TCO95_ORCA05/output_3h+6hrLev_5dUVTS
+    xml_dir: /scratch/usr/shkifmsw/foci_input2/OASIS3_OPENIFS43R3-TCO95_ORCA05/output_esm_tests/

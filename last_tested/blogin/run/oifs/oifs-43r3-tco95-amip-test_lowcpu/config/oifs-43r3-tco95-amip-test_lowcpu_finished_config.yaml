@@ -26,7 +26,7 @@ computer:
         'srun: error:':
             file: stdout
             frequency: 30
-            message: 'SLURM ERROR: slurm endet with an error, exiting.'
+            message: 'SLURM ERROR: slurm ended with an error, exiting.'
             method: kill
     choose_heterogeneous_parallelization: *id001
     compiler_mpi: intel2019_impi2019
@@ -94,7 +94,7 @@ computer:
     name_flag: --job-name=oifs-43r3-tco95-amip-test_lowcpu
     nodes_flag: --nodes=@nodes@
     notification_flag: --mail-type=NONE
-    output_flags: --output=/scratch/usr/hbkmandr/testing//run/oifs//oifs-43r3-tco95-amip-test_lowcpu/log/oifs-43r3-tco95-amip-test_lowcpu_oifs_@jobtype@_19790101-19790101.log --error=/scratch/usr/hbkmandr/testing//run/oifs//oifs-43r3-tco95-amip-test_lowcpu/log/oifs-43r3-tco95-amip-test_lowcpu_oifs_@jobtype@_19790101-19790101.log
+    output_flags: --output=/scratch/usr/hbkmandr/testing//run/oifs//oifs-43r3-tco95-amip-test_lowcpu/log/oifs-43r3-tco95-amip-test_lowcpu_oifs_@jobtype@_19790101-19790101_%j.log --error=/scratch/usr/hbkmandr/testing//run/oifs//oifs-43r3-tco95-amip-test_lowcpu/log/oifs-43r3-tco95-amip-test_lowcpu_oifs_@jobtype@_19790101-19790101_%j.log
     output_path: /scratch/usr/hbkmandr/testing//run/oifs//oifs-43r3-tco95-amip-test_lowcpu/log/
     overcommit_flag: ''
     overcommit_nodes: None
@@ -125,7 +125,7 @@ computer:
     submit: sbatch
     submitted: false
     tasks_flag: --ntasks=@tasks@
-    thisrun_logfile: /scratch/usr/hbkmandr/testing//run/oifs//oifs-43r3-tco95-amip-test_lowcpu/log/oifs-43r3-tco95-amip-test_lowcpu_oifs_@jobtype@_19790101-19790101.log
+    thisrun_logfile: /scratch/usr/hbkmandr/testing//run/oifs//oifs-43r3-tco95-amip-test_lowcpu/log/oifs-43r3-tco95-amip-test_lowcpu_oifs_@jobtype@_19790101-19790101_%j.log
     threads_per_core: 1
     time_flag: --time=00:30:00
     use_hyperthreading: false
@@ -307,7 +307,7 @@ general:
     - restart_in
     initial_date: '1979-01-01T00:00:00'
     inspect: null
-    jobid: 97982
+    jobid: 32558
     jobtype: prepcompute
     last_run_datestamp: 19781231-19781231
     last_run_in_chunk: false
@@ -507,7 +507,6 @@ oifs:
         - 43r3-awicm-3.0
         - 43r3-awicm-frontiers
         - 43r3-awicm-frontiers-xios
-        - 43r3-awicm-deck
         - 43r3
         - 40r1-foci
         - 43r3-foci
@@ -537,14 +536,6 @@ oifs:
                 requires:
                 - oasis3mct-4.0-awicm-3.0
                 with_xios: false
-            43r3-awicm-deck:
-                branch: awicm-3-deck-hotfix-1
-                comp_command: export OIFS_TOPLEVEL_DIR=/scratch/usr/hbkmandr/testing//comp/oifs/oifs-43r3-v1; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.cfg; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
-                destination: oifs-43r3
-                git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3.git
-                install_bins: make/esm/oifs/bin/oifs
-                requires:
-                - oasis3mct-4.0-oifsdeck
             43r3-awicm-frontiers:
                 branch: awicm-3-frontiers
                 comp_command: export OIFS_TOPLEVEL_DIR=/scratch/usr/hbkmandr/testing//comp/oifs/oifs-43r3-v1; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.cfg ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
@@ -708,6 +699,7 @@ oifs:
                 - OIFS_CC=$CC
                 - OIFS_CFLAGS="-fp-model precise -O1 -xCORE_AVX2 -g -traceback -qopt-report=0 -fpe0 "
                 - OIFS_CCDEFS="LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS "
+                - MAIN_LDFLAGS=-openmp
                 compiler_mpi: intel2020_psmpi2020
             mistral:
                 add_export_vars:
@@ -929,10 +921,10 @@ oifs:
             run_to_work: copy
             work_to_run: copy
         outdata:
-            exp_to_run: copy
-            init_to_exp: copy
-            run_to_work: copy
-            work_to_run: copy
+            exp_to_run: move
+            init_to_exp: move
+            run_to_work: move
+            work_to_run: move
         rcf_in:
             exp_to_run: copy
             init_to_exp: copy
@@ -1402,7 +1394,7 @@ oifs:
     outdata_sources: {}
     outdata_sources_wild_card:
         ICMUA: ICMUAECE3+*
-        awi_cm3: awi_cm3*
+        atm: atm*
         oifsnc: ECE3_*_19790101_*.nc
     outdata_targets: {}
     output: default
@@ -1503,6 +1495,7 @@ oifs:
                 - DR_HOOK_IGNORE_SIGNALS=-1
                 - OMP_SCHEDULE=STATIC
                 - OMP_STACKSIZE=128M
+                - MAIN_LDFLAGS=-openmp
                 compiler_mpi: intel2020_psmpi2020
             mistral:
                 add_export_vars:
@@ -1762,13 +1755,16 @@ xios:
             run_to_work: copy
             work_to_run: copy
     git-repository: https://git.geomar.de/foci/src/xios.git
-    ignore_intermediate: {}
-    ignore_sources: {}
+    ignore_intermediate:
+        xios_registry: /scratch/usr/hbkmandr/testing/run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/ignore/xios/xios_registry.bin
+    ignore_sources:
+        xios_registry: /scratch/usr/hbkmandr/testing//run/oifs//oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work//xios_registry.bin
     ignore_sources_wild_card:
         xios_err: xios*.err
         xios_int: xios_interpolation_weights*
         xios_out: xios*.out
-    ignore_targets: {}
+    ignore_targets:
+        xios_registry: /scratch/usr/hbkmandr/testing/run/oifs/oifs-43r3-tco95-amip-test_lowcpu/ignore/xios/xios_registry.bin
     install_bins: bin/xios.x
     leapyear: true
     lresume: false
