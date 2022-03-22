@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 #SBATCH --partition=batch
-#SBATCH --time=00:20:00
+#SBATCH --time=00:45:00
 #SBATCH --nodes=6
 #SBATCH --output=/p/scratch/chhb19/mandresm/testing//run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/log/awicm3-v3.0-TCO159L91-CORE2_initial_awicm3_compute_20000101-20000101_%j.log --error=/p/scratch/chhb19/mandresm/testing//run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/log/awicm3-v3.0-TCO159L91-CORE2_initial_awicm3_compute_20000101-20000101_%j.log
 #SBATCH --job-name=awicm3-v3.0-TCO159L91-CORE2_initial
@@ -19,8 +19,6 @@ module load CMake/3.21.1
 module load Python/3.9.6
 module load imkl/2021.4.0
 module load Perl/5.34.0
-module load NCO/5.0.3
-module load CDO/2.0.2
 
 export LC_ALL=en_US.UTF-8
 export TMPDIR=/tmp
@@ -46,7 +44,7 @@ export NETCDF_Fortran_INCLUDE_DIRECTORIES=$NETCDFFROOT/include
 export NETCDF_C_INCLUDE_DIRECTORIES=$NETCDFROOT/include
 export NETCDF_CXX_INCLUDE_DIRECTORIES=$NETCDFROOT/include
 export OASIS3MCT_FC_LIB="-L$NETCDFFROOT/lib -lnetcdff"
-export PATH=$PATH:$IO_LIB_ROOT/bin
+export PATH=$IO_LIB_ROOT/bin:$PATH
 export OIFS_FFIXED=""
 export GRIB_SAMPLES_PATH="$ECCODESROOT/share/eccodes/ifs_samples/grib1_mlgrib2/"
 export DR_HOOK_IGNORE_SIGNALS=-1
@@ -71,7 +69,7 @@ unset SLURM_ARBITRARY_NODELIST
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 31502 - start >> /p/scratch/chhb19/mandresm/testing//run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/log//awicm3-v3.0-TCO159L91-CORE2_initial_awicm3.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 23238 - start >> /p/scratch/chhb19/mandresm/testing//run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/log//awicm3-v3.0-TCO159L91-CORE2_initial_awicm3.log
 
 cd /p/scratch/chhb19/mandresm/testing//run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/run_20000101-20000101/work/
 
@@ -111,6 +109,6 @@ process=$!
 cd /p/scratch/chhb19/mandresm/testing//run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/scripts/
 esm_runscripts awicm3-v3.0-TCO159L91-CORE2_initial.yaml -e awicm3-v3.0-TCO159L91-CORE2_initial -t observe_compute -p ${process} -s 20000101 -r 1 -v  --open-run
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 31502 - done >> /p/scratch/chhb19/mandresm/testing//run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/log//awicm3-v3.0-TCO159L91-CORE2_initial_awicm3.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 23238 - done >> /p/scratch/chhb19/mandresm/testing//run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/log//awicm3-v3.0-TCO159L91-CORE2_initial_awicm3.log
 
 wait
