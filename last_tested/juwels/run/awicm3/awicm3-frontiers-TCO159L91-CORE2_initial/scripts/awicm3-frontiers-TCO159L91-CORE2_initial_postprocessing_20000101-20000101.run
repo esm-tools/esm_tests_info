@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 #SBATCH --partition=batch
-#SBATCH --time=00:45:00
+#SBATCH --time=01:00:00
 #SBATCH --nodes=1
 #SBATCH --output=/p/scratch/chhb19/mandresm/testing//run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/log/awicm3-frontiers-TCO159L91-CORE2_initial_awicm3_postprocessing_20000101-20000101_%j.log --error=/p/scratch/chhb19/mandresm/testing//run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/log/awicm3-frontiers-TCO159L91-CORE2_initial_awicm3_postprocessing_20000101-20000101_%j.log
 #SBATCH --job-name=awicm3-frontiers-TCO159L91-CORE2_initial
@@ -69,7 +69,7 @@ unset SLURM_ARBITRARY_NODELIST
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo $(date +"%a %b  %e %T %Y") : postprocessing_oifs 1 2000-01-01T00:00:00 5277695 - start >> /p/scratch/chhb19/mandresm/testing//run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/log//awicm3-frontiers-TCO159L91-CORE2_initial_awicm3.log
+echo $(date +"%a %b  %e %T %Y") : postprocessing_oifs 1 2000-01-01T00:00:00 5278329 - start >> /p/scratch/chhb19/mandresm/testing//run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/log//awicm3-frontiers-TCO159L91-CORE2_initial_awicm3.log
 
 cd /p/scratch/chhb19/mandresm/testing//run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/
 time srun -l /p/home/jusers/andres-martinez1/juwels/esm_tools/configs/.//setups/awicm3/postprocessing.sh /p/scratch/chhb19/mandresm/testing//run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/outdata/oifs/ 20000101 2>&1 &
