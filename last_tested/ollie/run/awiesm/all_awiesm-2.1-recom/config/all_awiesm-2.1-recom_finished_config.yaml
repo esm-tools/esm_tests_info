@@ -211,6 +211,12 @@ echam:
             6.3.05p2:
                 branch: 6.3.05p2
                 destination: echam-6.3.05p2
+            6.3.05p2-awiesm-2.1:
+                branch: 6.3.05p2-awiesm-2.1
+                clean_command: rm -rf src/echam/bin; rm -rf bin; make clean
+                comp_command: ./config/createMakefiles.pl; autoreconf -i --force; mkdir -p src/.deps yaxt/src/.deps yaxt/tests/.deps; ./configure $configure_opts --with-fortran=intel INSTALL='/usr/bin/install -p'; make -j `nproc --all`; make install -j `nproc --all`; mkdir -p src/echam/bin; cp  bin/echam6 src/echam/bin/echam6
+                destination: echam-6.3.05p2
+                git-repository: https://gitlab.awi.de/paleodyn/Models/echam6.git
             6.3.05p2-concurrent_radiation:
                 branch: concurrent_radiation
                 clean_command: rm -rf src/echam/bin; rm -rf bin; make clean
@@ -735,6 +741,7 @@ echam:
     namelist_dir: /home/ollie/mandresm/esm_tools/namelists/.//echam/6.3.05p2-wiso/PI-CTRL
     namelist_objs:
         namelist.echam: &id003 f90nml.name
+    namelist_type: production
     namelists:
         namelist.echam: *id003
     nproca: 24
@@ -1341,6 +1348,7 @@ echam:
     type: atmosphere
     value: echam switch
     version: 6.3.05p2-wiso
+    wiso_code: true
     wiso_fields:
     - o18_atmo
     - hdo_atmo
@@ -1351,6 +1359,7 @@ echam:
     - i1_atm
     - i2_atm
     - i3_atm
+    with_wiso: false
     yr_perp_off: false
 fesom:
     ALE_scheme: zstar
@@ -1582,6 +1591,7 @@ fesom:
             nx: 126858
             ny: 1
             oasis_grid_type: U
+    icb_code: false
     ini_data_dir: /work/ollie/pool/../clidyn//pool-data/
     ini_parent_date: '2002-12-31'
     ini_parent_dir: /work/ollie/mbutzin/awiesm-2.1-recom/tests/piw_zstar_swon_atbox/restart/fesom/
@@ -1674,29 +1684,25 @@ fesom:
     restart_flag: last
     restart_in_in_workdir:
         icb_restart: iceberg.restart
+        icb_restart_ISM: iceberg.restart.ISM
         ice_restart: fesom.2000.ice.restart.nc
         oce_restart: fesom.2000.oce.restart.nc
         wiso_restart: fesom.2000.wiso.restart.nc
     restart_out_in_workdir:
         icb_restart: iceberg.restart
+        icb_restart_ISM: iceberg.restart.ISM
         ice_restart: fesom.2001.ice.restart.nc
         oce_restart: fesom.2001.oce.restart.nc
         wiso_restart: fesom.2001.wiso.restart.nc
     restart_out_intermediate:
-        icb_restart: /work/ollie/mandresm/testing/run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/restart/fesom/iceberg.restart
         ice_restart: /work/ollie/mandresm/testing/run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/restart/fesom/fesom.2001.ice.restart.nc
         oce_restart: /work/ollie/mandresm/testing/run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/restart/fesom/fesom.2001.oce.restart.nc
-        wiso_restart: /work/ollie/mandresm/testing/run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/restart/fesom/fesom.2001.wiso.restart.nc
     restart_out_sources:
-        icb_restart: /work/ollie/mandresm/testing//run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//iceberg.restart
         ice_restart: /work/ollie/mandresm/testing//run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//fesom.2001.ice.restart.nc
         oce_restart: /work/ollie/mandresm/testing//run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//fesom.2001.oce.restart.nc
-        wiso_restart: /work/ollie/mandresm/testing//run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//fesom.2001.wiso.restart.nc
     restart_out_targets:
-        icb_restart: /work/ollie/mandresm/testing/run/awiesm/all_awiesm-2.1-recom/restart/fesom/iceberg.restart
         ice_restart: /work/ollie/mandresm/testing/run/awiesm/all_awiesm-2.1-recom/restart/fesom/fesom.2001.ice.restart.nc
         oce_restart: /work/ollie/mandresm/testing/run/awiesm/all_awiesm-2.1-recom/restart/fesom/fesom.2001.oce.restart.nc
-        wiso_restart: /work/ollie/mandresm/testing/run/awiesm/all_awiesm-2.1-recom/restart/fesom/fesom.2001.wiso.restart.nc
     restart_rate: 1
     restart_unit: m
     runtime_environment_changes:
@@ -1731,8 +1737,10 @@ fesom:
     time_step: 1800
     type: ocean
     use_icebergs: false
+    use_icesheet_coupling: false
     version: 2.1-recom
     version_2_1: true
+    wiso_code: true
     wiso_fields:
     - o18_feom
     - hdo_feom
@@ -1744,6 +1752,7 @@ fesom:
     - i2_oce
     - i3_oce
     with_part_format: false
+    with_wiso: false
     yearnew: 2001
 general:
     CDP: /work/ollie/mbutzin/fesom2/input/init/
@@ -1931,7 +1940,7 @@ general:
     initial_date: '2001-01-01T00:00:00'
     inspect: null
     jP: /work/ollie/dsidoren/input/fesom2.0/meshes/mesh_CORE2_finaltopo_mean/tarfilesT63/input/jsbach/jsbach_T63CORE2_11tiles_5layers_1850.nc
-    jobid: 85503
+    jobid: 122083
     jobtype: prepcompute
     last_run_datestamp: 20001201-20001231
     last_run_in_chunk: false
@@ -2067,10 +2076,8 @@ general:
     - recom
     - oasis3mct
     - debug_info
-    variant: beta
     verbose: false
     version: 2.1-recom
-    wiso_code: true
     with_wiso: false
     work_dir: /work/ollie/mandresm/testing//run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work/
     workflow:
