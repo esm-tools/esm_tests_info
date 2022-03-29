@@ -126,7 +126,7 @@ computer:
     tasks_flag: --ntasks=@tasks@
     thisrun_logfile: /work/ollie/mandresm/testing//run/awiesm//awiesm-2.1_icebergs/log/awiesm-2.1_icebergs_awiesm_@jobtype@_20010101-20011231_%j.log
     threads_per_core: 1
-    time_flag: --time=01:20:00
+    time_flag: --time=02:0:00
     unset_vars:
     - SLURM_MEM_PER_NODE
     - SLURM_MEM_PER_CPU
@@ -636,7 +636,7 @@ echam:
         License: Please make sure you have a license to use ECHAM. Otherwise downloading ECHAM will already fail. To use the repository on gitlab.dkrz.de/modular_esm/echam.git, register for the MPI-ESM user forum at https://mpimet.mpg.de/en/science/modeling-with-icon/code-availability/mpi-esm-users-forum and send a screenshot to either dirk.barbi@awi.de, deniz.ural@awi.de or miguel.andres-martinez@awi.de
         Publications: 'Atmosphericcomponent of the MPI-M earth system model: ECHAM6 <https://doi.org/10.1002/jame.20015>'
     model: echam
-    model_dir: /work/ollie/mandresm/testing//comp/awiesm/awiesm-2.1/echam-6.3.05p2-awiesm-2.1
+    model_dir: /work/ollie/mandresm/testing//comp/awiesm/awiesm-2.1/echam-6.3.05p2
     models:
     - jsbach
     - hdmodel
@@ -1205,14 +1205,14 @@ fesom:
         io: /work/ollie/mandresm/testing/run/awiesm/awiesm-2.1_icebergs/run_20010101-20011231/config/fesom/namelist.io
         oce: /work/ollie/mandresm/testing/run/awiesm/awiesm-2.1_icebergs/run_20010101-20011231/config/fesom/namelist.oce
     config_sources:
-        config: /work/ollie/lackerma/glacial-inception/software/github.com/esm-tools/esm_tools/namelists/fesom2/2.1//namelist.config
-        cvmix: /work/ollie/lackerma/glacial-inception/software/github.com/esm-tools/esm_tools/namelists/fesom2/2.1//namelist.cvmix
+        config: /work/ollie/mandresm/testing//comp/awiesm/awiesm-2.1/fesom-2.1/config//namelist.config
+        cvmix: /work/ollie/mandresm/testing//comp/awiesm/awiesm-2.1/fesom-2.1/config//namelist.cvmix
         fesom.clock: /work/ollie/mandresm/testing//run/awiesm//awiesm-2.1_icebergs/run_20010101-20011231/config/fesom//fesom.clock
-        forcing: /work/ollie/lackerma/glacial-inception/software/github.com/esm-tools/esm_tools/namelists/fesom2/2.1//namelist.forcing
-        ice: /work/ollie/lackerma/glacial-inception/software/github.com/esm-tools/esm_tools/namelists/fesom2/2.1//namelist.ice
-        icepack: /work/ollie/lackerma/glacial-inception/software/github.com/esm-tools/esm_tools/namelists/fesom2/2.1//namelist.icepack
-        io: /work/ollie/lackerma/glacial-inception/software/github.com/esm-tools/esm_tools/namelists/fesom2/2.1//namelist.io
-        oce: /work/ollie/lackerma/glacial-inception/software/github.com/esm-tools/esm_tools/namelists/fesom2/2.1//namelist.oce
+        forcing: /work/ollie/mandresm/testing//comp/awiesm/awiesm-2.1/fesom-2.1/config//namelist.forcing
+        ice: /work/ollie/mandresm/testing//comp/awiesm/awiesm-2.1/fesom-2.1/config//namelist.ice
+        icepack: /work/ollie/mandresm/testing//comp/awiesm/awiesm-2.1/fesom-2.1/config//namelist.icepack
+        io: /work/ollie/mandresm/testing//comp/awiesm/awiesm-2.1/fesom-2.1/config//namelist.io
+        oce: /work/ollie/mandresm/testing//comp/awiesm/awiesm-2.1/fesom-2.1/config//namelist.oce
     config_targets:
         config: /work/ollie/mandresm/testing/run/awiesm/awiesm-2.1_icebergs/run_20010101-20011231/work/namelist.config
         cvmix: /work/ollie/mandresm/testing/run/awiesm/awiesm-2.1_icebergs/run_20010101-20011231/work/namelist.cvmix
@@ -1450,7 +1450,7 @@ fesom:
             oce_tra:
                 K_hor: 3000
                 surf_relax_s: 0
-    namelist_dir: /work/ollie/lackerma/glacial-inception/software/github.com/esm-tools/esm_tools/namelists/fesom2/2.1/
+    namelist_dir: /work/ollie/mandresm/testing//comp/awiesm/awiesm-2.1/fesom-2.1/config/
     namelist_objs:
         namelist.config: &id006 f90nml.name
         namelist.cvmix: &id007 f90nml.name
@@ -1467,6 +1467,7 @@ fesom:
         namelist.icepack: *id010
         namelist.io: *id011
         namelist.oce: *id012
+    not_used_pico: ''
     nproc: 288
     nx: 126858
     old_mesh_format: false
@@ -1568,6 +1569,7 @@ fesom:
     - i2_oce
     - i3_oce
     with_part_format: false
+    with_pico: false
     with_wiso: false
     yearnew: 2001
 general:
@@ -1624,7 +1626,7 @@ general:
         update_filetypes: []
         use_venv: false
         verbose: false
-    compute_time: 01:20:00
+    compute_time: 02:0:00
     coupled_setup: true
     coupler: oasis3mct
     coupler_config_dir: /work/ollie/mandresm/testing//run/awiesm//awiesm-2.1_icebergs/run_20010101-20011231/config/oasis3mct/
@@ -1737,10 +1739,7 @@ general:
             init_to_exp: copy
             run_to_work: copy
             work_to_run: copy
-    files_missing_when_preparing_run:
-        /work/ollie/mandresm/testing/run/awiesm/awiesm-2.1_icebergs/run_20010101-20011231/input/jsbach/lctlib.def: /work/ollie/mandresm/testing/comp/awiesm/awiesm-2.1/echam-6.3.05p2-awiesm-2.1/lctlib_nlct21.def
-        /work/ollie/mandresm/testing/run/awiesm/awiesm-2.1_icebergs/run_20010101-20011231/work/lctlib.def: /work/ollie/mandresm/testing/run/awiesm/awiesm-2.1_icebergs/run_20010101-20011231/input/jsbach/lctlib.def
-    final_date: '2003-12-31T00:00:00'
+    final_date: '2003-01-01T00:00:00'
     in_filetypes:
     - scripts
     - input
@@ -1751,7 +1750,7 @@ general:
     initial_date: '2001-01-01T00:00:00'
     inspect: null
     iterative_coupling: false
-    jobid: 130814
+    jobid: 82010
     jobtype: prepcompute
     last_run_datestamp: 20000101-20001231
     last_start_date: '2000-01-01T00:00:00'
@@ -1886,6 +1885,8 @@ general:
     - debug_info
     verbose: false
     version: 2.1
+    with_icebergs: false
+    with_pico: false
     with_wiso: false
     work_dir: /work/ollie/mandresm/testing//run/awiesm//awiesm-2.1_icebergs/run_20010101-20011231/work/
     workflow:
@@ -2360,7 +2361,7 @@ jsbach:
         lctlib: /work/ollie/mandresm/testing/run/awiesm/awiesm-2.1_icebergs/run_20010101-20011231/input/jsbach/lctlib.def
     input_sources:
         jsbach: /work/ollie/sxu/AWICM-2.0/meshes/core2_dkrz//tarfilesT63/input/jsbach/jsbach_T63CORE2_11tiles_5layers_1850.nc
-        lctlib: /work/ollie/mandresm/testing//comp/awiesm/awiesm-2.1/echam-6.3.05p2-awiesm-2.1/lctlib_nlct21.def
+        lctlib: /work/ollie/mandresm/testing//comp/awiesm/awiesm-2.1/echam-6.3.05p2/lctlib_nlct21.def
     input_targets:
         jsbach: /work/ollie/mandresm/testing/run/awiesm/awiesm-2.1_icebergs/run_20010101-20011231/work/jsbach.nc
         lctlib: /work/ollie/mandresm/testing/run/awiesm/awiesm-2.1_icebergs/run_20010101-20011231/work/lctlib.def
@@ -2372,7 +2373,7 @@ jsbach:
         unsure, please contact redmine....'
     lresume: false
     model: jsbach
-    model_dir: /work/ollie/mandresm/testing//comp/awiesm/awiesm-2.1/echam-6.3.05p2-awiesm-2.1
+    model_dir: /work/ollie/mandresm/testing//comp/awiesm/awiesm-2.1/echam-6.3.05p2
     namelist_changes:
         namelist.jsbach:
             hydrology_ctl: {}

@@ -4,17 +4,15 @@ general:
     account: !ENV ${ACCOUNT}
     setup_name: "awiesm"
     version: "2.1"
-    compute_time: "01:20:00"
+    compute_time: "02:0:00"
     initial_date: "2001-01-01"
-    final_date: "2003-12-31"
+    final_date: "2003-01-01"
     nmonth: 0
     nyear: 1
     iterative_coupling: false
     use_venv: False
     with_wiso: false
     base_dir: !ENV ${ESM_TESTING_DIR}
-    #clean_old_rundirs_keep_every: 5
-    #clean_old_rundirs_except: 2
 
 awiesm:
     postprocessing: false
@@ -60,7 +58,6 @@ fesom:
     iceberg_dir: "/home/ollie/lackerma/ICEBERGS/ib_30000/"
     pool_dir: "/work/ollie/pool/FESOM/"
     mesh_dir: "/work/ollie/sxu/AWICM-2.0/meshes/core2_dkrz/"
-    namelist_dir: "/work/ollie/lackerma/glacial-inception/software/github.com/esm-tools/esm_tools/namelists/fesom2/2.1/"
     resolution: "CORE2"
     restart_rate: 1
     restart_unit: "y"
