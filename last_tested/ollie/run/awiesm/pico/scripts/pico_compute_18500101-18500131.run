@@ -1,9 +1,9 @@
 #!/usr/bin/bash
-#SBATCH --partition=mpp
-#SBATCH --time=06:00:00
+#SBATCH --partition=mpp_new
+#SBATCH --time=00:30:00
 #SBATCH --ntasks=864
-#SBATCH --output=/work/ollie/mandresm/testing//run/awiesm//bootstrap_glac1d21_classic/log/bootstrap_glac1d21_classic_awiesm_compute_20000101-20001231_%j.log --error=/work/ollie/mandresm/testing//run/awiesm//bootstrap_glac1d21_classic/log/bootstrap_glac1d21_classic_awiesm_compute_20000101-20001231_%j.log
-#SBATCH --job-name=bootstrap_glac1d21_classic
+#SBATCH --output=/work/ollie/mandresm/testing//run/awiesm//pico/log/pico_awiesm_compute_18500101-18500131_%j.log --error=/work/ollie/mandresm/testing//run/awiesm//pico/log/pico_awiesm_compute_18500101-18500131_%j.log
+#SBATCH --job-name=pico
 #SBATCH --mail-type=NONE
 #SBATCH --exclusive
 
@@ -60,18 +60,18 @@ unset SLURM_MEM_PER_CPU
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 146605 - start >> /work/ollie/mandresm/testing//run/awiesm//bootstrap_glac1d21_classic/log//bootstrap_glac1d21_classic_awiesm.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 1850-01-01T00:00:00 89796 - start >> /work/ollie/mandresm/testing//run/awiesm//pico/log//pico_awiesm.log
 
-cd /work/ollie/mandresm/testing//run/awiesm//bootstrap_glac1d21_classic/run_20000101-20001231/work/
+cd /work/ollie/mandresm/testing//run/awiesm//pico/run_18500101-18500131/work/
 time srun -l --kill-on-bad-exit=1 --cpu_bind=cores --multi-prog hostfile_srun 2>&1 &
 
 # Call to esm_runscript to start subjobs:
 # ['tidy']
 process=$! 
 # Comment the following line if you don't want esm_runscripts to restart:
-cd /work/ollie/mandresm/testing//run/awiesm//bootstrap_glac1d21_classic/scripts/
-esm_runscripts bootstrap_glac1d21_classic.yaml -e bootstrap_glac1d21_classic -t observe_compute -p ${process} -s 20000101 -r 1 -v  --open-run
+cd /work/ollie/mandresm/testing//run/awiesm//pico/scripts/
+esm_runscripts pico.yaml -e pico -t observe_compute -p ${process} -s 18500101 -r 1 -v  --open-run
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 146605 - done >> /work/ollie/mandresm/testing//run/awiesm//bootstrap_glac1d21_classic/log//bootstrap_glac1d21_classic_awiesm.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 1850-01-01T00:00:00 89796 - done >> /work/ollie/mandresm/testing//run/awiesm//pico/log//pico_awiesm.log
 
 wait

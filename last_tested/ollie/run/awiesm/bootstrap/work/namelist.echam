@@ -1,11 +1,11 @@
 &runctl
-    dt_start = 2000, 1, 1
-    dt_stop = 2001, 1, 1
+    dt_start = 1850, 1, 1
+    dt_stop = 1851, 1, 1
     putrerun = 1, 'years', 'first', 0
     lfractional_mask = .false.
     lresume = .false.
-    out_datapath = '/work/ollie/mandresm/testing//run/awiesm//bootstrap_glac1d21_classic/run_20000101-20001231/work/'
-    out_expname = 'bootstrap_glac1d21_classic'
+    out_datapath = '/work/ollie/mandresm/testing//run/awiesm//bootstrap/run_18500101-18501231/work/'
+    out_expname = 'bootstrap'
     rerun_filetype = 4
     delta_time = 450
     putdata = 1, 'months', 'last', 0
@@ -15,9 +15,8 @@
     getocean = 1, 'days', 'last', 0
     putocean = 1, 'days', 'last', 0
     lcouple_co2 = .true.
-    default_output = .true.
-    dt_resume = 2000, 1, 1
-    l_orbvsop87 = .false.
+    default_output = .false.
+    dt_resume = 1850, 1, 1
 /
 
 &parctl
@@ -102,14 +101,12 @@
     isolrad = 6
     ich4 = 3
     in2o = 3
-    co2vmr = 0.00018724
-    ch4vmr = 3.7791e-07
-    n2ovmr = 2.0646e-07
+    co2vmr = 0.000284316986084
+    ch4vmr = 8.082490234375e-07
+    n2ovmr = 2.730210571289e-07
+    yr_perp = 1850
     lrad_async = .false.
     lrestart_from_old = .false.
-    cecc = 0.018994
-    cobld = 22.9449
-    clonp = 294.239
 /
 
 &wisoctl
