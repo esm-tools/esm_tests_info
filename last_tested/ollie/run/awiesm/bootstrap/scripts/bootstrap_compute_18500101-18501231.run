@@ -1,5 +1,5 @@
 #!/usr/bin/bash
-#SBATCH --partition=mpp_new
+#SBATCH --partition=mpp_all
 #SBATCH --time=02:00:00
 #SBATCH --ntasks=864
 #SBATCH --output=/work/ollie/mandresm/testing//run/awiesm//bootstrap/log/bootstrap_awiesm_compute_18500101-18501231_%j.log --error=/work/ollie/mandresm/testing//run/awiesm//bootstrap/log/bootstrap_awiesm_compute_18500101-18501231_%j.log
@@ -60,7 +60,7 @@ unset SLURM_MEM_PER_CPU
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 1850-01-01T00:00:00 181284 - start >> /work/ollie/mandresm/testing//run/awiesm//bootstrap/log//bootstrap_awiesm.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 1850-01-01T00:00:00 108970 - start >> /work/ollie/mandresm/testing//run/awiesm//bootstrap/log//bootstrap_awiesm.log
 
 cd /work/ollie/mandresm/testing//run/awiesm//bootstrap/run_18500101-18501231/work/
 time srun -l --kill-on-bad-exit=1 --cpu_bind=cores --multi-prog hostfile_srun 2>&1 &
@@ -72,6 +72,6 @@ process=$!
 cd /work/ollie/mandresm/testing//run/awiesm//bootstrap/scripts/
 esm_runscripts bootstrap.yaml -e bootstrap -t observe_compute -p ${process} -s 18500101 -r 1 -v  --open-run
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 1850-01-01T00:00:00 181284 - done >> /work/ollie/mandresm/testing//run/awiesm//bootstrap/log//bootstrap_awiesm.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 1850-01-01T00:00:00 108970 - done >> /work/ollie/mandresm/testing//run/awiesm//bootstrap/log//bootstrap_awiesm.log
 
 wait

@@ -104,10 +104,10 @@ computer:
     partitions:
         compute:
             cores_per_node: 36
-            name: mpp_new
+            name: mpp_all
         pp:
             cores_per_node: 1
-            name: smp_new
+            name: smp_all
     pool_dir: /work/ollie/pool
     pool_directories:
         focipool: /dev/null
@@ -133,7 +133,7 @@ computer:
     useMPI: intelmpi
 debug_info:
     loaded_from_file:
-    - /home/ollie/mandresm/esm_tools/configs/.//setups/awiesm/awiesm-2.1.yaml
+    - /home/ollie/mandresm/esm_tools/configs/.//setups/awiesm/awiesm.yaml
 defaults:
     clean_command: rm -rf build CMakeCache.txt
     comp_command: mkdir -p build; cd build; cmake ..;   make install -j `nproc --all`
@@ -1598,7 +1598,6 @@ fesom:
     use_icebergs: false
     use_icesheet_coupling: false
     version: 2.1-awiesm-2.1
-    version_2_1: true
     wiso_code: true
     wiso_fields:
     - o18w_oce
@@ -1799,7 +1798,7 @@ general:
     - restart_in
     initial_date: '1850-01-01T00:00:00'
     inspect: null
-    jobid: 89796
+    jobid: 108216
     jobtype: prepcompute
     last_run_datestamp: 18491201-18491231
     last_run_in_chunk: false
@@ -1954,7 +1953,7 @@ general:
                 nproc: 864
                 order_in_cluster: sequential
                 run_before: tidy
-                run_on_queue: mpp_new
+                run_on_queue: mpp_all
                 subjobs:
                 - compute_general
                 submit_to_batch_system: true
@@ -1984,7 +1983,7 @@ general:
             compute_general:
                 nproc: 864
                 run_before: tidy
-                run_on_queue: mpp_new
+                run_on_queue: mpp_all
                 subjob_cluster: compute
                 submit_to_batch_system: true
             prepcompute_general:

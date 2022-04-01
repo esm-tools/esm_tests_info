@@ -104,10 +104,10 @@ computer:
     partitions:
         compute:
             cores_per_node: 36
-            name: mpp
+            name: mpp_new
         pp:
             cores_per_node: 1
-            name: smp
+            name: smp_new
     pool_dir: /work/ollie/pool
     pool_directories:
         focipool: /dev/null
@@ -202,6 +202,12 @@ echam:
             6.3.05p2:
                 branch: 6.3.05p2
                 destination: echam-6.3.05p2
+            6.3.05p2-awiesm-2.1:
+                branch: 6.3.05p2-awiesm-2.1
+                clean_command: rm -rf src/echam/bin; rm -rf bin; make clean
+                comp_command: ./config/createMakefiles.pl; autoreconf -i --force; mkdir -p src/.deps yaxt/src/.deps yaxt/tests/.deps; ./configure $configure_opts --with-fortran=intel INSTALL='/usr/bin/install -p'; make -j `nproc --all`; make install -j `nproc --all`; mkdir -p src/echam/bin; cp  bin/echam6 src/echam/bin/echam6
+                destination: echam-6.3.05p2
+                git-repository: https://gitlab.awi.de/paleodyn/Models/echam6.git
             6.3.05p2-concurrent_radiation:
                 branch: concurrent_radiation
                 clean_command: rm -rf src/echam/bin; rm -rf bin; make clean
@@ -609,8 +615,6 @@ echam:
     lrad_async: false
     lrestart_from_old: false
     lresume: false
-    lwiso: false
-    lwiso_rerun: false
     metadata:
         Authors: Bjorn Stevens (bjorn.stevens@mpimet.mpg.de) among others at MPI-Met
         Description: The ECHAM atmosphere model, major version 6
@@ -660,7 +664,6 @@ echam:
     nprocb: 24
     nprocbr: 0
     npromar: 0
-    nwiso: 0
     ocean_resolution: CORE2
     other_date: '1850-01-31T23:56:40'
     outdata_intermediate:
@@ -1096,6 +1099,7 @@ echam:
     type: atmosphere
     value: echam switch
     version: 6.3.04p1
+    wiso_code: false
     wiso_fields:
     - o18w_atm
     - hdow_atm
@@ -1109,6 +1113,7 @@ echam:
     - i1_atm
     - i2_atm
     - i3_atm
+    with_wiso: false
     yr_perp_off: false
 fesom:
     12_step_outputs:
@@ -2084,7 +2089,7 @@ general:
     - restart_in
     initial_date: '1850-01-01T00:00:00'
     inspect: null
-    jobid: 82197
+    jobid: 173508
     jobtype: prepcompute
     last_run_datestamp: 18491201-18491231
     last_run_in_chunk: false
@@ -2219,7 +2224,7 @@ general:
                 nproc: 864
                 order_in_cluster: sequential
                 run_before: tidy
-                run_on_queue: mpp
+                run_on_queue: mpp_new
                 subjobs:
                 - compute_general
                 submit_to_batch_system: true
@@ -2249,7 +2254,7 @@ general:
             compute_general:
                 nproc: 864
                 run_before: tidy
-                run_on_queue: mpp
+                run_on_queue: mpp_new
                 subjob_cluster: compute
                 submit_to_batch_system: true
             prepcompute_general:

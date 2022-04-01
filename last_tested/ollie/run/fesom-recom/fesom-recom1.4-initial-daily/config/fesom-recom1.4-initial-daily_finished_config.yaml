@@ -104,10 +104,10 @@ computer:
     partitions:
         compute:
             cores_per_node: 36
-            name: mpp
+            name: mpp_all
         pp:
             cores_per_node: 1
-            name: smp
+            name: smp_all
     pool_dir: /work/ollie/pool
     pool_directories:
         focipool: /dev/null
@@ -1261,7 +1261,7 @@ general:
     - restart_in
     initial_date: '1958-01-01T00:00:00'
     inspect: null
-    jobid: 85867
+    jobid: 99718
     jobtype: prepcompute
     last_run_datestamp: 19571231-19571231
     last_run_in_chunk: false
@@ -1385,7 +1385,7 @@ general:
                 nproc: 288
                 order_in_cluster: sequential
                 run_before: tidy
-                run_on_queue: mpp
+                run_on_queue: mpp_all
                 subjobs:
                 - compute_general
                 submit_to_batch_system: true
@@ -1415,7 +1415,7 @@ general:
             compute_general:
                 nproc: 288
                 run_before: tidy
-                run_on_queue: mpp
+                run_on_queue: mpp_all
                 subjob_cluster: compute
                 submit_to_batch_system: true
             prepcompute_general:

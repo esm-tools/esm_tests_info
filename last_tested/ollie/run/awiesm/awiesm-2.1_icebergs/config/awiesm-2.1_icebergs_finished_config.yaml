@@ -133,7 +133,7 @@ computer:
     useMPI: intelmpi
 debug_info:
     loaded_from_file:
-    - /home/ollie/mandresm/esm_tools/configs/.//setups/awiesm/awiesm-2.1.yaml
+    - /home/ollie/mandresm/esm_tools/configs/.//setups/awiesm/awiesm.yaml
 defaults:
     clean_command: rm -rf build CMakeCache.txt
     comp_command: mkdir -p build; cd build; cmake ..;   make install -j `nproc --all`
@@ -149,8 +149,6 @@ echam:
             OIFS_OASIS_BASE: $(pwd)/oasis
             OIFS_OASIS_INCLUDE: '"-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu"'
             configure_opts: --with-coupler=oasis3-mct
-    add_test1: &id004
-        test3: false
     adj_input_dir: /work/ollie/sxu/AWICM-2.0/meshes/core2_dkrz//tarfilesT63/input/echam6
     all_filetypes:
     - analysis
@@ -1108,7 +1106,6 @@ echam:
     - sp6h
     - spim
     switch: 1
-    test1: *id004
     thisrun_analysis_dir: /work/ollie/mandresm/testing//run/awiesm//awiesm-2.1_icebergs/run_20010101-20011231/analysis/echam/
     thisrun_bin_dir: /work/ollie/mandresm/testing//run/awiesm//awiesm-2.1_icebergs/run_20010101-20011231/bin/echam/
     thisrun_config_dir: /work/ollie/mandresm/testing//run/awiesm//awiesm-2.1_icebergs/run_20010101-20011231/config/echam/
@@ -1145,12 +1142,19 @@ echam:
     yr_perp_off: false
 fesom:
     ALE_scheme: zstar
+    AOMIP_drag_coeff: false
+    Cd_atm_ice: 0.0012
+    Cd_atm_oce: 0.001
+    Ce_atm_ice: 0.00175
+    Ce_atm_oce: 0.00175
+    Ch_atm_ice: 0.00175
+    Ch_atm_oce: 0.00175
     K_gm: remove_from_namelist
     K_gm_max: 2000
     K_hor: 3000
     add_namelist_changes:
         namelist.config:
-            geometry: &id005
+            geometry: &id004
                 force_rotation: false
             icebergs:
                 ib_async_mode: 0
@@ -1172,7 +1176,7 @@ fesom:
     - restart_out
     - viz
     - ignore
-    asforcing: ECHAM5
+    asforcing: JRA55
     bin_dir: /work/ollie/mandresm/testing//comp/awiesm/awiesm-2.1/bin
     bin_intermediate:
         fesom: /work/ollie/mandresm/testing/run/awiesm/awiesm-2.1_icebergs/run_20010101-20011231/bin/fesom/fesom
@@ -1356,6 +1360,7 @@ fesom:
             run_to_work: copy
             work_to_run: copy
     forcing_data_dir: remove_from_namelist
+    forcing_folder: /JRA55-do-v1.4.0/
     git-repository:
     - https://github.com/FESOM/fesom2.git
     grids:
@@ -1365,10 +1370,11 @@ fesom:
             nx: 126858
             ny: 1
             oasis_grid_type: U
+    humi_prefix: huss.
     icb_code: true
-    iceberg_dir: /home/ollie/lackerma/ICEBERGS/ib_30000/
+    iceberg_dir: /home/ollie/lackerma/ICEBERGS/ib_10000/
     ini_data_dir: /work/ollie/pool/FESOM//pool-data/
-    ini_iceberg_dir: /home/ollie/lackerma/ICEBERGS/ib_30000/
+    ini_iceberg_dir: /home/ollie/lackerma/ICEBERGS/ib_10000/
     input_intermediate:
         height: /work/ollie/mandresm/testing/run/awiesm/awiesm-2.1_icebergs/run_20010101-20011231/input/fesom/icb_height.dat
         latitude: /work/ollie/mandresm/testing/run/awiesm/awiesm-2.1_icebergs/run_20010101-20011231/input/fesom/icb_latitude.dat
@@ -1377,12 +1383,12 @@ fesom:
         num_non_melted_icb_file: /work/ollie/mandresm/testing/run/awiesm/awiesm-2.1_icebergs/run_20010101-20011231/input/fesom/num_non_melted_icb_file
         scaling: /work/ollie/mandresm/testing/run/awiesm/awiesm-2.1_icebergs/run_20010101-20011231/input/fesom/icb_scaling.dat
     input_sources:
-        height: /home/ollie/lackerma/ICEBERGS/ib_30000//HEIGHT.dat
-        latitude: /home/ollie/lackerma/ICEBERGS/ib_30000//LAT.dat
-        length: /home/ollie/lackerma/ICEBERGS/ib_30000//LENGTH.dat
-        longitude: /home/ollie/lackerma/ICEBERGS/ib_30000//LON.dat
-        num_non_melted_icb_file: /home/ollie/lackerma/ICEBERGS/ib_30000//num_non_melted_icb_file
-        scaling: /home/ollie/lackerma/ICEBERGS/ib_30000//SCALING.dat
+        height: /home/ollie/lackerma/ICEBERGS/ib_10000//HEIGHT.dat
+        latitude: /home/ollie/lackerma/ICEBERGS/ib_10000//LAT.dat
+        length: /home/ollie/lackerma/ICEBERGS/ib_10000//LENGTH.dat
+        longitude: /home/ollie/lackerma/ICEBERGS/ib_10000//LON.dat
+        num_non_melted_icb_file: /home/ollie/lackerma/ICEBERGS/ib_10000//num_non_melted_icb_file
+        scaling: /home/ollie/lackerma/ICEBERGS/ib_10000//SCALING.dat
     input_targets:
         height: /work/ollie/mandresm/testing/run/awiesm/awiesm-2.1_icebergs/run_20010101-20011231/work/icb_height.dat
         latitude: /work/ollie/mandresm/testing/run/awiesm/awiesm-2.1_icebergs/run_20010101-20011231/work/icb_latitude.dat
@@ -1391,6 +1397,16 @@ fesom:
         num_non_melted_icb_file: /work/ollie/mandresm/testing/run/awiesm/awiesm-2.1_icebergs/run_20010101-20011231/work/num_non_melted_icb_file
         scaling: /work/ollie/mandresm/testing/run/awiesm/awiesm-2.1_icebergs/run_20010101-20011231/work/icb_scaling.dat
     install_bins: bin/fesom.x
+    l_cloud: false
+    l_humi: true
+    l_mslp: false
+    l_prec: true
+    l_qlw: true
+    l_qsr: true
+    l_snow: true
+    l_tair: true
+    l_xwind: true
+    l_ywind: true
     last_parent_date: '2000-12-31T23:00:00'
     lasttime: 84600
     leapyear: true
@@ -1409,6 +1425,7 @@ fesom:
     mesh_rotated: false
     model: fesom
     model_dir: /work/ollie/mandresm/testing//comp/awiesm/awiesm-2.1/fesom-2.1
+    mslp_prefix: psl.
     namelist_changes:
         namelist.config:
             calendar:
@@ -1416,7 +1433,7 @@ fesom:
             clockinit:
                 daynew: 1
                 yearnew: 2001
-            geometry: *id005
+            geometry: *id004
             icebergs:
                 ib_async_mode: 0
                 steps_per_ib_step: 8
@@ -1435,6 +1452,60 @@ fesom:
                 run_length: 1
                 run_length_unit: y
                 step_per_day: 48
+        namelist.forcing:
+            forcing_bulk:
+                AOMIP_drag_coeff: false
+                ncar_bulk_formulae: true
+                ncar_bulk_z_shum: 10
+                ncar_bulk_z_tair: 10
+                ncar_bulk_z_wind: 10
+            forcing_exchange_coeff:
+                Cd_atm_ice: 0.0012
+                Cd_atm_oce: 0.001
+                Ce_atm_ice: 0.00175
+                Ce_atm_oce: 0.00175
+                Ch_atm_ice: 0.00175
+                Ch_atm_oce: 0.00175
+            nam_sbc:
+                l_cloud: false
+                l_humi: true
+                l_mslp: false
+                l_prec: true
+                l_qlw: true
+                l_qsr: true
+                l_snow: true
+                l_tair: true
+                l_xwind: true
+                l_ywind: true
+                nm_humi_file: remove_from_namelist//JRA55-do-v1.4.0//huss.
+                nm_humi_var: huss
+                nm_mslp_file: remove_from_namelist//JRA55-do-v1.4.0//psl.
+                nm_mslp_var: psl
+                nm_nc_freq: 1
+                nm_nc_idd: 1
+                nm_nc_imm: 1
+                nm_nc_iyear: 1900
+                nm_nc_tmid: 0
+                nm_prec_file: remove_from_namelist//JRA55-do-v1.4.0//prra.
+                nm_prec_var: prra
+                nm_qlw_file: remove_from_namelist//JRA55-do-v1.4.0//rlds.
+                nm_qlw_var: rlds
+                nm_qsr_file: remove_from_namelist//JRA55-do-v1.4.0//rsds.
+                nm_qsr_var: rsds
+                nm_runoff_file: remove_from_namelist//JRA55-do-v1.4.0//CORE2_runoff.nc
+                nm_snow_file: remove_from_namelist//JRA55-do-v1.4.0//prsn.
+                nm_snow_var: prsn
+                nm_sss_data_file: remove_from_namelist//JRA55-do-v1.4.0//PHC2_salx.nc
+                nm_tair_file: remove_from_namelist//JRA55-do-v1.4.0//tas.
+                nm_tair_var: tas
+                nm_xwind_file: remove_from_namelist//JRA55-do-v1.4.0//uas.
+                nm_xwind_var: uas
+                nm_ywind_file: remove_from_namelist//JRA55-do-v1.4.0//vas.
+                nm_ywind_var: vas
+                runoff_data_source: CORE2
+                sss_data_source: CORE2
+            pico:
+                use_pico: false
         namelist.io:
             nml_list:
                 io_list(:):
@@ -1452,22 +1523,39 @@ fesom:
                 surf_relax_s: 0
     namelist_dir: /work/ollie/mandresm/testing//comp/awiesm/awiesm-2.1/fesom-2.1/config/
     namelist_objs:
-        namelist.config: &id006 f90nml.name
-        namelist.cvmix: &id007 f90nml.name
-        namelist.forcing: &id008 f90nml.name
-        namelist.ice: &id009 f90nml.name
-        namelist.icepack: &id010 f90nml.name
-        namelist.io: &id011 f90nml.name
-        namelist.oce: &id012 f90nml.name
+        namelist.config: &id005 f90nml.name
+        namelist.cvmix: &id006 f90nml.name
+        namelist.forcing: &id007 f90nml.name
+        namelist.ice: &id008 f90nml.name
+        namelist.icepack: &id009 f90nml.name
+        namelist.io: &id010 f90nml.name
+        namelist.oce: &id011 f90nml.name
     namelists:
-        namelist.config: *id006
-        namelist.cvmix: *id007
-        namelist.forcing: *id008
-        namelist.ice: *id009
-        namelist.icepack: *id010
-        namelist.io: *id011
-        namelist.oce: *id012
-    not_used_pico: ''
+        namelist.config: *id005
+        namelist.cvmix: *id006
+        namelist.forcing: *id007
+        namelist.ice: *id008
+        namelist.icepack: *id009
+        namelist.io: *id010
+        namelist.oce: *id011
+    ncar_bulk_formulae: true
+    ncar_bulk_z_shum: 10
+    ncar_bulk_z_tair: 10
+    ncar_bulk_z_wind: 10
+    nm_humi_var: huss
+    nm_mslp_var: psl
+    nm_nc_freq: 1
+    nm_nc_idd: 1
+    nm_nc_imm: 1
+    nm_nc_iyear: 1900
+    nm_nc_tmid: 0
+    nm_prec_var: prra
+    nm_qlw_var: rlds
+    nm_qsr_var: rsds
+    nm_snow_var: prsn
+    nm_tair_var: tas
+    nm_xwind_var: uas
+    nm_ywind_var: vas
     nproc: 288
     nx: 126858
     old_mesh_format: false
@@ -1484,7 +1572,10 @@ fesom:
     parent_expid: awiesm-2.1_icebergs
     parent_restart_dir: /work/ollie/mandresm/testing//run/awiesm//awiesm-2.1_icebergs/restart/fesom/
     pool_dir: /work/ollie/pool/FESOM/
+    prec_prefix: prra.
     prev_date: '2000-12-31T23:30:00'
+    qlw_prefix: rlds.
+    qsr_prefix: rsds.
     required_plugins:
     - git+https:/gitlab.awi.de/paleodyn/Projects/PalMod/gfw_creator.git
     resolution: CORE2
@@ -1519,6 +1610,8 @@ fesom:
         oce_restart: /work/ollie/mandresm/testing/run/awiesm/awiesm-2.1_icebergs/restart/fesom/fesom.2001.oce.restart.nc
     restart_rate: 1
     restart_unit: y
+    runoff_data_source: CORE2
+    runoff_file: CORE2_runoff.nc
     runtime_environment_changes:
         add_export_vars:
             taken2from: fesom2_ru
@@ -1530,9 +1623,13 @@ fesom:
                 - load ParaStationMPI/5.4.4-1
                 - load netCDF-Fortran/4.4.5
     setup_dir: /work/ollie/mandresm/testing//comp/awiesm/awiesm-2.1
+    snow_prefix: prsn.
+    sss_data_file: PHC2_salx.nc
+    sss_data_source: CORE2
     startday: 1
     starttime: 0
     steps_per_day: 48
+    tair_prefix: tas.
     thisrun_analysis_dir: /work/ollie/mandresm/testing//run/awiesm//awiesm-2.1_icebergs/run_20010101-20011231/analysis/fesom/
     thisrun_bin_dir: /work/ollie/mandresm/testing//run/awiesm//awiesm-2.1_icebergs/run_20010101-20011231/bin/fesom/
     thisrun_config_dir: /work/ollie/mandresm/testing//run/awiesm//awiesm-2.1_icebergs/run_20010101-20011231/config/fesom/
@@ -1553,7 +1650,6 @@ fesom:
     use_icebergs: true
     use_icesheet_coupling: true
     version: 2.1-awiesm-2.1
-    version_2_1: true
     wiso_code: true
     wiso_fields:
     - o18w_oce
@@ -1571,7 +1667,9 @@ fesom:
     with_part_format: false
     with_pico: false
     with_wiso: false
+    xwind_prefix: uas.
     yearnew: 2001
+    ywind_prefix: vas.
 general:
     account: None
     additional_files: []
@@ -1750,7 +1848,7 @@ general:
     initial_date: '2001-01-01T00:00:00'
     inspect: null
     iterative_coupling: false
-    jobid: 82010
+    jobid: 102211
     jobtype: prepcompute
     last_run_datestamp: 20000101-20001231
     last_start_date: '2000-01-01T00:00:00'
@@ -1885,6 +1983,7 @@ general:
     - debug_info
     verbose: false
     version: 2.1
+    with_bootstrap: false
     with_icebergs: false
     with_pico: false
     with_wiso: false
@@ -2381,9 +2480,9 @@ jsbach:
                 use_dynveg: true
     namelist_dir: /home/ollie/mandresm/esm_tools/namelists/.//jsbach/3.20/PI-CTRL/no_dynveg
     namelist_objs:
-        namelist.jsbach: &id013 f90nml.name
+        namelist.jsbach: &id012 f90nml.name
     namelists:
-        namelist.jsbach: *id013
+        namelist.jsbach: *id012
     no_dynveg_file_ending: ''
     other_date: '2001-12-31T23:52:30'
     outdata_intermediate: {}

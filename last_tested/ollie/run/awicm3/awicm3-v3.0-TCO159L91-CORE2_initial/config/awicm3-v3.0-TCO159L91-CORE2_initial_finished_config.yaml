@@ -111,10 +111,10 @@ computer:
     partitions:
         compute:
             cores_per_node: 36
-            name: mpp
+            name: mpp_new
         pp:
             cores_per_node: 1
-            name: smp
+            name: smp_new
     pool_dir: /work/ollie/pool
     pool_directories:
         focipool: /dev/null
@@ -133,7 +133,7 @@ computer:
     tasks_flag: --ntasks=@tasks@
     thisrun_logfile: /work/ollie/mandresm/testing//run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/log/awicm3-v3.0-TCO159L91-CORE2_initial_awicm3_@jobtype@_20000101-20000101_%j.log
     threads_per_core: 1
-    time_flag: --time=00:20:00
+    time_flag: --time=00:45:00
     unset_vars:
     - SLURM_MEM_PER_NODE
     - SLURM_MEM_PER_CPU
@@ -503,7 +503,6 @@ fesom:
     time_dimension: time
     time_step: 2400
     type: ocean
-    use_icebergs: false
     version: 2
     with_part_format: false
     yearnew: 2000
@@ -787,7 +786,7 @@ general:
                     SZIPROOT: $IO_LIB_ROOT
                 add_module_actions:
                 - unload gribapi
-    compute_time: 00:20:00
+    compute_time: 00:45:00
     coupled_setup: true
     coupler: oasis3mct
     coupler_config_dir: /work/ollie/mandresm/testing//run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/run_20000101-20000101/config/oasis3mct/
@@ -949,7 +948,7 @@ general:
     - restart_in
     initial_date: '2000-01-01T00:00:00'
     inspect: null
-    jobid: 84162
+    jobid: 77858
     jobtype: prepcompute
     last_run_datestamp: 19991231-19991231
     last_run_in_chunk: false
@@ -1182,7 +1181,7 @@ general:
                 nproc: 163
                 order_in_cluster: sequential
                 run_before: tidy
-                run_on_queue: mpp
+                run_on_queue: mpp_new
                 subjobs:
                 - compute_general
                 submit_to_batch_system: true
@@ -1212,7 +1211,7 @@ general:
             compute_general:
                 nproc: 163
                 run_before: tidy
-                run_on_queue: mpp
+                run_on_queue: mpp_new
                 subjob_cluster: compute
                 submit_to_batch_system: true
             prepcompute_general:
