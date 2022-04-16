@@ -95,8 +95,8 @@ computer:
     nothing: much
     notification_flag: --mail-type=NONE
     operating_system: linux-centos
-    output_flags: --output=/work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/log/echam6.3.04p1-initial-monthly_echam_@jobtype@_20000101-20000131_%j.log --error=/work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/log/echam6.3.04p1-initial-monthly_echam_@jobtype@_20000101-20000131_%j.log
-    output_path: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/log/
+    output_flags: --output=<TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/log/echam6.3.04p1-initial-monthly_echam_@jobtype@_20000101-20000131_%j.log --error=<TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/log/echam6.3.04p1-initial-monthly_echam_@jobtype@_20000101-20000131_%j.log
+    output_path: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/log/
     overcommit_flag: ''
     overcommit_nodes: None
     overcommit_rule: ''
@@ -104,10 +104,10 @@ computer:
     partitions:
         compute:
             cores_per_node: 36
-            name: mpp_all
+            name: mpp
         pp:
             cores_per_node: 1
-            name: smp_all
+            name: smp
     pool_dir: /work/ollie/pool
     pool_directories:
         focipool: /dev/null
@@ -116,15 +116,15 @@ computer:
     runtime_environment_changes:
         add_export_vars:
             ACCOUNT: None
-            ESM_TESTING_DIR: /work/ollie/mandresm/testing//run/echam/
-            MODEL_DIR: /work/ollie/mandresm/testing//comp/echam/echam-6.3.04p1
+            ESM_TESTING_DIR: <TEST_DIR>/run/echam/
+            MODEL_DIR: <TEST_DIR>/comp/echam/echam-6.3.04p1
     script_name: <--methods.scriptname--
     sh_interpreter: /usr/bin/bash
     single_proc_submit_flag: --ntasks-per-node=1
     submit: sbatch
     submitted: false
     tasks_flag: --ntasks=@tasks@
-    thisrun_logfile: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/log/echam6.3.04p1-initial-monthly_echam_@jobtype@_20000101-20000131_%j.log
+    thisrun_logfile: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/log/echam6.3.04p1-initial-monthly_echam_@jobtype@_20000101-20000131_%j.log
     threads_per_core: 1
     time_flag: --time=00:15:00
     unset_vars:
@@ -132,7 +132,7 @@ computer:
     - SLURM_MEM_PER_CPU
     useMPI: intelmpi
 debug_info:
-    loaded_from_file: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/scripts/echam6.3.04p1-initial-monthly.yaml
+    loaded_from_file: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/scripts/echam6.3.04p1-initial-monthly.yaml
 defaults:
     clean_command: rm -rf build CMakeCache.txt
     comp_command: mkdir -p build; cd build; cmake ..;   make install -j `nproc --all`
@@ -156,16 +156,16 @@ echam:
     - restart_out
     - viz
     - ignore
-    bin_dir: /work/ollie/mandresm/testing//comp/echam/echam-6.3.04p1/bin
+    bin_dir: <TEST_DIR>/comp/echam/echam-6.3.04p1/bin
     bin_intermediate:
-        echam_bin: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/bin/echam/echam6
+        echam_bin: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/bin/echam/echam6
     bin_sources:
-        echam_bin: /work/ollie/mandresm/testing//comp/echam/echam-6.3.04p1/bin/echam6
+        echam_bin: <TEST_DIR>/comp/echam/echam-6.3.04p1/bin/echam6
     bin_targets:
-        echam_bin: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/echam6
+        echam_bin: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/echam6
     check_error:
         mo_exception.f90:
-            file: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//atmout
+            file: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//atmout
             frequency: 90
             message: Problem with echam >> mo_exception.f90 << has occured. Killing your job, sorry.
             method: kill
@@ -241,11 +241,11 @@ echam:
         git-repository: https://gitlab.dkrz.de/modular_esm/echam6.git
         install_bins: src/echam/bin/echam6
     config_intermediate:
-        namelist.echam: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/config/echam/namelist.echam
+        namelist.echam: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/config/echam/namelist.echam
     config_sources:
         namelist.echam: /home/ollie/mandresm/esm_tools/namelists/.//echam/6.3.04p1/PI-CTRL/namelist.echam
     config_targets:
-        namelist.echam: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/namelist.echam
+        namelist.echam: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/namelist.echam
     coupling_fields:
         evap_atm:
             grid: atmo
@@ -286,19 +286,19 @@ echam:
         - /home/ollie/mandresm/esm_tools/configs/.//components/echam/echam.postprocessing.yaml
     disturbance: 1.000001
     executable: echam6
-    experiment_analysis_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/analysis/echam/
-    experiment_bin_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/bin/echam/
-    experiment_config_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/config/echam/
-    experiment_couple_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/couple/echam/
-    experiment_forcing_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/forcing/echam/
-    experiment_ignore_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/ignore/echam/
-    experiment_input_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/input/echam/
-    experiment_log_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/log/echam/
-    experiment_mon_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/mon/echam/
-    experiment_outdata_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/outdata/echam/
-    experiment_restart_in_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/restart/echam/
-    experiment_restart_out_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/restart/echam/
-    experiment_viz_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/viz/echam/
+    experiment_analysis_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/analysis/echam/
+    experiment_bin_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/bin/echam/
+    experiment_config_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/config/echam/
+    experiment_couple_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/couple/echam/
+    experiment_forcing_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/forcing/echam/
+    experiment_ignore_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/ignore/echam/
+    experiment_input_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/input/echam/
+    experiment_log_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/log/echam/
+    experiment_mon_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/mon/echam/
+    experiment_outdata_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/outdata/echam/
+    experiment_restart_in_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/restart/echam/
+    experiment_restart_out_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/restart/echam/
+    experiment_viz_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/viz/echam/
     file_movements:
         analysis:
             exp_to_run: copy
@@ -408,20 +408,20 @@ echam:
         - need_year_after
     forcing_dir: /work/ollie/pool/ECHAM6//input/r0007/T63
     forcing_intermediate:
-        aerocoarse_year_1999: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/forcing/echam/aero_coarse_1999.nc
-        aerocoarse_year_2000: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/forcing/echam/aero_coarse_2000.nc
-        aerocoarse_year_2001: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/forcing/echam/aero_coarse_2001.nc
-        aerofarir_year_1999: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/forcing/echam/aero_farir_1999.nc
-        aerofarir_year_2000: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/forcing/echam/aero_farir_2000.nc
-        aerofarir_year_2001: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/forcing/echam/aero_farir_2001.nc
-        aerofin_year_1999: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/forcing/echam/aero_fine_1999.nc
-        aerofin_year_2000: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/forcing/echam/aero_fine_2000.nc
-        aerofin_year_2001: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/forcing/echam/aero_fine_2001.nc
-        ozone_year_1999: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/forcing/echam/ozon1999
-        ozone_year_2000: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/forcing/echam/ozon2000
-        ozone_year_2001: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/forcing/echam/ozon2001
-        sic: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/forcing/echam/unit.96
-        sst: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/forcing/echam/unit.20
+        aerocoarse_year_1999: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/forcing/echam/aero_coarse_1999.nc
+        aerocoarse_year_2000: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/forcing/echam/aero_coarse_2000.nc
+        aerocoarse_year_2001: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/forcing/echam/aero_coarse_2001.nc
+        aerofarir_year_1999: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/forcing/echam/aero_farir_1999.nc
+        aerofarir_year_2000: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/forcing/echam/aero_farir_2000.nc
+        aerofarir_year_2001: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/forcing/echam/aero_farir_2001.nc
+        aerofin_year_1999: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/forcing/echam/aero_fine_1999.nc
+        aerofin_year_2000: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/forcing/echam/aero_fine_2000.nc
+        aerofin_year_2001: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/forcing/echam/aero_fine_2001.nc
+        ozone_year_1999: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/forcing/echam/ozon1999
+        ozone_year_2000: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/forcing/echam/ozon2000
+        ozone_year_2001: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/forcing/echam/ozon2001
+        sic: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/forcing/echam/unit.96
+        sst: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/forcing/echam/unit.20
     forcing_sources:
         aerocoarse_year_1999: /work/ollie/pool/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_sw_b14_coa.nc
         aerocoarse_year_2000: /work/ollie/pool/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_sw_b14_coa.nc
@@ -438,20 +438,20 @@ echam:
         sic: /work/ollie/pool/ECHAM6//input/r0007/T63/T63GR15_piControl-LR_sic_1880-2379.nc
         sst: /work/ollie/pool/ECHAM6//input/r0007/T63/T63GR15_piControl-LR_sst_1880-2379.nc
     forcing_targets:
-        aerocoarse_year_1999: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/aero_coarse_1999.nc
-        aerocoarse_year_2000: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/aero_coarse_2000.nc
-        aerocoarse_year_2001: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/aero_coarse_2001.nc
-        aerofarir_year_1999: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/aero_farir_1999.nc
-        aerofarir_year_2000: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/aero_farir_2000.nc
-        aerofarir_year_2001: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/aero_farir_2001.nc
-        aerofin_year_1999: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/aero_fine_1999.nc
-        aerofin_year_2000: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/aero_fine_2000.nc
-        aerofin_year_2001: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/aero_fine_2001.nc
-        ozone_year_1999: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/ozon1999
-        ozone_year_2000: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/ozon2000
-        ozone_year_2001: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/ozon2001
-        sic: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/unit.96
-        sst: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/unit.20
+        aerocoarse_year_1999: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/aero_coarse_1999.nc
+        aerocoarse_year_2000: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/aero_coarse_2000.nc
+        aerocoarse_year_2001: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/aero_coarse_2001.nc
+        aerofarir_year_1999: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/aero_farir_1999.nc
+        aerofarir_year_2000: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/aero_farir_2000.nc
+        aerofarir_year_2001: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/aero_farir_2001.nc
+        aerofin_year_1999: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/aero_fine_1999.nc
+        aerofin_year_2000: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/aero_fine_2000.nc
+        aerofin_year_2001: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/aero_fine_2001.nc
+        ozone_year_1999: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/ozon1999
+        ozone_year_2000: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/ozon2000
+        ozone_year_2001: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/ozon2001
+        sic: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/unit.96
+        sst: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/unit.20
     greenhouse_dir: /work/ollie/pool/ECHAM6/
     grids:
         atmo:
@@ -461,129 +461,129 @@ echam:
             ny: 96
             oasis_grid_type: D
     ignore_intermediate:
-        accw: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_accw
-        accw_codes: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_accw.codes
-        accw_restart: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/restart_echam6.3.04p1-initial-monthly_accw.nc
-        aclcim: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_aclcim
-        aclcim_codes: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_aclcim.codes
-        aclcim_restart: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/restart_echam6.3.04p1-initial-monthly_aclcim.nc
-        co2: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_co2
-        co2_codes: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_co2.codes
-        co2_restart: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/restart_echam6.3.04p1-initial-monthly_co2.nc
-        echam: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_echam
-        echam_codes: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_echam.codes
-        echam_restart: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/restart_echam6.3.04p1-initial-monthly_echam.nc
-        g3b1hi: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_g3b1hi
-        g3b1hi_codes: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_g3b1hi.codes
-        g3b1hi_restart: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/restart_echam6.3.04p1-initial-monthly_g3b1hi.nc
-        g3bday: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_g3bday
-        g3bday_codes: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_g3bday.codes
-        g3bday_restart: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/restart_echam6.3.04p1-initial-monthly_g3bday.nc
-        g3bid: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_g3bid
-        g3bid_codes: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_g3bid.codes
-        g3bid_restart: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/restart_echam6.3.04p1-initial-monthly_g3bid.nc
-        g3bim: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_g3bim
-        g3bim_codes: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_g3bim.codes
-        g3bim_restart: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/restart_echam6.3.04p1-initial-monthly_g3bim.nc
-        glday: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_glday
-        glday_codes: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_glday.codes
-        glday_restart: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/restart_echam6.3.04p1-initial-monthly_glday.nc
-        glim: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_glim
-        glim_codes: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_glim.codes
-        glim_restart: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/restart_echam6.3.04p1-initial-monthly_glim.nc
-        sp6h: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_sp6h
-        sp6h_codes: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_sp6h.codes
-        sp6h_restart: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/restart_echam6.3.04p1-initial-monthly_sp6h.nc
-        spim: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_spim
-        spim_codes: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_spim.codes
-        spim_restart: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/restart_echam6.3.04p1-initial-monthly_spim.nc
+        accw: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_accw
+        accw_codes: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_accw.codes
+        accw_restart: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/restart_echam6.3.04p1-initial-monthly_accw.nc
+        aclcim: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_aclcim
+        aclcim_codes: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_aclcim.codes
+        aclcim_restart: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/restart_echam6.3.04p1-initial-monthly_aclcim.nc
+        co2: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_co2
+        co2_codes: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_co2.codes
+        co2_restart: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/restart_echam6.3.04p1-initial-monthly_co2.nc
+        echam: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_echam
+        echam_codes: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_echam.codes
+        echam_restart: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/restart_echam6.3.04p1-initial-monthly_echam.nc
+        g3b1hi: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_g3b1hi
+        g3b1hi_codes: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_g3b1hi.codes
+        g3b1hi_restart: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/restart_echam6.3.04p1-initial-monthly_g3b1hi.nc
+        g3bday: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_g3bday
+        g3bday_codes: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_g3bday.codes
+        g3bday_restart: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/restart_echam6.3.04p1-initial-monthly_g3bday.nc
+        g3bid: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_g3bid
+        g3bid_codes: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_g3bid.codes
+        g3bid_restart: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/restart_echam6.3.04p1-initial-monthly_g3bid.nc
+        g3bim: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_g3bim
+        g3bim_codes: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_g3bim.codes
+        g3bim_restart: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/restart_echam6.3.04p1-initial-monthly_g3bim.nc
+        glday: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_glday
+        glday_codes: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_glday.codes
+        glday_restart: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/restart_echam6.3.04p1-initial-monthly_glday.nc
+        glim: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_glim
+        glim_codes: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_glim.codes
+        glim_restart: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/restart_echam6.3.04p1-initial-monthly_glim.nc
+        sp6h: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_sp6h
+        sp6h_codes: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_sp6h.codes
+        sp6h_restart: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/restart_echam6.3.04p1-initial-monthly_sp6h.nc
+        spim: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_spim
+        spim_codes: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_spim.codes
+        spim_restart: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/restart_echam6.3.04p1-initial-monthly_spim.nc
     ignore_sources:
-        accw: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_accw
-        accw_codes: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_accw.codes
-        accw_restart: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_accw.nc
-        aclcim: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_aclcim
-        aclcim_codes: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_aclcim.codes
-        aclcim_restart: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_aclcim.nc
-        co2: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_co2
-        co2_codes: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_co2.codes
-        co2_restart: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_co2.nc
-        echam: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_echam
-        echam_codes: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_echam.codes
-        echam_restart: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_echam.nc
-        g3b1hi: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_g3b1hi
-        g3b1hi_codes: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_g3b1hi.codes
-        g3b1hi_restart: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_g3b1hi.nc
-        g3bday: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_g3bday
-        g3bday_codes: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_g3bday.codes
-        g3bday_restart: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_g3bday.nc
-        g3bid: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_g3bid
-        g3bid_codes: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_g3bid.codes
-        g3bid_restart: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_g3bid.nc
-        g3bim: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_g3bim
-        g3bim_codes: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_g3bim.codes
-        g3bim_restart: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_g3bim.nc
-        glday: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_glday
-        glday_codes: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_glday.codes
-        glday_restart: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_glday.nc
-        glim: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_glim
-        glim_codes: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_glim.codes
-        glim_restart: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_glim.nc
-        sp6h: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_sp6h
-        sp6h_codes: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_sp6h.codes
-        sp6h_restart: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_sp6h.nc
-        spim: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_spim
-        spim_codes: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_spim.codes
-        spim_restart: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_spim.nc
+        accw: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_accw
+        accw_codes: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_accw.codes
+        accw_restart: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_accw.nc
+        aclcim: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_aclcim
+        aclcim_codes: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_aclcim.codes
+        aclcim_restart: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_aclcim.nc
+        co2: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_co2
+        co2_codes: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_co2.codes
+        co2_restart: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_co2.nc
+        echam: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_echam
+        echam_codes: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_echam.codes
+        echam_restart: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_echam.nc
+        g3b1hi: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_g3b1hi
+        g3b1hi_codes: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_g3b1hi.codes
+        g3b1hi_restart: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_g3b1hi.nc
+        g3bday: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_g3bday
+        g3bday_codes: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_g3bday.codes
+        g3bday_restart: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_g3bday.nc
+        g3bid: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_g3bid
+        g3bid_codes: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_g3bid.codes
+        g3bid_restart: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_g3bid.nc
+        g3bim: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_g3bim
+        g3bim_codes: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_g3bim.codes
+        g3bim_restart: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_g3bim.nc
+        glday: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_glday
+        glday_codes: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_glday.codes
+        glday_restart: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_glday.nc
+        glim: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_glim
+        glim_codes: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_glim.codes
+        glim_restart: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_glim.nc
+        sp6h: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_sp6h
+        sp6h_codes: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_sp6h.codes
+        sp6h_restart: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_sp6h.nc
+        spim: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_spim
+        spim_codes: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_spim.codes
+        spim_restart: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_spim.nc
     ignore_targets:
-        accw: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_accw
-        accw_codes: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_accw.codes
-        accw_restart: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/ignore/echam/restart_echam6.3.04p1-initial-monthly_accw.nc
-        aclcim: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_aclcim
-        aclcim_codes: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_aclcim.codes
-        aclcim_restart: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/ignore/echam/restart_echam6.3.04p1-initial-monthly_aclcim.nc
-        co2: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_co2
-        co2_codes: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_co2.codes
-        co2_restart: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/ignore/echam/restart_echam6.3.04p1-initial-monthly_co2.nc
-        echam: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_echam
-        echam_codes: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_echam.codes
-        echam_restart: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/ignore/echam/restart_echam6.3.04p1-initial-monthly_echam.nc
-        g3b1hi: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_g3b1hi
-        g3b1hi_codes: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_g3b1hi.codes
-        g3b1hi_restart: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/ignore/echam/restart_echam6.3.04p1-initial-monthly_g3b1hi.nc
-        g3bday: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_g3bday
-        g3bday_codes: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_g3bday.codes
-        g3bday_restart: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/ignore/echam/restart_echam6.3.04p1-initial-monthly_g3bday.nc
-        g3bid: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_g3bid
-        g3bid_codes: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_g3bid.codes
-        g3bid_restart: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/ignore/echam/restart_echam6.3.04p1-initial-monthly_g3bid.nc
-        g3bim: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_g3bim
-        g3bim_codes: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_g3bim.codes
-        g3bim_restart: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/ignore/echam/restart_echam6.3.04p1-initial-monthly_g3bim.nc
-        glday: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_glday
-        glday_codes: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_glday.codes
-        glday_restart: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/ignore/echam/restart_echam6.3.04p1-initial-monthly_glday.nc
-        glim: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_glim
-        glim_codes: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_glim.codes
-        glim_restart: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/ignore/echam/restart_echam6.3.04p1-initial-monthly_glim.nc
-        sp6h: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_sp6h
-        sp6h_codes: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_sp6h.codes
-        sp6h_restart: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/ignore/echam/restart_echam6.3.04p1-initial-monthly_sp6h.nc
-        spim: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_spim
-        spim_codes: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_spim.codes
-        spim_restart: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/ignore/echam/restart_echam6.3.04p1-initial-monthly_spim.nc
+        accw: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_accw
+        accw_codes: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_accw.codes
+        accw_restart: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/ignore/echam/restart_echam6.3.04p1-initial-monthly_accw.nc
+        aclcim: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_aclcim
+        aclcim_codes: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_aclcim.codes
+        aclcim_restart: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/ignore/echam/restart_echam6.3.04p1-initial-monthly_aclcim.nc
+        co2: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_co2
+        co2_codes: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_co2.codes
+        co2_restart: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/ignore/echam/restart_echam6.3.04p1-initial-monthly_co2.nc
+        echam: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_echam
+        echam_codes: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_echam.codes
+        echam_restart: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/ignore/echam/restart_echam6.3.04p1-initial-monthly_echam.nc
+        g3b1hi: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_g3b1hi
+        g3b1hi_codes: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_g3b1hi.codes
+        g3b1hi_restart: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/ignore/echam/restart_echam6.3.04p1-initial-monthly_g3b1hi.nc
+        g3bday: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_g3bday
+        g3bday_codes: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_g3bday.codes
+        g3bday_restart: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/ignore/echam/restart_echam6.3.04p1-initial-monthly_g3bday.nc
+        g3bid: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_g3bid
+        g3bid_codes: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_g3bid.codes
+        g3bid_restart: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/ignore/echam/restart_echam6.3.04p1-initial-monthly_g3bid.nc
+        g3bim: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_g3bim
+        g3bim_codes: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_g3bim.codes
+        g3bim_restart: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/ignore/echam/restart_echam6.3.04p1-initial-monthly_g3bim.nc
+        glday: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_glday
+        glday_codes: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_glday.codes
+        glday_restart: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/ignore/echam/restart_echam6.3.04p1-initial-monthly_glday.nc
+        glim: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_glim
+        glim_codes: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_glim.codes
+        glim_restart: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/ignore/echam/restart_echam6.3.04p1-initial-monthly_glim.nc
+        sp6h: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_sp6h
+        sp6h_codes: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_sp6h.codes
+        sp6h_restart: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/ignore/echam/restart_echam6.3.04p1-initial-monthly_sp6h.nc
+        spim: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_spim
+        spim_codes: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/ignore/echam/echam6.3.04p1-initial-monthly_200002.01_spim.codes
+        spim_restart: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/ignore/echam/restart_echam6.3.04p1-initial-monthly_spim.nc
     ini_parent_date: '22941231'
     ini_parent_dir: /work/ollie/pool/ECHAM6//MPIESM/restart/dev/echam6.3.04p1-initial-monthly/restart/echam6
     ini_parent_exp_id: khw0030
     input_dir: /work/ollie/pool/ECHAM6//input/r0007
     input_intermediate:
-        cldoptprops: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/input/echam/ECHAM6_CldOptProps.nc
-        janspec: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/input/echam/unit.23
-        jansurf: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/input/echam/unit.24
-        rrtmglw: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/input/echam/rrtmg_lw.nc
-        rrtmgsw: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/input/echam/rrtmg_sw.nc
-        tslclim: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/input/echam/unit.92
-        vgratclim: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/input/echam/unit.91
-        vltclim: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/input/echam/unit.90
+        cldoptprops: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/input/echam/ECHAM6_CldOptProps.nc
+        janspec: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/input/echam/unit.23
+        jansurf: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/input/echam/unit.24
+        rrtmglw: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/input/echam/rrtmg_lw.nc
+        rrtmgsw: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/input/echam/rrtmg_sw.nc
+        tslclim: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/input/echam/unit.92
+        vgratclim: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/input/echam/unit.91
+        vltclim: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/input/echam/unit.90
     input_sources:
         cldoptprops: /work/ollie/pool/ECHAM6//input/r0007/ECHAM6_CldOptProps.nc
         janspec: /work/ollie/pool/ECHAM6//input/r0007/T63/T63L47_jan_spec.nc
@@ -594,29 +594,29 @@ echam:
         vgratclim: /work/ollie/pool/ECHAM6//input/r0007/T63/T63GR15_VGRATCLIM.nc
         vltclim: /work/ollie/pool/ECHAM6//input/r0007/T63/T63GR15_VLTCLIM.nc
     input_targets:
-        cldoptprops: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/ECHAM6_CldOptProps.nc
-        janspec: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/unit.23
-        jansurf: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/unit.24
-        rrtmglw: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/rrtmg_lw.nc
-        rrtmgsw: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/rrtmg_sw.nc
-        tslclim: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/unit.92
-        vgratclim: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/unit.91
-        vltclim: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/unit.90
+        cldoptprops: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/ECHAM6_CldOptProps.nc
+        janspec: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/unit.23
+        jansurf: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/unit.24
+        rrtmglw: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/rrtmg_lw.nc
+        rrtmgsw: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/rrtmg_sw.nc
+        tslclim: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/unit.92
+        vgratclim: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/unit.91
+        vltclim: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/unit.90
     last_parent_date: '1999-12-31T23:45:00'
     leapyear: true
     levels: L47
     log_intermediate:
-        atmout: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/log/echam/atmout
-        stderr: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/log/echam/echam.stderr
-        stdout: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/log/echam/echam.stdout
+        atmout: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/log/echam/atmout
+        stderr: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/log/echam/echam.stderr
+        stdout: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/log/echam/echam.stdout
     log_sources:
-        atmout: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//atmout
-        stderr: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam.stderr
-        stdout: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam.stdout
+        atmout: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//atmout
+        stderr: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam.stderr
+        stdout: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam.stdout
     log_targets:
-        atmout: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/log/echam/atmout
-        stderr: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/log/echam/echam.stderr
-        stdout: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/log/echam/echam.stdout
+        atmout: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/log/echam/atmout
+        stderr: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/log/echam/echam.stderr
+        stdout: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/log/echam/echam.stdout
     lrad_async: false
     lrestart_from_old: false
     lresume: false
@@ -627,7 +627,7 @@ echam:
         License: Please make sure you have a license to use ECHAM. Otherwise downloading ECHAM will already fail. To use the repository on gitlab.dkrz.de/modular_esm/echam.git, register for the MPI-ESM user forum at https://mpimet.mpg.de/en/science/modeling-with-icon/code-availability/mpi-esm-users-forum and send a screenshot to either dirk.barbi@awi.de, deniz.ural@awi.de or miguel.andres-martinez@awi.de
         Publications: 'Atmosphericcomponent of the MPI-M earth system model: ECHAM6 <https://doi.org/10.1002/jame.20015>'
     model: echam
-    model_dir: /work/ollie/mandresm/testing//comp/echam/echam-6.3.04p1
+    model_dir: <TEST_DIR>/comp/echam/echam-6.3.04p1
     models:
     - jsbach
     - hdmodel
@@ -652,7 +652,7 @@ echam:
                 - 1
                 lcouple: false
                 lresume: false
-                out_datapath: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work/
+                out_datapath: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work/
                 out_expname: echam6.3.04p1-initial-monthly
                 putrerun:
                 - 1
@@ -672,27 +672,27 @@ echam:
     ocean_resolution: GR15
     other_date: '2000-01-31T23:52:30'
     outdata_intermediate:
-        aclcim_nc: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/outdata/echam/echam6.3.04p1-initial-monthly_200001.01_aclcim.nc
-        g3b1hi_nc: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/outdata/echam/echam6.3.04p1-initial-monthly_200001.01_g3b1hi.nc
-        g3bday_nc: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/outdata/echam/echam6.3.04p1-initial-monthly_200001.01_g3bday.nc
-        g3bid_nc: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/outdata/echam/echam6.3.04p1-initial-monthly_200001.01_g3bid.nc
-        g3bim_nc: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/outdata/echam/echam6.3.04p1-initial-monthly_200001.01_g3bim.nc
-        glday_nc: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/outdata/echam/echam6.3.04p1-initial-monthly_200001.01_glday.nc
-        glim_nc: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/outdata/echam/echam6.3.04p1-initial-monthly_200001.01_glim.nc
-        jsbid_nc: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/outdata/echam/echam6.3.04p1-initial-monthly_200001.01_jsbid.nc
-        sp6h_nc: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/outdata/echam/echam6.3.04p1-initial-monthly_200001.01_sp6h.nc
-        spim_nc: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/outdata/echam/echam6.3.04p1-initial-monthly_200001.01_spim.nc
+        aclcim_nc: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/outdata/echam/echam6.3.04p1-initial-monthly_200001.01_aclcim.nc
+        g3b1hi_nc: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/outdata/echam/echam6.3.04p1-initial-monthly_200001.01_g3b1hi.nc
+        g3bday_nc: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/outdata/echam/echam6.3.04p1-initial-monthly_200001.01_g3bday.nc
+        g3bid_nc: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/outdata/echam/echam6.3.04p1-initial-monthly_200001.01_g3bid.nc
+        g3bim_nc: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/outdata/echam/echam6.3.04p1-initial-monthly_200001.01_g3bim.nc
+        glday_nc: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/outdata/echam/echam6.3.04p1-initial-monthly_200001.01_glday.nc
+        glim_nc: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/outdata/echam/echam6.3.04p1-initial-monthly_200001.01_glim.nc
+        jsbid_nc: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/outdata/echam/echam6.3.04p1-initial-monthly_200001.01_jsbid.nc
+        sp6h_nc: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/outdata/echam/echam6.3.04p1-initial-monthly_200001.01_sp6h.nc
+        spim_nc: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/outdata/echam/echam6.3.04p1-initial-monthly_200001.01_spim.nc
     outdata_sources:
-        aclcim_nc: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200001.01_aclcim.nc
-        g3b1hi_nc: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200001.01_g3b1hi.nc
-        g3bday_nc: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200001.01_g3bday.nc
-        g3bid_nc: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200001.01_g3bid.nc
-        g3bim_nc: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200001.01_g3bim.nc
-        glday_nc: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200001.01_glday.nc
-        glim_nc: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200001.01_glim.nc
-        jsbid_nc: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200001.01_jsbid.nc
-        sp6h_nc: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200001.01_sp6h.nc
-        spim_nc: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200001.01_spim.nc
+        aclcim_nc: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200001.01_aclcim.nc
+        g3b1hi_nc: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200001.01_g3b1hi.nc
+        g3bday_nc: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200001.01_g3bday.nc
+        g3bid_nc: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200001.01_g3bid.nc
+        g3bim_nc: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200001.01_g3bim.nc
+        glday_nc: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200001.01_glday.nc
+        glim_nc: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200001.01_glim.nc
+        jsbid_nc: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200001.01_jsbid.nc
+        sp6h_nc: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200001.01_sp6h.nc
+        spim_nc: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200001.01_spim.nc
     outdata_sources_wild_card:
         accw: echam6.3.04p1-initial-monthly_2000*.01_accw
         accw_codes: echam6.3.04p1-initial-monthly_2000*.01_accw.codes
@@ -719,19 +719,19 @@ echam:
         spim: echam6.3.04p1-initial-monthly_2000*.01_spim
         spim_codes: echam6.3.04p1-initial-monthly_2000*.01_spim.codes
     outdata_targets:
-        aclcim_nc: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/outdata/echam/echam6.3.04p1-initial-monthly_200001.01_aclcim.nc
-        g3b1hi_nc: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/outdata/echam/echam6.3.04p1-initial-monthly_200001.01_g3b1hi.nc
-        g3bday_nc: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/outdata/echam/echam6.3.04p1-initial-monthly_200001.01_g3bday.nc
-        g3bid_nc: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/outdata/echam/echam6.3.04p1-initial-monthly_200001.01_g3bid.nc
-        g3bim_nc: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/outdata/echam/echam6.3.04p1-initial-monthly_200001.01_g3bim.nc
-        glday_nc: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/outdata/echam/echam6.3.04p1-initial-monthly_200001.01_glday.nc
-        glim_nc: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/outdata/echam/echam6.3.04p1-initial-monthly_200001.01_glim.nc
-        jsbid_nc: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/outdata/echam/echam6.3.04p1-initial-monthly_200001.01_jsbid.nc
-        sp6h_nc: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/outdata/echam/echam6.3.04p1-initial-monthly_200001.01_sp6h.nc
-        spim_nc: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/outdata/echam/echam6.3.04p1-initial-monthly_200001.01_spim.nc
+        aclcim_nc: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/outdata/echam/echam6.3.04p1-initial-monthly_200001.01_aclcim.nc
+        g3b1hi_nc: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/outdata/echam/echam6.3.04p1-initial-monthly_200001.01_g3b1hi.nc
+        g3bday_nc: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/outdata/echam/echam6.3.04p1-initial-monthly_200001.01_g3bday.nc
+        g3bid_nc: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/outdata/echam/echam6.3.04p1-initial-monthly_200001.01_g3bid.nc
+        g3bim_nc: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/outdata/echam/echam6.3.04p1-initial-monthly_200001.01_g3bim.nc
+        glday_nc: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/outdata/echam/echam6.3.04p1-initial-monthly_200001.01_glday.nc
+        glim_nc: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/outdata/echam/echam6.3.04p1-initial-monthly_200001.01_glim.nc
+        jsbid_nc: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/outdata/echam/echam6.3.04p1-initial-monthly_200001.01_jsbid.nc
+        sp6h_nc: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/outdata/echam/echam6.3.04p1-initial-monthly_200001.01_sp6h.nc
+        spim_nc: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/outdata/echam/echam6.3.04p1-initial-monthly_200001.01_spim.nc
     parent_date: '1999-12-31T23:52:30'
     parent_expid: echam6.3.04p1-initial-monthly
-    parent_restart_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/restart/echam/
+    parent_restart_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/restart/echam/
     pool_dir: /work/ollie/pool/ECHAM6/
     post_processing: 0
     postprocess_method_definitions:
@@ -1019,49 +1019,49 @@ echam:
         - vdate <--set_global_attr-- 20000101
         - vdate <--set_global_attr-- 20000101
     restart_out_intermediate:
-        accw: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/restart/echam/restart_echam6.3.04p1-initial-monthly_accw_20000131.nc
-        aclcim: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/restart/echam/restart_echam6.3.04p1-initial-monthly_aclcim_20000131.nc
-        co2: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/restart/echam/restart_echam6.3.04p1-initial-monthly_co2_20000131.nc
-        echam: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/restart/echam/restart_echam6.3.04p1-initial-monthly_echam_20000131.nc
-        g3b1hi: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/restart/echam/restart_echam6.3.04p1-initial-monthly_g3b1hi_20000131.nc
-        g3bday: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/restart/echam/restart_echam6.3.04p1-initial-monthly_g3bday_20000131.nc
-        g3bid: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/restart/echam/restart_echam6.3.04p1-initial-monthly_g3bid_20000131.nc
-        g3bim: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/restart/echam/restart_echam6.3.04p1-initial-monthly_g3bim_20000131.nc
-        glday: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/restart/echam/restart_echam6.3.04p1-initial-monthly_glday_20000131.nc
-        glim: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/restart/echam/restart_echam6.3.04p1-initial-monthly_glim_20000131.nc
-        sp6h: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/restart/echam/restart_echam6.3.04p1-initial-monthly_sp6h_20000131.nc
-        spim: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/restart/echam/restart_echam6.3.04p1-initial-monthly_spim_20000131.nc
+        accw: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/restart/echam/restart_echam6.3.04p1-initial-monthly_accw_20000131.nc
+        aclcim: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/restart/echam/restart_echam6.3.04p1-initial-monthly_aclcim_20000131.nc
+        co2: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/restart/echam/restart_echam6.3.04p1-initial-monthly_co2_20000131.nc
+        echam: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/restart/echam/restart_echam6.3.04p1-initial-monthly_echam_20000131.nc
+        g3b1hi: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/restart/echam/restart_echam6.3.04p1-initial-monthly_g3b1hi_20000131.nc
+        g3bday: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/restart/echam/restart_echam6.3.04p1-initial-monthly_g3bday_20000131.nc
+        g3bid: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/restart/echam/restart_echam6.3.04p1-initial-monthly_g3bid_20000131.nc
+        g3bim: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/restart/echam/restart_echam6.3.04p1-initial-monthly_g3bim_20000131.nc
+        glday: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/restart/echam/restart_echam6.3.04p1-initial-monthly_glday_20000131.nc
+        glim: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/restart/echam/restart_echam6.3.04p1-initial-monthly_glim_20000131.nc
+        sp6h: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/restart/echam/restart_echam6.3.04p1-initial-monthly_sp6h_20000131.nc
+        spim: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/restart/echam/restart_echam6.3.04p1-initial-monthly_spim_20000131.nc
     restart_out_sources:
-        accw: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_20000131235230_accw.nc
-        aclcim: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_20000131235230_aclcim.nc
-        co2: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_20000131235230_co2.nc
-        echam: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_20000131235230_echam.nc
-        g3b1hi: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_20000131235230_g3b1hi.nc
-        g3bday: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_20000131235230_g3bday.nc
-        g3bid: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_20000131235230_g3bid.nc
-        g3bim: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_20000131235230_g3bim.nc
-        glday: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_20000131235230_glday.nc
-        glim: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_20000131235230_glim.nc
-        sp6h: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_20000131235230_sp6h.nc
-        spim: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_20000131235230_spim.nc
+        accw: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_20000131235230_accw.nc
+        aclcim: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_20000131235230_aclcim.nc
+        co2: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_20000131235230_co2.nc
+        echam: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_20000131235230_echam.nc
+        g3b1hi: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_20000131235230_g3b1hi.nc
+        g3bday: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_20000131235230_g3bday.nc
+        g3bid: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_20000131235230_g3bid.nc
+        g3bim: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_20000131235230_g3bim.nc
+        glday: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_20000131235230_glday.nc
+        glim: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_20000131235230_glim.nc
+        sp6h: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_20000131235230_sp6h.nc
+        spim: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_20000131235230_spim.nc
     restart_out_targets:
-        accw: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/restart/echam/restart_echam6.3.04p1-initial-monthly_accw_20000131.nc
-        aclcim: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/restart/echam/restart_echam6.3.04p1-initial-monthly_aclcim_20000131.nc
-        co2: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/restart/echam/restart_echam6.3.04p1-initial-monthly_co2_20000131.nc
-        echam: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/restart/echam/restart_echam6.3.04p1-initial-monthly_echam_20000131.nc
-        g3b1hi: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/restart/echam/restart_echam6.3.04p1-initial-monthly_g3b1hi_20000131.nc
-        g3bday: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/restart/echam/restart_echam6.3.04p1-initial-monthly_g3bday_20000131.nc
-        g3bid: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/restart/echam/restart_echam6.3.04p1-initial-monthly_g3bid_20000131.nc
-        g3bim: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/restart/echam/restart_echam6.3.04p1-initial-monthly_g3bim_20000131.nc
-        glday: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/restart/echam/restart_echam6.3.04p1-initial-monthly_glday_20000131.nc
-        glim: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/restart/echam/restart_echam6.3.04p1-initial-monthly_glim_20000131.nc
-        sp6h: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/restart/echam/restart_echam6.3.04p1-initial-monthly_sp6h_20000131.nc
-        spim: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/restart/echam/restart_echam6.3.04p1-initial-monthly_spim_20000131.nc
+        accw: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/restart/echam/restart_echam6.3.04p1-initial-monthly_accw_20000131.nc
+        aclcim: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/restart/echam/restart_echam6.3.04p1-initial-monthly_aclcim_20000131.nc
+        co2: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/restart/echam/restart_echam6.3.04p1-initial-monthly_co2_20000131.nc
+        echam: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/restart/echam/restart_echam6.3.04p1-initial-monthly_echam_20000131.nc
+        g3b1hi: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/restart/echam/restart_echam6.3.04p1-initial-monthly_g3b1hi_20000131.nc
+        g3bday: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/restart/echam/restart_echam6.3.04p1-initial-monthly_g3bday_20000131.nc
+        g3bid: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/restart/echam/restart_echam6.3.04p1-initial-monthly_g3bid_20000131.nc
+        g3bim: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/restart/echam/restart_echam6.3.04p1-initial-monthly_g3bim_20000131.nc
+        glday: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/restart/echam/restart_echam6.3.04p1-initial-monthly_glday_20000131.nc
+        glim: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/restart/echam/restart_echam6.3.04p1-initial-monthly_glim_20000131.nc
+        sp6h: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/restart/echam/restart_echam6.3.04p1-initial-monthly_sp6h_20000131.nc
+        spim: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/restart/echam/restart_echam6.3.04p1-initial-monthly_spim_20000131.nc
     restart_rate: 1
     restart_unit: months
     scenario: PI-CTRL
     scenario_type: PI-CTRL
-    setup_dir: /work/ollie/mandresm/testing//comp/echam/echam-6.3.04p1
+    setup_dir: <TEST_DIR>/comp/echam/echam-6.3.04p1
     standalone_model: true
     streams:
     - echam
@@ -1088,19 +1088,19 @@ echam:
     - sp6h
     - spim
     switch: 1
-    thisrun_analysis_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/analysis/echam/
-    thisrun_bin_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/bin/echam/
-    thisrun_config_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/config/echam/
-    thisrun_couple_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/couple/echam/
-    thisrun_forcing_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/forcing/echam/
-    thisrun_ignore_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/
-    thisrun_input_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/input/echam/
-    thisrun_log_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/log/echam/
-    thisrun_mon_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/mon/echam/
-    thisrun_outdata_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/outdata/echam/
-    thisrun_restart_in_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/restart/echam/
-    thisrun_restart_out_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/restart/echam/
-    thisrun_viz_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/viz/echam/
+    thisrun_analysis_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/analysis/echam/
+    thisrun_bin_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/bin/echam/
+    thisrun_config_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/config/echam/
+    thisrun_couple_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/couple/echam/
+    thisrun_forcing_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/forcing/echam/
+    thisrun_ignore_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/echam/
+    thisrun_input_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/input/echam/
+    thisrun_log_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/log/echam/
+    thisrun_mon_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/mon/echam/
+    thisrun_outdata_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/outdata/echam/
+    thisrun_restart_in_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/restart/echam/
+    thisrun_restart_out_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/restart/echam/
+    thisrun_viz_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/viz/echam/
     time_step: 450
     transient_advance_forcing: false
     type: atmosphere
@@ -1150,7 +1150,7 @@ general:
     - restart_out
     - viz
     - ignore
-    base_dir: /work/ollie/mandresm/testing//run/echam/
+    base_dir: <TEST_DIR>/run/echam/
     batch: slurm
     calendar: esm_calendar object with allowed leap years
     check: false
@@ -1166,9 +1166,9 @@ general:
         original_command: echam6.3.04p1-initial-monthly.yaml -e echam6.3.04p1-initial-monthly --open-run --no-motd
         profile: false
         run_number: null
-        runscript_abspath: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/scripts/echam6.3.04p1-initial-monthly.yaml
+        runscript_abspath: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/scripts/echam6.3.04p1-initial-monthly.yaml
         scriptname: echam6.3.04p1-initial-monthly.yaml
-        started_from: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/scripts/
+        started_from: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/scripts/
         update: false
         update_filetypes: []
         use_venv: false
@@ -1192,17 +1192,17 @@ general:
     esm_function_dir: FUNCTION_PATH
     esm_namelist_dir: NAMELIST_PATH
     esm_runscript_dir: RUNSCRIPT_PATH
-    experiment_analysis_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/analysis/
-    experiment_config_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/config/
-    experiment_couple_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/couple/
-    experiment_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly
-    experiment_ignore_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/ignore/
-    experiment_log_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/log/
-    experiment_log_file: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/log//echam6.3.04p1-initial-monthly_echam.log
-    experiment_mon_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/mon/
-    experiment_scripts_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/scripts/
-    experiment_src_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/src/
-    experiment_unknown_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/unknown/
+    experiment_analysis_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/analysis/
+    experiment_config_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/config/
+    experiment_couple_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/couple/
+    experiment_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly
+    experiment_ignore_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/ignore/
+    experiment_log_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/log/
+    experiment_log_file: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/log//echam6.3.04p1-initial-monthly_echam.log
+    experiment_mon_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/mon/
+    experiment_scripts_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/scripts/
+    experiment_src_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/src/
+    experiment_unknown_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/unknown/
     expid: echam6.3.04p1-initial-monthly
     file_movements:
         analysis:
@@ -1291,15 +1291,15 @@ general:
     - restart_in
     initial_date: '2000-01-01T00:00:00'
     inspect: null
-    jobid: 96284
+    jobid: 131290
     jobtype: prepcompute
     last_run_datestamp: 19991201-19991231
     last_run_in_chunk: false
     last_start_date: '1999-12-01T00:00:00'
     launcher_pid: -666
     leapyear: true
-    logfile_path: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/log//echam6.3.04p1-initial-monthly_echam_prepcompute_20000101-20000131.log
-    logfile_path_in_run: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/log//echam6.3.04p1-initial-monthly_echam_prepcompute_20000101-20000131.log
+    logfile_path: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/log//echam6.3.04p1-initial-monthly_echam_prepcompute_20000101-20000131.log
+    logfile_path_in_run: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/log//echam6.3.04p1-initial-monthly_echam_prepcompute_20000101-20000131.log
     models:
     - jsbach
     - hdmodel
@@ -1352,7 +1352,7 @@ general:
     - src
     run_datestamp: 20000101-20000131
     run_number: 1
-    runscript_abspath: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/scripts/echam6.3.04p1-initial-monthly.yaml
+    runscript_abspath: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/scripts/echam6.3.04p1-initial-monthly.yaml
     runtime:
     - 0
     - 1
@@ -1364,19 +1364,19 @@ general:
     setup_name: echam
     standalone: true
     start_date: '2000-01-01T00:00:00'
-    started_from: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/scripts/
+    started_from: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/scripts/
     submitted: false
-    thisrun_analysis_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/analysis/
-    thisrun_config_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/config/
-    thisrun_couple_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/couple/
-    thisrun_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131
-    thisrun_ignore_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/
-    thisrun_log_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/log/
-    thisrun_mon_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/mon/
-    thisrun_scripts_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/scripts/
-    thisrun_src_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/src/
-    thisrun_unknown_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/unknown/
-    thisrun_work_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work/
+    thisrun_analysis_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/analysis/
+    thisrun_config_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/config/
+    thisrun_couple_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/couple/
+    thisrun_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131
+    thisrun_ignore_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/
+    thisrun_log_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/log/
+    thisrun_mon_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/mon/
+    thisrun_scripts_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/scripts/
+    thisrun_src_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/src/
+    thisrun_unknown_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/unknown/
+    thisrun_work_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work/
     total_runtime:
     - 0
     - 1
@@ -1396,7 +1396,7 @@ general:
     - computer
     - general
     verbose: false
-    work_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work/
+    work_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work/
     workflow:
         first_task_in_queue: prepcompute
         last_task_in_queue: tidy
@@ -1410,7 +1410,7 @@ general:
                 nproc: 576
                 order_in_cluster: sequential
                 run_before: tidy
-                run_on_queue: mpp_all
+                run_on_queue: mpp
                 subjobs:
                 - compute_general
                 submit_to_batch_system: true
@@ -1440,7 +1440,7 @@ general:
             compute_general:
                 nproc: 576
                 run_before: tidy
-                run_on_queue: mpp_all
+                run_on_queue: mpp
                 subjob_cluster: compute
                 submit_to_batch_system: true
             prepcompute_general:
@@ -1476,19 +1476,19 @@ hdmodel:
         paper citation'
     domain: hydrology
     executable: NONE
-    experiment_analysis_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/analysis/hdmodel/
-    experiment_bin_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/bin/hdmodel/
-    experiment_config_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/config/hdmodel/
-    experiment_couple_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/couple/hdmodel/
-    experiment_forcing_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/forcing/hdmodel/
-    experiment_ignore_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/ignore/hdmodel/
-    experiment_input_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/input/hdmodel/
-    experiment_log_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/log/hdmodel/
-    experiment_mon_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/mon/hdmodel/
-    experiment_outdata_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/outdata/hdmodel/
-    experiment_restart_in_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/restart/hdmodel/
-    experiment_restart_out_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/restart/hdmodel/
-    experiment_viz_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/viz/hdmodel/
+    experiment_analysis_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/analysis/hdmodel/
+    experiment_bin_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/bin/hdmodel/
+    experiment_config_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/config/hdmodel/
+    experiment_couple_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/couple/hdmodel/
+    experiment_forcing_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/forcing/hdmodel/
+    experiment_ignore_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/ignore/hdmodel/
+    experiment_input_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/input/hdmodel/
+    experiment_log_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/log/hdmodel/
+    experiment_mon_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/mon/hdmodel/
+    experiment_outdata_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/outdata/hdmodel/
+    experiment_restart_in_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/restart/hdmodel/
+    experiment_restart_out_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/restart/hdmodel/
+    experiment_viz_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/viz/hdmodel/
     file_movements:
         analysis:
             exp_to_run: copy
@@ -1566,22 +1566,22 @@ hdmodel:
             run_to_work: copy
             work_to_run: copy
     ini_parent_date: '22941231'
-    ini_parent_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/restart/echam//../hdmodel/
+    ini_parent_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/restart/echam//../hdmodel/
     ini_parent_exp_id: echam6.3.04p1-initial-monthly
-    ini_restart_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/restart/echam//../hdmodel/
+    ini_restart_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/restart/echam//../hdmodel/
     input_dir: /work/ollie/pool/JSBACH/input/r0010/HD
     input_intermediate:
-        hdpara: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/input/hdmodel/hdpara.nc
-        hdstart: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/input/hdmodel/hdstart.nc
-        rmp_hd: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/input/hdmodel/rmp_hd.nc
+        hdpara: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/input/hdmodel/hdpara.nc
+        hdstart: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/input/hdmodel/hdstart.nc
+        rmp_hd: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/input/hdmodel/rmp_hd.nc
     input_sources:
         hdpara: /work/ollie/pool/JSBACH/input/r0010/HD/hdpara.nc
         hdstart: /work/ollie/pool/JSBACH/input/r0010/HD/hdstart.nc
         rmp_hd: /work/ollie/pool/JSBACH/input/r0010/HD/rmp_T63_to_hd.nc
     input_targets:
-        hdpara: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/hdpara.nc
-        hdstart: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/hdstart.nc
-        rmp_hd: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/rmp_hd.nc
+        hdpara: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/hdpara.nc
+        hdstart: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/hdstart.nc
+        rmp_hd: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/rmp_hd.nc
     last_parent_date: '1999-12-31T23:45:00'
     leapyear: true
     license_text: 'Please make sure you have a licence to use echam. In case you are
@@ -1594,29 +1594,29 @@ hdmodel:
     other_date: '2000-01-31T23:52:30'
     parent_date: '1999-12-31T23:52:30'
     parent_expid: echam6.3.04p1-initial-monthly
-    parent_restart_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/restart/hdmodel/
+    parent_restart_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/restart/hdmodel/
     pool_dir: /work/ollie/pool/JSBACH/input/r0010/HD
     prev_date: '1999-12-31T23:52:30'
     repository: https://gitlab.dkrz.de/modular_esm/echam6
     restart_out_intermediate:
-        hdrestart: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/restart/hdmodel/restart_echam6.3.04p1-initial-monthly_20000131_hdrestart.nc
+        hdrestart: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/restart/hdmodel/restart_echam6.3.04p1-initial-monthly_20000131_hdrestart.nc
     restart_out_sources:
-        hdrestart: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//hdrestart.nc
+        hdrestart: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//hdrestart.nc
     restart_out_targets:
-        hdrestart: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/restart/hdmodel/restart_echam6.3.04p1-initial-monthly_20000131_hdrestart.nc
-    thisrun_analysis_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/analysis/hdmodel/
-    thisrun_bin_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/bin/hdmodel/
-    thisrun_config_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/config/hdmodel/
-    thisrun_couple_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/couple/hdmodel/
-    thisrun_forcing_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/forcing/hdmodel/
-    thisrun_ignore_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/hdmodel/
-    thisrun_input_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/input/hdmodel/
-    thisrun_log_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/log/hdmodel/
-    thisrun_mon_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/mon/hdmodel/
-    thisrun_outdata_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/outdata/hdmodel/
-    thisrun_restart_in_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/restart/hdmodel/
-    thisrun_restart_out_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/restart/hdmodel/
-    thisrun_viz_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/viz/hdmodel/
+        hdrestart: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/restart/hdmodel/restart_echam6.3.04p1-initial-monthly_20000131_hdrestart.nc
+    thisrun_analysis_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/analysis/hdmodel/
+    thisrun_bin_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/bin/hdmodel/
+    thisrun_config_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/config/hdmodel/
+    thisrun_couple_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/couple/hdmodel/
+    thisrun_forcing_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/forcing/hdmodel/
+    thisrun_ignore_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/hdmodel/
+    thisrun_input_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/input/hdmodel/
+    thisrun_log_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/log/hdmodel/
+    thisrun_mon_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/mon/hdmodel/
+    thisrun_outdata_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/outdata/hdmodel/
+    thisrun_restart_in_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/restart/hdmodel/
+    thisrun_restart_out_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/restart/hdmodel/
+    thisrun_viz_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/viz/hdmodel/
     time_step: 450
 jsbach:
     adj_input_dir: /work/ollie/pool/JSBACH/input/r0010/T63
@@ -1635,11 +1635,11 @@ jsbach:
     - viz
     - ignore
     config_intermediate:
-        namelist.jsbach: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/config/jsbach/namelist.jsbach
+        namelist.jsbach: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/config/jsbach/namelist.jsbach
     config_sources:
         namelist.jsbach: /home/ollie/mandresm/esm_tools/namelists/.//jsbach/3.20/PI-CTRL/no_dynveg/namelist.jsbach
     config_targets:
-        namelist.jsbach: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/namelist.jsbach
+        namelist.jsbach: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/namelist.jsbach
     cover_fract_dir: /work/ollie/pool/JSBACH/input/r0010/T63/land_use_maps/
     dataset: r0010
     debug_info:
@@ -1655,19 +1655,19 @@ jsbach:
     dynamic_vegetations: false
     dynveg: _no_dynveg
     dynveg_file_ending: _dynveg
-    experiment_analysis_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/analysis/jsbach/
-    experiment_bin_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/bin/jsbach/
-    experiment_config_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/config/jsbach/
-    experiment_couple_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/couple/jsbach/
-    experiment_forcing_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/forcing/jsbach/
-    experiment_ignore_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/ignore/jsbach/
-    experiment_input_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/input/jsbach/
-    experiment_log_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/log/jsbach/
-    experiment_mon_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/mon/jsbach/
-    experiment_outdata_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/outdata/jsbach/
-    experiment_restart_in_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/restart/jsbach/
-    experiment_restart_out_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/restart/jsbach/
-    experiment_viz_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/viz/jsbach/
+    experiment_analysis_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/analysis/jsbach/
+    experiment_bin_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/bin/jsbach/
+    experiment_config_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/config/jsbach/
+    experiment_couple_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/couple/jsbach/
+    experiment_forcing_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/forcing/jsbach/
+    experiment_ignore_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/ignore/jsbach/
+    experiment_input_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/input/jsbach/
+    experiment_log_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/log/jsbach/
+    experiment_mon_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/mon/jsbach/
+    experiment_outdata_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/outdata/jsbach/
+    experiment_restart_in_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/restart/jsbach/
+    experiment_restart_out_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/restart/jsbach/
+    experiment_viz_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/viz/jsbach/
     file_movements:
         analysis:
             exp_to_run: copy
@@ -1755,15 +1755,15 @@ jsbach:
         - need_timestep_before
         - need_timestep_after
     forcing_intermediate:
-        LU_trans_year_1999: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/forcing/jsbach/landuseTransitions.1999.nc
-        LU_trans_year_2000: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/forcing/jsbach/landuseTransitions.2000.nc
-        LU_year_1999: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/forcing/jsbach/landuse_harvest.1999.nc
-        LU_year_2000: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/forcing/jsbach/landuse_harvest.2000.nc
-        Ndepo_year_1999: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/forcing/jsbach/Ndepo.1999.nc
-        Ndepo_year_2000: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/forcing/jsbach/Ndepo.2000.nc
-        a_nd_file: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/forcing/jsbach/a_nd_file.nc
-        lightning: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/forcing/jsbach/lightning.nc
-        popdens: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/forcing/jsbach/population_density.nc
+        LU_trans_year_1999: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/forcing/jsbach/landuseTransitions.1999.nc
+        LU_trans_year_2000: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/forcing/jsbach/landuseTransitions.2000.nc
+        LU_year_1999: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/forcing/jsbach/landuse_harvest.1999.nc
+        LU_year_2000: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/forcing/jsbach/landuse_harvest.2000.nc
+        Ndepo_year_1999: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/forcing/jsbach/Ndepo.1999.nc
+        Ndepo_year_2000: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/forcing/jsbach/Ndepo.2000.nc
+        a_nd_file: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/forcing/jsbach/a_nd_file.nc
+        lightning: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/forcing/jsbach/lightning.nc
+        popdens: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/forcing/jsbach/population_density.nc
     forcing_modifications:
         Ndepo: <--setyear-- @YEAR@
     forcing_sources:
@@ -1777,95 +1777,95 @@ jsbach:
         lightning: /work/ollie/pool/JSBACH/input/r0010/T63/spitfire/LISOTD_HRMC_V2.2_T63.nc
         popdens: /work/ollie/pool/JSBACH/input/r0010/T63/spitfire/population_density_HYDE_T63.nc
     forcing_targets:
-        LU_trans_year_1999: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/landuseTransitions.1999.nc
-        LU_trans_year_2000: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/landuseTransitions.2000.nc
-        LU_year_1999: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/landuse_harvest.1999.nc
-        LU_year_2000: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/landuse_harvest.2000.nc
-        Ndepo_year_1999: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/Ndepo.1999.nc
-        Ndepo_year_2000: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/Ndepo.2000.nc
-        a_nd_file: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/a_nd_file.nc
-        lightning: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/lightning.nc
-        popdens: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/population_density.nc
+        LU_trans_year_1999: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/landuseTransitions.1999.nc
+        LU_trans_year_2000: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/landuseTransitions.2000.nc
+        LU_year_1999: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/landuse_harvest.1999.nc
+        LU_year_2000: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/landuse_harvest.2000.nc
+        Ndepo_year_1999: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/Ndepo.1999.nc
+        Ndepo_year_2000: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/Ndepo.2000.nc
+        a_nd_file: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/a_nd_file.nc
+        lightning: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/lightning.nc
+        popdens: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/population_density.nc
     ignore_intermediate:
-        jsbach: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/jsbach/echam6.3.04p1-initial-monthly_200002.01_jsbach
-        jsbach_codes: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/jsbach/echam6.3.04p1-initial-monthly_200002.01_jsbach.codes
-        jsbach_restart: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/jsbach/restart_echam6.3.04p1-initial-monthly_jsbach.nc
-        jsbid: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/jsbach/echam6.3.04p1-initial-monthly_200002.01_jsbid
-        jsbid_codes: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/jsbach/echam6.3.04p1-initial-monthly_200002.01_jsbid.codes
-        jsbid_restart: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/jsbach/restart_echam6.3.04p1-initial-monthly_jsbid.nc
-        land: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/jsbach/echam6.3.04p1-initial-monthly_200002.01_land
-        land_codes: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/jsbach/echam6.3.04p1-initial-monthly_200002.01_land.codes
-        land_restart: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/jsbach/restart_echam6.3.04p1-initial-monthly_land.nc
-        nitro: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/jsbach/echam6.3.04p1-initial-monthly_200002.01_nitro
-        nitro_codes: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/jsbach/echam6.3.04p1-initial-monthly_200002.01_nitro.codes
-        nitro_restart: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/jsbach/restart_echam6.3.04p1-initial-monthly_nitro.nc
-        surf: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/jsbach/echam6.3.04p1-initial-monthly_200002.01_surf
-        surf_codes: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/jsbach/echam6.3.04p1-initial-monthly_200002.01_surf.codes
-        surf_restart: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/jsbach/restart_echam6.3.04p1-initial-monthly_surf.nc
-        veg: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/jsbach/echam6.3.04p1-initial-monthly_200002.01_veg
-        veg_codes: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/jsbach/echam6.3.04p1-initial-monthly_200002.01_veg.codes
-        veg_restart: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/jsbach/restart_echam6.3.04p1-initial-monthly_veg.nc
-        yasso: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/jsbach/echam6.3.04p1-initial-monthly_200002.01_yasso
-        yasso_codes: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/jsbach/echam6.3.04p1-initial-monthly_200002.01_yasso.codes
-        yasso_restart: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/jsbach/restart_echam6.3.04p1-initial-monthly_yasso.nc
+        jsbach: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/jsbach/echam6.3.04p1-initial-monthly_200002.01_jsbach
+        jsbach_codes: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/jsbach/echam6.3.04p1-initial-monthly_200002.01_jsbach.codes
+        jsbach_restart: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/jsbach/restart_echam6.3.04p1-initial-monthly_jsbach.nc
+        jsbid: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/jsbach/echam6.3.04p1-initial-monthly_200002.01_jsbid
+        jsbid_codes: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/jsbach/echam6.3.04p1-initial-monthly_200002.01_jsbid.codes
+        jsbid_restart: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/jsbach/restart_echam6.3.04p1-initial-monthly_jsbid.nc
+        land: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/jsbach/echam6.3.04p1-initial-monthly_200002.01_land
+        land_codes: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/jsbach/echam6.3.04p1-initial-monthly_200002.01_land.codes
+        land_restart: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/jsbach/restart_echam6.3.04p1-initial-monthly_land.nc
+        nitro: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/jsbach/echam6.3.04p1-initial-monthly_200002.01_nitro
+        nitro_codes: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/jsbach/echam6.3.04p1-initial-monthly_200002.01_nitro.codes
+        nitro_restart: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/jsbach/restart_echam6.3.04p1-initial-monthly_nitro.nc
+        surf: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/jsbach/echam6.3.04p1-initial-monthly_200002.01_surf
+        surf_codes: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/jsbach/echam6.3.04p1-initial-monthly_200002.01_surf.codes
+        surf_restart: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/jsbach/restart_echam6.3.04p1-initial-monthly_surf.nc
+        veg: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/jsbach/echam6.3.04p1-initial-monthly_200002.01_veg
+        veg_codes: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/jsbach/echam6.3.04p1-initial-monthly_200002.01_veg.codes
+        veg_restart: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/jsbach/restart_echam6.3.04p1-initial-monthly_veg.nc
+        yasso: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/jsbach/echam6.3.04p1-initial-monthly_200002.01_yasso
+        yasso_codes: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/jsbach/echam6.3.04p1-initial-monthly_200002.01_yasso.codes
+        yasso_restart: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/jsbach/restart_echam6.3.04p1-initial-monthly_yasso.nc
     ignore_sources:
-        jsbach: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_jsbach
-        jsbach_codes: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_jsbach.codes
-        jsbach_restart: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_jsbach.nc
-        jsbid: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_jsbid
-        jsbid_codes: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_jsbid.codes
-        jsbid_restart: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_jsbid.nc
-        land: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_land
-        land_codes: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_land.codes
-        land_restart: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_land.nc
-        nitro: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_nitro
-        nitro_codes: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_nitro.codes
-        nitro_restart: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_nitro.nc
-        surf: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_surf
-        surf_codes: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_surf.codes
-        surf_restart: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_surf.nc
-        veg: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_veg
-        veg_codes: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_veg.codes
-        veg_restart: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_veg.nc
-        yasso: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_yasso
-        yasso_codes: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_yasso.codes
-        yasso_restart: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_yasso.nc
+        jsbach: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_jsbach
+        jsbach_codes: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_jsbach.codes
+        jsbach_restart: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_jsbach.nc
+        jsbid: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_jsbid
+        jsbid_codes: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_jsbid.codes
+        jsbid_restart: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_jsbid.nc
+        land: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_land
+        land_codes: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_land.codes
+        land_restart: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_land.nc
+        nitro: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_nitro
+        nitro_codes: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_nitro.codes
+        nitro_restart: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_nitro.nc
+        surf: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_surf
+        surf_codes: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_surf.codes
+        surf_restart: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_surf.nc
+        veg: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_veg
+        veg_codes: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_veg.codes
+        veg_restart: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_veg.nc
+        yasso: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_yasso
+        yasso_codes: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//echam6.3.04p1-initial-monthly_200002.01_yasso.codes
+        yasso_restart: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_yasso.nc
     ignore_targets:
-        jsbach: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/ignore/jsbach/echam6.3.04p1-initial-monthly_200002.01_jsbach
-        jsbach_codes: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/ignore/jsbach/echam6.3.04p1-initial-monthly_200002.01_jsbach.codes
-        jsbach_restart: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/ignore/jsbach/restart_echam6.3.04p1-initial-monthly_jsbach.nc
-        jsbid: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/ignore/jsbach/echam6.3.04p1-initial-monthly_200002.01_jsbid
-        jsbid_codes: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/ignore/jsbach/echam6.3.04p1-initial-monthly_200002.01_jsbid.codes
-        jsbid_restart: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/ignore/jsbach/restart_echam6.3.04p1-initial-monthly_jsbid.nc
-        land: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/ignore/jsbach/echam6.3.04p1-initial-monthly_200002.01_land
-        land_codes: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/ignore/jsbach/echam6.3.04p1-initial-monthly_200002.01_land.codes
-        land_restart: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/ignore/jsbach/restart_echam6.3.04p1-initial-monthly_land.nc
-        nitro: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/ignore/jsbach/echam6.3.04p1-initial-monthly_200002.01_nitro
-        nitro_codes: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/ignore/jsbach/echam6.3.04p1-initial-monthly_200002.01_nitro.codes
-        nitro_restart: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/ignore/jsbach/restart_echam6.3.04p1-initial-monthly_nitro.nc
-        surf: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/ignore/jsbach/echam6.3.04p1-initial-monthly_200002.01_surf
-        surf_codes: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/ignore/jsbach/echam6.3.04p1-initial-monthly_200002.01_surf.codes
-        surf_restart: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/ignore/jsbach/restart_echam6.3.04p1-initial-monthly_surf.nc
-        veg: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/ignore/jsbach/echam6.3.04p1-initial-monthly_200002.01_veg
-        veg_codes: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/ignore/jsbach/echam6.3.04p1-initial-monthly_200002.01_veg.codes
-        veg_restart: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/ignore/jsbach/restart_echam6.3.04p1-initial-monthly_veg.nc
-        yasso: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/ignore/jsbach/echam6.3.04p1-initial-monthly_200002.01_yasso
-        yasso_codes: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/ignore/jsbach/echam6.3.04p1-initial-monthly_200002.01_yasso.codes
-        yasso_restart: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/ignore/jsbach/restart_echam6.3.04p1-initial-monthly_yasso.nc
+        jsbach: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/ignore/jsbach/echam6.3.04p1-initial-monthly_200002.01_jsbach
+        jsbach_codes: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/ignore/jsbach/echam6.3.04p1-initial-monthly_200002.01_jsbach.codes
+        jsbach_restart: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/ignore/jsbach/restart_echam6.3.04p1-initial-monthly_jsbach.nc
+        jsbid: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/ignore/jsbach/echam6.3.04p1-initial-monthly_200002.01_jsbid
+        jsbid_codes: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/ignore/jsbach/echam6.3.04p1-initial-monthly_200002.01_jsbid.codes
+        jsbid_restart: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/ignore/jsbach/restart_echam6.3.04p1-initial-monthly_jsbid.nc
+        land: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/ignore/jsbach/echam6.3.04p1-initial-monthly_200002.01_land
+        land_codes: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/ignore/jsbach/echam6.3.04p1-initial-monthly_200002.01_land.codes
+        land_restart: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/ignore/jsbach/restart_echam6.3.04p1-initial-monthly_land.nc
+        nitro: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/ignore/jsbach/echam6.3.04p1-initial-monthly_200002.01_nitro
+        nitro_codes: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/ignore/jsbach/echam6.3.04p1-initial-monthly_200002.01_nitro.codes
+        nitro_restart: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/ignore/jsbach/restart_echam6.3.04p1-initial-monthly_nitro.nc
+        surf: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/ignore/jsbach/echam6.3.04p1-initial-monthly_200002.01_surf
+        surf_codes: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/ignore/jsbach/echam6.3.04p1-initial-monthly_200002.01_surf.codes
+        surf_restart: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/ignore/jsbach/restart_echam6.3.04p1-initial-monthly_surf.nc
+        veg: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/ignore/jsbach/echam6.3.04p1-initial-monthly_200002.01_veg
+        veg_codes: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/ignore/jsbach/echam6.3.04p1-initial-monthly_200002.01_veg.codes
+        veg_restart: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/ignore/jsbach/restart_echam6.3.04p1-initial-monthly_veg.nc
+        yasso: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/ignore/jsbach/echam6.3.04p1-initial-monthly_200002.01_yasso
+        yasso_codes: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/ignore/jsbach/echam6.3.04p1-initial-monthly_200002.01_yasso.codes
+        yasso_restart: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/ignore/jsbach/restart_echam6.3.04p1-initial-monthly_yasso.nc
     ini_parent_date: '22941231'
-    ini_parent_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/restart/echam//../jsbach/
+    ini_parent_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/restart/echam//../jsbach/
     ini_parent_exp_id: echam6.3.04p1-initial-monthly
-    ini_restart_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/restart/echam//../jsbach/
+    ini_restart_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/restart/echam//../jsbach/
     input_dir: /work/ollie/pool/JSBACH/input/r0010
     input_intermediate:
-        jsbach: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/input/jsbach/jsbach.nc
-        lctlib: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/input/jsbach/lctlib.def
+        jsbach: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/input/jsbach/jsbach.nc
+        lctlib: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/input/jsbach/lctlib.def
     input_sources:
         jsbach: /work/ollie/pool/JSBACH/input/r0010/T63/jsbach_T63GR15_11tiles_5layers_1850_no-dynveg.nc
-        lctlib: /work/ollie/mandresm/testing//comp/echam/echam-6.3.04p1/lctlib_nlct21.def
+        lctlib: <TEST_DIR>/comp/echam/echam-6.3.04p1/lctlib_nlct21.def
     input_targets:
-        jsbach: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/jsbach.nc
-        lctlib: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/lctlib.def
+        jsbach: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/jsbach.nc
+        lctlib: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/lctlib.def
     jsbachnc_file_ending: _no-dynveg
     last_parent_date: '1999-12-31T23:45:00'
     leapyear: true
@@ -1874,7 +1874,7 @@ jsbach:
         unsure, please contact redmine....'
     lresume: false
     model: jsbach
-    model_dir: /work/ollie/mandresm/testing//comp/echam/echam-6.3.04p1
+    model_dir: <TEST_DIR>/comp/echam/echam-6.3.04p1
     namelist_dir: /home/ollie/mandresm/esm_tools/namelists/.//jsbach/3.20/PI-CTRL/no_dynveg
     namelist_objs:
         namelist.jsbach: &id003 f90nml.name
@@ -1902,35 +1902,35 @@ jsbach:
     outdata_targets: {}
     parent_date: '1999-12-31T23:52:30'
     parent_expid: echam6.3.04p1-initial-monthly
-    parent_restart_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/restart/jsbach/
+    parent_restart_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/restart/jsbach/
     pool_dir: /work/ollie/pool/JSBACH
     prev_date: '1999-12-31T23:52:30'
     repository: https://gitlab.dkrz.de/modular_esm/echam6
     resolution: T63
     restart_out_intermediate:
-        jsbach: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/restart/jsbach/restart_echam6.3.04p1-initial-monthly_jsbach_20000131.nc
-        jsbid: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/restart/jsbach/restart_echam6.3.04p1-initial-monthly_jsbid_20000131.nc
-        land: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/restart/jsbach/restart_echam6.3.04p1-initial-monthly_land_20000131.nc
-        nitro: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/restart/jsbach/restart_echam6.3.04p1-initial-monthly_nitro_20000131.nc
-        surf: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/restart/jsbach/restart_echam6.3.04p1-initial-monthly_surf_20000131.nc
-        veg: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/restart/jsbach/restart_echam6.3.04p1-initial-monthly_veg_20000131.nc
-        yasso: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/restart/jsbach/restart_echam6.3.04p1-initial-monthly_yasso_20000131.nc
+        jsbach: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/restart/jsbach/restart_echam6.3.04p1-initial-monthly_jsbach_20000131.nc
+        jsbid: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/restart/jsbach/restart_echam6.3.04p1-initial-monthly_jsbid_20000131.nc
+        land: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/restart/jsbach/restart_echam6.3.04p1-initial-monthly_land_20000131.nc
+        nitro: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/restart/jsbach/restart_echam6.3.04p1-initial-monthly_nitro_20000131.nc
+        surf: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/restart/jsbach/restart_echam6.3.04p1-initial-monthly_surf_20000131.nc
+        veg: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/restart/jsbach/restart_echam6.3.04p1-initial-monthly_veg_20000131.nc
+        yasso: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/restart/jsbach/restart_echam6.3.04p1-initial-monthly_yasso_20000131.nc
     restart_out_sources:
-        jsbach: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_20000131235230_jsbach.nc
-        jsbid: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_20000131235230_jsbid.nc
-        land: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_20000131235230_land.nc
-        nitro: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_20000131235230_nitro.nc
-        surf: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_20000131235230_surf.nc
-        veg: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_20000131235230_veg.nc
-        yasso: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_20000131235230_yasso.nc
+        jsbach: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_20000131235230_jsbach.nc
+        jsbid: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_20000131235230_jsbid.nc
+        land: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_20000131235230_land.nc
+        nitro: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_20000131235230_nitro.nc
+        surf: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_20000131235230_surf.nc
+        veg: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_20000131235230_veg.nc
+        yasso: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/work//restart_echam6.3.04p1-initial-monthly_20000131235230_yasso.nc
     restart_out_targets:
-        jsbach: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/restart/jsbach/restart_echam6.3.04p1-initial-monthly_jsbach_20000131.nc
-        jsbid: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/restart/jsbach/restart_echam6.3.04p1-initial-monthly_jsbid_20000131.nc
-        land: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/restart/jsbach/restart_echam6.3.04p1-initial-monthly_land_20000131.nc
-        nitro: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/restart/jsbach/restart_echam6.3.04p1-initial-monthly_nitro_20000131.nc
-        surf: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/restart/jsbach/restart_echam6.3.04p1-initial-monthly_surf_20000131.nc
-        veg: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/restart/jsbach/restart_echam6.3.04p1-initial-monthly_veg_20000131.nc
-        yasso: /work/ollie/mandresm/testing/run/echam/echam6.3.04p1-initial-monthly/restart/jsbach/restart_echam6.3.04p1-initial-monthly_yasso_20000131.nc
+        jsbach: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/restart/jsbach/restart_echam6.3.04p1-initial-monthly_jsbach_20000131.nc
+        jsbid: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/restart/jsbach/restart_echam6.3.04p1-initial-monthly_jsbid_20000131.nc
+        land: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/restart/jsbach/restart_echam6.3.04p1-initial-monthly_land_20000131.nc
+        nitro: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/restart/jsbach/restart_echam6.3.04p1-initial-monthly_nitro_20000131.nc
+        surf: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/restart/jsbach/restart_echam6.3.04p1-initial-monthly_surf_20000131.nc
+        veg: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/restart/jsbach/restart_echam6.3.04p1-initial-monthly_veg_20000131.nc
+        yasso: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/restart/jsbach/restart_echam6.3.04p1-initial-monthly_yasso_20000131.nc
     scenario: PI-CTRL
     scenario_type: PI-CTRL
     streams:
@@ -1941,18 +1941,18 @@ jsbach:
     - nitro
     - veg
     - land
-    thisrun_analysis_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/analysis/jsbach/
-    thisrun_bin_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/bin/jsbach/
-    thisrun_config_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/config/jsbach/
-    thisrun_couple_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/couple/jsbach/
-    thisrun_forcing_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/forcing/jsbach/
-    thisrun_ignore_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/jsbach/
-    thisrun_input_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/input/jsbach/
-    thisrun_log_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/log/jsbach/
-    thisrun_mon_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/mon/jsbach/
-    thisrun_outdata_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/outdata/jsbach/
-    thisrun_restart_in_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/restart/jsbach/
-    thisrun_restart_out_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/restart/jsbach/
-    thisrun_viz_dir: /work/ollie/mandresm/testing//run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/viz/jsbach/
+    thisrun_analysis_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/analysis/jsbach/
+    thisrun_bin_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/bin/jsbach/
+    thisrun_config_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/config/jsbach/
+    thisrun_couple_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/couple/jsbach/
+    thisrun_forcing_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/forcing/jsbach/
+    thisrun_ignore_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/ignore/jsbach/
+    thisrun_input_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/input/jsbach/
+    thisrun_log_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/log/jsbach/
+    thisrun_mon_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/mon/jsbach/
+    thisrun_outdata_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/outdata/jsbach/
+    thisrun_restart_in_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/restart/jsbach/
+    thisrun_restart_out_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/restart/jsbach/
+    thisrun_viz_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/viz/jsbach/
     time_step: 450
     version: 3.2

@@ -2,7 +2,7 @@
 #SBATCH --partition=mpp
 #SBATCH --time=02:0:00
 #SBATCH --ntasks=864
-#SBATCH --output=/work/ollie/mandresm/testing//run/awiesm//awiesm-2.1_icebergs/log/awiesm-2.1_icebergs_awiesm_compute_20010101-20011231_%j.log --error=/work/ollie/mandresm/testing//run/awiesm//awiesm-2.1_icebergs/log/awiesm-2.1_icebergs_awiesm_compute_20010101-20011231_%j.log
+#SBATCH --output=<TEST_DIR>/run/awiesm//awiesm-2.1_icebergs/log/awiesm-2.1_icebergs_awiesm_compute_20010101-20011231_%j.log --error=<TEST_DIR>/run/awiesm//awiesm-2.1_icebergs/log/awiesm-2.1_icebergs_awiesm_compute_20010101-20011231_%j.log
 #SBATCH --job-name=awiesm-2.1_icebergs
 #SBATCH --mail-type=NONE
 #SBATCH --exclusive
@@ -49,8 +49,8 @@ export PATH=/work/ollie/jhegewal/sw/cmake/bin:$PATH
 export takenfrom=fesom2_run
 export taken2from=fesom2_ru
 export ACCOUNT=None
-export ESM_TESTING_DIR=/work/ollie/mandresm/testing//run/awiesm/
-export MODEL_DIR=/work/ollie/mandresm/testing//comp/awiesm/awiesm-2.1
+export ESM_TESTING_DIR=<TEST_DIR>/run/awiesm/
+export MODEL_DIR=<TEST_DIR>/comp/awiesm/awiesm-2.1
 export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 
 unset SLURM_MEM_PER_NODE
@@ -60,18 +60,18 @@ unset SLURM_MEM_PER_CPU
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 2001-01-01T00:00:00 102211 - start >> /work/ollie/mandresm/testing//run/awiesm//awiesm-2.1_icebergs/log//awiesm-2.1_icebergs_awiesm.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 2001-01-01T00:00:00 133368 - start >> <TEST_DIR>/run/awiesm//awiesm-2.1_icebergs/log//awiesm-2.1_icebergs_awiesm.log
 
-cd /work/ollie/mandresm/testing//run/awiesm//awiesm-2.1_icebergs/run_20010101-20011231/work/
+cd <TEST_DIR>/run/awiesm//awiesm-2.1_icebergs/run_20010101-20011231/work/
 time srun -l --kill-on-bad-exit=1 --cpu_bind=cores --multi-prog hostfile_srun 2>&1 &
 
 # Call to esm_runscript to start subjobs:
 # ['tidy']
 process=$! 
 # Comment the following line if you don't want esm_runscripts to restart:
-cd /work/ollie/mandresm/testing//run/awiesm//awiesm-2.1_icebergs/scripts/
+cd <TEST_DIR>/run/awiesm//awiesm-2.1_icebergs/scripts/
 esm_runscripts awiesm-2.1_icebergs.yaml -e awiesm-2.1_icebergs -t observe_compute -p ${process} -s 20010101 -r 1 -v  --open-run
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 2001-01-01T00:00:00 102211 - done >> /work/ollie/mandresm/testing//run/awiesm//awiesm-2.1_icebergs/log//awiesm-2.1_icebergs_awiesm.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 2001-01-01T00:00:00 133368 - done >> <TEST_DIR>/run/awiesm//awiesm-2.1_icebergs/log//awiesm-2.1_icebergs_awiesm.log
 
 wait
