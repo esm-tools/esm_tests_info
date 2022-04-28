@@ -7,7 +7,7 @@ computer:
             cpu_bind: cores
         true:
             cpu_bind: none
-    additional_flags: ''
+    additional_flags: []
     batch_system: slurm
     cc: mpiicc
     check_error:
@@ -28,7 +28,7 @@ computer:
     cxx: mpiicpc
     debug_info:
         loaded_from_file:
-        - /home/ollie/mandresm/esm_tools/configs/.//machines/ollie.yaml
+        - /home/ollie/mandresm/esm_tools/configs//machines/ollie.yaml
     debugger: None
     debugger_flags_prelauncher: ''
     exclusive_flag: --exclusive
@@ -133,12 +133,12 @@ computer:
     useMPI: intelmpi
 debug_info:
     loaded_from_file:
-    - /home/ollie/mandresm/esm_tools/configs/.//setups/awiesm/awiesm.yaml
+    - /home/ollie/mandresm/esm_tools/configs//setups/awiesm/awiesm.yaml
 defaults:
     clean_command: rm -rf build CMakeCache.txt
     comp_command: mkdir -p build; cd build; cmake ..;   make install -j `nproc --all`
     debug_info:
-        loaded_from_file: /home/ollie/mandresm/esm_tools/configs/.//defaults/download_and_compile.yaml
+        loaded_from_file: /home/ollie/mandresm/esm_tools/configs//defaults/download_and_compile.yaml
 echam:
     _nx: 192
     _ny: 96
@@ -253,7 +253,7 @@ echam:
     config_intermediate:
         namelist.echam: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/config/echam/namelist.echam
     config_sources:
-        namelist.echam: /home/ollie/mandresm/esm_tools/namelists/.//echam/6.3.05p2-wiso/PI-CTRL/namelist.echam
+        namelist.echam: /home/ollie/mandresm/esm_tools/namelists//echam/6.3.05p2-wiso/PI-CTRL/namelist.echam
     config_targets:
         namelist.echam: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/work/namelist.echam
     coupling_fields:
@@ -310,8 +310,8 @@ echam:
     dataset: r0007
     debug_info:
         loaded_from_file:
-        - /home/ollie/mandresm/esm_tools/configs/.//components/echam/echam.yaml
-        - /home/ollie/mandresm/esm_tools/configs/.//components/echam/echam.postprocessing.yaml
+        - /home/ollie/mandresm/esm_tools/configs//components/echam/echam.yaml
+        - /home/ollie/mandresm/esm_tools/configs//components/echam/echam.postprocessing.yaml
     disturbance: 1.000001
     executable: echam6
     experiment_analysis_dir: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/analysis/echam/
@@ -692,7 +692,7 @@ echam:
                 lwiso: false
                 lwiso_rerun: false
                 nwiso: 0
-    namelist_dir: /home/ollie/mandresm/esm_tools/namelists/.//echam/6.3.05p2-wiso/PI-CTRL
+    namelist_dir: /home/ollie/mandresm/esm_tools/namelists//echam/6.3.05p2-wiso/PI-CTRL
     namelist_objs:
         namelist.echam: &id003 f90nml.name
     namelist_type: production
@@ -1285,7 +1285,7 @@ fesom:
     daynew: 1
     debug_info:
         loaded_from_file:
-        - /home/ollie/mandresm/esm_tools/configs/.//components/fesom/fesom-2.1.yaml
+        - /home/ollie/mandresm/esm_tools/configs//components/fesom/fesom-2.1.yaml
     destination: fesom-2.1
     executable: fesom
     experiment_analysis_dir: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/analysis/fesom/
@@ -1711,10 +1711,10 @@ general:
     - fesom-2.1-wiso+echam-6.3.05p2-wiso+recom-2.0
     current_date: '2001-01-01T00:00:00'
     debug_info:
-        loaded_from_file: /home/ollie/mandresm/esm_tools/configs/.//defaults/general.yaml
+        loaded_from_file: /home/ollie/mandresm/esm_tools/configs//defaults/general.yaml
     defaults.yaml:
         debug_info:
-            loaded_from_file: /home/ollie/mandresm/esm_tools/configs/.//esm_software/esm_runscripts/defaults.yaml
+            loaded_from_file: /home/ollie/mandresm/esm_tools/configs//esm_software/esm_runscripts/defaults.yaml
         per_model_defaults: {}
     delta_date:
     - 0
@@ -1724,9 +1724,9 @@ general:
     - 0
     - 0
     end_date: '2001-01-31T00:00:00'
-    esm_function_dir: FUNCTION_PATH
-    esm_namelist_dir: NAMELIST_PATH
-    esm_runscript_dir: RUNSCRIPT_PATH
+    esm_function_dir: /home/ollie/mandresm/esm_tools/configs/
+    esm_namelist_dir: /home/ollie/mandresm/esm_tools/namelists/
+    esm_runscript_dir: /home/ollie/mandresm/esm_tools/runscripts/
     experiment_analysis_dir: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/analysis/
     experiment_config_dir: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/config/
     experiment_couple_dir: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/couple/
@@ -1832,7 +1832,7 @@ general:
     initial_date: '2001-01-01T00:00:00'
     inspect: null
     jP: /work/ollie/dsidoren/input/fesom2.0/meshes/mesh_CORE2_finaltopo_mean/tarfilesT63/input/jsbach/jsbach_T63CORE2_11tiles_5layers_1850.nc
-    jobid: 132852
+    jobid: 12438
     jobtype: prepcompute
     last_run_datestamp: 20001201-20001231
     last_run_in_chunk: false
@@ -2046,7 +2046,7 @@ hdmodel:
     - ignore
     debug_info:
         loaded_from_file:
-        - /home/ollie/mandresm/esm_tools/configs/.//components/hdmodel/hdmodel.yaml
+        - /home/ollie/mandresm/esm_tools/configs//components/hdmodel/hdmodel.yaml
     description: 'The Hagemann/Duemenil hydrology model,
 
         (someone from Hamburg)
@@ -2218,15 +2218,15 @@ jsbach:
     config_intermediate:
         namelist.jsbach: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/config/jsbach/namelist.jsbach
     config_sources:
-        namelist.jsbach: /home/ollie/mandresm/esm_tools/namelists/.//jsbach/3.20/PI-CTRL/no_dynveg/namelist.jsbach
+        namelist.jsbach: /home/ollie/mandresm/esm_tools/namelists//jsbach/3.20/PI-CTRL/no_dynveg/namelist.jsbach
     config_targets:
         namelist.jsbach: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/work/namelist.jsbach
     cover_fract_dir: /work/ollie/pool/JSBACH/input/r0010/T63/land_use_maps/
     dataset: r0010
     debug_info:
         loaded_from_file:
-        - /home/ollie/mandresm/esm_tools/configs/.//components/jsbach/jsbach.yaml
-        - /home/ollie/mandresm/esm_tools/configs/.//components/jsbach/jsbach.datasets.yaml
+        - /home/ollie/mandresm/esm_tools/configs//components/jsbach/jsbach.yaml
+        - /home/ollie/mandresm/esm_tools/configs//components/jsbach/jsbach.datasets.yaml
     description: 'The JSBACH vegetation model, major version 3
 
         (someone from Hamburg)
@@ -2471,7 +2471,7 @@ jsbach:
             hydrology_ctl: {}
             jsbach_ctl:
                 use_dynveg: true
-    namelist_dir: /home/ollie/mandresm/esm_tools/namelists/.//jsbach/3.20/PI-CTRL/no_dynveg
+    namelist_dir: /home/ollie/mandresm/esm_tools/namelists//jsbach/3.20/PI-CTRL/no_dynveg
     namelist_objs:
         namelist.jsbach: &id011 f90nml.name
     namelists:
@@ -2669,7 +2669,7 @@ oasis3mct:
         - o16_atmo <--distwgt-- o16_feom
     coupling_time_step: 3600
     debug_info:
-        loaded_from_file: /home/ollie/mandresm/esm_tools/configs/.//components/oasis3mct/oasis3mct.yaml
+        loaded_from_file: /home/ollie/mandresm/esm_tools/configs//components/oasis3mct/oasis3mct.yaml
     destination: oasis
     experiment_analysis_dir: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/analysis/oasis3mct/
     experiment_bin_dir: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/bin/oasis3mct/
@@ -3057,7 +3057,7 @@ recom:
     daily_outputs: []
     data_path: /work/ollie/mbutzin/fesom2/input/dust/
     debug_info:
-        loaded_from_file: /home/ollie/mandresm/esm_tools/configs/.//components/recom/recom.yaml
+        loaded_from_file: /home/ollie/mandresm/esm_tools/configs//components/recom/recom.yaml
     destination: recom
     experiment_analysis_dir: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/analysis/recom/
     experiment_bin_dir: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/bin/recom/

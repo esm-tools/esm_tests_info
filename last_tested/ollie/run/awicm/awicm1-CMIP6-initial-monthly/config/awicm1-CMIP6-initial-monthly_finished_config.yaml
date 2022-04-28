@@ -7,7 +7,7 @@ computer:
             cpu_bind: cores
         true:
             cpu_bind: none
-    additional_flags: ''
+    additional_flags: []
     batch_system: slurm
     cc: mpiicc
     check_error:
@@ -28,7 +28,7 @@ computer:
     cxx: mpiicpc
     debug_info:
         loaded_from_file:
-        - /home/ollie/mandresm/esm_tools/configs/.//machines/ollie.yaml
+        - /home/ollie/mandresm/esm_tools/configs//machines/ollie.yaml
     debugger: None
     debugger_flags_prelauncher: ''
     exclusive_flag: --exclusive
@@ -133,12 +133,12 @@ computer:
     useMPI: intelmpi
 debug_info:
     loaded_from_file:
-    - /home/ollie/mandresm/esm_tools/configs/.//setups/awicm/awicm.yaml
+    - /home/ollie/mandresm/esm_tools/configs//setups/awicm/awicm.yaml
 defaults:
     clean_command: rm -rf build CMakeCache.txt
     comp_command: mkdir -p build; cd build; cmake ..;   make install -j `nproc --all`
     debug_info:
-        loaded_from_file: /home/ollie/mandresm/esm_tools/configs/.//defaults/download_and_compile.yaml
+        loaded_from_file: /home/ollie/mandresm/esm_tools/configs//defaults/download_and_compile.yaml
 echam:
     _nx: 384
     _ny: 192
@@ -244,7 +244,7 @@ echam:
     config_intermediate:
         namelist.echam: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/config/echam/namelist.echam
     config_sources:
-        namelist.echam: /home/ollie/mandresm/esm_tools/namelists/.//echam/6.3.04p1/PI-CTRL/namelist.echam
+        namelist.echam: /home/ollie/mandresm/esm_tools/namelists//echam/6.3.04p1/PI-CTRL/namelist.echam
     config_targets:
         namelist.echam: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/work/namelist.echam
     coupling_fields:
@@ -283,8 +283,8 @@ echam:
     dataset: r0007
     debug_info:
         loaded_from_file:
-        - /home/ollie/mandresm/esm_tools/configs/.//components/echam/echam.yaml
-        - /home/ollie/mandresm/esm_tools/configs/.//components/echam/echam.postprocessing.yaml
+        - /home/ollie/mandresm/esm_tools/configs//components/echam/echam.yaml
+        - /home/ollie/mandresm/esm_tools/configs//components/echam/echam.postprocessing.yaml
     disturbance: 1.000001
     executable: echam6
     experiment_analysis_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/analysis/echam/
@@ -654,7 +654,7 @@ echam:
                 - months
                 - first
                 - 0
-    namelist_dir: /home/ollie/mandresm/esm_tools/namelists/.//echam/6.3.04p1/PI-CTRL
+    namelist_dir: /home/ollie/mandresm/esm_tools/namelists//echam/6.3.04p1/PI-CTRL
     namelist_objs:
         namelist.echam: &id002 f90nml.name
     namelists:
@@ -1174,12 +1174,12 @@ fesom:
         ice: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/config/fesom/namelist.ice
         oce: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/config/fesom/namelist.oce
     config_sources:
-        config: /home/ollie/mandresm/esm_tools/namelists/.//fesom/namelist.config
-        diag: /home/ollie/mandresm/esm_tools/namelists/.//fesom/namelist.diag
+        config: /home/ollie/mandresm/esm_tools/namelists//fesom/namelist.config
+        diag: /home/ollie/mandresm/esm_tools/namelists//fesom/namelist.diag
         fesom.clock: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/config/fesom//fesom.clock
-        forcing: /home/ollie/mandresm/esm_tools/namelists/.//fesom/namelist.forcing
-        ice: /home/ollie/mandresm/esm_tools/namelists/.//fesom/namelist.ice
-        oce: /home/ollie/mandresm/esm_tools/namelists/.//fesom/namelist.oce
+        forcing: /home/ollie/mandresm/esm_tools/namelists//fesom/namelist.forcing
+        ice: /home/ollie/mandresm/esm_tools/namelists//fesom/namelist.ice
+        oce: /home/ollie/mandresm/esm_tools/namelists//fesom/namelist.oce
     config_targets:
         config: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/work/namelist.config
         diag: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/work/namelist.diag
@@ -1252,7 +1252,7 @@ fesom:
     - thdgrsn
     daynew: 1
     debug_info:
-        loaded_from_file: /home/ollie/mandresm/esm_tools/configs/.//components/fesom/fesom.yaml
+        loaded_from_file: /home/ollie/mandresm/esm_tools/configs//components/fesom/fesom.yaml
     executable: fesom
     experiment_analysis_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/analysis/fesom/
     experiment_bin_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/bin/fesom/
@@ -1474,7 +1474,7 @@ fesom:
             boundary:
                 restore_s_surf: 0
             oce_tra: *id003
-    namelist_dir: /home/ollie/mandresm/esm_tools/namelists/.//fesom
+    namelist_dir: /home/ollie/mandresm/esm_tools/namelists//fesom
     namelist_objs:
         namelist.config: &id004 f90nml.name
         namelist.diag: &id005 f90nml.name
@@ -1974,10 +1974,10 @@ general:
     - fesom-1.4+echam-6.3.04p1
     current_date: '1850-01-01T00:00:00'
     debug_info:
-        loaded_from_file: /home/ollie/mandresm/esm_tools/configs/.//defaults/general.yaml
+        loaded_from_file: /home/ollie/mandresm/esm_tools/configs//defaults/general.yaml
     defaults.yaml:
         debug_info:
-            loaded_from_file: /home/ollie/mandresm/esm_tools/configs/.//esm_software/esm_runscripts/defaults.yaml
+            loaded_from_file: /home/ollie/mandresm/esm_tools/configs//esm_software/esm_runscripts/defaults.yaml
         per_model_defaults: {}
     delta_date:
     - 0
@@ -1987,9 +1987,9 @@ general:
     - 0
     - 0
     end_date: '1850-01-31T00:00:00'
-    esm_function_dir: FUNCTION_PATH
-    esm_namelist_dir: NAMELIST_PATH
-    esm_runscript_dir: RUNSCRIPT_PATH
+    esm_function_dir: /home/ollie/mandresm/esm_tools/configs/
+    esm_namelist_dir: /home/ollie/mandresm/esm_tools/namelists/
+    esm_runscript_dir: /home/ollie/mandresm/esm_tools/runscripts/
     experiment_analysis_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/analysis/
     experiment_config_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/config/
     experiment_couple_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/couple/
@@ -2089,7 +2089,7 @@ general:
     - restart_in
     initial_date: '1850-01-01T00:00:00'
     inspect: null
-    jobid: 132111
+    jobid: 11389
     jobtype: prepcompute
     last_run_datestamp: 18491201-18491231
     last_run_in_chunk: false
@@ -2282,7 +2282,7 @@ hdmodel:
     - ignore
     debug_info:
         loaded_from_file:
-        - /home/ollie/mandresm/esm_tools/configs/.//components/hdmodel/hdmodel.yaml
+        - /home/ollie/mandresm/esm_tools/configs//components/hdmodel/hdmodel.yaml
     description: 'The Hagemann/Duemenil hydrology model,
 
         (someone from Hamburg)
@@ -2450,15 +2450,15 @@ jsbach:
     config_intermediate:
         namelist.jsbach: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/config/jsbach/namelist.jsbach
     config_sources:
-        namelist.jsbach: /home/ollie/mandresm/esm_tools/namelists/.//jsbach/3.20/PI-CTRL/no_dynveg/namelist.jsbach
+        namelist.jsbach: /home/ollie/mandresm/esm_tools/namelists//jsbach/3.20/PI-CTRL/no_dynveg/namelist.jsbach
     config_targets:
         namelist.jsbach: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/work/namelist.jsbach
     cover_fract_dir: /work/ollie/pool/JSBACH/input/r0009/T127/land_use_maps/
     dataset: r0009
     debug_info:
         loaded_from_file:
-        - /home/ollie/mandresm/esm_tools/configs/.//components/jsbach/jsbach.yaml
-        - /home/ollie/mandresm/esm_tools/configs/.//components/jsbach/jsbach.datasets.yaml
+        - /home/ollie/mandresm/esm_tools/configs//components/jsbach/jsbach.yaml
+        - /home/ollie/mandresm/esm_tools/configs//components/jsbach/jsbach.datasets.yaml
     description: 'The JSBACH vegetation model, major version 3
 
         (someone from Hamburg)
@@ -2657,7 +2657,7 @@ jsbach:
     namelist_changes:
         namelist.jsbach:
             hydrology_ctl: {}
-    namelist_dir: /home/ollie/mandresm/esm_tools/namelists/.//jsbach/3.20/PI-CTRL/no_dynveg
+    namelist_dir: /home/ollie/mandresm/esm_tools/namelists//jsbach/3.20/PI-CTRL/no_dynveg
     namelist_objs:
         namelist.jsbach: &id009 f90nml.name
     namelists:
@@ -2828,7 +2828,7 @@ oasis3mct:
         - snt_atmo <--distwgt-- snt_feom
     coupling_time_step: 3600
     debug_info:
-        loaded_from_file: /home/ollie/mandresm/esm_tools/configs/.//components/oasis3mct/oasis3mct.yaml
+        loaded_from_file: /home/ollie/mandresm/esm_tools/configs//components/oasis3mct/oasis3mct.yaml
     destination: oasis
     experiment_analysis_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/analysis/oasis3mct/
     experiment_bin_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/bin/oasis3mct/
