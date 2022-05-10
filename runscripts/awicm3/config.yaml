@@ -32,9 +32,10 @@ run:
                     - "restart/oifs/*/rcf"
                     - "restart/oifs/*/srf*"
                     - "restart/oifs/*/waminfo*"
-                    - "outdata/oifs/*/ICMGG*"
-                    - "outdata/oifs/*/ICMSH*"
-                    - "outdata/oifs/*/ICMUA*"
+                    - "outdata/oifs/*/ICMGG* except [frontiers-xios]"
+                    - "outdata/oifs/*/ICMSH* except [frontiers-xios]"
+                    - "outdata/oifs/*/ICMUA* except [frontiers-xios]"
+                    - "outdata/oifs/atm_remapped* in [frontiers-xios]"
                     - "outdata/fesom/*.fesom.*.nc"
         check: {}
 computers:
@@ -43,3 +44,4 @@ computers:
         - juwels
         - aleph
         - blogin
+        - levante

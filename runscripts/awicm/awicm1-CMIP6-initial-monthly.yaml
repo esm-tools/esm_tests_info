@@ -24,17 +24,23 @@ fesom:
     restart_first: 1
 
     choose_computer.name:
+        levante:
+            rpool_dir: /work/ab0995/a270152/testing_pool/input/
+            rmesh_dir: /work/ab0995/a270152/testing_pool/AWICM/FESOM1/MESHES/core/
+            rproc: 384
         mistral:
             rpool_dir: /work/bm0944/input/
             rmesh_dir: /pool/data/AWICM/FESOM1/MESHES/core/
+            rproc: 288
         ollie:
             rpool_dir: "${computer.pool_directories.pool}/FESOM/"
             rmesh_dir: "${computer.pool_directories.pool}/FESOM/meshes_default/core/"
+            rproc: 288
     pool_dir: ${fesom.rpool_dir}
     mesh_dir: ${fesom.rmesh_dir}
     resolution: CORE2
     time_step: 450
-    nproc: 288
+    nproc: ${rproc}
 
 echam:
     scenario: "PI-CTRL"
@@ -42,8 +48,13 @@ echam:
     levels: L95
     post_processing: False
     lresume: False
-    nproca: 24
-    nprocb: 24
+    choose_computer.name:
+        levante:
+            nproca: 32
+            nprocb: 32
+        "*":
+            nproca: 24
+            nprocb: 24
     time_step: 200
 
 jsbach:
