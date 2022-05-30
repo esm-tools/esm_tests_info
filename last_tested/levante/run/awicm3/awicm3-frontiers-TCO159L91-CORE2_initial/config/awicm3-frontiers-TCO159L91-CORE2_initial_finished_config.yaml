@@ -73,7 +73,7 @@ computer:
         I_MPI_PMI_LIBRARY: /usr/lib64/libpmi2.so
         LAPACK_LIB: '''-mkl=sequential'''
         LC_ALL: en_US.UTF-8
-        LD_LIBRARY_PATH[(0)]: $NETCDFROOT/lib:$NETCDFFROOT/lib:$HDF5ROOT/lib:$LD_LIBRARY_PATH
+        LD_LIBRARY_PATH[(0)]: $HDF5ROOT/lib:$NETCDFROOT/lib:$NETCDFFROOT/lib:$LD_LIBRARY_PATH
         LD_LIBRARY_PATH[(1)]: /sw/spack-levante/intel-oneapi-mkl-2022.0.1-ttdktf/mkl/2022.0.1/lib/intel64:$LD_LIBRARY_PATH
         LD_LIBRARY_PATH[(2)]: /sw/spack-levante/intel-oneapi-mpi-2021.5.0-mrcss7/mpi/2021.5.0/libfabric/lib:$LD_LIBRARY_PATH
         MPICC: mpicc
@@ -1028,7 +1028,7 @@ general:
     - restart_in
     initial_date: '2000-01-01T00:00:00'
     inspect: null
-    jobid: 2551218
+    jobid: 1648278
     jobtype: prepcompute
     last_run_datestamp: 19991231-19991231
     last_run_in_chunk: false
