@@ -1,9 +1,9 @@
 #!/usr/bin/bash
-#SBATCH --partition=smp
+#SBATCH --partition=mpp
 #SBATCH --time=01:00:00
-#SBATCH --nodes=1
-#SBATCH --output=<TEST_DIR>/run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/log/awicm3-frontiers-TCO159L91-CORE2_initial_awicm3_postprocessing_20000101-20000101_%j.log --error=<TEST_DIR>/run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/log/awicm3-frontiers-TCO159L91-CORE2_initial_awicm3_postprocessing_20000101-20000101_%j.log
-#SBATCH --job-name=awicm3-frontiers-TCO159L91-CORE2_initial
+#SBATCH --nodes=7
+#SBATCH --output=<TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/log/awicm3-frontiers-xios-TCO159L91-CORE2_initial_awicm3_compute_20000101-20000101_%j.log --error=<TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/log/awicm3-frontiers-xios-TCO159L91-CORE2_initial_awicm3_compute_20000101-20000101_%j.log
+#SBATCH --job-name=awicm3-frontiers-xios-TCO159L91-CORE2_initial
 #SBATCH --mail-type=NONE
 #SBATCH --exclusive
 
@@ -63,7 +63,7 @@ export OMP_SCHEDULE=STATIC
 export OMP_STACKSIZE=128M
 export ACCOUNT=None
 export ESM_TESTING_DIR=<TEST_DIR>/run/awicm3/
-export MODEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers
+export MODEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios
 export FESOM_USE_CPLNG="active"
 export ECE_CPL_NEMO_LIM="false"
 export ECE_CPL_FESOM_FESIM="true"
@@ -81,9 +81,48 @@ unset SLURM_ARBITRARY_NODELIST
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo $(date +"%a %b  %e %T %Y") : postprocessing_oifs 1 2000-01-01T00:00:00 15746570 - start >> <TEST_DIR>/run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/log//awicm3-frontiers-TCO159L91-CORE2_initial_awicm3.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 193297 - start >> <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/log//awicm3-frontiers-xios-TCO159L91-CORE2_initial_awicm3.log
 
-cd <TEST_DIR>/run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/
-time srun -l --kill-on-bad-exit=1 --cpu_bind=none /home/ollie/mandresm/esm_tools/configs//setups/awicm3/postprocessing.sh <TEST_DIR>/run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/outdata/oifs/ 20000101 2>&1 &
+cd <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work/
+
+#Creating hostlist for MPI + MPI&OMP heterogeneous parallel job
+rm -f ./hostlist
+export SLURM_HOSTFILE=<TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//hostlist
+IFS=$'\n'; set -f
+listnodes=($(< <( scontrol show hostnames $SLURM_JOB_NODELIST )))
+unset IFS; set +f
+rank=0
+current_core=0
+current_core_mpi=0
+mpi_tasks_fesom=144
+omp_threads_fesom=1
+mpi_tasks_oifs=18
+omp_threads_oifs=2
+mpi_tasks_rnfmap=1
+omp_threads_rnfmap=36
+mpi_tasks_xios=1
+omp_threads_xios=36
+for model in fesom oifs rnfmap oasis3mct xios ;do
+    eval nb_of_cores=\${mpi_tasks_${model}}
+    eval nb_of_cores=$((${nb_of_cores}-1))
+    for nb_proc_mpi in `seq 0 ${nb_of_cores}`; do
+        (( index_host = current_core / 36 ))
+        host_value=${listnodes[${index_host}]}
+        (( slot =  current_core % 36 ))
+        echo $host_value >> hostlist
+        (( current_core = current_core + omp_threads_${model} ))
+    done
+done
+
+time srun -l --kill-on-bad-exit=1 --cpu_bind=none --multi-prog hostfile_srun 2>&1 &
+
+# Call to esm_runscript to start subjobs:
+# ['tidy']
+process=$! 
+# Comment the following line if you don't want esm_runscripts to restart:
+cd <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/scripts/
+esm_runscripts awicm3-frontiers-xios-TCO159L91-CORE2_initial.yaml -e awicm3-frontiers-xios-TCO159L91-CORE2_initial -t observe_compute -p ${process} -s 20000101 -r 1 -v  --open-run
+
+echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 193297 - done >> <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/log//awicm3-frontiers-xios-TCO159L91-CORE2_initial_awicm3.log
 
 wait

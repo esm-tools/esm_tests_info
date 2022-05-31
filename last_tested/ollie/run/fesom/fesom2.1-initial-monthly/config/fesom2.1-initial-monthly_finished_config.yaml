@@ -5,7 +5,19 @@ computer:
     add_choose_heterogeneous_parallelization: &id001
         false:
             cpu_bind: cores
+            srun_execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=cores --multi-prog hostfile_srun
         true:
+            choose_taskset:
+                false:
+                    launcher_comp_sep: '\
+
+                        :'
+                    launcher_flags_per_component: --nodes=@nnodes@ --ntasks=@nproc@ --ntasks-per-node=@nproc_per_node@ --cpus-per-task=@cpus_per_proc@ --export=ALL,OMP_NUM_THREADS=@omp_num_threads@
+                    srun_execution_command: 'srun -l --kill-on-bad-exit=1 --cpu_bind=cores \
+
+                        @components@'
+                true:
+                    srun_execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=cores --multi-prog hostfile_srun
             cpu_bind: none
     additional_flags: []
     batch_system: slurm
@@ -60,6 +72,7 @@ computer:
     fc: '"mpiifort -mkl"'
     header_start: '#SBATCH'
     heterogeneous_parallelization: false
+    hetjob_flag: packjob
     hostname_list: DUMMY_HOST1 DUMMY_HOST2
     hyper_flag: ''
     jobtype: unknown
@@ -121,9 +134,11 @@ computer:
     script_name: <--methods.scriptname--
     sh_interpreter: /usr/bin/bash
     single_proc_submit_flag: --ntasks-per-node=1
+    srun_execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=cores --multi-prog hostfile_srun
     submit: sbatch
     submitted: false
     tasks_flag: --ntasks=@tasks@
+    taskset: false
     thisrun_logfile: <TEST_DIR>/run/fesom//fesom2.1-initial-monthly/log/fesom2.1-initial-monthly_fesom_@jobtype@_20010101-20010131_%j.log
     threads_per_core: 1
     time_flag: --time=00:08:00
@@ -501,6 +516,7 @@ fesom:
     outdata_sources_wild_card:
         fesom: '*.fesom.*.nc'
     outdata_targets: {}
+    par_tracers: false
     parent_date: '2000-12-31T23:30:00'
     parent_expid: fesom2.1-initial-monthly
     parent_restart_dir: <TEST_DIR>/run/fesom//fesom2.1-initial-monthly/restart/fesom/
@@ -765,7 +781,7 @@ general:
     - restart_in
     initial_date: '2001-01-01T00:00:00'
     inspect: null
-    jobid: 10598
+    jobid: 194389
     jobtype: prepcompute
     last_run_datestamp: 20001201-20001231
     last_run_in_chunk: false
@@ -824,6 +840,7 @@ general:
     - src
     run_datestamp: 20010101-20010131
     run_number: 1
+    run_or_compile: runtime
     runscript_abspath: <TEST_DIR>run/fesom/fesom2.1-initial-monthly/scripts/fesom2.1-initial-monthly.yaml
     runtime:
     - 0

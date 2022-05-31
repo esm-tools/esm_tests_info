@@ -10,7 +10,19 @@ computer:
     add_choose_heterogeneous_parallelization: &id001
         false:
             cpu_bind: cores
+            srun_execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=none --multi-prog hostfile_srun
         true:
+            choose_taskset:
+                false:
+                    launcher_comp_sep: '\
+
+                        :'
+                    launcher_flags_per_component: --nodes=@nnodes@ --ntasks=@nproc@ --ntasks-per-node=@nproc_per_node@ --cpus-per-task=@cpus_per_proc@ --export=ALL,OMP_NUM_THREADS=@omp_num_threads@
+                    srun_execution_command: 'srun -l --kill-on-bad-exit=1 --cpu_bind=none \
+
+                        @components@'
+                true:
+                    srun_execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=none --multi-prog hostfile_srun
             cpu_bind: none
     additional_flags: []
     batch_system: slurm
@@ -66,6 +78,7 @@ computer:
     fc: '"mpiifort -mkl"'
     header_start: '#SBATCH'
     heterogeneous_parallelization: true
+    hetjob_flag: packjob
     hostname_list: DUMMY_HOST1 DUMMY_HOST2
     hyper_flag: ''
     iolibraries: awi_libs
@@ -128,9 +141,12 @@ computer:
     script_name: <--methods.scriptname--
     sh_interpreter: /usr/bin/bash
     single_proc_submit_flag: --ntasks-per-node=1
+    srun_execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=none --multi-prog hostfile_srun
     submit: sbatch
     submitted: false
     tasks_flag: --ntasks=@tasks@
+    taskset: true
+    taskset_chs: ''
     thisrun_logfile: <TEST_DIR>/run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/log/awicm3-v3.0-TCO159L91-CORE2_initial_awicm3_@jobtype@_20000101-20000101_%j.log
     threads_per_core: 1
     time_flag: --time=00:45:00
@@ -508,6 +524,15 @@ fesom:
     yearnew: 2000
 general:
     account: None
+    add_compiletime_environment_changes:
+        choose_computer.fc: &id002
+            ftn:
+                add_export_vars:
+                - OASIS_FFLAGS=-emf
+        choose_computer.name:
+            levante:
+                add_export_vars:
+                    OASIS_FFLAGS: '"-march=core-avx2 -mtune=core-avx2"'
     additional_files: []
     all_filetypes:
     - analysis
@@ -563,6 +588,7 @@ general:
         use_venv: false
         verbose: false
     compiletime_environment_changes:
+        choose_computer.fc: *id002
         choose_computer.name:
             aleph:
                 add_export_vars:
@@ -677,6 +703,45 @@ general:
                 - OIFS_CFLAGS="-fp-model precise -O1 -xCORE_AVX2 -g -traceback -qopt-report=0 -fpe0 -qopenmp"
                 - OIFS_CCDEFS="LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS _OPENMP"
                 - MAIN_LDFLAGS=-openmp
+            levante:
+                add_export_vars:
+                    ECCODESROOT: /work/ab0246/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0
+                    ESM_NETCDF_C_DIR: $NETCDFROOT
+                    ESM_NETCDF_F_DIR: $NETCDFFROOT
+                    HDF5ROOT: /sw/spack-levante/hdf5-1.12.1-tvymb5
+                    HDF5_C_INCLUDE_DIRECTORIES: $HDF5_ROOT/include
+                    HDF5_ROOT: $HDF5ROOT
+                    LAPACK_LIB_DEFAULT: '"-L$MKLROOT/lib/intel64 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential"'
+                    NETCDFFROOT: /sw/spack-levante/netcdf-fortran-4.5.3-k6xq5g
+                    NETCDFROOT: /sw/spack-levante/netcdf-c-4.8.1-2k3cmu
+                    NETCDF_C_INCLUDE_DIRECTORIES: $NETCDFROOT/include
+                    NETCDF_Fortran_INCLUDE_DIRECTORIES: $NETCDFFROOT/include
+                    OASIS3MCT_FC_LIB: '"-L$NETCDFFROOT/lib -lnetcdff"'
+                    OASIS_FFLAGS: '"-march=core-avx2 -mtune=core-avx2"'
+                    OIFS_CC: $CC
+                    OIFS_CCDEFS: '"LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS _OPENMP"'
+                    OIFS_CFLAGS: '"-fp-model precise -O3 -g -traceback -qopt-report=0 -fpe0 -qopenmp -march=core-avx2 -mtune=core-avx2"'
+                    OIFS_FC: $FC
+                    OIFS_FCDEFS: '"BLAS LITTLE LINUX INTEGER_IS_INT"'
+                    OIFS_FFIXED: '""'
+                    OIFS_FFLAGS: '"-r8 -fp-model precise -align array32byte -O3 -qopenmp -g -traceback -convert big_endian -march=core-avx2 -mtune=core-avx2"'
+                    OIFS_GRIB_API_BIN: '"$ECCODESROOT/bin"'
+                    OIFS_GRIB_API_INCLUDE: '"-I$ECCODESROOT/include"'
+                    OIFS_GRIB_API_LIB: '"-L$ECCODESROOT/lib64 -leccodes_f90 -leccodes"'
+                    OIFS_GRIB_INCLUDE: '"$OIFS_GRIB_API_INCLUDE"'
+                    OIFS_GRIB_LIB: '"$OIFS_GRIB_API_LIB"'
+                    OIFS_LFLAGS: '"$OIFS_MPI_LIB -qopenmp"'
+                    OIFS_MPI_LIB: '"$MPI_LIB"'
+                    OIFS_NETCDFF_INCLUDE: '"-I$NETCDFFROOT/include"'
+                    OIFS_NETCDFF_LIB: '"-L$NETCDFFROOT/lib -lnetcdff"'
+                    OIFS_NETCDF_INCLUDE: '"-I$NETCDFROOT/include"'
+                    OIFS_NETCDF_LIB: '"-L$NETCDFROOT/lib -lnetcdf"'
+                    OIFS_OASIS_BASE: $(pwd)/oasis
+                    OIFS_OASIS_INCLUDE: '"-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu"'
+                    OIFS_OASIS_LIB: '"-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu -lpsmile -lmct -lmpeu -lscrip"'
+                    SZIPROOT: /sw/spack-levante/libaec-1.0.5-gij7yv
+                add_module_actions:
+                - load libaec/1.0.5-intel-2021.5.0
             mistral:
                 add_export_vars:
                     DR_HOOK_IGNORE_SIGNALS: -1
@@ -817,10 +882,6 @@ general:
         OpenMP_CCDEFS: ''
         OpenMP_flag: ''
         c++_lib: none
-        choose_computer.fc:
-            ftn:
-                add_export_vars:
-                - OASIS_FFLAGS=-emf
         choose_computer.useMPI:
             '*':
                 c++_lib: none
@@ -938,7 +999,6 @@ general:
             work_to_run: copy
     final_date: '2000-01-04T00:00:00'
     first_run_in_chunk: true
-    heterogeneous_parallelization: true
     in_filetypes:
     - scripts
     - input
@@ -948,7 +1008,7 @@ general:
     - restart_in
     initial_date: '2000-01-01T00:00:00'
     inspect: null
-    jobid: 16452
+    jobid: 191772
     jobtype: prepcompute
     last_run_datestamp: 19991231-19991231
     last_run_in_chunk: false
@@ -1035,6 +1095,7 @@ general:
     - src
     run_datestamp: 20000101-20000101
     run_number: 1
+    run_or_compile: runtime
     runscript_abspath: <TEST_DIR>run/awicm3/awicm3-v3.0-TCO159L91-CORE2_initial/scripts/awicm3-v3.0-TCO159L91-CORE2_initial.yaml
     runtime:
     - 0
@@ -1077,6 +1138,24 @@ general:
                 - OMP_SCHEDULE=STATIC
                 - OMP_STACKSIZE=128M
                 - MAIN_LDFLAGS=-openmp
+            levante:
+                add_export_vars:
+                    DR_HOOK_IGNORE_SIGNALS: -1
+                    ECCODESROOT: /work/ab0246/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0
+                    GRIB_SAMPLES_PATH: '"$ECCODESROOT/share/eccodes/ifs_samples/grib1_mlgrib2"'
+                    HDF5ROOT: /sw/spack-levante/hdf5-1.12.1-tvymb5
+                    HDF5_C_INCLUDE_DIRECTORIES: $HDF5_ROOT/include
+                    HDF5_ROOT: $HDF5ROOT
+                    LD_LIBRARY_PATH[(3)]: $ECCODESROOT/lib:$LD_LIBRARY_PATH
+                    NETCDFFROOT: /sw/spack-levante/netcdf-fortran-4.5.3-k6xq5g
+                    NETCDFROOT: /sw/spack-levante/netcdf-c-4.8.1-2k3cmu
+                    NETCDF_C_INCLUDE_DIRECTORIES: $NETCDFROOT/include
+                    NETCDF_Fortran_INCLUDE_DIRECTORIES: $NETCDFFROOT/include
+                    OIFS_FFIXED: '""'
+                    OMP_SCHEDULE: STATIC
+                    OMP_STACKSIZE: 128M
+                    PATH: $ECCODESROOT/bin:$PATH
+                    SZIPROOT: /sw/spack-levante/libaec-1.0.5-gij7yv
             mistral:
                 add_export_vars:
                     DR_HOOK_IGNORE_SIGNALS: -1
@@ -1226,6 +1305,15 @@ oasis3mct:
     a2o_lag: 0
     a2o_seq: 2
     a2r_lag: 0
+    add_compiletime_environment_changes: &id003
+        choose_computer.fc:
+            ftn:
+                add_export_vars:
+                - OASIS_FFLAGS=-emf
+        choose_computer.name:
+            levante:
+                add_export_vars:
+                    OASIS_FFLAGS: '"-march=core-avx2 -mtune=core-avx2"'
     all_filetypes:
     - analysis
     - bin
@@ -1255,6 +1343,7 @@ oasis3mct:
     cf_name_dir: <TEST_DIR>/comp/awicm3/awicm3-v3.0/oasis
     clean_command: rm -rf build CMakeCache.txt include lib/libpsmile.a lib/libscrip.a lib/libmct.a lib/libmpeu.a
     comp_command: mkdir -p build; cd build; cmake ..;   make -j 1; mkdir -p ../include/; cp lib/psmile/libpsmile.a lib/psmile/mct/libmct.a lib/psmile/mct/mpeu/libmpeu.a lib/psmile/scrip/libscrip.a ../lib; cp lib/psmile/mod_oasis*mod ../include
+    compiletime_environment_changes: *id003
     config_intermediate:
         cf: <TEST_DIR>run/awicm3/awicm3-v3.0-TCO159L91-CORE2_initial/run_20000101-20000101/config/oasis3mct/cf_name_table.txt
         namcouple: <TEST_DIR>run/awicm3/awicm3-v3.0-TCO159L91-CORE2_initial/run_20000101-20000101/config/oasis3mct/namcouple
@@ -1348,7 +1437,8 @@ oasis3mct:
         - A_SST:A_Ice_frac:A_Snow_thickness:A_Ice_temp:A_Ice_albedo <--gauswgt_i-- sst_feom:sie_feom:snt_feom:ist_feom:sia_feom
     coupling_time_step: 7200
     debug_info:
-        loaded_from_file: /home/ollie/mandresm/esm_tools/configs//components/oasis3mct/oasis3mct.yaml
+        loaded_from_file:
+        - /home/ollie/mandresm/esm_tools/configs//components/oasis3mct/oasis3mct.yaml
     destination: oasis
     experiment_analysis_dir: <TEST_DIR>/run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/analysis/oasis3mct/
     experiment_bin_dir: <TEST_DIR>/run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/bin/oasis3mct/
@@ -1954,6 +2044,45 @@ oifs:
                 - OIFS_CCDEFS="LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS _OPENMP"
                 - MAIN_LDFLAGS=-openmp
                 compiler_mpi: intel2022_ompi2022
+            levante:
+                add_export_vars:
+                    ECCODESROOT: /work/ab0246/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0
+                    ESM_NETCDF_C_DIR: $NETCDFROOT
+                    ESM_NETCDF_F_DIR: $NETCDFFROOT
+                    HDF5ROOT: /sw/spack-levante/hdf5-1.12.1-tvymb5
+                    HDF5_C_INCLUDE_DIRECTORIES: $HDF5_ROOT/include
+                    HDF5_ROOT: $HDF5ROOT
+                    LAPACK_LIB_DEFAULT: '"-L$MKLROOT/lib/intel64 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential"'
+                    NETCDFFROOT: /sw/spack-levante/netcdf-fortran-4.5.3-k6xq5g
+                    NETCDFROOT: /sw/spack-levante/netcdf-c-4.8.1-2k3cmu
+                    NETCDF_C_INCLUDE_DIRECTORIES: $NETCDFROOT/include
+                    NETCDF_Fortran_INCLUDE_DIRECTORIES: $NETCDFFROOT/include
+                    OASIS3MCT_FC_LIB: '"-L$NETCDFFROOT/lib -lnetcdff"'
+                    OIFS_CC: $CC
+                    OIFS_CCDEFS: '"LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS _OPENMP"'
+                    OIFS_CFLAGS: '"-fp-model precise -O3 -g -traceback -qopt-report=0 -fpe0 -qopenmp -march=core-avx2 -mtune=core-avx2"'
+                    OIFS_FC: $FC
+                    OIFS_FCDEFS: '"BLAS LITTLE LINUX INTEGER_IS_INT"'
+                    OIFS_FFIXED: '""'
+                    OIFS_FFLAGS: '"-r8 -fp-model precise -align array32byte -O3 -qopenmp -g -traceback -convert big_endian -march=core-avx2 -mtune=core-avx2"'
+                    OIFS_GRIB_API_BIN: '"$ECCODESROOT/bin"'
+                    OIFS_GRIB_API_INCLUDE: '"-I$ECCODESROOT/include"'
+                    OIFS_GRIB_API_LIB: '"-L$ECCODESROOT/lib64 -leccodes_f90 -leccodes"'
+                    OIFS_GRIB_INCLUDE: '"$OIFS_GRIB_API_INCLUDE"'
+                    OIFS_GRIB_LIB: '"$OIFS_GRIB_API_LIB"'
+                    OIFS_LFLAGS: '"$OIFS_MPI_LIB -qopenmp"'
+                    OIFS_MPI_LIB: '"$MPI_LIB"'
+                    OIFS_NETCDFF_INCLUDE: '"-I$NETCDFFROOT/include"'
+                    OIFS_NETCDFF_LIB: '"-L$NETCDFFROOT/lib -lnetcdff"'
+                    OIFS_NETCDF_INCLUDE: '"-I$NETCDFROOT/include"'
+                    OIFS_NETCDF_LIB: '"-L$NETCDFROOT/lib -lnetcdf"'
+                    OIFS_OASIS_BASE: $(pwd)/oasis
+                    OIFS_OASIS_INCLUDE: '"-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu"'
+                    OIFS_OASIS_LIB: '"-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu -lpsmile -lmct -lmpeu -lscrip"'
+                    SZIPROOT: /sw/spack-levante/libaec-1.0.5-gij7yv
+                add_module_actions:
+                - load libaec/1.0.5-intel-2021.5.0
+                iolibraries: system_libs
             mistral:
                 add_export_vars:
                     DR_HOOK_IGNORE_SIGNALS: -1
@@ -2915,6 +3044,25 @@ oifs:
                 - OMP_STACKSIZE=128M
                 - MAIN_LDFLAGS=-openmp
                 compiler_mpi: intel2022_ompi2022
+            levante:
+                add_export_vars:
+                    DR_HOOK_IGNORE_SIGNALS: -1
+                    ECCODESROOT: /work/ab0246/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0
+                    GRIB_SAMPLES_PATH: '"$ECCODESROOT/share/eccodes/ifs_samples/grib1_mlgrib2"'
+                    HDF5ROOT: /sw/spack-levante/hdf5-1.12.1-tvymb5
+                    HDF5_C_INCLUDE_DIRECTORIES: $HDF5_ROOT/include
+                    HDF5_ROOT: $HDF5ROOT
+                    LD_LIBRARY_PATH[(3)]: $ECCODESROOT/lib:$LD_LIBRARY_PATH
+                    NETCDFFROOT: /sw/spack-levante/netcdf-fortran-4.5.3-k6xq5g
+                    NETCDFROOT: /sw/spack-levante/netcdf-c-4.8.1-2k3cmu
+                    NETCDF_C_INCLUDE_DIRECTORIES: $NETCDFROOT/include
+                    NETCDF_Fortran_INCLUDE_DIRECTORIES: $NETCDFFROOT/include
+                    OIFS_FFIXED: '""'
+                    OMP_SCHEDULE: STATIC
+                    OMP_STACKSIZE: 128M
+                    PATH: $ECCODESROOT/bin:$PATH
+                    SZIPROOT: /sw/spack-levante/libaec-1.0.5-gij7yv
+                iolibraries: system_libs
             mistral:
                 add_export_vars:
                     DR_HOOK_IGNORE_SIGNALS: -1
@@ -3051,12 +3199,12 @@ rnfmap:
         - OIFS_NETCDFF_INCLUDE="-I$NETCDFFROOT/include"
         - OIFS_NETCDFF_LIB="-L$NETCDFFROOT/lib -lnetcdff"
         - OIFS_FC=$FC
-        - OIFS_FFLAGS="-r8 -fp-model precise -align array32byte -O3 -xCORE_AVX2 -g -traceback -convert big_endian -fpe0"
+        - OIFS_FFLAGS="-r8 -fp-model precise -align array32byte -O3 -march=core-avx2 -mtune=core-avx2 -g -traceback -convert big_endian -fpe0"
         - OIFS_FFIXED=""
         - OIFS_FCDEFS="BLAS LITTLE LINUX INTEGER_IS_INT"
         - OIFS_LFLAGS=$OIFS_MPI_LIB
         - OIFS_CC=$CC
-        - OIFS_CFLAGS="-fp-model precise -O3 -xCORE_AVX2 -g -traceback -qopt-report=0 -fpe0"
+        - OIFS_CFLAGS="-fp-model precise -O3 -march=core-avx2 -mtune=core-avx2 -g -traceback -qopt-report=0 -fpe0"
         - OIFS_CCDEFS="LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS"
     config_intermediate:
         namelist.runoffmapper: <TEST_DIR>run/awicm3/awicm3-v3.0-TCO159L91-CORE2_initial/run_20000101-20000101/config/rnfmap/namelist.runoffmapper

@@ -5,7 +5,19 @@ computer:
     add_choose_heterogeneous_parallelization: &id001
         false:
             cpu_bind: cores
+            srun_execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=cores --multi-prog hostfile_srun
         true:
+            choose_taskset:
+                false:
+                    launcher_comp_sep: '\
+
+                        :'
+                    launcher_flags_per_component: --nodes=@nnodes@ --ntasks=@nproc@ --ntasks-per-node=@nproc_per_node@ --cpus-per-task=@cpus_per_proc@ --export=ALL,OMP_NUM_THREADS=@omp_num_threads@
+                    srun_execution_command: 'srun -l --kill-on-bad-exit=1 --cpu_bind=cores \
+
+                        @components@'
+                true:
+                    srun_execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=cores --multi-prog hostfile_srun
             cpu_bind: none
     additional_flags: []
     batch_system: slurm
@@ -60,6 +72,7 @@ computer:
     fc: '"mpiifort -mkl"'
     header_start: '#SBATCH'
     heterogeneous_parallelization: false
+    hetjob_flag: packjob
     hostname_list: DUMMY_HOST1 DUMMY_HOST2
     hyper_flag: ''
     jobtype: unknown
@@ -121,9 +134,11 @@ computer:
     script_name: <--methods.scriptname--
     sh_interpreter: /usr/bin/bash
     single_proc_submit_flag: --ntasks-per-node=1
+    srun_execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=cores --multi-prog hostfile_srun
     submit: sbatch
     submitted: false
     tasks_flag: --ntasks=@tasks@
+    taskset: false
     thisrun_logfile: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/log/all_awiesm-2.1-recom_awiesm_@jobtype@_20010101-20010131_%j.log
     threads_per_core: 1
     time_flag: --time=01:00:00
@@ -1554,6 +1569,7 @@ fesom:
     outdata_sources_wild_card:
         fesom: '*.fesom.*.nc'
     outdata_targets: {}
+    par_tracers: false
     parent_date: '2000-12-31T23:30:00'
     parent_expid: all_awiesm-2.1-recom
     parent_restart_dir: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/restart/fesom/
@@ -1832,7 +1848,7 @@ general:
     initial_date: '2001-01-01T00:00:00'
     inspect: null
     jP: /work/ollie/dsidoren/input/fesom2.0/meshes/mesh_CORE2_finaltopo_mean/tarfilesT63/input/jsbach/jsbach_T63CORE2_11tiles_5layers_1850.nc
-    jobid: 12438
+    jobid: 1347
     jobtype: prepcompute
     last_run_datestamp: 20001201-20001231
     last_run_in_chunk: false
@@ -1915,6 +1931,7 @@ general:
     - src
     run_datestamp: 20010101-20010131
     run_number: 1
+    run_or_compile: runtime
     runscript_abspath: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/scripts/all_awiesm-2.1-recom.yaml
     runtime:
     - 0
@@ -2561,6 +2578,15 @@ jsbach:
 oasis3mct:
     a2o_lag: 450
     a2o_seq: 2
+    add_compiletime_environment_changes: &id012
+        choose_computer.fc:
+            ftn:
+                add_export_vars:
+                - OASIS_FFLAGS=-emf
+        choose_computer.name:
+            levante:
+                add_export_vars:
+                    OASIS_FFLAGS: '"-march=core-avx2 -mtune=core-avx2"'
     add_restart_in_files:
         rmp_a2f_B: rmp_a2f_B
         rmp_a2f_D: rmp_a2f_D
@@ -2614,6 +2640,7 @@ oasis3mct:
     cf_name_dir: <TEST_DIR>/comp/awiesm/awiesm-2.1-recom/oasis
     clean_command: rm -rf build CMakeCache.txt include lib/libpsmile.a lib/libscrip.a lib/libmct.a lib/libmpeu.a
     comp_command: mkdir -p build; cd build; cmake ..;   make -j 1; mkdir -p ../include/; cp lib/psmile/libpsmile.a lib/psmile/mct/libmct.a lib/psmile/mct/mpeu/libmpeu.a lib/psmile/scrip/libscrip.a ../lib; cp lib/psmile/mod_oasis*mod ../include
+    compiletime_environment_changes: *id012
     config_intermediate:
         cf: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/config/oasis3mct/cf_name_table.txt
         namcouple: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/config/oasis3mct/namcouple
@@ -2669,7 +2696,8 @@ oasis3mct:
         - o16_atmo <--distwgt-- o16_feom
     coupling_time_step: 3600
     debug_info:
-        loaded_from_file: /home/ollie/mandresm/esm_tools/configs//components/oasis3mct/oasis3mct.yaml
+        loaded_from_file:
+        - /home/ollie/mandresm/esm_tools/configs//components/oasis3mct/oasis3mct.yaml
     destination: oasis
     experiment_analysis_dir: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/analysis/oasis3mct/
     experiment_bin_dir: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/bin/oasis3mct/
@@ -3041,7 +3069,7 @@ recom:
     - 2.0-recom-awicm
     benthos_num: 8
     bgc_num: 31
-    bin_dir: <TEST_DIR>/comp/awiesm/awiesm-2.1-recom/bin
+    bin_dir: NONE/bin
     bottflx_num: 8
     branch: oxygen
     clean_command: rm -rf build CMakeCache.txt
@@ -3168,6 +3196,7 @@ recom:
         - Seasonally different carbon flux changes in the Southern Ocean in response to the southern annular mode <https://doi.org/10.1002/2013GB004600>
         - Arctic Ocean biogeochemistry in the high resolution FESOM 1.4-REcoM2 model <https://doi.org/10.1016/j.pocean.2018.09.006>
     model: recom
+    model_dir: NONE
     monthly_outputs:
     - diags3d01
     - diags3d02
@@ -3238,9 +3267,9 @@ recom:
                 use_atbox: true
     namelist_dir: <TEST_DIR>/comp/awiesm/awiesm-2.1-recom/fesom-2.1/config/
     namelist_objs:
-        namelist.recom: &id012 f90nml.name
+        namelist.recom: &id013 f90nml.name
     namelists:
-        namelist.recom: *id012
+        namelist.recom: *id013
     numofCO2cycles: 1
     outdata_intermediate:
         CO2f: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/CO2f_fesom_20010101.nc
@@ -3431,7 +3460,7 @@ recom:
     restart_out_targets:
         bio_restart: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/restart/recom/fesom.2001.bio.nc
     scenario: preindustrial
-    setup_dir: <TEST_DIR>/comp/awiesm/awiesm-2.1-recom
+    setup_dir: NONE
     thisrun_analysis_dir: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/analysis/recom/
     thisrun_bin_dir: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/bin/recom/
     thisrun_config_dir: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/config/recom/

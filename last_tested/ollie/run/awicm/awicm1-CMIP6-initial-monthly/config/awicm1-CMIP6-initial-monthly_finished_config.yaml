@@ -5,7 +5,19 @@ computer:
     add_choose_heterogeneous_parallelization: &id001
         false:
             cpu_bind: cores
+            srun_execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=cores --multi-prog hostfile_srun
         true:
+            choose_taskset:
+                false:
+                    launcher_comp_sep: '\
+
+                        :'
+                    launcher_flags_per_component: --nodes=@nnodes@ --ntasks=@nproc@ --ntasks-per-node=@nproc_per_node@ --cpus-per-task=@cpus_per_proc@ --export=ALL,OMP_NUM_THREADS=@omp_num_threads@
+                    srun_execution_command: 'srun -l --kill-on-bad-exit=1 --cpu_bind=cores \
+
+                        @components@'
+                true:
+                    srun_execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=cores --multi-prog hostfile_srun
             cpu_bind: none
     additional_flags: []
     batch_system: slurm
@@ -60,6 +72,7 @@ computer:
     fc: '"mpiifort -mkl"'
     header_start: '#SBATCH'
     heterogeneous_parallelization: false
+    hetjob_flag: packjob
     hostname_list: DUMMY_HOST1 DUMMY_HOST2
     hyper_flag: ''
     jobtype: unknown
@@ -121,9 +134,11 @@ computer:
     script_name: <--methods.scriptname--
     sh_interpreter: /usr/bin/bash
     single_proc_submit_flag: --ntasks-per-node=1
+    srun_execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=cores --multi-prog hostfile_srun
     submit: sbatch
     submitted: false
     tasks_flag: --ntasks=@tasks@
+    taskset: false
     thisrun_logfile: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/log/awicm1-CMIP6-initial-monthly_awicm_@jobtype@_18500101-18500131_%j.log
     threads_per_core: 1
     time_flag: --time=01:00:00
@@ -1770,6 +1785,7 @@ fesom:
     restart_unit: m
     rmesh_dir: /work/ollie/pool/FESOM/meshes_default/core/
     rpool_dir: /work/ollie/pool/FESOM/
+    rproc: 288
     runtime_environment_changes:
         add_export_vars:
             AWI_FESOM_YAML:
@@ -2089,7 +2105,7 @@ general:
     - restart_in
     initial_date: '1850-01-01T00:00:00'
     inspect: null
-    jobid: 11389
+    jobid: 194567
     jobtype: prepcompute
     last_run_datestamp: 18491201-18491231
     last_run_in_chunk: false
@@ -2157,6 +2173,7 @@ general:
     - src
     run_datestamp: 18500101-18500131
     run_number: 1
+    run_or_compile: runtime
     runscript_abspath: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml
     runtime:
     - 0
@@ -2729,6 +2746,15 @@ jsbach:
 oasis3mct:
     a2o_lag: 200
     a2o_seq: 2
+    add_compiletime_environment_changes: &id010
+        choose_computer.fc:
+            ftn:
+                add_export_vars:
+                - OASIS_FFLAGS=-emf
+        choose_computer.name:
+            levante:
+                add_export_vars:
+                    OASIS_FFLAGS: '"-march=core-avx2 -mtune=core-avx2"'
     add_restart_in_files:
         rmp_a2f_B: rmp_a2f_B
         rmp_a2f_D: rmp_a2f_D
@@ -2782,6 +2808,7 @@ oasis3mct:
     cf_name_dir: <TEST_DIR>/comp/awicm/awicm-CMIP6/oasis
     clean_command: rm -rf build CMakeCache.txt include lib/libpsmile.a lib/libscrip.a lib/libmct.a lib/libmpeu.a
     comp_command: mkdir -p build; cd build; cmake ..;   make -j 1; mkdir -p ../include/; cp lib/psmile/libpsmile.a lib/psmile/mct/libmct.a lib/psmile/mct/mpeu/libmpeu.a lib/psmile/scrip/libscrip.a ../lib; cp lib/psmile/mod_oasis*mod ../include
+    compiletime_environment_changes: *id010
     config_intermediate:
         cf: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/config/oasis3mct/cf_name_table.txt
         namcouple: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/config/oasis3mct/namcouple
@@ -2828,7 +2855,8 @@ oasis3mct:
         - snt_atmo <--distwgt-- snt_feom
     coupling_time_step: 3600
     debug_info:
-        loaded_from_file: /home/ollie/mandresm/esm_tools/configs//components/oasis3mct/oasis3mct.yaml
+        loaded_from_file:
+        - /home/ollie/mandresm/esm_tools/configs//components/oasis3mct/oasis3mct.yaml
     destination: oasis
     experiment_analysis_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/analysis/oasis3mct/
     experiment_bin_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/bin/oasis3mct/

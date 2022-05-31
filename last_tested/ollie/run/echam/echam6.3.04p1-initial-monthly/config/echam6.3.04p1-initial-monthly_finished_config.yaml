@@ -5,7 +5,19 @@ computer:
     add_choose_heterogeneous_parallelization: &id001
         false:
             cpu_bind: cores
+            srun_execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=cores --multi-prog hostfile_srun
         true:
+            choose_taskset:
+                false:
+                    launcher_comp_sep: '\
+
+                        :'
+                    launcher_flags_per_component: --nodes=@nnodes@ --ntasks=@nproc@ --ntasks-per-node=@nproc_per_node@ --cpus-per-task=@cpus_per_proc@ --export=ALL,OMP_NUM_THREADS=@omp_num_threads@
+                    srun_execution_command: 'srun -l --kill-on-bad-exit=1 --cpu_bind=cores \
+
+                        @components@'
+                true:
+                    srun_execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=cores --multi-prog hostfile_srun
             cpu_bind: none
     additional_flags: []
     batch_system: slurm
@@ -60,6 +72,7 @@ computer:
     fc: '"mpiifort -mkl"'
     header_start: '#SBATCH'
     heterogeneous_parallelization: false
+    hetjob_flag: packjob
     hostname_list: DUMMY_HOST1 DUMMY_HOST2
     hyper_flag: ''
     jobtype: unknown
@@ -121,9 +134,11 @@ computer:
     script_name: <--methods.scriptname--
     sh_interpreter: /usr/bin/bash
     single_proc_submit_flag: --ntasks-per-node=1
+    srun_execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=cores --multi-prog hostfile_srun
     submit: sbatch
     submitted: false
     tasks_flag: --ntasks=@tasks@
+    taskset: false
     thisrun_logfile: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/log/echam6.3.04p1-initial-monthly_echam_@jobtype@_20000101-20000131_%j.log
     threads_per_core: 1
     time_flag: --time=00:15:00
@@ -1291,7 +1306,7 @@ general:
     - restart_in
     initial_date: '2000-01-01T00:00:00'
     inspect: null
-    jobid: 9983
+    jobid: 191374
     jobtype: prepcompute
     last_run_datestamp: 19991201-19991231
     last_run_in_chunk: false
@@ -1352,6 +1367,7 @@ general:
     - src
     run_datestamp: 20000101-20000131
     run_number: 1
+    run_or_compile: runtime
     runscript_abspath: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/scripts/echam6.3.04p1-initial-monthly.yaml
     runtime:
     - 0
