@@ -63,7 +63,7 @@ export LAPACK_LIB='-mkl=sequential'
 export ZLIBROOT=/usr
 export OASIS3MCT_FC_LIB="-L$NETCDFFROOT/lib -lnetcdff"
 export PERL5LIB=/usr/lib64/perl5
-export LD_LIBRARY_PATH=$NETCDFROOT/lib:$NETCDFFROOT/lib:$HDF5ROOT/lib:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=$HDF5ROOT/lib:$NETCDFROOT/lib:$NETCDFFROOT/lib:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/sw/spack-levante/intel-oneapi-mkl-2022.0.1-ttdktf/mkl/2022.0.1/lib/intel64:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/sw/spack-levante/intel-oneapi-mpi-2021.5.0-mrcss7/mpi/2021.5.0/libfabric/lib:$LD_LIBRARY_PATH
 export AWI_FESOM_YAML='{'output_schedules': [{'vars': ['restart'], 'unit': 'm', 'first': 1, 'rate': 1}, {'vars': ['evs', 'fsitherm', 'hfds', 'opottemptend', 'pbo', 'prlq', 'prsn', 'rsdo', 'siarean', 'siareas', 'sidmassevapsubl', 'sidmasssi', 'sidmassth', 'sidmasstranx', 'sidmasstrany', 'siextentn', 'siextents', 'sifllatstop', 'sisnconc', 'sisnmass', 'sisnthick', 'sispeed', 'sivol', 'sivoln', 'sivols', 'soga', 'thetaoga', 'u2o', 'uo', 'uso', 'uto', 'v2o', 'vo', 'volo', 'vso', 'vto', 'w2o', 'wfo', 'wo', 'wso', 'wto', 'zossq', 'rho', 'uhice', 'uhsnow', 'urho', 'uv', 'vhice', 'vhsnow', 'virtual_salt', 'vrho'], 'unit': 'm', 'rate': 1}, {'vars': ['mlotst', 'omldamax', 'sic', 'sistrxdtop', 'sistrxubot', 'sistrydtop', 'sistryubot', 'sithick', 'sitimefrac', 'siu', 'siv', 'so', 'sos', 'tauuo', 'tauvo', 'thetao', 'tos', 'zos', 'flice', 'wnet', 'evap', 'runoff', 'thdgr', 'thdgrsn'], 'unit': 'd', 'rate': 1}, {'vars': ['tso'], 'unit': 's', 'rate': 12}, {'vars': ['lwrd', 'olat', 'olwout', 'osen', 'relax_salt', 'shum', 'tair', 'uwind', 'vwind'], 'unit': 'y', 'first': 1000, 'rate': 1}]}'
@@ -77,7 +77,7 @@ export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 1850-01-01T00:00:00 2552579 - start >> /work/<ACCOUNT>/a270152/testing//run/awicm//awicm1-CMIP6-initial-monthly/log//awicm1-CMIP6-initial-monthly_awicm.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 1850-01-01T00:00:00 1649260 - start >> /work/<ACCOUNT>/a270152/testing//run/awicm//awicm1-CMIP6-initial-monthly/log//awicm1-CMIP6-initial-monthly_awicm.log
 
 cd /work/<ACCOUNT>/a270152/testing//run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/work/
 time srun -l --distribution=plane=128 --cpu-bind=cores --multi-prog hostfile_srun 2>&1 &
@@ -89,6 +89,6 @@ process=$!
 cd /work/<ACCOUNT>/a270152/testing//run/awicm//awicm1-CMIP6-initial-monthly/scripts/
 esm_runscripts awicm1-CMIP6-initial-monthly.yaml -e awicm1-CMIP6-initial-monthly -t observe_compute -p ${process} -s 18500101 -r 1 -v  --open-run
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 1850-01-01T00:00:00 2552579 - done >> /work/<ACCOUNT>/a270152/testing//run/awicm//awicm1-CMIP6-initial-monthly/log//awicm1-CMIP6-initial-monthly_awicm.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 1850-01-01T00:00:00 1649260 - done >> /work/<ACCOUNT>/a270152/testing//run/awicm//awicm1-CMIP6-initial-monthly/log//awicm1-CMIP6-initial-monthly_awicm.log
 
 wait
