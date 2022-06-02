@@ -1,12 +1,12 @@
-# Regular expresions for the ignore files
+# It's possible to use Regular expresions for the ignore files
+# Remember that any special character for regular expresions needs to be preceed by \ to match it
 .run:
     - "echo $(date +%c) : compute"
-    - 'echo \$\(date \+"%a %b  %e %T %Y"\) :'
+    - 'echo \$\(date \+"%a %b  %e %T %Y"\) :' # Matches 'echo $(date +"%a %b  %e %T %Y") :'
 finished_config:
     - "    jobid: "
     - "    check: "
     - "    original_command: "
     - "_glob_[1-9]*: "
-# Literal key strings for the finished config
 finished_config_dicts:
     - "files_missing_when_preparing_run"
