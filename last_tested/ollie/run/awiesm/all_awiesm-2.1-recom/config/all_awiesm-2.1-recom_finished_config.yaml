@@ -164,7 +164,7 @@ echam:
             OIFS_OASIS_BASE: $(pwd)/oasis
             OIFS_OASIS_INCLUDE: '"-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu"'
             configure_opts: --with-coupler=oasis3-mct
-    adj_input_dir: /work/ollie/dsidoren/input/fesom2.0/meshes/mesh_CORE2_finaltopo_mean//tarfilesT63/input/echam6
+    adj_input_dir: /home/ollie/lniu/workollie/AWIESM/pool/mesh_core2//tarfilesT63/input/echam6
     all_filetypes:
     - analysis
     - bin
@@ -608,9 +608,9 @@ echam:
         spim: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/ignore/echam/all_awiesm-2.1-recom_200102.01_spim
         spim_codes: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/ignore/echam/all_awiesm-2.1-recom_200102.01_spim.codes
         spim_restart: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/ignore/echam/restart_all_awiesm-2.1-recom_spim.nc
-    ini_parent_date: '20021231'
-    ini_parent_dir: /work/ollie/mbutzin/awiesm-2.1-recom/tests/piw_zstar_swon_atbox/restart/echam/
-    ini_parent_exp_id: piw_zstar_swon_atbox
+    ini_parent_date: '22941231'
+    ini_parent_dir: /work/ollie/pool/ECHAM6//MPIESM/restart/dev/all_awiesm-2.1-recom/restart/echam6
+    ini_parent_exp_id: khw0030
     input_dir: /work/ollie/pool/ECHAM6//input/r0007
     input_intermediate:
         cldoptprops: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/input/echam/ECHAM6_CldOptProps.nc
@@ -624,12 +624,12 @@ echam:
     input_sources:
         cldoptprops: /work/ollie/pool/ECHAM6//input/r0007/ECHAM6_CldOptProps.nc
         janspec: /work/ollie/pool/ECHAM6//input/r0007/T63/T63L47_jan_spec.nc
-        jansurf: /work/ollie/dsidoren/input/fesom2.0/meshes/mesh_CORE2_finaltopo_mean//tarfilesT63/input/echam6/T63CORE2_jan_surf.nc
+        jansurf: /home/ollie/lniu/workollie/AWIESM/pool/mesh_core2//tarfilesT63/input/echam6/T63CORE2_jan_surf.nc
         rrtmglw: /work/ollie/pool/ECHAM6//input/r0007/rrtmg_lw.nc
         rrtmgsw: /work/ollie/pool/ECHAM6//input/r0007/rrtmg_sw.nc
         tslclim: /work/ollie/pool/ECHAM6//input/r0007/T63/T63_TSLCLIM.nc
-        vgratclim: /work/ollie/dsidoren/input/fesom2.0/meshes/mesh_CORE2_finaltopo_mean//tarfilesT63/input/echam6/T63CORE2_VGRATCLIM.nc
-        vltclim: /work/ollie/dsidoren/input/fesom2.0/meshes/mesh_CORE2_finaltopo_mean//tarfilesT63/input/echam6/T63CORE2_VLTCLIM.nc
+        vgratclim: /home/ollie/lniu/workollie/AWIESM/pool/mesh_core2//tarfilesT63/input/echam6/T63CORE2_VGRATCLIM.nc
+        vltclim: /home/ollie/lniu/workollie/AWIESM/pool/mesh_core2//tarfilesT63/input/echam6/T63CORE2_VLTCLIM.nc
     input_targets:
         cldoptprops: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/work/ECHAM6_CldOptProps.nc
         janspec: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/work/unit.23
@@ -1406,9 +1406,6 @@ fesom:
     humi_prefix: huss.
     icb_code: false
     ini_data_dir: /work/ollie/pool/../clidyn//pool-data/
-    ini_parent_date: '2002-12-31'
-    ini_parent_dir: /work/ollie/mbutzin/awiesm-2.1-recom/tests/piw_zstar_swon_atbox/restart/fesom/
-    ini_parent_exp_id: piw_zstar_swon_atbox
     install_bins: bin/fesom.x
     l_cloud: false
     l_humi: true
@@ -1434,7 +1431,7 @@ fesom:
         mesh_diag: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/log/fesom/fesom.mesh.diag.nc
     lresume: false
     mesh_base_dir: /work/ollie/pool/../clidyn//FESOM2/meshes/
-    mesh_dir: /work/ollie/dsidoren/input/fesom2.0/meshes/mesh_CORE2_finaltopo_mean/
+    mesh_dir: /home/ollie/lniu/workollie/AWIESM/pool/mesh_core2/
     mesh_rotated: false
     model: fesom
     model_dir: <TEST_DIR>/comp/awiesm/awiesm-2.1-recom/fesom-2.1
@@ -1447,10 +1444,10 @@ fesom:
                 daynew: 1
                 yearnew: 2001
             geometry:
-                force_rotation: false
+                force_rotation: true
             paths:
-                ClimateDataPath: /work/ollie/mbutzin/fesom2/input/init/
-                MeshPath: /work/ollie/dsidoren/input/fesom2.0/meshes/mesh_CORE2_finaltopo_mean/
+                ClimateDataPath: /work/ollie/yye/fesom2/initial_files/pi_init/
+                MeshPath: /home/ollie/lniu/workollie/AWIESM/pool/mesh_core2/
                 ResultPath: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work/
             restart_log:
                 restart_length: 1
@@ -1522,7 +1519,7 @@ fesom:
                 K_gm_max: 2000
             oce_tra:
                 K_hor: 3000
-                num_tracers: 33
+                num_tracers: 24
                 surf_relax_s: 0
     namelist_dir: <TEST_DIR>/comp/awiesm/awiesm-2.1-recom/fesom-2.1/config/
     namelist_objs:
@@ -1560,7 +1557,7 @@ fesom:
     nm_xwind_var: uas
     nm_ywind_var: vas
     nproc: 288
-    num_tracers: 33
+    num_tracers: 24
     nx: 126858
     old_mesh_format: false
     opbnd_dir: remove_from_namelist
@@ -1663,8 +1660,8 @@ fesom:
     yearnew: 2001
     ywind_prefix: vas.
 general:
-    CDP: /work/ollie/mbutzin/fesom2/input/init/
-    RDP: /work/ollie/mbutzin/fesom2/input/dust/pi-mesh/
+    CDP: /work/ollie/yye/fesom2/initial_files/pi_init/
+    RDP: /work/ollie/yye/fesom2/initial_files/pi_init/dust_coremesh/
     account: None
     additional_files: []
     all_filetypes:
@@ -1756,7 +1753,7 @@ general:
     experiment_unknown_dir: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/unknown/
     expid: all_awiesm-2.1-recom
     fesom_Dflags: -DFESOM_COUPLED=ON -DRECOM_COUPLED=ON
-    fesom_mesh: /work/ollie/dsidoren/input/fesom2.0/meshes/mesh_CORE2_finaltopo_mean/
+    fesom_mesh: /home/ollie/lniu/workollie/AWIESM/pool/mesh_core2/
     file_movements:
         analysis:
             exp_to_run: copy
@@ -1835,7 +1832,7 @@ general:
             work_to_run: copy
     final_date: '2001-03-01T00:00:00'
     first_run_in_chunk: true
-    fr: false
+    fr: true
     in_filetypes:
     - scripts
     - input
@@ -1848,7 +1845,7 @@ general:
     initial_date: '2001-01-01T00:00:00'
     inspect: null
     jP: /work/ollie/dsidoren/input/fesom2.0/meshes/mesh_CORE2_finaltopo_mean/tarfilesT63/input/jsbach/jsbach_T63CORE2_11tiles_5layers_1850.nc
-    jobid: 104544
+    jobid: 19882
     jobtype: prepcompute
     last_run_datestamp: 20001201-20001231
     last_run_in_chunk: false
@@ -2160,8 +2157,7 @@ hdmodel:
             init_to_exp: copy
             run_to_work: copy
             work_to_run: copy
-    ini_parent_date: '20021231'
-    ini_parent_dir: /work/ollie/mbutzin/awiesm-2.1-recom/tests/piw_zstar_swon_atbox/restart/hdmodel/
+    ini_parent_dir: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/restart/echam//../hdmodel/
     ini_parent_exp_id: all_awiesm-2.1-recom
     ini_restart_dir: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/restart/echam//../hdmodel/
     input_dir: /work/ollie/pool/JSBACH/input/r0010/HD
@@ -2170,7 +2166,7 @@ hdmodel:
         hdstart: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/input/hdmodel/hdstart.nc
         rmp_hd: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/input/hdmodel/rmp_hd.nc
     input_sources:
-        hdpara: /work/ollie/mbutzin/awiesm-2.1-recom/input/piw_zstar_swon/hdmodel/hdpara.nc
+        hdpara: /work/ollie/pool/JSBACH/input/r0010/HD/hdpara.nc
         hdstart: /work/ollie/pool/JSBACH/input/r0010/HD/hdstart.nc
         rmp_hd: /work/ollie/pool/JSBACH/input/r0010/HD/rmp_T63_to_hd.nc
     input_targets:
@@ -2217,7 +2213,7 @@ hdmodel:
     thisrun_viz_dir: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/viz/hdmodel/
     time_step: 450
 jsbach:
-    adj_input_dir: /work/ollie/dsidoren/input/fesom2.0/meshes/mesh_CORE2_finaltopo_mean//tarfilesT63/input/jsbach
+    adj_input_dir: /home/ollie/lniu/workollie/AWIESM/pool/mesh_core2//tarfilesT63/input/jsbach
     all_filetypes:
     - analysis
     - bin
@@ -2459,10 +2455,8 @@ jsbach:
         yasso: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/ignore/jsbach/all_awiesm-2.1-recom_200102.01_yasso
         yasso_codes: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/ignore/jsbach/all_awiesm-2.1-recom_200102.01_yasso.codes
         yasso_restart: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/ignore/jsbach/restart_all_awiesm-2.1-recom_yasso.nc
-    ini_parent_date: '20021231'
     ini_parent_dir: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/restart/echam//../jsbach/
     ini_parent_exp_id: all_awiesm-2.1-recom
-    ini_parent_id: piw_zstar_swon_atbox
     ini_restart_dir: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/restart/echam//../jsbach/
     input_dir: /work/ollie/pool/JSBACH/input/r0010
     input_intermediate:
@@ -2799,9 +2793,6 @@ oasis3mct:
         lucia: lucia.*
     ignore_targets:
         nout: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/ignore/oasis3mct/nout.000000
-    ini_parent_date: '20021231'
-    ini_parent_dir: /work/ollie/mbutzin/awiesm-2.1-recom/tests/piw_zstar_swon_atbox/restart/oasis3mct/
-    ini_parent_exp_id: piw_zstar_swon_atbox
     install_libs:
     - build/lib/psmile/libpsmile.a
     - build/lib/psmile/mct/libmct.a
@@ -3067,10 +3058,10 @@ recom:
     - 2
     - 2.0-r
     - 2.0-recom-awicm
-    benthos_num: 8
-    bgc_num: 31
+    benthos_num: 4
+    bgc_num: 22
     bin_dir: NONE/bin
-    bottflx_num: 8
+    bottflx_num: 4
     branch: oxygen
     clean_command: rm -rf build CMakeCache.txt
     comp_command: mkdir -p build; cd build; cmake ..;  make -j `nproc --all`
@@ -3178,9 +3169,6 @@ recom:
             work_to_run: copy
     firstyearoffesomcycle: 2001
     git-repository: https://gitlab.dkrz.de/modular_esm/recom.git
-    ini_parent_date: '2002-12-31'
-    ini_parent_dir: /work/ollie/mbutzin/awiesm-2.1-recom/tests/piw_zstar_swon_atbox/restart/recom/
-    ini_parent_exp_id: piw_zstar_swon_atbox
     install_libs:
     - build/librecom.a
     last_parent_date: '2000-12-31T23:00:00'
@@ -3258,11 +3246,11 @@ recom:
             paco2_flux_param: {}
             pavariables:
                 DIC_PI: false
-                REcoMDataPath: /work/ollie/mbutzin/fesom2/input/dust/pi-mesh/
-                benthos_num: 8
-                bgc_num: 31
-                bottflx_num: 8
-                ciso: true
+                REcoMDataPath: /work/ollie/yye/fesom2/initial_files/pi_init/dust_coremesh/
+                benthos_num: 4
+                bgc_num: 22
+                bottflx_num: 4
+                ciso: false
                 recom_restart: false
                 use_atbox: true
     namelist_dir: <TEST_DIR>/comp/awiesm/awiesm-2.1-recom/fesom-2.1/config/

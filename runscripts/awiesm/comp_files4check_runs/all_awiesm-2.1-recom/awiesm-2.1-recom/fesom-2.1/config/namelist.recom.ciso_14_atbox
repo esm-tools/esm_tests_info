@@ -22,7 +22,7 @@ UseDustClimAlbani     = .true.      ! Use Albani dustclim field (If it is false 
 use_Fe2N              = .true.      ! use Fe2N instead of Fe2C, as in MITgcm version
 use_photodamage       = .true.      ! use Alvarez et al (2018) for chlorophyll degradation
 HetRespFlux_plus      = .true.      ! More stable computation of zooplankton respiration fluxes adding a small number to HetN
-REcoMDataPath         = '/work/ollie/yye/fesom2/initial_files/pi_init/dust_coremesh/'
+REcoMDataPath         = '/work/ollie/mbutzin/fesom2/input/dust/pi-mesh/'
 restore_alkalinity    = .true.
 useRivers             = .true.
 NitrogenSS            = .false.     ! When set to true, external sources and sinks of nitrogen are activated (Riverine, aeolian and denitrification)
@@ -197,7 +197,7 @@ Fe2C                  = 0.005d0
 Fe2C_benthos          = 0.02125     ! 0.68d0/32.d0 ! [umol/m2/day]
 kScavFe               = 0.07d0
 dust_sol              = 0.02d0      ! Dissolution of Dust for bioavaliable
-RiverFeConc           = 1000.d0
+RiverFeConc           = 0.d0
 /
 
 &pacalc
@@ -227,7 +227,7 @@ surf_relax_Alk      = 0. !!3.2e-07 !10.d0/31536000.d0
 /
 
 &paciso
-ciso_init         = .true.      ! initial fractionation of bulk organic matter
+ciso_init         = .false.      ! initial fractionation of bulk organic matter
 ciso_14           = .true.      ! include inorganic radiocarbon
 ciso_organic_14   = .false.     ! include organic radiocarbon
 ciso_warp         = .false.     ! accelerate RECOM -- HIGHLY EXPERIMENTAL
@@ -237,4 +237,6 @@ delta_CO2_13      = -6.61       ! atmospheric d13C (permil), global-mean value
 big_delta_CO2_14(1)  = 0. ! atmospheric D14C (permil), northern hemisphere polewards of 30°N
 big_delta_CO2_14(2)  = 0. ! atmospheric D14C (permil), (sub) tropical zone 30°N - 30°S
 big_delta_CO2_14(3)  = 0. ! atmospheric D14C (permil), southern hemisphere polewards of 30°S
+atbox_spinup      = .true.
+cosmic_14_init    = 2.0
 /

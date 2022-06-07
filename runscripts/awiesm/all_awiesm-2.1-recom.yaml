@@ -1,3 +1,5 @@
+# Modified from /home/ollie/yye/awiesm_code/runscripts/PI_nociso.yaml 07.06.2022
+
 general:
     account: !ENV ${ACCOUNT}
     setup_name: "awiesm"
@@ -21,24 +23,16 @@ general:
             jP: "/pf/a/a270064/bb1029/AWIESM2.1-EXP/mesh_core2/tarfilesT63/input/jsbach/jsbach_T63CORE2_11tiles_5layers_1850.nc"
             compute_time: "01:30:00"
         ollie:
-            fr: False
-            fesom_mesh: "/work/ollie/dsidoren/input/fesom2.0/meshes/mesh_CORE2_finaltopo_mean/"
-            CDP: "/work/ollie/mbutzin/fesom2/input/init/"
-            RDP: "/work/ollie/mbutzin/fesom2/input/dust/pi-mesh/"
+            fr: True
+            fesom_mesh: "/home/ollie/lniu/workollie/AWIESM/pool/mesh_core2/"
+            CDP: "/work/ollie/yye/fesom2/initial_files/pi_init/"
+            RDP: "/work/ollie/yye/fesom2/initial_files/pi_init/dust_coremesh/"
             jP: "/work/ollie/dsidoren/input/fesom2.0/meshes/mesh_CORE2_finaltopo_mean/tarfilesT63/input/jsbach/jsbach_T63CORE2_11tiles_5layers_1850.nc"
 
 echam:
     restart_rate: 1
     restart_unit: "months"
-    nproca: 24
-    nprocb: 24
-    nprocar: 0
-    nprocbr: 0
-    lresume: 0
     lrad_async: False
-    ini_parent_exp_id: piw_zstar_swon_atbox
-    ini_parent_date: "20021231"
-    ini_parent_dir: "/work/ollie/mbutzin/awiesm-2.1-recom/tests/piw_zstar_swon_atbox/restart/echam/"
     namelist_changes:
             namelist.echam:
                     runctl:
@@ -47,12 +41,10 @@ echam:
 
 hdmodel:
     lresume: 0
-    ini_parent_date: "20021231"
-    ini_parent_dir: "/work/ollie/mbutzin/awiesm-2.1-recom/tests/piw_zstar_swon_atbox/restart/hdmodel/"
-    choose_computer.name:
-        ollie:
-            add_input_sources:
-                hdpara: "/work/ollie/mbutzin/awiesm-2.1-recom/input/piw_zstar_swon/hdmodel/hdpara.nc"
+#    choose_computer.name:
+#        ollie:
+#            add_input_sources:
+#                hdpara: "/work/ollie/mbutzin/awiesm-2.1-recom/input/piw_zstar_swon/hdmodel/hdpara.nc"
 
 
 awiesm:
@@ -71,10 +63,7 @@ fesom:
     restart_unit: "m"
     restart_first: 1
     lresume: 0
-    ini_parent_exp_id: piw_zstar_swon_atbox
-    ini_parent_dir: "/work/ollie/mbutzin/awiesm-2.1-recom/tests/piw_zstar_swon_atbox/restart/fesom/"
-    ini_parent_date: "2002-12-31"
-    num_tracers: 33
+    num_tracers: 24
     namelist_changes:
         namelist.config:
             geometry:
@@ -89,32 +78,24 @@ fesom:
         io: "${namelist_dir}/namelist.io.recom.ciso"
 
 recom:
-    ini_parent_exp_id: piw_zstar_swon_atbox
-    ini_parent_date: "2002-12-31"
     lresume: 0
-    ini_parent_dir: "/work/ollie/mbutzin/awiesm-2.1-recom/tests/piw_zstar_swon_atbox/restart/recom/"
-    bgc_num: 31
-    benthos_num: 8
-    bottflx_num: 8
+    bgc_num: 22
+    benthos_num: 4
+    bottflx_num: 4
     namelist_changes:
         namelist.recom:
             pavariables:
                 DIC_PI: false
                 # NOTE:this needs to be put into awiesm yaml file
                 REcoMDataPath: ${general.RDP}
-                ciso: true
+                ciso: false
                 use_atbox: true
 
 jsbach:
     lresume: 0
-    ini_parent_id: piw_zstar_swon_atbox
-    ini_parent_date: "20021231"
     input_sources:
         # NOTE: This will be incorporated into the pool at a later stage
            jsbach_1850: ${general.jP}
 
 oasis3mct:
     lresume: 0
-    ini_parent_exp_id: piw_zstar_swon_atbox
-    ini_parent_date: "20021231"
-    ini_parent_dir: "/work/ollie/mbutzin/awiesm-2.1-recom/tests/piw_zstar_swon_atbox/restart/oasis3mct/"
