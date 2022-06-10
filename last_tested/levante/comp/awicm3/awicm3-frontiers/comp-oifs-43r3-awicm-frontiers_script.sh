@@ -88,5 +88,5 @@ unset SLURM_NPROCS
 unset SLURM_ARBITRARY_NODELIST
 
 cd oifs-43r3
-export OIFS_TOPLEVEL_DIR=/work/<ACCOUNT>/a270152/testing/comp/awicm3/awicm3-frontiers/oifs-43r3; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.cfg ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
+export OIFS_TOPLEVEL_DIR=<TEST_DIR>comp/awicm3/awicm3-frontiers/oifs-43r3; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.cfg ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
 cd ..
