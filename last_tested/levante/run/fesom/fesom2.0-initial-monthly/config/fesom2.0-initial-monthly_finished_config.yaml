@@ -42,7 +42,7 @@ computer:
     cxx: $CXX
     debug_info:
         loaded_from_file:
-        - /home/a/a270152/esm_tools/configs//machines/levante.yaml
+        - <HOME_DIR>/esm_tools/configs//machines/levante.yaml
     debugger: None
     debugger_flags_prelauncher: ''
     exclusive_flag: --exclusive
@@ -173,7 +173,7 @@ defaults:
     clean_command: rm -rf build CMakeCache.txt
     comp_command: mkdir -p build; cd build; cmake ..;   make install -j `nproc --all`
     debug_info:
-        loaded_from_file: /home/a/a270152/esm_tools/configs//defaults/download_and_compile.yaml
+        loaded_from_file: <HOME_DIR>/esm_tools/configs//defaults/download_and_compile.yaml
 fesom:
     all_filetypes:
     - analysis
@@ -214,12 +214,12 @@ fesom:
         io: /work/<ACCOUNT>/a270152/testing/run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/config/fesom/namelist.io
         oce: /work/<ACCOUNT>/a270152/testing/run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/config/fesom/namelist.oce
     config_sources:
-        config: /home/a/a270152/esm_tools/namelists//fesom2/2.0//namelist.config
+        config: <HOME_DIR>/esm_tools/namelists//fesom2/2.0//namelist.config
         fesom.clock: /work/<ACCOUNT>/a270152/testing//run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/config/fesom//fesom.clock
-        forcing: /home/a/a270152/esm_tools/namelists//fesom2/2.0//namelist.forcing
-        ice: /home/a/a270152/esm_tools/namelists//fesom2/2.0//namelist.ice
-        io: /home/a/a270152/esm_tools/namelists//fesom2/2.0//namelist.io
-        oce: /home/a/a270152/esm_tools/namelists//fesom2/2.0//namelist.oce
+        forcing: <HOME_DIR>/esm_tools/namelists//fesom2/2.0//namelist.forcing
+        ice: <HOME_DIR>/esm_tools/namelists//fesom2/2.0//namelist.ice
+        io: <HOME_DIR>/esm_tools/namelists//fesom2/2.0//namelist.io
+        oce: <HOME_DIR>/esm_tools/namelists//fesom2/2.0//namelist.oce
     config_targets:
         config: /work/<ACCOUNT>/a270152/testing/run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/work/namelist.config
         fesom.clock: /work/<ACCOUNT>/a270152/testing/run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/work/fesom.clock
@@ -269,7 +269,7 @@ fesom:
     currentday: 1
     daynew: 1
     debug_info:
-        loaded_from_file: /home/a/a270152/esm_tools/configs//components/fesom/fesom-2.0.yaml
+        loaded_from_file: <HOME_DIR>/esm_tools/configs//components/fesom/fesom-2.0.yaml
     destination: fesom-2.0
     executable: fesom
     experiment_analysis_dir: /work/<ACCOUNT>/a270152/testing//run/fesom//fesom2.0-initial-monthly/analysis/fesom/
@@ -446,7 +446,7 @@ fesom:
                 nm_tair_file: /pool/data/AWICM/FESOM2//FORCING//t_10.
                 nm_xwind_file: /pool/data/AWICM/FESOM2//FORCING//u_10.
                 nm_ywind_file: /pool/data/AWICM/FESOM2//FORCING//v_10.
-    namelist_dir: /home/a/a270152/esm_tools/namelists//fesom2/2.0/
+    namelist_dir: <HOME_DIR>/esm_tools/namelists//fesom2/2.0/
     namelist_objs:
         namelist.config: &id002 f90nml.name
         namelist.cvmix: &id003 f90nml.name
@@ -578,10 +578,10 @@ general:
     compute_time: 00:08:00
     current_date: '2001-01-01T00:00:00'
     debug_info:
-        loaded_from_file: /home/a/a270152/esm_tools/configs//defaults/general.yaml
+        loaded_from_file: <HOME_DIR>/esm_tools/configs//defaults/general.yaml
     defaults.yaml:
         debug_info:
-            loaded_from_file: /home/a/a270152/esm_tools/configs//esm_software/esm_runscripts/defaults.yaml
+            loaded_from_file: <HOME_DIR>/esm_tools/configs//esm_software/esm_runscripts/defaults.yaml
         per_model_defaults: {}
     delta_date:
     - 0
@@ -591,9 +591,9 @@ general:
     - 0
     - 0
     end_date: '2001-01-31T00:00:00'
-    esm_function_dir: /home/a/a270152/esm_tools/configs/
-    esm_namelist_dir: /home/a/a270152/esm_tools/namelists/
-    esm_runscript_dir: /home/a/a270152/esm_tools/runscripts/
+    esm_function_dir: <HOME_DIR>/esm_tools/configs/
+    esm_namelist_dir: <HOME_DIR>/esm_tools/namelists/
+    esm_runscript_dir: <HOME_DIR>/esm_tools/runscripts/
     experiment_analysis_dir: /work/<ACCOUNT>/a270152/testing//run/fesom//fesom2.0-initial-monthly/analysis/
     experiment_config_dir: /work/<ACCOUNT>/a270152/testing//run/fesom//fesom2.0-initial-monthly/config/
     experiment_couple_dir: /work/<ACCOUNT>/a270152/testing//run/fesom//fesom2.0-initial-monthly/couple/
@@ -693,7 +693,7 @@ general:
     - restart_in
     initial_date: '2001-01-01T00:00:00'
     inspect: null
-    jobid: 1388271
+    jobid: 1089618
     jobtype: prepcompute
     last_run_datestamp: 20001201-20001231
     last_run_in_chunk: false

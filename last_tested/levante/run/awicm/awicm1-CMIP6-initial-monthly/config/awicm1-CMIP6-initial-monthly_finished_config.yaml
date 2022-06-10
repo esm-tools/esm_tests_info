@@ -42,7 +42,7 @@ computer:
     cxx: $CXX
     debug_info:
         loaded_from_file:
-        - /home/a/a270152/esm_tools/configs//machines/levante.yaml
+        - <HOME_DIR>/esm_tools/configs//machines/levante.yaml
     debugger: None
     debugger_flags_prelauncher: ''
     exclusive_flag: --exclusive
@@ -169,12 +169,12 @@ computer:
     use_hyperthreading: false
 debug_info:
     loaded_from_file:
-    - /home/a/a270152/esm_tools/configs//setups/awicm/awicm.yaml
+    - <HOME_DIR>/esm_tools/configs//setups/awicm/awicm.yaml
 defaults:
     clean_command: rm -rf build CMakeCache.txt
     comp_command: mkdir -p build; cd build; cmake ..;   make install -j `nproc --all`
     debug_info:
-        loaded_from_file: /home/a/a270152/esm_tools/configs//defaults/download_and_compile.yaml
+        loaded_from_file: <HOME_DIR>/esm_tools/configs//defaults/download_and_compile.yaml
 echam:
     _nx: 384
     _ny: 192
@@ -280,7 +280,7 @@ echam:
     config_intermediate:
         namelist.echam: /work/<ACCOUNT>/a270152/testing/run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/config/echam/namelist.echam
     config_sources:
-        namelist.echam: /home/a/a270152/esm_tools/namelists//echam/6.3.04p1/PI-CTRL/namelist.echam
+        namelist.echam: <HOME_DIR>/esm_tools/namelists//echam/6.3.04p1/PI-CTRL/namelist.echam
     config_targets:
         namelist.echam: /work/<ACCOUNT>/a270152/testing/run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/work/namelist.echam
     coupling_fields:
@@ -319,8 +319,8 @@ echam:
     dataset: r0007
     debug_info:
         loaded_from_file:
-        - /home/a/a270152/esm_tools/configs//components/echam/echam.yaml
-        - /home/a/a270152/esm_tools/configs//components/echam/echam.postprocessing.yaml
+        - <HOME_DIR>/esm_tools/configs//components/echam/echam.yaml
+        - <HOME_DIR>/esm_tools/configs//components/echam/echam.postprocessing.yaml
     disturbance: 1.000001
     executable: echam6
     experiment_analysis_dir: /work/<ACCOUNT>/a270152/testing//run/awicm//awicm1-CMIP6-initial-monthly/analysis/echam/
@@ -665,8 +665,8 @@ echam:
     namelist_changes:
         namelist.echam:
             parctl:
-                nproca: 32
-                nprocb: 32
+                nproca: 16
+                nprocb: 16
             runctl:
                 delta_time: 200
                 dt_resume:
@@ -690,14 +690,14 @@ echam:
                 - months
                 - first
                 - 0
-    namelist_dir: /home/a/a270152/esm_tools/namelists//echam/6.3.04p1/PI-CTRL
+    namelist_dir: <HOME_DIR>/esm_tools/namelists//echam/6.3.04p1/PI-CTRL
     namelist_objs:
         namelist.echam: &id002 f90nml.name
     namelists:
         namelist.echam: *id002
-    nproca: 32
+    nproca: 16
     nprocar: 0
-    nprocb: 32
+    nprocb: 16
     nprocbr: 0
     npromar: 0
     ocean_resolution: CORE2
@@ -1214,12 +1214,12 @@ fesom:
         ice: /work/<ACCOUNT>/a270152/testing/run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/config/fesom/namelist.ice
         oce: /work/<ACCOUNT>/a270152/testing/run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/config/fesom/namelist.oce
     config_sources:
-        config: /home/a/a270152/esm_tools/namelists//fesom/namelist.config
-        diag: /home/a/a270152/esm_tools/namelists//fesom/namelist.diag
+        config: <HOME_DIR>/esm_tools/namelists//fesom/namelist.config
+        diag: <HOME_DIR>/esm_tools/namelists//fesom/namelist.diag
         fesom.clock: /work/<ACCOUNT>/a270152/testing//run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/config/fesom//fesom.clock
-        forcing: /home/a/a270152/esm_tools/namelists//fesom/namelist.forcing
-        ice: /home/a/a270152/esm_tools/namelists//fesom/namelist.ice
-        oce: /home/a/a270152/esm_tools/namelists//fesom/namelist.oce
+        forcing: <HOME_DIR>/esm_tools/namelists//fesom/namelist.forcing
+        ice: <HOME_DIR>/esm_tools/namelists//fesom/namelist.ice
+        oce: <HOME_DIR>/esm_tools/namelists//fesom/namelist.oce
     config_targets:
         config: /work/<ACCOUNT>/a270152/testing/run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/work/namelist.config
         diag: /work/<ACCOUNT>/a270152/testing/run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/work/namelist.diag
@@ -1292,7 +1292,7 @@ fesom:
     - thdgrsn
     daynew: 1
     debug_info:
-        loaded_from_file: /home/a/a270152/esm_tools/configs//components/fesom/fesom.yaml
+        loaded_from_file: <HOME_DIR>/esm_tools/configs//components/fesom/fesom.yaml
     executable: fesom
     experiment_analysis_dir: /work/<ACCOUNT>/a270152/testing//run/awicm//awicm1-CMIP6-initial-monthly/analysis/fesom/
     experiment_bin_dir: /work/<ACCOUNT>/a270152/testing//run/awicm//awicm1-CMIP6-initial-monthly/bin/fesom/
@@ -1514,7 +1514,7 @@ fesom:
             boundary:
                 restore_s_surf: 0
             oce_tra: *id003
-    namelist_dir: /home/a/a270152/esm_tools/namelists//fesom
+    namelist_dir: <HOME_DIR>/esm_tools/namelists//fesom
     namelist_objs:
         namelist.config: &id004 f90nml.name
         namelist.diag: &id005 f90nml.name
@@ -2015,10 +2015,10 @@ general:
     - fesom-1.4+echam-6.3.04p1
     current_date: '1850-01-01T00:00:00'
     debug_info:
-        loaded_from_file: /home/a/a270152/esm_tools/configs//defaults/general.yaml
+        loaded_from_file: <HOME_DIR>/esm_tools/configs//defaults/general.yaml
     defaults.yaml:
         debug_info:
-            loaded_from_file: /home/a/a270152/esm_tools/configs//esm_software/esm_runscripts/defaults.yaml
+            loaded_from_file: <HOME_DIR>/esm_tools/configs//esm_software/esm_runscripts/defaults.yaml
         per_model_defaults: {}
     delta_date:
     - 0
@@ -2028,9 +2028,9 @@ general:
     - 0
     - 0
     end_date: '1850-01-31T00:00:00'
-    esm_function_dir: /home/a/a270152/esm_tools/configs/
-    esm_namelist_dir: /home/a/a270152/esm_tools/namelists/
-    esm_runscript_dir: /home/a/a270152/esm_tools/runscripts/
+    esm_function_dir: <HOME_DIR>/esm_tools/configs/
+    esm_namelist_dir: <HOME_DIR>/esm_tools/namelists/
+    esm_runscript_dir: <HOME_DIR>/esm_tools/runscripts/
     experiment_analysis_dir: /work/<ACCOUNT>/a270152/testing//run/awicm//awicm1-CMIP6-initial-monthly/analysis/
     experiment_config_dir: /work/<ACCOUNT>/a270152/testing//run/awicm//awicm1-CMIP6-initial-monthly/config/
     experiment_couple_dir: /work/<ACCOUNT>/a270152/testing//run/awicm//awicm1-CMIP6-initial-monthly/couple/
@@ -2130,7 +2130,7 @@ general:
     - restart_in
     initial_date: '1850-01-01T00:00:00'
     inspect: null
-    jobid: 1649260
+    jobid: 1092992
     jobtype: prepcompute
     last_run_datestamp: 18491201-18491231
     last_run_in_chunk: false
@@ -2263,7 +2263,7 @@ general:
                 called_from: prepcompute
                 next_submit:
                 - tidy
-                nproc: 1408
+                nproc: 640
                 order_in_cluster: sequential
                 run_before: tidy
                 run_on_queue: compute
@@ -2294,7 +2294,7 @@ general:
                 submit_to_batch_system: false
         subjobs:
             compute_general:
-                nproc: 1408
+                nproc: 640
                 run_before: tidy
                 run_on_queue: compute
                 subjob_cluster: compute
@@ -2324,7 +2324,7 @@ hdmodel:
     - ignore
     debug_info:
         loaded_from_file:
-        - /home/a/a270152/esm_tools/configs//components/hdmodel/hdmodel.yaml
+        - <HOME_DIR>/esm_tools/configs//components/hdmodel/hdmodel.yaml
     description: 'The Hagemann/Duemenil hydrology model,
 
         (someone from Hamburg)
@@ -2492,15 +2492,15 @@ jsbach:
     config_intermediate:
         namelist.jsbach: /work/<ACCOUNT>/a270152/testing/run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/config/jsbach/namelist.jsbach
     config_sources:
-        namelist.jsbach: /home/a/a270152/esm_tools/namelists//jsbach/3.20/PI-CTRL/no_dynveg/namelist.jsbach
+        namelist.jsbach: <HOME_DIR>/esm_tools/namelists//jsbach/3.20/PI-CTRL/no_dynveg/namelist.jsbach
     config_targets:
         namelist.jsbach: /work/<ACCOUNT>/a270152/testing/run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/work/namelist.jsbach
     cover_fract_dir: /pool/data/JSBACH/input/r0009/T127/land_use_maps/
     dataset: r0009
     debug_info:
         loaded_from_file:
-        - /home/a/a270152/esm_tools/configs//components/jsbach/jsbach.yaml
-        - /home/a/a270152/esm_tools/configs//components/jsbach/jsbach.datasets.yaml
+        - <HOME_DIR>/esm_tools/configs//components/jsbach/jsbach.yaml
+        - <HOME_DIR>/esm_tools/configs//components/jsbach/jsbach.datasets.yaml
     description: 'The JSBACH vegetation model, major version 3
 
         (someone from Hamburg)
@@ -2699,7 +2699,7 @@ jsbach:
     namelist_changes:
         namelist.jsbach:
             hydrology_ctl: {}
-    namelist_dir: /home/a/a270152/esm_tools/namelists//jsbach/3.20/PI-CTRL/no_dynveg
+    namelist_dir: <HOME_DIR>/esm_tools/namelists//jsbach/3.20/PI-CTRL/no_dynveg
     namelist_objs:
         namelist.jsbach: &id009 f90nml.name
     namelists:
@@ -2881,7 +2881,7 @@ oasis3mct:
     coupling_time_step: 3600
     debug_info:
         loaded_from_file:
-        - /home/a/a270152/esm_tools/configs//components/oasis3mct/oasis3mct.yaml
+        - <HOME_DIR>/esm_tools/configs//components/oasis3mct/oasis3mct.yaml
     destination: oasis
     experiment_analysis_dir: /work/<ACCOUNT>/a270152/testing//run/awicm//awicm1-CMIP6-initial-monthly/analysis/oasis3mct/
     experiment_bin_dir: /work/<ACCOUNT>/a270152/testing//run/awicm//awicm1-CMIP6-initial-monthly/bin/oasis3mct/

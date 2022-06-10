@@ -92,9 +92,9 @@ unset SLURM_ARBITRARY_NODELIST
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo $(date +"%a %b  %e %T %Y") : postprocessing_oifs 1 2000-01-01T00:00:00 700125 - start >> /work/<ACCOUNT>/a270152/testing//run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/log//awicm3-frontiers-TCO159L91-CORE2_initial_awicm3.log
+echo $(date +"%a %b  %e %T %Y") : postprocessing_oifs 1 2000-01-01T00:00:00 749640 - start >> /work/<ACCOUNT>/a270152/testing//run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/log//awicm3-frontiers-TCO159L91-CORE2_initial_awicm3.log
 
 cd /work/<ACCOUNT>/a270152/testing//run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/
-time srun -l --distribution=plane=128 --cpu-bind=none /home/a/a270152/esm_tools/configs//setups/awicm3/postprocessing.sh /work/<ACCOUNT>/a270152/testing//run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/outdata/oifs/ 20000101 2>&1 &
+time srun -l --distribution=plane=128 --cpu-bind=none <HOME_DIR>/esm_tools/configs//setups/awicm3/postprocessing.sh /work/<ACCOUNT>/a270152/testing//run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/outdata/oifs/ 20000101 2>&1 &
 
 wait

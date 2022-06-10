@@ -48,7 +48,7 @@ computer:
     cxx: $CXX
     debug_info:
         loaded_from_file:
-        - /home/a/a270152/esm_tools/configs//machines/levante.yaml
+        - <HOME_DIR>/esm_tools/configs//machines/levante.yaml
     debugger: None
     debugger_flags_prelauncher: ''
     exclusive_flag: --exclusive
@@ -180,17 +180,17 @@ computer:
     use_hyperthreading: false
 debug_info:
     loaded_from_file:
-    - /home/a/a270152/esm_tools/configs//setups/awicm3/awicm3.yaml
+    - <HOME_DIR>/esm_tools/configs//setups/awicm3/awicm3.yaml
 defaults:
     clean_command: rm -rf build CMakeCache.txt
     comp_command: mkdir -p build; cd build; cmake ..;   make install -j `nproc --all`
     debug_info:
-        loaded_from_file: /home/a/a270152/esm_tools/configs//defaults/download_and_compile.yaml
+        loaded_from_file: <HOME_DIR>/esm_tools/configs//defaults/download_and_compile.yaml
 fesom:
     add_config_files:
         cvmix: cvmix
     add_config_sources:
-        cvmix: /home/a/a270152/esm_tools/namelists//fesom2/2.0/awicm3/frontiers//namelist.cvmix
+        cvmix: <HOME_DIR>/esm_tools/namelists//fesom2/2.0/awicm3/frontiers//namelist.cvmix
     all_filetypes:
     - analysis
     - bin
@@ -234,13 +234,13 @@ fesom:
         io: /work/<ACCOUNT>/a270152/testing/run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/config/fesom/namelist.io
         oce: /work/<ACCOUNT>/a270152/testing/run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/config/fesom/namelist.oce
     config_sources:
-        config: /home/a/a270152/esm_tools/namelists//fesom2/2.0/awicm3/frontiers//namelist.config
-        cvmix: /home/a/a270152/esm_tools/namelists//fesom2/2.0/awicm3/frontiers//namelist.cvmix
+        config: <HOME_DIR>/esm_tools/namelists//fesom2/2.0/awicm3/frontiers//namelist.config
+        cvmix: <HOME_DIR>/esm_tools/namelists//fesom2/2.0/awicm3/frontiers//namelist.cvmix
         fesom.clock: /work/<ACCOUNT>/a270152/testing//run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/config/fesom//fesom.clock
-        forcing: /home/a/a270152/esm_tools/namelists//fesom2/2.0/awicm3/frontiers//namelist.forcing
-        ice: /home/a/a270152/esm_tools/namelists//fesom2/2.0/awicm3/frontiers//namelist.ice
-        io: /home/a/a270152/esm_tools/namelists//fesom2/2.0/awicm3/frontiers//namelist.io
-        oce: /home/a/a270152/esm_tools/namelists//fesom2/2.0/awicm3/frontiers//namelist.oce
+        forcing: <HOME_DIR>/esm_tools/namelists//fesom2/2.0/awicm3/frontiers//namelist.forcing
+        ice: <HOME_DIR>/esm_tools/namelists//fesom2/2.0/awicm3/frontiers//namelist.ice
+        io: <HOME_DIR>/esm_tools/namelists//fesom2/2.0/awicm3/frontiers//namelist.io
+        oce: <HOME_DIR>/esm_tools/namelists//fesom2/2.0/awicm3/frontiers//namelist.oce
     config_targets:
         config: /work/<ACCOUNT>/a270152/testing/run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work/namelist.config
         cvmix: /work/<ACCOUNT>/a270152/testing/run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work/namelist.cvmix
@@ -296,7 +296,7 @@ fesom:
     currentday: 1
     daynew: 1
     debug_info:
-        loaded_from_file: /home/a/a270152/esm_tools/configs//components/fesom/fesom-2.0.yaml
+        loaded_from_file: <HOME_DIR>/esm_tools/configs//components/fesom/fesom-2.0.yaml
     destination: fesom-2.0
     executable: fesom
     experiment_analysis_dir: /work/<ACCOUNT>/a270152/testing//run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/analysis/fesom/
@@ -471,7 +471,7 @@ fesom:
         namelist.oce:
             oce_tra:
                 surf_relax_s: 0
-    namelist_dir: /home/a/a270152/esm_tools/namelists//fesom2/2.0/awicm3/frontiers/
+    namelist_dir: <HOME_DIR>/esm_tools/namelists//fesom2/2.0/awicm3/frontiers/
     namelists:
     - namelist.config
     - namelist.forcing
@@ -881,11 +881,11 @@ general:
     current_date: '2000-01-01T00:00:00'
     debug_info:
         loaded_from_file:
-        - /home/a/a270152/esm_tools/configs//defaults/general.yaml
-        - /home/a/a270152/esm_tools/configs//components/oasis3mct/oasis3mct.env.yaml
+        - <HOME_DIR>/esm_tools/configs//defaults/general.yaml
+        - <HOME_DIR>/esm_tools/configs//components/oasis3mct/oasis3mct.env.yaml
     defaults.yaml:
         debug_info:
-            loaded_from_file: /home/a/a270152/esm_tools/configs//esm_software/esm_runscripts/defaults.yaml
+            loaded_from_file: <HOME_DIR>/esm_tools/configs//esm_software/esm_runscripts/defaults.yaml
         per_model_defaults: {}
     delta_date:
     - 0
@@ -927,9 +927,9 @@ general:
                             DR_HOOK_PROFILE_LIMIT: 0.5
                             HDF5_DISABLE_VERSION_CHECK: 1
                             OIFS_DUMMY_ACTION: ABORT
-    esm_function_dir: /home/a/a270152/esm_tools/configs/
-    esm_namelist_dir: /home/a/a270152/esm_tools/namelists/
-    esm_runscript_dir: /home/a/a270152/esm_tools/runscripts/
+    esm_function_dir: <HOME_DIR>/esm_tools/configs/
+    esm_namelist_dir: <HOME_DIR>/esm_tools/namelists/
+    esm_runscript_dir: <HOME_DIR>/esm_tools/runscripts/
     experiment_analysis_dir: /work/<ACCOUNT>/a270152/testing//run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/analysis/
     experiment_config_dir: /work/<ACCOUNT>/a270152/testing//run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/config/
     experiment_couple_dir: /work/<ACCOUNT>/a270152/testing//run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/couple/
@@ -1033,7 +1033,7 @@ general:
     - xios
     initial_date: '2000-01-01T00:00:00'
     inspect: null
-    jobid: 1647780
+    jobid: 1089943
     jobtype: prepcompute
     last_run_datestamp: 19991231-19991231
     last_run_in_chunk: false
@@ -1465,7 +1465,7 @@ oasis3mct:
     coupling_time_step: 7200
     debug_info:
         loaded_from_file:
-        - /home/a/a270152/esm_tools/configs//components/oasis3mct/oasis3mct.yaml
+        - <HOME_DIR>/esm_tools/configs//components/oasis3mct/oasis3mct.yaml
     destination: oasis
     experiment_analysis_dir: /work/<ACCOUNT>/a270152/testing//run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/analysis/oasis3mct/
     experiment_bin_dir: /work/<ACCOUNT>/a270152/testing//run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/bin/oasis3mct/
@@ -2212,8 +2212,8 @@ oifs:
         fort.4: /work/<ACCOUNT>/a270152/testing/run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/config/oifs/fort.4
         wam_namelist: /work/<ACCOUNT>/a270152/testing/run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/config/oifs/wam_namelist
     config_sources:
-        fort.4: /home/a/a270152/esm_tools/namelists//oifs/43r3/awicm3/frontiers/fort.4
-        wam_namelist: /home/a/a270152/esm_tools/namelists//oifs/43r3/awicm3/frontiers/wam_namelist
+        fort.4: <HOME_DIR>/esm_tools/namelists//oifs/43r3/awicm3/frontiers/fort.4
+        wam_namelist: <HOME_DIR>/esm_tools/namelists//oifs/43r3/awicm3/frontiers/wam_namelist
     config_targets:
         fort.4: /work/<ACCOUNT>/a270152/testing/run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work/fort.4
         wam_namelist: /work/<ACCOUNT>/a270152/testing/run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work/wam_namelist
@@ -2257,7 +2257,7 @@ oifs:
             grid: atma
     debug_info:
         loaded_from_file:
-        - /home/a/a270152/esm_tools/configs//components/oifs/oifs.yaml
+        - <HOME_DIR>/esm_tools/configs//components/oifs/oifs.yaml
     description: 'The OpenIFS atmosphere model based on ECMWF IFS
 
         Carver et al., in prep.'
@@ -2906,7 +2906,7 @@ oifs:
                 CBPLTDT: '20000101000000'
                 CDATECURA: '20000101000000'
                 CDATEF: '20000101000000'
-    namelist_dir: /home/a/a270152/esm_tools/namelists//oifs/43r3/awicm3/frontiers
+    namelist_dir: <HOME_DIR>/esm_tools/namelists//oifs/43r3/awicm3/frontiers
     namelists:
     - fort.4
     - wam_namelist
@@ -2962,7 +2962,7 @@ oifs:
     post_processing: 0
     postprocess:
         postprocess_shell:
-            method: /home/a/a270152/esm_tools/configs//components/oifs/oifs-43r3-postprocess.sh /work/<ACCOUNT>/a270152/testing//run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work/ ECE3 20000101 20000101
+            method: <HOME_DIR>/esm_tools/configs//components/oifs/oifs-43r3-postprocess.sh /work/<ACCOUNT>/a270152/testing//run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work/ ECE3 20000101 20000101
             type: shell
     prepcompute_recipe:
     - compile_model
@@ -2986,9 +2986,9 @@ oifs:
     prepifs_startdate: '19820101'
     preprocess:
         preprocess_shell:
-            method: '/home/a/a270152/esm_tools/configs//components/oifs/change_icm_date.sh /work/<ACCOUNT>/a270152/testing//run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs// awi3 awi3 20000101 20000101 1 0 108160 1;  echo ''Run number for internal OpenIFS timekeeping: 1'''
+            method: '<HOME_DIR>/esm_tools/configs//components/oifs/change_icm_date.sh /work/<ACCOUNT>/a270152/testing//run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs// awi3 awi3 20000101 20000101 1 0 108160 1;  echo ''Run number for internal OpenIFS timekeeping: 1'''
             type: shell
-    preprocess_method: '/home/a/a270152/esm_tools/configs//components/oifs/change_icm_date.sh /work/<ACCOUNT>/a270152/testing//run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs// awi3 awi3 20000101 20000101 1 0 108160 1;  echo ''Run number for internal OpenIFS timekeeping: 1'''
+    preprocess_method: '<HOME_DIR>/esm_tools/configs//components/oifs/change_icm_date.sh /work/<ACCOUNT>/a270152/testing//run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs// awi3 awi3 20000101 20000101 1 0 108160 1;  echo ''Run number for internal OpenIFS timekeeping: 1'''
     prev_date: '1999-12-31T23:00:00'
     pseudo_initial_date: '2000-01-01T00:00:00'
     read_icmcl: 0
@@ -3231,7 +3231,7 @@ rnfmap:
     config_intermediate:
         namelist.runoffmapper: /work/<ACCOUNT>/a270152/testing/run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/config/rnfmap/namelist.runoffmapper
     config_sources:
-        namelist.runoffmapper: /home/a/a270152/esm_tools/namelists//rnfmap//namelist.runoffmapper
+        namelist.runoffmapper: <HOME_DIR>/esm_tools/namelists//rnfmap//namelist.runoffmapper
     config_targets:
         namelist.runoffmapper: /work/<ACCOUNT>/a270152/testing/run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work/namelist.runoffmapper
     coupling_fields:
@@ -3244,7 +3244,7 @@ rnfmap:
         R_Runoff_oce:
             grid: rnfo
     debug_info:
-        loaded_from_file: /home/a/a270152/esm_tools/configs//components/rnfmap/rnfmap.yaml
+        loaded_from_file: <HOME_DIR>/esm_tools/configs//components/rnfmap/rnfmap.yaml
     description: 'River routing scheme taken from EC-Earth
 
         Modified for use in FOCI'
@@ -3370,7 +3370,7 @@ rnfmap:
             NAMRNFMAP:
                 RunLengthSec: 86400
                 TimeStepSec: 7200
-    namelist_dir: /home/a/a270152/esm_tools/namelists//rnfmap/
+    namelist_dir: <HOME_DIR>/esm_tools/namelists//rnfmap/
     namelists:
     - namelist.runoffmapper
     nproc: 1
@@ -3458,13 +3458,13 @@ xios:
         grid_def: /work/<ACCOUNT>/a270152/testing/run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/config/xios/grid_def.xml
         io_def: /work/<ACCOUNT>/a270152/testing/run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/config/xios/iodef.xml
     config_sources:
-        axis_def: /home/a/a270152/esm_tools/namelists//oifs/43r3/xios/TCO159_CORE2/axis_def.xml
-        context_ifs: /home/a/a270152/esm_tools/namelists//oifs/43r3/xios/TCO159_CORE2/context_ifs.xml
-        domain_def: /home/a/a270152/esm_tools/namelists//oifs/43r3/xios/TCO159_CORE2/domain_def.xml
-        field_def: /home/a/a270152/esm_tools/namelists//oifs/43r3/xios/TCO159_CORE2/field_def.xml
-        file_def: /home/a/a270152/esm_tools/namelists//oifs/43r3/xios/TCO159_CORE2/file_def.xml
-        grid_def: /home/a/a270152/esm_tools/namelists//oifs/43r3/xios/TCO159_CORE2/grid_def.xml
-        io_def: /home/a/a270152/esm_tools/namelists//oifs/43r3/xios/TCO159_CORE2/iodef.xml
+        axis_def: <HOME_DIR>/esm_tools/namelists//oifs/43r3/xios/TCO159_CORE2/axis_def.xml
+        context_ifs: <HOME_DIR>/esm_tools/namelists//oifs/43r3/xios/TCO159_CORE2/context_ifs.xml
+        domain_def: <HOME_DIR>/esm_tools/namelists//oifs/43r3/xios/TCO159_CORE2/domain_def.xml
+        field_def: <HOME_DIR>/esm_tools/namelists//oifs/43r3/xios/TCO159_CORE2/field_def.xml
+        file_def: <HOME_DIR>/esm_tools/namelists//oifs/43r3/xios/TCO159_CORE2/file_def.xml
+        grid_def: <HOME_DIR>/esm_tools/namelists//oifs/43r3/xios/TCO159_CORE2/grid_def.xml
+        io_def: <HOME_DIR>/esm_tools/namelists//oifs/43r3/xios/TCO159_CORE2/iodef.xml
     config_sources_wild_card:
         ifs_xml: '*'
     config_targets:
@@ -3477,7 +3477,7 @@ xios:
         io_def: /work/<ACCOUNT>/a270152/testing/run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work/iodef.xml
     debug_info:
         loaded_from_file:
-        - /home/a/a270152/esm_tools/configs//components/xios/xios.yaml
+        - <HOME_DIR>/esm_tools/configs//components/xios/xios.yaml
     destination: xios
     environment_changes:
         choose_computer.name:
@@ -3618,4 +3618,4 @@ xios:
     thisrun_viz_dir: /work/<ACCOUNT>/a270152/testing//run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/viz/xios/
     use_oasis: ''
     version: 2.0r982
-    xml_dir: /home/a/a270152/esm_tools/namelists//oifs/43r3/xios/TCO159_CORE2
+    xml_dir: <HOME_DIR>/esm_tools/namelists//oifs/43r3/xios/TCO159_CORE2

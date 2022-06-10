@@ -42,7 +42,7 @@ computer:
     cxx: $CXX
     debug_info:
         loaded_from_file:
-        - /home/a/a270152/esm_tools/configs//machines/levante.yaml
+        - <HOME_DIR>/esm_tools/configs//machines/levante.yaml
     debugger: None
     debugger_flags_prelauncher: ''
     exclusive_flag: --exclusive
@@ -169,12 +169,12 @@ computer:
     use_hyperthreading: false
 debug_info:
     loaded_from_file:
-    - /home/a/a270152/esm_tools/configs//setups/awiesm/awiesm.yaml
+    - <HOME_DIR>/esm_tools/configs//setups/awiesm/awiesm.yaml
 defaults:
     clean_command: rm -rf build CMakeCache.txt
     comp_command: mkdir -p build; cd build; cmake ..;   make install -j `nproc --all`
     debug_info:
-        loaded_from_file: /home/a/a270152/esm_tools/configs//defaults/download_and_compile.yaml
+        loaded_from_file: <HOME_DIR>/esm_tools/configs//defaults/download_and_compile.yaml
 echam:
     _nx: 192
     _ny: 96
@@ -289,7 +289,7 @@ echam:
     config_intermediate:
         namelist.echam: /work/<ACCOUNT>/a270152/testing/run/awiesm/pi/run_18500101-18500131/config/echam/namelist.echam
     config_sources:
-        namelist.echam: /home/a/a270152/esm_tools/namelists//echam/6.3.05p2-awiesm-2.1/production/namelist.echam
+        namelist.echam: <HOME_DIR>/esm_tools/namelists//echam/6.3.05p2-awiesm-2.1/production/namelist.echam
     config_targets:
         namelist.echam: /work/<ACCOUNT>/a270152/testing/run/awiesm/pi/run_18500101-18500131/work/namelist.echam
     coupling_fields:
@@ -328,8 +328,8 @@ echam:
     dataset: r0007
     debug_info:
         loaded_from_file:
-        - /home/a/a270152/esm_tools/configs//components/echam/echam.yaml
-        - /home/a/a270152/esm_tools/configs//components/echam/echam.postprocessing.yaml
+        - <HOME_DIR>/esm_tools/configs//components/echam/echam.yaml
+        - <HOME_DIR>/esm_tools/configs//components/echam/echam.postprocessing.yaml
     disturbance: 1.000001
     executable: echam6
     experiment_analysis_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//pi/analysis/echam/
@@ -709,7 +709,7 @@ echam:
                 lwiso: false
                 lwiso_rerun: false
                 nwiso: 0
-    namelist_dir: /home/a/a270152/esm_tools/namelists//echam/6.3.05p2-awiesm-2.1/production
+    namelist_dir: <HOME_DIR>/esm_tools/namelists//echam/6.3.05p2-awiesm-2.1/production
     namelist_objs:
         namelist.echam: &id003 f90nml.name
     namelist_type: production
@@ -1288,7 +1288,7 @@ fesom:
     daynew: 1
     debug_info:
         loaded_from_file:
-        - /home/a/a270152/esm_tools/configs//components/fesom/fesom-2.1.yaml
+        - <HOME_DIR>/esm_tools/configs//components/fesom/fesom-2.1.yaml
     destination: fesom-2.1
     executable: fesom
     experiment_analysis_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//pi/analysis/fesom/
@@ -1712,10 +1712,10 @@ general:
     - fesom-2.1-awiesm-2.1+echam-6.3.05p2-awiesm-2.1
     current_date: '1850-01-01T00:00:00'
     debug_info:
-        loaded_from_file: /home/a/a270152/esm_tools/configs//defaults/general.yaml
+        loaded_from_file: <HOME_DIR>/esm_tools/configs//defaults/general.yaml
     defaults.yaml:
         debug_info:
-            loaded_from_file: /home/a/a270152/esm_tools/configs//esm_software/esm_runscripts/defaults.yaml
+            loaded_from_file: <HOME_DIR>/esm_tools/configs//esm_software/esm_runscripts/defaults.yaml
         per_model_defaults: {}
     delta_date:
     - 0
@@ -1726,9 +1726,9 @@ general:
     - 0
     description: Basic AWIESM Test for PI
     end_date: '1850-01-31T00:00:00'
-    esm_function_dir: /home/a/a270152/esm_tools/configs/
-    esm_namelist_dir: /home/a/a270152/esm_tools/namelists/
-    esm_runscript_dir: /home/a/a270152/esm_tools/runscripts/
+    esm_function_dir: <HOME_DIR>/esm_tools/configs/
+    esm_namelist_dir: <HOME_DIR>/esm_tools/namelists/
+    esm_runscript_dir: <HOME_DIR>/esm_tools/runscripts/
     experiment_analysis_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//pi/analysis/
     experiment_config_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//pi/config/
     experiment_couple_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//pi/couple/
@@ -1829,7 +1829,7 @@ general:
     - restart_in
     initial_date: '1850-01-01T00:00:00'
     inspect: null
-    jobid: 1295502
+    jobid: 1091699
     jobtype: prepcompute
     last_run_datestamp: 18491201-18491231
     last_run_in_chunk: false
@@ -2043,7 +2043,7 @@ hdmodel:
     - ignore
     debug_info:
         loaded_from_file:
-        - /home/a/a270152/esm_tools/configs//components/hdmodel/hdmodel.yaml
+        - <HOME_DIR>/esm_tools/configs//components/hdmodel/hdmodel.yaml
     description: 'The Hagemann/Duemenil hydrology model,
 
         (someone from Hamburg)
@@ -2211,15 +2211,15 @@ jsbach:
     config_intermediate:
         namelist.jsbach: /work/<ACCOUNT>/a270152/testing/run/awiesm/pi/run_18500101-18500131/config/jsbach/namelist.jsbach
     config_sources:
-        namelist.jsbach: /home/a/a270152/esm_tools/namelists//jsbach/3.20/PI-CTRL/no_dynveg/namelist.jsbach
+        namelist.jsbach: <HOME_DIR>/esm_tools/namelists//jsbach/3.20/PI-CTRL/no_dynveg/namelist.jsbach
     config_targets:
         namelist.jsbach: /work/<ACCOUNT>/a270152/testing/run/awiesm/pi/run_18500101-18500131/work/namelist.jsbach
     cover_fract_dir: /pool/data/JSBACH/input/r0010/T63/land_use_maps/
     dataset: r0010
     debug_info:
         loaded_from_file:
-        - /home/a/a270152/esm_tools/configs//components/jsbach/jsbach.yaml
-        - /home/a/a270152/esm_tools/configs//components/jsbach/jsbach.datasets.yaml
+        - <HOME_DIR>/esm_tools/configs//components/jsbach/jsbach.yaml
+        - <HOME_DIR>/esm_tools/configs//components/jsbach/jsbach.datasets.yaml
     description: 'The JSBACH vegetation model, major version 3
 
         (someone from Hamburg)
@@ -2453,7 +2453,7 @@ jsbach:
             hydrology_ctl: {}
             jsbach_ctl:
                 use_dynveg: true
-    namelist_dir: /home/a/a270152/esm_tools/namelists//jsbach/3.20/PI-CTRL/no_dynveg
+    namelist_dir: <HOME_DIR>/esm_tools/namelists//jsbach/3.20/PI-CTRL/no_dynveg
     namelist_objs:
         namelist.jsbach: &id011 f90nml.name
     namelists:
@@ -2647,7 +2647,7 @@ oasis3mct:
     coupling_time_step: 3600
     debug_info:
         loaded_from_file:
-        - /home/a/a270152/esm_tools/configs//components/oasis3mct/oasis3mct.yaml
+        - <HOME_DIR>/esm_tools/configs//components/oasis3mct/oasis3mct.yaml
     destination: oasis
     experiment_analysis_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//pi/analysis/oasis3mct/
     experiment_bin_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//pi/bin/oasis3mct/
