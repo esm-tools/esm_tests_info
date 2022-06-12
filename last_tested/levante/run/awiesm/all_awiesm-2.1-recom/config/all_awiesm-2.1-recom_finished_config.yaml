@@ -1,7 +1,7 @@
 computer:
     account: None
     accounting: true
-    accounting_flag: --account=<ACCOUNT>
+    accounting_flag: --account=ab0995
     actual_script_dir: <--methods.script_dir--
     add_choose_heterogeneous_parallelization: &id001
         false:
@@ -127,7 +127,7 @@ computer:
     mpifc: $MPIFC
     name: levante
     name_flag: --job-name=all_awiesm-2.1-recom
-    netcdf_cxx_root: /work/<ACCOUNT>/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0
+    netcdf_cxx_root: /work/ab0995/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0
     nodes_flag: --nodes=@nodes@
     notification_flag: --mail-type=NONE
     output_flags: --output=<TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/log/all_awiesm-2.1-recom_awiesm_@jobtype@_20010101-20010131_%j.log --error=<TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/log/all_awiesm-2.1-recom_awiesm_@jobtype@_20010101-20010131_%j.log
@@ -152,7 +152,7 @@ computer:
         pool: /pool/data
     runtime_environment_changes:
         add_export_vars:
-            ACCOUNT: <ACCOUNT>
+            ACCOUNT: ab0995
             ESM_TESTING_DIR: <TEST_DIR>/run/awiesm/
             MODEL_DIR: <TEST_DIR>/comp/awiesm/awiesm-2.1-recom
     script_name: <--methods.scriptname--
@@ -1683,7 +1683,7 @@ fesom:
 general:
     CDP: /pf/a/a270108/fesom2_recom_config/input-for-awiesm/
     RDP: /pf/a/a270108/fesom2_recom_config/input-for-awiesm/
-    account: <ACCOUNT>
+    account: ab0995
     additional_files: []
     all_filetypes:
     - analysis

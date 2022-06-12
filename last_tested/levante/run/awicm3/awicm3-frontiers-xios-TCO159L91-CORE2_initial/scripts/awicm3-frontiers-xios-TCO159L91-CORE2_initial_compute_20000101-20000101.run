@@ -4,7 +4,7 @@
 #SBATCH --nodes=5
 #SBATCH --output=<TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/log/awicm3-frontiers-xios-TCO159L91-CORE2_initial_awicm3_compute_20000101-20000101_%j.log --error=<TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/log/awicm3-frontiers-xios-TCO159L91-CORE2_initial_awicm3_compute_20000101-20000101_%j.log
 #SBATCH --job-name=awicm3-frontiers-xios-TCO159L91-CORE2_initial
-#SBATCH --account=<ACCOUNT>
+#SBATCH --account=ab0995
 #SBATCH --mail-type=NONE
 #SBATCH --exclusive
 
@@ -74,7 +74,7 @@ export GRIB_SAMPLES_PATH="$ECCODESROOT/share/eccodes/ifs_samples/grib1_mlgrib2"
 export DR_HOOK_IGNORE_SIGNALS=-1
 export OMP_SCHEDULE=STATIC
 export OMP_STACKSIZE=128M
-export ACCOUNT=<ACCOUNT>
+export ACCOUNT=ab0995
 export ESM_TESTING_DIR=<TEST_DIR>/run/awicm3/
 export MODEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios
 export FESOM_USE_CPLNG="active"

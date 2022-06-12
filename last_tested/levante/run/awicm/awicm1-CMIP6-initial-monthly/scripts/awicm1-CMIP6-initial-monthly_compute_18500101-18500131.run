@@ -4,7 +4,7 @@
 #SBATCH --ntasks=640
 #SBATCH --output=<TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/log/awicm1-CMIP6-initial-monthly_awicm_compute_18500101-18500131_%j.log --error=<TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/log/awicm1-CMIP6-initial-monthly_awicm_compute_18500101-18500131_%j.log
 #SBATCH --job-name=awicm1-CMIP6-initial-monthly
-#SBATCH --account=<ACCOUNT>
+#SBATCH --account=ab0995
 #SBATCH --mail-type=NONE
 #SBATCH --ntasks-per-core=1
 #SBATCH --exclusive
@@ -67,7 +67,7 @@ export LD_LIBRARY_PATH=$HDF5ROOT/lib:$NETCDFROOT/lib:$NETCDFFROOT/lib:$LD_LIBRAR
 export LD_LIBRARY_PATH=/sw/spack-levante/intel-oneapi-mkl-2022.0.1-ttdktf/mkl/2022.0.1/lib/intel64:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/sw/spack-levante/intel-oneapi-mpi-2021.5.0-mrcss7/mpi/2021.5.0/libfabric/lib:$LD_LIBRARY_PATH
 export AWI_FESOM_YAML='{'output_schedules': [{'vars': ['restart'], 'unit': 'm', 'first': 1, 'rate': 1}, {'vars': ['evs', 'fsitherm', 'hfds', 'opottemptend', 'pbo', 'prlq', 'prsn', 'rsdo', 'siarean', 'siareas', 'sidmassevapsubl', 'sidmasssi', 'sidmassth', 'sidmasstranx', 'sidmasstrany', 'siextentn', 'siextents', 'sifllatstop', 'sisnconc', 'sisnmass', 'sisnthick', 'sispeed', 'sivol', 'sivoln', 'sivols', 'soga', 'thetaoga', 'u2o', 'uo', 'uso', 'uto', 'v2o', 'vo', 'volo', 'vso', 'vto', 'w2o', 'wfo', 'wo', 'wso', 'wto', 'zossq', 'rho', 'uhice', 'uhsnow', 'urho', 'uv', 'vhice', 'vhsnow', 'virtual_salt', 'vrho'], 'unit': 'm', 'rate': 1}, {'vars': ['mlotst', 'omldamax', 'sic', 'sistrxdtop', 'sistrxubot', 'sistrydtop', 'sistryubot', 'sithick', 'sitimefrac', 'siu', 'siv', 'so', 'sos', 'tauuo', 'tauvo', 'thetao', 'tos', 'zos', 'flice', 'wnet', 'evap', 'runoff', 'thdgr', 'thdgrsn'], 'unit': 'd', 'rate': 1}, {'vars': ['tso'], 'unit': 's', 'rate': 12}, {'vars': ['lwrd', 'olat', 'olwout', 'osen', 'relax_salt', 'shum', 'tair', 'uwind', 'vwind'], 'unit': 'y', 'first': 1000, 'rate': 1}]}'
-export ACCOUNT=<ACCOUNT>
+export ACCOUNT=ab0995
 export ESM_TESTING_DIR=<TEST_DIR>/run/awicm/
 export MODEL_DIR=<TEST_DIR>/comp/awicm/awicm-CMIP6
 export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE

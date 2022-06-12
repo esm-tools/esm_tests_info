@@ -4,7 +4,7 @@
 #SBATCH --ntasks=288
 #SBATCH --output=<TEST_DIR>/run/fesom//fesom2.1-initial-monthly/log/fesom2.1-initial-monthly_fesom_compute_20010101-20010131_%j.log --error=<TEST_DIR>/run/fesom//fesom2.1-initial-monthly/log/fesom2.1-initial-monthly_fesom_compute_20010101-20010131_%j.log
 #SBATCH --job-name=fesom2.1-initial-monthly
-#SBATCH --account=<ACCOUNT>
+#SBATCH --account=ab0995
 #SBATCH --mail-type=NONE
 #SBATCH --ntasks-per-core=1
 #SBATCH --exclusive
@@ -66,7 +66,7 @@ export PERL5LIB=/usr/lib64/perl5
 export LD_LIBRARY_PATH=$HDF5ROOT/lib:$NETCDFROOT/lib:$NETCDFFROOT/lib:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/sw/spack-levante/intel-oneapi-mkl-2022.0.1-ttdktf/mkl/2022.0.1/lib/intel64:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/sw/spack-levante/intel-oneapi-mpi-2021.5.0-mrcss7/mpi/2021.5.0/libfabric/lib:$LD_LIBRARY_PATH
-export ACCOUNT=<ACCOUNT>
+export ACCOUNT=ab0995
 export ESM_TESTING_DIR=<TEST_DIR>/run/fesom/
 export MODEL_DIR=<TEST_DIR>/comp/fesom/fesom-2.1
 export takenfrom=fesom2_run

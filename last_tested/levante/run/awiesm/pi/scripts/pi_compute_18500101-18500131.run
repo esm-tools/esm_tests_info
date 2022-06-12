@@ -4,7 +4,7 @@
 #SBATCH --ntasks=544
 #SBATCH --output=<TEST_DIR>/run/awiesm//pi/log/pi_awiesm_compute_18500101-18500131_%j.log --error=<TEST_DIR>/run/awiesm//pi/log/pi_awiesm_compute_18500101-18500131_%j.log
 #SBATCH --job-name=pi
-#SBATCH --account=<ACCOUNT>
+#SBATCH --account=ab0995
 #SBATCH --mail-type=NONE
 #SBATCH --ntasks-per-core=1
 #SBATCH --exclusive
@@ -68,7 +68,7 @@ export LD_LIBRARY_PATH=/sw/spack-levante/intel-oneapi-mkl-2022.0.1-ttdktf/mkl/20
 export LD_LIBRARY_PATH=/sw/spack-levante/intel-oneapi-mpi-2021.5.0-mrcss7/mpi/2021.5.0/libfabric/lib:$LD_LIBRARY_PATH
 export takenfrom=fesom2_run
 export taken2from=fesom2_ru
-export ACCOUNT=<ACCOUNT>
+export ACCOUNT=ab0995
 export ESM_TESTING_DIR=<TEST_DIR>/run/awiesm/
 export MODEL_DIR=<TEST_DIR>/comp/awiesm/awiesm-2.1
 export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE

@@ -1,7 +1,7 @@
 computer:
     account: None
     accounting: true
-    accounting_flag: --account=<ACCOUNT>
+    accounting_flag: --account=ab0995
     actual_script_dir: <--methods.script_dir--
     add_choose_heterogeneous_parallelization: &id001
         false:
@@ -127,7 +127,7 @@ computer:
     mpifc: $MPIFC
     name: levante
     name_flag: --job-name=pi
-    netcdf_cxx_root: /work/<ACCOUNT>/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0
+    netcdf_cxx_root: /work/ab0995/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0
     nodes_flag: --nodes=@nodes@
     notification_flag: --mail-type=NONE
     output_flags: --output=<TEST_DIR>/run/awiesm//pi/log/pi_awiesm_@jobtype@_18500101-18500131_%j.log --error=<TEST_DIR>/run/awiesm//pi/log/pi_awiesm_@jobtype@_18500101-18500131_%j.log
@@ -152,7 +152,7 @@ computer:
         pool: /pool/data
     runtime_environment_changes:
         add_export_vars:
-            ACCOUNT: <ACCOUNT>
+            ACCOUNT: ab0995
             ESM_TESTING_DIR: <TEST_DIR>/run/awiesm/
             MODEL_DIR: <TEST_DIR>/comp/awiesm/awiesm-2.1
     script_name: <--methods.scriptname--
@@ -627,12 +627,12 @@ echam:
     input_sources:
         cldoptprops: /pool/data/ECHAM6//input/r0007/ECHAM6_CldOptProps.nc
         janspec: /pool/data/ECHAM6//input/r0007/T63/T63L47_jan_spec.nc
-        jansurf: /work/<ACCOUNT>/a270152/testing_pool/nonstandard_pool_files/fesom/mesh_CORE2_finaltopo_mean/tarfilesT63/input/echam6/T63CORE2_jan_surf.nc
+        jansurf: /work/ab0995/a270152/testing_pool/nonstandard_pool_files/fesom/mesh_CORE2_finaltopo_mean/tarfilesT63/input/echam6/T63CORE2_jan_surf.nc
         rrtmglw: /pool/data/ECHAM6//input/r0007/rrtmg_lw.nc
         rrtmgsw: /pool/data/ECHAM6//input/r0007/rrtmg_sw.nc
         tslclim: /pool/data/ECHAM6//input/r0007/T63/T63_TSLCLIM.nc
-        vgratclim: /work/<ACCOUNT>/a270152/testing_pool/nonstandard_pool_files/fesom/mesh_CORE2_finaltopo_mean/tarfilesT63/input/echam6/T63CORE2_VGRATCLIM.nc
-        vltclim: /work/<ACCOUNT>/a270152/testing_pool/nonstandard_pool_files/fesom/mesh_CORE2_finaltopo_mean/tarfilesT63/input/echam6/T63CORE2_VLTCLIM.nc
+        vgratclim: /work/ab0995/a270152/testing_pool/nonstandard_pool_files/fesom/mesh_CORE2_finaltopo_mean/tarfilesT63/input/echam6/T63CORE2_VGRATCLIM.nc
+        vltclim: /work/ab0995/a270152/testing_pool/nonstandard_pool_files/fesom/mesh_CORE2_finaltopo_mean/tarfilesT63/input/echam6/T63CORE2_VLTCLIM.nc
     input_targets:
         cldoptprops: <TEST_DIR>run/awiesm/pi/run_18500101-18500131/work/ECHAM6_CldOptProps.nc
         janspec: <TEST_DIR>run/awiesm/pi/run_18500101-18500131/work/unit.23
@@ -1650,7 +1650,7 @@ fesom:
     yearnew: 1850
     ywind_prefix: vas.
 general:
-    account: <ACCOUNT>
+    account: ab0995
     additional_files: []
     all_filetypes:
     - analysis
@@ -1898,7 +1898,7 @@ general:
     - database_entry
     prev_date: '1849-12-31T00:00:00'
     profile: false
-    project_base: /work/<ACCOUNT>/a270152/testing_pool/nonstandard_pool_files/fesom/mesh_CORE2_finaltopo_mean/tarfilesT63
+    project_base: /work/ab0995/a270152/testing_pool/nonstandard_pool_files/fesom/mesh_CORE2_finaltopo_mean/tarfilesT63
     relevant_filetypes:
     - bin
     - config
@@ -2434,7 +2434,7 @@ jsbach:
         jsbach: <TEST_DIR>run/awiesm/pi/run_18500101-18500131/input/jsbach/jsbach.nc
         lctlib: <TEST_DIR>run/awiesm/pi/run_18500101-18500131/input/jsbach/lctlib.def
     input_sources:
-        jsbach: /work/<ACCOUNT>/a270152/testing_pool/nonstandard_pool_files/fesom/mesh_CORE2_finaltopo_mean/tarfilesT63/input/jsbach/jsbach_T63CORE2_11tiles_5layers_1850.nc
+        jsbach: /work/ab0995/a270152/testing_pool/nonstandard_pool_files/fesom/mesh_CORE2_finaltopo_mean/tarfilesT63/input/jsbach/jsbach_T63CORE2_11tiles_5layers_1850.nc
         lctlib: <TEST_DIR>/comp/awiesm/awiesm-2.1/echam-6.3.05p2/lctlib_nlct21.def
     input_targets:
         jsbach: <TEST_DIR>run/awiesm/pi/run_18500101-18500131/work/jsbach.nc
