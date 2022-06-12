@@ -61,6 +61,33 @@
     variables = 'aclc:mean'
 /
 
+&set_stream_element
+    stream = 'aclcim'
+    name = 'aclc'
+    code = 162
+    lpost = 1
+/
+
+&set_stream
+    stream = 'jsbach'
+    lpost = 0
+/
+
+&set_stream
+    stream = 'land'
+    lpost = 0
+/
+
+&set_stream
+    stream = 'veg'
+    lpost = 0
+/
+
+&set_stream
+    stream = 'yasso'
+    lpost = 0
+/
+
 &mvstreamctl
     interval = 1, 'months', 'last', 0
     target = 'g3bim'
@@ -110,33 +137,6 @@
     target = 'g3b1hi'
     source = 'g3b'
     variables = 'u10:inst', 'v10:inst', 'wimax:max'
-/
-
-&set_stream_element
-    stream = 'aclcim'
-    name = 'aclc'
-    code = 162
-    lpost = 1
-/
-
-&set_stream
-    stream = 'jsbach'
-    lpost = 0
-/
-
-&set_stream
-    stream = 'land'
-    lpost = 0
-/
-
-&set_stream
-    stream = 'veg'
-    lpost = 0
-/
-
-&set_stream
-    stream = 'yasso'
-    lpost = 0
 /
 
 &radctl
