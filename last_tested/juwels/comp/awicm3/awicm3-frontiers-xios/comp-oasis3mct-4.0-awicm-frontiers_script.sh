@@ -69,6 +69,6 @@ unset SLURM_NTASKS
 unset SLURM_NPROCS
 unset SLURM_ARBITRARY_NODELIST
 
-cd oifs-43r3
-export OIFS_TOPLEVEL_DIR=<TEST_DIR>comp/awicm3/awicm3-v3.0/oifs-43r3; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.cfg ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
+cd oasis
+mkdir -p build; cd build; cmake ..;   make -j 1; mkdir -p ../include/; cp lib/psmile/libpsmile.a lib/psmile/mct/libmct.a lib/psmile/mct/mpeu/libmpeu.a lib/psmile/scrip/libscrip.a ../lib; cp lib/psmile/mod_oasis*mod ../include
 cd ..
