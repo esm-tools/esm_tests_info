@@ -33,6 +33,7 @@ export NETCDF_Fortran_INCLUDE_DIRECTORIES=$NETCDFFROOT/include
 export NETCDF_C_INCLUDE_DIRECTORIES=$NETCDFROOT/include
 export NETCDF_CXX_INCLUDE_DIRECTORIES=$NETCDFROOT/include
 export OASIS3MCT_FC_LIB="-L$NETCDFFROOT/lib -lnetcdff"
+export I_MPI_SLURM_EXT=0
 export LAPACK_LIB='-mkl=sequential'
 export LAPACK_LIB_DEFAULT='-L$MKLROOT/lib/intel64 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential'
 export OIFS_FFTW_DIR='-L$MKLROOT/lib/intel64'
@@ -63,7 +64,11 @@ export OIFS_CFLAGS="-fp-model precise -O1 -xCORE_AVX2 -g -traceback -qopt-report
 export OIFS_CCDEFS="LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS"
 export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 
+unset SLURM_DISTRIBUTION
+unset SLURM_NTASKS
+unset SLURM_NPROCS
+unset SLURM_ARBITRARY_NODELIST
 
-cd oifs-43r3-v1
-export OIFS_TOPLEVEL_DIR=<TEST_DIR>comp/oifs/oifs-43r3-v1/oifs-43r3-v1; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>comp/oifs/oifs-43r3-v1/oifs-43r3-v1/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>comp/oifs/oifs-43r3-v1/oifs-43r3-v1/../xios/inc/ ; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
+cd xios
+export XIOS_TOPLEVEL=<TEST_DIR>comp/awicm3/awicm3-frontiers-xios/xios; ./make_xios --arch ESMTOOLS_generic_oasis_intel --netcdf_lib netcdf4_par --use_oasis oasis3_mct --job 24 --prod; cp bin/xios_server.exe bin/xios.x
 cd ..

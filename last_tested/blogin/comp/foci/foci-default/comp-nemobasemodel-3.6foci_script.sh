@@ -37,5 +37,5 @@ export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 
 
 cd nemo-ORCA05_LIM2_KCM_AOW
-export NEMO_TOPLEVEL=/scratch/usr/hbkmandr/testing/comp/foci/foci-default/nemo-ORCA05_LIM2_KCM_AOW; cd CONFIG; cp ORCA05_LIM2_KCM_AOW/cfg.inc cfg.txt; ./makenemo -n ORCA05_LIM2_KCM_AOW -m ESMTOOLS_generic_oasis_intel -j 24; cp -p ORCA05_LIM2_KCM_AOW/BLD/bin/nemo.exe ORCA05_LIM2_KCM_AOW/BLD/bin/oceanx
+export NEMO_TOPLEVEL=<TEST_DIR>comp/foci/foci-default/nemo-ORCA05_LIM2_KCM_AOW; cd CONFIG; cp ORCA05_LIM2_KCM_AOW/cfg.inc cfg.txt; ./makenemo -n ORCA05_LIM2_KCM_AOW -m ESMTOOLS_generic_oasis_intel -j 24; cp -p ORCA05_LIM2_KCM_AOW/BLD/bin/nemo.exe ORCA05_LIM2_KCM_AOW/BLD/bin/oceanx
 cd ..
