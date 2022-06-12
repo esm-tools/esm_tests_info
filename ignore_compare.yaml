@@ -2,6 +2,7 @@
 # Remember that any special character for regular expresions needs to be preceed by \ to match it
 .run:
     - "--account="
+    - "#PBS -A "
     - "echo $(date +%c) : compute"
     - 'echo \$\(date \+"%a %b  %e %T %Y"\) :' # Matches 'echo $(date +"%a %b  %e %T %Y") :'
     - "export ACCOUNT="
@@ -11,6 +12,6 @@ finished_config:
     - "    original_command: "
     - "    ACCOUNT: "
     - "    account: "
-    - "--account="
+    - "    accounting_flag: "
 finished_config_dicts:
     - "files_missing_when_preparing_run"
