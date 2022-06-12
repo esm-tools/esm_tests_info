@@ -1,0 +1,287 @@
+!-----------------------------------------------------------------------
+&namrun        !   parameters of the run
+!-----------------------------------------------------------------------
+   nn_no         =   1   !  job number
+   cn_exp        =  "placeholder_exp_id"  !  experience name 
+   nn_it000      =  placeholder_nn_it000  !  first time step
+   nn_itend      =  placeholder_nn_itend  !  last  time step
+   nn_date0      =  placeholder_nn_date0  !  date at nit_0000 (format yyyymmdd) used if ln_rstart=F or (ln_rstart=T and nn_rstctl=0 or 1)
+   nn_leapy    = placeholder_nn_leapy     !  Leap year calendar (1) or not (0)
+   ln_rstart   = placeholder_ln_rstart    !  start from rest (F) or from a restart file (T)
+   nn_euler    =       1   !  = 0 : start with forward time step if ln_rstart=.true.
+   nn_rstctl   = placeholder_nn_rstctl    ! restart control => activated only if ln_rstart = T
+   cn_ocerst_in  = "placeholder_cn_ocerst_in"   !  suffix of ocean restart name (input)
+   cn_ocerst_indir = "placeholder_cn_ocerst_indir"       !  directory from which to read input ocean restarts
+   cn_ocerst_out = "placeholder_cn_ocerst_out"   !  suffix of ocean restart name (output)
+   cn_ocerst_outdir = "placeholder_cn_ocerst_outdir"      !  directory in which to write output ocean restarts
+   nn_stock    =  placeholder_nn_stock   !  frequency of creation of a restart file (modulo referenced to 1)
+   nn_write    =  1460      !  frequency of write in the output file   (modulo referenced to nn_it000), not used anymore
+/
+!-----------------------------------------------------------------------
+&namcfg     !   parameters of the configuration
+!-----------------------------------------------------------------------
+   cp_cfg      =  "orca"               !  name of the configuration
+   cp_cfz      =      ''               !  name of the zoom of configuration
+   jp_cfg      =      05               !  resolution of the configuration
+   jpidta      =     722               !  1st lateral dimension ( >= jpi )
+   jpjdta      =     511               !  2nd    "         "    ( >= jpj )
+   jpkdta      =      46               !  number of levels      ( >= jpk )
+   jpiglo      =     722               !  1st dimension of global domain --> i =jpidta
+   jpjglo      =     511               !  2nd    -                  -    --> j  =jpjdta
+   jperio      =       6               !  lateral cond. type (between 0 and 6)
+/
+!-----------------------------------------------------------------------
+&namzgr        !   vertical coordinate
+!-----------------------------------------------------------------------
+!!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+!! KIELREF: 
+!! 
+    cn_batmeter  = "bathy_meter.nc" 
+!!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+/
+!-----------------------------------------------------------------------
+&namdom        !   space and time domain (bathymetry, mesh, timestep)
+!-----------------------------------------------------------------------
+   nn_closea   =    placeholder_nn_closea      !  remove (=0) or keep (=1) closed seas and lakes (ORCA)
+   nn_msh      = placeholder_nn_msh      !  create (=1) a mesh file or not (=0)
+   rn_e3zps_min=   25.     !  partial step thickness is set larger than the minimum of
+   rn_e3zps_rat=    0.2    !  rn_e3zps_min and rn_e3zps_rat*e3t, with 0<rn_e3zps_rat<1
+                           !
+   rn_rdt      = placeholder_rn_rdt. !  time step for the dynamics (and tracer if nn_acc=0)
+                                 !                          =0, not used, rdt = rdttra
+   rn_rdtmin   = 2160.     !  minimum time step on tracers (used if nn_acc=1)
+   rn_rdtmax   = 2160.     !  maximum time step on tracers (used if nn_acc=1)
+   ppglam0     =  999999.0             !  longitude of first raw and column T-point (jphgr_msh = 1)
+   ppgphi0     =  999999.0             !  latitude  of first raw and column T-point (jphgr_msh = 1)
+   ppe1_deg    =  999999.0             !  zonal      grid-spacing (degrees)
+   ppe2_deg    =  999999.0             !  meridional grid-spacing (degrees)
+   ppe1_m      =  999999.0             !  zonal      grid-spacing (degrees)
+   ppe2_m      =  999999.0             !  meridional grid-spacing (degrees)
+   ppsur       =  999999.0             !  ORCA r4, r2 and r05 coefficients
+   ppa0        =  999999.0             ! (default coefficients)
+   ppa1        =  999999.0             !
+   ppkth       =      23.563           !
+   ppacr       =       9.0             !
+   ppdzmin     =       6.0             !  Minimum vertical spacing
+   pphmax      =    5750.0             !  Maximum depth
+   ldbletanh   =  .FALSE.              !  Use/do not use double tanf function for vertical coordinates
+   ppa2        =  999999.              !  Double tanh function parameters
+   ppkth2      =  999999.              !
+   ppacr2      =  999999.              !
+!!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+!! KIELREF: 
+!! 
+  cn_coordfile = "coordinates.nc"      ! coordinates file name (e.g. coordinates.nc) 
+!! 
+!!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/
+!-----------------------------------------------------------------------
+&namtsd    !   data : Temperature  & Salinity
+!-----------------------------------------------------------------------
+!-----------------------------------------------------------------------
+!          !  file name                            ! frequency (hours) ! variable  ! time interp. !  clim  ! 'yearly'/ ! weights  ! rotation ! land/sea mask !
+!          !                                       !  (if <0  months)  !   name    !   (logical)  !  (T/F) ! 'monthly' ! filename ! pairing  ! filename      !
+   sn_tem      = 'Levitus_p2.1_1m_01_12_Tpot_ORCA_R05', -1,'votemper',  .true.  , .true., 'yearly'   , ' '      , ' ', ' '
+   sn_sal      = 'Levitus_p2.1_1m_01_12_S_correc_ORCA_R05'             , -1,'vosaline',  .true.  , .true., 'yearly'   , ''       , ' ', ' '
+   !
+   ln_tsd_init   = placeholder_ln_tsd_init   !  Initialisation of ocean T & S with T &S input data (T) or not (F)
+   ln_tsd_tradmp = .false.  !  damping of ocean T & S toward T &S input data (T) or not (F)
+/
+!-----------------------------------------------------------------------
+&namsbc        !   Surface Boundary Condition (surface module)
+!-----------------------------------------------------------------------
+   nn_fsbc     = placeholder_nn_fsbc !  frequency of surface boundary condition computation 
+                           !     (also = the frequency of sea-ice model call)
+   ln_blk_core = .false.   !  CORE bulk formulation                     (T => fill namsbc_core)
+   ln_cpl      = .true.    !  atmosphere coupled   formulation          ( requires key_oasis3 )
+   ln_hosing   = .false.   !  Hosing experiment                         (T => fill namsbc_hosing )
+   nn_ice_embd = 0         !  =0 levitating ice (no mass exchange, concentration/dilution effect)
+   ln_rnf      = .false.   !  runoffs                                   (T => fill namsbc_rnf)
+                           !  0 =no isf                  1 = presence of ISF 
+                           !  2 = bg03 parametrisation   3 = rnf file for isf   
+   ln_ssr      = .false.   !  Sea Surface Restoring on T and/or S       (T => fill namsbc_ssr)
+   nn_fwb      = 0         !  FreshWater Budget: =0 unchecked 
+/
+!-----------------------------------------------------------------------
+&namsbc_cpl    !   coupled ocean/atmosphere model                       ("key_oasis3")
+!-----------------------------------------------------------------------
+!                    !     description       !  multiple  !    vector   !      vector          ! vector !
+!                    !                       ! categories !  reference  !    orientation       ! grids  !
+! send
+sn_snd_temp   =       'oce and ice'          ,    'no'    ,     ''      ,         ''           ,   ''
+sn_snd_alb    =       'none'                 ,    'no'    ,     ''      ,         ''           ,   ''
+sn_snd_thick  =       'ice and snow'         ,    'no'    ,     ''      ,         ''           ,   ''
+sn_snd_crt    =       'oce only'             ,    'no'    , 'spherical' , 'eastward-northward' ,  'T'
+sn_snd_co2    =       'none'                 ,    'no'    ,     ''      ,         ''           ,   ''
+! receive
+sn_rcv_w10m   =       'none'                 ,    'no'    ,     ''      ,         ''          ,   ''
+sn_rcv_taumod =       'none'                 ,    'no'    ,     ''      ,         ''          ,   ''
+sn_rcv_tau    =       'oce and ice'          ,    'no'    , 'spherical' , 'eastward-northward',   'T'
+sn_rcv_dqnsdt =       'coupled'              ,    'no'    ,     ''      ,         ''          ,   ''
+sn_rcv_qsr    =       'conservative'         ,    'no'    ,     ''      ,         ''          ,   ''
+sn_rcv_qns    =       'conservative'         ,    'no'    ,     ''      ,         ''          ,   ''
+sn_rcv_emp    =       'conservative'         ,    'no'    ,     ''      ,         ''          ,   ''
+sn_rcv_rnf    =       'coupled'              ,    'no'    ,     ''      ,         ''          ,   '' 
+sn_rcv_cal    =       'none'                 ,    'no'    ,     ''      ,         ''          ,   ''
+sn_rcv_co2    =       'none'                 ,    'no'    ,     ''      ,         ''          ,   ''
+!
+                             !   -> file cplmask.nc with the float variable called cplmask (jpi,jpj,nn_cplmodel)
+/
+!-----------------------------------------------------------------------
+&namsbc_sas    !   analytical surface boundary condition
+!-----------------------------------------------------------------------
+
+   ln_3d_uve   = .false.   !  specify whether we are supplying a 3D u,v and e3 field
+/
+!-----------------------------------------------------------------------
+&namtra_qsr    !   penetrative solar radiation
+!-----------------------------------------------------------------------
+
+   nn_chldta   =      0    !  RGB : Chl data (=1) or cst value (=0)
+/
+!-----------------------------------------------------------------------
+&namsbc_isf    !  Top boundary layer (ISF)
+!-----------------------------------------------------------------------
+   ln_conserve = .false.  ! conservative case (take into account meltwater advection)
+/
+!-----------------------------------------------------------------------
+&namlbc        !   lateral momentum boundary condition
+!-----------------------------------------------------------------------
+   rn_shlat    =    0.     !  shlat = 0  !  0 < shlat < 2  !  shlat = 2  !  2 < shlat
+                           !  free slip  !   partial slip  !   no slip   ! strong slip
+/
+!-----------------------------------------------------------------------
+&nambfr        !   bottom friction
+!-----------------------------------------------------------------------
+   nn_bfr      =    2      !  type of bottom friction :   = 0 : free slip,  = 1 : linear friction
+                           !                              = 2 : nonlinear friction
+   rn_bfrz0    =    3.e-3  !  bottom roughness [m] if ln_loglayer=T 
+   ln_bfr2d    =    .true.    !  horizontal variation of the bottom friction coef (read a 2D mask file )
+!!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+!! KIELREF: 
+!! 
+   cn_bfrfile  = "orca05_bfr_coef-G70.nc"   ! Input file name for bottom friction enhancement mask (VAR: bfr_coef) 
+!! 
+!!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+/
+!-----------------------------------------------------------------------
+&nambbc        !   bottom temperature boundary condition
+!-----------------------------------------------------------------------
+   ln_trabbc   = .false.   !  Apply a geothermal heating at the ocean bottom
+   nn_geoflx   =    0      !  geothermal heat flux: = 0 no flux
+                           !     = 1 constant flux
+                           !     = 2 variable flux (read in geothermal_heating.nc in mW/m2)
+/
+!-----------------------------------------------------------------------
+&nameos        !   ocean physical parameters
+!-----------------------------------------------------------------------
+   nn_eos      =  0      !  type of equation of state and Brunt-Vaisala frequency
+                                 !  =-1, TEOS-10 
+                                 !  = 0, EOS-80 
+                                 !  = 1, S-EOS   (simplified eos)
+   ln_useCT    = .false.  ! use of Conservative Temp. ==> surface CT converted in Pot. Temp. in sbcssm
+/
+!-----------------------------------------------------------------------
+&namtra_adv_mle !   mixed layer eddy parametrisation (Fox-Kemper param)
+!-----------------------------------------------------------------------
+   ln_mle    = .false.     ! (T) use the Mixed Layer Eddy (MLE) parameterisation
+/
+!----------------------------------------------------------------------------------
+&namtra_ldf    !   lateral diffusion scheme for tracers
+!----------------------------------------------------------------------------------
+   rn_aeiv_0        =  1000.    !  eddy induced velocity coefficient [m2/s]
+   rn_aht_0         =   600.    !  horizontal eddy diffusivity for tracers [m2/s]
+!!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+!! KIELREF:
+!!
+   ln_gmmask        =  .false. 
+   cn_gmmask_file   =  'GM_O05_lev42n40s.nc'
+   cn_gmmask_var    =  'SPATIAL_GM'
+!!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/
+!-----------------------------------------------------------------------
+&namtra_dmp    !   tracer: T & S newtonian damping
+!-----------------------------------------------------------------------
+   ln_tradmp   = .false.   !  add a damping termn (T) or not (F)
+   cn_resto    = '' ! Name of file containing restoration coefficient field (use dmp_tools to create this)
+/
+!-----------------------------------------------------------------------
+&namdyn_hpg    !   Hydrostatic pressure gradient option
+!-----------------------------------------------------------------------
+   ln_hpg_zps  = .true.    !  z-coordinate - partial steps (interpolation), f if NLFS t else
+   ln_hpg_sco  = .false.   !  s-coordinate (standard jacobian formulation), t if NLFS f else
+   ln_dynhpg_imp = .true.  !  time stepping: semi-implicit time scheme  (T), f if NLFS t else
+                                 !           centered      time scheme  (F)
+/
+!-----------------------------------------------------------------------
+&namdyn_ldf    !   lateral diffusion on momentum
+!-----------------------------------------------------------------------
+   ln_dynldf_lap    =  .false.  !  laplacian operator         
+   ln_dynldf_bilap  =  .true.   !  bilaplacian operator    
+   rn_ahm_0_lap     = 0.        !  horizontal laplacian eddy viscosity   [m2/s]
+   rn_ahm_0_blp     =   -6.e11  !  horizontal bilaplacian eddy viscosity [m4/s]
+/
+!-----------------------------------------------------------------------
+&namzdf        !   vertical physics
+!-----------------------------------------------------------------------
+   rn_avm0     =   1.e-4   !  vertical eddy viscosity   [m2/s]          (background Kz if not "key_zdfcst")
+   rn_avt0     =   1.e-5   !  vertical eddy diffusivity [m2/s]          (background Kz if not "key_zdfcst")
+   nn_havtb    =    1      !  horizontal shape for avtb (=1) or not (=0)
+   nn_evdm     =    1      !  evd apply on tracer (=0) or on tracer and momentum (=1)
+   rn_avevd    =  10.      !  evd mixing coefficient [m2/s]
+/
+!-----------------------------------------------------------------------
+&namzdf_tke    !   turbulent eddy kinetic dependent vertical diffusion  ("key_zdftke")
+!-----------------------------------------------------------------------
+   rn_ebb      =   60      !  coef. of the surface input of tke (67.83 now usual value)
+!  nn_havti    =    1      !  horizontal shape for avtb (=1) or not (=0) under ice
+   rn_bshear   =   1.e-20  !  background shear (>0) currently a numerical threshold (do not change it)
+   nn_mxl      =   3       !  mixing length: = 0 bounded by the distance to surface and bottom
+   rn_mxl0     =   0.01    !  surface  buoyancy lenght scale minimum value (0.04)
+/
+!-----------------------------------------------------------------------
+&namzdf_gls                !   GLS vertical diffusion                   ("key_zdfgls")
+!-----------------------------------------------------------------------
+   rn_emin       = 1.e-6   !  minimum value of e   [m2/s2]
+   rn_clim_galp  = 0.53    !  galperin limit
+/
+!-----------------------------------------------------------------------
+&namzdf_tmx    !   tidal mixing parameterization                        ("key_zdftmx")
+!-----------------------------------------------------------------------
+   ln_tmx_itf  = .false.   !  ITF specific parameterisation
+/
+!-----------------------------------------------------------------------
+&namsol        !   elliptic solver / island / free surface
+!-----------------------------------------------------------------------
+   nn_ichol    =      1	   ! cfk: if nn_solv=1; and key_ichol set (incomplete Cholesky decomposition is used as preconditioner)
+   	       	      	   !      then nn_ichol indicates the level of ichol 		   
+   rn_eps      =  1.e-4    !  absolute precision of the solver
+   nn_nmax     =   2800    !  maximum of iterations for the SOR solver
+   rn_sor      =  1.973    !  optimal coefficient for SOR solver (to be adjusted with the domain)
+/
+!-----------------------------------------------------------------------
+&nammpp        !   Massively Parallel Processing                        ("key_mpp_mpi)
+!-----------------------------------------------------------------------
+   ln_nnogather=  .true.   !  activate code to avoid mpi_allgather use at the northfold
+   jpni        = placeholder_jpni   !  jpni   number of processors following i (set automatically if < 1)
+   jpnj        = placeholder_jpnj   !  jpnj   number of processors following j (set automatically if < 1)
+   jpnij       = placeholder_jpnij  !  jpnij  number of local domains (set automatically if < 1)
+/
+!-----------------------------------------------------------------------
+&namnc4        !   netcdf4 chunking and compression settings            ("key_netcdf4")
+!-----------------------------------------------------------------------
+   nn_nchunks_k= 46 !  number of chunks in k-dimension
+                           !  setting nn_nchunks_k = jpk will give a chunk size of 1 in the vertical which
+                           !  is optimal for postprocessing which works exclusively with horizontal slabs
+   ln_nc4zip   = .false. !  (T) use netcdf4 chunking and compression
+                           !  (F) ignore chunking information and produce netcdf3-compatible files
+		  /
+!-----------------------------------------------------------------------
+&namptr       !   Poleward Transport Diagnostic
+!-----------------------------------------------------------------------
+!!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+!! KIELREF:
+!!
+  cn_subbasins  = "orca05_subbasins_3.6.nc"      ! subbasins file with variables ATLMSK,INDMSK,PACMSK
+!!
+/

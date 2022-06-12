@@ -1,0 +1,48 @@
+!-----------------------------------------------------------------------
+&namtrc_run     !   run information
+!-----------------------------------------------------------------------
+   nn_writetrc   =  1216     !  time step frequency for sn_tracer outputs
+   ln_rsttr      = %{ln_rsttr}   !  start from a restart file (T) or not (F)
+   nn_rsttr      = %{nn_rsttr}   !  restart control = 0 initial time step is not compared to the restart file value
+   cn_trcrst_in  = "%{cn_trcrst_in}"   !  suffix of pass. sn_tracer restart name (input)
+   cn_trcrst_indir = "%{cn_trcrst_indir}"           !  directory from which to read input passive tracer restarts
+   cn_trcrst_out = "%{cn_trcrst_out}"   !  suffix of pass. sn_tracer restart name (output)
+   cn_trcrst_outdir = "%{cn_trcrst_outdir}"          !  directory to which to write output passive tracer restarts
+/
+!-----------------------------------------------------------------------
+&namtrc     !   tracers definition
+!-----------------------------------------------------------------------
+!                !    name   !           title of the field              ! initial data ! initial data ! save   !
+!                !           !                                           !  units       ! from file    ! or not !
+!                !           !                                           !              ! or not       !        !
+   sn_tracer(1)   = 'AGE'    ,   '     ',  's'      ,  .false.   ,  .true.
+   ln_trcdta     =  %{ln_trcdta}  !  Initialisation from data input file (T) or not (F)
+/
+!-----------------------------------------------------------------------
+&namtrc_ldf    !   lateral diffusion scheme for passive tracer 
+!-----------------------------------------------------------------------
+   rn_ahtrc_0       =   600.    !  horizontal eddy diffusivity for tracers [m2/s]; cf. rn_aht_0 in main NEMO namelist
+/
+!-----------------------------------------------------------------------
+&namtrc_rad        !  treatment of negative concentrations 
+!-----------------------------------------------------------------------
+   ln_trcrad   =  %{ln_trcrad}  !  artificially correct negative concentrations (T) or not (F)
+/
+!-----------------------------------------------------------------------
+&namtrc_dmp    !   passive tracer newtonian damping   
+!-----------------------------------------------------------------------
+   cn_resto_tr  = ''       !  create a damping.coeff NetCDF file (=1) or not (=0)
+/
+!-----------------------------------------------------------------------
+&namtrc_trd       !   diagnostics on tracer trends        ('key_trdtrc')
+!                          or mixed-layer trends          ('key_trdmld_trc')
+!----------------------------------------------------------------------
+   nn_trd_trc  =  1216      !  time step frequency and tracers trends
+   ln_trdtrc  =   .false.
+/
+!-----------------------------------------------------------------------
+&namtrc_dia       !   parameters for passive tracer additional diagnostics
+!----------------------------------------------------------------------
+   ln_diabio     =  .false.   !  output biological trends
+   nn_writedia   =  1216     !  time step frequency for diagnostics
+/
