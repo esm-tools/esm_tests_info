@@ -67,6 +67,6 @@ export OASIS_FFLAGS=-emf
 export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 
 
-cd oifs-43r3
-export OIFS_TOPLEVEL_DIR=/mnt/lustre<TEST_DIR>comp/awicm3/awicm3-v3.0/oifs-43r3; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.cfg ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
+cd xios
+export XIOS_TOPLEVEL=/mnt/lustre<TEST_DIR>comp/awicm3/awicm3-frontiers-xios/xios; ./make_xios --arch ESMTOOLS_generic_oasis_cray --netcdf_lib netcdf4_par --use_oasis oasis3_mct --job 24 --prod; cp bin/xios_server.exe bin/xios.x
 cd ..
