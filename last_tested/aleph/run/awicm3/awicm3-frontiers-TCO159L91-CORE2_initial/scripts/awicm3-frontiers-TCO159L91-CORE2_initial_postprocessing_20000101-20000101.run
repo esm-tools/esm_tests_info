@@ -64,6 +64,6 @@ ulimit -s unlimited
 echo $(date +"%a %b  %e %T %Y") : postprocessing_oifs 1 2000-01-01T00:00:00 544821.sdb - start >> <TEST_DIR>/run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/log//awicm3-frontiers-TCO159L91-CORE2_initial_awicm3.log
 
 cd <TEST_DIR>/run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/
-time aprun -n @nproc@ -N @nproc_per_node@ -d @cpus_per_proc@ env OMP_NUM_THREADS=@omp_num_threads@ env PMI_LABEL_ERROUT_FORMAT="[@MODEL@]%l:" /mnt/lustre<HOME_DIR>/esm_tools/configs//setups/awicm3/postprocessing.sh <TEST_DIR>/run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/outdata/oifs/ 20000101 2>&1 &
+time aprun -n @nproc@ -N @nproc_per_node@ -d @cpus_per_proc@ env OMP_NUM_THREADS=@omp_num_threads@ env PMI_LABEL_ERROUT_FORMAT="[@MODEL@]%l:" <HOME_DIR>/esm_tools/configs//setups/awicm3/postprocessing.sh <TEST_DIR>/run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/outdata/oifs/ 20000101 2>&1 &
 
 wait

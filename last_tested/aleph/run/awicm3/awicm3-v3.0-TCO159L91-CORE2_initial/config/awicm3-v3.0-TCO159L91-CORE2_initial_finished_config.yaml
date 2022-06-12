@@ -25,7 +25,7 @@ computer:
     cxx: CC
     debug_info:
         loaded_from_file:
-        - /mnt/lustre<HOME_DIR>/esm_tools/configs//machines/aleph.yaml
+        - <HOME_DIR>/esm_tools/configs//machines/aleph.yaml
     debugger: None
     debugger_flags_prelauncher: ''
     execution_command: aprun @components@
@@ -123,17 +123,17 @@ computer:
     write_execution_log: '| tee <TEST_DIR>/run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/log/awicm3-v3.0-TCO159L91-CORE2_initial_awicm3_execution_20000101-20000101_$PBS_JOBID.log'
 debug_info:
     loaded_from_file:
-    - /mnt/lustre<HOME_DIR>/esm_tools/configs//setups/awicm3/awicm3.yaml
+    - <HOME_DIR>/esm_tools/configs//setups/awicm3/awicm3.yaml
 defaults:
     clean_command: rm -rf build CMakeCache.txt
     comp_command: mkdir -p build; cd build; cmake ..;   make install -j `nproc --all`
     debug_info:
-        loaded_from_file: /mnt/lustre<HOME_DIR>/esm_tools/configs//defaults/download_and_compile.yaml
+        loaded_from_file: <HOME_DIR>/esm_tools/configs//defaults/download_and_compile.yaml
 fesom:
     add_config_files:
         cvmix: cvmix
     add_config_sources:
-        cvmix: /mnt/lustre<HOME_DIR>/esm_tools/namelists//fesom2/2.0/awicm3/v3.0//namelist.cvmix
+        cvmix: <HOME_DIR>/esm_tools/namelists//fesom2/2.0/awicm3/v3.0//namelist.cvmix
     all_filetypes:
     - analysis
     - bin
@@ -177,13 +177,13 @@ fesom:
         io: <TEST_DIR>run/awicm3/awicm3-v3.0-TCO159L91-CORE2_initial/run_20000101-20000101/config/fesom/namelist.io
         oce: <TEST_DIR>run/awicm3/awicm3-v3.0-TCO159L91-CORE2_initial/run_20000101-20000101/config/fesom/namelist.oce
     config_sources:
-        config: /mnt/lustre<HOME_DIR>/esm_tools/namelists//fesom2/2.0/awicm3/v3.0//namelist.config
-        cvmix: /mnt/lustre<HOME_DIR>/esm_tools/namelists//fesom2/2.0/awicm3/v3.0//namelist.cvmix
+        config: <HOME_DIR>/esm_tools/namelists//fesom2/2.0/awicm3/v3.0//namelist.config
+        cvmix: <HOME_DIR>/esm_tools/namelists//fesom2/2.0/awicm3/v3.0//namelist.cvmix
         fesom.clock: <TEST_DIR>/run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/run_20000101-20000101/config/fesom//fesom.clock
-        forcing: /mnt/lustre<HOME_DIR>/esm_tools/namelists//fesom2/2.0/awicm3/v3.0//namelist.forcing
-        ice: /mnt/lustre<HOME_DIR>/esm_tools/namelists//fesom2/2.0/awicm3/v3.0//namelist.ice
-        io: /mnt/lustre<HOME_DIR>/esm_tools/namelists//fesom2/2.0/awicm3/v3.0//namelist.io
-        oce: /mnt/lustre<HOME_DIR>/esm_tools/namelists//fesom2/2.0/awicm3/v3.0//namelist.oce
+        forcing: <HOME_DIR>/esm_tools/namelists//fesom2/2.0/awicm3/v3.0//namelist.forcing
+        ice: <HOME_DIR>/esm_tools/namelists//fesom2/2.0/awicm3/v3.0//namelist.ice
+        io: <HOME_DIR>/esm_tools/namelists//fesom2/2.0/awicm3/v3.0//namelist.io
+        oce: <HOME_DIR>/esm_tools/namelists//fesom2/2.0/awicm3/v3.0//namelist.oce
     config_targets:
         config: <TEST_DIR>run/awicm3/awicm3-v3.0-TCO159L91-CORE2_initial/run_20000101-20000101/work/namelist.config
         cvmix: <TEST_DIR>run/awicm3/awicm3-v3.0-TCO159L91-CORE2_initial/run_20000101-20000101/work/namelist.cvmix
@@ -239,7 +239,7 @@ fesom:
     currentday: 1
     daynew: 1
     debug_info:
-        loaded_from_file: /mnt/lustre<HOME_DIR>/esm_tools/configs//components/fesom/fesom-2.0.yaml
+        loaded_from_file: <HOME_DIR>/esm_tools/configs//components/fesom/fesom-2.0.yaml
     destination: fesom-2.0
     executable: fesom
     experiment_analysis_dir: <TEST_DIR>/run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/analysis/fesom/
@@ -413,7 +413,7 @@ fesom:
         namelist.oce:
             oce_tra:
                 surf_relax_s: 0
-    namelist_dir: /mnt/lustre<HOME_DIR>/esm_tools/namelists//fesom2/2.0/awicm3/v3.0/
+    namelist_dir: <HOME_DIR>/esm_tools/namelists//fesom2/2.0/awicm3/v3.0/
     namelists:
     - namelist.config
     - namelist.forcing
@@ -543,9 +543,9 @@ general:
         original_command: awicm3-v3.0-TCO159L91-CORE2_initial.yaml -e awicm3-v3.0-TCO159L91-CORE2_initial --open-run --no-motd
         profile: false
         run_number: null
-        runscript_abspath: /mnt/lustre<TEST_DIR>run/awicm3/awicm3-v3.0-TCO159L91-CORE2_initial/scripts/awicm3-v3.0-TCO159L91-CORE2_initial.yaml
+        runscript_abspath: <TEST_DIR>run/awicm3/awicm3-v3.0-TCO159L91-CORE2_initial/scripts/awicm3-v3.0-TCO159L91-CORE2_initial.yaml
         scriptname: awicm3-v3.0-TCO159L91-CORE2_initial.yaml
-        started_from: /mnt/lustre<TEST_DIR>run/awicm3/awicm3-v3.0-TCO159L91-CORE2_initial/scripts/
+        started_from: <TEST_DIR>run/awicm3/awicm3-v3.0-TCO159L91-CORE2_initial/scripts/
         update: false
         update_filetypes: []
         use_venv: false
@@ -823,11 +823,11 @@ general:
     current_date: '2000-01-01T00:00:00'
     debug_info:
         loaded_from_file:
-        - /mnt/lustre<HOME_DIR>/esm_tools/configs//defaults/general.yaml
-        - /mnt/lustre<HOME_DIR>/esm_tools/configs//components/oasis3mct/oasis3mct.env.yaml
+        - <HOME_DIR>/esm_tools/configs//defaults/general.yaml
+        - <HOME_DIR>/esm_tools/configs//components/oasis3mct/oasis3mct.env.yaml
     defaults.yaml:
         debug_info:
-            loaded_from_file: /mnt/lustre<HOME_DIR>/esm_tools/configs//esm_software/esm_runscripts/defaults.yaml
+            loaded_from_file: <HOME_DIR>/esm_tools/configs//esm_software/esm_runscripts/defaults.yaml
         per_model_defaults: {}
     delta_date:
     - 0
@@ -869,9 +869,9 @@ general:
                             DR_HOOK_PROFILE_LIMIT: 0.5
                             HDF5_DISABLE_VERSION_CHECK: 1
                             OIFS_DUMMY_ACTION: ABORT
-    esm_function_dir: /mnt/lustre<HOME_DIR>/esm_tools/configs/
-    esm_namelist_dir: /mnt/lustre<HOME_DIR>/esm_tools/namelists/
-    esm_runscript_dir: /mnt/lustre<HOME_DIR>/esm_tools/runscripts/
+    esm_function_dir: <HOME_DIR>/esm_tools/configs/
+    esm_namelist_dir: <HOME_DIR>/esm_tools/namelists/
+    esm_runscript_dir: <HOME_DIR>/esm_tools/runscripts/
     experiment_analysis_dir: <TEST_DIR>/run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/analysis/
     experiment_config_dir: <TEST_DIR>/run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/config/
     experiment_couple_dir: <TEST_DIR>/run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/couple/
@@ -1059,7 +1059,7 @@ general:
     run_datestamp: 20000101-20000101
     run_number: 1
     run_or_compile: runtime
-    runscript_abspath: /mnt/lustre<TEST_DIR>run/awicm3/awicm3-v3.0-TCO159L91-CORE2_initial/scripts/awicm3-v3.0-TCO159L91-CORE2_initial.yaml
+    runscript_abspath: <TEST_DIR>run/awicm3/awicm3-v3.0-TCO159L91-CORE2_initial/scripts/awicm3-v3.0-TCO159L91-CORE2_initial.yaml
     runtime:
     - 0
     - 0
@@ -1169,7 +1169,7 @@ general:
     setup_name: awicm3
     standalone: false
     start_date: '2000-01-01T00:00:00'
-    started_from: /mnt/lustre<TEST_DIR>run/awicm3/awicm3-v3.0-TCO159L91-CORE2_initial/scripts/
+    started_from: <TEST_DIR>run/awicm3/awicm3-v3.0-TCO159L91-CORE2_initial/scripts/
     submitted: false
     thisrun_analysis_dir: <TEST_DIR>/run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/run_20000101-20000101/analysis/
     thisrun_config_dir: <TEST_DIR>/run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/run_20000101-20000101/config/
@@ -1401,7 +1401,7 @@ oasis3mct:
     coupling_time_step: 7200
     debug_info:
         loaded_from_file:
-        - /mnt/lustre<HOME_DIR>/esm_tools/configs//components/oasis3mct/oasis3mct.yaml
+        - <HOME_DIR>/esm_tools/configs//components/oasis3mct/oasis3mct.yaml
     destination: oasis
     experiment_analysis_dir: <TEST_DIR>/run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/analysis/oasis3mct/
     experiment_bin_dir: <TEST_DIR>/run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/bin/oasis3mct/
@@ -2174,8 +2174,8 @@ oifs:
         fort.4: <TEST_DIR>run/awicm3/awicm3-v3.0-TCO159L91-CORE2_initial/run_20000101-20000101/config/oifs/fort.4
         wam_namelist: <TEST_DIR>run/awicm3/awicm3-v3.0-TCO159L91-CORE2_initial/run_20000101-20000101/config/oifs/wam_namelist
     config_sources:
-        fort.4: /mnt/lustre<HOME_DIR>/esm_tools/namelists//oifs/43r3/awicm3/v3.0/fort.4
-        wam_namelist: /mnt/lustre<HOME_DIR>/esm_tools/namelists//oifs/43r3/awicm3/v3.0/wam_namelist
+        fort.4: <HOME_DIR>/esm_tools/namelists//oifs/43r3/awicm3/v3.0/fort.4
+        wam_namelist: <HOME_DIR>/esm_tools/namelists//oifs/43r3/awicm3/v3.0/wam_namelist
     config_targets:
         fort.4: <TEST_DIR>run/awicm3/awicm3-v3.0-TCO159L91-CORE2_initial/run_20000101-20000101/work/fort.4
         wam_namelist: <TEST_DIR>run/awicm3/awicm3-v3.0-TCO159L91-CORE2_initial/run_20000101-20000101/work/wam_namelist
@@ -2219,7 +2219,7 @@ oifs:
             grid: atma
     debug_info:
         loaded_from_file:
-        - /mnt/lustre<HOME_DIR>/esm_tools/configs//components/oifs/oifs.yaml
+        - <HOME_DIR>/esm_tools/configs//components/oifs/oifs.yaml
     description: 'The OpenIFS atmosphere model based on ECMWF IFS
 
         Carver et al., in prep.'
@@ -2859,7 +2859,7 @@ oifs:
                 CBPLTDT: '20000101000000'
                 CDATECURA: '20000101000000'
                 CDATEF: '20000101000000'
-    namelist_dir: /mnt/lustre<HOME_DIR>/esm_tools/namelists//oifs/43r3/awicm3/v3.0
+    namelist_dir: <HOME_DIR>/esm_tools/namelists//oifs/43r3/awicm3/v3.0
     namelists:
     - fort.4
     - wam_namelist
@@ -2915,7 +2915,7 @@ oifs:
     post_processing: 0
     postprocess:
         postprocess_shell:
-            method: /mnt/lustre<HOME_DIR>/esm_tools/configs//components/oifs/oifs-43r3-postprocess.sh <TEST_DIR>/run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/run_20000101-20000101/work/ ECE3 20000101 20000101
+            method: <HOME_DIR>/esm_tools/configs//components/oifs/oifs-43r3-postprocess.sh <TEST_DIR>/run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/run_20000101-20000101/work/ ECE3 20000101 20000101
             type: shell
     prepcompute_recipe:
     - compile_model
@@ -2939,9 +2939,9 @@ oifs:
     prepifs_startdate: '19820101'
     preprocess:
         preprocess_shell:
-            method: '/mnt/lustre<HOME_DIR>/esm_tools/configs//components/oifs/change_icm_date.sh <TEST_DIR>/run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs// awi3 awi3 20000101 20000101 1 0 108160 1;  echo ''Run number for internal OpenIFS timekeeping: 1'''
+            method: '<HOME_DIR>/esm_tools/configs//components/oifs/change_icm_date.sh <TEST_DIR>/run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs// awi3 awi3 20000101 20000101 1 0 108160 1;  echo ''Run number for internal OpenIFS timekeeping: 1'''
             type: shell
-    preprocess_method: '/mnt/lustre<HOME_DIR>/esm_tools/configs//components/oifs/change_icm_date.sh <TEST_DIR>/run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs// awi3 awi3 20000101 20000101 1 0 108160 1;  echo ''Run number for internal OpenIFS timekeeping: 1'''
+    preprocess_method: '<HOME_DIR>/esm_tools/configs//components/oifs/change_icm_date.sh <TEST_DIR>/run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs// awi3 awi3 20000101 20000101 1 0 108160 1;  echo ''Run number for internal OpenIFS timekeeping: 1'''
     prev_date: '1999-12-31T23:00:00'
     pseudo_initial_date: '2000-01-01T00:00:00'
     read_icmcl: 0
@@ -3184,7 +3184,7 @@ rnfmap:
     config_intermediate:
         namelist.runoffmapper: <TEST_DIR>run/awicm3/awicm3-v3.0-TCO159L91-CORE2_initial/run_20000101-20000101/config/rnfmap/namelist.runoffmapper
     config_sources:
-        namelist.runoffmapper: /mnt/lustre<HOME_DIR>/esm_tools/namelists//rnfmap//namelist.runoffmapper
+        namelist.runoffmapper: <HOME_DIR>/esm_tools/namelists//rnfmap//namelist.runoffmapper
     config_targets:
         namelist.runoffmapper: <TEST_DIR>run/awicm3/awicm3-v3.0-TCO159L91-CORE2_initial/run_20000101-20000101/work/namelist.runoffmapper
     coupling_fields:
@@ -3197,7 +3197,7 @@ rnfmap:
         R_Runoff_oce:
             grid: rnfo
     debug_info:
-        loaded_from_file: /mnt/lustre<HOME_DIR>/esm_tools/configs//components/rnfmap/rnfmap.yaml
+        loaded_from_file: <HOME_DIR>/esm_tools/configs//components/rnfmap/rnfmap.yaml
     description: 'River routing scheme taken from EC-Earth
 
         Modified for use in FOCI'
@@ -3323,7 +3323,7 @@ rnfmap:
             NAMRNFMAP:
                 RunLengthSec: 86400
                 TimeStepSec: 7200
-    namelist_dir: /mnt/lustre<HOME_DIR>/esm_tools/namelists//rnfmap/
+    namelist_dir: <HOME_DIR>/esm_tools/namelists//rnfmap/
     namelists:
     - namelist.runoffmapper
     nproc: 1
@@ -3370,4 +3370,4 @@ rnfmap:
 xios:
     nproc: 1
     omp_num_threads: 40
-    xml_dir: /mnt/lustre<HOME_DIR>/esm_tools/namelists//oifs/43r3/xios/TCO159_CORE2
+    xml_dir: <HOME_DIR>/esm_tools/namelists//oifs/43r3/xios/TCO159_CORE2
