@@ -1721,16 +1721,16 @@ general:
     base_dir: <TEST_DIR>/run/awiesm/
     batch: slurm
     calendar: esm_calendar object with allowed leap years
-    check: false
+    check: true
     command_line_config:
-        check: false
+        check: true
         current_date: null
         expid: awiesm-2.1_icebergs
         inspect: null
         jobtype: prepcompute
         launcher_pid: -666
         no_motd: true
-        original_command: awiesm-2.1_icebergs.yaml -e awiesm-2.1_icebergs --open-run --no-motd
+        original_command: awiesm-2.1_icebergs.yaml -e awiesm-2.1_icebergs --open-run -c --no-motd
         profile: false
         run_number: null
         runscript_abspath: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/scripts/awiesm-2.1_icebergs.yaml
@@ -1864,7 +1864,7 @@ general:
     initial_date: '2001-01-01T00:00:00'
     inspect: null
     iterative_coupling: false
-    jobid: 103030
+    jobid: 22453
     jobtype: prepcompute
     last_run_datestamp: 20000101-20001231
     last_start_date: '2000-01-01T00:00:00'
@@ -1886,7 +1886,7 @@ general:
     no_motd: true
     nsecond: 0
     nyear: 1
-    original_command: awiesm-2.1_icebergs.yaml -e awiesm-2.1_icebergs --open-run --no-motd
+    original_command: awiesm-2.1_icebergs.yaml -e awiesm-2.1_icebergs --open-run -c --no-motd
     out_filetypes:
     - analysis
     - log
