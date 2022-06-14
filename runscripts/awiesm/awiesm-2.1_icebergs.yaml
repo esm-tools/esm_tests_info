@@ -55,7 +55,11 @@ fesom:
     use_icebergs: true
     use_icesheet_coupling: true
     ini_iceberg_dir: "/home/ollie/lackerma/ICEBERGS/ib_10000/"
-    iceberg_dir: "/home/ollie/lackerma/ICEBERGS/ib_10000/"
+    choose_general.check:
+        True:
+            iceberg_dir: "/home/ollie/lackerma/ICEBERGS/ib_10000/"
+        False:
+            iceberg_dir: "${general.model_dir}/iceberg_files/"
     pool_dir: "/work/ollie/pool/FESOM/"
     mesh_dir: "/work/ollie/sxu/AWICM-2.0/meshes/core2_dkrz/"
     resolution: "CORE2"
