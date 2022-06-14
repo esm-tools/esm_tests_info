@@ -1028,7 +1028,7 @@ general:
     - restart_in
     initial_date: '2000-01-01T00:00:00'
     inspect: null
-    jobid: 1090559
+    jobid: 2634926
     jobtype: prepcompute
     last_run_datestamp: 19991231-19991231
     last_run_in_chunk: false
@@ -3226,6 +3226,7 @@ rnfmap:
     bin_targets:
         bin: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/rnfma
     branch: esm-tools-focioifs
+    cflags: -fp-model precise -O3 -march=core-avx2 -mtune=core-avx2 -g -traceback -qopt-report=0 -fpe0
     clean_command: rm -rf bin; cd src; make clean; cd ..
     comp_command: rm -rf bin; mkdir bin; cd src; make ; cd .. ; cp bin/rnfmap.exe ./bin/rnfma
     compiletime_environment_changes:
@@ -3280,6 +3281,7 @@ rnfmap:
     experiment_restart_in_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/restart/rnfmap/
     experiment_restart_out_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/restart/rnfmap/
     experiment_viz_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/viz/rnfmap/
+    fflags: -r8 -fp-model precise -align array32byte -O3 -march=core-avx2 -mtune=core-avx2 -g -traceback -convert big_endian -fpe0
     file_movements:
         analysis:
             exp_to_run: copy
