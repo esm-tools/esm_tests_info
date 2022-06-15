@@ -16,6 +16,23 @@ run:
                     - "outdata/echam/*"
                     # no daily output - "outdata/fesom/*.fesom.*.nc"
         check: {}
+
+ignore_compare:
+    awiesm-2.1_icebergs:
+        finished_config:
+            # Icebergs ignored lines
+            - "iceberg_dir: /home/ollie/lackerma/ICEBERGS/ib_10000/"
+            - "iceberg_dir: <HOME_DIR>/esm_tools/configs//../src/esm_tests/resources/runscripts/awiesm/run_files4check_runs/awiesm-2.1_icebergs/"
+            - "height: <HOME_DIR>/esm_tools/configs//../src/esm_tests/resources/runscripts/awiesm/run_files4check_runs/awiesm-2.1_icebergs//HEIGHT.dat"
+            - "latitude: <HOME_DIR>/esm_tools/configs//../src/esm_tests/resources/runscripts/awiesm/run_files4check_runs/awiesm-2.1_icebergs//LAT.dat"
+            - "length: <HOME_DIR>/esm_tools/configs//../src/esm_tests/resources/runscripts/awiesm/run_files4check_runs/awiesm-2.1_icebergs//LENGTH.dat"
+            - "longitude: <HOME_DIR>/esm_tools/configs//../src/esm_tests/resources/runscripts/awiesm/run_files4check_runs/awiesm-2.1_icebergs//LON.dat"
+            - "scaling: /home/ollie/lackerma/ICEBERGS/ib_10000//SCALING.dat"
+            - "scaling: <HOME_DIR>/esm_tools/configs//../src/esm_tests/resources/runscripts/awiesm/run_files4check_runs/awiesm-2.1_icebergs//SCALING.dat"
+#    all: # ignore for all in this folder
+#        finished_config
+#            - "a str"
+
 computers:
         - ollie
         - mistral
