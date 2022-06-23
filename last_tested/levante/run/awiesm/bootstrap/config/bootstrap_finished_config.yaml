@@ -534,6 +534,9 @@ echam:
         glim: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_glim
         glim_codes: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_glim.codes
         glim_restart: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/restart_bootstrap_glim.nc
+        rad: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_rad
+        rad_codes: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_rad.codes
+        rad_restart: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/restart_bootstrap_rad.nc
         sp6h: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_sp6h
         sp6h_codes: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_sp6h.codes
         sp6h_restart: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/restart_bootstrap_sp6h.nc
@@ -571,6 +574,9 @@ echam:
         glim: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_glim
         glim_codes: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_glim.codes
         glim_restart: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_glim.nc
+        rad: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_rad
+        rad_codes: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_rad.codes
+        rad_restart: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_rad.nc
         sp6h: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_sp6h
         sp6h_codes: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_sp6h.codes
         sp6h_restart: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_sp6h.nc
@@ -608,6 +614,9 @@ echam:
         glim: <TEST_DIR>run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_glim
         glim_codes: <TEST_DIR>run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_glim.codes
         glim_restart: <TEST_DIR>run/awiesm/bootstrap/ignore/echam/restart_bootstrap_glim.nc
+        rad: <TEST_DIR>run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_rad
+        rad_codes: <TEST_DIR>run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_rad.codes
+        rad_restart: <TEST_DIR>run/awiesm/bootstrap/ignore/echam/restart_bootstrap_rad.nc
         sp6h: <TEST_DIR>run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_sp6h
         sp6h_codes: <TEST_DIR>run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_sp6h.codes
         sp6h_restart: <TEST_DIR>run/awiesm/bootstrap/ignore/echam/restart_bootstrap_sp6h.nc
@@ -774,6 +783,8 @@ echam:
         glday_codes: bootstrap_1850*.01_glday.codes
         glim: bootstrap_1850*.01_glim
         glim_codes: bootstrap_1850*.01_glim.codes
+        rad: bootstrap_1850*.01_rad
+        rad_codes: bootstrap_1850*.01_rad.codes
         sp6h: bootstrap_1850*.01_sp6h
         sp6h_codes: bootstrap_1850*.01_sp6h.codes
         spim: bootstrap_1850*.01_spim
@@ -897,6 +908,12 @@ echam:
             flags:
             - t echam6
             post_process: mm
+        bootstrap_echam_rad_18500101-18510101_mm.nc:
+            args:
+                infile: bootstrap_185001.01_rad
+            flags:
+            - t echam6
+            post_process: mm
         bootstrap_echam_sp6h_18500101-18510101_mm.nc:
             args:
                 infile: bootstrap_185001.01_sp6h
@@ -932,7 +949,9 @@ echam:
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
         aclcim:
+        - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
@@ -958,7 +977,9 @@ echam:
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
         echam:
+        - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
@@ -984,7 +1005,9 @@ echam:
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
         g3bday:
+        - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
@@ -1010,7 +1033,9 @@ echam:
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
         g3bim:
+        - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
@@ -1036,7 +1061,23 @@ echam:
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
         glim:
+        - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
+        rad:
+        - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
@@ -1062,7 +1103,9 @@ echam:
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
         spim:
+        - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
@@ -1086,6 +1129,7 @@ echam:
         g3bim: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/restart/echam/restart_bootstrap_g3bim_18501231.nc
         glday: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/restart/echam/restart_bootstrap_glday_18501231.nc
         glim: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/restart/echam/restart_bootstrap_glim_18501231.nc
+        rad: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/restart/echam/restart_bootstrap_rad_18501231.nc
         sp6h: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/restart/echam/restart_bootstrap_sp6h_18501231.nc
         spim: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/restart/echam/restart_bootstrap_spim_18501231.nc
     restart_out_sources:
@@ -1099,6 +1143,7 @@ echam:
         g3bim: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_18501231235230_g3bim.nc
         glday: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_18501231235230_glday.nc
         glim: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_18501231235230_glim.nc
+        rad: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_18501231235230_rad.nc
         sp6h: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_18501231235230_sp6h.nc
         spim: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_18501231235230_spim.nc
     restart_out_targets:
@@ -1112,6 +1157,7 @@ echam:
         g3bim: <TEST_DIR>run/awiesm/bootstrap/restart/echam/restart_bootstrap_g3bim_18501231.nc
         glday: <TEST_DIR>run/awiesm/bootstrap/restart/echam/restart_bootstrap_glday_18501231.nc
         glim: <TEST_DIR>run/awiesm/bootstrap/restart/echam/restart_bootstrap_glim_18501231.nc
+        rad: <TEST_DIR>run/awiesm/bootstrap/restart/echam/restart_bootstrap_rad_18501231.nc
         sp6h: <TEST_DIR>run/awiesm/bootstrap/restart/echam/restart_bootstrap_sp6h_18501231.nc
         spim: <TEST_DIR>run/awiesm/bootstrap/restart/echam/restart_bootstrap_spim_18501231.nc
     restart_rate: 1
@@ -1133,6 +1179,7 @@ echam:
     - sp6h
     - glim
     - spim
+    - rad
     streamsnc:
     - aclcim
     - g3b1hi
@@ -1838,7 +1885,7 @@ general:
     - restart_in
     initial_date: '1850-01-01T00:00:00'
     inspect: null
-    jobid: 2637274
+    jobid: 2209507
     jobtype: prepcompute
     last_run_datestamp: 18490101-18491231
     last_run_in_chunk: true

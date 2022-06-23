@@ -570,9 +570,6 @@ echam:
         rad: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/ignore/echam/pi-wiso_185002.01_rad
         rad_codes: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/ignore/echam/pi-wiso_185002.01_rad.codes
         rad_restart: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/ignore/echam/restart_pi-wiso_rad.nc
-        sf_wiso: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/ignore/echam/pi-wiso_185002.01_sf_wiso
-        sf_wiso_codes: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/ignore/echam/pi-wiso_185002.01_sf_wiso.codes
-        sf_wiso_restart: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/ignore/echam/restart_pi-wiso_sf_wiso.nc
         sp6h: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/ignore/echam/pi-wiso_185002.01_sp6h
         sp6h_codes: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/ignore/echam/pi-wiso_185002.01_sp6h.codes
         sp6h_restart: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/ignore/echam/restart_pi-wiso_sp6h.nc
@@ -619,9 +616,6 @@ echam:
         rad: <TEST_DIR>/run/awiesm//pi-wiso/run_18500101-18500131/work//pi-wiso_185002.01_rad
         rad_codes: <TEST_DIR>/run/awiesm//pi-wiso/run_18500101-18500131/work//pi-wiso_185002.01_rad.codes
         rad_restart: <TEST_DIR>/run/awiesm//pi-wiso/run_18500101-18500131/work//restart_pi-wiso_rad.nc
-        sf_wiso: <TEST_DIR>/run/awiesm//pi-wiso/run_18500101-18500131/work//pi-wiso_185002.01_sf_wiso
-        sf_wiso_codes: <TEST_DIR>/run/awiesm//pi-wiso/run_18500101-18500131/work//pi-wiso_185002.01_sf_wiso.codes
-        sf_wiso_restart: <TEST_DIR>/run/awiesm//pi-wiso/run_18500101-18500131/work//restart_pi-wiso_sf_wiso.nc
         sp6h: <TEST_DIR>/run/awiesm//pi-wiso/run_18500101-18500131/work//pi-wiso_185002.01_sp6h
         sp6h_codes: <TEST_DIR>/run/awiesm//pi-wiso/run_18500101-18500131/work//pi-wiso_185002.01_sp6h.codes
         sp6h_restart: <TEST_DIR>/run/awiesm//pi-wiso/run_18500101-18500131/work//restart_pi-wiso_sp6h.nc
@@ -668,9 +662,6 @@ echam:
         rad: <TEST_DIR>run/awiesm/pi-wiso/ignore/echam/pi-wiso_185002.01_rad
         rad_codes: <TEST_DIR>run/awiesm/pi-wiso/ignore/echam/pi-wiso_185002.01_rad.codes
         rad_restart: <TEST_DIR>run/awiesm/pi-wiso/ignore/echam/restart_pi-wiso_rad.nc
-        sf_wiso: <TEST_DIR>run/awiesm/pi-wiso/ignore/echam/pi-wiso_185002.01_sf_wiso
-        sf_wiso_codes: <TEST_DIR>run/awiesm/pi-wiso/ignore/echam/pi-wiso_185002.01_sf_wiso.codes
-        sf_wiso_restart: <TEST_DIR>run/awiesm/pi-wiso/ignore/echam/restart_pi-wiso_sf_wiso.nc
         sp6h: <TEST_DIR>run/awiesm/pi-wiso/ignore/echam/pi-wiso_185002.01_sp6h
         sp6h_codes: <TEST_DIR>run/awiesm/pi-wiso/ignore/echam/pi-wiso_185002.01_sp6h.codes
         sp6h_restart: <TEST_DIR>run/awiesm/pi-wiso/ignore/echam/restart_pi-wiso_sp6h.nc
@@ -839,8 +830,6 @@ echam:
         glim_codes: pi-wiso_1850*.01_glim.codes
         rad: pi-wiso_1850*.01_rad
         rad_codes: pi-wiso_1850*.01_rad.codes
-        sf_wiso: pi-wiso_1850*.01_sf_wiso
-        sf_wiso_codes: pi-wiso_1850*.01_sf_wiso.codes
         sp6h: pi-wiso_1850*.01_sp6h
         sp6h_codes: pi-wiso_1850*.01_sp6h.codes
         spim: pi-wiso_1850*.01_spim
@@ -978,12 +967,6 @@ echam:
             flags:
             - t echam6
             post_process: mm
-        pi-wiso_echam_sf_wiso_18500101-18500201_mm.nc:
-            args:
-                infile: pi-wiso_185001.01_sf_wiso
-            flags:
-            - t echam6
-            post_process: mm
         pi-wiso_echam_sp6h_18500101-18500201_mm.nc:
             args:
                 infile: pi-wiso_185001.01_sp6h
@@ -1028,9 +1011,7 @@ echam:
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
-        - vdate <--set_global_attr-- 18500101
         accw_wiso:
-        - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
@@ -1062,9 +1043,7 @@ echam:
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
-        - vdate <--set_global_attr-- 18500101
         co2:
-        - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
@@ -1096,9 +1075,7 @@ echam:
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
-        - vdate <--set_global_attr-- 18500101
         g3b1hi:
-        - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
@@ -1130,9 +1107,7 @@ echam:
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
-        - vdate <--set_global_attr-- 18500101
         g3bid:
-        - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
@@ -1164,9 +1139,7 @@ echam:
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
-        - vdate <--set_global_attr-- 18500101
         glday:
-        - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
@@ -1198,26 +1171,7 @@ echam:
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
-        - vdate <--set_global_attr-- 18500101
         rad:
-        - vdate <--set_global_attr-- 18500101
-        - vdate <--set_global_attr-- 18500101
-        - vdate <--set_global_attr-- 18500101
-        - vdate <--set_global_attr-- 18500101
-        - vdate <--set_global_attr-- 18500101
-        - vdate <--set_global_attr-- 18500101
-        - vdate <--set_global_attr-- 18500101
-        - vdate <--set_global_attr-- 18500101
-        - vdate <--set_global_attr-- 18500101
-        - vdate <--set_global_attr-- 18500101
-        - vdate <--set_global_attr-- 18500101
-        - vdate <--set_global_attr-- 18500101
-        - vdate <--set_global_attr-- 18500101
-        - vdate <--set_global_attr-- 18500101
-        - vdate <--set_global_attr-- 18500101
-        - vdate <--set_global_attr-- 18500101
-        sf_wiso:
-        - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
@@ -1249,9 +1203,7 @@ echam:
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
-        - vdate <--set_global_attr-- 18500101
         spim:
-        - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
@@ -1283,7 +1235,6 @@ echam:
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
-        - vdate <--set_global_attr-- 18500101
     restart_out_intermediate:
         accw: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/restart/echam/restart_pi-wiso_accw_18500131.nc
         accw_wiso: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/restart/echam/restart_pi-wiso_accw_wiso_18500131.nc
@@ -1297,7 +1248,6 @@ echam:
         glday: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/restart/echam/restart_pi-wiso_glday_18500131.nc
         glim: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/restart/echam/restart_pi-wiso_glim_18500131.nc
         rad: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/restart/echam/restart_pi-wiso_rad_18500131.nc
-        sf_wiso: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/restart/echam/restart_pi-wiso_sf_wiso_18500131.nc
         sp6h: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/restart/echam/restart_pi-wiso_sp6h_18500131.nc
         spim: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/restart/echam/restart_pi-wiso_spim_18500131.nc
         wiso: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/restart/echam/restart_pi-wiso_wiso_18500131.nc
@@ -1314,7 +1264,6 @@ echam:
         glday: <TEST_DIR>/run/awiesm//pi-wiso/run_18500101-18500131/work//restart_pi-wiso_18500131235230_glday.nc
         glim: <TEST_DIR>/run/awiesm//pi-wiso/run_18500101-18500131/work//restart_pi-wiso_18500131235230_glim.nc
         rad: <TEST_DIR>/run/awiesm//pi-wiso/run_18500101-18500131/work//restart_pi-wiso_18500131235230_rad.nc
-        sf_wiso: <TEST_DIR>/run/awiesm//pi-wiso/run_18500101-18500131/work//restart_pi-wiso_18500131235230_sf_wiso.nc
         sp6h: <TEST_DIR>/run/awiesm//pi-wiso/run_18500101-18500131/work//restart_pi-wiso_18500131235230_sp6h.nc
         spim: <TEST_DIR>/run/awiesm//pi-wiso/run_18500101-18500131/work//restart_pi-wiso_18500131235230_spim.nc
         wiso: <TEST_DIR>/run/awiesm//pi-wiso/run_18500101-18500131/work//restart_pi-wiso_18500131235230_wiso.nc
@@ -1331,7 +1280,6 @@ echam:
         glday: <TEST_DIR>run/awiesm/pi-wiso/restart/echam/restart_pi-wiso_glday_18500131.nc
         glim: <TEST_DIR>run/awiesm/pi-wiso/restart/echam/restart_pi-wiso_glim_18500131.nc
         rad: <TEST_DIR>run/awiesm/pi-wiso/restart/echam/restart_pi-wiso_rad_18500131.nc
-        sf_wiso: <TEST_DIR>run/awiesm/pi-wiso/restart/echam/restart_pi-wiso_sf_wiso_18500131.nc
         sp6h: <TEST_DIR>run/awiesm/pi-wiso/restart/echam/restart_pi-wiso_sp6h_18500131.nc
         spim: <TEST_DIR>run/awiesm/pi-wiso/restart/echam/restart_pi-wiso_spim_18500131.nc
         wiso: <TEST_DIR>run/awiesm/pi-wiso/restart/echam/restart_pi-wiso_wiso_18500131.nc
@@ -1354,10 +1302,9 @@ echam:
     - sp6h
     - glim
     - spim
+    - rad
     - wiso
     - accw_wiso
-    - sf_wiso
-    - rad
     streamsnc:
     - aclcim
     - g3b1hi
@@ -2090,7 +2037,7 @@ general:
     - restart_in
     initial_date: '1850-01-01T00:00:00'
     inspect: null
-    jobid: 2638048
+    jobid: 2211126
     jobtype: prepcompute
     last_run_datestamp: 18491201-18491231
     last_run_in_chunk: false
@@ -2621,18 +2568,27 @@ jsbach:
         lightning: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/work/lightning.nc
         popdens: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/work/population_density.nc
     ignore_intermediate:
+        js_wiso: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/ignore/jsbach/pi-wiso_185002.01_js_wiso
+        js_wiso_codes: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/ignore/jsbach/pi-wiso_185002.01_js_wiso.codes
+        js_wiso_restart: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/ignore/jsbach/restart_pi-wiso_js_wiso.nc
         jsbach: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/ignore/jsbach/pi-wiso_185002.01_jsbach
         jsbach_codes: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/ignore/jsbach/pi-wiso_185002.01_jsbach.codes
         jsbach_restart: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/ignore/jsbach/restart_pi-wiso_jsbach.nc
         jsbid: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/ignore/jsbach/pi-wiso_185002.01_jsbid
         jsbid_codes: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/ignore/jsbach/pi-wiso_185002.01_jsbid.codes
         jsbid_restart: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/ignore/jsbach/restart_pi-wiso_jsbid.nc
+        la_wiso: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/ignore/jsbach/pi-wiso_185002.01_la_wiso
+        la_wiso_codes: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/ignore/jsbach/pi-wiso_185002.01_la_wiso.codes
+        la_wiso_restart: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/ignore/jsbach/restart_pi-wiso_la_wiso.nc
         land: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/ignore/jsbach/pi-wiso_185002.01_land
         land_codes: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/ignore/jsbach/pi-wiso_185002.01_land.codes
         land_restart: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/ignore/jsbach/restart_pi-wiso_land.nc
         nitro: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/ignore/jsbach/pi-wiso_185002.01_nitro
         nitro_codes: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/ignore/jsbach/pi-wiso_185002.01_nitro.codes
         nitro_restart: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/ignore/jsbach/restart_pi-wiso_nitro.nc
+        sf_wiso: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/ignore/jsbach/pi-wiso_185002.01_sf_wiso
+        sf_wiso_codes: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/ignore/jsbach/pi-wiso_185002.01_sf_wiso.codes
+        sf_wiso_restart: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/ignore/jsbach/restart_pi-wiso_sf_wiso.nc
         surf: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/ignore/jsbach/pi-wiso_185002.01_surf
         surf_codes: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/ignore/jsbach/pi-wiso_185002.01_surf.codes
         surf_restart: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/ignore/jsbach/restart_pi-wiso_surf.nc
@@ -2643,18 +2599,27 @@ jsbach:
         yasso_codes: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/ignore/jsbach/pi-wiso_185002.01_yasso.codes
         yasso_restart: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/ignore/jsbach/restart_pi-wiso_yasso.nc
     ignore_sources:
+        js_wiso: <TEST_DIR>/run/awiesm//pi-wiso/run_18500101-18500131/work//pi-wiso_185002.01_js_wiso
+        js_wiso_codes: <TEST_DIR>/run/awiesm//pi-wiso/run_18500101-18500131/work//pi-wiso_185002.01_js_wiso.codes
+        js_wiso_restart: <TEST_DIR>/run/awiesm//pi-wiso/run_18500101-18500131/work//restart_pi-wiso_js_wiso.nc
         jsbach: <TEST_DIR>/run/awiesm//pi-wiso/run_18500101-18500131/work//pi-wiso_185002.01_jsbach
         jsbach_codes: <TEST_DIR>/run/awiesm//pi-wiso/run_18500101-18500131/work//pi-wiso_185002.01_jsbach.codes
         jsbach_restart: <TEST_DIR>/run/awiesm//pi-wiso/run_18500101-18500131/work//restart_pi-wiso_jsbach.nc
         jsbid: <TEST_DIR>/run/awiesm//pi-wiso/run_18500101-18500131/work//pi-wiso_185002.01_jsbid
         jsbid_codes: <TEST_DIR>/run/awiesm//pi-wiso/run_18500101-18500131/work//pi-wiso_185002.01_jsbid.codes
         jsbid_restart: <TEST_DIR>/run/awiesm//pi-wiso/run_18500101-18500131/work//restart_pi-wiso_jsbid.nc
+        la_wiso: <TEST_DIR>/run/awiesm//pi-wiso/run_18500101-18500131/work//pi-wiso_185002.01_la_wiso
+        la_wiso_codes: <TEST_DIR>/run/awiesm//pi-wiso/run_18500101-18500131/work//pi-wiso_185002.01_la_wiso.codes
+        la_wiso_restart: <TEST_DIR>/run/awiesm//pi-wiso/run_18500101-18500131/work//restart_pi-wiso_la_wiso.nc
         land: <TEST_DIR>/run/awiesm//pi-wiso/run_18500101-18500131/work//pi-wiso_185002.01_land
         land_codes: <TEST_DIR>/run/awiesm//pi-wiso/run_18500101-18500131/work//pi-wiso_185002.01_land.codes
         land_restart: <TEST_DIR>/run/awiesm//pi-wiso/run_18500101-18500131/work//restart_pi-wiso_land.nc
         nitro: <TEST_DIR>/run/awiesm//pi-wiso/run_18500101-18500131/work//pi-wiso_185002.01_nitro
         nitro_codes: <TEST_DIR>/run/awiesm//pi-wiso/run_18500101-18500131/work//pi-wiso_185002.01_nitro.codes
         nitro_restart: <TEST_DIR>/run/awiesm//pi-wiso/run_18500101-18500131/work//restart_pi-wiso_nitro.nc
+        sf_wiso: <TEST_DIR>/run/awiesm//pi-wiso/run_18500101-18500131/work//pi-wiso_185002.01_sf_wiso
+        sf_wiso_codes: <TEST_DIR>/run/awiesm//pi-wiso/run_18500101-18500131/work//pi-wiso_185002.01_sf_wiso.codes
+        sf_wiso_restart: <TEST_DIR>/run/awiesm//pi-wiso/run_18500101-18500131/work//restart_pi-wiso_sf_wiso.nc
         surf: <TEST_DIR>/run/awiesm//pi-wiso/run_18500101-18500131/work//pi-wiso_185002.01_surf
         surf_codes: <TEST_DIR>/run/awiesm//pi-wiso/run_18500101-18500131/work//pi-wiso_185002.01_surf.codes
         surf_restart: <TEST_DIR>/run/awiesm//pi-wiso/run_18500101-18500131/work//restart_pi-wiso_surf.nc
@@ -2665,18 +2630,27 @@ jsbach:
         yasso_codes: <TEST_DIR>/run/awiesm//pi-wiso/run_18500101-18500131/work//pi-wiso_185002.01_yasso.codes
         yasso_restart: <TEST_DIR>/run/awiesm//pi-wiso/run_18500101-18500131/work//restart_pi-wiso_yasso.nc
     ignore_targets:
+        js_wiso: <TEST_DIR>run/awiesm/pi-wiso/ignore/jsbach/pi-wiso_185002.01_js_wiso
+        js_wiso_codes: <TEST_DIR>run/awiesm/pi-wiso/ignore/jsbach/pi-wiso_185002.01_js_wiso.codes
+        js_wiso_restart: <TEST_DIR>run/awiesm/pi-wiso/ignore/jsbach/restart_pi-wiso_js_wiso.nc
         jsbach: <TEST_DIR>run/awiesm/pi-wiso/ignore/jsbach/pi-wiso_185002.01_jsbach
         jsbach_codes: <TEST_DIR>run/awiesm/pi-wiso/ignore/jsbach/pi-wiso_185002.01_jsbach.codes
         jsbach_restart: <TEST_DIR>run/awiesm/pi-wiso/ignore/jsbach/restart_pi-wiso_jsbach.nc
         jsbid: <TEST_DIR>run/awiesm/pi-wiso/ignore/jsbach/pi-wiso_185002.01_jsbid
         jsbid_codes: <TEST_DIR>run/awiesm/pi-wiso/ignore/jsbach/pi-wiso_185002.01_jsbid.codes
         jsbid_restart: <TEST_DIR>run/awiesm/pi-wiso/ignore/jsbach/restart_pi-wiso_jsbid.nc
+        la_wiso: <TEST_DIR>run/awiesm/pi-wiso/ignore/jsbach/pi-wiso_185002.01_la_wiso
+        la_wiso_codes: <TEST_DIR>run/awiesm/pi-wiso/ignore/jsbach/pi-wiso_185002.01_la_wiso.codes
+        la_wiso_restart: <TEST_DIR>run/awiesm/pi-wiso/ignore/jsbach/restart_pi-wiso_la_wiso.nc
         land: <TEST_DIR>run/awiesm/pi-wiso/ignore/jsbach/pi-wiso_185002.01_land
         land_codes: <TEST_DIR>run/awiesm/pi-wiso/ignore/jsbach/pi-wiso_185002.01_land.codes
         land_restart: <TEST_DIR>run/awiesm/pi-wiso/ignore/jsbach/restart_pi-wiso_land.nc
         nitro: <TEST_DIR>run/awiesm/pi-wiso/ignore/jsbach/pi-wiso_185002.01_nitro
         nitro_codes: <TEST_DIR>run/awiesm/pi-wiso/ignore/jsbach/pi-wiso_185002.01_nitro.codes
         nitro_restart: <TEST_DIR>run/awiesm/pi-wiso/ignore/jsbach/restart_pi-wiso_nitro.nc
+        sf_wiso: <TEST_DIR>run/awiesm/pi-wiso/ignore/jsbach/pi-wiso_185002.01_sf_wiso
+        sf_wiso_codes: <TEST_DIR>run/awiesm/pi-wiso/ignore/jsbach/pi-wiso_185002.01_sf_wiso.codes
+        sf_wiso_restart: <TEST_DIR>run/awiesm/pi-wiso/ignore/jsbach/restart_pi-wiso_sf_wiso.nc
         surf: <TEST_DIR>run/awiesm/pi-wiso/ignore/jsbach/pi-wiso_185002.01_surf
         surf_codes: <TEST_DIR>run/awiesm/pi-wiso/ignore/jsbach/pi-wiso_185002.01_surf.codes
         surf_restart: <TEST_DIR>run/awiesm/pi-wiso/ignore/jsbach/restart_pi-wiso_surf.nc
@@ -2723,14 +2697,20 @@ jsbach:
     outdata_intermediate: {}
     outdata_sources: {}
     outdata_sources_wild_card:
+        js_wiso: pi-wiso_1850*.01_js_wiso
+        js_wiso_codes: pi-wiso_1850*.01_js_wiso.codes
         jsbach: pi-wiso_1850*.01_jsbach
         jsbach_codes: pi-wiso_1850*.01_jsbach.codes
         jsbid: pi-wiso_1850*.01_jsbid
         jsbid_codes: pi-wiso_1850*.01_jsbid.codes
+        la_wiso: pi-wiso_1850*.01_la_wiso
+        la_wiso_codes: pi-wiso_1850*.01_la_wiso.codes
         land: pi-wiso_1850*.01_land
         land_codes: pi-wiso_1850*.01_land.codes
         nitro: pi-wiso_1850*.01_nitro
         nitro_codes: pi-wiso_1850*.01_nitro.codes
+        sf_wiso: pi-wiso_1850*.01_sf_wiso
+        sf_wiso_codes: pi-wiso_1850*.01_sf_wiso.codes
         surf: pi-wiso_1850*.01_surf
         surf_codes: pi-wiso_1850*.01_surf.codes
         veg: pi-wiso_1850*.01_veg
@@ -2746,29 +2726,38 @@ jsbach:
     repository: https://gitlab.dkrz.de/modular_esm/echam6
     resolution: T63
     restart_out_intermediate:
-        jsbach: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/restart/jsbach/restart_pi-wiso_jsbach_18500131.nc
-        jsbid: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/restart/jsbach/restart_pi-wiso_jsbid_18500131.nc
-        land: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/restart/jsbach/restart_pi-wiso_land_18500131.nc
-        nitro: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/restart/jsbach/restart_pi-wiso_nitro_18500131.nc
-        surf: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/restart/jsbach/restart_pi-wiso_surf_18500131.nc
-        veg: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/restart/jsbach/restart_pi-wiso_veg_18500131.nc
-        yasso: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/restart/jsbach/restart_pi-wiso_yasso_18500131.nc
+        js_wiso: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/restart/jsbach/restart_pi-wiso_18500131235230_js_wiso.nc
+        jsbach: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/restart/jsbach/restart_pi-wiso_18500131235230_jsbach.nc
+        jsbid: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/restart/jsbach/restart_pi-wiso_18500131235230_jsbid.nc
+        la_wiso: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/restart/jsbach/restart_pi-wiso_18500131235230_la_wiso.nc
+        land: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/restart/jsbach/restart_pi-wiso_18500131235230_land.nc
+        nitro: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/restart/jsbach/restart_pi-wiso_18500131235230_nitro.nc
+        sf_wiso: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/restart/jsbach/restart_pi-wiso_18500131235230_sf_wiso.nc
+        surf: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/restart/jsbach/restart_pi-wiso_18500131235230_surf.nc
+        veg: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/restart/jsbach/restart_pi-wiso_18500131235230_veg.nc
+        yasso: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500131/restart/jsbach/restart_pi-wiso_18500131235230_yasso.nc
     restart_out_sources:
+        js_wiso: <TEST_DIR>/run/awiesm//pi-wiso/run_18500101-18500131/work//restart_pi-wiso_18500131235230_js_wiso.nc
         jsbach: <TEST_DIR>/run/awiesm//pi-wiso/run_18500101-18500131/work//restart_pi-wiso_18500131235230_jsbach.nc
         jsbid: <TEST_DIR>/run/awiesm//pi-wiso/run_18500101-18500131/work//restart_pi-wiso_18500131235230_jsbid.nc
+        la_wiso: <TEST_DIR>/run/awiesm//pi-wiso/run_18500101-18500131/work//restart_pi-wiso_18500131235230_la_wiso.nc
         land: <TEST_DIR>/run/awiesm//pi-wiso/run_18500101-18500131/work//restart_pi-wiso_18500131235230_land.nc
         nitro: <TEST_DIR>/run/awiesm//pi-wiso/run_18500101-18500131/work//restart_pi-wiso_18500131235230_nitro.nc
+        sf_wiso: <TEST_DIR>/run/awiesm//pi-wiso/run_18500101-18500131/work//restart_pi-wiso_18500131235230_sf_wiso.nc
         surf: <TEST_DIR>/run/awiesm//pi-wiso/run_18500101-18500131/work//restart_pi-wiso_18500131235230_surf.nc
         veg: <TEST_DIR>/run/awiesm//pi-wiso/run_18500101-18500131/work//restart_pi-wiso_18500131235230_veg.nc
         yasso: <TEST_DIR>/run/awiesm//pi-wiso/run_18500101-18500131/work//restart_pi-wiso_18500131235230_yasso.nc
     restart_out_targets:
-        jsbach: <TEST_DIR>run/awiesm/pi-wiso/restart/jsbach/restart_pi-wiso_jsbach_18500131.nc
-        jsbid: <TEST_DIR>run/awiesm/pi-wiso/restart/jsbach/restart_pi-wiso_jsbid_18500131.nc
-        land: <TEST_DIR>run/awiesm/pi-wiso/restart/jsbach/restart_pi-wiso_land_18500131.nc
-        nitro: <TEST_DIR>run/awiesm/pi-wiso/restart/jsbach/restart_pi-wiso_nitro_18500131.nc
-        surf: <TEST_DIR>run/awiesm/pi-wiso/restart/jsbach/restart_pi-wiso_surf_18500131.nc
-        veg: <TEST_DIR>run/awiesm/pi-wiso/restart/jsbach/restart_pi-wiso_veg_18500131.nc
-        yasso: <TEST_DIR>run/awiesm/pi-wiso/restart/jsbach/restart_pi-wiso_yasso_18500131.nc
+        js_wiso: <TEST_DIR>run/awiesm/pi-wiso/restart/jsbach/restart_pi-wiso_18500131235230_js_wiso.nc
+        jsbach: <TEST_DIR>run/awiesm/pi-wiso/restart/jsbach/restart_pi-wiso_18500131235230_jsbach.nc
+        jsbid: <TEST_DIR>run/awiesm/pi-wiso/restart/jsbach/restart_pi-wiso_18500131235230_jsbid.nc
+        la_wiso: <TEST_DIR>run/awiesm/pi-wiso/restart/jsbach/restart_pi-wiso_18500131235230_la_wiso.nc
+        land: <TEST_DIR>run/awiesm/pi-wiso/restart/jsbach/restart_pi-wiso_18500131235230_land.nc
+        nitro: <TEST_DIR>run/awiesm/pi-wiso/restart/jsbach/restart_pi-wiso_18500131235230_nitro.nc
+        sf_wiso: <TEST_DIR>run/awiesm/pi-wiso/restart/jsbach/restart_pi-wiso_18500131235230_sf_wiso.nc
+        surf: <TEST_DIR>run/awiesm/pi-wiso/restart/jsbach/restart_pi-wiso_18500131235230_surf.nc
+        veg: <TEST_DIR>run/awiesm/pi-wiso/restart/jsbach/restart_pi-wiso_18500131235230_veg.nc
+        yasso: <TEST_DIR>run/awiesm/pi-wiso/restart/jsbach/restart_pi-wiso_18500131235230_yasso.nc
     scenario: PI-CTRL
     scenario_type: PI-CTRL
     streams:
@@ -2779,6 +2768,9 @@ jsbach:
     - nitro
     - veg
     - land
+    - js_wiso
+    - la_wiso
+    - sf_wiso
     thisrun_analysis_dir: <TEST_DIR>/run/awiesm//pi-wiso/run_18500101-18500131/analysis/jsbach/
     thisrun_bin_dir: <TEST_DIR>/run/awiesm//pi-wiso/run_18500101-18500131/bin/jsbach/
     thisrun_config_dir: <TEST_DIR>/run/awiesm//pi-wiso/run_18500101-18500131/config/jsbach/
