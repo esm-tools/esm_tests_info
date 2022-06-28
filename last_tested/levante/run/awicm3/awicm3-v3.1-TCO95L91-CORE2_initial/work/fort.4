@@ -17,7 +17,7 @@
 
 &NAMFPG
     NFPLEV = 91
-    NFPMAX = 159
+    NFPMAX = 95
 /
 
 &NAMCVER
@@ -62,6 +62,7 @@
     LHVOLCA = .false.
     CRTABLEDIR = '/work/ab0246/a270092/input/oifs-43r3/rtables/'
     LECOMPGRID = .true.
+    NSOLARSPECTRUM = 1
 /
 
 &NAMARG
@@ -87,7 +88,7 @@
     LEEVAP = .true.
     LEVGEN = .true.
     LESSRO = .true.
-    LECURR = .false.
+    LECURR = .true.
     LEOCWA = .true.
     LEGWDG = .true.
     LEGWWMS = .true.
@@ -126,7 +127,7 @@
     LBARRIER_STATS = .false.
     LBARRIER_STATS2 = .false.
     NPROC = 128
-    NSPECRESMIN = 160
+    NSPECRESMIN = 96
     NOUTPUT = 1
     MP_TYPE = 2
     MBX_SIZE = 3200000
@@ -177,6 +178,7 @@
     NDHFZTS = 0
     NDHFDTS = 0
     NUNDEFLD = 1
+    LXIOS = .true.
 /
 
 &NAMDDH
@@ -245,8 +247,8 @@
 /
 
 &NAMFPD
-    NLAT = 320
-    NLON = 640
+    NLAT = 192
+    NLON = 384
 /
 
 &NAMDIM
@@ -697,4 +699,12 @@
     LCORBMD = .false.
     ORBMODE = 'variable_year'
     ORBIY = 2000
+/
+
+&NAMIO_SERV
+    NPROC_IO = 2
+    NPROCESS_LEVEL = 5
+    NIO_SERV_METHOD = 2
+    NMSG_LEVEL_CLIENT = 0
+    NMSG_LEVEL_SERVER = 1
 /

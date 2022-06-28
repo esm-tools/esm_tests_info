@@ -219,7 +219,7 @@ fesom:
     branch: 2.0.2
     branchoff: false
     clean_command: rm -rf build CMakeCache.txt
-    climate_data_dir: /work/ab0246/from_Mistral/ab0246/a270092/input/fesom2//hydrography/
+    climate_data_dir: /work/ab0246/a270092/input/fesom2//hydrography/
     comp_command: mkdir -p build; cd build; cmake -DOIFS_COUPLED=ON -DFESOM_COUPLED=ON ..;   make install -j `nproc --all`
     comp_executable: fesom.x
     compiletime_environment_changes:
@@ -287,6 +287,10 @@ fesom:
         tauy_ico:
             grid: feom
         tauy_oce:
+            grid: feom
+        u_feom:
+            grid: feom
+        v_feom:
             grid: feom
     coupling_freq_in_steps: 3
     create_config:
@@ -419,7 +423,7 @@ fesom:
             nx: 126858
             ny: 1
             oasis_grid_type: U
-    ini_data_dir: /work/ab0246/from_Mistral/ab0246/a270092/input/fesom2//pool-data/
+    ini_data_dir: /work/ab0246/a270092/input/fesom2//pool-data/
     install_bins: bin/fesom.x
     last_parent_date: '1999-12-31T22:40:00'
     lasttime: 84000
@@ -434,7 +438,7 @@ fesom:
         clock: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/log/fesom/fesom.clock
         mesh_diag: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/log/fesom/fesom.mesh.diag.nc
     lresume: false
-    mesh_dir: /work/ab0246/from_Mistral/ab0246/a270092/input/fesom2//core2/
+    mesh_dir: /work/ab0246/a270092/input/fesom2//core2/
     mesh_rotated: false
     model: fesom
     model_dir: <TEST_DIR>/comp/awicm3/awicm3-frontiers/fesom-2.0
@@ -450,8 +454,8 @@ fesom:
                 output_length_unit: d
                 restartflag: last
             paths:
-                ClimateDataPath: /work/ab0246/from_Mistral/ab0246/a270092/input/fesom2//hydrography/
-                MeshPath: /work/ab0246/from_Mistral/ab0246/a270092/input/fesom2//core2/
+                ClimateDataPath: /work/ab0246/a270092/input/fesom2//hydrography/
+                MeshPath: /work/ab0246/a270092/input/fesom2//core2/
                 ResultPath: <TEST_DIR>/run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/
             restart_log:
                 restart_length: 1
@@ -491,7 +495,7 @@ fesom:
     parent_date: '1999-12-31T23:20:00'
     parent_expid: awicm3-frontiers-TCO159L91-CORE2_initial
     parent_restart_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/restart/fesom/
-    pool_dir: /work/ab0246/from_Mistral/ab0246/a270092/input/fesom2/
+    pool_dir: /work/ab0246/a270092/input/fesom2/
     prev_date: '1999-12-31T23:20:00'
     resolution: CORE2
     restart_first: 1
@@ -581,6 +585,7 @@ general:
     - ignore
     available_versions:
     - v3.0
+    - v3.1
     - master
     - frontiers
     - frontiers-xios
@@ -720,7 +725,7 @@ general:
                 - OIFS_FCDEFS="BLAS LITTLE LINUX INTEGER_IS_INT"
                 - OIFS_LFLAGS="$OIFS_MPI_LIB -qopenmp"
                 - OIFS_CC=$CC
-                - OIFS_CFLAGS="-fp-model precise -O1 -xCORE_AVX2 -g -traceback -qopt-report=0 -fpe0 -qopenmp"
+                - OIFS_CFLAGS="-fp-model precise -O3 -xCORE_AVX2 -g -traceback -qopt-report=0 -fpe0 -qopenmp"
                 - OIFS_CCDEFS="LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS _OPENMP"
                 - MAIN_LDFLAGS=-openmp
             levante:
@@ -840,7 +845,7 @@ general:
                     HDF5ROOT: $IO_LIB_ROOT
                     HDF5_C_INCLUDE_DIRECTORIES: $HDF5_ROOT/include
                     HDF5_ROOT: $HDF5ROOT
-                    IO_LIB_ROOT: /work/ollie/jstreffi/software/HPC_libraries/intel2018.0.5_intelmpi_18.0.4_20210804
+                    IO_LIB_ROOT: /work/ollie/jstreffi/software/HPC_libraries/intel2018.0.5_intelmpi_2021.3.0_20220623
                     LAPACK_LIB_DEFAULT: '"-L$MKLROOT/lib/intel64 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential"'
                     LD_LIBRARY_PATH: $IO_LIB_ROOT/lib:$LD_LIBRARY_PATH
                     NETCDFFROOT: $IO_LIB_ROOT
@@ -870,7 +875,8 @@ general:
                     OIFS_OASIS_LIB: '"-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu -lpsmile -lmct -lmpeu -lscrip"'
                     SZIPROOT: $IO_LIB_ROOT
                 add_module_actions:
-                - unload gribapi
+                - purge
+                - load intel.mpi/2021.3.0 intel.compiler cmake
     compute_time: 01:00:00
     coupled_setup: true
     coupler: oasis3mct
@@ -1028,7 +1034,7 @@ general:
     - restart_in
     initial_date: '2000-01-01T00:00:00'
     inspect: null
-    jobid: 2205154
+    jobid: 3691281
     jobtype: prepcompute
     last_run_datestamp: 19991231-19991231
     last_run_in_chunk: false
@@ -1063,7 +1069,7 @@ general:
     - unknown
     - outdata
     - restart_out
-    pool_dir: /work/ab0246/from_Mistral/ab0246/a270092/input
+    pool_dir: /work/ab0246/a270092/input
     post_time: 00:05:00
     postprocessing: true
     potentially_reusable_filetypes:
@@ -1207,7 +1213,7 @@ general:
                     HDF5ROOT: $IO_LIB_ROOT
                     HDF5_C_INCLUDE_DIRECTORIES: $HDF5_ROOT/include
                     HDF5_ROOT: $HDF5ROOT
-                    IO_LIB_ROOT: /work/ollie/jstreffi/software/HPC_libraries/intel2018.0.5_intelmpi_18.0.4_20210804
+                    IO_LIB_ROOT: /work/ollie/jstreffi/software/HPC_libraries/intel2018.0.5_intelmpi_2021.3.0_20220623
                     LD_LIBRARY_PATH: $IO_LIB_ROOT/lib:$LD_LIBRARY_PATH
                     NETCDFFROOT: $IO_LIB_ROOT
                     NETCDFROOT: $IO_LIB_ROOT
@@ -1217,10 +1223,13 @@ general:
                     OIFS_FFIXED: '""'
                     OMP_SCHEDULE: STATIC
                     OMP_STACKSIZE: 128M
-                    PATH[(2)]: $IO_LIB_ROOT/bin:$PATH
+                    PATH[(2)]: $PATH:$IO_LIB_ROOT/bin
                     SZIPROOT: $IO_LIB_ROOT
                 add_module_actions:
                 - unload gribapi
+                - unload hdf5
+                - unload intel.mpi
+                - load intel.mpi/2021.3.0
     scenario: piControl
     scriptname: awicm3-frontiers-TCO159L91-CORE2_initial.yaml
     setup_name: awicm3
@@ -1381,7 +1390,8 @@ oasis3mct:
     - 4.0-oifsdeck
     - 4.0-awicm-frontiers
     - 4.0-awicm-3.0
-    branch: '2.8'
+    - 4.0-awicm-3.1
+    branch: v2.8
     cf_name_dir: <TEST_DIR>/comp/awicm3/awicm3-frontiers/oasis
     clean_command: rm -rf build CMakeCache.txt include lib/libpsmile.a lib/libscrip.a lib/libmct.a lib/libmpeu.a
     comp_command: mkdir -p build; cd build; cmake ..;   make -j 1; mkdir -p ../include/; cp lib/psmile/libpsmile.a lib/psmile/mct/libmct.a lib/psmile/mct/mpeu/libmpeu.a lib/psmile/scrip/libscrip.a ../lib; cp lib/psmile/mod_oasis*mod ../include
@@ -1583,18 +1593,18 @@ oasis3mct:
     ignore_targets:
         nout: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/ignore/oasis3mct/nout.000000
     ini_parent_date: '19500101'
-    ini_parent_dir: /work/ab0246/from_Mistral/ab0246/a270092/input/oasis_experimental//cy43r3/TCO159-CORE2/
+    ini_parent_dir: /work/ab0246/a270092/input/oasis//cy43r3/TCO159-CORE2/
     ini_parent_exp_id: khw0030
-    ini_restart_dir: /work/ab0246/from_Mistral/ab0246/a270092/input/oasis_experimental//cy43r3/TCO159-CORE2/
-    input_dir: /work/ab0246/from_Mistral/ab0246/a270092/input/oasis_experimental//cy43r3/TCO159-CORE2/
+    ini_restart_dir: /work/ab0246/a270092/input/oasis//cy43r3/TCO159-CORE2/
+    input_dir: /work/ab0246/a270092/input/oasis//cy43r3/TCO159-CORE2/
     input_intermediate:
         areas: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oasis3mct/areas.nc
         grids: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oasis3mct/grids.nc
         masks: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oasis3mct/masks.nc
     input_sources:
-        areas: /work/ab0246/from_Mistral/ab0246/a270092/input/oasis_experimental//cy43r3/TCO159-CORE2//areas.nc
-        grids: /work/ab0246/from_Mistral/ab0246/a270092/input/oasis_experimental//cy43r3/TCO159-CORE2//grids.nc
-        masks: /work/ab0246/from_Mistral/ab0246/a270092/input/oasis_experimental//cy43r3/TCO159-CORE2//masks.nc
+        areas: /work/ab0246/a270092/input/oasis//cy43r3/TCO159-CORE2//areas.nc
+        grids: /work/ab0246/a270092/input/oasis//cy43r3/TCO159-CORE2//grids.nc
+        masks: /work/ab0246/a270092/input/oasis//cy43r3/TCO159-CORE2//masks.nc
     input_sources_wild_card:
         rmp: rmp_*.nc
     input_targets:
@@ -1764,7 +1774,7 @@ oasis3mct:
     parent_date: '1999-12-31T22:00:00'
     parent_expid: awicm3-frontiers-TCO159L91-CORE2_initial
     parent_restart_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/restart/oasis3mct/
-    pool_dir: /work/ab0246/from_Mistral/ab0246/a270092/input/oasis_experimental/
+    pool_dir: /work/ab0246/a270092/input/oasis/
     prev_date: '1999-12-31T22:00:00'
     process_ordering:
     - fesom
@@ -1800,6 +1810,8 @@ oasis3mct:
         rstas.nc_recv: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/restart/oasis3mct/rstas.nc_recv
         rstos.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/restart/oasis3mct/rstos.nc
         rstos.nc_recv: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/restart/oasis3mct/rstos.nc_recv
+    rstas_file_name: rstas
+    rstos_file_name: rstos
     thisrun_analysis_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/analysis/oasis3mct/
     thisrun_bin_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/bin/oasis3mct/
     thisrun_config_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/config/oasis3mct/
@@ -1854,6 +1866,8 @@ oifs:
     - A_Snow_thickness
     - A_Ice_temp
     - A_Ice_albedo
+    - A_CurX
+    - A_CurY
     bin_dir: <TEST_DIR>/comp/awicm3/awicm3-frontiers/bin
     bin_intermediate:
         bin: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/bin/oifs/oifs
@@ -1862,17 +1876,18 @@ oifs:
     bin_targets:
         bin: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/oifs
     branchoff: false
-    clim_dir: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/../
-    cmip5_data_dir: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/../cmip5_data
-    cmip5_data_dir_nml: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/cmip5-data
-    cmip6_data_dir: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/../cmip6_data
-    cmip6_data_dir_nml: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/cmip6-data
+    clim_dir: /work/ab0246/a270092/input/oifs-43r3/../
+    cmip5_data_dir: /work/ab0246/a270092/input/oifs-43r3/../cmip5_data
+    cmip5_data_dir_nml: /work/ab0246/a270092/input/oifs-43r3/cmip5-data
+    cmip6_data_dir: /work/ab0246/a270092/input/oifs-43r3/../cmip6_data
+    cmip6_data_dir_nml: /work/ab0246/a270092/input/oifs-43r3/cmip6-data
     cmip_fix_year: 0
     compile_infos:
         available_versions:
         - 40r1
         - 43r3-master
         - 43r3-awicm-3.0
+        - 43r3-awicm-3.1
         - 43r3-awicm-frontiers
         - 43r3-awicm-frontiers-xios
         - 43r3
@@ -1904,6 +1919,15 @@ oifs:
                 requires:
                 - oasis3mct-4.0-awicm-3.0
                 with_xios: false
+            43r3-awicm-3.1:
+                branch: awicm-3.1
+                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers/oifs-43r3; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/awicm3/awicm3-frontiers/oifs-43r3/../xios/inc/; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
+                destination: oifs-43r3
+                git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3.git
+                install_bins: make/esm/oifs/bin/oifs
+                requires:
+                - oasis3mct-4.0-awicm-3.1
+                with_xios: true
             43r3-awicm-frontiers:
                 branch: awicm-3-frontiers
                 comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers/oifs-43r3; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.cfg ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
@@ -2067,7 +2091,7 @@ oifs:
                 - OIFS_FCDEFS="BLAS LITTLE LINUX INTEGER_IS_INT"
                 - OIFS_LFLAGS="$OIFS_MPI_LIB -qopenmp"
                 - OIFS_CC=$CC
-                - OIFS_CFLAGS="-fp-model precise -O1 -xCORE_AVX2 -g -traceback -qopt-report=0 -fpe0 -qopenmp"
+                - OIFS_CFLAGS="-fp-model precise -O3 -xCORE_AVX2 -g -traceback -qopt-report=0 -fpe0 -qopenmp"
                 - OIFS_CCDEFS="LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS _OPENMP"
                 - MAIN_LDFLAGS=-openmp
                 compiler_mpi: intel2022_ompi2022
@@ -2188,7 +2212,7 @@ oifs:
                     HDF5ROOT: $IO_LIB_ROOT
                     HDF5_C_INCLUDE_DIRECTORIES: $HDF5_ROOT/include
                     HDF5_ROOT: $HDF5ROOT
-                    IO_LIB_ROOT: /work/ollie/jstreffi/software/HPC_libraries/intel2018.0.5_intelmpi_18.0.4_20210804
+                    IO_LIB_ROOT: /work/ollie/jstreffi/software/HPC_libraries/intel2018.0.5_intelmpi_2021.3.0_20220623
                     LAPACK_LIB_DEFAULT: '"-L$MKLROOT/lib/intel64 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential"'
                     LD_LIBRARY_PATH: $IO_LIB_ROOT/lib:$LD_LIBRARY_PATH
                     NETCDFFROOT: $IO_LIB_ROOT
@@ -2218,7 +2242,8 @@ oifs:
                     OIFS_OASIS_LIB: '"-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu -lpsmile -lmct -lmpeu -lscrip"'
                     SZIPROOT: $IO_LIB_ROOT
                 add_module_actions:
-                - unload gribapi
+                - purge
+                - load intel.mpi/2021.3.0 intel.compiler cmake
         iolibraries: awi_libs
     compute_recipe:
     - oasis_rmp_rst_to_input
@@ -2235,6 +2260,10 @@ oifs:
     coupling_fields:
         A_Calving:
             grid: atmr
+        A_CurX:
+            grid: atma
+        A_CurY:
+            grid: atma
         A_Evap:
             grid: atma
         A_Ice_albedo:
@@ -2413,7 +2442,7 @@ oifs:
             work_to_run: copy
     filebase_wam_source: '{''NONE_YET'': {}}'
     filebase_wam_work: '20000101000000_'
-    forcing_dir: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/
+    forcing_dir: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/
     forcing_intermediate: {}
     forcing_sources: {}
     forcing_targets: {}
@@ -2435,11 +2464,11 @@ oifs:
             ny: 1
             oasis_grid_type: D
     hours: 0
-    icmcl_dir: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3
+    icmcl_dir: /work/ab0246/a270092/input/oifs-43r3
     icmcl_end_date: '2000-01-03T00:00:00'
     icmcl_end_date_formatted: 20000103
     icmcl_file: ICMCLh9wuINIT
-    ifsdata_dir: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/
+    ifsdata_dir: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/
     ignore_intermediate: {}
     ignore_sources: {}
     ignore_sources_wild_card:
@@ -2447,250 +2476,250 @@ oifs:
         drhook: drhook*
     ignore_targets: {}
     in_date_folder: 19991231
-    input_dir: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3
+    input_dir: /work/ab0246/a270092/input/oifs-43r3
     input_expid: awi3
     input_intermediate:
         ICMGG_INIT: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ICMGGawi3INIT
         ICMGG_INIUA: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ICMGGawi3INIUA
         ICMSH_INIT: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ICMSHawi3INIT
         cdwavein: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/cdwavein
-        ifsdata_glob_0: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/GCH4CLIM
-        ifsdata_glob_1: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/SO4_OBS1990
-        ifsdata_glob_10: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/NO2CLIM
-        ifsdata_glob_11: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/CCL4CLIM
-        ifsdata_glob_12: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/mcica_lognormal.nc
-        ifsdata_glob_13: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/C12CLIM
-        ifsdata_glob_14: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/SO4_OBS1980
-        ifsdata_glob_15: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/N2OCLIM
-        ifsdata_glob_16: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/C22CLIM
-        ifsdata_glob_17: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/es_droplet_scattering_rrtm.nc
-        ifsdata_glob_18: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/SO4_A1B2040
-        ifsdata_glob_19: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/MCICA
-        ifsdata_glob_2: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/SO4_A1B2020
-        ifsdata_glob_20: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/RADRRTM
-        ifsdata_glob_21: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/GOZOCLIM
-        ifsdata_glob_22: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/SO4_A1B2100
-        ifsdata_glob_23: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/baran_ice_scattering_rrtm.nc
-        ifsdata_glob_24: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/ECOZC
-        ifsdata_glob_25: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/C11CLIM
-        ifsdata_glob_26: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/SO4_A1B2030
-        ifsdata_glob_27: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/fu_ice_scattering_rrtm.nc
-        ifsdata_glob_28: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/OZOCLIM
-        ifsdata_glob_29: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/aerosol_ifs_rrtm_42R1.nc
-        ifsdata_glob_3: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/CO2CLIM
-        ifsdata_glob_30: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/SO4_OBS1930
-        ifsdata_glob_31: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/aerosol_cams_climatology_43R3a.nc
-        ifsdata_glob_32: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/aerosol_cams_climatology_43R3.nc
-        ifsdata_glob_33: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/MCO2CLIM
-        ifsdata_glob_34: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/SO4_OBS1960
-        ifsdata_glob_35: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/aerosol_ifs_rrtm_43R1a.nc
-        ifsdata_glob_36: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/CH4CLIM
-        ifsdata_glob_37: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/SO4_A1B2080
-        ifsdata_glob_38: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/SO4_OBS1970
-        ifsdata_glob_39: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/slingo_droplet_scattering_rrtm.nc
-        ifsdata_glob_4: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/aerosol_ifs_rrtm_AB.nc
-        ifsdata_glob_40: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/aerosol_ifs_rrtm.nc
-        ifsdata_glob_41: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/aerosol_ifs_rrtm_43R3.nc
-        ifsdata_glob_42: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/GCO2CLIM
-        ifsdata_glob_43: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/socrates_droplet_scattering_rrtm.nc
-        ifsdata_glob_44: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/MCH4CLIM
-        ifsdata_glob_45: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/aerosol_ifs_rrtm_43R1.nc
-        ifsdata_glob_46: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/SO4_A1B2000
-        ifsdata_glob_47: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/SO4_A1B2060
-        ifsdata_glob_48: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/SO4_A1B2050
-        ifsdata_glob_49: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/RADSRTM
-        ifsdata_glob_5: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/SO4_OBS1940
-        ifsdata_glob_50: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/SO4_A1B2070
-        ifsdata_glob_51: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/mcica_gamma.nc
-        ifsdata_glob_52: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/SO4_OBS1950
-        ifsdata_glob_53: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/MOZOCLIM
-        ifsdata_glob_6: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/SO4_A1B2090
-        ifsdata_glob_7: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/aerosol_ifs_rrtm_tegen.nc
-        ifsdata_glob_8: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/SO4_OBS1920
-        ifsdata_glob_9: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/SO4_A1B2010
-        o3_data_glob_0: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/o3chem_l91/O3CHEM02_V2.9
-        o3_data_glob_1: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/o3chem_l91/O3CHEM12_V2.9
-        o3_data_glob_10: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/o3chem_l91/O3CHEM03_V2.9
-        o3_data_glob_11: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/o3chem_l91/O3CHEM09_V2.9
+        ifsdata_glob_0: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/aerosol_ifs_rrtm_tegen.nc
+        ifsdata_glob_1: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/SO4_OBS1930
+        ifsdata_glob_10: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/SO4_OBS1940
+        ifsdata_glob_11: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/MOZOCLIM
+        ifsdata_glob_12: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/SO4_OBS1960
+        ifsdata_glob_13: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/fu_ice_scattering_rrtm.nc
+        ifsdata_glob_14: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/SO4_A1B2050
+        ifsdata_glob_15: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/SO4_OBS1980
+        ifsdata_glob_16: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/SO4_A1B2010
+        ifsdata_glob_17: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/slingo_droplet_scattering_rrtm.nc
+        ifsdata_glob_18: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/CCL4CLIM
+        ifsdata_glob_19: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/CH4CLIM
+        ifsdata_glob_2: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/C11CLIM
+        ifsdata_glob_20: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/SO4_A1B2080
+        ifsdata_glob_21: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/aerosol_ifs_rrtm.nc
+        ifsdata_glob_22: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/MCICA
+        ifsdata_glob_23: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/MCH4CLIM
+        ifsdata_glob_24: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/aerosol_cams_climatology_43R3a.nc
+        ifsdata_glob_25: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/SO4_OBS1920
+        ifsdata_glob_26: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/OZOCLIM
+        ifsdata_glob_27: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/C22CLIM
+        ifsdata_glob_28: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/NO2CLIM
+        ifsdata_glob_29: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/aerosol_ifs_rrtm_43R1a.nc
+        ifsdata_glob_3: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/SO4_A1B2040
+        ifsdata_glob_30: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/GCO2CLIM
+        ifsdata_glob_31: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/SO4_A1B2000
+        ifsdata_glob_32: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/SO4_OBS1990
+        ifsdata_glob_33: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/GCH4CLIM
+        ifsdata_glob_34: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/aerosol_ifs_rrtm_43R1.nc
+        ifsdata_glob_35: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/SO4_OBS1970
+        ifsdata_glob_36: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/SO4_A1B2090
+        ifsdata_glob_37: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/N2OCLIM
+        ifsdata_glob_38: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/ECOZC
+        ifsdata_glob_39: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/CO2CLIM
+        ifsdata_glob_4: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/SO4_OBS1950
+        ifsdata_glob_40: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/RADRRTM
+        ifsdata_glob_41: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/SO4_A1B2060
+        ifsdata_glob_42: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/socrates_droplet_scattering_rrtm.nc
+        ifsdata_glob_43: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/aerosol_ifs_rrtm_AB.nc
+        ifsdata_glob_44: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/aerosol_cams_climatology_43R3.nc
+        ifsdata_glob_45: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/SO4_A1B2020
+        ifsdata_glob_46: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/mcica_lognormal.nc
+        ifsdata_glob_47: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/es_droplet_scattering_rrtm.nc
+        ifsdata_glob_48: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/SO4_A1B2070
+        ifsdata_glob_49: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/SO4_A1B2100
+        ifsdata_glob_5: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/mcica_gamma.nc
+        ifsdata_glob_50: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/aerosol_ifs_rrtm_43R3.nc
+        ifsdata_glob_51: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/C12CLIM
+        ifsdata_glob_52: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/MCO2CLIM
+        ifsdata_glob_53: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/baran_ice_scattering_rrtm.nc
+        ifsdata_glob_6: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/GOZOCLIM
+        ifsdata_glob_7: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/SO4_A1B2030
+        ifsdata_glob_8: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/RADSRTM
+        ifsdata_glob_9: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/aerosol_ifs_rrtm_42R1.nc
+        o3_data_glob_0: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/o3chem_l91/O3CHEM09_VMS1
+        o3_data_glob_1: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/o3chem_l91/O3CHEM11_VMS1
+        o3_data_glob_10: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/o3chem_l91/O3CHEM12_V2.9
+        o3_data_glob_11: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/o3chem_l91/O3CHEM10_V2.9
         o3_data_glob_12: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/o3chem_l91/O3CHEM10_VMS1
         o3_data_glob_13: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/o3chem_l91/O3CHEM03_VMS1
-        o3_data_glob_14: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/o3chem_l91/O3CHEM07_VMS1
-        o3_data_glob_15: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/o3chem_l91/O3CHEM06_V2.9
-        o3_data_glob_16: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/o3chem_l91/O3CHEM09_VMS1
-        o3_data_glob_17: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/o3chem_l91/O3CHEM05_V2.9
-        o3_data_glob_18: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/o3chem_l91/O3CHEM01_V2.9
-        o3_data_glob_19: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/o3chem_l91/O3CHEM02_VMS1
-        o3_data_glob_2: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/o3chem_l91/O3CHEM08_V2.9
-        o3_data_glob_20: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/o3chem_l91/O3CHEM05_VMS1
-        o3_data_glob_21: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/o3chem_l91/O3CHEM11_V2.9
-        o3_data_glob_22: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/o3chem_l91/O3CHEM11_VMS1
-        o3_data_glob_23: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/o3chem_l91/O3CHEM04_V2.9
-        o3_data_glob_3: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/o3chem_l91/O3CHEM01_VMS1
-        o3_data_glob_4: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/o3chem_l91/O3CHEM08_VMS1
-        o3_data_glob_5: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/o3chem_l91/O3CHEM04_VMS1
-        o3_data_glob_6: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/o3chem_l91/O3CHEM06_VMS1
-        o3_data_glob_7: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/o3chem_l91/O3CHEM10_V2.9
-        o3_data_glob_8: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/o3chem_l91/O3CHEM12_VMS1
-        o3_data_glob_9: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/o3chem_l91/O3CHEM07_V2.9
+        o3_data_glob_14: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/o3chem_l91/O3CHEM12_VMS1
+        o3_data_glob_15: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/o3chem_l91/O3CHEM09_V2.9
+        o3_data_glob_16: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/o3chem_l91/O3CHEM05_V2.9
+        o3_data_glob_17: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/o3chem_l91/O3CHEM08_V2.9
+        o3_data_glob_18: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/o3chem_l91/O3CHEM07_V2.9
+        o3_data_glob_19: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/o3chem_l91/O3CHEM06_VMS1
+        o3_data_glob_2: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/o3chem_l91/O3CHEM06_V2.9
+        o3_data_glob_20: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/o3chem_l91/O3CHEM08_VMS1
+        o3_data_glob_21: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/o3chem_l91/O3CHEM04_V2.9
+        o3_data_glob_22: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/o3chem_l91/O3CHEM02_VMS1
+        o3_data_glob_23: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/o3chem_l91/O3CHEM01_V2.9
+        o3_data_glob_3: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/o3chem_l91/O3CHEM05_VMS1
+        o3_data_glob_4: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/o3chem_l91/O3CHEM01_VMS1
+        o3_data_glob_5: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/o3chem_l91/O3CHEM03_V2.9
+        o3_data_glob_6: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/o3chem_l91/O3CHEM07_VMS1
+        o3_data_glob_7: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/o3chem_l91/O3CHEM04_VMS1
+        o3_data_glob_8: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/o3chem_l91/O3CHEM02_V2.9
+        o3_data_glob_9: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/o3chem_l91/O3CHEM11_V2.9
         sfcwindin: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/sfcwindin
         specwavein: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/specwavein
-        tl_data_glob_0: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/slt
-        tl_data_glob_1: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/sstgrib.clim.10
-        tl_data_glob_10: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/sstgrib.clim.01
-        tl_data_glob_11: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/sstgrib.clim.08
-        tl_data_glob_12: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/month_alnig
-        tl_data_glob_13: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/month_alnid
-        tl_data_glob_14: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/sporog
-        tl_data_glob_15: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/month_alnii
-        tl_data_glob_16: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/month_alniv
-        tl_data_glob_17: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/month_alb
-        tl_data_glob_18: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/sstgrib.clim.07
-        tl_data_glob_19: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/sstgrib.clim.11
-        tl_data_glob_2: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/sstgrib.clim.09
-        tl_data_glob_20: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/sstgrib.clim.03
-        tl_data_glob_21: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/month_aluvv
-        tl_data_glob_22: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/month_alnip
-        tl_data_glob_23: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/month_aluvp
-        tl_data_glob_24: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/sstgrib.clim.06
-        tl_data_glob_25: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/sstgrib.clim.12
-        tl_data_glob_26: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/cicecap
-        tl_data_glob_27: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/month_lail
-        tl_data_glob_28: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/month_aluvd
-        tl_data_glob_29: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/sstgrib.clim.04
-        tl_data_glob_3: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/month_aluvi
-        tl_data_glob_30: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/sdfor
-        tl_data_glob_4: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/sstgrib.clim.05
-        tl_data_glob_5: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/sstgrib.clim.02
-        tl_data_glob_6: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/month_laih
-        tl_data_glob_7: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/sfc
-        tl_data_glob_8: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/lsmoro
-        tl_data_glob_9: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/month_aluvg
+        tl_data_glob_0: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/month_aluvg
+        tl_data_glob_1: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/sstgrib.clim.04
+        tl_data_glob_10: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/sstgrib.clim.03
+        tl_data_glob_11: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/month_aluvi
+        tl_data_glob_12: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/sstgrib.clim.08
+        tl_data_glob_13: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/sporog
+        tl_data_glob_14: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/month_lail
+        tl_data_glob_15: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/sstgrib.clim.11
+        tl_data_glob_16: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/sstgrib.clim.10
+        tl_data_glob_17: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/sstgrib.clim.09
+        tl_data_glob_18: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/month_alnig
+        tl_data_glob_19: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/slt
+        tl_data_glob_2: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/sstgrib.clim.01
+        tl_data_glob_20: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/sstgrib.clim.02
+        tl_data_glob_21: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/lsmoro
+        tl_data_glob_22: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/month_alniv
+        tl_data_glob_23: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/month_alnii
+        tl_data_glob_24: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/month_aluvp
+        tl_data_glob_25: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/sstgrib.clim.05
+        tl_data_glob_26: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/month_alnid
+        tl_data_glob_27: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/sstgrib.clim.07
+        tl_data_glob_28: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/sfc
+        tl_data_glob_29: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/month_laih
+        tl_data_glob_3: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/sdfor
+        tl_data_glob_30: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/sstgrib.clim.12
+        tl_data_glob_4: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/month_aluvv
+        tl_data_glob_5: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/sstgrib.clim.06
+        tl_data_glob_6: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/month_aluvd
+        tl_data_glob_7: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/cicecap
+        tl_data_glob_8: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/month_alb
+        tl_data_glob_9: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/159_4/month_alnip
         uwavein: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/uwavein
         wam_grid_tables: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/wam_grid_tables
         wam_subgrid_0: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/wam_subgrid_0
         wam_subgrid_1: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/wam_subgrid_1
         wam_subgrid_2: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/wam_subgrid_2
     input_sources:
-        ICMGG_INIT: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/TCO159L91//ICMGGh9wuINIT_CORE2
-        ICMGG_INIUA: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/TCO159L91//ICMGGh9wuINIUA
-        ICMSH_INIT: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/TCO159L91//ICMSHh9wuINIT
-        cdwavein: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/TCO159L91//cdwavein
-        ifsdata_glob_0: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/GCH4CLIM
-        ifsdata_glob_1: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/SO4_OBS1990
-        ifsdata_glob_10: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/NO2CLIM
-        ifsdata_glob_11: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/CCL4CLIM
-        ifsdata_glob_12: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/mcica_lognormal.nc
-        ifsdata_glob_13: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/C12CLIM
-        ifsdata_glob_14: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/SO4_OBS1980
-        ifsdata_glob_15: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/N2OCLIM
-        ifsdata_glob_16: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/C22CLIM
-        ifsdata_glob_17: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/es_droplet_scattering_rrtm.nc
-        ifsdata_glob_18: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/SO4_A1B2040
-        ifsdata_glob_19: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/MCICA
-        ifsdata_glob_2: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/SO4_A1B2020
-        ifsdata_glob_20: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/RADRRTM
-        ifsdata_glob_21: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/GOZOCLIM
-        ifsdata_glob_22: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/SO4_A1B2100
-        ifsdata_glob_23: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/baran_ice_scattering_rrtm.nc
-        ifsdata_glob_24: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/ECOZC
-        ifsdata_glob_25: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/C11CLIM
-        ifsdata_glob_26: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/SO4_A1B2030
-        ifsdata_glob_27: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/fu_ice_scattering_rrtm.nc
-        ifsdata_glob_28: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/OZOCLIM
-        ifsdata_glob_29: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/aerosol_ifs_rrtm_42R1.nc
-        ifsdata_glob_3: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/CO2CLIM
-        ifsdata_glob_30: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/SO4_OBS1930
-        ifsdata_glob_31: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/aerosol_cams_climatology_43R3a.nc
-        ifsdata_glob_32: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/aerosol_cams_climatology_43R3.nc
-        ifsdata_glob_33: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/MCO2CLIM
-        ifsdata_glob_34: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/SO4_OBS1960
-        ifsdata_glob_35: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/aerosol_ifs_rrtm_43R1a.nc
-        ifsdata_glob_36: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/CH4CLIM
-        ifsdata_glob_37: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/SO4_A1B2080
-        ifsdata_glob_38: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/SO4_OBS1970
-        ifsdata_glob_39: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/slingo_droplet_scattering_rrtm.nc
-        ifsdata_glob_4: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/aerosol_ifs_rrtm_AB.nc
-        ifsdata_glob_40: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/aerosol_ifs_rrtm.nc
-        ifsdata_glob_41: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/aerosol_ifs_rrtm_43R3.nc
-        ifsdata_glob_42: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/GCO2CLIM
-        ifsdata_glob_43: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/socrates_droplet_scattering_rrtm.nc
-        ifsdata_glob_44: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/MCH4CLIM
-        ifsdata_glob_45: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/aerosol_ifs_rrtm_43R1.nc
-        ifsdata_glob_46: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/SO4_A1B2000
-        ifsdata_glob_47: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/SO4_A1B2060
-        ifsdata_glob_48: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/SO4_A1B2050
-        ifsdata_glob_49: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/RADSRTM
-        ifsdata_glob_5: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/SO4_OBS1940
-        ifsdata_glob_50: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/SO4_A1B2070
-        ifsdata_glob_51: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/mcica_gamma.nc
-        ifsdata_glob_52: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/SO4_OBS1950
-        ifsdata_glob_53: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/MOZOCLIM
-        ifsdata_glob_6: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/SO4_A1B2090
-        ifsdata_glob_7: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/aerosol_ifs_rrtm_tegen.nc
-        ifsdata_glob_8: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/SO4_OBS1920
-        ifsdata_glob_9: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/SO4_A1B2010
-        o3_data_glob_0: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/o3chem_l91/O3CHEM02_V2.9
-        o3_data_glob_1: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/o3chem_l91/O3CHEM12_V2.9
-        o3_data_glob_10: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/o3chem_l91/O3CHEM03_V2.9
-        o3_data_glob_11: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/o3chem_l91/O3CHEM09_V2.9
-        o3_data_glob_12: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/o3chem_l91/O3CHEM10_VMS1
-        o3_data_glob_13: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/o3chem_l91/O3CHEM03_VMS1
-        o3_data_glob_14: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/o3chem_l91/O3CHEM07_VMS1
-        o3_data_glob_15: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/o3chem_l91/O3CHEM06_V2.9
-        o3_data_glob_16: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/o3chem_l91/O3CHEM09_VMS1
-        o3_data_glob_17: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/o3chem_l91/O3CHEM05_V2.9
-        o3_data_glob_18: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/o3chem_l91/O3CHEM01_V2.9
-        o3_data_glob_19: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/o3chem_l91/O3CHEM02_VMS1
-        o3_data_glob_2: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/o3chem_l91/O3CHEM08_V2.9
-        o3_data_glob_20: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/o3chem_l91/O3CHEM05_VMS1
-        o3_data_glob_21: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/o3chem_l91/O3CHEM11_V2.9
-        o3_data_glob_22: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/o3chem_l91/O3CHEM11_VMS1
-        o3_data_glob_23: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/o3chem_l91/O3CHEM04_V2.9
-        o3_data_glob_3: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/o3chem_l91/O3CHEM01_VMS1
-        o3_data_glob_4: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/o3chem_l91/O3CHEM08_VMS1
-        o3_data_glob_5: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/o3chem_l91/O3CHEM04_VMS1
-        o3_data_glob_6: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/o3chem_l91/O3CHEM06_VMS1
-        o3_data_glob_7: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/o3chem_l91/O3CHEM10_V2.9
-        o3_data_glob_8: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/o3chem_l91/O3CHEM12_VMS1
-        o3_data_glob_9: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/o3chem_l91/O3CHEM07_V2.9
-        sfcwindin: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/TCO159L91//sfcwindin
-        specwavein: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/TCO159L91//specwavein
-        tl_data_glob_0: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/slt
-        tl_data_glob_1: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/sstgrib.clim.10
-        tl_data_glob_10: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/sstgrib.clim.01
-        tl_data_glob_11: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/sstgrib.clim.08
-        tl_data_glob_12: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/month_alnig
-        tl_data_glob_13: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/month_alnid
-        tl_data_glob_14: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/sporog
-        tl_data_glob_15: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/month_alnii
-        tl_data_glob_16: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/month_alniv
-        tl_data_glob_17: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/month_alb
-        tl_data_glob_18: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/sstgrib.clim.07
-        tl_data_glob_19: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/sstgrib.clim.11
-        tl_data_glob_2: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/sstgrib.clim.09
-        tl_data_glob_20: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/sstgrib.clim.03
-        tl_data_glob_21: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/month_aluvv
-        tl_data_glob_22: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/month_alnip
-        tl_data_glob_23: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/month_aluvp
-        tl_data_glob_24: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/sstgrib.clim.06
-        tl_data_glob_25: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/sstgrib.clim.12
-        tl_data_glob_26: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/cicecap
-        tl_data_glob_27: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/month_lail
-        tl_data_glob_28: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/month_aluvd
-        tl_data_glob_29: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/sstgrib.clim.04
-        tl_data_glob_3: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/month_aluvi
-        tl_data_glob_30: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/sdfor
-        tl_data_glob_4: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/sstgrib.clim.05
-        tl_data_glob_5: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/sstgrib.clim.02
-        tl_data_glob_6: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/month_laih
-        tl_data_glob_7: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/sfc
-        tl_data_glob_8: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/lsmoro
-        tl_data_glob_9: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/month_aluvg
-        uwavein: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/TCO159L91//uwavein
-        wam_grid_tables: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/TCO159L91//wam_grid_tables
-        wam_subgrid_0: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/TCO159L91//wam_subgrid_0
-        wam_subgrid_1: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/TCO159L91//wam_subgrid_1
-        wam_subgrid_2: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/TCO159L91//wam_subgrid_2
+        ICMGG_INIT: /work/ab0246/a270092/input/oifs-43r3/TCO159L91//ICMGGh9wuINIT_CORE2
+        ICMGG_INIUA: /work/ab0246/a270092/input/oifs-43r3/TCO159L91//ICMGGh9wuINIUA
+        ICMSH_INIT: /work/ab0246/a270092/input/oifs-43r3/TCO159L91//ICMSHh9wuINIT
+        cdwavein: /work/ab0246/a270092/input/oifs-43r3/TCO159L91//cdwavein
+        ifsdata_glob_0: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/aerosol_ifs_rrtm_tegen.nc
+        ifsdata_glob_1: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/SO4_OBS1930
+        ifsdata_glob_10: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/SO4_OBS1940
+        ifsdata_glob_11: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/MOZOCLIM
+        ifsdata_glob_12: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/SO4_OBS1960
+        ifsdata_glob_13: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/fu_ice_scattering_rrtm.nc
+        ifsdata_glob_14: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/SO4_A1B2050
+        ifsdata_glob_15: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/SO4_OBS1980
+        ifsdata_glob_16: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/SO4_A1B2010
+        ifsdata_glob_17: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/slingo_droplet_scattering_rrtm.nc
+        ifsdata_glob_18: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/CCL4CLIM
+        ifsdata_glob_19: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/CH4CLIM
+        ifsdata_glob_2: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/C11CLIM
+        ifsdata_glob_20: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/SO4_A1B2080
+        ifsdata_glob_21: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/aerosol_ifs_rrtm.nc
+        ifsdata_glob_22: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/MCICA
+        ifsdata_glob_23: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/MCH4CLIM
+        ifsdata_glob_24: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/aerosol_cams_climatology_43R3a.nc
+        ifsdata_glob_25: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/SO4_OBS1920
+        ifsdata_glob_26: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/OZOCLIM
+        ifsdata_glob_27: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/C22CLIM
+        ifsdata_glob_28: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/NO2CLIM
+        ifsdata_glob_29: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/aerosol_ifs_rrtm_43R1a.nc
+        ifsdata_glob_3: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/SO4_A1B2040
+        ifsdata_glob_30: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/GCO2CLIM
+        ifsdata_glob_31: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/SO4_A1B2000
+        ifsdata_glob_32: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/SO4_OBS1990
+        ifsdata_glob_33: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/GCH4CLIM
+        ifsdata_glob_34: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/aerosol_ifs_rrtm_43R1.nc
+        ifsdata_glob_35: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/SO4_OBS1970
+        ifsdata_glob_36: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/SO4_A1B2090
+        ifsdata_glob_37: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/N2OCLIM
+        ifsdata_glob_38: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/ECOZC
+        ifsdata_glob_39: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/CO2CLIM
+        ifsdata_glob_4: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/SO4_OBS1950
+        ifsdata_glob_40: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/RADRRTM
+        ifsdata_glob_41: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/SO4_A1B2060
+        ifsdata_glob_42: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/socrates_droplet_scattering_rrtm.nc
+        ifsdata_glob_43: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/aerosol_ifs_rrtm_AB.nc
+        ifsdata_glob_44: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/aerosol_cams_climatology_43R3.nc
+        ifsdata_glob_45: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/SO4_A1B2020
+        ifsdata_glob_46: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/mcica_lognormal.nc
+        ifsdata_glob_47: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/es_droplet_scattering_rrtm.nc
+        ifsdata_glob_48: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/SO4_A1B2070
+        ifsdata_glob_49: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/SO4_A1B2100
+        ifsdata_glob_5: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/mcica_gamma.nc
+        ifsdata_glob_50: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/aerosol_ifs_rrtm_43R3.nc
+        ifsdata_glob_51: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/C12CLIM
+        ifsdata_glob_52: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/MCO2CLIM
+        ifsdata_glob_53: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/baran_ice_scattering_rrtm.nc
+        ifsdata_glob_6: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/GOZOCLIM
+        ifsdata_glob_7: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/SO4_A1B2030
+        ifsdata_glob_8: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/RADSRTM
+        ifsdata_glob_9: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/aerosol_ifs_rrtm_42R1.nc
+        o3_data_glob_0: /work/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/o3chem_l91/O3CHEM09_VMS1
+        o3_data_glob_1: /work/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/o3chem_l91/O3CHEM11_VMS1
+        o3_data_glob_10: /work/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/o3chem_l91/O3CHEM12_V2.9
+        o3_data_glob_11: /work/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/o3chem_l91/O3CHEM10_V2.9
+        o3_data_glob_12: /work/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/o3chem_l91/O3CHEM10_VMS1
+        o3_data_glob_13: /work/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/o3chem_l91/O3CHEM03_VMS1
+        o3_data_glob_14: /work/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/o3chem_l91/O3CHEM12_VMS1
+        o3_data_glob_15: /work/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/o3chem_l91/O3CHEM09_V2.9
+        o3_data_glob_16: /work/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/o3chem_l91/O3CHEM05_V2.9
+        o3_data_glob_17: /work/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/o3chem_l91/O3CHEM08_V2.9
+        o3_data_glob_18: /work/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/o3chem_l91/O3CHEM07_V2.9
+        o3_data_glob_19: /work/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/o3chem_l91/O3CHEM06_VMS1
+        o3_data_glob_2: /work/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/o3chem_l91/O3CHEM06_V2.9
+        o3_data_glob_20: /work/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/o3chem_l91/O3CHEM08_VMS1
+        o3_data_glob_21: /work/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/o3chem_l91/O3CHEM04_V2.9
+        o3_data_glob_22: /work/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/o3chem_l91/O3CHEM02_VMS1
+        o3_data_glob_23: /work/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/o3chem_l91/O3CHEM01_V2.9
+        o3_data_glob_3: /work/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/o3chem_l91/O3CHEM05_VMS1
+        o3_data_glob_4: /work/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/o3chem_l91/O3CHEM01_VMS1
+        o3_data_glob_5: /work/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/o3chem_l91/O3CHEM03_V2.9
+        o3_data_glob_6: /work/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/o3chem_l91/O3CHEM07_VMS1
+        o3_data_glob_7: /work/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/o3chem_l91/O3CHEM04_VMS1
+        o3_data_glob_8: /work/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/o3chem_l91/O3CHEM02_V2.9
+        o3_data_glob_9: /work/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/o3chem_l91/O3CHEM11_V2.9
+        sfcwindin: /work/ab0246/a270092/input/oifs-43r3/TCO159L91//sfcwindin
+        specwavein: /work/ab0246/a270092/input/oifs-43r3/TCO159L91//specwavein
+        tl_data_glob_0: /work/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/month_aluvg
+        tl_data_glob_1: /work/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/sstgrib.clim.04
+        tl_data_glob_10: /work/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/sstgrib.clim.03
+        tl_data_glob_11: /work/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/month_aluvi
+        tl_data_glob_12: /work/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/sstgrib.clim.08
+        tl_data_glob_13: /work/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/sporog
+        tl_data_glob_14: /work/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/month_lail
+        tl_data_glob_15: /work/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/sstgrib.clim.11
+        tl_data_glob_16: /work/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/sstgrib.clim.10
+        tl_data_glob_17: /work/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/sstgrib.clim.09
+        tl_data_glob_18: /work/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/month_alnig
+        tl_data_glob_19: /work/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/slt
+        tl_data_glob_2: /work/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/sstgrib.clim.01
+        tl_data_glob_20: /work/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/sstgrib.clim.02
+        tl_data_glob_21: /work/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/lsmoro
+        tl_data_glob_22: /work/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/month_alniv
+        tl_data_glob_23: /work/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/month_alnii
+        tl_data_glob_24: /work/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/month_aluvp
+        tl_data_glob_25: /work/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/sstgrib.clim.05
+        tl_data_glob_26: /work/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/month_alnid
+        tl_data_glob_27: /work/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/sstgrib.clim.07
+        tl_data_glob_28: /work/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/sfc
+        tl_data_glob_29: /work/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/month_laih
+        tl_data_glob_3: /work/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/sdfor
+        tl_data_glob_30: /work/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/sstgrib.clim.12
+        tl_data_glob_4: /work/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/month_aluvv
+        tl_data_glob_5: /work/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/sstgrib.clim.06
+        tl_data_glob_6: /work/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/month_aluvd
+        tl_data_glob_7: /work/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/cicecap
+        tl_data_glob_8: /work/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/month_alb
+        tl_data_glob_9: /work/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/month_alnip
+        uwavein: /work/ab0246/a270092/input/oifs-43r3/TCO159L91//uwavein
+        wam_grid_tables: /work/ab0246/a270092/input/oifs-43r3/TCO159L91//wam_grid_tables
+        wam_subgrid_0: /work/ab0246/a270092/input/oifs-43r3/TCO159L91//wam_subgrid_0
+        wam_subgrid_1: /work/ab0246/a270092/input/oifs-43r3/TCO159L91//wam_subgrid_1
+        wam_subgrid_2: /work/ab0246/a270092/input/oifs-43r3/TCO159L91//wam_subgrid_2
     input_sources_wild_card:
         ifsdata: '*'
         o3_data: '*'
@@ -2700,117 +2729,117 @@ oifs:
         ICMGG_INIUA: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ICMGGawi3INIUA
         ICMSH_INIT: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ICMSHawi3INIT
         cdwavein: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/cdwavein
-        ifsdata_glob_0: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/GCH4CLIM
-        ifsdata_glob_1: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/SO4_OBS1990
-        ifsdata_glob_10: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/NO2CLIM
-        ifsdata_glob_11: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/CCL4CLIM
-        ifsdata_glob_12: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/mcica_lognormal.nc
-        ifsdata_glob_13: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/C12CLIM
-        ifsdata_glob_14: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/SO4_OBS1980
-        ifsdata_glob_15: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/N2OCLIM
-        ifsdata_glob_16: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/C22CLIM
-        ifsdata_glob_17: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/es_droplet_scattering_rrtm.nc
-        ifsdata_glob_18: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/SO4_A1B2040
-        ifsdata_glob_19: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/MCICA
-        ifsdata_glob_2: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/SO4_A1B2020
-        ifsdata_glob_20: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/RADRRTM
-        ifsdata_glob_21: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/GOZOCLIM
-        ifsdata_glob_22: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/SO4_A1B2100
-        ifsdata_glob_23: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/baran_ice_scattering_rrtm.nc
-        ifsdata_glob_24: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/ECOZC
-        ifsdata_glob_25: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/C11CLIM
-        ifsdata_glob_26: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/SO4_A1B2030
-        ifsdata_glob_27: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/fu_ice_scattering_rrtm.nc
-        ifsdata_glob_28: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/OZOCLIM
-        ifsdata_glob_29: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/aerosol_ifs_rrtm_42R1.nc
-        ifsdata_glob_3: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/CO2CLIM
-        ifsdata_glob_30: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/SO4_OBS1930
-        ifsdata_glob_31: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/aerosol_cams_climatology_43R3a.nc
-        ifsdata_glob_32: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/aerosol_cams_climatology_43R3.nc
-        ifsdata_glob_33: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/MCO2CLIM
-        ifsdata_glob_34: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/SO4_OBS1960
-        ifsdata_glob_35: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/aerosol_ifs_rrtm_43R1a.nc
-        ifsdata_glob_36: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/CH4CLIM
-        ifsdata_glob_37: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/SO4_A1B2080
-        ifsdata_glob_38: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/SO4_OBS1970
-        ifsdata_glob_39: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/slingo_droplet_scattering_rrtm.nc
-        ifsdata_glob_4: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/aerosol_ifs_rrtm_AB.nc
-        ifsdata_glob_40: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/aerosol_ifs_rrtm.nc
-        ifsdata_glob_41: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/aerosol_ifs_rrtm_43R3.nc
-        ifsdata_glob_42: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/GCO2CLIM
-        ifsdata_glob_43: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/socrates_droplet_scattering_rrtm.nc
-        ifsdata_glob_44: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/MCH4CLIM
-        ifsdata_glob_45: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/aerosol_ifs_rrtm_43R1.nc
-        ifsdata_glob_46: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/SO4_A1B2000
-        ifsdata_glob_47: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/SO4_A1B2060
-        ifsdata_glob_48: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/SO4_A1B2050
-        ifsdata_glob_49: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/RADSRTM
-        ifsdata_glob_5: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/SO4_OBS1940
-        ifsdata_glob_50: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/SO4_A1B2070
-        ifsdata_glob_51: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/mcica_gamma.nc
-        ifsdata_glob_52: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/SO4_OBS1950
-        ifsdata_glob_53: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/MOZOCLIM
-        ifsdata_glob_6: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/SO4_A1B2090
-        ifsdata_glob_7: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/aerosol_ifs_rrtm_tegen.nc
-        ifsdata_glob_8: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/SO4_OBS1920
-        ifsdata_glob_9: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/SO4_A1B2010
-        o3_data_glob_0: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/o3chem_l91/O3CHEM02_V2.9
-        o3_data_glob_1: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/o3chem_l91/O3CHEM12_V2.9
-        o3_data_glob_10: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/o3chem_l91/O3CHEM03_V2.9
-        o3_data_glob_11: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/o3chem_l91/O3CHEM09_V2.9
+        ifsdata_glob_0: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/aerosol_ifs_rrtm_tegen.nc
+        ifsdata_glob_1: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/SO4_OBS1930
+        ifsdata_glob_10: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/SO4_OBS1940
+        ifsdata_glob_11: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/MOZOCLIM
+        ifsdata_glob_12: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/SO4_OBS1960
+        ifsdata_glob_13: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/fu_ice_scattering_rrtm.nc
+        ifsdata_glob_14: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/SO4_A1B2050
+        ifsdata_glob_15: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/SO4_OBS1980
+        ifsdata_glob_16: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/SO4_A1B2010
+        ifsdata_glob_17: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/slingo_droplet_scattering_rrtm.nc
+        ifsdata_glob_18: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/CCL4CLIM
+        ifsdata_glob_19: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/CH4CLIM
+        ifsdata_glob_2: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/C11CLIM
+        ifsdata_glob_20: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/SO4_A1B2080
+        ifsdata_glob_21: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/aerosol_ifs_rrtm.nc
+        ifsdata_glob_22: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/MCICA
+        ifsdata_glob_23: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/MCH4CLIM
+        ifsdata_glob_24: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/aerosol_cams_climatology_43R3a.nc
+        ifsdata_glob_25: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/SO4_OBS1920
+        ifsdata_glob_26: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/OZOCLIM
+        ifsdata_glob_27: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/C22CLIM
+        ifsdata_glob_28: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/NO2CLIM
+        ifsdata_glob_29: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/aerosol_ifs_rrtm_43R1a.nc
+        ifsdata_glob_3: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/SO4_A1B2040
+        ifsdata_glob_30: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/GCO2CLIM
+        ifsdata_glob_31: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/SO4_A1B2000
+        ifsdata_glob_32: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/SO4_OBS1990
+        ifsdata_glob_33: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/GCH4CLIM
+        ifsdata_glob_34: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/aerosol_ifs_rrtm_43R1.nc
+        ifsdata_glob_35: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/SO4_OBS1970
+        ifsdata_glob_36: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/SO4_A1B2090
+        ifsdata_glob_37: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/N2OCLIM
+        ifsdata_glob_38: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/ECOZC
+        ifsdata_glob_39: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/CO2CLIM
+        ifsdata_glob_4: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/SO4_OBS1950
+        ifsdata_glob_40: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/RADRRTM
+        ifsdata_glob_41: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/SO4_A1B2060
+        ifsdata_glob_42: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/socrates_droplet_scattering_rrtm.nc
+        ifsdata_glob_43: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/aerosol_ifs_rrtm_AB.nc
+        ifsdata_glob_44: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/aerosol_cams_climatology_43R3.nc
+        ifsdata_glob_45: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/SO4_A1B2020
+        ifsdata_glob_46: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/mcica_lognormal.nc
+        ifsdata_glob_47: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/es_droplet_scattering_rrtm.nc
+        ifsdata_glob_48: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/SO4_A1B2070
+        ifsdata_glob_49: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/SO4_A1B2100
+        ifsdata_glob_5: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/mcica_gamma.nc
+        ifsdata_glob_50: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/aerosol_ifs_rrtm_43R3.nc
+        ifsdata_glob_51: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/C12CLIM
+        ifsdata_glob_52: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/MCO2CLIM
+        ifsdata_glob_53: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/baran_ice_scattering_rrtm.nc
+        ifsdata_glob_6: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/GOZOCLIM
+        ifsdata_glob_7: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/SO4_A1B2030
+        ifsdata_glob_8: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/RADSRTM
+        ifsdata_glob_9: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/ifsdata/aerosol_ifs_rrtm_42R1.nc
+        o3_data_glob_0: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/o3chem_l91/O3CHEM09_VMS1
+        o3_data_glob_1: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/o3chem_l91/O3CHEM11_VMS1
+        o3_data_glob_10: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/o3chem_l91/O3CHEM12_V2.9
+        o3_data_glob_11: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/o3chem_l91/O3CHEM10_V2.9
         o3_data_glob_12: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/o3chem_l91/O3CHEM10_VMS1
         o3_data_glob_13: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/o3chem_l91/O3CHEM03_VMS1
-        o3_data_glob_14: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/o3chem_l91/O3CHEM07_VMS1
-        o3_data_glob_15: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/o3chem_l91/O3CHEM06_V2.9
-        o3_data_glob_16: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/o3chem_l91/O3CHEM09_VMS1
-        o3_data_glob_17: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/o3chem_l91/O3CHEM05_V2.9
-        o3_data_glob_18: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/o3chem_l91/O3CHEM01_V2.9
-        o3_data_glob_19: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/o3chem_l91/O3CHEM02_VMS1
-        o3_data_glob_2: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/o3chem_l91/O3CHEM08_V2.9
-        o3_data_glob_20: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/o3chem_l91/O3CHEM05_VMS1
-        o3_data_glob_21: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/o3chem_l91/O3CHEM11_V2.9
-        o3_data_glob_22: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/o3chem_l91/O3CHEM11_VMS1
-        o3_data_glob_23: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/o3chem_l91/O3CHEM04_V2.9
-        o3_data_glob_3: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/o3chem_l91/O3CHEM01_VMS1
-        o3_data_glob_4: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/o3chem_l91/O3CHEM08_VMS1
-        o3_data_glob_5: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/o3chem_l91/O3CHEM04_VMS1
-        o3_data_glob_6: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/o3chem_l91/O3CHEM06_VMS1
-        o3_data_glob_7: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/o3chem_l91/O3CHEM10_V2.9
-        o3_data_glob_8: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/o3chem_l91/O3CHEM12_VMS1
-        o3_data_glob_9: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/o3chem_l91/O3CHEM07_V2.9
+        o3_data_glob_14: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/o3chem_l91/O3CHEM12_VMS1
+        o3_data_glob_15: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/o3chem_l91/O3CHEM09_V2.9
+        o3_data_glob_16: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/o3chem_l91/O3CHEM05_V2.9
+        o3_data_glob_17: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/o3chem_l91/O3CHEM08_V2.9
+        o3_data_glob_18: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/o3chem_l91/O3CHEM07_V2.9
+        o3_data_glob_19: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/o3chem_l91/O3CHEM06_VMS1
+        o3_data_glob_2: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/o3chem_l91/O3CHEM06_V2.9
+        o3_data_glob_20: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/o3chem_l91/O3CHEM08_VMS1
+        o3_data_glob_21: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/o3chem_l91/O3CHEM04_V2.9
+        o3_data_glob_22: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/o3chem_l91/O3CHEM02_VMS1
+        o3_data_glob_23: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/o3chem_l91/O3CHEM01_V2.9
+        o3_data_glob_3: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/o3chem_l91/O3CHEM05_VMS1
+        o3_data_glob_4: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/o3chem_l91/O3CHEM01_VMS1
+        o3_data_glob_5: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/o3chem_l91/O3CHEM03_V2.9
+        o3_data_glob_6: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/o3chem_l91/O3CHEM07_VMS1
+        o3_data_glob_7: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/o3chem_l91/O3CHEM04_VMS1
+        o3_data_glob_8: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/o3chem_l91/O3CHEM02_V2.9
+        o3_data_glob_9: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/o3chem_l91/O3CHEM11_V2.9
         sfcwindin: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/sfcwindin
         specwavein: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/specwavein
-        tl_data_glob_0: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/slt
-        tl_data_glob_1: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/sstgrib.clim.10
-        tl_data_glob_10: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/sstgrib.clim.01
-        tl_data_glob_11: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/sstgrib.clim.08
-        tl_data_glob_12: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/month_alnig
-        tl_data_glob_13: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/month_alnid
-        tl_data_glob_14: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/sporog
-        tl_data_glob_15: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/month_alnii
-        tl_data_glob_16: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/month_alniv
-        tl_data_glob_17: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/month_alb
-        tl_data_glob_18: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/sstgrib.clim.07
-        tl_data_glob_19: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/sstgrib.clim.11
-        tl_data_glob_2: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/sstgrib.clim.09
-        tl_data_glob_20: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/sstgrib.clim.03
-        tl_data_glob_21: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/month_aluvv
-        tl_data_glob_22: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/month_alnip
-        tl_data_glob_23: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/month_aluvp
-        tl_data_glob_24: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/sstgrib.clim.06
-        tl_data_glob_25: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/sstgrib.clim.12
-        tl_data_glob_26: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/cicecap
-        tl_data_glob_27: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/month_lail
-        tl_data_glob_28: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/month_aluvd
-        tl_data_glob_29: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/sstgrib.clim.04
-        tl_data_glob_3: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/month_aluvi
-        tl_data_glob_30: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/sdfor
-        tl_data_glob_4: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/sstgrib.clim.05
-        tl_data_glob_5: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/sstgrib.clim.02
-        tl_data_glob_6: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/month_laih
-        tl_data_glob_7: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/sfc
-        tl_data_glob_8: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/lsmoro
-        tl_data_glob_9: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/month_aluvg
+        tl_data_glob_0: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/month_aluvg
+        tl_data_glob_1: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/sstgrib.clim.04
+        tl_data_glob_10: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/sstgrib.clim.03
+        tl_data_glob_11: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/month_aluvi
+        tl_data_glob_12: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/sstgrib.clim.08
+        tl_data_glob_13: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/sporog
+        tl_data_glob_14: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/month_lail
+        tl_data_glob_15: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/sstgrib.clim.11
+        tl_data_glob_16: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/sstgrib.clim.10
+        tl_data_glob_17: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/sstgrib.clim.09
+        tl_data_glob_18: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/month_alnig
+        tl_data_glob_19: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/slt
+        tl_data_glob_2: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/sstgrib.clim.01
+        tl_data_glob_20: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/sstgrib.clim.02
+        tl_data_glob_21: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/lsmoro
+        tl_data_glob_22: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/month_alniv
+        tl_data_glob_23: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/month_alnii
+        tl_data_glob_24: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/month_aluvp
+        tl_data_glob_25: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/sstgrib.clim.05
+        tl_data_glob_26: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/month_alnid
+        tl_data_glob_27: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/sstgrib.clim.07
+        tl_data_glob_28: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/sfc
+        tl_data_glob_29: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/month_laih
+        tl_data_glob_3: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/sdfor
+        tl_data_glob_30: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/sstgrib.clim.12
+        tl_data_glob_4: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/month_aluvv
+        tl_data_glob_5: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/sstgrib.clim.06
+        tl_data_glob_6: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/month_aluvd
+        tl_data_glob_7: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/cicecap
+        tl_data_glob_8: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/month_alb
+        tl_data_glob_9: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/159_4/month_alnip
         uwavein: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/uwavein
         wam_grid_tables: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/wam_grid_tables
         wam_subgrid_0: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/wam_subgrid_0
@@ -2852,12 +2881,11 @@ oifs:
     namelist_changes:
         fort.4:
             NAEPHY:
-                LECURR: false
                 LWCOU: true
                 LWCOU2W: true
             NAERAD:
-                CMIP6DATADIR: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/cmip6-data
-                CRTABLEDIR: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/rtables/
+                CMIP6DATADIR: /work/ab0246/a270092/input/oifs-43r3/cmip6-data
+                CRTABLEDIR: /work/ab0246/a270092/input/oifs-43r3/rtables/
                 LCMIP6: true
                 LECOMPGRID: true
             NAMARG:
@@ -2958,12 +2986,12 @@ oifs:
     outdata_targets: {}
     output: default
     parent_date: '1999-12-31T23:00:00'
-    parent_dir: /work/ab0246/from_Mistral/ab0246/a270092/input/OPENIFS43R3-TCO95/restart/awicm3-frontiers-TCO159L91-CORE2_initial
+    parent_dir: /work/ab0246/a270092/input/OPENIFS43R3-TCO95/restart/awicm3-frontiers-TCO159L91-CORE2_initial
     parent_expid: awicm3-frontiers-TCO159L91-CORE2_initial
     parent_restart_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/restart/oifs/
     perturb: 0
     pextra: 0
-    pool_dir: /work/ab0246/from_Mistral/ab0246/a270092/input
+    pool_dir: /work/ab0246/a270092/input
     post_processing: 0
     postprocess:
         postprocess_shell:
@@ -2986,7 +3014,7 @@ oifs:
     - copy_files_to_work
     - report_missing_files
     - database_entry
-    prepifs_dir: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/TCO159L91/
+    prepifs_dir: /work/ab0246/a270092/input/oifs-43r3/TCO159L91/
     prepifs_expid: h9wu
     prepifs_startdate: '19820101'
     preprocess:
@@ -3028,7 +3056,7 @@ oifs:
     - bin
     - src
     rnproc: 128
-    rtables_dir: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/rtables/
+    rtables_dir: /work/ab0246/a270092/input/oifs-43r3/rtables/
     runtime_environment_changes:
         add_export_vars:
             ECE_AWI_CPL_FESOM: '"true"'
@@ -3121,7 +3149,7 @@ oifs:
                     HDF5ROOT: $IO_LIB_ROOT
                     HDF5_C_INCLUDE_DIRECTORIES: $HDF5_ROOT/include
                     HDF5_ROOT: $HDF5ROOT
-                    IO_LIB_ROOT: /work/ollie/jstreffi/software/HPC_libraries/intel2018.0.5_intelmpi_18.0.4_20210804
+                    IO_LIB_ROOT: /work/ollie/jstreffi/software/HPC_libraries/intel2018.0.5_intelmpi_2021.3.0_20220623
                     LD_LIBRARY_PATH: $IO_LIB_ROOT/lib:$LD_LIBRARY_PATH
                     NETCDFFROOT: $IO_LIB_ROOT
                     NETCDFROOT: $IO_LIB_ROOT
@@ -3131,10 +3159,13 @@ oifs:
                     OIFS_FFIXED: '""'
                     OMP_SCHEDULE: STATIC
                     OMP_STACKSIZE: 128M
-                    PATH[(2)]: $IO_LIB_ROOT/bin:$PATH
+                    PATH[(2)]: $PATH:$IO_LIB_ROOT/bin
                     SZIPROOT: $IO_LIB_ROOT
                 add_module_actions:
                 - unload gribapi
+                - unload hdf5
+                - unload intel.mpi
+                - load intel.mpi/2021.3.0
         iolibraries: awi_libs
     runtime_seconds: 86400
     scenario: historical
@@ -3168,12 +3199,11 @@ oifs:
     threads: 1
     time_step: 3600
     timestep_per_run: 24
-    tl_o3_data_dir: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/43r3/climate/
+    tl_o3_data_dir: /work/ab0246/a270092/input/oifs-43r3/43r3/climate/
     truncation: TCO
     type: atmosphere
-    use_ocean_currents: 0
     version: 43r3
-    vtables_dir: /work/ab0246/from_Mistral/ab0246/a270092/input/oifs-43r3/../vtables/
+    vtables_dir: /work/ab0246/a270092/input/oifs-43r3/../vtables/
     wam: true
     wam_2w: true
     wam_number: 1
@@ -3215,6 +3245,7 @@ rnfmap:
     available_versions:
     - ec-earth
     - awicm-3.0
+    - awicm-3.1
     - awicm-frontiers
     - focioifs
     - focioifs1
@@ -3371,11 +3402,11 @@ rnfmap:
             nx: 512
             ny: 256
             oasis_grid_type: LR
-    input_dir: /work/ab0246/from_Mistral/ab0246/a270092/input/runoff-mapper
+    input_dir: /work/ab0246/a270092/input/runoff-mapper
     input_intermediate:
         runoff_maps: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/rnfmap/runoff_maps.nc
     input_sources:
-        runoff_maps: /work/ab0246/from_Mistral/ab0246/a270092/input/runoff-mapper/runoff_maps_CORE2.nc
+        runoff_maps: /work/ab0246/a270092/input/runoff-mapper/runoff_maps_CORE2.nc
     input_targets:
         runoff_maps: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/runoff_maps.nc
     install_bins: bin/rnfma
@@ -3399,10 +3430,10 @@ rnfmap:
     ny: 256
     omp_num_threads: 128
     parent_date: '1999-12-31T22:00:00'
-    parent_dir: /work/ab0246/from_Mistral/ab0246/a270092/input/RUNOFF_MAPPER/restart/awicm3-frontiers-TCO159L91-CORE2_initial
+    parent_dir: /work/ab0246/a270092/input/RUNOFF_MAPPER/restart/awicm3-frontiers-TCO159L91-CORE2_initial
     parent_expid: awicm3-frontiers-TCO159L91-CORE2_initial
     parent_restart_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/restart/rnfmap/
-    pool_dir: /work/ab0246/from_Mistral/ab0246/a270092/input
+    pool_dir: /work/ab0246/a270092/input
     prev_date: '1999-12-31T22:00:00'
     resolution: 512x256
     restart: 1
@@ -3414,6 +3445,7 @@ rnfmap:
     runoff_fields_send:
     - R_Runoff_oce
     - R_Calving_oce
+    runoff_file: /work/ab0246/a270092/input/runoff-mapper/runoff_maps_CORE2.nc
     runoff_maps_name: _CORE2
     runoff_method: awicm3-default
     runtime_seconds: 86400
