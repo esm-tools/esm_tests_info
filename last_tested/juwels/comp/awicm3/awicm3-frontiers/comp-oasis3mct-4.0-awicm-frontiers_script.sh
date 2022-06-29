@@ -59,7 +59,7 @@ export OIFS_FFIXED=""
 export OIFS_FCDEFS="BLAS LITTLE LINUX INTEGER_IS_INT"
 export OIFS_LFLAGS="$OIFS_MPI_LIB -qopenmp"
 export OIFS_CC=$CC
-export OIFS_CFLAGS="-fp-model precise -O1 -xCORE_AVX2 -g -traceback -qopt-report=0 -fpe0 -qopenmp"
+export OIFS_CFLAGS="-fp-model precise -O3 -xCORE_AVX2 -g -traceback -qopt-report=0 -fpe0 -qopenmp"
 export OIFS_CCDEFS="LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS _OPENMP"
 export MAIN_LDFLAGS=-openmp
 export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
