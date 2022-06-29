@@ -28,7 +28,7 @@ computer:
     OpenMP_flag: ''
     account: None
     accounting: true
-    accounting_flag: --account=hbk00083
+    accounting_flag: --account=hbkmandr
     actual_script_dir: <--methods.script_dir--
     add_choose_heterogeneous_parallelization: &id001
         false:
@@ -151,7 +151,7 @@ computer:
         pool: /scratch/usr/hbkawi
     runtime_environment_changes:
         add_export_vars:
-            ACCOUNT: hbk00083
+            ACCOUNT: hbkmandr
             ESM_TESTING_DIR: <TEST_DIR>/run/focioifs/
             MODEL_DIR: <TEST_DIR>/comp/focioifs/focioifs-2.0
     script_name: <--methods.scriptname--
@@ -175,7 +175,7 @@ defaults:
     debug_info:
         loaded_from_file: <HOME_DIR>/esm_tools/configs//defaults/download_and_compile.yaml
 general:
-    account: hbk00083
+    account: hbkmandr
     additional_files: []
     all_filetypes:
     - analysis
@@ -209,17 +209,17 @@ general:
     base_dir: <TEST_DIR>/run/focioifs/
     batch: slurm
     calendar: esm_calendar object with allowed leap years
-    check: true
+    check: false
     chunk_number: 1
     command_line_config:
-        check: true
+        check: false
         current_date: null
         expid: focioifs-piCtl-test_lowcpu
         inspect: null
         jobtype: prepcompute
         launcher_pid: -666
         no_motd: true
-        original_command: focioifs-piCtl-test_lowcpu.yaml -e focioifs-piCtl-test_lowcpu --open-run -c --no-motd
+        original_command: focioifs-piCtl-test_lowcpu.yaml -e focioifs-piCtl-test_lowcpu --open-run --no-motd
         profile: false
         run_number: null
         runscript_abspath: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/scripts/focioifs-piCtl-test_lowcpu.yaml
@@ -357,7 +357,7 @@ general:
     ini_parent_exp_id: unset
     initial_date: '1850-01-01T00:00:00'
     inspect: null
-    jobid: 249470
+    jobid: 30534
     jobtype: prepcompute
     last_run_datestamp: 18491227-18491231
     last_run_in_chunk: false
@@ -384,7 +384,7 @@ general:
     nsecond: 0
     nyear: 0
     oasis_date_stamp: _18500101-1850101
-    original_command: focioifs-piCtl-test_lowcpu.yaml -e focioifs-piCtl-test_lowcpu --open-run -c --no-motd
+    original_command: focioifs-piCtl-test_lowcpu.yaml -e focioifs-piCtl-test_lowcpu --open-run --no-motd
     out_filetypes:
     - analysis
     - log
@@ -1123,7 +1123,8 @@ oasis3mct:
     - 4.0-oifsdeck
     - 4.0-awicm-frontiers
     - 4.0-awicm-3.0
-    branch: '2.8'
+    - 4.0-awicm-3.1
+    branch: v2.8
     cf_name_dir: <TEST_DIR>/comp/focioifs/focioifs-2.0/oasis
     clean_command: rm -rf build CMakeCache.txt include lib/libpsmile.a lib/libscrip.a lib/libmct.a lib/libmpeu.a
     comp_command: mkdir -p build; cd build; cmake ..;   make -j 1; mkdir -p ../include/; cp lib/psmile/libpsmile.a lib/psmile/mct/libmct.a lib/psmile/mct/mpeu/libmpeu.a lib/psmile/scrip/libscrip.a ../lib; cp lib/psmile/mod_oasis*mod ../include
@@ -1907,6 +1908,7 @@ oifs:
         - 40r1
         - 43r3-master
         - 43r3-awicm-3.0
+        - 43r3-awicm-3.1
         - 43r3-awicm-frontiers
         - 43r3-awicm-frontiers-xios
         - 43r3
@@ -1938,6 +1940,15 @@ oifs:
                 requires:
                 - oasis3mct-4.0-awicm-3.0
                 with_xios: false
+            43r3-awicm-3.1:
+                branch: awicm-3.1
+                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/focioifs/focioifs-2.0/oifs-43r3; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/focioifs/focioifs-2.0/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/focioifs/focioifs-2.0/oifs-43r3/../xios/inc/; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
+                destination: oifs-43r3
+                git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3.git
+                install_bins: make/esm/oifs/bin/oifs
+                requires:
+                - oasis3mct-4.0-awicm-3.1
+                with_xios: true
             43r3-awicm-frontiers:
                 branch: awicm-3-frontiers
                 comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/focioifs/focioifs-2.0/oifs-43r3; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.cfg ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
@@ -2101,7 +2112,7 @@ oifs:
                 - OIFS_FCDEFS="BLAS LITTLE LINUX INTEGER_IS_INT"
                 - OIFS_LFLAGS="$OIFS_MPI_LIB "
                 - OIFS_CC=$CC
-                - OIFS_CFLAGS="-fp-model precise -O1 -xCORE_AVX2 -g -traceback -qopt-report=0 -fpe0 "
+                - OIFS_CFLAGS="-fp-model precise -O3 -xCORE_AVX2 -g -traceback -qopt-report=0 -fpe0 "
                 - OIFS_CCDEFS="LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS "
                 - MAIN_LDFLAGS=-openmp
                 compiler_mpi: intel2020_psmpi2020
@@ -2223,7 +2234,7 @@ oifs:
                     HDF5ROOT: $IO_LIB_ROOT
                     HDF5_C_INCLUDE_DIRECTORIES: $HDF5_ROOT/include
                     HDF5_ROOT: $HDF5ROOT
-                    IO_LIB_ROOT: /work/ollie/jstreffi/software/HPC_libraries/intel2018.0.5_intelmpi_18.0.4_20210804
+                    IO_LIB_ROOT: /work/ollie/jstreffi/software/HPC_libraries/intel2018.0.5_intelmpi_2021.3.0_20220623
                     LAPACK_LIB_DEFAULT: '"-L$MKLROOT/lib/intel64 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential"'
                     LD_LIBRARY_PATH: $IO_LIB_ROOT/lib:$LD_LIBRARY_PATH
                     NETCDFFROOT: $IO_LIB_ROOT
@@ -2253,7 +2264,8 @@ oifs:
                     OIFS_OASIS_LIB: '"-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu -lpsmile -lmct -lmpeu -lscrip"'
                     SZIPROOT: $IO_LIB_ROOT
                 add_module_actions:
-                - unload gribapi
+                - purge
+                - load intel.mpi/2021.3.0 intel.compiler cmake
         iolibraries: geomar_libs
     config_intermediate:
         fort.4: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/config/oifs/fort.4
@@ -2838,7 +2850,6 @@ oifs:
     namelist_changes:
         fort.4:
             NAEPHY:
-                LECURR: false
                 LWCOU: false
                 LWCOU2W: false
             NAERAD:
@@ -3094,7 +3105,7 @@ oifs:
                     HDF5ROOT: $IO_LIB_ROOT
                     HDF5_C_INCLUDE_DIRECTORIES: $HDF5_ROOT/include
                     HDF5_ROOT: $HDF5ROOT
-                    IO_LIB_ROOT: /work/ollie/jstreffi/software/HPC_libraries/intel2018.0.5_intelmpi_18.0.4_20210804
+                    IO_LIB_ROOT: /work/ollie/jstreffi/software/HPC_libraries/intel2018.0.5_intelmpi_2021.3.0_20220623
                     LD_LIBRARY_PATH: $IO_LIB_ROOT/lib:$LD_LIBRARY_PATH
                     NETCDFFROOT: $IO_LIB_ROOT
                     NETCDFROOT: $IO_LIB_ROOT
@@ -3104,10 +3115,13 @@ oifs:
                     OIFS_FFIXED: '""'
                     OMP_SCHEDULE: STATIC
                     OMP_STACKSIZE: 128M
-                    PATH[(2)]: $IO_LIB_ROOT/bin:$PATH
+                    PATH[(2)]: $PATH:$IO_LIB_ROOT/bin
                     SZIPROOT: $IO_LIB_ROOT
                 add_module_actions:
                 - unload gribapi
+                - unload hdf5
+                - unload intel.mpi
+                - load intel.mpi/2021.3.0
         iolibraries: geomar_libs
     runtime_seconds: 432000
     scenario: piControl
@@ -3176,6 +3190,7 @@ rnfmap:
     available_versions:
     - ec-earth
     - awicm-3.0
+    - awicm-3.1
     - awicm-frontiers
     - focioifs
     - focioifs1
@@ -3385,6 +3400,7 @@ rnfmap:
     - R_Runoff_atm
     runoff_fields_send:
     - R_Runoff_oce
+    runoff_file: /scratch/usr/hbkawi/runoff-mapper/runoff_maps.nc
     runoff_maps_name: ''
     runoff_method: old
     runtime_seconds: 432000
