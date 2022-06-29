@@ -1224,6 +1224,10 @@ fesom:
             grid: feom
         tauy_oce:
             grid: feom
+        u_feom:
+            grid: feom
+        v_feom:
+            grid: feom
     create_config:
         fesom.clock:
         - <--append-- 0.0000000000000 1 2000
@@ -1664,7 +1668,7 @@ general:
     - restart_in
     initial_date: '2000-01-01T00:00:00'
     inspect: null
-    jobid: 166140
+    jobid: 99346
     jobtype: prepcompute
     last_run_datestamp: 19991201-19991231
     last_run_in_chunk: false
@@ -2407,7 +2411,8 @@ oasis3mct:
     - 4.0-oifsdeck
     - 4.0-awicm-frontiers
     - 4.0-awicm-3.0
-    branch: '2.8'
+    - 4.0-awicm-3.1
+    branch: v2.8
     cf_name_dir: <TEST_DIR>/comp/awicm/awicm-2.0/oasis
     clean_command: rm -rf build CMakeCache.txt include lib/libpsmile.a lib/libscrip.a lib/libmct.a lib/libmpeu.a
     comp_command: mkdir -p build; cd build; cmake ..;   make -j 1; mkdir -p ../include/; cp lib/psmile/libpsmile.a lib/psmile/mct/libmct.a lib/psmile/mct/mpeu/libmpeu.a lib/psmile/scrip/libscrip.a ../lib; cp lib/psmile/mod_oasis*mod ../include

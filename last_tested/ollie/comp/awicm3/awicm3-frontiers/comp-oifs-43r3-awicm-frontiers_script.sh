@@ -17,7 +17,8 @@ module load git
 module list
 module unload intel.mpi
 module load intel.mpi
-module unload gribapi
+module purge
+module load intel.mpi/2021.3.0 intel.compiler cmake
 
 export LC_ALL=en_US.UTF-8
 export FC="mpiifort -mkl"
@@ -26,7 +27,7 @@ export MPIFC=mpiifort
 export MPICC=mpiicc
 export CC=mpiicc
 export CXX=mpiicpc
-export IO_LIB_ROOT=/work/ollie/jstreffi/software/HPC_libraries/intel2018.0.5_intelmpi_18.0.4_20210804
+export IO_LIB_ROOT=/work/ollie/jstreffi/software/HPC_libraries/intel2018.0.5_intelmpi_2021.3.0_20220623
 export HDF5ROOT=$IO_LIB_ROOT
 export NETCDFFROOT=$IO_LIB_ROOT
 export NETCDFROOT=$IO_LIB_ROOT
