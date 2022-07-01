@@ -61,7 +61,7 @@ export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 197393 - start >> <TEST_DIR>/run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/log//awicm3-frontiers-TCO159L91-CORE2_initial_awicm3.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 135349 - start >> <TEST_DIR>/run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/log//awicm3-frontiers-TCO159L91-CORE2_initial_awicm3.log
 
 cd <TEST_DIR>/run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/
 qalter $PBS_JOBID -o <TEST_DIR>/run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/log/awicm3-frontiers-TCO159L91-CORE2_initial_awicm3_compute_20000101-20000101_$PBS_JOBID.log
@@ -74,8 +74,8 @@ time aprun -n 40 -N 40 -d 1 env OMP_NUM_THREADS=1 env PMI_LABEL_ERROUT_FORMAT="[
 process=$! 
 # Comment the following line if you don't want esm_runscripts to restart:
 cd <TEST_DIR>/run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/scripts/
-esm_runscripts awicm3-frontiers-TCO159L91-CORE2_initial.yaml -e awicm3-frontiers-TCO159L91-CORE2_initial -t observe_compute -p ${process} -s 20000101 -r 1 -v  --open-run
+esm_runscripts awicm3-frontiers-TCO159L91-CORE2_initial.yaml -e awicm3-frontiers-TCO159L91-CORE2_initial -t observe_compute -p ${process} -s 20000101 -r 1 -v  --last-jobtype prepcompute --open-run
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 197393 - done >> <TEST_DIR>/run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/log//awicm3-frontiers-TCO159L91-CORE2_initial_awicm3.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 135349 - done >> <TEST_DIR>/run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/log//awicm3-frontiers-TCO159L91-CORE2_initial_awicm3.log
 
 wait
