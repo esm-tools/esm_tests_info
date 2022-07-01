@@ -573,17 +573,19 @@ general:
     base_dir: <TEST_DIR>/run/awicm3/
     batch: slurm
     calendar: esm_calendar object with allowed leap years
-    check: false
+    check: true
     chunk_number: 1
     command_line_config:
-        check: false
+        check: true
         current_date: null
         expid: awicm3-frontiers-xios-TCO159L91-CORE2_initial
+        ignore_config_warnings: false
         inspect: null
         jobtype: prepcompute
+        last_jobtype: prepcompute
         launcher_pid: -666
         no_motd: true
-        original_command: awicm3-frontiers-xios-TCO159L91-CORE2_initial.yaml -e awicm3-frontiers-xios-TCO159L91-CORE2_initial --open-run --no-motd
+        original_command: awicm3-frontiers-xios-TCO159L91-CORE2_initial.yaml -e awicm3-frontiers-xios-TCO159L91-CORE2_initial --open-run -c --no-motd --last-jobtype prepcompute
         profile: false
         run_number: null
         runscript_abspath: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/scripts/awicm3-frontiers-xios-TCO159L91-CORE2_initial.yaml
@@ -1008,6 +1010,7 @@ general:
     first_run_in_chunk: true
     further_reading:
     - xios/xios.env.yaml
+    ignore_config_warnings: false
     in_filetypes:
     - scripts
     - input
@@ -1019,8 +1022,10 @@ general:
     - xios
     initial_date: '2000-01-01T00:00:00'
     inspect: null
-    jobid: 67662
+    isinteractive: false
+    jobid: 94509
     jobtype: prepcompute
+    last_jobtype: prepcompute
     last_run_datestamp: 19991231-19991231
     last_run_in_chunk: false
     last_start_date: '1999-12-31T00:00:00'
@@ -1045,7 +1050,7 @@ general:
     no_motd: true
     nsecond: 0
     nyear: 0
-    original_command: awicm3-frontiers-xios-TCO159L91-CORE2_initial.yaml -e awicm3-frontiers-xios-TCO159L91-CORE2_initial --open-run --no-motd
+    original_command: awicm3-frontiers-xios-TCO159L91-CORE2_initial.yaml -e awicm3-frontiers-xios-TCO159L91-CORE2_initial --open-run -c --no-motd --last-jobtype prepcompute
     out_filetypes:
     - analysis
     - log
