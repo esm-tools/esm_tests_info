@@ -78,7 +78,7 @@ export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 4033739 - start >> <TEST_DIR>/run/awicm//awicm2-initial-monthly/log//awicm2-initial-monthly_awicm.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 81311 - start >> <TEST_DIR>/run/awicm//awicm2-initial-monthly/log//awicm2-initial-monthly_awicm.log
 
 cd <TEST_DIR>/run/awicm//awicm2-initial-monthly/run_20000101-20000131/work/
 time srun -l --distribution=plane=128 --cpu-bind=cores --multi-prog hostfile_srun 2>&1 &
@@ -88,8 +88,8 @@ time srun -l --distribution=plane=128 --cpu-bind=cores --multi-prog hostfile_sru
 process=$! 
 # Comment the following line if you don't want esm_runscripts to restart:
 cd <TEST_DIR>/run/awicm//awicm2-initial-monthly/scripts/
-esm_runscripts awicm2-initial-monthly.yaml -e awicm2-initial-monthly -t observe_compute -p ${process} -s 20000101 -r 1 -v  --open-run
+esm_runscripts awicm2-initial-monthly.yaml -e awicm2-initial-monthly -t observe_compute -p ${process} -s 20000101 -r 1 -v  --last-jobtype prepcompute --open-run
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 4033739 - done >> <TEST_DIR>/run/awicm//awicm2-initial-monthly/log//awicm2-initial-monthly_awicm.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 81311 - done >> <TEST_DIR>/run/awicm//awicm2-initial-monthly/log//awicm2-initial-monthly_awicm.log
 
 wait

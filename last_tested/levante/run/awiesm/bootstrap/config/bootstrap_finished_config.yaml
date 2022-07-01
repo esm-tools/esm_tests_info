@@ -1745,11 +1745,13 @@ general:
         check: false
         current_date: null
         expid: bootstrap
+        ignore_config_warnings: false
         inspect: null
         jobtype: prepcompute
+        last_jobtype: prepcompute
         launcher_pid: -666
         no_motd: true
-        original_command: bootstrap.yaml -e bootstrap --open-run --no-motd
+        original_command: bootstrap.yaml -e bootstrap --open-run --no-motd --last-jobtype prepcompute
         profile: false
         run_number: null
         runscript_abspath: <TEST_DIR>run/awiesm/bootstrap/scripts/bootstrap.yaml
@@ -1876,6 +1878,7 @@ general:
             work_to_run: copy
     final_date: '1850-12-31T00:00:00'
     first_run_in_chunk: true
+    ignore_config_warnings: false
     in_filetypes:
     - scripts
     - input
@@ -1885,8 +1888,10 @@ general:
     - restart_in
     initial_date: '1850-01-01T00:00:00'
     inspect: null
-    jobid: 4032518
+    isinteractive: false
+    jobid: 79471
     jobtype: prepcompute
+    last_jobtype: prepcompute
     last_run_datestamp: 18490101-18491231
     last_run_in_chunk: true
     last_start_date: '1849-01-01T00:00:00'
@@ -1908,7 +1913,7 @@ general:
     no_motd: true
     nsecond: 0
     nyear: 1
-    original_command: bootstrap.yaml -e bootstrap --open-run --no-motd
+    original_command: bootstrap.yaml -e bootstrap --open-run --no-motd --last-jobtype prepcompute
     out_filetypes:
     - analysis
     - log

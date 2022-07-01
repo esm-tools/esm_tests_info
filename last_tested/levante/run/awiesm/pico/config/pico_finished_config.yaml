@@ -1743,11 +1743,13 @@ general:
         check: false
         current_date: null
         expid: pico
+        ignore_config_warnings: false
         inspect: null
         jobtype: prepcompute
+        last_jobtype: prepcompute
         launcher_pid: -666
         no_motd: true
-        original_command: pico.yaml -e pico --open-run --no-motd
+        original_command: pico.yaml -e pico --open-run --no-motd --last-jobtype prepcompute
         profile: false
         run_number: null
         runscript_abspath: <TEST_DIR>run/awiesm/pico/scripts/pico.yaml
@@ -1873,6 +1875,7 @@ general:
             work_to_run: copy
     final_date: '1850-04-01T00:00:00'
     first_run_in_chunk: true
+    ignore_config_warnings: false
     in_filetypes:
     - scripts
     - input
@@ -1882,8 +1885,10 @@ general:
     - restart_in
     initial_date: '1850-01-01T00:00:00'
     inspect: null
-    jobid: 4031914
+    isinteractive: false
+    jobid: 78576
     jobtype: prepcompute
+    last_jobtype: prepcompute
     last_run_datestamp: 18491201-18491231
     last_run_in_chunk: false
     last_start_date: '1849-12-01T00:00:00'
@@ -1905,7 +1910,7 @@ general:
     no_motd: true
     nsecond: 0
     nyear: 0
-    original_command: pico.yaml -e pico --open-run --no-motd
+    original_command: pico.yaml -e pico --open-run --no-motd --last-jobtype prepcompute
     out_filetypes:
     - analysis
     - log
