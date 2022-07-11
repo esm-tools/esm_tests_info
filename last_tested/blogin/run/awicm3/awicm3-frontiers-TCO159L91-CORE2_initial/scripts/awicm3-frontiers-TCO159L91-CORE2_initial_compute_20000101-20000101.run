@@ -1,0 +1,111 @@
+#!/bin/bash
+#SBATCH --partition=standard96
+#SBATCH --time=01:00:00
+#SBATCH --nodes=4
+#SBATCH --output=<TEST_DIR>/run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/log/awicm3-frontiers-TCO159L91-CORE2_initial_awicm3_compute_20000101-20000101_%j.log --error=<TEST_DIR>/run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/log/awicm3-frontiers-TCO159L91-CORE2_initial_awicm3_compute_20000101-20000101_%j.log
+#SBATCH --job-name=awicm3-frontiers-TCO159L91-CORE2_initial
+#SBATCH --account=hbkmandr
+#SBATCH --mail-type=NONE
+#SBATCH --exclusive
+
+module purge
+module load slurm
+module load HLRNenv
+module load sw.skl
+module load cmake
+module load cdo nco
+module load intel/19.0.5
+module load impi/2019.5
+source $I_MPI_ROOT/intel64/bin/mpivars.sh release_mt
+source $I_MPI_ROOT/intel64/bin/mpivars.sh release_mt
+
+export LC_ALL=en_US.UTF-8
+export FC=mpiifort
+export F77=mpiifort
+export MPIFC=mpiifort
+export FCFLAGS=-free
+export CC=mpiicc
+export CXX=mpiicpc
+export MPIROOT="$(mpiifort -show | perl -lne 'm{ -I(.*?)/include } and print $1')"
+export MPI_LIB="$(mpiifort -show |sed -e 's/^[^ ]*//' -e 's/-[I][^ ]*//g')"
+export IO_LIB_ROOT=/home/shkifmsw/sw/HPC_libraries/intel2019.0.5_impi2019.5_20200811
+export PATH=$IO_LIB_ROOT/bin:$PATH
+export LD_LIBRARY_PATH=$IO_LIB_ROOT/lib:$LD_LIBRARY_PATH
+export SZIPROOT=$IO_LIB_ROOT
+export HDF5ROOT=$IO_LIB_ROOT
+export HDF5_ROOT=$HDF5ROOT
+export NETCDFROOT=$IO_LIB_ROOT
+export NETCDFFROOT=$IO_LIB_ROOT
+export ECCODESROOT=$IO_LIB_ROOT
+export HDF5_C_INCLUDE_DIRECTORIES=$HDF5_ROOT/include
+export NETCDF_Fortran_INCLUDE_DIRECTORIES=$NETCDFFROOT/include
+export NETCDF_C_INCLUDE_DIRECTORIES=$NETCDFROOT/include
+export NETCDF_CXX_INCLUDE_DIRECTORIES=$NETCDFROOT/include
+export OASIS3MCT_FC_LIB="-L$NETCDFFROOT/lib -lnetcdff"
+export I_MPI_SLURM_EXT=0
+export OIFS_FFIXED=""
+export GRIB_SAMPLES_PATH="$ECCODESROOT/share/eccodes/ifs_samples/grib1_mlgrib2/"
+export DR_HOOK_IGNORE_SIGNALS=-1
+export OMP_SCHEDULE=STATIC
+export OMP_STACKSIZE=128M
+export ACCOUNT=hbkmandr
+export ESM_TESTING_DIR=<TEST_DIR>/run/awicm3/
+export MODEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers
+export FESOM_USE_CPLNG="active"
+export ECE_CPL_NEMO_LIM="false"
+export ECE_CPL_FESOM_FESIM="true"
+export ECE_AWI_CPL_FESOM="true"
+export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
+
+unset SLURM_DISTRIBUTION
+unset SLURM_NTASKS
+unset SLURM_NPROCS
+unset SLURM_ARBITRARY_NODELIST
+
+# Set stack size to unlimited
+ulimit -s unlimited
+# 3...2...1...Liftoff!
+
+echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 4512 - start >> <TEST_DIR>/run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/log//awicm3-frontiers-TCO159L91-CORE2_initial_awicm3.log
+
+cd <TEST_DIR>/run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/
+
+#Creating hostlist for MPI + MPI&OMP heterogeneous parallel job
+rm -f ./hostlist
+export SLURM_HOSTFILE=<TEST_DIR>/run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work//hostlist
+IFS=$'\n'; set -f
+listnodes=($(< <( scontrol show hostnames $SLURM_JOB_NODELIST )))
+unset IFS; set +f
+rank=0
+current_core=0
+current_core_mpi=0
+mpi_tasks_fesom=192
+omp_threads_fesom=1
+mpi_tasks_oifs=48
+omp_threads_oifs=2
+mpi_tasks_rnfmap=1
+omp_threads_rnfmap=96
+for model in fesom oifs rnfmap oasis3mct ;do
+    eval nb_of_cores=\${mpi_tasks_${model}}
+    eval nb_of_cores=$((${nb_of_cores}-1))
+    for nb_proc_mpi in `seq 0 ${nb_of_cores}`; do
+        (( index_host = current_core / 96 ))
+        host_value=${listnodes[${index_host}]}
+        (( slot =  current_core % 96 ))
+        echo $host_value >> hostlist
+        (( current_core = current_core + omp_threads_${model} ))
+    done
+done
+
+time srun --mpi=pmi2 -l --kill-on-bad-exit=1 --cpu_bind=none --distribution=cyclic:cyclic --export=ALL --multi-prog hostfile_srun 2>&1 &
+
+# Call to esm_runscript to start subjobs:
+# ['tidy']
+process=$! 
+# Comment the following line if you don't want esm_runscripts to restart:
+cd <TEST_DIR>/run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/scripts/
+esm_runscripts awicm3-frontiers-TCO159L91-CORE2_initial.yaml -e awicm3-frontiers-TCO159L91-CORE2_initial -t observe_compute -p ${process} -s 20000101 -r 1 -v  --last-jobtype prepcompute --open-run
+
+echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 4512 - done >> <TEST_DIR>/run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/log//awicm3-frontiers-TCO159L91-CORE2_initial_awicm3.log
+
+wait

@@ -2,9 +2,9 @@
 #SBATCH --partition=standard96
 #SBATCH --time=00:45:00
 #SBATCH --nodes=3
-#SBATCH --output=/scratch/usr/hbkmandr/testing//run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/log/awicm3-v3.0-TCO159L91-CORE2_initial_awicm3_compute_20000101-20000101_%j.log --error=/scratch/usr/hbkmandr/testing//run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/log/awicm3-v3.0-TCO159L91-CORE2_initial_awicm3_compute_20000101-20000101_%j.log
+#SBATCH --output=<TEST_DIR>/run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/log/awicm3-v3.0-TCO159L91-CORE2_initial_awicm3_compute_20000101-20000101_%j.log --error=<TEST_DIR>/run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/log/awicm3-v3.0-TCO159L91-CORE2_initial_awicm3_compute_20000101-20000101_%j.log
 #SBATCH --job-name=awicm3-v3.0-TCO159L91-CORE2_initial
-#SBATCH --account=hbk00083
+#SBATCH --account=hbkmandr
 #SBATCH --mail-type=NONE
 #SBATCH --exclusive
 
@@ -42,14 +42,15 @@ export NETCDF_Fortran_INCLUDE_DIRECTORIES=$NETCDFFROOT/include
 export NETCDF_C_INCLUDE_DIRECTORIES=$NETCDFROOT/include
 export NETCDF_CXX_INCLUDE_DIRECTORIES=$NETCDFROOT/include
 export OASIS3MCT_FC_LIB="-L$NETCDFFROOT/lib -lnetcdff"
+export I_MPI_SLURM_EXT=0
 export OIFS_FFIXED=""
 export GRIB_SAMPLES_PATH="$ECCODESROOT/share/eccodes/ifs_samples/grib1_mlgrib2/"
 export DR_HOOK_IGNORE_SIGNALS=-1
 export OMP_SCHEDULE=STATIC
 export OMP_STACKSIZE=128M
-export ACCOUNT=hbk00083
-export ESM_TESTING_DIR=/scratch/usr/hbkmandr/testing//run/awicm3/
-export MODEL_DIR=/scratch/usr/hbkmandr/testing//comp/awicm3/awicm3-v3.0
+export ACCOUNT=hbkmandr
+export ESM_TESTING_DIR=<TEST_DIR>/run/awicm3/
+export MODEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-v3.0
 export FESOM_USE_CPLNG="active"
 export ECE_CPL_NEMO_LIM="false"
 export ECE_CPL_FESOM_FESIM="true"
@@ -65,13 +66,13 @@ unset SLURM_ARBITRARY_NODELIST
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 59395 - start >> /scratch/usr/hbkmandr/testing//run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/log//awicm3-v3.0-TCO159L91-CORE2_initial_awicm3.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 4088 - start >> <TEST_DIR>/run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/log//awicm3-v3.0-TCO159L91-CORE2_initial_awicm3.log
 
-cd /scratch/usr/hbkmandr/testing//run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/run_20000101-20000101/work/
+cd <TEST_DIR>/run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/run_20000101-20000101/work/
 
 #Creating hostlist for MPI + MPI&OMP heterogeneous parallel job
 rm -f ./hostlist
-export SLURM_HOSTFILE=/scratch/usr/hbkmandr/testing//run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/run_20000101-20000101/work//hostlist
+export SLURM_HOSTFILE=<TEST_DIR>/run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/run_20000101-20000101/work//hostlist
 IFS=$'\n'; set -f
 listnodes=($(< <( scontrol show hostnames $SLURM_JOB_NODELIST )))
 unset IFS; set +f
@@ -96,15 +97,15 @@ for model in fesom oifs rnfmap oasis3mct ;do
     done
 done
 
-time srun --mpi=pmi2 -l --kill-on-bad-exit=1 --cpu_bind=cores --distribution=cyclic:cyclic --export=ALL --multi-prog hostfile_srun 2>&1 &
+time srun --mpi=pmi2 -l --kill-on-bad-exit=1 --cpu_bind=none --distribution=cyclic:cyclic --export=ALL --multi-prog hostfile_srun 2>&1 &
 
 # Call to esm_runscript to start subjobs:
 # ['tidy']
 process=$! 
 # Comment the following line if you don't want esm_runscripts to restart:
-cd /scratch/usr/hbkmandr/testing//run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/scripts/
-esm_runscripts awicm3-v3.0-TCO159L91-CORE2_initial.yaml -e awicm3-v3.0-TCO159L91-CORE2_initial -t observe_compute -p ${process} -s 20000101 -r 1 -v  --open-run
+cd <TEST_DIR>/run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/scripts/
+esm_runscripts awicm3-v3.0-TCO159L91-CORE2_initial.yaml -e awicm3-v3.0-TCO159L91-CORE2_initial -t observe_compute -p ${process} -s 20000101 -r 1 -v  --last-jobtype prepcompute --open-run
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 59395 - done >> /scratch/usr/hbkmandr/testing//run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/log//awicm3-v3.0-TCO159L91-CORE2_initial_awicm3.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 4088 - done >> <TEST_DIR>/run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/log//awicm3-v3.0-TCO159L91-CORE2_initial_awicm3.log
 
 wait

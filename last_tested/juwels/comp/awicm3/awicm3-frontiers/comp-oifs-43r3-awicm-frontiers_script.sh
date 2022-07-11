@@ -59,7 +59,7 @@ export OIFS_FFIXED=""
 export OIFS_FCDEFS="BLAS LITTLE LINUX INTEGER_IS_INT"
 export OIFS_LFLAGS="$OIFS_MPI_LIB -qopenmp"
 export OIFS_CC=$CC
-export OIFS_CFLAGS="-fp-model precise -O1 -xCORE_AVX2 -g -traceback -qopt-report=0 -fpe0 -qopenmp"
+export OIFS_CFLAGS="-fp-model precise -O3 -xCORE_AVX2 -g -traceback -qopt-report=0 -fpe0 -qopenmp"
 export OIFS_CCDEFS="LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS _OPENMP"
 export MAIN_LDFLAGS=-openmp
 export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
@@ -70,5 +70,5 @@ unset SLURM_NPROCS
 unset SLURM_ARBITRARY_NODELIST
 
 cd oifs-43r3
-export OIFS_TOPLEVEL_DIR=/p/scratch/c<ACCOUNT>/mandresm/testing/comp/awicm3/awicm3-frontiers/oifs-43r3; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.cfg ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
+export OIFS_TOPLEVEL_DIR=<TEST_DIR>comp/awicm3/awicm3-frontiers/oifs-43r3; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.cfg ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
 cd ..

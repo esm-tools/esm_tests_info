@@ -1,7 +1,7 @@
 computer:
     account: None
     accounting: true
-    accounting_flag: --account=<ACCOUNT>
+    accounting_flag: --account=ab0995
     actual_script_dir: <--methods.script_dir--
     add_choose_heterogeneous_parallelization: &id001
         false:
@@ -127,11 +127,11 @@ computer:
     mpifc: $MPIFC
     name: levante
     name_flag: --job-name=bootstrap
-    netcdf_cxx_root: /work/<ACCOUNT>/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0
+    netcdf_cxx_root: /work/ab0995/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0
     nodes_flag: --nodes=@nodes@
     notification_flag: --mail-type=NONE
-    output_flags: --output=/work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/log/bootstrap_awiesm_@jobtype@_18500101-18501231_%j.log --error=/work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/log/bootstrap_awiesm_@jobtype@_18500101-18501231_%j.log
-    output_path: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/log/
+    output_flags: --output=<TEST_DIR>/run/awiesm//bootstrap/log/bootstrap_awiesm_@jobtype@_18500101-18501231_%j.log --error=<TEST_DIR>/run/awiesm//bootstrap/log/bootstrap_awiesm_@jobtype@_18500101-18501231_%j.log
+    output_path: <TEST_DIR>/run/awiesm//bootstrap/log/
     overcommit_flag: ''
     overcommit_nodes: None
     overcommit_rule: ''
@@ -152,9 +152,9 @@ computer:
         pool: /pool/data
     runtime_environment_changes:
         add_export_vars:
-            ACCOUNT: <ACCOUNT>
-            ESM_TESTING_DIR: /work/<ACCOUNT>/a270152/testing//run/awiesm/
-            MODEL_DIR: /work/<ACCOUNT>/a270152/testing//comp/awiesm/awiesm-2.1
+            ACCOUNT: ab0995
+            ESM_TESTING_DIR: <TEST_DIR>/run/awiesm/
+            MODEL_DIR: <TEST_DIR>/comp/awiesm/awiesm-2.1
     script_name: <--methods.scriptname--
     sh_interpreter: /bin/bash
     single_proc_submit_flag: --ntasks-per-node=1
@@ -163,7 +163,7 @@ computer:
     submitted: false
     tasks_flag: --ntasks=@tasks@
     taskset: false
-    thisrun_logfile: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/log/bootstrap_awiesm_@jobtype@_18500101-18501231_%j.log
+    thisrun_logfile: <TEST_DIR>/run/awiesm//bootstrap/log/bootstrap_awiesm_@jobtype@_18500101-18501231_%j.log
     threads_per_core: 1
     time_flag: --time=02:00:00
     use_hyperthreading: false
@@ -203,16 +203,16 @@ echam:
     - restart_out
     - viz
     - ignore
-    bin_dir: /work/<ACCOUNT>/a270152/testing//comp/awiesm/awiesm-2.1/bin
+    bin_dir: <TEST_DIR>/comp/awiesm/awiesm-2.1/bin
     bin_intermediate:
-        echam_bin: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/bin/echam/echam6
+        echam_bin: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/bin/echam/echam6
     bin_sources:
-        echam_bin: /work/<ACCOUNT>/a270152/testing//comp/awiesm/awiesm-2.1/bin/echam6
+        echam_bin: <TEST_DIR>/comp/awiesm/awiesm-2.1/bin/echam6
     bin_targets:
-        echam_bin: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/work/echam6
+        echam_bin: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/work/echam6
     check_error:
         mo_exception.f90:
-            file: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//atmout
+            file: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//atmout
             frequency: 90
             message: Problem with echam >> mo_exception.f90 << has occured. Killing your job, sorry.
             method: kill
@@ -290,11 +290,11 @@ echam:
     compiletime_environment_changes: *id002
     concurrent_radiation_code: true
     config_intermediate:
-        namelist.echam: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/config/echam/namelist.echam
+        namelist.echam: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/config/echam/namelist.echam
     config_sources:
         namelist.echam: <HOME_DIR>/esm_tools/namelists//echam/6.3.05p2-awiesm-2.1/production/namelist.echam
     config_targets:
-        namelist.echam: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/work/namelist.echam
+        namelist.echam: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/work/namelist.echam
     coupling_fields:
         evap_atm:
             grid: atmo
@@ -335,19 +335,19 @@ echam:
         - <HOME_DIR>/esm_tools/configs//components/echam/echam.postprocessing.yaml
     disturbance: 1.000001
     executable: echam6
-    experiment_analysis_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/analysis/echam/
-    experiment_bin_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/bin/echam/
-    experiment_config_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/config/echam/
-    experiment_couple_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/couple/echam/
-    experiment_forcing_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/forcing/echam/
-    experiment_ignore_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/ignore/echam/
-    experiment_input_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/input/echam/
-    experiment_log_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/log/echam/
-    experiment_mon_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/mon/echam/
-    experiment_outdata_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/outdata/echam/
-    experiment_restart_in_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/restart/echam/
-    experiment_restart_out_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/restart/echam/
-    experiment_viz_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/viz/echam/
+    experiment_analysis_dir: <TEST_DIR>/run/awiesm//bootstrap/analysis/echam/
+    experiment_bin_dir: <TEST_DIR>/run/awiesm//bootstrap/bin/echam/
+    experiment_config_dir: <TEST_DIR>/run/awiesm//bootstrap/config/echam/
+    experiment_couple_dir: <TEST_DIR>/run/awiesm//bootstrap/couple/echam/
+    experiment_forcing_dir: <TEST_DIR>/run/awiesm//bootstrap/forcing/echam/
+    experiment_ignore_dir: <TEST_DIR>/run/awiesm//bootstrap/ignore/echam/
+    experiment_input_dir: <TEST_DIR>/run/awiesm//bootstrap/input/echam/
+    experiment_log_dir: <TEST_DIR>/run/awiesm//bootstrap/log/echam/
+    experiment_mon_dir: <TEST_DIR>/run/awiesm//bootstrap/mon/echam/
+    experiment_outdata_dir: <TEST_DIR>/run/awiesm//bootstrap/outdata/echam/
+    experiment_restart_in_dir: <TEST_DIR>/run/awiesm//bootstrap/restart/echam/
+    experiment_restart_out_dir: <TEST_DIR>/run/awiesm//bootstrap/restart/echam/
+    experiment_viz_dir: <TEST_DIR>/run/awiesm//bootstrap/viz/echam/
     file_movements:
         analysis:
             exp_to_run: copy
@@ -457,18 +457,18 @@ echam:
         - need_year_after
     forcing_dir: /pool/data/ECHAM6//input/r0007/T63
     forcing_intermediate:
-        aerocoarse_year_1849: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/forcing/echam/aero_coarse_1849.nc
-        aerocoarse_year_1850: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/forcing/echam/aero_coarse_1850.nc
-        aerocoarse_year_1851: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/forcing/echam/aero_coarse_1851.nc
-        aerofarir_year_1849: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/forcing/echam/aero_farir_1849.nc
-        aerofarir_year_1850: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/forcing/echam/aero_farir_1850.nc
-        aerofarir_year_1851: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/forcing/echam/aero_farir_1851.nc
-        aerofin_year_1849: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/forcing/echam/aero_fine_1849.nc
-        aerofin_year_1850: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/forcing/echam/aero_fine_1850.nc
-        aerofin_year_1851: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/forcing/echam/aero_fine_1851.nc
-        ozone_year_1849: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/forcing/echam/ozon1849
-        ozone_year_1850: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/forcing/echam/ozon1850
-        ozone_year_1851: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/forcing/echam/ozon1851
+        aerocoarse_year_1849: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/forcing/echam/aero_coarse_1849.nc
+        aerocoarse_year_1850: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/forcing/echam/aero_coarse_1850.nc
+        aerocoarse_year_1851: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/forcing/echam/aero_coarse_1851.nc
+        aerofarir_year_1849: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/forcing/echam/aero_farir_1849.nc
+        aerofarir_year_1850: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/forcing/echam/aero_farir_1850.nc
+        aerofarir_year_1851: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/forcing/echam/aero_farir_1851.nc
+        aerofin_year_1849: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/forcing/echam/aero_fine_1849.nc
+        aerofin_year_1850: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/forcing/echam/aero_fine_1850.nc
+        aerofin_year_1851: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/forcing/echam/aero_fine_1851.nc
+        ozone_year_1849: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/forcing/echam/ozon1849
+        ozone_year_1850: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/forcing/echam/ozon1850
+        ozone_year_1851: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/forcing/echam/ozon1851
     forcing_sources:
         aerocoarse_year_1849: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_sw_b14_coa.nc
         aerocoarse_year_1850: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_sw_b14_coa.nc
@@ -483,18 +483,18 @@ echam:
         ozone_year_1850: /pool/data/ECHAM6//input/r0007/T63/ozone/T63_ozone_picontrol.nc
         ozone_year_1851: /pool/data/ECHAM6//input/r0007/T63/ozone/T63_ozone_picontrol.nc
     forcing_targets:
-        aerocoarse_year_1849: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/work/aero_coarse_1849.nc
-        aerocoarse_year_1850: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/work/aero_coarse_1850.nc
-        aerocoarse_year_1851: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/work/aero_coarse_1851.nc
-        aerofarir_year_1849: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/work/aero_farir_1849.nc
-        aerofarir_year_1850: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/work/aero_farir_1850.nc
-        aerofarir_year_1851: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/work/aero_farir_1851.nc
-        aerofin_year_1849: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/work/aero_fine_1849.nc
-        aerofin_year_1850: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/work/aero_fine_1850.nc
-        aerofin_year_1851: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/work/aero_fine_1851.nc
-        ozone_year_1849: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/work/ozon1849
-        ozone_year_1850: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/work/ozon1850
-        ozone_year_1851: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/work/ozon1851
+        aerocoarse_year_1849: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/work/aero_coarse_1849.nc
+        aerocoarse_year_1850: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/work/aero_coarse_1850.nc
+        aerocoarse_year_1851: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/work/aero_coarse_1851.nc
+        aerofarir_year_1849: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/work/aero_farir_1849.nc
+        aerofarir_year_1850: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/work/aero_farir_1850.nc
+        aerofarir_year_1851: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/work/aero_farir_1851.nc
+        aerofin_year_1849: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/work/aero_fine_1849.nc
+        aerofin_year_1850: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/work/aero_fine_1850.nc
+        aerofin_year_1851: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/work/aero_fine_1851.nc
+        ozone_year_1849: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/work/ozon1849
+        ozone_year_1850: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/work/ozon1850
+        ozone_year_1851: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/work/ozon1851
     greenhouse_dir: /pool/data/ECHAM6/
     grids:
         atmo:
@@ -504,130 +504,139 @@ echam:
             ny: 96
             oasis_grid_type: D
     ignore_intermediate:
-        accw: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_accw
-        accw_codes: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_accw.codes
-        accw_restart: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/restart_bootstrap_accw.nc
-        aclcim: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_aclcim
-        aclcim_codes: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_aclcim.codes
-        aclcim_restart: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/restart_bootstrap_aclcim.nc
-        co2: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_co2
-        co2_codes: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_co2.codes
-        co2_restart: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/restart_bootstrap_co2.nc
-        echam: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_echam
-        echam_codes: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_echam.codes
-        echam_restart: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/restart_bootstrap_echam.nc
-        g3b1hi: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_g3b1hi
-        g3b1hi_codes: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_g3b1hi.codes
-        g3b1hi_restart: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/restart_bootstrap_g3b1hi.nc
-        g3bday: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_g3bday
-        g3bday_codes: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_g3bday.codes
-        g3bday_restart: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/restart_bootstrap_g3bday.nc
-        g3bid: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_g3bid
-        g3bid_codes: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_g3bid.codes
-        g3bid_restart: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/restart_bootstrap_g3bid.nc
-        g3bim: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_g3bim
-        g3bim_codes: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_g3bim.codes
-        g3bim_restart: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/restart_bootstrap_g3bim.nc
-        glday: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_glday
-        glday_codes: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_glday.codes
-        glday_restart: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/restart_bootstrap_glday.nc
-        glim: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_glim
-        glim_codes: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_glim.codes
-        glim_restart: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/restart_bootstrap_glim.nc
-        sp6h: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_sp6h
-        sp6h_codes: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_sp6h.codes
-        sp6h_restart: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/restart_bootstrap_sp6h.nc
-        spim: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_spim
-        spim_codes: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_spim.codes
-        spim_restart: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/restart_bootstrap_spim.nc
+        accw: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_accw
+        accw_codes: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_accw.codes
+        accw_restart: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/restart_bootstrap_accw.nc
+        aclcim: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_aclcim
+        aclcim_codes: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_aclcim.codes
+        aclcim_restart: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/restart_bootstrap_aclcim.nc
+        co2: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_co2
+        co2_codes: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_co2.codes
+        co2_restart: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/restart_bootstrap_co2.nc
+        echam: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_echam
+        echam_codes: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_echam.codes
+        echam_restart: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/restart_bootstrap_echam.nc
+        g3b1hi: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_g3b1hi
+        g3b1hi_codes: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_g3b1hi.codes
+        g3b1hi_restart: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/restart_bootstrap_g3b1hi.nc
+        g3bday: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_g3bday
+        g3bday_codes: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_g3bday.codes
+        g3bday_restart: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/restart_bootstrap_g3bday.nc
+        g3bid: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_g3bid
+        g3bid_codes: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_g3bid.codes
+        g3bid_restart: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/restart_bootstrap_g3bid.nc
+        g3bim: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_g3bim
+        g3bim_codes: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_g3bim.codes
+        g3bim_restart: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/restart_bootstrap_g3bim.nc
+        glday: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_glday
+        glday_codes: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_glday.codes
+        glday_restart: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/restart_bootstrap_glday.nc
+        glim: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_glim
+        glim_codes: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_glim.codes
+        glim_restart: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/restart_bootstrap_glim.nc
+        rad: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_rad
+        rad_codes: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_rad.codes
+        rad_restart: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/restart_bootstrap_rad.nc
+        sp6h: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_sp6h
+        sp6h_codes: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_sp6h.codes
+        sp6h_restart: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/restart_bootstrap_sp6h.nc
+        spim: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_spim
+        spim_codes: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_spim.codes
+        spim_restart: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/restart_bootstrap_spim.nc
     ignore_sources:
-        accw: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_accw
-        accw_codes: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_accw.codes
-        accw_restart: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_accw.nc
-        aclcim: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_aclcim
-        aclcim_codes: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_aclcim.codes
-        aclcim_restart: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_aclcim.nc
-        co2: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_co2
-        co2_codes: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_co2.codes
-        co2_restart: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_co2.nc
-        echam: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_echam
-        echam_codes: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_echam.codes
-        echam_restart: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_echam.nc
-        g3b1hi: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_g3b1hi
-        g3b1hi_codes: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_g3b1hi.codes
-        g3b1hi_restart: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_g3b1hi.nc
-        g3bday: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_g3bday
-        g3bday_codes: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_g3bday.codes
-        g3bday_restart: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_g3bday.nc
-        g3bid: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_g3bid
-        g3bid_codes: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_g3bid.codes
-        g3bid_restart: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_g3bid.nc
-        g3bim: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_g3bim
-        g3bim_codes: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_g3bim.codes
-        g3bim_restart: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_g3bim.nc
-        glday: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_glday
-        glday_codes: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_glday.codes
-        glday_restart: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_glday.nc
-        glim: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_glim
-        glim_codes: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_glim.codes
-        glim_restart: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_glim.nc
-        sp6h: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_sp6h
-        sp6h_codes: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_sp6h.codes
-        sp6h_restart: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_sp6h.nc
-        spim: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_spim
-        spim_codes: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_spim.codes
-        spim_restart: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_spim.nc
+        accw: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_accw
+        accw_codes: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_accw.codes
+        accw_restart: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_accw.nc
+        aclcim: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_aclcim
+        aclcim_codes: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_aclcim.codes
+        aclcim_restart: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_aclcim.nc
+        co2: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_co2
+        co2_codes: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_co2.codes
+        co2_restart: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_co2.nc
+        echam: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_echam
+        echam_codes: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_echam.codes
+        echam_restart: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_echam.nc
+        g3b1hi: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_g3b1hi
+        g3b1hi_codes: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_g3b1hi.codes
+        g3b1hi_restart: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_g3b1hi.nc
+        g3bday: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_g3bday
+        g3bday_codes: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_g3bday.codes
+        g3bday_restart: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_g3bday.nc
+        g3bid: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_g3bid
+        g3bid_codes: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_g3bid.codes
+        g3bid_restart: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_g3bid.nc
+        g3bim: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_g3bim
+        g3bim_codes: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_g3bim.codes
+        g3bim_restart: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_g3bim.nc
+        glday: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_glday
+        glday_codes: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_glday.codes
+        glday_restart: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_glday.nc
+        glim: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_glim
+        glim_codes: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_glim.codes
+        glim_restart: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_glim.nc
+        rad: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_rad
+        rad_codes: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_rad.codes
+        rad_restart: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_rad.nc
+        sp6h: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_sp6h
+        sp6h_codes: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_sp6h.codes
+        sp6h_restart: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_sp6h.nc
+        spim: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_spim
+        spim_codes: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_spim.codes
+        spim_restart: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_spim.nc
     ignore_targets:
-        accw: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_accw
-        accw_codes: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_accw.codes
-        accw_restart: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/ignore/echam/restart_bootstrap_accw.nc
-        aclcim: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_aclcim
-        aclcim_codes: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_aclcim.codes
-        aclcim_restart: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/ignore/echam/restart_bootstrap_aclcim.nc
-        co2: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_co2
-        co2_codes: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_co2.codes
-        co2_restart: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/ignore/echam/restart_bootstrap_co2.nc
-        echam: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_echam
-        echam_codes: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_echam.codes
-        echam_restart: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/ignore/echam/restart_bootstrap_echam.nc
-        g3b1hi: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_g3b1hi
-        g3b1hi_codes: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_g3b1hi.codes
-        g3b1hi_restart: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/ignore/echam/restart_bootstrap_g3b1hi.nc
-        g3bday: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_g3bday
-        g3bday_codes: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_g3bday.codes
-        g3bday_restart: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/ignore/echam/restart_bootstrap_g3bday.nc
-        g3bid: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_g3bid
-        g3bid_codes: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_g3bid.codes
-        g3bid_restart: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/ignore/echam/restart_bootstrap_g3bid.nc
-        g3bim: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_g3bim
-        g3bim_codes: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_g3bim.codes
-        g3bim_restart: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/ignore/echam/restart_bootstrap_g3bim.nc
-        glday: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_glday
-        glday_codes: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_glday.codes
-        glday_restart: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/ignore/echam/restart_bootstrap_glday.nc
-        glim: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_glim
-        glim_codes: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_glim.codes
-        glim_restart: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/ignore/echam/restart_bootstrap_glim.nc
-        sp6h: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_sp6h
-        sp6h_codes: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_sp6h.codes
-        sp6h_restart: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/ignore/echam/restart_bootstrap_sp6h.nc
-        spim: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_spim
-        spim_codes: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_spim.codes
-        spim_restart: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/ignore/echam/restart_bootstrap_spim.nc
+        accw: <TEST_DIR>run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_accw
+        accw_codes: <TEST_DIR>run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_accw.codes
+        accw_restart: <TEST_DIR>run/awiesm/bootstrap/ignore/echam/restart_bootstrap_accw.nc
+        aclcim: <TEST_DIR>run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_aclcim
+        aclcim_codes: <TEST_DIR>run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_aclcim.codes
+        aclcim_restart: <TEST_DIR>run/awiesm/bootstrap/ignore/echam/restart_bootstrap_aclcim.nc
+        co2: <TEST_DIR>run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_co2
+        co2_codes: <TEST_DIR>run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_co2.codes
+        co2_restart: <TEST_DIR>run/awiesm/bootstrap/ignore/echam/restart_bootstrap_co2.nc
+        echam: <TEST_DIR>run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_echam
+        echam_codes: <TEST_DIR>run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_echam.codes
+        echam_restart: <TEST_DIR>run/awiesm/bootstrap/ignore/echam/restart_bootstrap_echam.nc
+        g3b1hi: <TEST_DIR>run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_g3b1hi
+        g3b1hi_codes: <TEST_DIR>run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_g3b1hi.codes
+        g3b1hi_restart: <TEST_DIR>run/awiesm/bootstrap/ignore/echam/restart_bootstrap_g3b1hi.nc
+        g3bday: <TEST_DIR>run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_g3bday
+        g3bday_codes: <TEST_DIR>run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_g3bday.codes
+        g3bday_restart: <TEST_DIR>run/awiesm/bootstrap/ignore/echam/restart_bootstrap_g3bday.nc
+        g3bid: <TEST_DIR>run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_g3bid
+        g3bid_codes: <TEST_DIR>run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_g3bid.codes
+        g3bid_restart: <TEST_DIR>run/awiesm/bootstrap/ignore/echam/restart_bootstrap_g3bid.nc
+        g3bim: <TEST_DIR>run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_g3bim
+        g3bim_codes: <TEST_DIR>run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_g3bim.codes
+        g3bim_restart: <TEST_DIR>run/awiesm/bootstrap/ignore/echam/restart_bootstrap_g3bim.nc
+        glday: <TEST_DIR>run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_glday
+        glday_codes: <TEST_DIR>run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_glday.codes
+        glday_restart: <TEST_DIR>run/awiesm/bootstrap/ignore/echam/restart_bootstrap_glday.nc
+        glim: <TEST_DIR>run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_glim
+        glim_codes: <TEST_DIR>run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_glim.codes
+        glim_restart: <TEST_DIR>run/awiesm/bootstrap/ignore/echam/restart_bootstrap_glim.nc
+        rad: <TEST_DIR>run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_rad
+        rad_codes: <TEST_DIR>run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_rad.codes
+        rad_restart: <TEST_DIR>run/awiesm/bootstrap/ignore/echam/restart_bootstrap_rad.nc
+        sp6h: <TEST_DIR>run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_sp6h
+        sp6h_codes: <TEST_DIR>run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_sp6h.codes
+        sp6h_restart: <TEST_DIR>run/awiesm/bootstrap/ignore/echam/restart_bootstrap_sp6h.nc
+        spim: <TEST_DIR>run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_spim
+        spim_codes: <TEST_DIR>run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_spim.codes
+        spim_restart: <TEST_DIR>run/awiesm/bootstrap/ignore/echam/restart_bootstrap_spim.nc
     ini_parent_date: '22941231'
     ini_parent_dir: /pool/data/ECHAM6//MPIESM/restart/dev/bootstrap/restart/echam6
     ini_parent_exp_id: khw0030
     input_dir: /pool/data/ECHAM6//input/r0007
     input_intermediate:
-        cldoptprops: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/input/echam/ECHAM6_CldOptProps.nc
-        janspec: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/input/echam/unit.23
-        jansurf: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/input/echam/unit.24
-        rrtmglw: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/input/echam/rrtmg_lw.nc
-        rrtmgsw: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/input/echam/rrtmg_sw.nc
-        target_orography: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/input/echam/target_orography_echam6.nc
-        tslclim: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/input/echam/unit.92
-        vgratclim: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/input/echam/unit.91
-        vltclim: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/input/echam/unit.90
+        cldoptprops: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/input/echam/ECHAM6_CldOptProps.nc
+        janspec: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/input/echam/unit.23
+        jansurf: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/input/echam/unit.24
+        rrtmglw: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/input/echam/rrtmg_lw.nc
+        rrtmgsw: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/input/echam/rrtmg_sw.nc
+        target_orography: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/input/echam/target_orography_echam6.nc
+        tslclim: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/input/echam/unit.92
+        vgratclim: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/input/echam/unit.91
+        vltclim: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/input/echam/unit.90
     input_sources:
         cldoptprops: /pool/data/ECHAM6//input/r0007/ECHAM6_CldOptProps.nc
         janspec: /pool/data/ECHAM6//input/r0007/T63/T63L47_jan_spec.nc
@@ -639,30 +648,30 @@ echam:
         vgratclim: /work/ollie/pool/FESOM/meshes_default/core/tarfilesT63/input/echam6/T63CORE2_VGRATCLIM.nc
         vltclim: /work/ollie/pool/FESOM/meshes_default/core/tarfilesT63/input/echam6/T63CORE2_VLTCLIM.nc
     input_targets:
-        cldoptprops: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/work/ECHAM6_CldOptProps.nc
-        janspec: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/work/unit.23
-        jansurf: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/work/unit.24
-        rrtmglw: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/work/rrtmg_lw.nc
-        rrtmgsw: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/work/rrtmg_sw.nc
-        target_orography: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/work/target_orography_echam6.nc
-        tslclim: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/work/unit.92
-        vgratclim: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/work/unit.91
-        vltclim: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/work/unit.90
+        cldoptprops: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/work/ECHAM6_CldOptProps.nc
+        janspec: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/work/unit.23
+        jansurf: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/work/unit.24
+        rrtmglw: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/work/rrtmg_lw.nc
+        rrtmgsw: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/work/rrtmg_sw.nc
+        target_orography: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/work/target_orography_echam6.nc
+        tslclim: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/work/unit.92
+        vgratclim: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/work/unit.91
+        vltclim: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/work/unit.90
     last_parent_date: '1849-12-31T23:45:00'
     leapyear: true
     levels: L47
     log_intermediate:
-        atmout: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/log/echam/atmout
-        stderr: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/log/echam/echam.stderr
-        stdout: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/log/echam/echam.stdout
+        atmout: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/log/echam/atmout
+        stderr: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/log/echam/echam.stderr
+        stdout: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/log/echam/echam.stdout
     log_sources:
-        atmout: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//atmout
-        stderr: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//echam.stderr
-        stdout: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//echam.stdout
+        atmout: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//atmout
+        stderr: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//echam.stderr
+        stdout: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//echam.stdout
     log_targets:
-        atmout: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/log/echam/atmout
-        stderr: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/log/echam/echam.stderr
-        stdout: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/log/echam/echam.stdout
+        atmout: <TEST_DIR>run/awiesm/bootstrap/log/echam/atmout
+        stderr: <TEST_DIR>run/awiesm/bootstrap/log/echam/echam.stderr
+        stdout: <TEST_DIR>run/awiesm/bootstrap/log/echam/echam.stdout
     lrad_async: false
     lrestart_from_old: false
     lresume: false
@@ -675,7 +684,7 @@ echam:
         License: Please make sure you have a license to use ECHAM. Otherwise downloading ECHAM will already fail. To use the repository on gitlab.dkrz.de/modular_esm/echam.git, register for the MPI-ESM user forum at https://mpimet.mpg.de/en/science/modeling-with-icon/code-availability/mpi-esm-users-forum and send a screenshot to either dirk.barbi@awi.de, deniz.ural@awi.de or miguel.andres-martinez@awi.de
         Publications: 'Atmosphericcomponent of the MPI-M earth system model: ECHAM6 <https://doi.org/10.1002/jame.20015>'
     model: echam
-    model_dir: /work/<ACCOUNT>/a270152/testing//comp/awiesm/awiesm-2.1/echam-6.3.05p2
+    model_dir: <TEST_DIR>/comp/awiesm/awiesm-2.1/echam-6.3.05p2
     models:
     - jsbach
     - hdmodel
@@ -704,7 +713,7 @@ echam:
                 - 1
                 lcouple: true
                 lresume: false
-                out_datapath: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work/
+                out_datapath: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work/
                 out_expname: bootstrap
                 putrerun:
                 - 1
@@ -732,27 +741,27 @@ echam:
     ocean_resolution: CORE2
     other_date: '1850-12-31T23:52:30'
     outdata_intermediate:
-        aclcim_nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/outdata/echam/bootstrap_185001.01_aclcim.nc
-        g3b1hi_nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/outdata/echam/bootstrap_185001.01_g3b1hi.nc
-        g3bday_nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/outdata/echam/bootstrap_185001.01_g3bday.nc
-        g3bid_nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/outdata/echam/bootstrap_185001.01_g3bid.nc
-        g3bim_nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/outdata/echam/bootstrap_185001.01_g3bim.nc
-        glday_nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/outdata/echam/bootstrap_185001.01_glday.nc
-        glim_nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/outdata/echam/bootstrap_185001.01_glim.nc
-        jsbid_nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/outdata/echam/bootstrap_185001.01_jsbid.nc
-        sp6h_nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/outdata/echam/bootstrap_185001.01_sp6h.nc
-        spim_nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/outdata/echam/bootstrap_185001.01_spim.nc
+        aclcim_nc: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/outdata/echam/bootstrap_185001.01_aclcim.nc
+        g3b1hi_nc: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/outdata/echam/bootstrap_185001.01_g3b1hi.nc
+        g3bday_nc: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/outdata/echam/bootstrap_185001.01_g3bday.nc
+        g3bid_nc: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/outdata/echam/bootstrap_185001.01_g3bid.nc
+        g3bim_nc: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/outdata/echam/bootstrap_185001.01_g3bim.nc
+        glday_nc: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/outdata/echam/bootstrap_185001.01_glday.nc
+        glim_nc: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/outdata/echam/bootstrap_185001.01_glim.nc
+        jsbid_nc: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/outdata/echam/bootstrap_185001.01_jsbid.nc
+        sp6h_nc: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/outdata/echam/bootstrap_185001.01_sp6h.nc
+        spim_nc: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/outdata/echam/bootstrap_185001.01_spim.nc
     outdata_sources:
-        aclcim_nc: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185001.01_aclcim.nc
-        g3b1hi_nc: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185001.01_g3b1hi.nc
-        g3bday_nc: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185001.01_g3bday.nc
-        g3bid_nc: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185001.01_g3bid.nc
-        g3bim_nc: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185001.01_g3bim.nc
-        glday_nc: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185001.01_glday.nc
-        glim_nc: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185001.01_glim.nc
-        jsbid_nc: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185001.01_jsbid.nc
-        sp6h_nc: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185001.01_sp6h.nc
-        spim_nc: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185001.01_spim.nc
+        aclcim_nc: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185001.01_aclcim.nc
+        g3b1hi_nc: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185001.01_g3b1hi.nc
+        g3bday_nc: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185001.01_g3bday.nc
+        g3bid_nc: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185001.01_g3bid.nc
+        g3bim_nc: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185001.01_g3bim.nc
+        glday_nc: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185001.01_glday.nc
+        glim_nc: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185001.01_glim.nc
+        jsbid_nc: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185001.01_jsbid.nc
+        sp6h_nc: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185001.01_sp6h.nc
+        spim_nc: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185001.01_spim.nc
     outdata_sources_wild_card:
         accw: bootstrap_1850*.01_accw
         accw_codes: bootstrap_1850*.01_accw.codes
@@ -774,24 +783,26 @@ echam:
         glday_codes: bootstrap_1850*.01_glday.codes
         glim: bootstrap_1850*.01_glim
         glim_codes: bootstrap_1850*.01_glim.codes
+        rad: bootstrap_1850*.01_rad
+        rad_codes: bootstrap_1850*.01_rad.codes
         sp6h: bootstrap_1850*.01_sp6h
         sp6h_codes: bootstrap_1850*.01_sp6h.codes
         spim: bootstrap_1850*.01_spim
         spim_codes: bootstrap_1850*.01_spim.codes
     outdata_targets:
-        aclcim_nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/outdata/echam/bootstrap_185001.01_aclcim.nc
-        g3b1hi_nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/outdata/echam/bootstrap_185001.01_g3b1hi.nc
-        g3bday_nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/outdata/echam/bootstrap_185001.01_g3bday.nc
-        g3bid_nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/outdata/echam/bootstrap_185001.01_g3bid.nc
-        g3bim_nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/outdata/echam/bootstrap_185001.01_g3bim.nc
-        glday_nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/outdata/echam/bootstrap_185001.01_glday.nc
-        glim_nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/outdata/echam/bootstrap_185001.01_glim.nc
-        jsbid_nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/outdata/echam/bootstrap_185001.01_jsbid.nc
-        sp6h_nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/outdata/echam/bootstrap_185001.01_sp6h.nc
-        spim_nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/outdata/echam/bootstrap_185001.01_spim.nc
+        aclcim_nc: <TEST_DIR>run/awiesm/bootstrap/outdata/echam/bootstrap_185001.01_aclcim.nc
+        g3b1hi_nc: <TEST_DIR>run/awiesm/bootstrap/outdata/echam/bootstrap_185001.01_g3b1hi.nc
+        g3bday_nc: <TEST_DIR>run/awiesm/bootstrap/outdata/echam/bootstrap_185001.01_g3bday.nc
+        g3bid_nc: <TEST_DIR>run/awiesm/bootstrap/outdata/echam/bootstrap_185001.01_g3bid.nc
+        g3bim_nc: <TEST_DIR>run/awiesm/bootstrap/outdata/echam/bootstrap_185001.01_g3bim.nc
+        glday_nc: <TEST_DIR>run/awiesm/bootstrap/outdata/echam/bootstrap_185001.01_glday.nc
+        glim_nc: <TEST_DIR>run/awiesm/bootstrap/outdata/echam/bootstrap_185001.01_glim.nc
+        jsbid_nc: <TEST_DIR>run/awiesm/bootstrap/outdata/echam/bootstrap_185001.01_jsbid.nc
+        sp6h_nc: <TEST_DIR>run/awiesm/bootstrap/outdata/echam/bootstrap_185001.01_sp6h.nc
+        spim_nc: <TEST_DIR>run/awiesm/bootstrap/outdata/echam/bootstrap_185001.01_spim.nc
     parent_date: '1849-12-31T23:52:30'
     parent_expid: bootstrap
-    parent_restart_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/restart/echam/
+    parent_restart_dir: <TEST_DIR>/run/awiesm//bootstrap/restart/echam/
     pool_dir: /pool/data/ECHAM6/
     postprocess_method_definitions:
         cdo:
@@ -897,6 +908,12 @@ echam:
             flags:
             - t echam6
             post_process: mm
+        bootstrap_echam_rad_18500101-18510101_mm.nc:
+            args:
+                infile: bootstrap_185001.01_rad
+            flags:
+            - t echam6
+            post_process: mm
         bootstrap_echam_sp6h_18500101-18510101_mm.nc:
             args:
                 infile: bootstrap_185001.01_sp6h
@@ -932,7 +949,9 @@ echam:
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
         aclcim:
+        - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
@@ -958,7 +977,9 @@ echam:
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
         echam:
+        - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
@@ -984,7 +1005,9 @@ echam:
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
         g3bday:
+        - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
@@ -1010,7 +1033,9 @@ echam:
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
         g3bim:
+        - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
@@ -1036,7 +1061,23 @@ echam:
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
         glim:
+        - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
+        rad:
+        - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
@@ -1062,6 +1103,7 @@ echam:
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
         spim:
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
@@ -1075,50 +1117,54 @@ echam:
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
     restart_out_intermediate:
-        accw: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/restart/echam/restart_bootstrap_accw_18501231.nc
-        aclcim: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/restart/echam/restart_bootstrap_aclcim_18501231.nc
-        co2: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/restart/echam/restart_bootstrap_co2_18501231.nc
-        echam: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/restart/echam/restart_bootstrap_echam_18501231.nc
-        g3b1hi: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/restart/echam/restart_bootstrap_g3b1hi_18501231.nc
-        g3bday: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/restart/echam/restart_bootstrap_g3bday_18501231.nc
-        g3bid: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/restart/echam/restart_bootstrap_g3bid_18501231.nc
-        g3bim: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/restart/echam/restart_bootstrap_g3bim_18501231.nc
-        glday: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/restart/echam/restart_bootstrap_glday_18501231.nc
-        glim: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/restart/echam/restart_bootstrap_glim_18501231.nc
-        sp6h: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/restart/echam/restart_bootstrap_sp6h_18501231.nc
-        spim: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/restart/echam/restart_bootstrap_spim_18501231.nc
+        accw: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/restart/echam/restart_bootstrap_accw_18501231.nc
+        aclcim: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/restart/echam/restart_bootstrap_aclcim_18501231.nc
+        co2: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/restart/echam/restart_bootstrap_co2_18501231.nc
+        echam: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/restart/echam/restart_bootstrap_echam_18501231.nc
+        g3b1hi: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/restart/echam/restart_bootstrap_g3b1hi_18501231.nc
+        g3bday: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/restart/echam/restart_bootstrap_g3bday_18501231.nc
+        g3bid: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/restart/echam/restart_bootstrap_g3bid_18501231.nc
+        g3bim: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/restart/echam/restart_bootstrap_g3bim_18501231.nc
+        glday: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/restart/echam/restart_bootstrap_glday_18501231.nc
+        glim: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/restart/echam/restart_bootstrap_glim_18501231.nc
+        rad: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/restart/echam/restart_bootstrap_rad_18501231.nc
+        sp6h: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/restart/echam/restart_bootstrap_sp6h_18501231.nc
+        spim: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/restart/echam/restart_bootstrap_spim_18501231.nc
     restart_out_sources:
-        accw: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_18501231235230_accw.nc
-        aclcim: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_18501231235230_aclcim.nc
-        co2: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_18501231235230_co2.nc
-        echam: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_18501231235230_echam.nc
-        g3b1hi: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_18501231235230_g3b1hi.nc
-        g3bday: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_18501231235230_g3bday.nc
-        g3bid: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_18501231235230_g3bid.nc
-        g3bim: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_18501231235230_g3bim.nc
-        glday: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_18501231235230_glday.nc
-        glim: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_18501231235230_glim.nc
-        sp6h: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_18501231235230_sp6h.nc
-        spim: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_18501231235230_spim.nc
+        accw: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_18501231235230_accw.nc
+        aclcim: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_18501231235230_aclcim.nc
+        co2: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_18501231235230_co2.nc
+        echam: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_18501231235230_echam.nc
+        g3b1hi: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_18501231235230_g3b1hi.nc
+        g3bday: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_18501231235230_g3bday.nc
+        g3bid: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_18501231235230_g3bid.nc
+        g3bim: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_18501231235230_g3bim.nc
+        glday: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_18501231235230_glday.nc
+        glim: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_18501231235230_glim.nc
+        rad: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_18501231235230_rad.nc
+        sp6h: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_18501231235230_sp6h.nc
+        spim: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_18501231235230_spim.nc
     restart_out_targets:
-        accw: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/restart/echam/restart_bootstrap_accw_18501231.nc
-        aclcim: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/restart/echam/restart_bootstrap_aclcim_18501231.nc
-        co2: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/restart/echam/restart_bootstrap_co2_18501231.nc
-        echam: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/restart/echam/restart_bootstrap_echam_18501231.nc
-        g3b1hi: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/restart/echam/restart_bootstrap_g3b1hi_18501231.nc
-        g3bday: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/restart/echam/restart_bootstrap_g3bday_18501231.nc
-        g3bid: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/restart/echam/restart_bootstrap_g3bid_18501231.nc
-        g3bim: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/restart/echam/restart_bootstrap_g3bim_18501231.nc
-        glday: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/restart/echam/restart_bootstrap_glday_18501231.nc
-        glim: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/restart/echam/restart_bootstrap_glim_18501231.nc
-        sp6h: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/restart/echam/restart_bootstrap_sp6h_18501231.nc
-        spim: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/restart/echam/restart_bootstrap_spim_18501231.nc
+        accw: <TEST_DIR>run/awiesm/bootstrap/restart/echam/restart_bootstrap_accw_18501231.nc
+        aclcim: <TEST_DIR>run/awiesm/bootstrap/restart/echam/restart_bootstrap_aclcim_18501231.nc
+        co2: <TEST_DIR>run/awiesm/bootstrap/restart/echam/restart_bootstrap_co2_18501231.nc
+        echam: <TEST_DIR>run/awiesm/bootstrap/restart/echam/restart_bootstrap_echam_18501231.nc
+        g3b1hi: <TEST_DIR>run/awiesm/bootstrap/restart/echam/restart_bootstrap_g3b1hi_18501231.nc
+        g3bday: <TEST_DIR>run/awiesm/bootstrap/restart/echam/restart_bootstrap_g3bday_18501231.nc
+        g3bid: <TEST_DIR>run/awiesm/bootstrap/restart/echam/restart_bootstrap_g3bid_18501231.nc
+        g3bim: <TEST_DIR>run/awiesm/bootstrap/restart/echam/restart_bootstrap_g3bim_18501231.nc
+        glday: <TEST_DIR>run/awiesm/bootstrap/restart/echam/restart_bootstrap_glday_18501231.nc
+        glim: <TEST_DIR>run/awiesm/bootstrap/restart/echam/restart_bootstrap_glim_18501231.nc
+        rad: <TEST_DIR>run/awiesm/bootstrap/restart/echam/restart_bootstrap_rad_18501231.nc
+        sp6h: <TEST_DIR>run/awiesm/bootstrap/restart/echam/restart_bootstrap_sp6h_18501231.nc
+        spim: <TEST_DIR>run/awiesm/bootstrap/restart/echam/restart_bootstrap_spim_18501231.nc
     restart_rate: 1
     restart_unit: years
     scenario: PI-CTRL
     scenario_type: PI-CTRL
-    setup_dir: /work/<ACCOUNT>/a270152/testing//comp/awiesm/awiesm-2.1
+    setup_dir: <TEST_DIR>/comp/awiesm/awiesm-2.1
     standalone_model: true
     streams:
     - echam
@@ -1133,6 +1179,7 @@ echam:
     - sp6h
     - glim
     - spim
+    - rad
     streamsnc:
     - aclcim
     - g3b1hi
@@ -1145,19 +1192,19 @@ echam:
     - sp6h
     - spim
     switch: 1
-    thisrun_analysis_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/analysis/echam/
-    thisrun_bin_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/bin/echam/
-    thisrun_config_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/config/echam/
-    thisrun_couple_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/couple/echam/
-    thisrun_forcing_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/forcing/echam/
-    thisrun_ignore_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/ignore/echam/
-    thisrun_input_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/input/echam/
-    thisrun_log_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/log/echam/
-    thisrun_mon_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/mon/echam/
-    thisrun_outdata_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/outdata/echam/
-    thisrun_restart_in_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/restart/echam/
-    thisrun_restart_out_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/restart/echam/
-    thisrun_viz_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/viz/echam/
+    thisrun_analysis_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/analysis/echam/
+    thisrun_bin_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/bin/echam/
+    thisrun_config_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/config/echam/
+    thisrun_couple_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/couple/echam/
+    thisrun_forcing_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/forcing/echam/
+    thisrun_ignore_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/ignore/echam/
+    thisrun_input_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/input/echam/
+    thisrun_log_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/log/echam/
+    thisrun_mon_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/mon/echam/
+    thisrun_outdata_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/outdata/echam/
+    thisrun_restart_in_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/restart/echam/
+    thisrun_restart_out_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/restart/echam/
+    thisrun_viz_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/viz/echam/
     time_step: 450
     transient_advance_forcing: false
     type: atmosphere
@@ -1206,13 +1253,13 @@ fesom:
     - viz
     - ignore
     asforcing: JRA55
-    bin_dir: /work/<ACCOUNT>/a270152/testing//comp/awiesm/awiesm-2.1/bin
+    bin_dir: <TEST_DIR>/comp/awiesm/awiesm-2.1/bin
     bin_intermediate:
-        fesom: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/bin/fesom/fesom
+        fesom: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/bin/fesom/fesom
     bin_sources:
-        fesom: /work/<ACCOUNT>/a270152/testing//comp/awiesm/awiesm-2.1/bin/fesom.x
+        fesom: <TEST_DIR>/comp/awiesm/awiesm-2.1/bin/fesom.x
     bin_targets:
-        fesom: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/work/fesom
+        fesom: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/work/fesom
     branch: 2.1-awiesm-2.1
     branchoff: false
     clean_command: rm -rf build CMakeCache.txt
@@ -1229,32 +1276,32 @@ fesom:
                 - load ParaStationMPI/5.4.4-1
                 - load netCDF-Fortran/4.4.5
     config_intermediate:
-        config: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/config/fesom/namelist.config
-        cvmix: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/config/fesom/namelist.cvmix
-        fesom.clock: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/config/fesom/fesom.clock
-        forcing: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/config/fesom/namelist.forcing
-        ice: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/config/fesom/namelist.ice
-        icepack: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/config/fesom/namelist.icepack
-        io: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/config/fesom/namelist.io
-        oce: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/config/fesom/namelist.oce
+        config: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/config/fesom/namelist.config
+        cvmix: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/config/fesom/namelist.cvmix
+        fesom.clock: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/config/fesom/fesom.clock
+        forcing: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/config/fesom/namelist.forcing
+        ice: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/config/fesom/namelist.ice
+        icepack: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/config/fesom/namelist.icepack
+        io: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/config/fesom/namelist.io
+        oce: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/config/fesom/namelist.oce
     config_sources:
-        config: /work/<ACCOUNT>/a270152/testing//comp/awiesm/awiesm-2.1/fesom-2.1/config//namelist.config
-        cvmix: /work/<ACCOUNT>/a270152/testing//comp/awiesm/awiesm-2.1/fesom-2.1/config//namelist.cvmix
-        fesom.clock: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/config/fesom//fesom.clock
-        forcing: /work/<ACCOUNT>/a270152/testing//comp/awiesm/awiesm-2.1/fesom-2.1/config//namelist.forcing
-        ice: /work/<ACCOUNT>/a270152/testing//comp/awiesm/awiesm-2.1/fesom-2.1/config//namelist.ice
-        icepack: /work/<ACCOUNT>/a270152/testing//comp/awiesm/awiesm-2.1/fesom-2.1/config//namelist.icepack
-        io: /work/<ACCOUNT>/a270152/testing//comp/awiesm/awiesm-2.1/fesom-2.1/config//namelist.io
-        oce: /work/<ACCOUNT>/a270152/testing//comp/awiesm/awiesm-2.1/fesom-2.1/config//namelist.oce
+        config: <TEST_DIR>/comp/awiesm/awiesm-2.1/fesom-2.1/config//namelist.config
+        cvmix: <TEST_DIR>/comp/awiesm/awiesm-2.1/fesom-2.1/config//namelist.cvmix
+        fesom.clock: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/config/fesom//fesom.clock
+        forcing: <TEST_DIR>/comp/awiesm/awiesm-2.1/fesom-2.1/config//namelist.forcing
+        ice: <TEST_DIR>/comp/awiesm/awiesm-2.1/fesom-2.1/config//namelist.ice
+        icepack: <TEST_DIR>/comp/awiesm/awiesm-2.1/fesom-2.1/config//namelist.icepack
+        io: <TEST_DIR>/comp/awiesm/awiesm-2.1/fesom-2.1/config//namelist.io
+        oce: <TEST_DIR>/comp/awiesm/awiesm-2.1/fesom-2.1/config//namelist.oce
     config_targets:
-        config: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/work/namelist.config
-        cvmix: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/work/namelist.cvmix
-        fesom.clock: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/work/fesom.clock
-        forcing: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/work/namelist.forcing
-        ice: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/work/namelist.ice
-        icepack: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/work/namelist.icepack
-        io: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/work/namelist.io
-        oce: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/work/namelist.oce
+        config: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/work/namelist.config
+        cvmix: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/work/namelist.cvmix
+        fesom.clock: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/work/fesom.clock
+        forcing: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/work/namelist.forcing
+        ice: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/work/namelist.ice
+        icepack: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/work/namelist.icepack
+        io: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/work/namelist.io
+        oce: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/work/namelist.oce
     coupling_fields:
         evap_oce:
             grid: feom
@@ -1299,19 +1346,19 @@ fesom:
         - <HOME_DIR>/esm_tools/configs//components/fesom/fesom-2.1.yaml
     destination: fesom-2.1
     executable: fesom
-    experiment_analysis_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/analysis/fesom/
-    experiment_bin_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/bin/fesom/
-    experiment_config_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/config/fesom/
-    experiment_couple_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/couple/fesom/
-    experiment_forcing_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/forcing/fesom/
-    experiment_ignore_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/ignore/fesom/
-    experiment_input_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/input/fesom/
-    experiment_log_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/log/fesom/
-    experiment_mon_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/mon/fesom/
-    experiment_outdata_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/outdata/fesom/
-    experiment_restart_in_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/restart/fesom/
-    experiment_restart_out_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/restart/fesom/
-    experiment_viz_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/viz/fesom/
+    experiment_analysis_dir: <TEST_DIR>/run/awiesm//bootstrap/analysis/fesom/
+    experiment_bin_dir: <TEST_DIR>/run/awiesm//bootstrap/bin/fesom/
+    experiment_config_dir: <TEST_DIR>/run/awiesm//bootstrap/config/fesom/
+    experiment_couple_dir: <TEST_DIR>/run/awiesm//bootstrap/couple/fesom/
+    experiment_forcing_dir: <TEST_DIR>/run/awiesm//bootstrap/forcing/fesom/
+    experiment_ignore_dir: <TEST_DIR>/run/awiesm//bootstrap/ignore/fesom/
+    experiment_input_dir: <TEST_DIR>/run/awiesm//bootstrap/input/fesom/
+    experiment_log_dir: <TEST_DIR>/run/awiesm//bootstrap/log/fesom/
+    experiment_mon_dir: <TEST_DIR>/run/awiesm//bootstrap/mon/fesom/
+    experiment_outdata_dir: <TEST_DIR>/run/awiesm//bootstrap/outdata/fesom/
+    experiment_restart_in_dir: <TEST_DIR>/run/awiesm//bootstrap/restart/fesom/
+    experiment_restart_out_dir: <TEST_DIR>/run/awiesm//bootstrap/restart/fesom/
+    experiment_viz_dir: <TEST_DIR>/run/awiesm//bootstrap/viz/fesom/
     file_movements:
         analysis:
             exp_to_run: copy
@@ -1417,20 +1464,20 @@ fesom:
     lasttime: 84600
     leapyear: true
     log_intermediate:
-        clock: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/log/fesom/fesom.clock
-        mesh_diag: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/log/fesom/fesom.mesh.diag.nc
+        clock: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/log/fesom/fesom.clock
+        mesh_diag: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/log/fesom/fesom.mesh.diag.nc
     log_sources:
-        clock: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//fesom.clock
-        mesh_diag: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//fesom.mesh.diag.nc
+        clock: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//fesom.clock
+        mesh_diag: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//fesom.mesh.diag.nc
     log_targets:
-        clock: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/log/fesom/fesom.clock
-        mesh_diag: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/log/fesom/fesom.mesh.diag.nc
+        clock: <TEST_DIR>run/awiesm/bootstrap/log/fesom/fesom.clock
+        mesh_diag: <TEST_DIR>run/awiesm/bootstrap/log/fesom/fesom.mesh.diag.nc
     lresume: false
     mesh_base_dir: /pool/data/AWICM//FESOM2/MESHES_FESOM2.1/
     mesh_dir: /pool/data/AWICM//FESOM2/MESHES_FESOM2.1//core2/
     mesh_rotated: false
     model: fesom
-    model_dir: /work/<ACCOUNT>/a270152/testing//comp/awiesm/awiesm-2.1/fesom-2.1
+    model_dir: <TEST_DIR>/comp/awiesm/awiesm-2.1/fesom-2.1
     mslp_prefix: psl.
     namelist_changes:
         namelist.config:
@@ -1446,7 +1493,7 @@ fesom:
             paths:
                 ClimateDataPath: /pool/data/AWICM//FESOM2/INITIAL/phc3.0/
                 MeshPath: /pool/data/AWICM//FESOM2/MESHES_FESOM2.1//core2/
-                ResultPath: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work/
+                ResultPath: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work/
             restart_log:
                 restart_length: 1
                 restart_length_unit: y
@@ -1518,7 +1565,7 @@ fesom:
             oce_tra:
                 K_hor: 3000
                 surf_relax_s: 0
-    namelist_dir: /work/<ACCOUNT>/a270152/testing//comp/awiesm/awiesm-2.1/fesom-2.1/config/
+    namelist_dir: <TEST_DIR>/comp/awiesm/awiesm-2.1/fesom-2.1/config/
     namelist_objs:
         namelist.config: &id004 f90nml.name
         namelist.cvmix: &id005 f90nml.name
@@ -1565,7 +1612,7 @@ fesom:
     par_tracers: false
     parent_date: '1849-12-31T23:30:00'
     parent_expid: bootstrap
-    parent_restart_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/restart/fesom/
+    parent_restart_dir: <TEST_DIR>/run/awiesm//bootstrap/restart/fesom/
     pool_dir: /pool/data/AWICM/
     prec_prefix: prra.
     prev_date: '1849-12-31T23:30:00'
@@ -1587,14 +1634,14 @@ fesom:
         oce_restart: fesom.1850.oce.restart.nc
         wiso_restart: fesom.1850.wiso.restart.nc
     restart_out_intermediate:
-        ice_restart: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/restart/fesom/fesom.1850.ice.restart.nc
-        oce_restart: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/restart/fesom/fesom.1850.oce.restart.nc
+        ice_restart: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/restart/fesom/fesom.1850.ice.restart.nc
+        oce_restart: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/restart/fesom/fesom.1850.oce.restart.nc
     restart_out_sources:
-        ice_restart: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//fesom.1850.ice.restart.nc
-        oce_restart: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//fesom.1850.oce.restart.nc
+        ice_restart: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//fesom.1850.ice.restart.nc
+        oce_restart: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//fesom.1850.oce.restart.nc
     restart_out_targets:
-        ice_restart: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/restart/fesom/fesom.1850.ice.restart.nc
-        oce_restart: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/restart/fesom/fesom.1850.oce.restart.nc
+        ice_restart: <TEST_DIR>run/awiesm/bootstrap/restart/fesom/fesom.1850.ice.restart.nc
+        oce_restart: <TEST_DIR>run/awiesm/bootstrap/restart/fesom/fesom.1850.oce.restart.nc
     restart_rate: 1
     restart_unit: y
     runoff_data_source: CORE2
@@ -1609,7 +1656,7 @@ fesom:
                 - unload ParaStationMPI
                 - load ParaStationMPI/5.4.4-1
                 - load netCDF-Fortran/4.4.5
-    setup_dir: /work/<ACCOUNT>/a270152/testing//comp/awiesm/awiesm-2.1
+    setup_dir: <TEST_DIR>/comp/awiesm/awiesm-2.1
     snow_prefix: prsn.
     sss_data_file: PHC2_salx.nc
     sss_data_source: CORE2
@@ -1617,19 +1664,19 @@ fesom:
     starttime: 0
     steps_per_day: 48
     tair_prefix: tas.
-    thisrun_analysis_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/analysis/fesom/
-    thisrun_bin_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/bin/fesom/
-    thisrun_config_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/config/fesom/
-    thisrun_couple_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/couple/fesom/
-    thisrun_forcing_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/forcing/fesom/
-    thisrun_ignore_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/ignore/fesom/
-    thisrun_input_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/input/fesom/
-    thisrun_log_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/log/fesom/
-    thisrun_mon_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/mon/fesom/
-    thisrun_outdata_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/outdata/fesom/
-    thisrun_restart_in_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/restart/fesom/
-    thisrun_restart_out_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/restart/fesom/
-    thisrun_viz_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/viz/fesom/
+    thisrun_analysis_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/analysis/fesom/
+    thisrun_bin_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/bin/fesom/
+    thisrun_config_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/config/fesom/
+    thisrun_couple_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/couple/fesom/
+    thisrun_forcing_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/forcing/fesom/
+    thisrun_ignore_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/ignore/fesom/
+    thisrun_input_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/input/fesom/
+    thisrun_log_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/log/fesom/
+    thisrun_mon_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/mon/fesom/
+    thisrun_outdata_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/outdata/fesom/
+    thisrun_restart_in_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/restart/fesom/
+    thisrun_restart_out_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/restart/fesom/
+    thisrun_viz_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/viz/fesom/
     tide_forcing_dir: remove_from_namelist
     time_dimension: time
     time_step: 1800
@@ -1658,7 +1705,7 @@ fesom:
     yearnew: 1850
     ywind_prefix: vas.
 general:
-    account: <ACCOUNT>
+    account: ab0995
     additional_files: []
     all_filetypes:
     - analysis
@@ -1689,7 +1736,7 @@ general:
     - 2.1
     - 2.1-wiso
     - 2.1-recom
-    base_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm/
+    base_dir: <TEST_DIR>/run/awiesm/
     batch: slurm
     calendar: esm_calendar object with allowed leap years
     check: false
@@ -1698,16 +1745,18 @@ general:
         check: false
         current_date: null
         expid: bootstrap
+        ignore_config_warnings: false
         inspect: null
         jobtype: prepcompute
+        last_jobtype: prepcompute
         launcher_pid: -666
         no_motd: true
-        original_command: bootstrap.yaml -e bootstrap --open-run --no-motd
+        original_command: bootstrap.yaml -e bootstrap --open-run --no-motd --last-jobtype prepcompute
         profile: false
         run_number: null
-        runscript_abspath: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/scripts/bootstrap.yaml
+        runscript_abspath: <TEST_DIR>run/awiesm/bootstrap/scripts/bootstrap.yaml
         scriptname: bootstrap.yaml
-        started_from: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/scripts/
+        started_from: <TEST_DIR>run/awiesm/bootstrap/scripts/
         update: false
         update_filetypes: []
         use_venv: false
@@ -1715,7 +1764,7 @@ general:
     compute_time: 02:00:00
     coupled_setup: true
     coupler: oasis3mct
-    coupler_config_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/config/oasis3mct/
+    coupler_config_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/config/oasis3mct/
     couplings:
     - fesom-2.1-awiesm-2.1+echam-6.3.05p2-awiesm-2.1
     current_date: '1850-01-01T00:00:00'
@@ -1738,17 +1787,17 @@ general:
     esm_namelist_dir: <HOME_DIR>/esm_tools/namelists/
     esm_runscript_dir: <HOME_DIR>/esm_tools/runscripts/
     esm_tests_pool: /work/ollie/mandresm/testing_pool
-    experiment_analysis_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/analysis/
-    experiment_config_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/config/
-    experiment_couple_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/couple/
-    experiment_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap
-    experiment_ignore_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/ignore/
-    experiment_log_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/log/
-    experiment_log_file: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/log//bootstrap_awiesm.log
-    experiment_mon_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/mon/
-    experiment_scripts_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/scripts/
-    experiment_src_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/src/
-    experiment_unknown_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/unknown/
+    experiment_analysis_dir: <TEST_DIR>/run/awiesm//bootstrap/analysis/
+    experiment_config_dir: <TEST_DIR>/run/awiesm//bootstrap/config/
+    experiment_couple_dir: <TEST_DIR>/run/awiesm//bootstrap/couple/
+    experiment_dir: <TEST_DIR>/run/awiesm//bootstrap
+    experiment_ignore_dir: <TEST_DIR>/run/awiesm//bootstrap/ignore/
+    experiment_log_dir: <TEST_DIR>/run/awiesm//bootstrap/log/
+    experiment_log_file: <TEST_DIR>/run/awiesm//bootstrap/log//bootstrap_awiesm.log
+    experiment_mon_dir: <TEST_DIR>/run/awiesm//bootstrap/mon/
+    experiment_scripts_dir: <TEST_DIR>/run/awiesm//bootstrap/scripts/
+    experiment_src_dir: <TEST_DIR>/run/awiesm//bootstrap/src/
+    experiment_unknown_dir: <TEST_DIR>/run/awiesm//bootstrap/unknown/
     expid: bootstrap
     fesom_Dflags: -DFESOM_COUPLED=ON
     file_movements:
@@ -1827,19 +1876,9 @@ general:
             init_to_exp: copy
             run_to_work: copy
             work_to_run: copy
-    files_missing_when_preparing_run:
-        /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/input/echam/target_orography_echam6.nc: /work/ollie/mandresm/testing_pool/nonstandard_forcings/bootstrap_files/target_unit24.nc
-        /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/input/echam/unit.24: /work/ollie/mandresm/testing_pool/nonstandard_forcings/bootstrap_files/initial_unit24.nc
-        /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/input/echam/unit.90: /work/ollie/pool/FESOM/meshes_default/core/tarfilesT63/input/echam6/T63CORE2_VLTCLIM.nc
-        /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/input/echam/unit.91: /work/ollie/pool/FESOM/meshes_default/core/tarfilesT63/input/echam6/T63CORE2_VGRATCLIM.nc
-        /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/input/jsbach/jsbach.nc: /work/ollie/mandresm/testing_pool/nonstandard_forcings/bootstrap_files/jsbach_T63CORE2_11tiles_5layers_1850_dynveg.nc
-        /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/work/jsbach.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/input/jsbach/jsbach.nc
-        /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/work/target_orography_echam6.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/input/echam/target_orography_echam6.nc
-        /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/work/unit.24: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/input/echam/unit.24
-        /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/work/unit.90: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/input/echam/unit.90
-        /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/work/unit.91: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/input/echam/unit.91
     final_date: '1850-12-31T00:00:00'
     first_run_in_chunk: true
+    ignore_config_warnings: false
     in_filetypes:
     - scripts
     - input
@@ -1849,17 +1888,19 @@ general:
     - restart_in
     initial_date: '1850-01-01T00:00:00'
     inspect: null
-    jobid: 1463970
+    isinteractive: false
+    jobid: 79471
     jobtype: prepcompute
+    last_jobtype: prepcompute
     last_run_datestamp: 18490101-18491231
     last_run_in_chunk: true
     last_start_date: '1849-01-01T00:00:00'
     launcher_pid: -666
     leapyear: true
-    logfile_path: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/log//bootstrap_awiesm_prepcompute_18500101-18501231.log
-    logfile_path_in_run: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/log//bootstrap_awiesm_prepcompute_18500101-18501231.log
+    logfile_path: <TEST_DIR>/run/awiesm//bootstrap/log//bootstrap_awiesm_prepcompute_18500101-18501231.log
+    logfile_path_in_run: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/log//bootstrap_awiesm_prepcompute_18500101-18501231.log
     model: awiesm
-    model_dir: /work/<ACCOUNT>/a270152/testing//comp/awiesm/awiesm-2.1
+    model_dir: <TEST_DIR>/comp/awiesm/awiesm-2.1
     models:
     - echam
     - fesom
@@ -1872,7 +1913,7 @@ general:
     no_motd: true
     nsecond: 0
     nyear: 1
-    original_command: bootstrap.yaml -e bootstrap --open-run --no-motd
+    original_command: bootstrap.yaml -e bootstrap --open-run --no-motd --last-jobtype prepcompute
     out_filetypes:
     - analysis
     - log
@@ -1932,7 +1973,7 @@ general:
     run_datestamp: 18500101-18501231
     run_number: 1
     run_or_compile: runtime
-    runscript_abspath: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/scripts/bootstrap.yaml
+    runscript_abspath: <TEST_DIR>run/awiesm/bootstrap/scripts/bootstrap.yaml
     runtime:
     - 1
     - 12
@@ -1945,19 +1986,19 @@ general:
     setup_name: awiesm
     standalone: false
     start_date: '1850-01-01T00:00:00'
-    started_from: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/scripts/
+    started_from: <TEST_DIR>run/awiesm/bootstrap/scripts/
     submitted: false
-    thisrun_analysis_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/analysis/
-    thisrun_config_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/config/
-    thisrun_couple_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/couple/
-    thisrun_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231
-    thisrun_ignore_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/ignore/
-    thisrun_log_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/log/
-    thisrun_mon_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/mon/
-    thisrun_scripts_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/scripts/
-    thisrun_src_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/src/
-    thisrun_unknown_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/unknown/
-    thisrun_work_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work/
+    thisrun_analysis_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/analysis/
+    thisrun_config_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/config/
+    thisrun_couple_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/couple/
+    thisrun_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231
+    thisrun_ignore_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/ignore/
+    thisrun_log_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/log/
+    thisrun_mon_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/mon/
+    thisrun_scripts_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/scripts/
+    thisrun_src_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/src/
+    thisrun_unknown_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/unknown/
+    thisrun_work_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work/
     total_runtime:
     - 1
     - 12
@@ -1990,7 +2031,7 @@ general:
     with_icebergs: false
     with_pico: false
     with_wiso: false
-    work_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work/
+    work_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work/
     workflow:
         first_task_in_queue: prepcompute
         last_task_in_queue: tidy
@@ -2070,19 +2111,19 @@ hdmodel:
         paper citation'
     domain: hydrology
     executable: NONE
-    experiment_analysis_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/analysis/hdmodel/
-    experiment_bin_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/bin/hdmodel/
-    experiment_config_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/config/hdmodel/
-    experiment_couple_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/couple/hdmodel/
-    experiment_forcing_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/forcing/hdmodel/
-    experiment_ignore_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/ignore/hdmodel/
-    experiment_input_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/input/hdmodel/
-    experiment_log_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/log/hdmodel/
-    experiment_mon_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/mon/hdmodel/
-    experiment_outdata_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/outdata/hdmodel/
-    experiment_restart_in_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/restart/hdmodel/
-    experiment_restart_out_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/restart/hdmodel/
-    experiment_viz_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/viz/hdmodel/
+    experiment_analysis_dir: <TEST_DIR>/run/awiesm//bootstrap/analysis/hdmodel/
+    experiment_bin_dir: <TEST_DIR>/run/awiesm//bootstrap/bin/hdmodel/
+    experiment_config_dir: <TEST_DIR>/run/awiesm//bootstrap/config/hdmodel/
+    experiment_couple_dir: <TEST_DIR>/run/awiesm//bootstrap/couple/hdmodel/
+    experiment_forcing_dir: <TEST_DIR>/run/awiesm//bootstrap/forcing/hdmodel/
+    experiment_ignore_dir: <TEST_DIR>/run/awiesm//bootstrap/ignore/hdmodel/
+    experiment_input_dir: <TEST_DIR>/run/awiesm//bootstrap/input/hdmodel/
+    experiment_log_dir: <TEST_DIR>/run/awiesm//bootstrap/log/hdmodel/
+    experiment_mon_dir: <TEST_DIR>/run/awiesm//bootstrap/mon/hdmodel/
+    experiment_outdata_dir: <TEST_DIR>/run/awiesm//bootstrap/outdata/hdmodel/
+    experiment_restart_in_dir: <TEST_DIR>/run/awiesm//bootstrap/restart/hdmodel/
+    experiment_restart_out_dir: <TEST_DIR>/run/awiesm//bootstrap/restart/hdmodel/
+    experiment_viz_dir: <TEST_DIR>/run/awiesm//bootstrap/viz/hdmodel/
     file_movements:
         analysis:
             exp_to_run: copy
@@ -2159,22 +2200,22 @@ hdmodel:
             init_to_exp: copy
             run_to_work: copy
             work_to_run: copy
-    ini_parent_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/restart/echam//../hdmodel/
+    ini_parent_dir: <TEST_DIR>/run/awiesm//bootstrap/restart/echam//../hdmodel/
     ini_parent_exp_id: bootstrap
-    ini_restart_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/restart/echam//../hdmodel/
+    ini_restart_dir: <TEST_DIR>/run/awiesm//bootstrap/restart/echam//../hdmodel/
     input_dir: /pool/data/JSBACH/input/r0010/HD
     input_intermediate:
-        hdpara: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/input/hdmodel/hdpara.nc
-        hdstart: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/input/hdmodel/hdstart.nc
-        rmp_hd: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/input/hdmodel/rmp_hd.nc
+        hdpara: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/input/hdmodel/hdpara.nc
+        hdstart: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/input/hdmodel/hdstart.nc
+        rmp_hd: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/input/hdmodel/rmp_hd.nc
     input_sources:
         hdpara: /pool/data/JSBACH/input/r0010/HD/hdpara.nc
         hdstart: /pool/data/JSBACH/input/r0010/HD/hdstart.nc
         rmp_hd: /pool/data/JSBACH/input/r0010/HD/rmp_T63_to_hd.nc
     input_targets:
-        hdpara: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/work/hdpara.nc
-        hdstart: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/work/hdstart.nc
-        rmp_hd: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/work/rmp_hd.nc
+        hdpara: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/work/hdpara.nc
+        hdstart: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/work/hdstart.nc
+        rmp_hd: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/work/rmp_hd.nc
     last_parent_date: '1849-12-31T23:45:00'
     leapyear: true
     license_text: 'Please make sure you have a licence to use echam. In case you are
@@ -2187,29 +2228,29 @@ hdmodel:
     other_date: '1850-12-31T23:52:30'
     parent_date: '1849-12-31T23:52:30'
     parent_expid: bootstrap
-    parent_restart_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/restart/hdmodel/
+    parent_restart_dir: <TEST_DIR>/run/awiesm//bootstrap/restart/hdmodel/
     pool_dir: /pool/data/JSBACH/input/r0010/HD
     prev_date: '1849-12-31T23:52:30'
     repository: https://gitlab.dkrz.de/modular_esm/echam6
     restart_out_intermediate:
-        hdrestart: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/restart/hdmodel/restart_bootstrap_18501231_hdrestart.nc
+        hdrestart: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/restart/hdmodel/restart_bootstrap_18501231_hdrestart.nc
     restart_out_sources:
-        hdrestart: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//hdrestart.nc
+        hdrestart: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//hdrestart.nc
     restart_out_targets:
-        hdrestart: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/restart/hdmodel/restart_bootstrap_18501231_hdrestart.nc
-    thisrun_analysis_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/analysis/hdmodel/
-    thisrun_bin_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/bin/hdmodel/
-    thisrun_config_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/config/hdmodel/
-    thisrun_couple_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/couple/hdmodel/
-    thisrun_forcing_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/forcing/hdmodel/
-    thisrun_ignore_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/ignore/hdmodel/
-    thisrun_input_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/input/hdmodel/
-    thisrun_log_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/log/hdmodel/
-    thisrun_mon_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/mon/hdmodel/
-    thisrun_outdata_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/outdata/hdmodel/
-    thisrun_restart_in_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/restart/hdmodel/
-    thisrun_restart_out_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/restart/hdmodel/
-    thisrun_viz_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/viz/hdmodel/
+        hdrestart: <TEST_DIR>run/awiesm/bootstrap/restart/hdmodel/restart_bootstrap_18501231_hdrestart.nc
+    thisrun_analysis_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/analysis/hdmodel/
+    thisrun_bin_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/bin/hdmodel/
+    thisrun_config_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/config/hdmodel/
+    thisrun_couple_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/couple/hdmodel/
+    thisrun_forcing_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/forcing/hdmodel/
+    thisrun_ignore_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/ignore/hdmodel/
+    thisrun_input_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/input/hdmodel/
+    thisrun_log_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/log/hdmodel/
+    thisrun_mon_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/mon/hdmodel/
+    thisrun_outdata_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/outdata/hdmodel/
+    thisrun_restart_in_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/restart/hdmodel/
+    thisrun_restart_out_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/restart/hdmodel/
+    thisrun_viz_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/viz/hdmodel/
     time_step: 450
 jsbach:
     adj_input_dir: /pool/data/AWICM//FESOM2/MESHES_FESOM2.1//core2//tarfilesT63/input/jsbach
@@ -2228,11 +2269,11 @@ jsbach:
     - viz
     - ignore
     config_intermediate:
-        namelist.jsbach: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/config/jsbach/namelist.jsbach
+        namelist.jsbach: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/config/jsbach/namelist.jsbach
     config_sources:
         namelist.jsbach: <HOME_DIR>/esm_tools/namelists//jsbach/3.20/PI-CTRL/no_dynveg/namelist.jsbach
     config_targets:
-        namelist.jsbach: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/work/namelist.jsbach
+        namelist.jsbach: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/work/namelist.jsbach
     cover_fract_dir: /pool/data/JSBACH/input/r0010/T63/land_use_maps/
     dataset: r0010
     debug_info:
@@ -2248,19 +2289,19 @@ jsbach:
     dynamic_vegetations: false
     dynveg: _no_dynveg
     dynveg_file_ending: _dynveg
-    experiment_analysis_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/analysis/jsbach/
-    experiment_bin_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/bin/jsbach/
-    experiment_config_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/config/jsbach/
-    experiment_couple_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/couple/jsbach/
-    experiment_forcing_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/forcing/jsbach/
-    experiment_ignore_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/ignore/jsbach/
-    experiment_input_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/input/jsbach/
-    experiment_log_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/log/jsbach/
-    experiment_mon_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/mon/jsbach/
-    experiment_outdata_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/outdata/jsbach/
-    experiment_restart_in_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/restart/jsbach/
-    experiment_restart_out_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/restart/jsbach/
-    experiment_viz_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/viz/jsbach/
+    experiment_analysis_dir: <TEST_DIR>/run/awiesm//bootstrap/analysis/jsbach/
+    experiment_bin_dir: <TEST_DIR>/run/awiesm//bootstrap/bin/jsbach/
+    experiment_config_dir: <TEST_DIR>/run/awiesm//bootstrap/config/jsbach/
+    experiment_couple_dir: <TEST_DIR>/run/awiesm//bootstrap/couple/jsbach/
+    experiment_forcing_dir: <TEST_DIR>/run/awiesm//bootstrap/forcing/jsbach/
+    experiment_ignore_dir: <TEST_DIR>/run/awiesm//bootstrap/ignore/jsbach/
+    experiment_input_dir: <TEST_DIR>/run/awiesm//bootstrap/input/jsbach/
+    experiment_log_dir: <TEST_DIR>/run/awiesm//bootstrap/log/jsbach/
+    experiment_mon_dir: <TEST_DIR>/run/awiesm//bootstrap/mon/jsbach/
+    experiment_outdata_dir: <TEST_DIR>/run/awiesm//bootstrap/outdata/jsbach/
+    experiment_restart_in_dir: <TEST_DIR>/run/awiesm//bootstrap/restart/jsbach/
+    experiment_restart_out_dir: <TEST_DIR>/run/awiesm//bootstrap/restart/jsbach/
+    experiment_viz_dir: <TEST_DIR>/run/awiesm//bootstrap/viz/jsbach/
     file_movements:
         analysis:
             exp_to_run: copy
@@ -2348,18 +2389,18 @@ jsbach:
         - need_timestep_before
         - need_timestep_after
     forcing_intermediate:
-        LU_trans_year_1849: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/forcing/jsbach/landuseTransitions.1849.nc
-        LU_trans_year_1850: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/forcing/jsbach/landuseTransitions.1850.nc
-        LU_trans_year_1851: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/forcing/jsbach/landuseTransitions.1851.nc
-        LU_year_1849: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/forcing/jsbach/landuse_harvest.1849.nc
-        LU_year_1850: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/forcing/jsbach/landuse_harvest.1850.nc
-        LU_year_1851: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/forcing/jsbach/landuse_harvest.1851.nc
-        Ndepo_year_1849: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/forcing/jsbach/Ndepo.1849.nc
-        Ndepo_year_1850: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/forcing/jsbach/Ndepo.1850.nc
-        Ndepo_year_1851: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/forcing/jsbach/Ndepo.1851.nc
-        a_nd_file: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/forcing/jsbach/a_nd_file.nc
-        lightning: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/forcing/jsbach/lightning.nc
-        popdens: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/forcing/jsbach/population_density.nc
+        LU_trans_year_1849: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/forcing/jsbach/landuseTransitions.1849.nc
+        LU_trans_year_1850: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/forcing/jsbach/landuseTransitions.1850.nc
+        LU_trans_year_1851: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/forcing/jsbach/landuseTransitions.1851.nc
+        LU_year_1849: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/forcing/jsbach/landuse_harvest.1849.nc
+        LU_year_1850: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/forcing/jsbach/landuse_harvest.1850.nc
+        LU_year_1851: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/forcing/jsbach/landuse_harvest.1851.nc
+        Ndepo_year_1849: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/forcing/jsbach/Ndepo.1849.nc
+        Ndepo_year_1850: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/forcing/jsbach/Ndepo.1850.nc
+        Ndepo_year_1851: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/forcing/jsbach/Ndepo.1851.nc
+        a_nd_file: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/forcing/jsbach/a_nd_file.nc
+        lightning: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/forcing/jsbach/lightning.nc
+        popdens: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/forcing/jsbach/population_density.nc
     forcing_modifications:
         Ndepo: <--setyear-- @YEAR@
     forcing_sources:
@@ -2376,97 +2417,97 @@ jsbach:
         lightning: /pool/data/JSBACH/input/r0010/T63/spitfire/LISOTD_HRMC_V2.2_T63.nc
         popdens: /pool/data/JSBACH/input/r0010/T63/spitfire/population_density_HYDE_T63.nc
     forcing_targets:
-        LU_trans_year_1849: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/work/landuseTransitions.1849.nc
-        LU_trans_year_1850: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/work/landuseTransitions.1850.nc
-        LU_trans_year_1851: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/work/landuseTransitions.1851.nc
-        LU_year_1849: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/work/landuse_harvest.1849.nc
-        LU_year_1850: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/work/landuse_harvest.1850.nc
-        LU_year_1851: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/work/landuse_harvest.1851.nc
-        Ndepo_year_1849: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/work/Ndepo.1849.nc
-        Ndepo_year_1850: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/work/Ndepo.1850.nc
-        Ndepo_year_1851: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/work/Ndepo.1851.nc
-        a_nd_file: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/work/a_nd_file.nc
-        lightning: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/work/lightning.nc
-        popdens: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/work/population_density.nc
+        LU_trans_year_1849: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/work/landuseTransitions.1849.nc
+        LU_trans_year_1850: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/work/landuseTransitions.1850.nc
+        LU_trans_year_1851: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/work/landuseTransitions.1851.nc
+        LU_year_1849: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/work/landuse_harvest.1849.nc
+        LU_year_1850: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/work/landuse_harvest.1850.nc
+        LU_year_1851: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/work/landuse_harvest.1851.nc
+        Ndepo_year_1849: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/work/Ndepo.1849.nc
+        Ndepo_year_1850: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/work/Ndepo.1850.nc
+        Ndepo_year_1851: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/work/Ndepo.1851.nc
+        a_nd_file: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/work/a_nd_file.nc
+        lightning: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/work/lightning.nc
+        popdens: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/work/population_density.nc
     ignore_intermediate:
-        jsbach: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/ignore/jsbach/bootstrap_185101.01_jsbach
-        jsbach_codes: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/ignore/jsbach/bootstrap_185101.01_jsbach.codes
-        jsbach_restart: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/ignore/jsbach/restart_bootstrap_jsbach.nc
-        jsbid: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/ignore/jsbach/bootstrap_185101.01_jsbid
-        jsbid_codes: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/ignore/jsbach/bootstrap_185101.01_jsbid.codes
-        jsbid_restart: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/ignore/jsbach/restart_bootstrap_jsbid.nc
-        land: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/ignore/jsbach/bootstrap_185101.01_land
-        land_codes: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/ignore/jsbach/bootstrap_185101.01_land.codes
-        land_restart: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/ignore/jsbach/restart_bootstrap_land.nc
-        nitro: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/ignore/jsbach/bootstrap_185101.01_nitro
-        nitro_codes: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/ignore/jsbach/bootstrap_185101.01_nitro.codes
-        nitro_restart: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/ignore/jsbach/restart_bootstrap_nitro.nc
-        surf: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/ignore/jsbach/bootstrap_185101.01_surf
-        surf_codes: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/ignore/jsbach/bootstrap_185101.01_surf.codes
-        surf_restart: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/ignore/jsbach/restart_bootstrap_surf.nc
-        veg: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/ignore/jsbach/bootstrap_185101.01_veg
-        veg_codes: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/ignore/jsbach/bootstrap_185101.01_veg.codes
-        veg_restart: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/ignore/jsbach/restart_bootstrap_veg.nc
-        yasso: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/ignore/jsbach/bootstrap_185101.01_yasso
-        yasso_codes: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/ignore/jsbach/bootstrap_185101.01_yasso.codes
-        yasso_restart: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/ignore/jsbach/restart_bootstrap_yasso.nc
+        jsbach: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/jsbach/bootstrap_185101.01_jsbach
+        jsbach_codes: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/jsbach/bootstrap_185101.01_jsbach.codes
+        jsbach_restart: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/jsbach/restart_bootstrap_jsbach.nc
+        jsbid: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/jsbach/bootstrap_185101.01_jsbid
+        jsbid_codes: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/jsbach/bootstrap_185101.01_jsbid.codes
+        jsbid_restart: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/jsbach/restart_bootstrap_jsbid.nc
+        land: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/jsbach/bootstrap_185101.01_land
+        land_codes: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/jsbach/bootstrap_185101.01_land.codes
+        land_restart: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/jsbach/restart_bootstrap_land.nc
+        nitro: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/jsbach/bootstrap_185101.01_nitro
+        nitro_codes: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/jsbach/bootstrap_185101.01_nitro.codes
+        nitro_restart: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/jsbach/restart_bootstrap_nitro.nc
+        surf: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/jsbach/bootstrap_185101.01_surf
+        surf_codes: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/jsbach/bootstrap_185101.01_surf.codes
+        surf_restart: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/jsbach/restart_bootstrap_surf.nc
+        veg: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/jsbach/bootstrap_185101.01_veg
+        veg_codes: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/jsbach/bootstrap_185101.01_veg.codes
+        veg_restart: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/jsbach/restart_bootstrap_veg.nc
+        yasso: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/jsbach/bootstrap_185101.01_yasso
+        yasso_codes: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/jsbach/bootstrap_185101.01_yasso.codes
+        yasso_restart: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/jsbach/restart_bootstrap_yasso.nc
     ignore_sources:
-        jsbach: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_jsbach
-        jsbach_codes: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_jsbach.codes
-        jsbach_restart: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_jsbach.nc
-        jsbid: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_jsbid
-        jsbid_codes: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_jsbid.codes
-        jsbid_restart: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_jsbid.nc
-        land: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_land
-        land_codes: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_land.codes
-        land_restart: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_land.nc
-        nitro: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_nitro
-        nitro_codes: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_nitro.codes
-        nitro_restart: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_nitro.nc
-        surf: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_surf
-        surf_codes: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_surf.codes
-        surf_restart: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_surf.nc
-        veg: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_veg
-        veg_codes: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_veg.codes
-        veg_restart: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_veg.nc
-        yasso: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_yasso
-        yasso_codes: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_yasso.codes
-        yasso_restart: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_yasso.nc
+        jsbach: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_jsbach
+        jsbach_codes: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_jsbach.codes
+        jsbach_restart: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_jsbach.nc
+        jsbid: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_jsbid
+        jsbid_codes: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_jsbid.codes
+        jsbid_restart: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_jsbid.nc
+        land: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_land
+        land_codes: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_land.codes
+        land_restart: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_land.nc
+        nitro: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_nitro
+        nitro_codes: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_nitro.codes
+        nitro_restart: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_nitro.nc
+        surf: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_surf
+        surf_codes: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_surf.codes
+        surf_restart: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_surf.nc
+        veg: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_veg
+        veg_codes: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_veg.codes
+        veg_restart: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_veg.nc
+        yasso: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_yasso
+        yasso_codes: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_yasso.codes
+        yasso_restart: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_yasso.nc
     ignore_targets:
-        jsbach: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/ignore/jsbach/bootstrap_185101.01_jsbach
-        jsbach_codes: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/ignore/jsbach/bootstrap_185101.01_jsbach.codes
-        jsbach_restart: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/ignore/jsbach/restart_bootstrap_jsbach.nc
-        jsbid: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/ignore/jsbach/bootstrap_185101.01_jsbid
-        jsbid_codes: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/ignore/jsbach/bootstrap_185101.01_jsbid.codes
-        jsbid_restart: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/ignore/jsbach/restart_bootstrap_jsbid.nc
-        land: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/ignore/jsbach/bootstrap_185101.01_land
-        land_codes: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/ignore/jsbach/bootstrap_185101.01_land.codes
-        land_restart: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/ignore/jsbach/restart_bootstrap_land.nc
-        nitro: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/ignore/jsbach/bootstrap_185101.01_nitro
-        nitro_codes: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/ignore/jsbach/bootstrap_185101.01_nitro.codes
-        nitro_restart: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/ignore/jsbach/restart_bootstrap_nitro.nc
-        surf: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/ignore/jsbach/bootstrap_185101.01_surf
-        surf_codes: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/ignore/jsbach/bootstrap_185101.01_surf.codes
-        surf_restart: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/ignore/jsbach/restart_bootstrap_surf.nc
-        veg: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/ignore/jsbach/bootstrap_185101.01_veg
-        veg_codes: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/ignore/jsbach/bootstrap_185101.01_veg.codes
-        veg_restart: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/ignore/jsbach/restart_bootstrap_veg.nc
-        yasso: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/ignore/jsbach/bootstrap_185101.01_yasso
-        yasso_codes: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/ignore/jsbach/bootstrap_185101.01_yasso.codes
-        yasso_restart: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/ignore/jsbach/restart_bootstrap_yasso.nc
-    ini_parent_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/restart/echam//../jsbach/
+        jsbach: <TEST_DIR>run/awiesm/bootstrap/ignore/jsbach/bootstrap_185101.01_jsbach
+        jsbach_codes: <TEST_DIR>run/awiesm/bootstrap/ignore/jsbach/bootstrap_185101.01_jsbach.codes
+        jsbach_restart: <TEST_DIR>run/awiesm/bootstrap/ignore/jsbach/restart_bootstrap_jsbach.nc
+        jsbid: <TEST_DIR>run/awiesm/bootstrap/ignore/jsbach/bootstrap_185101.01_jsbid
+        jsbid_codes: <TEST_DIR>run/awiesm/bootstrap/ignore/jsbach/bootstrap_185101.01_jsbid.codes
+        jsbid_restart: <TEST_DIR>run/awiesm/bootstrap/ignore/jsbach/restart_bootstrap_jsbid.nc
+        land: <TEST_DIR>run/awiesm/bootstrap/ignore/jsbach/bootstrap_185101.01_land
+        land_codes: <TEST_DIR>run/awiesm/bootstrap/ignore/jsbach/bootstrap_185101.01_land.codes
+        land_restart: <TEST_DIR>run/awiesm/bootstrap/ignore/jsbach/restart_bootstrap_land.nc
+        nitro: <TEST_DIR>run/awiesm/bootstrap/ignore/jsbach/bootstrap_185101.01_nitro
+        nitro_codes: <TEST_DIR>run/awiesm/bootstrap/ignore/jsbach/bootstrap_185101.01_nitro.codes
+        nitro_restart: <TEST_DIR>run/awiesm/bootstrap/ignore/jsbach/restart_bootstrap_nitro.nc
+        surf: <TEST_DIR>run/awiesm/bootstrap/ignore/jsbach/bootstrap_185101.01_surf
+        surf_codes: <TEST_DIR>run/awiesm/bootstrap/ignore/jsbach/bootstrap_185101.01_surf.codes
+        surf_restart: <TEST_DIR>run/awiesm/bootstrap/ignore/jsbach/restart_bootstrap_surf.nc
+        veg: <TEST_DIR>run/awiesm/bootstrap/ignore/jsbach/bootstrap_185101.01_veg
+        veg_codes: <TEST_DIR>run/awiesm/bootstrap/ignore/jsbach/bootstrap_185101.01_veg.codes
+        veg_restart: <TEST_DIR>run/awiesm/bootstrap/ignore/jsbach/restart_bootstrap_veg.nc
+        yasso: <TEST_DIR>run/awiesm/bootstrap/ignore/jsbach/bootstrap_185101.01_yasso
+        yasso_codes: <TEST_DIR>run/awiesm/bootstrap/ignore/jsbach/bootstrap_185101.01_yasso.codes
+        yasso_restart: <TEST_DIR>run/awiesm/bootstrap/ignore/jsbach/restart_bootstrap_yasso.nc
+    ini_parent_dir: <TEST_DIR>/run/awiesm//bootstrap/restart/echam//../jsbach/
     ini_parent_exp_id: bootstrap
-    ini_restart_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/restart/echam//../jsbach/
+    ini_restart_dir: <TEST_DIR>/run/awiesm//bootstrap/restart/echam//../jsbach/
     input_dir: /pool/data/JSBACH/input/r0010
     input_intermediate:
-        jsbach: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/input/jsbach/jsbach.nc
-        lctlib: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/input/jsbach/lctlib.def
+        jsbach: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/input/jsbach/jsbach.nc
+        lctlib: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/input/jsbach/lctlib.def
     input_sources:
         jsbach: /work/ollie/mandresm/testing_pool/nonstandard_forcings/bootstrap_files/jsbach_T63CORE2_11tiles_5layers_1850_dynveg.nc
-        lctlib: /work/<ACCOUNT>/a270152/testing//comp/awiesm/awiesm-2.1/echam-6.3.05p2/lctlib_nlct21.def
+        lctlib: <TEST_DIR>/comp/awiesm/awiesm-2.1/echam-6.3.05p2/lctlib_nlct21.def
     input_targets:
-        jsbach: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/work/jsbach.nc
-        lctlib: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/work/lctlib.def
+        jsbach: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/work/jsbach.nc
+        lctlib: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/work/lctlib.def
     jsbachnc_file_ending: _no-dynveg
     last_parent_date: '1849-12-31T23:45:00'
     leapyear: true
@@ -2475,7 +2516,7 @@ jsbach:
         unsure, please contact redmine....'
     lresume: false
     model: jsbach
-    model_dir: /work/<ACCOUNT>/a270152/testing//comp/awiesm/awiesm-2.1/echam-6.3.05p2
+    model_dir: <TEST_DIR>/comp/awiesm/awiesm-2.1/echam-6.3.05p2
     namelist_changes:
         namelist.jsbach:
             hydrology_ctl: {}
@@ -2508,35 +2549,35 @@ jsbach:
     outdata_targets: {}
     parent_date: '1849-12-31T23:52:30'
     parent_expid: bootstrap
-    parent_restart_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/restart/jsbach/
+    parent_restart_dir: <TEST_DIR>/run/awiesm//bootstrap/restart/jsbach/
     pool_dir: /pool/data/JSBACH
     prev_date: '1849-12-31T23:52:30'
     repository: https://gitlab.dkrz.de/modular_esm/echam6
     resolution: T63
     restart_out_intermediate:
-        jsbach: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/restart/jsbach/restart_bootstrap_jsbach_18501231.nc
-        jsbid: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/restart/jsbach/restart_bootstrap_jsbid_18501231.nc
-        land: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/restart/jsbach/restart_bootstrap_land_18501231.nc
-        nitro: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/restart/jsbach/restart_bootstrap_nitro_18501231.nc
-        surf: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/restart/jsbach/restart_bootstrap_surf_18501231.nc
-        veg: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/restart/jsbach/restart_bootstrap_veg_18501231.nc
-        yasso: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/restart/jsbach/restart_bootstrap_yasso_18501231.nc
+        jsbach: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/restart/jsbach/restart_bootstrap_jsbach_18501231.nc
+        jsbid: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/restart/jsbach/restart_bootstrap_jsbid_18501231.nc
+        land: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/restart/jsbach/restart_bootstrap_land_18501231.nc
+        nitro: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/restart/jsbach/restart_bootstrap_nitro_18501231.nc
+        surf: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/restart/jsbach/restart_bootstrap_surf_18501231.nc
+        veg: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/restart/jsbach/restart_bootstrap_veg_18501231.nc
+        yasso: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/restart/jsbach/restart_bootstrap_yasso_18501231.nc
     restart_out_sources:
-        jsbach: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_18501231235230_jsbach.nc
-        jsbid: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_18501231235230_jsbid.nc
-        land: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_18501231235230_land.nc
-        nitro: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_18501231235230_nitro.nc
-        surf: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_18501231235230_surf.nc
-        veg: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_18501231235230_veg.nc
-        yasso: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_18501231235230_yasso.nc
+        jsbach: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_18501231235230_jsbach.nc
+        jsbid: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_18501231235230_jsbid.nc
+        land: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_18501231235230_land.nc
+        nitro: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_18501231235230_nitro.nc
+        surf: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_18501231235230_surf.nc
+        veg: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_18501231235230_veg.nc
+        yasso: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_18501231235230_yasso.nc
     restart_out_targets:
-        jsbach: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/restart/jsbach/restart_bootstrap_jsbach_18501231.nc
-        jsbid: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/restart/jsbach/restart_bootstrap_jsbid_18501231.nc
-        land: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/restart/jsbach/restart_bootstrap_land_18501231.nc
-        nitro: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/restart/jsbach/restart_bootstrap_nitro_18501231.nc
-        surf: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/restart/jsbach/restart_bootstrap_surf_18501231.nc
-        veg: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/restart/jsbach/restart_bootstrap_veg_18501231.nc
-        yasso: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/restart/jsbach/restart_bootstrap_yasso_18501231.nc
+        jsbach: <TEST_DIR>run/awiesm/bootstrap/restart/jsbach/restart_bootstrap_jsbach_18501231.nc
+        jsbid: <TEST_DIR>run/awiesm/bootstrap/restart/jsbach/restart_bootstrap_jsbid_18501231.nc
+        land: <TEST_DIR>run/awiesm/bootstrap/restart/jsbach/restart_bootstrap_land_18501231.nc
+        nitro: <TEST_DIR>run/awiesm/bootstrap/restart/jsbach/restart_bootstrap_nitro_18501231.nc
+        surf: <TEST_DIR>run/awiesm/bootstrap/restart/jsbach/restart_bootstrap_surf_18501231.nc
+        veg: <TEST_DIR>run/awiesm/bootstrap/restart/jsbach/restart_bootstrap_veg_18501231.nc
+        yasso: <TEST_DIR>run/awiesm/bootstrap/restart/jsbach/restart_bootstrap_yasso_18501231.nc
     scenario: PI-CTRL
     scenario_type: PI-CTRL
     streams:
@@ -2547,19 +2588,19 @@ jsbach:
     - nitro
     - veg
     - land
-    thisrun_analysis_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/analysis/jsbach/
-    thisrun_bin_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/bin/jsbach/
-    thisrun_config_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/config/jsbach/
-    thisrun_couple_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/couple/jsbach/
-    thisrun_forcing_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/forcing/jsbach/
-    thisrun_ignore_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/ignore/jsbach/
-    thisrun_input_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/input/jsbach/
-    thisrun_log_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/log/jsbach/
-    thisrun_mon_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/mon/jsbach/
-    thisrun_outdata_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/outdata/jsbach/
-    thisrun_restart_in_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/restart/jsbach/
-    thisrun_restart_out_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/restart/jsbach/
-    thisrun_viz_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/viz/jsbach/
+    thisrun_analysis_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/analysis/jsbach/
+    thisrun_bin_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/bin/jsbach/
+    thisrun_config_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/config/jsbach/
+    thisrun_couple_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/couple/jsbach/
+    thisrun_forcing_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/forcing/jsbach/
+    thisrun_ignore_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/ignore/jsbach/
+    thisrun_input_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/input/jsbach/
+    thisrun_log_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/log/jsbach/
+    thisrun_mon_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/mon/jsbach/
+    thisrun_outdata_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/outdata/jsbach/
+    thisrun_restart_in_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/restart/jsbach/
+    thisrun_restart_out_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/restart/jsbach/
+    thisrun_viz_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/viz/jsbach/
     time_step: 450
     version: 3.2
 oasis3mct:
@@ -2623,20 +2664,21 @@ oasis3mct:
     - 4.0-oifsdeck
     - 4.0-awicm-frontiers
     - 4.0-awicm-3.0
-    branch: '2.8'
-    cf_name_dir: /work/<ACCOUNT>/a270152/testing//comp/awiesm/awiesm-2.1/oasis
+    - 4.0-awicm-3.1
+    branch: v2.8
+    cf_name_dir: <TEST_DIR>/comp/awiesm/awiesm-2.1/oasis
     clean_command: rm -rf build CMakeCache.txt include lib/libpsmile.a lib/libscrip.a lib/libmct.a lib/libmpeu.a
     comp_command: mkdir -p build; cd build; cmake ..;   make -j 1; mkdir -p ../include/; cp lib/psmile/libpsmile.a lib/psmile/mct/libmct.a lib/psmile/mct/mpeu/libmpeu.a lib/psmile/scrip/libscrip.a ../lib; cp lib/psmile/mod_oasis*mod ../include
     compiletime_environment_changes: *id012
     config_intermediate:
-        cf: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/config/oasis3mct/cf_name_table.txt
-        namcouple: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/config/oasis3mct/namcouple
+        cf: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/config/oasis3mct/cf_name_table.txt
+        namcouple: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/config/oasis3mct/namcouple
     config_sources:
-        cf: /work/<ACCOUNT>/a270152/testing//comp/awiesm/awiesm-2.1/oasis/cf_name_table.txt
-        namcouple: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/config/oasis3mct//namcouple
+        cf: <TEST_DIR>/comp/awiesm/awiesm-2.1/oasis/cf_name_table.txt
+        namcouple: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/config/oasis3mct//namcouple
     config_targets:
-        cf: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/work/cf_name_table.txt
-        namcouple: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/work/namcouple
+        cf: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/work/cf_name_table.txt
+        namcouple: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/work/namcouple
     coupling_directions:
         atmo->feom:
             lag: 450
@@ -2677,19 +2719,19 @@ oasis3mct:
         loaded_from_file:
         - <HOME_DIR>/esm_tools/configs//components/oasis3mct/oasis3mct.yaml
     destination: oasis
-    experiment_analysis_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/analysis/oasis3mct/
-    experiment_bin_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/bin/oasis3mct/
-    experiment_config_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/config/oasis3mct/
-    experiment_couple_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/couple/oasis3mct/
-    experiment_forcing_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/forcing/oasis3mct/
-    experiment_ignore_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/ignore/oasis3mct/
-    experiment_input_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/input/oasis3mct/
-    experiment_log_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/log/oasis3mct/
-    experiment_mon_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/mon/oasis3mct/
-    experiment_outdata_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/outdata/oasis3mct/
-    experiment_restart_in_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/restart/oasis3mct/
-    experiment_restart_out_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/restart/oasis3mct/
-    experiment_viz_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/viz/oasis3mct/
+    experiment_analysis_dir: <TEST_DIR>/run/awiesm//bootstrap/analysis/oasis3mct/
+    experiment_bin_dir: <TEST_DIR>/run/awiesm//bootstrap/bin/oasis3mct/
+    experiment_config_dir: <TEST_DIR>/run/awiesm//bootstrap/config/oasis3mct/
+    experiment_couple_dir: <TEST_DIR>/run/awiesm//bootstrap/couple/oasis3mct/
+    experiment_forcing_dir: <TEST_DIR>/run/awiesm//bootstrap/forcing/oasis3mct/
+    experiment_ignore_dir: <TEST_DIR>/run/awiesm//bootstrap/ignore/oasis3mct/
+    experiment_input_dir: <TEST_DIR>/run/awiesm//bootstrap/input/oasis3mct/
+    experiment_log_dir: <TEST_DIR>/run/awiesm//bootstrap/log/oasis3mct/
+    experiment_mon_dir: <TEST_DIR>/run/awiesm//bootstrap/mon/oasis3mct/
+    experiment_outdata_dir: <TEST_DIR>/run/awiesm//bootstrap/outdata/oasis3mct/
+    experiment_restart_in_dir: <TEST_DIR>/run/awiesm//bootstrap/restart/oasis3mct/
+    experiment_restart_out_dir: <TEST_DIR>/run/awiesm//bootstrap/restart/oasis3mct/
+    experiment_viz_dir: <TEST_DIR>/run/awiesm//bootstrap/viz/oasis3mct/
     file_movements:
         analysis:
             exp_to_run: copy
@@ -2768,15 +2810,15 @@ oasis3mct:
             work_to_run: copy
     git-repository: https://gitlab.dkrz.de/modular_esm/oasis3-mct.git
     ignore_intermediate:
-        nout: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/ignore/oasis3mct/nout.000000
+        nout: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/oasis3mct/nout.000000
     ignore_sources:
-        nout: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//nout.000000
+        nout: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//nout.000000
     ignore_sources_wild_card:
         debug.notroot: debug.notroot*
         debug.root: debug.root*
         lucia: lucia.*
     ignore_targets:
-        nout: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/ignore/oasis3mct/nout.000000
+        nout: <TEST_DIR>run/awiesm/bootstrap/ignore/oasis3mct/nout.000000
     install_libs:
     - build/lib/psmile/libpsmile.a
     - build/lib/psmile/mct/libmct.a
@@ -2785,184 +2827,184 @@ oasis3mct:
     last_parent_date: '1849-12-31T23:30:00'
     leapyear: true
     log_intermediate:
-        debug_nr1: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/log/oasis3mct/debug_notroot.01
-        debug_nr2: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/log/oasis3mct/debug_notroot.02
-        debug_r1: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/log/oasis3mct/debug.root.01
-        debug_r2: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/log/oasis3mct/debug.root.02
-        nout: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/log/oasis3mct/nout.000000
+        debug_nr1: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/log/oasis3mct/debug_notroot.01
+        debug_nr2: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/log/oasis3mct/debug_notroot.02
+        debug_r1: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/log/oasis3mct/debug.root.01
+        debug_r2: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/log/oasis3mct/debug.root.02
+        nout: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/log/oasis3mct/nout.000000
     log_sources:
-        debug_nr1: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//debug_notroot.01
-        debug_nr2: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//debug_notroot.02
-        debug_r1: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//debug.root.01
-        debug_r2: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//debug.root.02
-        nout: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//nout.000000
+        debug_nr1: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//debug_notroot.01
+        debug_nr2: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//debug_notroot.02
+        debug_r1: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//debug.root.01
+        debug_r2: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//debug.root.02
+        nout: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//nout.000000
     log_targets:
-        debug_nr1: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/log/oasis3mct/debug_notroot.01
-        debug_nr2: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/log/oasis3mct/debug_notroot.02
-        debug_r1: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/log/oasis3mct/debug.root.01
-        debug_r2: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/log/oasis3mct/debug.root.02
-        nout: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/log/oasis3mct/nout.000000
+        debug_nr1: <TEST_DIR>run/awiesm/bootstrap/log/oasis3mct/debug_notroot.01
+        debug_nr2: <TEST_DIR>run/awiesm/bootstrap/log/oasis3mct/debug_notroot.02
+        debug_r1: <TEST_DIR>run/awiesm/bootstrap/log/oasis3mct/debug.root.01
+        debug_r2: <TEST_DIR>run/awiesm/bootstrap/log/oasis3mct/debug.root.02
+        nout: <TEST_DIR>run/awiesm/bootstrap/log/oasis3mct/nout.000000
     lresume: false
     mct_version: 2.8
     model: oasis3mct
-    model_dir: /work/<ACCOUNT>/a270152/testing//comp/awiesm/awiesm-2.1/oasis
+    model_dir: <TEST_DIR>/comp/awiesm/awiesm-2.1/oasis
     namelist_objs: {}
     namelists: {}
     norestart: F
     o2a_lag: 1800
     oasis_date_stamp: ''
     outdata_intermediate:
-        evap_atm_echam6_06.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/evap_atm_echam6_06.nc
-        evap_oce_fesom_06.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/evap_oce_fesom_06.nc
-        heat_atm_echam6_08.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/heat_atm_echam6_08.nc
-        heat_ica_echam6_09.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/heat_ica_echam6_09.nc
-        heat_ico_fesom_09.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/heat_ico_fesom_09.nc
-        heat_oce_fesom_08.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/heat_oce_fesom_08.nc
-        heat_swa_echam6_10.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/heat_swa_echam6_10.nc
-        heat_swo_fesom_10.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/heat_swo_fesom_10.nc
-        hydr_atm_echam6_11.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/hydr_atm_echam6_11.nc
-        hydr_oce_fesom_11.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/hydr_oce_fesom_11.nc
-        prec_atm_echam6_04.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/prec_atm_echam6_04.nc
-        prec_oce_fesom_04.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/prec_oce_fesom_04.nc
-        sie_atmo_echam6_01.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/sie_atmo_echam6_01.nc
-        sie_feom_fesom_01.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/sie_feom_fesom_01.nc
-        sit_atmo_echam6_01.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/sit_atmo_echam6_01.nc
-        sit_feom_fesom_01.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/sit_feom_fesom_01.nc
-        snow_atm_echam6_05.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/snow_atm_echam6_05.nc
-        snow_oce_fesom_05.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/snow_oce_fesom_05.nc
-        snt_atmo_echam6_02.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/snt_atmo_echam6_02.nc
-        snt_feom_fesom_02.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/snt_feom_fesom_02.nc
-        sst_atmo_echam6_01.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/sst_atmo_echam6_01.nc
-        sst_feom_fesom_01.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/sst_feom_fesom_01.nc
-        subl_atm_echam6_07.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/subl_atm_echam6_07.nc
-        subl_oce_fesom_07.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/subl_oce_fesom_07.nc
-        taux_atm_echam6_03.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/taux_atm_echam6_03.nc
-        taux_ica_echam6_03.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/taux_ica_echam6_03.nc
-        taux_ico_fesom_03.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/taux_ico_fesom_03.nc
-        taux_oce_fesom_03.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/taux_oce_fesom_03.nc
-        tauy_atm_echam6_03.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/tauy_atm_echam6_03.nc
-        tauy_ica_echam6_03.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/tauy_ica_echam6_03.nc
-        tauy_ico_fesom_03.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/tauy_ico_fesom_03.nc
-        tauy_oce_fesom_03.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/tauy_oce_fesom_03.nc
+        evap_atm_echam6_06.nc: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/evap_atm_echam6_06.nc
+        evap_oce_fesom_06.nc: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/evap_oce_fesom_06.nc
+        heat_atm_echam6_08.nc: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/heat_atm_echam6_08.nc
+        heat_ica_echam6_09.nc: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/heat_ica_echam6_09.nc
+        heat_ico_fesom_09.nc: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/heat_ico_fesom_09.nc
+        heat_oce_fesom_08.nc: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/heat_oce_fesom_08.nc
+        heat_swa_echam6_10.nc: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/heat_swa_echam6_10.nc
+        heat_swo_fesom_10.nc: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/heat_swo_fesom_10.nc
+        hydr_atm_echam6_11.nc: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/hydr_atm_echam6_11.nc
+        hydr_oce_fesom_11.nc: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/hydr_oce_fesom_11.nc
+        prec_atm_echam6_04.nc: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/prec_atm_echam6_04.nc
+        prec_oce_fesom_04.nc: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/prec_oce_fesom_04.nc
+        sie_atmo_echam6_01.nc: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/sie_atmo_echam6_01.nc
+        sie_feom_fesom_01.nc: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/sie_feom_fesom_01.nc
+        sit_atmo_echam6_01.nc: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/sit_atmo_echam6_01.nc
+        sit_feom_fesom_01.nc: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/sit_feom_fesom_01.nc
+        snow_atm_echam6_05.nc: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/snow_atm_echam6_05.nc
+        snow_oce_fesom_05.nc: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/snow_oce_fesom_05.nc
+        snt_atmo_echam6_02.nc: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/snt_atmo_echam6_02.nc
+        snt_feom_fesom_02.nc: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/snt_feom_fesom_02.nc
+        sst_atmo_echam6_01.nc: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/sst_atmo_echam6_01.nc
+        sst_feom_fesom_01.nc: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/sst_feom_fesom_01.nc
+        subl_atm_echam6_07.nc: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/subl_atm_echam6_07.nc
+        subl_oce_fesom_07.nc: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/subl_oce_fesom_07.nc
+        taux_atm_echam6_03.nc: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/taux_atm_echam6_03.nc
+        taux_ica_echam6_03.nc: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/taux_ica_echam6_03.nc
+        taux_ico_fesom_03.nc: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/taux_ico_fesom_03.nc
+        taux_oce_fesom_03.nc: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/taux_oce_fesom_03.nc
+        tauy_atm_echam6_03.nc: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/tauy_atm_echam6_03.nc
+        tauy_ica_echam6_03.nc: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/tauy_ica_echam6_03.nc
+        tauy_ico_fesom_03.nc: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/tauy_ico_fesom_03.nc
+        tauy_oce_fesom_03.nc: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/outdata/oasis3mct/tauy_oce_fesom_03.nc
     outdata_sources:
-        evap_atm_echam6_06.nc: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//evap_atm_echam6_06.nc
-        evap_oce_fesom_06.nc: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//evap_oce_fesom_06.nc
-        heat_atm_echam6_08.nc: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//heat_atm_echam6_08.nc
-        heat_ica_echam6_09.nc: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//heat_ica_echam6_09.nc
-        heat_ico_fesom_09.nc: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//heat_ico_fesom_09.nc
-        heat_oce_fesom_08.nc: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//heat_oce_fesom_08.nc
-        heat_swa_echam6_10.nc: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//heat_swa_echam6_10.nc
-        heat_swo_fesom_10.nc: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//heat_swo_fesom_10.nc
-        hydr_atm_echam6_11.nc: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//hydr_atm_echam6_11.nc
-        hydr_oce_fesom_11.nc: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//hydr_oce_fesom_11.nc
-        prec_atm_echam6_04.nc: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//prec_atm_echam6_04.nc
-        prec_oce_fesom_04.nc: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//prec_oce_fesom_04.nc
-        sie_atmo_echam6_01.nc: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//sie_atmo_echam6_01.nc
-        sie_feom_fesom_01.nc: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//sie_feom_fesom_01.nc
-        sit_atmo_echam6_01.nc: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//sit_atmo_echam6_01.nc
-        sit_feom_fesom_01.nc: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//sit_feom_fesom_01.nc
-        snow_atm_echam6_05.nc: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//snow_atm_echam6_05.nc
-        snow_oce_fesom_05.nc: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//snow_oce_fesom_05.nc
-        snt_atmo_echam6_02.nc: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//snt_atmo_echam6_02.nc
-        snt_feom_fesom_02.nc: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//snt_feom_fesom_02.nc
-        sst_atmo_echam6_01.nc: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//sst_atmo_echam6_01.nc
-        sst_feom_fesom_01.nc: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//sst_feom_fesom_01.nc
-        subl_atm_echam6_07.nc: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//subl_atm_echam6_07.nc
-        subl_oce_fesom_07.nc: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//subl_oce_fesom_07.nc
-        taux_atm_echam6_03.nc: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//taux_atm_echam6_03.nc
-        taux_ica_echam6_03.nc: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//taux_ica_echam6_03.nc
-        taux_ico_fesom_03.nc: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//taux_ico_fesom_03.nc
-        taux_oce_fesom_03.nc: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//taux_oce_fesom_03.nc
-        tauy_atm_echam6_03.nc: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//tauy_atm_echam6_03.nc
-        tauy_ica_echam6_03.nc: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//tauy_ica_echam6_03.nc
-        tauy_ico_fesom_03.nc: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//tauy_ico_fesom_03.nc
-        tauy_oce_fesom_03.nc: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//tauy_oce_fesom_03.nc
+        evap_atm_echam6_06.nc: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//evap_atm_echam6_06.nc
+        evap_oce_fesom_06.nc: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//evap_oce_fesom_06.nc
+        heat_atm_echam6_08.nc: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//heat_atm_echam6_08.nc
+        heat_ica_echam6_09.nc: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//heat_ica_echam6_09.nc
+        heat_ico_fesom_09.nc: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//heat_ico_fesom_09.nc
+        heat_oce_fesom_08.nc: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//heat_oce_fesom_08.nc
+        heat_swa_echam6_10.nc: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//heat_swa_echam6_10.nc
+        heat_swo_fesom_10.nc: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//heat_swo_fesom_10.nc
+        hydr_atm_echam6_11.nc: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//hydr_atm_echam6_11.nc
+        hydr_oce_fesom_11.nc: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//hydr_oce_fesom_11.nc
+        prec_atm_echam6_04.nc: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//prec_atm_echam6_04.nc
+        prec_oce_fesom_04.nc: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//prec_oce_fesom_04.nc
+        sie_atmo_echam6_01.nc: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//sie_atmo_echam6_01.nc
+        sie_feom_fesom_01.nc: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//sie_feom_fesom_01.nc
+        sit_atmo_echam6_01.nc: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//sit_atmo_echam6_01.nc
+        sit_feom_fesom_01.nc: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//sit_feom_fesom_01.nc
+        snow_atm_echam6_05.nc: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//snow_atm_echam6_05.nc
+        snow_oce_fesom_05.nc: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//snow_oce_fesom_05.nc
+        snt_atmo_echam6_02.nc: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//snt_atmo_echam6_02.nc
+        snt_feom_fesom_02.nc: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//snt_feom_fesom_02.nc
+        sst_atmo_echam6_01.nc: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//sst_atmo_echam6_01.nc
+        sst_feom_fesom_01.nc: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//sst_feom_fesom_01.nc
+        subl_atm_echam6_07.nc: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//subl_atm_echam6_07.nc
+        subl_oce_fesom_07.nc: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//subl_oce_fesom_07.nc
+        taux_atm_echam6_03.nc: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//taux_atm_echam6_03.nc
+        taux_ica_echam6_03.nc: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//taux_ica_echam6_03.nc
+        taux_ico_fesom_03.nc: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//taux_ico_fesom_03.nc
+        taux_oce_fesom_03.nc: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//taux_oce_fesom_03.nc
+        tauy_atm_echam6_03.nc: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//tauy_atm_echam6_03.nc
+        tauy_ica_echam6_03.nc: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//tauy_ica_echam6_03.nc
+        tauy_ico_fesom_03.nc: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//tauy_ico_fesom_03.nc
+        tauy_oce_fesom_03.nc: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//tauy_oce_fesom_03.nc
     outdata_targets:
-        evap_atm_echam6_06.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/outdata/oasis3mct/evap_atm_echam6_06.nc
-        evap_oce_fesom_06.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/outdata/oasis3mct/evap_oce_fesom_06.nc
-        heat_atm_echam6_08.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/outdata/oasis3mct/heat_atm_echam6_08.nc
-        heat_ica_echam6_09.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/outdata/oasis3mct/heat_ica_echam6_09.nc
-        heat_ico_fesom_09.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/outdata/oasis3mct/heat_ico_fesom_09.nc
-        heat_oce_fesom_08.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/outdata/oasis3mct/heat_oce_fesom_08.nc
-        heat_swa_echam6_10.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/outdata/oasis3mct/heat_swa_echam6_10.nc
-        heat_swo_fesom_10.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/outdata/oasis3mct/heat_swo_fesom_10.nc
-        hydr_atm_echam6_11.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/outdata/oasis3mct/hydr_atm_echam6_11.nc
-        hydr_oce_fesom_11.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/outdata/oasis3mct/hydr_oce_fesom_11.nc
-        prec_atm_echam6_04.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/outdata/oasis3mct/prec_atm_echam6_04.nc
-        prec_oce_fesom_04.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/outdata/oasis3mct/prec_oce_fesom_04.nc
-        sie_atmo_echam6_01.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/outdata/oasis3mct/sie_atmo_echam6_01.nc
-        sie_feom_fesom_01.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/outdata/oasis3mct/sie_feom_fesom_01.nc
-        sit_atmo_echam6_01.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/outdata/oasis3mct/sit_atmo_echam6_01.nc
-        sit_feom_fesom_01.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/outdata/oasis3mct/sit_feom_fesom_01.nc
-        snow_atm_echam6_05.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/outdata/oasis3mct/snow_atm_echam6_05.nc
-        snow_oce_fesom_05.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/outdata/oasis3mct/snow_oce_fesom_05.nc
-        snt_atmo_echam6_02.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/outdata/oasis3mct/snt_atmo_echam6_02.nc
-        snt_feom_fesom_02.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/outdata/oasis3mct/snt_feom_fesom_02.nc
-        sst_atmo_echam6_01.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/outdata/oasis3mct/sst_atmo_echam6_01.nc
-        sst_feom_fesom_01.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/outdata/oasis3mct/sst_feom_fesom_01.nc
-        subl_atm_echam6_07.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/outdata/oasis3mct/subl_atm_echam6_07.nc
-        subl_oce_fesom_07.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/outdata/oasis3mct/subl_oce_fesom_07.nc
-        taux_atm_echam6_03.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/outdata/oasis3mct/taux_atm_echam6_03.nc
-        taux_ica_echam6_03.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/outdata/oasis3mct/taux_ica_echam6_03.nc
-        taux_ico_fesom_03.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/outdata/oasis3mct/taux_ico_fesom_03.nc
-        taux_oce_fesom_03.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/outdata/oasis3mct/taux_oce_fesom_03.nc
-        tauy_atm_echam6_03.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/outdata/oasis3mct/tauy_atm_echam6_03.nc
-        tauy_ica_echam6_03.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/outdata/oasis3mct/tauy_ica_echam6_03.nc
-        tauy_ico_fesom_03.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/outdata/oasis3mct/tauy_ico_fesom_03.nc
-        tauy_oce_fesom_03.nc: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/outdata/oasis3mct/tauy_oce_fesom_03.nc
+        evap_atm_echam6_06.nc: <TEST_DIR>run/awiesm/bootstrap/outdata/oasis3mct/evap_atm_echam6_06.nc
+        evap_oce_fesom_06.nc: <TEST_DIR>run/awiesm/bootstrap/outdata/oasis3mct/evap_oce_fesom_06.nc
+        heat_atm_echam6_08.nc: <TEST_DIR>run/awiesm/bootstrap/outdata/oasis3mct/heat_atm_echam6_08.nc
+        heat_ica_echam6_09.nc: <TEST_DIR>run/awiesm/bootstrap/outdata/oasis3mct/heat_ica_echam6_09.nc
+        heat_ico_fesom_09.nc: <TEST_DIR>run/awiesm/bootstrap/outdata/oasis3mct/heat_ico_fesom_09.nc
+        heat_oce_fesom_08.nc: <TEST_DIR>run/awiesm/bootstrap/outdata/oasis3mct/heat_oce_fesom_08.nc
+        heat_swa_echam6_10.nc: <TEST_DIR>run/awiesm/bootstrap/outdata/oasis3mct/heat_swa_echam6_10.nc
+        heat_swo_fesom_10.nc: <TEST_DIR>run/awiesm/bootstrap/outdata/oasis3mct/heat_swo_fesom_10.nc
+        hydr_atm_echam6_11.nc: <TEST_DIR>run/awiesm/bootstrap/outdata/oasis3mct/hydr_atm_echam6_11.nc
+        hydr_oce_fesom_11.nc: <TEST_DIR>run/awiesm/bootstrap/outdata/oasis3mct/hydr_oce_fesom_11.nc
+        prec_atm_echam6_04.nc: <TEST_DIR>run/awiesm/bootstrap/outdata/oasis3mct/prec_atm_echam6_04.nc
+        prec_oce_fesom_04.nc: <TEST_DIR>run/awiesm/bootstrap/outdata/oasis3mct/prec_oce_fesom_04.nc
+        sie_atmo_echam6_01.nc: <TEST_DIR>run/awiesm/bootstrap/outdata/oasis3mct/sie_atmo_echam6_01.nc
+        sie_feom_fesom_01.nc: <TEST_DIR>run/awiesm/bootstrap/outdata/oasis3mct/sie_feom_fesom_01.nc
+        sit_atmo_echam6_01.nc: <TEST_DIR>run/awiesm/bootstrap/outdata/oasis3mct/sit_atmo_echam6_01.nc
+        sit_feom_fesom_01.nc: <TEST_DIR>run/awiesm/bootstrap/outdata/oasis3mct/sit_feom_fesom_01.nc
+        snow_atm_echam6_05.nc: <TEST_DIR>run/awiesm/bootstrap/outdata/oasis3mct/snow_atm_echam6_05.nc
+        snow_oce_fesom_05.nc: <TEST_DIR>run/awiesm/bootstrap/outdata/oasis3mct/snow_oce_fesom_05.nc
+        snt_atmo_echam6_02.nc: <TEST_DIR>run/awiesm/bootstrap/outdata/oasis3mct/snt_atmo_echam6_02.nc
+        snt_feom_fesom_02.nc: <TEST_DIR>run/awiesm/bootstrap/outdata/oasis3mct/snt_feom_fesom_02.nc
+        sst_atmo_echam6_01.nc: <TEST_DIR>run/awiesm/bootstrap/outdata/oasis3mct/sst_atmo_echam6_01.nc
+        sst_feom_fesom_01.nc: <TEST_DIR>run/awiesm/bootstrap/outdata/oasis3mct/sst_feom_fesom_01.nc
+        subl_atm_echam6_07.nc: <TEST_DIR>run/awiesm/bootstrap/outdata/oasis3mct/subl_atm_echam6_07.nc
+        subl_oce_fesom_07.nc: <TEST_DIR>run/awiesm/bootstrap/outdata/oasis3mct/subl_oce_fesom_07.nc
+        taux_atm_echam6_03.nc: <TEST_DIR>run/awiesm/bootstrap/outdata/oasis3mct/taux_atm_echam6_03.nc
+        taux_ica_echam6_03.nc: <TEST_DIR>run/awiesm/bootstrap/outdata/oasis3mct/taux_ica_echam6_03.nc
+        taux_ico_fesom_03.nc: <TEST_DIR>run/awiesm/bootstrap/outdata/oasis3mct/taux_ico_fesom_03.nc
+        taux_oce_fesom_03.nc: <TEST_DIR>run/awiesm/bootstrap/outdata/oasis3mct/taux_oce_fesom_03.nc
+        tauy_atm_echam6_03.nc: <TEST_DIR>run/awiesm/bootstrap/outdata/oasis3mct/tauy_atm_echam6_03.nc
+        tauy_ica_echam6_03.nc: <TEST_DIR>run/awiesm/bootstrap/outdata/oasis3mct/tauy_ica_echam6_03.nc
+        tauy_ico_fesom_03.nc: <TEST_DIR>run/awiesm/bootstrap/outdata/oasis3mct/tauy_ico_fesom_03.nc
+        tauy_oce_fesom_03.nc: <TEST_DIR>run/awiesm/bootstrap/outdata/oasis3mct/tauy_oce_fesom_03.nc
     parent_date: '1849-12-31T23:45:00'
     parent_expid: bootstrap
-    parent_restart_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/restart/oasis3mct/
+    parent_restart_dir: <TEST_DIR>/run/awiesm//bootstrap/restart/oasis3mct/
     prev_date: '1849-12-31T23:45:00'
     process_ordering:
     - fesom
     - echam
     restart_out_intermediate:
-        a2o_flux: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/restart/oasis3mct/a2o_flux
-        a2o_flux_recv: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/restart/oasis3mct/a2o_flux_recv
-        areas: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/restart/oasis3mct/areas.nc
-        grids: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/restart/oasis3mct/grids.nc
-        masks: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/restart/oasis3mct/masks.nc
-        o2a_flux: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/restart/oasis3mct/o2a_flux
-        o2a_flux_recv: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/restart/oasis3mct/o2a_flux_recv
-        rmp_a2f_B: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/restart/oasis3mct/rmp_atmo_to_feom_BICUBIC.nc
-        rmp_a2f_D: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/restart/oasis3mct/rmp_atmo_to_feom_DISTWGT.nc
-        rmp_f2a_D: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/run_18500101-18501231/restart/oasis3mct/rmp_feom_to_atmo_DISTWGT.nc
+        a2o_flux: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/restart/oasis3mct/a2o_flux
+        a2o_flux_recv: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/restart/oasis3mct/a2o_flux_recv
+        areas: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/restart/oasis3mct/areas.nc
+        grids: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/restart/oasis3mct/grids.nc
+        masks: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/restart/oasis3mct/masks.nc
+        o2a_flux: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/restart/oasis3mct/o2a_flux
+        o2a_flux_recv: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/restart/oasis3mct/o2a_flux_recv
+        rmp_a2f_B: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/restart/oasis3mct/rmp_atmo_to_feom_BICUBIC.nc
+        rmp_a2f_D: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/restart/oasis3mct/rmp_atmo_to_feom_DISTWGT.nc
+        rmp_f2a_D: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/restart/oasis3mct/rmp_feom_to_atmo_DISTWGT.nc
     restart_out_sources:
-        a2o_flux: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//a2o_flux
-        a2o_flux_recv: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//a2o_flux_recv
-        areas: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//areas.nc
-        grids: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//grids.nc
-        masks: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//masks.nc
-        o2a_flux: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//o2a_flux
-        o2a_flux_recv: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//o2a_flux_recv
-        rmp_a2f_B: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//rmp_atmo_to_feom_BICUBIC.nc
-        rmp_a2f_D: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//rmp_atmo_to_feom_DISTWGT.nc
-        rmp_f2a_D: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/work//rmp_feom_to_atmo_DISTWGT.nc
+        a2o_flux: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//a2o_flux
+        a2o_flux_recv: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//a2o_flux_recv
+        areas: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//areas.nc
+        grids: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//grids.nc
+        masks: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//masks.nc
+        o2a_flux: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//o2a_flux
+        o2a_flux_recv: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//o2a_flux_recv
+        rmp_a2f_B: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//rmp_atmo_to_feom_BICUBIC.nc
+        rmp_a2f_D: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//rmp_atmo_to_feom_DISTWGT.nc
+        rmp_f2a_D: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//rmp_feom_to_atmo_DISTWGT.nc
     restart_out_targets:
-        a2o_flux: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/restart/oasis3mct/a2o_flux
-        a2o_flux_recv: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/restart/oasis3mct/a2o_flux_recv
-        areas: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/restart/oasis3mct/areas.nc
-        grids: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/restart/oasis3mct/grids.nc
-        masks: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/restart/oasis3mct/masks.nc
-        o2a_flux: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/restart/oasis3mct/o2a_flux
-        o2a_flux_recv: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/restart/oasis3mct/o2a_flux_recv
-        rmp_a2f_B: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/restart/oasis3mct/rmp_atmo_to_feom_BICUBIC.nc
-        rmp_a2f_D: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/restart/oasis3mct/rmp_atmo_to_feom_DISTWGT.nc
-        rmp_f2a_D: /work/<ACCOUNT>/a270152/testing/run/awiesm/bootstrap/restart/oasis3mct/rmp_feom_to_atmo_DISTWGT.nc
-    thisrun_analysis_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/analysis/oasis3mct/
-    thisrun_bin_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/bin/oasis3mct/
-    thisrun_config_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/config/oasis3mct/
-    thisrun_couple_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/couple/oasis3mct/
-    thisrun_forcing_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/forcing/oasis3mct/
-    thisrun_ignore_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/ignore/oasis3mct/
-    thisrun_input_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/input/oasis3mct/
-    thisrun_log_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/log/oasis3mct/
-    thisrun_mon_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/mon/oasis3mct/
-    thisrun_outdata_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/outdata/oasis3mct/
-    thisrun_restart_in_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/restart/oasis3mct/
-    thisrun_restart_out_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/restart/oasis3mct/
-    thisrun_viz_dir: /work/<ACCOUNT>/a270152/testing//run/awiesm//bootstrap/run_18500101-18501231/viz/oasis3mct/
+        a2o_flux: <TEST_DIR>run/awiesm/bootstrap/restart/oasis3mct/a2o_flux
+        a2o_flux_recv: <TEST_DIR>run/awiesm/bootstrap/restart/oasis3mct/a2o_flux_recv
+        areas: <TEST_DIR>run/awiesm/bootstrap/restart/oasis3mct/areas.nc
+        grids: <TEST_DIR>run/awiesm/bootstrap/restart/oasis3mct/grids.nc
+        masks: <TEST_DIR>run/awiesm/bootstrap/restart/oasis3mct/masks.nc
+        o2a_flux: <TEST_DIR>run/awiesm/bootstrap/restart/oasis3mct/o2a_flux
+        o2a_flux_recv: <TEST_DIR>run/awiesm/bootstrap/restart/oasis3mct/o2a_flux_recv
+        rmp_a2f_B: <TEST_DIR>run/awiesm/bootstrap/restart/oasis3mct/rmp_atmo_to_feom_BICUBIC.nc
+        rmp_a2f_D: <TEST_DIR>run/awiesm/bootstrap/restart/oasis3mct/rmp_atmo_to_feom_DISTWGT.nc
+        rmp_f2a_D: <TEST_DIR>run/awiesm/bootstrap/restart/oasis3mct/rmp_feom_to_atmo_DISTWGT.nc
+    thisrun_analysis_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/analysis/oasis3mct/
+    thisrun_bin_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/bin/oasis3mct/
+    thisrun_config_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/config/oasis3mct/
+    thisrun_couple_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/couple/oasis3mct/
+    thisrun_forcing_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/forcing/oasis3mct/
+    thisrun_ignore_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/ignore/oasis3mct/
+    thisrun_input_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/input/oasis3mct/
+    thisrun_log_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/log/oasis3mct/
+    thisrun_mon_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/mon/oasis3mct/
+    thisrun_outdata_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/outdata/oasis3mct/
+    thisrun_restart_in_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/restart/oasis3mct/
+    thisrun_restart_out_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/restart/oasis3mct/
+    thisrun_viz_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/viz/oasis3mct/
     time_step: 900
     use_lucia: false
     version: 2.8

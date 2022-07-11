@@ -1,0 +1,30 @@
+!-----------------------------------------------------------------------
+&namicerun     !   Share parameters for dynamics/advection/thermo
+!-----------------------------------------------------------------------
+   cn_icerst_in  = "%{cn_icerst_in}"   !  suffix of ocean restart name (input)
+   cn_icerst_indir = "%{cn_icerst_indir}"       !  directory from which to read input ocean restarts
+   cn_icerst_out = "%{cn_icerst_out}"   !  suffix of ocean restart name (output)
+   cn_icerst_outdir = "%{cn_icerst_outdir}"      !  directory in which to write output ocean restarts
+/
+!-----------------------------------------------------------------------
+&namiceini     !   ice initialisation
+!-----------------------------------------------------------------------
+   ln_limini   =  %{ln_limini}   !  read the initial state in 'Ice_initialization.nc' (T) or not (F)
+   hninn       =  0.1      !  initial snow thickness in the north
+   hginn       =  2.0      !  initial ice  thickness in the north
+/
+!-----------------------------------------------------------------------
+&namicedyn     !   ice dynamic
+!-----------------------------------------------------------------------
+   pstar       =   1.5e+04 !  1st bulk-rheology parameter
+   rn_creepl   =   2.0e-08 !  creep limit
+   nn_nevp     =   360     !  number of EVP subcycling iterations
+   telast      =   3600    !  timescale for EVP elastic waves
+   testlimrhg  =  10	   !cfk number of iterations in limrhg for convergence test
+/
+!-----------------------------------------------------------------------
+&namicethd     !   ice thermodynamic
+!-----------------------------------------------------------------------
+   hiccrit     = 0.3 , 0.6 !  ice thickness for lateral accretion in the Northern (Southern) Hemisphere
+   parsub      = 0.0       !  switch for snow sublimation or not
+/

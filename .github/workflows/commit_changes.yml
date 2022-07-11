@@ -1,0 +1,19 @@
+name: commit esm_tests_info changes
+
+on:
+  workflow_call:
+  
+jobs:
+  commit:
+    steps:
+    - name: update esm_tests info
+      run: |
+        cd src/esm_tests/resources;
+        echo "GITHUB ACTOR: ${GITHUB_ACTOR}";
+        git config --global user.name "${GITHUB_ACTOR}";
+        git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com";
+        rm -rf automatic_testing; # cleanup the resources directory from tests
+        git add .;
+        git commit -m "approved changes from GitHub actions for ${{ inputs.computer }}";
+        git status;
+        git push;

@@ -38,7 +38,6 @@ export FC=ftn
 export CC=cc
 export CXX=CC
 export CRAYPE_LINK_TYPE=dynamic
-export OASIS_FFLAGS=-emf
 export OIFS_GRIB_API_INCLUDE="-I$ECCODESROOT/include"
 export OIFS_GRIB_API_LIB="-L$ECCODESROOT/lib -leccodes_f90 -leccodes"
 export OIFS_GRIB_INCLUDE="$OIFS_GRIB_API_INCLUDE"
@@ -64,9 +63,10 @@ export OIFS_CC=cc
 export OIFS_CFLAGS="-emf -O2 -hcpu=x86-skylake"
 export OIFS_CCDEFS="LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS"
 export OIFS_XIOS_LIB_NAME=cray-c++-rts
+export OASIS_FFLAGS=-emf
 export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 
 
 cd oifs-43r3
-export OIFS_TOPLEVEL_DIR=/mnt/lustre/scratch/awi/mandresm/testing/comp/awicm3/awicm3-frontiers/oifs-43r3; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.cfg ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
+export OIFS_TOPLEVEL_DIR=<TEST_DIR>comp/awicm3/awicm3-frontiers/oifs-43r3; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.cfg ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
 cd ..

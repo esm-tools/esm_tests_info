@@ -42,8 +42,8 @@ export NETCDFFROOT=/sw/spack-levante/netcdf-fortran-4.5.3-k6xq5g
 export NETCDFROOT=/sw/spack-levante/netcdf-c-4.8.1-2k3cmu
 export NETCDF_Fortran_INCLUDE_DIRECTORIES=$NETCDFFROOT/include
 export NETCDF_C_INCLUDE_DIRECTORIES=$NETCDFROOT/include
-export NETCDF_CXX_INCLUDE_DIRECTORIES=/work/<ACCOUNT>/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0/include
-export NETCDF_CXX_LIBRARIES=/work/<ACCOUNT>/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0/lib
+export NETCDF_CXX_INCLUDE_DIRECTORIES=/work/ab0995/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0/include
+export NETCDF_CXX_LIBRARIES=/work/ab0995/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0/lib
 export PSMPIFLAGS="-lrt -lm -ldl"
 export LAPACK_LIB='-mkl=sequential'
 export ZLIBROOT=/usr
@@ -53,7 +53,7 @@ export LD_LIBRARY_PATH=$HDF5ROOT/lib:$NETCDFROOT/lib:$NETCDFFROOT/lib:$LD_LIBRAR
 export LD_LIBRARY_PATH=/sw/spack-levante/intel-oneapi-mkl-2022.0.1-ttdktf/mkl/2022.0.1/lib/intel64:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/sw/spack-levante/intel-oneapi-mpi-2021.5.0-mrcss7/mpi/2021.5.0/libfabric/lib:$LD_LIBRARY_PATH
 export takenfrom=fesom1
-export NETCDF_DIR=/work/<ACCOUNT>/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0
+export NETCDF_DIR=/work/ab0995/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0
 export LD_LIBRARY_PATH=$NETCDF_DIR/lib/:$LD_LIBRARY_PATH
 export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 

@@ -37,5 +37,5 @@ export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 
 
 cd xios
-export XIOS_TOPLEVEL=/scratch/usr/hbkmandr/testing/comp/focioifs/focioifs-2.0/xios; ./make_xios --arch ESMTOOLS_generic_oasis_intel --netcdf_lib netcdf4_par --full --use_oasis oasis3_mct --job 24; cp bin/xios_server.exe bin/xios.x
+export XIOS_TOPLEVEL=<TEST_DIR>comp/focioifs/focioifs-2.0/xios; ./make_xios --arch ESMTOOLS_generic_oasis_intel --netcdf_lib netcdf4_par --full --use_oasis oasis3_mct --job 24; cp bin/xios_server.exe bin/xios.x
 cd ..

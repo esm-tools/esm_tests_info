@@ -268,6 +268,10 @@ fesom:
             grid: feom
         tauy_oce:
             grid: feom
+        u_feom:
+            grid: feom
+        v_feom:
+            grid: feom
     coupling_freq_in_steps: 3
     create_config:
         fesom.clock:
@@ -561,23 +565,26 @@ general:
     - ignore
     available_versions:
     - v3.0
+    - v3.1
     - master
     - frontiers
     - frontiers-xios
     base_dir: <TEST_DIR>/run/awicm3/
     batch: slurm
     calendar: esm_calendar object with allowed leap years
-    check: false
+    check: true
     chunk_number: 1
     command_line_config:
-        check: false
+        check: true
         current_date: null
         expid: awicm3-frontiers-TCO159L91-CORE2_initial
+        ignore_config_warnings: false
         inspect: null
         jobtype: prepcompute
+        last_jobtype: prepcompute
         launcher_pid: -666
         no_motd: true
-        original_command: awicm3-frontiers-TCO159L91-CORE2_initial.yaml -e awicm3-frontiers-TCO159L91-CORE2_initial --open-run --no-motd
+        original_command: awicm3-frontiers-TCO159L91-CORE2_initial.yaml -e awicm3-frontiers-TCO159L91-CORE2_initial --open-run -c --no-motd --last-jobtype prepcompute
         profile: false
         run_number: null
         runscript_abspath: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/scripts/awicm3-frontiers-TCO159L91-CORE2_initial.yaml
@@ -700,7 +707,7 @@ general:
                 - OIFS_FCDEFS="BLAS LITTLE LINUX INTEGER_IS_INT"
                 - OIFS_LFLAGS="$OIFS_MPI_LIB -qopenmp"
                 - OIFS_CC=$CC
-                - OIFS_CFLAGS="-fp-model precise -O1 -xCORE_AVX2 -g -traceback -qopt-report=0 -fpe0 -qopenmp"
+                - OIFS_CFLAGS="-fp-model precise -O3 -xCORE_AVX2 -g -traceback -qopt-report=0 -fpe0 -qopenmp"
                 - OIFS_CCDEFS="LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS _OPENMP"
                 - MAIN_LDFLAGS=-openmp
             levante:
@@ -820,7 +827,7 @@ general:
                     HDF5ROOT: $IO_LIB_ROOT
                     HDF5_C_INCLUDE_DIRECTORIES: $HDF5_ROOT/include
                     HDF5_ROOT: $HDF5ROOT
-                    IO_LIB_ROOT: /work/ollie/jstreffi/software/HPC_libraries/intel2018.0.5_intelmpi_18.0.4_20210804
+                    IO_LIB_ROOT: /work/ollie/jstreffi/software/HPC_libraries/intel2018.0.5_intelmpi_2021.3.0_20220623
                     LAPACK_LIB_DEFAULT: '"-L$MKLROOT/lib/intel64 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential"'
                     LD_LIBRARY_PATH: $IO_LIB_ROOT/lib:$LD_LIBRARY_PATH
                     NETCDFFROOT: $IO_LIB_ROOT
@@ -850,7 +857,8 @@ general:
                     OIFS_OASIS_LIB: '"-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu -lpsmile -lmct -lmpeu -lscrip"'
                     SZIPROOT: $IO_LIB_ROOT
                 add_module_actions:
-                - unload gribapi
+                - purge
+                - load intel.mpi/2021.3.0 intel.compiler cmake
     compute_time: 01:00:00
     coupled_setup: true
     coupler: oasis3mct
@@ -999,6 +1007,7 @@ general:
             work_to_run: copy
     final_date: '2000-01-04T00:00:00'
     first_run_in_chunk: true
+    ignore_config_warnings: false
     in_filetypes:
     - scripts
     - input
@@ -1008,8 +1017,10 @@ general:
     - restart_in
     initial_date: '2000-01-01T00:00:00'
     inspect: null
-    jobid: 100341
+    isinteractive: false
+    jobid: 101080
     jobtype: prepcompute
+    last_jobtype: prepcompute
     last_run_datestamp: 19991231-19991231
     last_run_in_chunk: false
     last_start_date: '1999-12-31T00:00:00'
@@ -1033,7 +1044,7 @@ general:
     no_motd: true
     nsecond: 0
     nyear: 0
-    original_command: awicm3-frontiers-TCO159L91-CORE2_initial.yaml -e awicm3-frontiers-TCO159L91-CORE2_initial --open-run --no-motd
+    original_command: awicm3-frontiers-TCO159L91-CORE2_initial.yaml -e awicm3-frontiers-TCO159L91-CORE2_initial --open-run -c --no-motd --last-jobtype prepcompute
     out_filetypes:
     - analysis
     - log
@@ -1187,7 +1198,7 @@ general:
                     HDF5ROOT: $IO_LIB_ROOT
                     HDF5_C_INCLUDE_DIRECTORIES: $HDF5_ROOT/include
                     HDF5_ROOT: $HDF5ROOT
-                    IO_LIB_ROOT: /work/ollie/jstreffi/software/HPC_libraries/intel2018.0.5_intelmpi_18.0.4_20210804
+                    IO_LIB_ROOT: /work/ollie/jstreffi/software/HPC_libraries/intel2018.0.5_intelmpi_2021.3.0_20220623
                     LD_LIBRARY_PATH: $IO_LIB_ROOT/lib:$LD_LIBRARY_PATH
                     NETCDFFROOT: $IO_LIB_ROOT
                     NETCDFROOT: $IO_LIB_ROOT
@@ -1197,10 +1208,13 @@ general:
                     OIFS_FFIXED: '""'
                     OMP_SCHEDULE: STATIC
                     OMP_STACKSIZE: 128M
-                    PATH[(2)]: $IO_LIB_ROOT/bin:$PATH
+                    PATH[(2)]: $PATH:$IO_LIB_ROOT/bin
                     SZIPROOT: $IO_LIB_ROOT
                 add_module_actions:
                 - unload gribapi
+                - unload hdf5
+                - unload intel.mpi
+                - load intel.mpi/2021.3.0
     scenario: piControl
     scriptname: awicm3-frontiers-TCO159L91-CORE2_initial.yaml
     setup_name: awicm3
@@ -1361,7 +1375,8 @@ oasis3mct:
     - 4.0-oifsdeck
     - 4.0-awicm-frontiers
     - 4.0-awicm-3.0
-    branch: '2.8'
+    - 4.0-awicm-3.1
+    branch: v2.8
     cf_name_dir: <TEST_DIR>/comp/awicm3/awicm3-frontiers/oasis
     clean_command: rm -rf build CMakeCache.txt include lib/libpsmile.a lib/libscrip.a lib/libmct.a lib/libmpeu.a
     comp_command: mkdir -p build; cd build; cmake ..;   make -j 1; mkdir -p ../include/; cp lib/psmile/libpsmile.a lib/psmile/mct/libmct.a lib/psmile/mct/mpeu/libmpeu.a lib/psmile/scrip/libscrip.a ../lib; cp lib/psmile/mod_oasis*mod ../include
@@ -1563,10 +1578,10 @@ oasis3mct:
     ignore_targets:
         nout: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/ignore/oasis3mct/nout.000000
     ini_parent_date: '19500101'
-    ini_parent_dir: /work/ollie/jstreffi/input/oasis_experimental//cy43r3/TCO159-CORE2/
+    ini_parent_dir: /work/ollie/jstreffi/input/oasis//cy43r3/TCO159-CORE2/
     ini_parent_exp_id: khw0030
-    ini_restart_dir: /work/ollie/jstreffi/input/oasis_experimental//cy43r3/TCO159-CORE2/
-    input_dir: /work/ollie/jstreffi/input/oasis_experimental//cy43r3/TCO159-CORE2/
+    ini_restart_dir: /work/ollie/jstreffi/input/oasis//cy43r3/TCO159-CORE2/
+    input_dir: /work/ollie/jstreffi/input/oasis//cy43r3/TCO159-CORE2/
     input_intermediate:
         areas: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oasis3mct/areas.nc
         grids: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oasis3mct/grids.nc
@@ -1577,14 +1592,14 @@ oasis3mct:
         rmp_glob_3: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oasis3mct/rmp_A160_to_feom_GAUSWGT.nc
         rmp_glob_4: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/input/oasis3mct/rmp_A160_to_feom_BICUBIC.nc
     input_sources:
-        areas: /work/ollie/jstreffi/input/oasis_experimental//cy43r3/TCO159-CORE2//areas.nc
-        grids: /work/ollie/jstreffi/input/oasis_experimental//cy43r3/TCO159-CORE2//grids.nc
-        masks: /work/ollie/jstreffi/input/oasis_experimental//cy43r3/TCO159-CORE2//masks.nc
-        rmp_glob_0: /work/ollie/jstreffi/input/oasis_experimental//cy43r3/TCO159-CORE2//144/rmp_R160_to_RnfA_GAUSWGT.nc
-        rmp_glob_1: /work/ollie/jstreffi/input/oasis_experimental//cy43r3/TCO159-CORE2//144/rmp_feom_to_A160_GAUSWGT.nc
-        rmp_glob_2: /work/ollie/jstreffi/input/oasis_experimental//cy43r3/TCO159-CORE2//144/rmp_RnfO_to_feom_GAUSWGT.nc
-        rmp_glob_3: /work/ollie/jstreffi/input/oasis_experimental//cy43r3/TCO159-CORE2//144/rmp_A160_to_feom_GAUSWGT.nc
-        rmp_glob_4: /work/ollie/jstreffi/input/oasis_experimental//cy43r3/TCO159-CORE2//144/rmp_A160_to_feom_BICUBIC.nc
+        areas: /work/ollie/jstreffi/input/oasis//cy43r3/TCO159-CORE2//areas.nc
+        grids: /work/ollie/jstreffi/input/oasis//cy43r3/TCO159-CORE2//grids.nc
+        masks: /work/ollie/jstreffi/input/oasis//cy43r3/TCO159-CORE2//masks.nc
+        rmp_glob_0: /work/ollie/jstreffi/input/oasis//cy43r3/TCO159-CORE2//144/rmp_R160_to_RnfA_GAUSWGT.nc
+        rmp_glob_1: /work/ollie/jstreffi/input/oasis//cy43r3/TCO159-CORE2//144/rmp_feom_to_A160_GAUSWGT.nc
+        rmp_glob_2: /work/ollie/jstreffi/input/oasis//cy43r3/TCO159-CORE2//144/rmp_RnfO_to_feom_GAUSWGT.nc
+        rmp_glob_3: /work/ollie/jstreffi/input/oasis//cy43r3/TCO159-CORE2//144/rmp_A160_to_feom_GAUSWGT.nc
+        rmp_glob_4: /work/ollie/jstreffi/input/oasis//cy43r3/TCO159-CORE2//144/rmp_A160_to_feom_BICUBIC.nc
     input_sources_wild_card:
         rmp: rmp_*.nc
     input_targets:
@@ -1759,7 +1774,7 @@ oasis3mct:
     parent_date: '1999-12-31T22:00:00'
     parent_expid: awicm3-frontiers-TCO159L91-CORE2_initial
     parent_restart_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/restart/oasis3mct/
-    pool_dir: /work/ollie/jstreffi/input/oasis_experimental/
+    pool_dir: /work/ollie/jstreffi/input/oasis/
     prev_date: '1999-12-31T22:00:00'
     process_ordering:
     - fesom
@@ -1795,6 +1810,8 @@ oasis3mct:
         rstas.nc_recv: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/restart/oasis3mct/rstas.nc_recv
         rstos.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/restart/oasis3mct/rstos.nc
         rstos.nc_recv: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/restart/oasis3mct/rstos.nc_recv
+    rstas_file_name: rstas
+    rstos_file_name: rstos
     thisrun_analysis_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/analysis/oasis3mct/
     thisrun_bin_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/bin/oasis3mct/
     thisrun_config_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/config/oasis3mct/
@@ -1849,6 +1866,8 @@ oifs:
     - A_Snow_thickness
     - A_Ice_temp
     - A_Ice_albedo
+    - A_CurX
+    - A_CurY
     bin_dir: <TEST_DIR>/comp/awicm3/awicm3-frontiers/bin
     bin_intermediate:
         bin: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/bin/oifs/oifs
@@ -1868,6 +1887,7 @@ oifs:
         - 40r1
         - 43r3-master
         - 43r3-awicm-3.0
+        - 43r3-awicm-3.1
         - 43r3-awicm-frontiers
         - 43r3-awicm-frontiers-xios
         - 43r3
@@ -1899,6 +1919,15 @@ oifs:
                 requires:
                 - oasis3mct-4.0-awicm-3.0
                 with_xios: false
+            43r3-awicm-3.1:
+                branch: awicm-3.1
+                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers/oifs-43r3; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/awicm3/awicm3-frontiers/oifs-43r3/../xios/inc/; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
+                destination: oifs-43r3
+                git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3.git
+                install_bins: make/esm/oifs/bin/oifs
+                requires:
+                - oasis3mct-4.0-awicm-3.1
+                with_xios: true
             43r3-awicm-frontiers:
                 branch: awicm-3-frontiers
                 comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers/oifs-43r3; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.cfg ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
@@ -2062,7 +2091,7 @@ oifs:
                 - OIFS_FCDEFS="BLAS LITTLE LINUX INTEGER_IS_INT"
                 - OIFS_LFLAGS="$OIFS_MPI_LIB -qopenmp"
                 - OIFS_CC=$CC
-                - OIFS_CFLAGS="-fp-model precise -O1 -xCORE_AVX2 -g -traceback -qopt-report=0 -fpe0 -qopenmp"
+                - OIFS_CFLAGS="-fp-model precise -O3 -xCORE_AVX2 -g -traceback -qopt-report=0 -fpe0 -qopenmp"
                 - OIFS_CCDEFS="LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS _OPENMP"
                 - MAIN_LDFLAGS=-openmp
                 compiler_mpi: intel2022_ompi2022
@@ -2183,7 +2212,7 @@ oifs:
                     HDF5ROOT: $IO_LIB_ROOT
                     HDF5_C_INCLUDE_DIRECTORIES: $HDF5_ROOT/include
                     HDF5_ROOT: $HDF5ROOT
-                    IO_LIB_ROOT: /work/ollie/jstreffi/software/HPC_libraries/intel2018.0.5_intelmpi_18.0.4_20210804
+                    IO_LIB_ROOT: /work/ollie/jstreffi/software/HPC_libraries/intel2018.0.5_intelmpi_2021.3.0_20220623
                     LAPACK_LIB_DEFAULT: '"-L$MKLROOT/lib/intel64 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential"'
                     LD_LIBRARY_PATH: $IO_LIB_ROOT/lib:$LD_LIBRARY_PATH
                     NETCDFFROOT: $IO_LIB_ROOT
@@ -2213,7 +2242,8 @@ oifs:
                     OIFS_OASIS_LIB: '"-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu -lpsmile -lmct -lmpeu -lscrip"'
                     SZIPROOT: $IO_LIB_ROOT
                 add_module_actions:
-                - unload gribapi
+                - purge
+                - load intel.mpi/2021.3.0 intel.compiler cmake
         iolibraries: awi_libs
     compute_recipe:
     - oasis_rmp_rst_to_input
@@ -2230,6 +2260,10 @@ oifs:
     coupling_fields:
         A_Calving:
             grid: atmr
+        A_CurX:
+            grid: atma
+        A_CurY:
+            grid: atma
         A_Evap:
             grid: atma
         A_Ice_albedo:
@@ -2847,7 +2881,6 @@ oifs:
     namelist_changes:
         fort.4:
             NAEPHY:
-                LECURR: false
                 LWCOU: true
                 LWCOU2W: true
             NAERAD:
@@ -3116,7 +3149,7 @@ oifs:
                     HDF5ROOT: $IO_LIB_ROOT
                     HDF5_C_INCLUDE_DIRECTORIES: $HDF5_ROOT/include
                     HDF5_ROOT: $HDF5ROOT
-                    IO_LIB_ROOT: /work/ollie/jstreffi/software/HPC_libraries/intel2018.0.5_intelmpi_18.0.4_20210804
+                    IO_LIB_ROOT: /work/ollie/jstreffi/software/HPC_libraries/intel2018.0.5_intelmpi_2021.3.0_20220623
                     LD_LIBRARY_PATH: $IO_LIB_ROOT/lib:$LD_LIBRARY_PATH
                     NETCDFFROOT: $IO_LIB_ROOT
                     NETCDFROOT: $IO_LIB_ROOT
@@ -3126,10 +3159,13 @@ oifs:
                     OIFS_FFIXED: '""'
                     OMP_SCHEDULE: STATIC
                     OMP_STACKSIZE: 128M
-                    PATH[(2)]: $IO_LIB_ROOT/bin:$PATH
+                    PATH[(2)]: $PATH:$IO_LIB_ROOT/bin
                     SZIPROOT: $IO_LIB_ROOT
                 add_module_actions:
                 - unload gribapi
+                - unload hdf5
+                - unload intel.mpi
+                - load intel.mpi/2021.3.0
         iolibraries: awi_libs
     runtime_seconds: 86400
     scenario: historical
@@ -3166,7 +3202,6 @@ oifs:
     tl_o3_data_dir: /work/ollie/jstreffi/input/oifs-43r3/43r3/climate/
     truncation: TCO
     type: atmosphere
-    use_ocean_currents: 0
     version: 43r3
     vtables_dir: /work/ollie/jstreffi/input/oifs-43r3/../vtables/
     wam: true
@@ -3210,6 +3245,7 @@ rnfmap:
     available_versions:
     - ec-earth
     - awicm-3.0
+    - awicm-3.1
     - awicm-frontiers
     - focioifs
     - focioifs1
@@ -3221,6 +3257,7 @@ rnfmap:
     bin_targets:
         bin: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/rnfma
     branch: esm-tools-focioifs
+    cflags: -fp-model precise -O3 -xCORE_AVX2 -g -traceback -qopt-report=0 -fpe0
     clean_command: rm -rf bin; cd src; make clean; cd ..
     comp_command: rm -rf bin; mkdir bin; cd src; make ; cd .. ; cp bin/rnfmap.exe ./bin/rnfma
     compiletime_environment_changes:
@@ -3233,12 +3270,12 @@ rnfmap:
         - OIFS_NETCDFF_INCLUDE="-I$NETCDFFROOT/include"
         - OIFS_NETCDFF_LIB="-L$NETCDFFROOT/lib -lnetcdff"
         - OIFS_FC=$FC
-        - OIFS_FFLAGS="-r8 -fp-model precise -align array32byte -O3 -march=core-avx2 -mtune=core-avx2 -g -traceback -convert big_endian -fpe0"
+        - OIFS_FFLAGS="-r8 -fp-model precise -align array32byte -O3 -xCORE_AVX2 -g -traceback -convert big_endian -fpe0"
         - OIFS_FFIXED=""
         - OIFS_FCDEFS="BLAS LITTLE LINUX INTEGER_IS_INT"
         - OIFS_LFLAGS=$OIFS_MPI_LIB
         - OIFS_CC=$CC
-        - OIFS_CFLAGS="-fp-model precise -O3 -march=core-avx2 -mtune=core-avx2 -g -traceback -qopt-report=0 -fpe0"
+        - OIFS_CFLAGS="-fp-model precise -O3 -xCORE_AVX2 -g -traceback -qopt-report=0 -fpe0"
         - OIFS_CCDEFS="LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS"
     config_intermediate:
         namelist.runoffmapper: <TEST_DIR>run/awicm3/awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/config/rnfmap/namelist.runoffmapper
@@ -3275,6 +3312,7 @@ rnfmap:
     experiment_restart_in_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/restart/rnfmap/
     experiment_restart_out_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/restart/rnfmap/
     experiment_viz_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/viz/rnfmap/
+    fflags: -r8 -fp-model precise -align array32byte -O3 -xCORE_AVX2 -g -traceback -convert big_endian -fpe0
     file_movements:
         analysis:
             exp_to_run: copy
@@ -3407,6 +3445,7 @@ rnfmap:
     runoff_fields_send:
     - R_Runoff_oce
     - R_Calving_oce
+    runoff_file: /work/ollie/jstreffi/input/runoff-mapper/runoff_maps_CORE2.nc
     runoff_maps_name: _CORE2
     runoff_method: awicm3-default
     runtime_seconds: 86400

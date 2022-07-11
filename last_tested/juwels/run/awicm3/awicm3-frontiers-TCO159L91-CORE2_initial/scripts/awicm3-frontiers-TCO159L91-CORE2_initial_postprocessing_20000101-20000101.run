@@ -2,9 +2,9 @@
 #SBATCH --partition=batch
 #SBATCH --time=01:00:00
 #SBATCH --nodes=1
-#SBATCH --output=/p/scratch/c<ACCOUNT>/mandresm/testing//run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/log/awicm3-frontiers-TCO159L91-CORE2_initial_awicm3_postprocessing_20000101-20000101_%j.log --error=/p/scratch/c<ACCOUNT>/mandresm/testing//run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/log/awicm3-frontiers-TCO159L91-CORE2_initial_awicm3_postprocessing_20000101-20000101_%j.log
+#SBATCH --output=<TEST_DIR>/run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/log/awicm3-frontiers-TCO159L91-CORE2_initial_awicm3_postprocessing_20000101-20000101_%j.log --error=<TEST_DIR>/run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/log/awicm3-frontiers-TCO159L91-CORE2_initial_awicm3_postprocessing_20000101-20000101_%j.log
 #SBATCH --job-name=awicm3-frontiers-TCO159L91-CORE2_initial
-#SBATCH --account=<ACCOUNT>
+#SBATCH --account=hhb19
 #SBATCH --mail-type=NONE
 #SBATCH --exclusive
 
@@ -51,9 +51,9 @@ export DR_HOOK_IGNORE_SIGNALS=-1
 export OMP_SCHEDULE=STATIC
 export OMP_STACKSIZE=128M
 export MAIN_LDFLAGS=-openmp
-export ACCOUNT=<ACCOUNT>
-export ESM_TESTING_DIR=/p/scratch/c<ACCOUNT>/mandresm/testing//run/awicm3/
-export MODEL_DIR=/p/scratch/c<ACCOUNT>/mandresm/testing//comp/awicm3/awicm3-frontiers
+export ACCOUNT=hhb19
+export ESM_TESTING_DIR=<TEST_DIR>/run/awicm3/
+export MODEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers
 export FESOM_USE_CPLNG="active"
 export ECE_CPL_NEMO_LIM="false"
 export ECE_CPL_FESOM_FESIM="true"
@@ -69,9 +69,9 @@ unset SLURM_ARBITRARY_NODELIST
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo $(date +"%a %b  %e %T %Y") : postprocessing_oifs 1 2000-01-01T00:00:00 5508624 - start >> /p/scratch/c<ACCOUNT>/mandresm/testing//run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/log//awicm3-frontiers-TCO159L91-CORE2_initial_awicm3.log
+echo $(date +"%a %b  %e %T %Y") : postprocessing_oifs 1 2000-01-01T00:00:00 5719716 - start >> <TEST_DIR>/run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/log//awicm3-frontiers-TCO159L91-CORE2_initial_awicm3.log
 
-cd /p/scratch/c<ACCOUNT>/mandresm/testing//run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/
-time srun -l /p/home/jusers/andres-martinez1/juwels/esm_tools/configs//setups/awicm3/postprocessing.sh /p/scratch/c<ACCOUNT>/mandresm/testing//run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/outdata/oifs/ 20000101 2>&1 &
+cd <TEST_DIR>/run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/
+time srun -l <HOME_DIR>/esm_tools/configs//setups/awicm3/postprocessing.sh <TEST_DIR>/run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/outdata/oifs/ 20000101 2>&1 &
 
 wait

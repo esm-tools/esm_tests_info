@@ -510,6 +510,9 @@ echam:
         glim: <TEST_DIR>run/awiesm/pi/run_18500101-18500131/ignore/echam/pi_185002.01_glim
         glim_codes: <TEST_DIR>run/awiesm/pi/run_18500101-18500131/ignore/echam/pi_185002.01_glim.codes
         glim_restart: <TEST_DIR>run/awiesm/pi/run_18500101-18500131/ignore/echam/restart_pi_glim.nc
+        rad: <TEST_DIR>run/awiesm/pi/run_18500101-18500131/ignore/echam/pi_185002.01_rad
+        rad_codes: <TEST_DIR>run/awiesm/pi/run_18500101-18500131/ignore/echam/pi_185002.01_rad.codes
+        rad_restart: <TEST_DIR>run/awiesm/pi/run_18500101-18500131/ignore/echam/restart_pi_rad.nc
         sp6h: <TEST_DIR>run/awiesm/pi/run_18500101-18500131/ignore/echam/pi_185002.01_sp6h
         sp6h_codes: <TEST_DIR>run/awiesm/pi/run_18500101-18500131/ignore/echam/pi_185002.01_sp6h.codes
         sp6h_restart: <TEST_DIR>run/awiesm/pi/run_18500101-18500131/ignore/echam/restart_pi_sp6h.nc
@@ -547,6 +550,9 @@ echam:
         glim: <TEST_DIR>/run/awiesm//pi/run_18500101-18500131/work//pi_185002.01_glim
         glim_codes: <TEST_DIR>/run/awiesm//pi/run_18500101-18500131/work//pi_185002.01_glim.codes
         glim_restart: <TEST_DIR>/run/awiesm//pi/run_18500101-18500131/work//restart_pi_glim.nc
+        rad: <TEST_DIR>/run/awiesm//pi/run_18500101-18500131/work//pi_185002.01_rad
+        rad_codes: <TEST_DIR>/run/awiesm//pi/run_18500101-18500131/work//pi_185002.01_rad.codes
+        rad_restart: <TEST_DIR>/run/awiesm//pi/run_18500101-18500131/work//restart_pi_rad.nc
         sp6h: <TEST_DIR>/run/awiesm//pi/run_18500101-18500131/work//pi_185002.01_sp6h
         sp6h_codes: <TEST_DIR>/run/awiesm//pi/run_18500101-18500131/work//pi_185002.01_sp6h.codes
         sp6h_restart: <TEST_DIR>/run/awiesm//pi/run_18500101-18500131/work//restart_pi_sp6h.nc
@@ -584,6 +590,9 @@ echam:
         glim: <TEST_DIR>run/awiesm/pi/ignore/echam/pi_185002.01_glim
         glim_codes: <TEST_DIR>run/awiesm/pi/ignore/echam/pi_185002.01_glim.codes
         glim_restart: <TEST_DIR>run/awiesm/pi/ignore/echam/restart_pi_glim.nc
+        rad: <TEST_DIR>run/awiesm/pi/ignore/echam/pi_185002.01_rad
+        rad_codes: <TEST_DIR>run/awiesm/pi/ignore/echam/pi_185002.01_rad.codes
+        rad_restart: <TEST_DIR>run/awiesm/pi/ignore/echam/restart_pi_rad.nc
         sp6h: <TEST_DIR>run/awiesm/pi/ignore/echam/pi_185002.01_sp6h
         sp6h_codes: <TEST_DIR>run/awiesm/pi/ignore/echam/pi_185002.01_sp6h.codes
         sp6h_restart: <TEST_DIR>run/awiesm/pi/ignore/echam/restart_pi_sp6h.nc
@@ -745,6 +754,8 @@ echam:
         glday_codes: pi_1850*.01_glday.codes
         glim: pi_1850*.01_glim
         glim_codes: pi_1850*.01_glim.codes
+        rad: pi_1850*.01_rad
+        rad_codes: pi_1850*.01_rad.codes
         sp6h: pi_1850*.01_sp6h
         sp6h_codes: pi_1850*.01_sp6h.codes
         spim: pi_1850*.01_spim
@@ -868,6 +879,12 @@ echam:
             flags:
             - t echam6
             post_process: mm
+        pi_echam_rad_18500101-18500201_mm.nc:
+            args:
+                infile: pi_185001.01_rad
+            flags:
+            - t echam6
+            post_process: mm
         pi_echam_sp6h_18500101-18500201_mm.nc:
             args:
                 infile: pi_185001.01_sp6h
@@ -903,7 +920,9 @@ echam:
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
         aclcim:
+        - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
@@ -929,7 +948,9 @@ echam:
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
         echam:
+        - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
@@ -955,7 +976,9 @@ echam:
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
         g3bday:
+        - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
@@ -981,7 +1004,9 @@ echam:
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
         g3bim:
+        - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
@@ -1007,7 +1032,23 @@ echam:
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
         glim:
+        - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
+        rad:
+        - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
@@ -1033,7 +1074,9 @@ echam:
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
         spim:
+        - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
@@ -1057,6 +1100,7 @@ echam:
         g3bim: <TEST_DIR>run/awiesm/pi/run_18500101-18500131/restart/echam/restart_pi_g3bim_18500131.nc
         glday: <TEST_DIR>run/awiesm/pi/run_18500101-18500131/restart/echam/restart_pi_glday_18500131.nc
         glim: <TEST_DIR>run/awiesm/pi/run_18500101-18500131/restart/echam/restart_pi_glim_18500131.nc
+        rad: <TEST_DIR>run/awiesm/pi/run_18500101-18500131/restart/echam/restart_pi_rad_18500131.nc
         sp6h: <TEST_DIR>run/awiesm/pi/run_18500101-18500131/restart/echam/restart_pi_sp6h_18500131.nc
         spim: <TEST_DIR>run/awiesm/pi/run_18500101-18500131/restart/echam/restart_pi_spim_18500131.nc
     restart_out_sources:
@@ -1070,6 +1114,7 @@ echam:
         g3bim: <TEST_DIR>/run/awiesm//pi/run_18500101-18500131/work//restart_pi_18500131235230_g3bim.nc
         glday: <TEST_DIR>/run/awiesm//pi/run_18500101-18500131/work//restart_pi_18500131235230_glday.nc
         glim: <TEST_DIR>/run/awiesm//pi/run_18500101-18500131/work//restart_pi_18500131235230_glim.nc
+        rad: <TEST_DIR>/run/awiesm//pi/run_18500101-18500131/work//restart_pi_18500131235230_rad.nc
         sp6h: <TEST_DIR>/run/awiesm//pi/run_18500101-18500131/work//restart_pi_18500131235230_sp6h.nc
         spim: <TEST_DIR>/run/awiesm//pi/run_18500101-18500131/work//restart_pi_18500131235230_spim.nc
     restart_out_targets:
@@ -1083,6 +1128,7 @@ echam:
         g3bim: <TEST_DIR>run/awiesm/pi/restart/echam/restart_pi_g3bim_18500131.nc
         glday: <TEST_DIR>run/awiesm/pi/restart/echam/restart_pi_glday_18500131.nc
         glim: <TEST_DIR>run/awiesm/pi/restart/echam/restart_pi_glim_18500131.nc
+        rad: <TEST_DIR>run/awiesm/pi/restart/echam/restart_pi_rad_18500131.nc
         sp6h: <TEST_DIR>run/awiesm/pi/restart/echam/restart_pi_sp6h_18500131.nc
         spim: <TEST_DIR>run/awiesm/pi/restart/echam/restart_pi_spim_18500131.nc
     restart_rate: 1
@@ -1104,6 +1150,7 @@ echam:
     - sp6h
     - glim
     - spim
+    - rad
     streamsnc:
     - aclcim
     - g3b1hi
@@ -1663,17 +1710,19 @@ general:
     base_dir: <TEST_DIR>/run/awiesm/
     batch: slurm
     calendar: esm_calendar object with allowed leap years
-    check: false
+    check: true
     chunk_number: 1
     command_line_config:
-        check: false
+        check: true
         current_date: null
         expid: pi
+        ignore_config_warnings: false
         inspect: null
         jobtype: prepcompute
+        last_jobtype: prepcompute
         launcher_pid: -666
         no_motd: true
-        original_command: pi.yaml -e pi --open-run --no-motd
+        original_command: pi.yaml -e pi --open-run -c --no-motd --last-jobtype prepcompute
         profile: false
         run_number: null
         runscript_abspath: <TEST_DIR>run/awiesm/pi/scripts/pi.yaml
@@ -1799,6 +1848,7 @@ general:
             work_to_run: copy
     final_date: '1850-04-01T00:00:00'
     first_run_in_chunk: true
+    ignore_config_warnings: false
     in_filetypes:
     - scripts
     - input
@@ -1808,8 +1858,10 @@ general:
     - restart_in
     initial_date: '1850-01-01T00:00:00'
     inspect: null
-    jobid: 103878
+    isinteractive: false
+    jobid: 105605
     jobtype: prepcompute
+    last_jobtype: prepcompute
     last_run_datestamp: 18491201-18491231
     last_run_in_chunk: false
     last_start_date: '1849-12-01T00:00:00'
@@ -1831,7 +1883,7 @@ general:
     no_motd: true
     nsecond: 0
     nyear: 0
-    original_command: pi.yaml -e pi --open-run --no-motd
+    original_command: pi.yaml -e pi --open-run -c --no-motd --last-jobtype prepcompute
     out_filetypes:
     - analysis
     - log
@@ -2574,7 +2626,8 @@ oasis3mct:
     - 4.0-oifsdeck
     - 4.0-awicm-frontiers
     - 4.0-awicm-3.0
-    branch: '2.8'
+    - 4.0-awicm-3.1
+    branch: v2.8
     cf_name_dir: <TEST_DIR>/comp/awiesm/awiesm-2.1/oasis
     clean_command: rm -rf build CMakeCache.txt include lib/libpsmile.a lib/libscrip.a lib/libmct.a lib/libmpeu.a
     comp_command: mkdir -p build; cd build; cmake ..;   make -j 1; mkdir -p ../include/; cp lib/psmile/libpsmile.a lib/psmile/mct/libmct.a lib/psmile/mct/mpeu/libmpeu.a lib/psmile/scrip/libscrip.a ../lib; cp lib/psmile/mod_oasis*mod ../include
