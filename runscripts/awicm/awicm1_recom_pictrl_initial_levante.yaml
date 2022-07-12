@@ -6,7 +6,7 @@
 # - initial run
 # =============================================================================
 general:
-    setup_name: "awicm_recom"
+    setup_name: "awicm"
     version: "1.0-recom"
     scenario: "PI-CTRL"
     post_processing: 0
@@ -25,7 +25,7 @@ general:
     restart_unit: months
     lresume: False
 
-awicm_recom:
+awicm:
     version: "1.0-recom"
     model_dir: !ENV ${MODEL_DIR}
 
@@ -64,6 +64,7 @@ fesom:
     # ini_parent_dir: "${general.ini_parent_dir}/fesom/"
     # ini_parent_exp_id: "${general.ini_parent_exp_id}"
     # ini_parent_date: "${general.ini_parent_date}"   
+    nproc: 384
     restart_rate: 1
     restart_unit: "m"
     restart_first: 1
