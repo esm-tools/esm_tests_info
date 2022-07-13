@@ -102,6 +102,7 @@ computer:
     - load intel.mpi
     mpicc: mpiicc
     mpifc: mpiifort
+    mt_launcher_flag: ''
     name: ollie
     name_flag: --job-name=awiesm-2.1_icebergs
     nodes_flag: --nodes=@nodes@
@@ -1915,7 +1916,7 @@ general:
     inspect: null
     isinteractive: false
     iterative_coupling: false
-    jobid: 104921
+    jobid: 101702
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 20000101-20001231
@@ -2296,7 +2297,7 @@ jsbach:
     config_intermediate:
         namelist.jsbach: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20011231/config/jsbach/namelist.jsbach
     config_sources:
-        namelist.jsbach: <HOME_DIR>/esm_tools/namelists//jsbach/3.20/PI-CTRL/no_dynveg/namelist.jsbach
+        namelist.jsbach: <HOME_DIR>/esm_tools/namelists//jsbach/3.20/PI-CTRL/dynveg/namelist.jsbach
     config_targets:
         namelist.jsbach: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20011231/work/namelist.jsbach
     cover_fract_dir: /work/ollie/pool/JSBACH/input/r0010/T63/land_use_maps/
@@ -2311,8 +2312,8 @@ jsbach:
 
         paper citation'
     domain: vegetation
-    dynamic_vegetations: false
-    dynveg: _no_dynveg
+    dynamic_vegetations: true
+    dynveg: _dynveg
     dynveg_file_ending: ''
     experiment_analysis_dir: <TEST_DIR>/run/awiesm//awiesm-2.1_icebergs/analysis/jsbach/
     experiment_bin_dir: <TEST_DIR>/run/awiesm//awiesm-2.1_icebergs/bin/jsbach/
@@ -2417,9 +2418,9 @@ jsbach:
         LU_trans_year_2000: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20011231/forcing/jsbach/landuseTransitions.2000.nc
         LU_trans_year_2001: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20011231/forcing/jsbach/landuseTransitions.2001.nc
         LU_trans_year_2002: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20011231/forcing/jsbach/landuseTransitions.2002.nc
-        LU_year_2000: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20011231/forcing/jsbach/landuse_harvest.2000.nc
-        LU_year_2001: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20011231/forcing/jsbach/landuse_harvest.2001.nc
-        LU_year_2002: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20011231/forcing/jsbach/landuse_harvest.2002.nc
+        LU_year_2000: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20011231/forcing/jsbach/landuseHarvest.2000.nc
+        LU_year_2001: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20011231/forcing/jsbach/landuseHarvest.2001.nc
+        LU_year_2002: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20011231/forcing/jsbach/landuseHarvest.2002.nc
         Ndepo_year_2000: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20011231/forcing/jsbach/Ndepo.2000.nc
         Ndepo_year_2001: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20011231/forcing/jsbach/Ndepo.2001.nc
         Ndepo_year_2002: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20011231/forcing/jsbach/Ndepo.2002.nc
@@ -2445,9 +2446,9 @@ jsbach:
         LU_trans_year_2000: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20011231/work/landuseTransitions.2000.nc
         LU_trans_year_2001: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20011231/work/landuseTransitions.2001.nc
         LU_trans_year_2002: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20011231/work/landuseTransitions.2002.nc
-        LU_year_2000: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20011231/work/landuse_harvest.2000.nc
-        LU_year_2001: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20011231/work/landuse_harvest.2001.nc
-        LU_year_2002: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20011231/work/landuse_harvest.2002.nc
+        LU_year_2000: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20011231/work/landuseHarvest.2000.nc
+        LU_year_2001: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20011231/work/landuseHarvest.2001.nc
+        LU_year_2002: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20011231/work/landuseHarvest.2002.nc
         Ndepo_year_2000: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20011231/work/Ndepo.2000.nc
         Ndepo_year_2001: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20011231/work/Ndepo.2001.nc
         Ndepo_year_2002: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20011231/work/Ndepo.2002.nc
@@ -2547,7 +2548,7 @@ jsbach:
             hydrology_ctl: {}
             jsbach_ctl:
                 use_dynveg: true
-    namelist_dir: <HOME_DIR>/esm_tools/namelists//jsbach/3.20/PI-CTRL/no_dynveg
+    namelist_dir: <HOME_DIR>/esm_tools/namelists//jsbach/3.20/PI-CTRL/dynveg
     namelist_objs:
         namelist.jsbach: &id012 f90nml.name
     namelists:

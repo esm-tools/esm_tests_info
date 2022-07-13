@@ -109,6 +109,7 @@ computer:
     - load intel.mpi
     mpicc: mpiicc
     mpifc: mpiifort
+    mt_launcher_flag: ''
     name: ollie
     name_flag: --job-name=awicm3-v3.0-TCO159L91-CORE2_initial
     nodes_flag: --nodes=@nodes@
@@ -1018,7 +1019,7 @@ general:
     initial_date: '2000-01-01T00:00:00'
     inspect: null
     isinteractive: false
-    jobid: 99269
+    jobid: 98449
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 19991231-19991231
@@ -1090,6 +1091,7 @@ general:
     - copy_files_to_work
     - report_missing_files
     - database_entry
+    - oasis_rmp_rst_to_input
     prev_date: '1999-12-31T00:00:00'
     profile: false
     relevant_filetypes:
@@ -1810,8 +1812,7 @@ oifs:
     ICMGG_INIT_name: _CORE2
     ICMSH_INIT_name: ''
     a4xco2: false
-    add_compute_recipe:
-    - oasis_rmp_rst_to_input
+    add_prepcompute_recipe:
     - oasis_rmp_rst_to_input
     all_filetypes:
     - analysis
@@ -2223,8 +2224,6 @@ oifs:
                 - purge
                 - load intel.mpi/2021.3.0 intel.compiler cmake
         iolibraries: awi_libs
-    compute_recipe:
-    - oasis_rmp_rst_to_input
     config_intermediate:
         fort.4: <TEST_DIR>run/awicm3/awicm3-v3.0-TCO159L91-CORE2_initial/run_20000101-20000101/config/oifs/fort.4
         wam_namelist: <TEST_DIR>run/awicm3/awicm3-v3.0-TCO159L91-CORE2_initial/run_20000101-20000101/config/oifs/wam_namelist
@@ -2992,6 +2991,7 @@ oifs:
     - copy_files_to_work
     - report_missing_files
     - database_entry
+    - oasis_rmp_rst_to_input
     prepifs_dir: /work/ollie/jstreffi/input/oifs-43r3/TCO159L91/
     prepifs_expid: h9wu
     prepifs_startdate: '19820101'

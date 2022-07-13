@@ -102,6 +102,7 @@ computer:
     - load intel.mpi
     mpicc: mpiicc
     mpifc: mpiifort
+    mt_launcher_flag: ''
     name: ollie
     name_flag: --job-name=PI_ctrl_awiesm-2.1-wiso
     nodes_flag: --nodes=@nodes@
@@ -2025,7 +2026,7 @@ general:
     inspect: null
     isinteractive: false
     jP: /work/ollie/dsidoren/input/fesom2.0/meshes/mesh_CORE2_finaltopo_mean/tarfilesT63/input/jsbach/jsbach_T63CORE2_11tiles_5layers_1850.nc
-    jobid: 104725
+    jobid: 101422
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 20001201-20001231
@@ -2410,7 +2411,7 @@ jsbach:
     config_intermediate:
         namelist.jsbach: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/config/jsbach/namelist.jsbach
     config_sources:
-        namelist.jsbach: <HOME_DIR>/esm_tools/namelists//jsbach/3.20/PI-CTRL/no_dynveg/namelist.jsbach
+        namelist.jsbach: <HOME_DIR>/esm_tools/namelists//jsbach/3.20/PI-CTRL/dynveg/namelist.jsbach
     config_targets:
         namelist.jsbach: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/work/namelist.jsbach
     cover_fract_dir: /work/ollie/pool/JSBACH/input/r0010/T63/land_use_maps/
@@ -2425,8 +2426,8 @@ jsbach:
 
         paper citation'
     domain: vegetation
-    dynamic_vegetations: false
-    dynveg: _no_dynveg
+    dynamic_vegetations: true
+    dynveg: _dynveg
     dynveg_file_ending: ''
     experiment_analysis_dir: <TEST_DIR>/run/awiesm//PI_ctrl_awiesm-2.1-wiso/analysis/jsbach/
     experiment_bin_dir: <TEST_DIR>/run/awiesm//PI_ctrl_awiesm-2.1-wiso/bin/jsbach/
@@ -2530,8 +2531,8 @@ jsbach:
     forcing_intermediate:
         LU_trans_year_2000: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/forcing/jsbach/landuseTransitions.2000.nc
         LU_trans_year_2001: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/forcing/jsbach/landuseTransitions.2001.nc
-        LU_year_2000: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/forcing/jsbach/landuse_harvest.2000.nc
-        LU_year_2001: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/forcing/jsbach/landuse_harvest.2001.nc
+        LU_year_2000: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/forcing/jsbach/landuseHarvest.2000.nc
+        LU_year_2001: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/forcing/jsbach/landuseHarvest.2001.nc
         Ndepo_year_2000: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/forcing/jsbach/Ndepo.2000.nc
         Ndepo_year_2001: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/forcing/jsbach/Ndepo.2001.nc
         a_nd_file: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/forcing/jsbach/a_nd_file.nc
@@ -2552,8 +2553,8 @@ jsbach:
     forcing_targets:
         LU_trans_year_2000: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/work/landuseTransitions.2000.nc
         LU_trans_year_2001: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/work/landuseTransitions.2001.nc
-        LU_year_2000: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/work/landuse_harvest.2000.nc
-        LU_year_2001: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/work/landuse_harvest.2001.nc
+        LU_year_2000: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/work/landuseHarvest.2000.nc
+        LU_year_2001: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/work/landuseHarvest.2001.nc
         Ndepo_year_2000: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/work/Ndepo.2000.nc
         Ndepo_year_2001: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/work/Ndepo.2001.nc
         a_nd_file: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/work/a_nd_file.nc
@@ -2679,7 +2680,7 @@ jsbach:
             hydrology_ctl: {}
             jsbach_ctl:
                 use_dynveg: true
-    namelist_dir: <HOME_DIR>/esm_tools/namelists//jsbach/3.20/PI-CTRL/no_dynveg
+    namelist_dir: <HOME_DIR>/esm_tools/namelists//jsbach/3.20/PI-CTRL/dynveg
     namelist_objs:
         namelist.jsbach: &id011 f90nml.name
     namelists:
