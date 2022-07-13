@@ -125,6 +125,7 @@ computer:
     - load impi/2019.5
     mpicc: $MPICC
     mpifc: $MPIFC
+    mt_launcher_flag: ''
     name: blogin
     name_flag: --job-name=focioifs-piCtl-test_lowcpu
     nodes_flag: --nodes=@nodes@
@@ -209,10 +210,10 @@ general:
     base_dir: <TEST_DIR>/run/focioifs/
     batch: slurm
     calendar: esm_calendar object with allowed leap years
-    check: true
+    check: false
     chunk_number: 1
     command_line_config:
-        check: true
+        check: false
         current_date: null
         expid: focioifs-piCtl-test_lowcpu
         ignore_config_warnings: false
@@ -221,7 +222,7 @@ general:
         last_jobtype: prepcompute
         launcher_pid: -666
         no_motd: true
-        original_command: focioifs-piCtl-test_lowcpu.yaml -e focioifs-piCtl-test_lowcpu --open-run -c --no-motd --last-jobtype prepcompute
+        original_command: focioifs-piCtl-test_lowcpu.yaml -e focioifs-piCtl-test_lowcpu --open-run --no-motd --last-jobtype prepcompute
         profile: false
         run_number: null
         runscript_abspath: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/scripts/focioifs-piCtl-test_lowcpu.yaml
@@ -361,7 +362,7 @@ general:
     initial_date: '1850-01-01T00:00:00'
     inspect: null
     isinteractive: false
-    jobid: 3024
+    jobid: 31279
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 18491227-18491231
@@ -389,7 +390,7 @@ general:
     nsecond: 0
     nyear: 0
     oasis_date_stamp: _18500101-1850101
-    original_command: focioifs-piCtl-test_lowcpu.yaml -e focioifs-piCtl-test_lowcpu --open-run -c --no-motd --last-jobtype prepcompute
+    original_command: focioifs-piCtl-test_lowcpu.yaml -e focioifs-piCtl-test_lowcpu --open-run --no-motd --last-jobtype prepcompute
     out_filetypes:
     - analysis
     - log

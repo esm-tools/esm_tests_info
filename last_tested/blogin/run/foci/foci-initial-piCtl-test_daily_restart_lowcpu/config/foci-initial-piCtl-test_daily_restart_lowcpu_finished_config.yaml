@@ -97,6 +97,7 @@ computer:
     - load impi/2019.5
     mpicc: $MPICC
     mpifc: $MPIFC
+    mt_launcher_flag: ''
     name: blogin
     name_flag: --job-name=foci-initial-piCtl-test_daily_restart_lowcpu
     nodes_flag: --nodes=@nodes@
@@ -942,10 +943,10 @@ general:
     base_dir: <TEST_DIR>/run/foci/
     batch: slurm
     calendar: esm_calendar object with allowed leap years
-    check: true
+    check: false
     chunk_number: 1
     command_line_config:
-        check: true
+        check: false
         current_date: null
         expid: foci-initial-piCtl-test_daily_restart_lowcpu
         ignore_config_warnings: false
@@ -954,7 +955,7 @@ general:
         last_jobtype: prepcompute
         launcher_pid: -666
         no_motd: true
-        original_command: foci-initial-piCtl-test_daily_restart_lowcpu.yaml -e foci-initial-piCtl-test_daily_restart_lowcpu --open-run -c --no-motd --last-jobtype prepcompute
+        original_command: foci-initial-piCtl-test_daily_restart_lowcpu.yaml -e foci-initial-piCtl-test_daily_restart_lowcpu --open-run --no-motd --last-jobtype prepcompute
         profile: false
         run_number: null
         runscript_abspath: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/scripts/foci-initial-piCtl-test_daily_restart_lowcpu.yaml
@@ -1093,7 +1094,7 @@ general:
     initial_date: '1850-01-01T00:00:00'
     inspect: null
     isinteractive: false
-    jobid: 2908
+    jobid: 31231
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 18491231-18491231
@@ -1119,7 +1120,7 @@ general:
     no_motd: true
     nsecond: 0
     nyear: 0
-    original_command: foci-initial-piCtl-test_daily_restart_lowcpu.yaml -e foci-initial-piCtl-test_daily_restart_lowcpu --open-run -c --no-motd --last-jobtype prepcompute
+    original_command: foci-initial-piCtl-test_daily_restart_lowcpu.yaml -e foci-initial-piCtl-test_daily_restart_lowcpu --open-run --no-motd --last-jobtype prepcompute
     out_filetypes:
     - analysis
     - log

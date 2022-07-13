@@ -103,6 +103,7 @@ computer:
     - load impi/2019.5
     mpicc: $MPICC
     mpifc: $MPIFC
+    mt_launcher_flag: ''
     name: blogin
     name_flag: --job-name=oifs-43r3-tco95-amip-test_lowcpu
     nodes_flag: --nodes=@nodes@
@@ -182,10 +183,10 @@ general:
     base_dir: <TEST_DIR>/run/oifs/
     batch: slurm
     calendar: esm_calendar object with allowed leap years
-    check: true
+    check: false
     chunk_number: 1
     command_line_config:
-        check: true
+        check: false
         current_date: null
         expid: oifs-43r3-tco95-amip-test_lowcpu
         ignore_config_warnings: false
@@ -194,7 +195,7 @@ general:
         last_jobtype: prepcompute
         launcher_pid: -666
         no_motd: true
-        original_command: oifs-43r3-tco95-amip-test_lowcpu.yaml -e oifs-43r3-tco95-amip-test_lowcpu --open-run -c --no-motd --last-jobtype prepcompute
+        original_command: oifs-43r3-tco95-amip-test_lowcpu.yaml -e oifs-43r3-tco95-amip-test_lowcpu --open-run --no-motd --last-jobtype prepcompute
         profile: false
         run_number: null
         runscript_abspath: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/scripts/oifs-43r3-tco95-amip-test_lowcpu.yaml
@@ -326,7 +327,7 @@ general:
     initial_date: '1979-01-01T00:00:00'
     inspect: null
     isinteractive: false
-    jobid: 4793
+    jobid: 32422
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 19781231-19781231
@@ -348,7 +349,7 @@ general:
     no_motd: true
     nsecond: 0
     nyear: 0
-    original_command: oifs-43r3-tco95-amip-test_lowcpu.yaml -e oifs-43r3-tco95-amip-test_lowcpu --open-run -c --no-motd --last-jobtype prepcompute
+    original_command: oifs-43r3-tco95-amip-test_lowcpu.yaml -e oifs-43r3-tco95-amip-test_lowcpu --open-run --no-motd --last-jobtype prepcompute
     out_filetypes:
     - analysis
     - log
