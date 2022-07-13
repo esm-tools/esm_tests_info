@@ -6,19 +6,19 @@ computer:
     add_choose_heterogeneous_parallelization: &id001
         false:
             cpu_bind: cores
-            srun_execution_command: srun -l --distribution=plane=128 --cpu-bind=cores --multi-prog hostfile_srun
+            srun_execution_command: srun -l --hint=nomultithread --multi-prog hostfile_srun
         true:
             choose_taskset:
                 false:
                     launcher_comp_sep: '\
 
                         :'
-                    launcher_flags_per_component: --nodes=@nnodes@ --ntasks=@nproc@ --ntasks-per-node=@nproc_per_node@ --cpus-per-task=@cpus_per_proc@ --export=ALL,OMP_NUM_THREADS=@omp_num_threads@
-                    srun_execution_command: 'srun -l --distribution=plane=128 --cpu-bind=cores \
+                    launcher_flags_per_component: --hint=nomultithread  --nodes=@nnodes@ --ntasks=@nproc@ --ntasks-per-node=@nproc_per_node@ --cpus-per-task=@cpus_per_proc@ --export=ALL,OMP_NUM_THREADS=@omp_num_threads@
+                    srun_execution_command: 'srun -l \
 
                         @components@'
                 true:
-                    srun_execution_command: srun -l --distribution=plane=128 --cpu-bind=cores --multi-prog hostfile_srun
+                    srun_execution_command: srun -l --hint=nomultithread --multi-prog hostfile_srun
             cpu_bind: none
     additional_flags: []
     batch_system: slurm
@@ -46,7 +46,7 @@ computer:
     debugger: None
     debugger_flags_prelauncher: ''
     exclusive_flag: --exclusive
-    execution_command: srun -l --distribution=plane=128 --cpu-bind=cores --multi-prog hostfile_srun
+    execution_command: srun -l --hint=nomultithread --multi-prog hostfile_srun
     export_vars:
         CC: mpicc
         CPU_MODEL: AMD_EPYC_ZEN3
@@ -65,6 +65,8 @@ computer:
         I_MPI_OFI_PROVIDER: mlx
         I_MPI_PMI: pmi2
         I_MPI_PMI_LIBRARY: /usr/lib64/libpmi2.so
+        KMP_AFFINITY: granularity=fine,scatter
+        KMP_LIBRARY: turnaround
         LAPACK_LIB: '''-mkl=sequential'''
         LC_ALL: en_US.UTF-8
         LD_LIBRARY_PATH[(0)]: $HDF5ROOT/lib:$NETCDFROOT/lib:$NETCDFFROOT/lib:$LD_LIBRARY_PATH
@@ -103,7 +105,7 @@ computer:
     iolibraries: system_libs
     jobtype: unknown
     launcher: srun
-    launcher_flags: -l --distribution=plane=128 --cpu-bind=cores
+    launcher_flags: -l
     logical_cpus_per_core: 2
     mail1: --mail-type=NONE
     mail2: ''
@@ -125,6 +127,7 @@ computer:
     - load hdf5/1.12.1-openmpi-4.1.2-intel-2021.5.0
     mpicc: $MPICC
     mpifc: $MPIFC
+    mt_launcher_flag: --hint=nomultithread
     name: levante
     name_flag: --job-name=pico
     netcdf_cxx_root: /work/ab0995/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0
@@ -158,7 +161,7 @@ computer:
     script_name: <--methods.scriptname--
     sh_interpreter: /bin/bash
     single_proc_submit_flag: --ntasks-per-node=1
-    srun_execution_command: srun -l --distribution=plane=128 --cpu-bind=cores --multi-prog hostfile_srun
+    srun_execution_command: srun -l --hint=nomultithread --multi-prog hostfile_srun
     submit: sbatch
     submitted: false
     tasks_flag: --ntasks=@tasks@
@@ -1886,7 +1889,7 @@ general:
     initial_date: '1850-01-01T00:00:00'
     inspect: null
     isinteractive: false
-    jobid: 78576
+    jobid: 2981710
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 18491201-18491231
@@ -2269,7 +2272,7 @@ jsbach:
     config_intermediate:
         namelist.jsbach: <TEST_DIR>run/awiesm/pico/run_18500101-18500131/config/jsbach/namelist.jsbach
     config_sources:
-        namelist.jsbach: <HOME_DIR>/esm_tools/namelists//jsbach/3.20/PI-CTRL/no_dynveg/namelist.jsbach
+        namelist.jsbach: <HOME_DIR>/esm_tools/namelists//jsbach/3.20/PI-CTRL/dynveg/namelist.jsbach
     config_targets:
         namelist.jsbach: <TEST_DIR>run/awiesm/pico/run_18500101-18500131/work/namelist.jsbach
     cover_fract_dir: /pool/data/JSBACH/input/r0010/T63/land_use_maps/
@@ -2284,8 +2287,8 @@ jsbach:
 
         paper citation'
     domain: vegetation
-    dynamic_vegetations: false
-    dynveg: _no_dynveg
+    dynamic_vegetations: true
+    dynveg: _dynveg
     dynveg_file_ending: _dynveg
     experiment_analysis_dir: <TEST_DIR>/run/awiesm//pico/analysis/jsbach/
     experiment_bin_dir: <TEST_DIR>/run/awiesm//pico/bin/jsbach/
@@ -2389,8 +2392,8 @@ jsbach:
     forcing_intermediate:
         LU_trans_year_1849: <TEST_DIR>run/awiesm/pico/run_18500101-18500131/forcing/jsbach/landuseTransitions.1849.nc
         LU_trans_year_1850: <TEST_DIR>run/awiesm/pico/run_18500101-18500131/forcing/jsbach/landuseTransitions.1850.nc
-        LU_year_1849: <TEST_DIR>run/awiesm/pico/run_18500101-18500131/forcing/jsbach/landuse_harvest.1849.nc
-        LU_year_1850: <TEST_DIR>run/awiesm/pico/run_18500101-18500131/forcing/jsbach/landuse_harvest.1850.nc
+        LU_year_1849: <TEST_DIR>run/awiesm/pico/run_18500101-18500131/forcing/jsbach/landuseHarvest.1849.nc
+        LU_year_1850: <TEST_DIR>run/awiesm/pico/run_18500101-18500131/forcing/jsbach/landuseHarvest.1850.nc
         Ndepo_year_1849: <TEST_DIR>run/awiesm/pico/run_18500101-18500131/forcing/jsbach/Ndepo.1849.nc
         Ndepo_year_1850: <TEST_DIR>run/awiesm/pico/run_18500101-18500131/forcing/jsbach/Ndepo.1850.nc
         a_nd_file: <TEST_DIR>run/awiesm/pico/run_18500101-18500131/forcing/jsbach/a_nd_file.nc
@@ -2411,8 +2414,8 @@ jsbach:
     forcing_targets:
         LU_trans_year_1849: <TEST_DIR>run/awiesm/pico/run_18500101-18500131/work/landuseTransitions.1849.nc
         LU_trans_year_1850: <TEST_DIR>run/awiesm/pico/run_18500101-18500131/work/landuseTransitions.1850.nc
-        LU_year_1849: <TEST_DIR>run/awiesm/pico/run_18500101-18500131/work/landuse_harvest.1849.nc
-        LU_year_1850: <TEST_DIR>run/awiesm/pico/run_18500101-18500131/work/landuse_harvest.1850.nc
+        LU_year_1849: <TEST_DIR>run/awiesm/pico/run_18500101-18500131/work/landuseHarvest.1849.nc
+        LU_year_1850: <TEST_DIR>run/awiesm/pico/run_18500101-18500131/work/landuseHarvest.1850.nc
         Ndepo_year_1849: <TEST_DIR>run/awiesm/pico/run_18500101-18500131/work/Ndepo.1849.nc
         Ndepo_year_1850: <TEST_DIR>run/awiesm/pico/run_18500101-18500131/work/Ndepo.1850.nc
         a_nd_file: <TEST_DIR>run/awiesm/pico/run_18500101-18500131/work/a_nd_file.nc
@@ -2497,7 +2500,7 @@ jsbach:
     input_targets:
         jsbach: <TEST_DIR>run/awiesm/pico/run_18500101-18500131/work/jsbach.nc
         lctlib: <TEST_DIR>run/awiesm/pico/run_18500101-18500131/work/lctlib.def
-    jsbachnc_file_ending: _no-dynveg
+    jsbachnc_file_ending: _dynveg
     last_parent_date: '1849-12-31T23:45:00'
     leapyear: true
     license_text: 'Please make sure you have a licence to use echam.In case you are
@@ -2511,7 +2514,7 @@ jsbach:
             hydrology_ctl: {}
             jsbach_ctl:
                 use_dynveg: true
-    namelist_dir: <HOME_DIR>/esm_tools/namelists//jsbach/3.20/PI-CTRL/no_dynveg
+    namelist_dir: <HOME_DIR>/esm_tools/namelists//jsbach/3.20/PI-CTRL/dynveg
     namelist_objs:
         namelist.jsbach: &id011 f90nml.name
     namelists:
