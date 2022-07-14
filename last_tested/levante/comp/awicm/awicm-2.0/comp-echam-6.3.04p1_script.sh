@@ -26,6 +26,8 @@ export UCX_IB_ADDR_TYPE=ib_global
 export UCX_NET_DEVICES=mlx5_0:1
 export UCX_TLS=mm,knem,cma,dc_mlx5,dc_x,self
 export UCX_UNIFIED_MODE=y
+export KMP_LIBRARY=turnaround
+export KMP_AFFINITY=granularity=fine,scatter
 export FC=mpif90
 export F77=mpif90
 export MPICC=mpicc

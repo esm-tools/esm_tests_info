@@ -6,19 +6,19 @@ computer:
     add_choose_heterogeneous_parallelization: &id001
         false:
             cpu_bind: cores
-            srun_execution_command: srun -l --distribution=plane=128 --cpu-bind=cores --multi-prog hostfile_srun
+            srun_execution_command: srun -l --hint=nomultithread --multi-prog hostfile_srun
         true:
             choose_taskset:
                 false:
                     launcher_comp_sep: '\
 
                         :'
-                    launcher_flags_per_component: --nodes=@nnodes@ --ntasks=@nproc@ --ntasks-per-node=@nproc_per_node@ --cpus-per-task=@cpus_per_proc@ --export=ALL,OMP_NUM_THREADS=@omp_num_threads@
-                    srun_execution_command: 'srun -l --distribution=plane=128 --cpu-bind=cores \
+                    launcher_flags_per_component: --hint=nomultithread  --nodes=@nnodes@ --ntasks=@nproc@ --ntasks-per-node=@nproc_per_node@ --cpus-per-task=@cpus_per_proc@ --export=ALL,OMP_NUM_THREADS=@omp_num_threads@
+                    srun_execution_command: 'srun -l \
 
                         @components@'
                 true:
-                    srun_execution_command: srun -l --distribution=plane=128 --cpu-bind=cores --multi-prog hostfile_srun
+                    srun_execution_command: srun -l --hint=nomultithread --multi-prog hostfile_srun
             cpu_bind: none
     additional_flags: []
     batch_system: slurm
@@ -46,7 +46,7 @@ computer:
     debugger: None
     debugger_flags_prelauncher: ''
     exclusive_flag: --exclusive
-    execution_command: srun -l --distribution=plane=128 --cpu-bind=cores --multi-prog hostfile_srun
+    execution_command: srun -l --hint=nomultithread --multi-prog hostfile_srun
     export_vars:
         CC: mpicc
         CPU_MODEL: AMD_EPYC_ZEN3
@@ -65,6 +65,8 @@ computer:
         I_MPI_OFI_PROVIDER: mlx
         I_MPI_PMI: pmi2
         I_MPI_PMI_LIBRARY: /usr/lib64/libpmi2.so
+        KMP_AFFINITY: granularity=fine,scatter
+        KMP_LIBRARY: turnaround
         LAPACK_LIB: '''-mkl=sequential'''
         LC_ALL: en_US.UTF-8
         LD_LIBRARY_PATH[(0)]: $HDF5ROOT/lib:$NETCDFROOT/lib:$NETCDFFROOT/lib:$LD_LIBRARY_PATH
@@ -103,7 +105,7 @@ computer:
     iolibraries: system_libs
     jobtype: unknown
     launcher: srun
-    launcher_flags: -l --distribution=plane=128 --cpu-bind=cores
+    launcher_flags: -l
     logical_cpus_per_core: 2
     mail1: --mail-type=NONE
     mail2: ''
@@ -125,6 +127,7 @@ computer:
     - load hdf5/1.12.1-openmpi-4.1.2-intel-2021.5.0
     mpicc: $MPICC
     mpifc: $MPIFC
+    mt_launcher_flag: --hint=nomultithread
     name: levante
     name_flag: --job-name=awicm2-initial-monthly
     netcdf_cxx_root: /work/ab0995/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0
@@ -158,7 +161,7 @@ computer:
     script_name: <--methods.scriptname--
     sh_interpreter: /bin/bash
     single_proc_submit_flag: --ntasks-per-node=1
-    srun_execution_command: srun -l --distribution=plane=128 --cpu-bind=cores --multi-prog hostfile_srun
+    srun_execution_command: srun -l --hint=nomultithread --multi-prog hostfile_srun
     submit: sbatch
     submitted: false
     tasks_flag: --ntasks=@tasks@
@@ -1693,7 +1696,7 @@ general:
     initial_date: '2000-01-01T00:00:00'
     inspect: null
     isinteractive: false
-    jobid: 81311
+    jobid: 1464704
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 19991201-19991231
@@ -2175,8 +2178,8 @@ jsbach:
     forcing_intermediate:
         LU_trans_year_1999: <TEST_DIR>run/awicm/awicm2-initial-monthly/run_20000101-20000131/forcing/jsbach/landuseTransitions.1999.nc
         LU_trans_year_2000: <TEST_DIR>run/awicm/awicm2-initial-monthly/run_20000101-20000131/forcing/jsbach/landuseTransitions.2000.nc
-        LU_year_1999: <TEST_DIR>run/awicm/awicm2-initial-monthly/run_20000101-20000131/forcing/jsbach/landuse_harvest.1999.nc
-        LU_year_2000: <TEST_DIR>run/awicm/awicm2-initial-monthly/run_20000101-20000131/forcing/jsbach/landuse_harvest.2000.nc
+        LU_year_1999: <TEST_DIR>run/awicm/awicm2-initial-monthly/run_20000101-20000131/forcing/jsbach/landuseHarvest.1999.nc
+        LU_year_2000: <TEST_DIR>run/awicm/awicm2-initial-monthly/run_20000101-20000131/forcing/jsbach/landuseHarvest.2000.nc
         Ndepo_year_1999: <TEST_DIR>run/awicm/awicm2-initial-monthly/run_20000101-20000131/forcing/jsbach/Ndepo.1999.nc
         Ndepo_year_2000: <TEST_DIR>run/awicm/awicm2-initial-monthly/run_20000101-20000131/forcing/jsbach/Ndepo.2000.nc
         a_nd_file: <TEST_DIR>run/awicm/awicm2-initial-monthly/run_20000101-20000131/forcing/jsbach/a_nd_file.nc
@@ -2197,8 +2200,8 @@ jsbach:
     forcing_targets:
         LU_trans_year_1999: <TEST_DIR>run/awicm/awicm2-initial-monthly/run_20000101-20000131/work/landuseTransitions.1999.nc
         LU_trans_year_2000: <TEST_DIR>run/awicm/awicm2-initial-monthly/run_20000101-20000131/work/landuseTransitions.2000.nc
-        LU_year_1999: <TEST_DIR>run/awicm/awicm2-initial-monthly/run_20000101-20000131/work/landuse_harvest.1999.nc
-        LU_year_2000: <TEST_DIR>run/awicm/awicm2-initial-monthly/run_20000101-20000131/work/landuse_harvest.2000.nc
+        LU_year_1999: <TEST_DIR>run/awicm/awicm2-initial-monthly/run_20000101-20000131/work/landuseHarvest.1999.nc
+        LU_year_2000: <TEST_DIR>run/awicm/awicm2-initial-monthly/run_20000101-20000131/work/landuseHarvest.2000.nc
         Ndepo_year_1999: <TEST_DIR>run/awicm/awicm2-initial-monthly/run_20000101-20000131/work/Ndepo.1999.nc
         Ndepo_year_2000: <TEST_DIR>run/awicm/awicm2-initial-monthly/run_20000101-20000131/work/Ndepo.2000.nc
         a_nd_file: <TEST_DIR>run/awicm/awicm2-initial-monthly/run_20000101-20000131/work/a_nd_file.nc
