@@ -12,6 +12,7 @@ module load CMake/3.21.1
 module load Python/3.9.6
 module load imkl/2021.4.0
 module load Perl/5.34.0
+module load git
 
 export LC_ALL=en_US.UTF-8
 export TMPDIR=/tmp
