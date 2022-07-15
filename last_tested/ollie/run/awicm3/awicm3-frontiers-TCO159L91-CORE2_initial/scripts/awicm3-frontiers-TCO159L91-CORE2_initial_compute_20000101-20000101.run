@@ -24,7 +24,13 @@ module list
 module unload intel.mpi
 module load intel.mpi
 module unload gribapi
+module unload hdf5
+module unload intel.mpi
+module load intel.mpi/2021.3.0
 module unload gribapi
+module unload hdf5
+module unload intel.mpi
+module load intel.mpi/2021.3.0
 
 export LC_ALL=en_US.UTF-8
 export FC="mpiifort -mkl"
@@ -33,7 +39,7 @@ export MPIFC=mpiifort
 export MPICC=mpiicc
 export CC=mpiicc
 export CXX=mpiicpc
-export IO_LIB_ROOT=/work/ollie/jstreffi/software/HPC_libraries/intel2018.0.5_intelmpi_18.0.4_20210804
+export IO_LIB_ROOT=/work/ollie/jstreffi/software/HPC_libraries/intel2018.0.5_intelmpi_2021.3.0_20220623
 export HDF5ROOT=$IO_LIB_ROOT
 export NETCDFFROOT=$IO_LIB_ROOT
 export NETCDFROOT=$IO_LIB_ROOT
@@ -48,7 +54,7 @@ export ZLIBROOT=/usr
 export MPIROOT=${I_MPI_ROOT}/intel64
 export MPI_LIB=$(mpiifort -show |sed -e 's/^[^ ]*//' -e 's/-[I][^ ]*//g')
 export PATH=/work/ollie/jhegewal/sw/cmake/bin:$PATH
-export PATH=$IO_LIB_ROOT/bin:$PATH
+export PATH=$PATH:$IO_LIB_ROOT/bin
 export LD_LIBRARY_PATH=$IO_LIB_ROOT/lib:$LD_LIBRARY_PATH
 export SZIPROOT=$IO_LIB_ROOT
 export HDF5_ROOT=$HDF5ROOT
@@ -81,7 +87,7 @@ unset SLURM_ARBITRARY_NODELIST
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 20586 - start >> <TEST_DIR>/run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/log//awicm3-frontiers-TCO159L91-CORE2_initial_awicm3.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 99006 - start >> <TEST_DIR>/run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/log//awicm3-frontiers-TCO159L91-CORE2_initial_awicm3.log
 
 cd <TEST_DIR>/run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/run_20000101-20000101/work/
 
@@ -119,8 +125,8 @@ time srun -l --kill-on-bad-exit=1 --cpu_bind=none --multi-prog hostfile_srun 2>&
 process=$! 
 # Comment the following line if you don't want esm_runscripts to restart:
 cd <TEST_DIR>/run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/scripts/
-esm_runscripts awicm3-frontiers-TCO159L91-CORE2_initial.yaml -e awicm3-frontiers-TCO159L91-CORE2_initial -t observe_compute -p ${process} -s 20000101 -r 1 -v  --open-run
+esm_runscripts awicm3-frontiers-TCO159L91-CORE2_initial.yaml -e awicm3-frontiers-TCO159L91-CORE2_initial -t observe_compute -p ${process} -s 20000101 -r 1 -v  --last-jobtype prepcompute --open-run
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 20586 - done >> <TEST_DIR>/run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/log//awicm3-frontiers-TCO159L91-CORE2_initial_awicm3.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 99006 - done >> <TEST_DIR>/run/awicm3//awicm3-frontiers-TCO159L91-CORE2_initial/log//awicm3-frontiers-TCO159L91-CORE2_initial_awicm3.log
 
 wait

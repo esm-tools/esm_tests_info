@@ -102,6 +102,7 @@ computer:
     - load intel.mpi
     mpicc: mpiicc
     mpifc: mpiifort
+    mt_launcher_flag: ''
     name: ollie
     name_flag: --job-name=awicm1-CMIP6-initial-monthly
     nodes_flag: --nodes=@nodes@
@@ -1962,17 +1963,19 @@ general:
     base_dir: <TEST_DIR>/run/awicm/
     batch: slurm
     calendar: esm_calendar object with allowed leap years
-    check: false
+    check: true
     chunk_number: 1
     command_line_config:
-        check: false
+        check: true
         current_date: null
         expid: awicm1-CMIP6-initial-monthly
+        ignore_config_warnings: false
         inspect: null
         jobtype: prepcompute
+        last_jobtype: prepcompute
         launcher_pid: -666
         no_motd: true
-        original_command: awicm1-CMIP6-initial-monthly.yaml -e awicm1-CMIP6-initial-monthly --open-run --no-motd
+        original_command: awicm1-CMIP6-initial-monthly.yaml -e awicm1-CMIP6-initial-monthly --open-run -c --no-motd --last-jobtype prepcompute
         profile: false
         run_number: null
         runscript_abspath: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml
@@ -2096,6 +2099,7 @@ general:
             work_to_run: copy
     final_date: '1850-03-01T00:00:00'
     first_run_in_chunk: true
+    ignore_config_warnings: false
     in_filetypes:
     - scripts
     - input
@@ -2105,8 +2109,10 @@ general:
     - restart_in
     initial_date: '1850-01-01T00:00:00'
     inspect: null
-    jobid: 100651
+    isinteractive: false
+    jobid: 103720
     jobtype: prepcompute
+    last_jobtype: prepcompute
     last_run_datestamp: 18491201-18491231
     last_run_in_chunk: false
     last_start_date: '1849-12-01T00:00:00'
@@ -2128,7 +2134,7 @@ general:
     no_motd: true
     nsecond: 0
     nyear: 0
-    original_command: awicm1-CMIP6-initial-monthly.yaml -e awicm1-CMIP6-initial-monthly --open-run --no-motd
+    original_command: awicm1-CMIP6-initial-monthly.yaml -e awicm1-CMIP6-initial-monthly --open-run -c --no-motd --last-jobtype prepcompute
     out_filetypes:
     - analysis
     - log

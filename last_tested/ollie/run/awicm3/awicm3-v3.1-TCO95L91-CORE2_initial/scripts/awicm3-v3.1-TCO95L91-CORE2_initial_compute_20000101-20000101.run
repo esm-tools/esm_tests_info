@@ -87,7 +87,7 @@ unset SLURM_ARBITRARY_NODELIST
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 69853 - start >> <TEST_DIR>/run/awicm3//awicm3-v3.1-TCO95L91-CORE2_initial/log//awicm3-v3.1-TCO95L91-CORE2_initial_awicm3.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 99489 - start >> <TEST_DIR>/run/awicm3//awicm3-v3.1-TCO95L91-CORE2_initial/log//awicm3-v3.1-TCO95L91-CORE2_initial_awicm3.log
 
 cd <TEST_DIR>/run/awicm3//awicm3-v3.1-TCO95L91-CORE2_initial/run_20000101-20000101/work/
 
@@ -127,8 +127,8 @@ time srun -l --kill-on-bad-exit=1 --cpu_bind=none --multi-prog hostfile_srun 2>&
 process=$! 
 # Comment the following line if you don't want esm_runscripts to restart:
 cd <TEST_DIR>/run/awicm3//awicm3-v3.1-TCO95L91-CORE2_initial/scripts/
-esm_runscripts awicm3-v3.1-TCO95L91-CORE2_initial.yaml -e awicm3-v3.1-TCO95L91-CORE2_initial -t observe_compute -p ${process} -s 20000101 -r 1 -v  --open-run
+esm_runscripts awicm3-v3.1-TCO95L91-CORE2_initial.yaml -e awicm3-v3.1-TCO95L91-CORE2_initial -t observe_compute -p ${process} -s 20000101 -r 1 -v  --last-jobtype prepcompute --open-run
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 69853 - done >> <TEST_DIR>/run/awicm3//awicm3-v3.1-TCO95L91-CORE2_initial/log//awicm3-v3.1-TCO95L91-CORE2_initial_awicm3.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 99489 - done >> <TEST_DIR>/run/awicm3//awicm3-v3.1-TCO95L91-CORE2_initial/log//awicm3-v3.1-TCO95L91-CORE2_initial_awicm3.log
 
 wait
