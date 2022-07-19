@@ -1,0 +1,126 @@
+general:
+    setup_name: 'awicm'
+    version: "1.0-recom"
+    scenario: "ssp585"
+    post_processing: 0
+    account: !ENV ${ACCOUNT}
+    compute_time: "00:45:00"
+    use_venv: false
+    base_dir: !ENV ${ESM_TESTING_DIR}
+    initial_date: "2015-01-01"
+    final_date: "2015-03-01"
+    nyear: 0    # Number of years per run
+    nmonth: 1
+    lresume: True
+    ini_parent_dir: /work/ba1103/a270073/out/awicm-1.0-recom/awi-esm-1-1-lr_kh800/historical2/restart/
+    ini_restart_dir: "${general.ini_parent_dir}/"
+    ini_parent_exp_id: historical2
+    ini_parent_date: "2014-12-31"
+    first_initial_year: "${general.initial_date!syear}"
+
+awicm:
+    version: "1.0-recom"
+    model_dir: !ENV ${MODEL_DIR}
+
+echam:
+    resolution: "T63"
+    levels: "L47"
+    lresume: "${general.lresume}"
+    ini_parent_dir: "${general.ini_parent_dir}/echam/"
+    #ini_parent_dir: "${general.ini_parent_dir}/"
+    ini_parent_exp_id: "${general.ini_parent_exp_id}"
+    ini_parent_date: "${general.ini_parent_date}"  
+    #restart_rate: 1            # esm-default: 1      ; echam-default: putrerun[1] = 1
+    #restart_unit: "months"     # esm-default: months ; echam-default: putrerun[2] = month
+    restart_unit: "months"
+    #restart_firstlast: "first" # esm-default: first  ; echam-default: putrerun[3] = last
+    # putrerun[3] = "first" --> restart_*_YYYYMMDD235230_*.nc
+    # putrerun[3] = "last"  --> restart_*_YYYYMMDD235230_*.nc
+    #dataset: r0007 # for piControl that was stupid
+    dataset: r0008 # needed for ssp data
+    namelist_dir: "/home/a/a270073/esm/namelists/echam/6.3.04p1/SSP585/" # special namelist.echam
+
+    choose_general.run_number:
+        1:
+            restart_in_sources:
+                "[[streams-->STREAM]]": restart_${general.ini_parent_exp_id}_${parent_date!syear!smonth!sday}_STREAM.nc
+
+jsbach:
+    lresume: "${general.lresume}"
+    #lresume: False
+    ini_parent_dir: "${general.ini_parent_dir}/jsbach/"
+    #ini_parent_dir: "${general.ini_parent_dir}/"
+    ini_parent_exp_id: "${general.ini_parent_exp_id}"
+    ini_parent_date: "${general.ini_parent_date}"   
+    dynamic_vegetations: True
+    dynveg_file_ending: "_dynveg"   # DYNVEG_jsbach="dynveg"
+    dataset: r0010
+    add_input_sources:
+        #"jsbach_1850": /mnt/lustre01/pf/a/a271096/Solutions/Ozgur_Hoca/jsbach_T63CORE2_11tiles_5layers_1850.nc # dynveg true
+        "jsbach_1850": /work/ab0995/from_Mistral/ab0995/a270046/meshes_default/core/tarfilesT63/input/jsbach/jsbach_T63CORE2_11tiles_5layers_1850.nc # dynveg true
+
+hdmodel:
+    lresume: "${general.lresume}"
+    #lresume: False
+    ini_parent_dir: "${general.ini_parent_dir}/hdmodel/"
+    #ini_parent_dir: "${general.ini_parent_dir}/"
+    ini_parent_exp_id: "${general.ini_parent_exp_id}"
+    ini_parent_date: "${general.ini_parent_date}"   
+
+fesom:
+    resolution: CORE2
+    mesh_dir: "/work/ab0995/a270152/testing_pool/AWICM/FESOM1/MESHES/core/"
+    nproc: 288 # NOTE: NEVER RUN WITH 288 IN LEVANTE, only for testing purposes
+    lresume: "${general.lresume}"
+    ini_parent_dir: "${general.ini_parent_dir}/fesom/"
+    #ini_parent_dir: "${general.ini_parent_dir}/"
+    #ini_parent_dir: /work/ba1103/a270073/out/awicm-1.0-recom/awi-esm-1-1-lr_kh800/piControl_og_restart_processed/restart/fesom/
+    ini_parent_exp_id: "${general.ini_parent_exp_id}"
+    ini_parent_date: "${general.ini_parent_date}"   
+    restart_rate: 1   # esm-default=12      ; fesom-default: run_length=1 
+    # --> with default 12 months, logfile stops at: `432:  Writing mean fields (netCDF) ...` after 1 month
+    #restart_unit: "m" # esm-default=m       ; fesom-default: run_length_unit=y
+    restart_unit: "m" # esm-default=m       ; fesom-default: run_length_unit=y
+    #restart_first: 1  # esm-default=12      ; for restart yaml block
+    restart_first: 12  # esm-default=12      ; for restart yaml block
+    #restart_flag: "last" # esm-default=last ; fesom-default: restartflag=last
+    pool_dir: "/work/ab0995/from_Mistral/ab0995/a270046/iceberg-input/"
+    # pool_dir: /work/bm0944/input/
+    # fesom_FILE_FORCING_FILES="/pf/a/a270094/esm-master/esm-runscripts/namelists/fesom/namelist.recom namelist.recom"
+    namelist_changes:
+        namelist.oce:
+            viscdiff:
+                Kh0: 800.0
+
+recom:
+    scenario: "HIST"
+    f_year_fesom_cycle: "${general.initial_date!syear}"
+    l_year_fesom_cycle: "${general.final_date!syear}"
+    num_CO2_cycles: 1
+    current_CO2_cycle: 1
+    lresume: "${general.lresume}"
+    #lresume: True
+    ini_parent_dir: "${general.ini_parent_dir}/recom/"
+    #ini_parent_dir: "${general.ini_parent_dir}/fesom/"
+    #ini_parent_dir: "${general.ini_parent_dir}/"
+    ini_parent_exp_id: "${general.ini_parent_exp_id}"
+    ini_parent_date: "${general.ini_parent_date}"   
+    #namelist_dir: "/pf/a/a270073/esm/runscripts/"
+    namelist_changes:
+        namelist.recom:
+            pavariables:
+              #diags3d_num: 20
+              REcoMDataPath: '/work/ba1103/a270094/MarESys/forcing/CORE2mesh/'
+
+oasis3mct:
+    time_step: 10800
+    # cf_name_dir: "${awicm_recom.model_dir}"
+    cf_name_dir: "${general.model_dir}/oasis"
+    cf: "${cf_name_dir}/cf_name_table.txt"
+    lresume: "${general.lresume}"
+    #lresume: False
+    ini_parent_dir: "${general.ini_parent_dir}/oasis3mct/"
+    #ini_parent_dir: "${general.ini_parent_dir}/"
+    ini_parent_exp_id: "${general.ini_parent_exp_id}"
+    ini_parent_date: "${general.ini_parent_date}"   
+    
