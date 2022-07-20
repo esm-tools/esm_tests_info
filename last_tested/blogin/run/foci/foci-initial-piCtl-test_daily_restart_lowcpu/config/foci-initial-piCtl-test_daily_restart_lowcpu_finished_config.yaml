@@ -986,10 +986,10 @@ general:
     base_dir: <TEST_DIR>/run/foci/
     batch: slurm
     calendar: esm_calendar object with allowed leap years
-    check: false
+    check: true
     chunk_number: 1
     command_line_config:
-        check: false
+        check: true
         current_date: null
         expid: foci-initial-piCtl-test_daily_restart_lowcpu
         ignore_config_warnings: false
@@ -998,7 +998,7 @@ general:
         last_jobtype: prepcompute
         launcher_pid: -666
         no_motd: true
-        original_command: foci-initial-piCtl-test_daily_restart_lowcpu.yaml -e foci-initial-piCtl-test_daily_restart_lowcpu --open-run --no-motd --last-jobtype prepcompute
+        original_command: foci-initial-piCtl-test_daily_restart_lowcpu.yaml -e foci-initial-piCtl-test_daily_restart_lowcpu --open-run -c --no-motd --last-jobtype prepcompute
         profile: false
         run_number: null
         runscript_abspath: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/scripts/foci-initial-piCtl-test_daily_restart_lowcpu.yaml
@@ -1137,7 +1137,7 @@ general:
     initial_date: '1850-01-01T00:00:00'
     inspect: null
     isinteractive: false
-    jobid: 101087
+    jobid: 80661
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 18491231-18491231
@@ -1163,7 +1163,7 @@ general:
     no_motd: true
     nsecond: 0
     nyear: 0
-    original_command: foci-initial-piCtl-test_daily_restart_lowcpu.yaml -e foci-initial-piCtl-test_daily_restart_lowcpu --open-run --no-motd --last-jobtype prepcompute
+    original_command: foci-initial-piCtl-test_daily_restart_lowcpu.yaml -e foci-initial-piCtl-test_daily_restart_lowcpu --open-run -c --no-motd --last-jobtype prepcompute
     out_filetypes:
     - analysis
     - log
@@ -1654,8 +1654,8 @@ jsbach:
         a_nd_file: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/work/a_nd_file.nc
         lightning: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/work/lightning.nc
         popdens: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/work/population_density.nc
+    hist_extend_scenario: ssp370
     hist_fold: hist_harvest
-    hist_scenario: ssp370
     ignore_intermediate:
         jsbach: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/ignore/jsbach/foci-initial-piCtl-test_daily_restart_lowcpu_185001.02_jsbach
         jsbach_codes: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/ignore/jsbach/foci-initial-piCtl-test_daily_restart_lowcpu_185001.02_jsbach.codes
@@ -1814,7 +1814,9 @@ jsbach:
         veg: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/restart/jsbach/restart_foci-initial-piCtl-test_daily_restart_lowcpu_veg_18500101.nc
         yasso: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/restart/jsbach/restart_foci-initial-piCtl-test_daily_restart_lowcpu_yasso_18500101.nc
     scenario: PI-CTRL
+    scenario_is_ssp: false
     scenario_type: PI-CTRL
+    ssp_num: null
     streams:
     - jsbach
     - nitro
@@ -1836,7 +1838,6 @@ jsbach:
     thisrun_restart_out_dir: <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/restart/jsbach/
     thisrun_viz_dir: <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/viz/jsbach/
     time_step: 450
-    use_input_dir_awi: false
     version: 3.20p1
 nemo:
     _nx: 722
