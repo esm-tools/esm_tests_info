@@ -313,6 +313,10 @@ echam:
             grid: atmo
         A_dQnsdT:
             grid: atmo
+        co2_atmo:
+            grid: atmo
+        co2c_atm:
+            grid: atmo
         evap_atm:
             grid: atmo
         heat_atm:
@@ -344,6 +348,8 @@ echam:
         tauy_atm:
             grid: atmo
         tauy_ica:
+            grid: atmo
+        w10w_atm:
             grid: atmo
     coupling_freq_in_steps: 24
     dataset: r0008
@@ -466,19 +472,10 @@ echam:
         aerocoarse:
         - need_year_before
         - need_year_after
-        aerocoarse_kinne_1850:
-        - need_year_before
-        - need_year_after
         aerofarir:
         - need_year_before
         - need_year_after
-        aerofarir_kinne_1850:
-        - need_year_before
-        - need_year_after
         aerofin:
-        - need_year_before
-        - need_year_after
-        aerofin_kinne_1850:
         - need_year_before
         - need_year_after
         ozone:
@@ -487,12 +484,18 @@ echam:
         swflux:
         - need_year_before
         - need_year_after
+        - need_2years_before
+        - need_2years_after
         volcir:
         - need_year_before
         - need_year_after
+        - need_2years_before
+        - need_2years_after
         volcsw:
         - need_year_before
         - need_year_after
+        - need_2years_before
+        - need_2years_after
     forcing_dir: /scratch/usr/shkifmsw/foci_input2/ECHAM6/input/r0008/T63
     forcing_intermediate:
         aerocoarse_year_1849: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/forcing/echam/aero_coarse_1849.nc
@@ -686,26 +689,46 @@ echam:
     other_date: '1850-01-01T23:52:30'
     outdata_intermediate:
         aclcim_nc: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/outdata/echam/foci-initial-piCtl-test_daily_restart_lowcpu_185001.01_aclcim.nc
+        aeropt_nc: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/outdata/echam/foci-initial-piCtl-test_daily_restart_lowcpu_185001.01_aeropt.nc
+        cfdiag_nc: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/outdata/echam/foci-initial-piCtl-test_daily_restart_lowcpu_185001.01_cfdiag.nc
+        co2_nc: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/outdata/echam/foci-initial-piCtl-test_daily_restart_lowcpu_185001.01_co2.nc
         g3b1hi_nc: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/outdata/echam/foci-initial-piCtl-test_daily_restart_lowcpu_185001.01_g3b1hi.nc
+        g3b_nc: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/outdata/echam/foci-initial-piCtl-test_daily_restart_lowcpu_185001.01_g3b.nc
         g3bday_nc: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/outdata/echam/foci-initial-piCtl-test_daily_restart_lowcpu_185001.01_g3bday.nc
         g3bid_nc: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/outdata/echam/foci-initial-piCtl-test_daily_restart_lowcpu_185001.01_g3bid.nc
         g3bim_nc: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/outdata/echam/foci-initial-piCtl-test_daily_restart_lowcpu_185001.01_g3bim.nc
+        gl_nc: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/outdata/echam/foci-initial-piCtl-test_daily_restart_lowcpu_185001.01_gl.nc
         glday_nc: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/outdata/echam/foci-initial-piCtl-test_daily_restart_lowcpu_185001.01_glday.nc
         glim_nc: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/outdata/echam/foci-initial-piCtl-test_daily_restart_lowcpu_185001.01_glim.nc
         jsbid_nc: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/outdata/echam/foci-initial-piCtl-test_daily_restart_lowcpu_185001.01_jsbid.nc
+        ma_nc: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/outdata/echam/foci-initial-piCtl-test_daily_restart_lowcpu_185001.01_ma.nc
+        scm_nc: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/outdata/echam/foci-initial-piCtl-test_daily_restart_lowcpu_185001.01_scm.nc
         sp6h_nc: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/outdata/echam/foci-initial-piCtl-test_daily_restart_lowcpu_185001.01_sp6h.nc
+        sp_nc: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/outdata/echam/foci-initial-piCtl-test_daily_restart_lowcpu_185001.01_sp.nc
         spim_nc: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/outdata/echam/foci-initial-piCtl-test_daily_restart_lowcpu_185001.01_spim.nc
+        surf_nc: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/outdata/echam/foci-initial-piCtl-test_daily_restart_lowcpu_185001.01_surf.nc
+        tdiag_nc: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/outdata/echam/foci-initial-piCtl-test_daily_restart_lowcpu_185001.01_tdiag.nc
     outdata_sources:
         aclcim_nc: <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/work//foci-initial-piCtl-test_daily_restart_lowcpu_185001.01_aclcim.nc
+        aeropt_nc: <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/work//foci-initial-piCtl-test_daily_restart_lowcpu_185001.01_aeropt.nc
+        cfdiag_nc: <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/work//foci-initial-piCtl-test_daily_restart_lowcpu_185001.01_cfdiag.nc
+        co2_nc: <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/work//foci-initial-piCtl-test_daily_restart_lowcpu_185001.01_co2.nc
         g3b1hi_nc: <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/work//foci-initial-piCtl-test_daily_restart_lowcpu_185001.01_g3b1hi.nc
+        g3b_nc: <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/work//foci-initial-piCtl-test_daily_restart_lowcpu_185001.01_g3b.nc
         g3bday_nc: <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/work//foci-initial-piCtl-test_daily_restart_lowcpu_185001.01_g3bday.nc
         g3bid_nc: <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/work//foci-initial-piCtl-test_daily_restart_lowcpu_185001.01_g3bid.nc
         g3bim_nc: <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/work//foci-initial-piCtl-test_daily_restart_lowcpu_185001.01_g3bim.nc
+        gl_nc: <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/work//foci-initial-piCtl-test_daily_restart_lowcpu_185001.01_gl.nc
         glday_nc: <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/work//foci-initial-piCtl-test_daily_restart_lowcpu_185001.01_glday.nc
         glim_nc: <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/work//foci-initial-piCtl-test_daily_restart_lowcpu_185001.01_glim.nc
         jsbid_nc: <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/work//foci-initial-piCtl-test_daily_restart_lowcpu_185001.01_jsbid.nc
+        ma_nc: <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/work//foci-initial-piCtl-test_daily_restart_lowcpu_185001.01_ma.nc
+        scm_nc: <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/work//foci-initial-piCtl-test_daily_restart_lowcpu_185001.01_scm.nc
         sp6h_nc: <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/work//foci-initial-piCtl-test_daily_restart_lowcpu_185001.01_sp6h.nc
+        sp_nc: <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/work//foci-initial-piCtl-test_daily_restart_lowcpu_185001.01_sp.nc
         spim_nc: <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/work//foci-initial-piCtl-test_daily_restart_lowcpu_185001.01_spim.nc
+        surf_nc: <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/work//foci-initial-piCtl-test_daily_restart_lowcpu_185001.01_surf.nc
+        tdiag_nc: <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/work//foci-initial-piCtl-test_daily_restart_lowcpu_185001.01_tdiag.nc
     outdata_sources_wild_card:
         accw: foci-initial-piCtl-test_daily_restart_lowcpu_1850*.01_accw
         accw_codes: foci-initial-piCtl-test_daily_restart_lowcpu_1850*.01_accw.codes
@@ -715,15 +738,25 @@ echam:
         echam_codes: foci-initial-piCtl-test_daily_restart_lowcpu_1850*.01_echam.codes
     outdata_targets:
         aclcim_nc: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/outdata/echam/foci-initial-piCtl-test_daily_restart_lowcpu_185001.01_aclcim.nc
+        aeropt_nc: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/outdata/echam/foci-initial-piCtl-test_daily_restart_lowcpu_185001.01_aeropt.nc
+        cfdiag_nc: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/outdata/echam/foci-initial-piCtl-test_daily_restart_lowcpu_185001.01_cfdiag.nc
+        co2_nc: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/outdata/echam/foci-initial-piCtl-test_daily_restart_lowcpu_185001.01_co2.nc
         g3b1hi_nc: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/outdata/echam/foci-initial-piCtl-test_daily_restart_lowcpu_185001.01_g3b1hi.nc
+        g3b_nc: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/outdata/echam/foci-initial-piCtl-test_daily_restart_lowcpu_185001.01_g3b.nc
         g3bday_nc: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/outdata/echam/foci-initial-piCtl-test_daily_restart_lowcpu_185001.01_g3bday.nc
         g3bid_nc: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/outdata/echam/foci-initial-piCtl-test_daily_restart_lowcpu_185001.01_g3bid.nc
         g3bim_nc: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/outdata/echam/foci-initial-piCtl-test_daily_restart_lowcpu_185001.01_g3bim.nc
+        gl_nc: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/outdata/echam/foci-initial-piCtl-test_daily_restart_lowcpu_185001.01_gl.nc
         glday_nc: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/outdata/echam/foci-initial-piCtl-test_daily_restart_lowcpu_185001.01_glday.nc
         glim_nc: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/outdata/echam/foci-initial-piCtl-test_daily_restart_lowcpu_185001.01_glim.nc
         jsbid_nc: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/outdata/echam/foci-initial-piCtl-test_daily_restart_lowcpu_185001.01_jsbid.nc
+        ma_nc: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/outdata/echam/foci-initial-piCtl-test_daily_restart_lowcpu_185001.01_ma.nc
+        scm_nc: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/outdata/echam/foci-initial-piCtl-test_daily_restart_lowcpu_185001.01_scm.nc
         sp6h_nc: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/outdata/echam/foci-initial-piCtl-test_daily_restart_lowcpu_185001.01_sp6h.nc
+        sp_nc: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/outdata/echam/foci-initial-piCtl-test_daily_restart_lowcpu_185001.01_sp.nc
         spim_nc: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/outdata/echam/foci-initial-piCtl-test_daily_restart_lowcpu_185001.01_spim.nc
+        surf_nc: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/outdata/echam/foci-initial-piCtl-test_daily_restart_lowcpu_185001.01_surf.nc
+        tdiag_nc: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/outdata/echam/foci-initial-piCtl-test_daily_restart_lowcpu_185001.01_tdiag.nc
     parent_date: '1849-12-31T23:52:30'
     parent_expid: foci-initial-piCtl-test_daily_restart_lowcpu
     parent_restart_dir: <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/restart/echam/
@@ -871,6 +904,16 @@ echam:
     - jsbid
     - sp6h
     - spim
+    - sp
+    - gl
+    - g3b
+    - scm
+    - ma
+    - surf
+    - cfdiag
+    - aeropt
+    - co2
+    - tdiag
     switch: 1
     thisrun_analysis_dir: <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/analysis/echam/
     thisrun_bin_dir: <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/bin/echam/
@@ -1094,7 +1137,7 @@ general:
     initial_date: '1850-01-01T00:00:00'
     inspect: null
     isinteractive: false
-    jobid: 31231
+    jobid: 101087
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 18491231-18491231
@@ -1300,7 +1343,7 @@ hdmodel:
 
         paper citation'
     domain: hydrology
-    executable: NONE
+    executable: null
     experiment_analysis_dir: <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/analysis/hdmodel/
     experiment_bin_dir: <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/bin/hdmodel/
     experiment_config_dir: <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/config/hdmodel/
@@ -1611,6 +1654,8 @@ jsbach:
         a_nd_file: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/work/a_nd_file.nc
         lightning: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/work/lightning.nc
         popdens: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/work/population_density.nc
+    hist_fold: hist_harvest
+    hist_scenario: ssp370
     ignore_intermediate:
         jsbach: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/ignore/jsbach/foci-initial-piCtl-test_daily_restart_lowcpu_185001.02_jsbach
         jsbach_codes: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/ignore/jsbach/foci-initial-piCtl-test_daily_restart_lowcpu_185001.02_jsbach.codes
@@ -1673,6 +1718,7 @@ jsbach:
     ini_parent_exp_id: unset
     ini_restart_dir: <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/restart/echam//../jsbach/
     input_dir: /scratch/usr/shkifmsw/foci_input2/JSBACH/input/r0010
+    input_dir_awi: /scratch/usr/hbkawi/AWICM/JSBACH/input/r0010
     input_intermediate:
         cpools_foci: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/input/jsbach/Cpools.nc
         fpc_foci: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/input/jsbach/fpc.nc
@@ -1740,6 +1786,7 @@ jsbach:
     parent_expid: foci-initial-piCtl-test_daily_restart_lowcpu
     parent_restart_dir: <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/restart/jsbach/
     pool_dir: /scratch/usr/shkifmsw/foci_input2/JSBACH
+    pool_dir_awi: /scratch/usr/hbkawi/AWICM/JSBACH
     prev_date: '1849-12-31T23:52:30'
     pseudo_end_date: '1850-01-01T23:45:00'
     pseudo_start_date: '1849-12-31T23:52:30'
@@ -1789,6 +1836,7 @@ jsbach:
     thisrun_restart_out_dir: <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/restart/jsbach/
     thisrun_viz_dir: <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/viz/jsbach/
     time_step: 450
+    use_input_dir_awi: false
     version: 3.20p1
 nemo:
     _nx: 722
