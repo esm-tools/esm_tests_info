@@ -34,7 +34,7 @@
     max_wave_diffusivity = 0.005
     tmix_tidalconstituent = 'M2'
     tmix_tidalmodelname = 'tpxo71'
-    brine_rejection_param = .false.
+    brine_rejection_param = .true.
     visc_conv_limit = 1.0
     diff_conv_limit = 1.0
     c_d = 0.0025
@@ -54,7 +54,7 @@
 &oce_scheme
     gamma_stab = 0.99
     gamma_stab_nh = 0.5
-    gamma_fct = 0.4
+    gamma_fct = 0.5
     alpha_ab = 1.55
     alpha_trapez = 0.55
     theta_ssh = 0.5
@@ -91,9 +91,9 @@
 /
 
 &age_tracer
-    use_age_tracer = .true.
+    use_age_tracer = .false.
     num_age_tracer = 1
-    age_tracer_start_year = 1958
+    age_tracer_start_year = 1947
     age_tracer_global_surf = .true.
     age_release_in_volume = .false.
     zero_age_at_release = .true.
@@ -101,7 +101,7 @@
 /
 
 &tracer_cutoff
-    limit_salinity = .false.
-    salinity_min = 5
+    limit_salinity = .true.
+    salinity_min = 0.5
     coeff_limit_salinity = 0.0019
 /
