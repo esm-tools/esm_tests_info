@@ -296,6 +296,10 @@ echam:
     config_targets:
         namelist.echam: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/work/namelist.echam
     coupling_fields:
+        co2_atmo:
+            grid: atmo
+        co2c_atm:
+            grid: atmo
         evap_atm:
             grid: atmo
         hdo_atmo:
@@ -339,6 +343,8 @@ echam:
         tauy_atm:
             grid: atmo
         tauy_ica:
+            grid: atmo
+        w10w_atm:
             grid: atmo
         w1_atm:
             grid: atmo
@@ -446,73 +452,102 @@ echam:
         aerocoarse:
         - need_year_before
         - need_year_after
-        aerocoarse_kinne_1850:
-        - need_year_before
-        - need_year_after
+        - need_2years_before
+        - need_2years_after
         aerofarir:
         - need_year_before
         - need_year_after
-        aerofarir_kinne_1850:
-        - need_year_before
-        - need_year_after
+        - need_2years_before
+        - need_2years_after
         aerofin:
         - need_year_before
         - need_year_after
-        aerofin_kinne_1850:
-        - need_year_before
-        - need_year_after
+        - need_2years_before
+        - need_2years_after
         ozone:
         - need_year_before
         - need_year_after
+        - need_2years_before
+        - need_2years_after
         swflux:
         - need_year_before
         - need_year_after
+        - need_2years_before
+        - need_2years_after
         volcir:
         - need_year_before
         - need_year_after
+        - need_2years_before
+        - need_2years_after
         volcsw:
         - need_year_before
         - need_year_after
+        - need_2years_before
+        - need_2years_after
     forcing_dir: /pool/data/ECHAM6//input/r0007/T63
     forcing_intermediate:
+        aerocoarse_year_1999: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/forcing/echam/aero_coarse_1999.nc
         aerocoarse_year_2000: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/forcing/echam/aero_coarse_2000.nc
         aerocoarse_year_2001: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/forcing/echam/aero_coarse_2001.nc
         aerocoarse_year_2002: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/forcing/echam/aero_coarse_2002.nc
+        aerocoarse_year_2003: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/forcing/echam/aero_coarse_2003.nc
+        aerofarir_year_1999: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/forcing/echam/aero_farir_1999.nc
         aerofarir_year_2000: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/forcing/echam/aero_farir_2000.nc
         aerofarir_year_2001: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/forcing/echam/aero_farir_2001.nc
         aerofarir_year_2002: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/forcing/echam/aero_farir_2002.nc
+        aerofarir_year_2003: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/forcing/echam/aero_farir_2003.nc
+        aerofin_year_1999: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/forcing/echam/aero_fine_1999.nc
         aerofin_year_2000: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/forcing/echam/aero_fine_2000.nc
         aerofin_year_2001: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/forcing/echam/aero_fine_2001.nc
         aerofin_year_2002: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/forcing/echam/aero_fine_2002.nc
+        aerofin_year_2003: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/forcing/echam/aero_fine_2003.nc
+        ozone_year_1999: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/forcing/echam/ozon1999
         ozone_year_2000: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/forcing/echam/ozon2000
         ozone_year_2001: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/forcing/echam/ozon2001
         ozone_year_2002: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/forcing/echam/ozon2002
+        ozone_year_2003: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/forcing/echam/ozon2003
     forcing_sources:
+        aerocoarse_year_1999: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_sw_b14_coa.nc
         aerocoarse_year_2000: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_sw_b14_coa.nc
         aerocoarse_year_2001: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_sw_b14_coa.nc
         aerocoarse_year_2002: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_sw_b14_coa.nc
+        aerocoarse_year_2003: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_sw_b14_coa.nc
+        aerofarir_year_1999: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_lw_b16_coa.nc
         aerofarir_year_2000: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_lw_b16_coa.nc
         aerofarir_year_2001: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_lw_b16_coa.nc
         aerofarir_year_2002: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_lw_b16_coa.nc
+        aerofarir_year_2003: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_lw_b16_coa.nc
+        aerofin_year_1999: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_sw_b14_fin_1865.nc
         aerofin_year_2000: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_sw_b14_fin_1865.nc
         aerofin_year_2001: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_sw_b14_fin_1865.nc
         aerofin_year_2002: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_sw_b14_fin_1865.nc
+        aerofin_year_2003: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_sw_b14_fin_1865.nc
+        ozone_year_1999: /pool/data/ECHAM6//input/r0007/T63/ozone/T63_ozone_picontrol.nc
         ozone_year_2000: /pool/data/ECHAM6//input/r0007/T63/ozone/T63_ozone_picontrol.nc
         ozone_year_2001: /pool/data/ECHAM6//input/r0007/T63/ozone/T63_ozone_picontrol.nc
         ozone_year_2002: /pool/data/ECHAM6//input/r0007/T63/ozone/T63_ozone_picontrol.nc
+        ozone_year_2003: /pool/data/ECHAM6//input/r0007/T63/ozone/T63_ozone_picontrol.nc
     forcing_targets:
+        aerocoarse_year_1999: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/work/aero_coarse_1999.nc
         aerocoarse_year_2000: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/work/aero_coarse_2000.nc
         aerocoarse_year_2001: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/work/aero_coarse_2001.nc
         aerocoarse_year_2002: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/work/aero_coarse_2002.nc
+        aerocoarse_year_2003: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/work/aero_coarse_2003.nc
+        aerofarir_year_1999: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/work/aero_farir_1999.nc
         aerofarir_year_2000: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/work/aero_farir_2000.nc
         aerofarir_year_2001: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/work/aero_farir_2001.nc
         aerofarir_year_2002: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/work/aero_farir_2002.nc
+        aerofarir_year_2003: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/work/aero_farir_2003.nc
+        aerofin_year_1999: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/work/aero_fine_1999.nc
         aerofin_year_2000: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/work/aero_fine_2000.nc
         aerofin_year_2001: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/work/aero_fine_2001.nc
         aerofin_year_2002: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/work/aero_fine_2002.nc
+        aerofin_year_2003: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/work/aero_fine_2003.nc
+        ozone_year_1999: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/work/ozon1999
         ozone_year_2000: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/work/ozon2000
         ozone_year_2001: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/work/ozon2001
         ozone_year_2002: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/work/ozon2002
+        ozone_year_2003: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/work/ozon2003
     greenhouse_dir: /pool/data/ECHAM6/
     grids:
         atmo:
@@ -756,26 +791,46 @@ echam:
     other_date: '2001-01-31T23:52:30'
     outdata_intermediate:
         aclcim_nc: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/echam/all_awiesm-2.1-recom_200101.01_aclcim.nc
+        aeropt_nc: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/echam/all_awiesm-2.1-recom_200101.01_aeropt.nc
+        cfdiag_nc: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/echam/all_awiesm-2.1-recom_200101.01_cfdiag.nc
+        co2_nc: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/echam/all_awiesm-2.1-recom_200101.01_co2.nc
         g3b1hi_nc: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/echam/all_awiesm-2.1-recom_200101.01_g3b1hi.nc
+        g3b_nc: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/echam/all_awiesm-2.1-recom_200101.01_g3b.nc
         g3bday_nc: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/echam/all_awiesm-2.1-recom_200101.01_g3bday.nc
         g3bid_nc: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/echam/all_awiesm-2.1-recom_200101.01_g3bid.nc
         g3bim_nc: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/echam/all_awiesm-2.1-recom_200101.01_g3bim.nc
+        gl_nc: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/echam/all_awiesm-2.1-recom_200101.01_gl.nc
         glday_nc: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/echam/all_awiesm-2.1-recom_200101.01_glday.nc
         glim_nc: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/echam/all_awiesm-2.1-recom_200101.01_glim.nc
         jsbid_nc: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/echam/all_awiesm-2.1-recom_200101.01_jsbid.nc
+        ma_nc: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/echam/all_awiesm-2.1-recom_200101.01_ma.nc
+        scm_nc: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/echam/all_awiesm-2.1-recom_200101.01_scm.nc
         sp6h_nc: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/echam/all_awiesm-2.1-recom_200101.01_sp6h.nc
+        sp_nc: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/echam/all_awiesm-2.1-recom_200101.01_sp.nc
         spim_nc: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/echam/all_awiesm-2.1-recom_200101.01_spim.nc
+        surf_nc: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/echam/all_awiesm-2.1-recom_200101.01_surf.nc
+        tdiag_nc: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/echam/all_awiesm-2.1-recom_200101.01_tdiag.nc
     outdata_sources:
         aclcim_nc: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//all_awiesm-2.1-recom_200101.01_aclcim.nc
+        aeropt_nc: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//all_awiesm-2.1-recom_200101.01_aeropt.nc
+        cfdiag_nc: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//all_awiesm-2.1-recom_200101.01_cfdiag.nc
+        co2_nc: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//all_awiesm-2.1-recom_200101.01_co2.nc
         g3b1hi_nc: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//all_awiesm-2.1-recom_200101.01_g3b1hi.nc
+        g3b_nc: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//all_awiesm-2.1-recom_200101.01_g3b.nc
         g3bday_nc: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//all_awiesm-2.1-recom_200101.01_g3bday.nc
         g3bid_nc: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//all_awiesm-2.1-recom_200101.01_g3bid.nc
         g3bim_nc: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//all_awiesm-2.1-recom_200101.01_g3bim.nc
+        gl_nc: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//all_awiesm-2.1-recom_200101.01_gl.nc
         glday_nc: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//all_awiesm-2.1-recom_200101.01_glday.nc
         glim_nc: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//all_awiesm-2.1-recom_200101.01_glim.nc
         jsbid_nc: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//all_awiesm-2.1-recom_200101.01_jsbid.nc
+        ma_nc: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//all_awiesm-2.1-recom_200101.01_ma.nc
+        scm_nc: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//all_awiesm-2.1-recom_200101.01_scm.nc
         sp6h_nc: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//all_awiesm-2.1-recom_200101.01_sp6h.nc
+        sp_nc: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//all_awiesm-2.1-recom_200101.01_sp.nc
         spim_nc: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//all_awiesm-2.1-recom_200101.01_spim.nc
+        surf_nc: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//all_awiesm-2.1-recom_200101.01_surf.nc
+        tdiag_nc: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//all_awiesm-2.1-recom_200101.01_tdiag.nc
     outdata_sources_wild_card:
         accw: all_awiesm-2.1-recom_2001*.01_accw
         accw_codes: all_awiesm-2.1-recom_2001*.01_accw.codes
@@ -805,15 +860,25 @@ echam:
         spim_codes: all_awiesm-2.1-recom_2001*.01_spim.codes
     outdata_targets:
         aclcim_nc: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/echam/all_awiesm-2.1-recom_200101.01_aclcim.nc
+        aeropt_nc: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/echam/all_awiesm-2.1-recom_200101.01_aeropt.nc
+        cfdiag_nc: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/echam/all_awiesm-2.1-recom_200101.01_cfdiag.nc
+        co2_nc: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/echam/all_awiesm-2.1-recom_200101.01_co2.nc
         g3b1hi_nc: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/echam/all_awiesm-2.1-recom_200101.01_g3b1hi.nc
+        g3b_nc: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/echam/all_awiesm-2.1-recom_200101.01_g3b.nc
         g3bday_nc: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/echam/all_awiesm-2.1-recom_200101.01_g3bday.nc
         g3bid_nc: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/echam/all_awiesm-2.1-recom_200101.01_g3bid.nc
         g3bim_nc: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/echam/all_awiesm-2.1-recom_200101.01_g3bim.nc
+        gl_nc: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/echam/all_awiesm-2.1-recom_200101.01_gl.nc
         glday_nc: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/echam/all_awiesm-2.1-recom_200101.01_glday.nc
         glim_nc: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/echam/all_awiesm-2.1-recom_200101.01_glim.nc
         jsbid_nc: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/echam/all_awiesm-2.1-recom_200101.01_jsbid.nc
+        ma_nc: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/echam/all_awiesm-2.1-recom_200101.01_ma.nc
+        scm_nc: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/echam/all_awiesm-2.1-recom_200101.01_scm.nc
         sp6h_nc: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/echam/all_awiesm-2.1-recom_200101.01_sp6h.nc
+        sp_nc: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/echam/all_awiesm-2.1-recom_200101.01_sp.nc
         spim_nc: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/echam/all_awiesm-2.1-recom_200101.01_spim.nc
+        surf_nc: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/echam/all_awiesm-2.1-recom_200101.01_surf.nc
+        tdiag_nc: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/echam/all_awiesm-2.1-recom_200101.01_tdiag.nc
     parent_date: '2000-12-31T23:52:30'
     parent_expid: all_awiesm-2.1-recom
     parent_restart_dir: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/restart/echam/
@@ -1204,6 +1269,16 @@ echam:
     - jsbid
     - sp6h
     - spim
+    - sp
+    - gl
+    - g3b
+    - scm
+    - ma
+    - surf
+    - cfdiag
+    - aeropt
+    - co2
+    - tdiag
     switch: 1
     thisrun_analysis_dir: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/analysis/echam/
     thisrun_bin_dir: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/bin/echam/
@@ -1920,7 +1995,7 @@ general:
     inspect: null
     isinteractive: false
     jP: /pf/a/a270064/bb1029/AWIESM2.1-EXP/mesh_core2/tarfilesT63/input/jsbach/jsbach_T63CORE2_11tiles_5layers_1850.nc
-    jobid: 2981337
+    jobid: 3739826
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 20001201-20001231
@@ -2143,7 +2218,7 @@ hdmodel:
 
         paper citation'
     domain: hydrology
-    executable: NONE
+    executable: null
     experiment_analysis_dir: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/analysis/hdmodel/
     experiment_bin_dir: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/bin/hdmodel/
     experiment_config_dir: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/config/hdmodel/
@@ -2456,6 +2531,8 @@ jsbach:
         a_nd_file: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/work/a_nd_file.nc
         lightning: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/work/lightning.nc
         popdens: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/work/population_density.nc
+    hist_extend_scenario: ssp370
+    hist_fold: hist_harvest
     ignore_intermediate:
         jsbach: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/ignore/jsbach/all_awiesm-2.1-recom_200102.01_jsbach
         jsbach_codes: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/ignore/jsbach/all_awiesm-2.1-recom_200102.01_jsbach.codes
@@ -2526,6 +2603,7 @@ jsbach:
     ini_parent_exp_id: all_awiesm-2.1-recom
     ini_restart_dir: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/restart/echam//../jsbach/
     input_dir: /pool/data/JSBACH/input/r0010
+    input_dir_awi: /pool/data/AWICM/JSBACH/input/r0010
     input_intermediate:
         jsbach: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/input/jsbach/jsbach.nc
         lctlib: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/input/jsbach/lctlib.def
@@ -2578,17 +2656,18 @@ jsbach:
     parent_expid: all_awiesm-2.1-recom
     parent_restart_dir: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/restart/jsbach/
     pool_dir: /pool/data/JSBACH
+    pool_dir_awi: /pool/data/AWICM/JSBACH
     prev_date: '2000-12-31T23:52:30'
     repository: https://gitlab.dkrz.de/modular_esm/echam6
     resolution: T63
     restart_out_intermediate:
-        jsbach: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/restart/jsbach/restart_all_awiesm-2.1-recom_jsbach_20010131.nc
-        jsbid: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/restart/jsbach/restart_all_awiesm-2.1-recom_jsbid_20010131.nc
-        land: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/restart/jsbach/restart_all_awiesm-2.1-recom_land_20010131.nc
-        nitro: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/restart/jsbach/restart_all_awiesm-2.1-recom_nitro_20010131.nc
-        surf: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/restart/jsbach/restart_all_awiesm-2.1-recom_surf_20010131.nc
-        veg: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/restart/jsbach/restart_all_awiesm-2.1-recom_veg_20010131.nc
-        yasso: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/restart/jsbach/restart_all_awiesm-2.1-recom_yasso_20010131.nc
+        jsbach: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/restart/jsbach/restart_all_awiesm-2.1-recom_20010131_jsbach.nc
+        jsbid: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/restart/jsbach/restart_all_awiesm-2.1-recom_20010131_jsbid.nc
+        land: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/restart/jsbach/restart_all_awiesm-2.1-recom_20010131_land.nc
+        nitro: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/restart/jsbach/restart_all_awiesm-2.1-recom_20010131_nitro.nc
+        surf: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/restart/jsbach/restart_all_awiesm-2.1-recom_20010131_surf.nc
+        veg: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/restart/jsbach/restart_all_awiesm-2.1-recom_20010131_veg.nc
+        yasso: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/restart/jsbach/restart_all_awiesm-2.1-recom_20010131_yasso.nc
     restart_out_sources:
         jsbach: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//restart_all_awiesm-2.1-recom_20010131235230_jsbach.nc
         jsbid: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//restart_all_awiesm-2.1-recom_20010131235230_jsbid.nc
@@ -2598,15 +2677,17 @@ jsbach:
         veg: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//restart_all_awiesm-2.1-recom_20010131235230_veg.nc
         yasso: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//restart_all_awiesm-2.1-recom_20010131235230_yasso.nc
     restart_out_targets:
-        jsbach: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/restart/jsbach/restart_all_awiesm-2.1-recom_jsbach_20010131.nc
-        jsbid: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/restart/jsbach/restart_all_awiesm-2.1-recom_jsbid_20010131.nc
-        land: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/restart/jsbach/restart_all_awiesm-2.1-recom_land_20010131.nc
-        nitro: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/restart/jsbach/restart_all_awiesm-2.1-recom_nitro_20010131.nc
-        surf: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/restart/jsbach/restart_all_awiesm-2.1-recom_surf_20010131.nc
-        veg: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/restart/jsbach/restart_all_awiesm-2.1-recom_veg_20010131.nc
-        yasso: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/restart/jsbach/restart_all_awiesm-2.1-recom_yasso_20010131.nc
+        jsbach: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/restart/jsbach/restart_all_awiesm-2.1-recom_20010131_jsbach.nc
+        jsbid: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/restart/jsbach/restart_all_awiesm-2.1-recom_20010131_jsbid.nc
+        land: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/restart/jsbach/restart_all_awiesm-2.1-recom_20010131_land.nc
+        nitro: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/restart/jsbach/restart_all_awiesm-2.1-recom_20010131_nitro.nc
+        surf: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/restart/jsbach/restart_all_awiesm-2.1-recom_20010131_surf.nc
+        veg: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/restart/jsbach/restart_all_awiesm-2.1-recom_20010131_veg.nc
+        yasso: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/restart/jsbach/restart_all_awiesm-2.1-recom_20010131_yasso.nc
     scenario: PI-CTRL
+    scenario_is_ssp: false
     scenario_type: PI-CTRL
+    ssp_num: null
     streams:
     - jsbach
     - jsbid
@@ -3240,42 +3321,17 @@ recom:
     metadata:
         Authors: Judith Hauck, Ozgur Gurses
         Description: REcoM (Regulated Ecosystem Model) is an ecosystem and biogeochemistry model.
-        Institute: AWI
-        License: Please make sure you have a licence to use REcoM. In case you are unsure, please contact redmine...
+        Institute: Alfred Wegener Institute for Polar and Marine Research (AWI)
+        License: https://recom.readthedocs.io/en/latest/index.html
         Publications:
         - Seasonally different carbon flux changes in the Southern Ocean in response to the southern annular mode <https://doi.org/10.1002/2013GB004600>
         - Arctic Ocean biogeochemistry in the high resolution FESOM 1.4-REcoM2 model <https://doi.org/10.1016/j.pocean.2018.09.006>
     model: recom
     model_dir: NONE
     monthly_outputs:
-    - diags3d01
-    - diags3d02
-    - CO2y
     - aCO2
-    - rDIN
-    - rDON
-    - rDOC
-    - rDSi
-    - PAR
-    - NPPn
-    - NPPd
-    - GPPn
-    - GPPd
-    - NNAn
-    - NNAd
-    - GNAn
-    - GNAd
-    - benCalc
-    - benSi
-    - benC
-    - benN
-    - denb
-    - aN
     - aFe
-    - Hp
-    - CO2f
-    - dpCO2s
-    - pCO2s
+    - aN
     - bgc01
     - bgc02
     - bgc03
@@ -3298,11 +3354,50 @@ recom:
     - bgc20
     - bgc21
     - bgc22
-    - slp
-    - age01
-    - Kw
-    - alphaCO2
+    - CO2f
+    - CO2y
+    - diags3d01
+    - diags3d02
+    - dpCO2s
+    - GPPd
+    - GPPn
+    - NPPd
+    - NPPn
     - O2f
+    - PAR
+    - pCO2s
+    - slp
+    - virtual_alk
+    - virtual_dfe
+    - virtual_dic
+    - virtual_din
+    - virtual_dsi
+    - virtual_oxy
+    - w10w
+    - bgc23
+    - bgc24
+    - bgc25
+    - bgc26
+    - bgc27
+    - bgc28
+    - diags3d03
+    - diags3d04
+    - diags3d05
+    - diags3d06
+    - diags3d07
+    - diags3d08
+    - diags3d09
+    - diags3d10
+    - diags3d11
+    - diags3d12
+    - diags3d13
+    - diags3d14
+    - diags3d15
+    - diags3d16
+    - diags3d17
+    - diags3d18
+    - diags3d19
+    - diags3d20
     namelist_changes:
         namelist.recom:
             paco2_flux_param: {}
@@ -3322,24 +3417,41 @@ recom:
         namelist.recom: *id013
     numofCO2cycles: 1
     outdata_intermediate:
+        AGGdia3d: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/AGGdia3d_fesom_20010101.nc
+        AGGphy3d: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/AGGphy3d_fesom_20010101.nc
         CO2f: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/CO2f_fesom_20010101.nc
         CO2y: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/CO2y_fesom_20010101.nc
+        EXCdia3d: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/EXCdia3d_fesom_20010101.nc
+        EXCphy3d: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/EXCphy3d_fesom_20010101.nc
         GNAd: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/GNAd_fesom_20010101.nc
         GNAn: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/GNAn_fesom_20010101.nc
+        GNAsdia3d: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/GNAsdia3d_fesom_20010101.nc
+        GNAsphy3d: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/GNAsphy3d_fesom_20010101.nc
         GPPd: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/GPPd_fesom_20010101.nc
+        GPPdia3d: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/GPPdia3d_fesom_20010101.nc
         GPPn: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/GPPn_fesom_20010101.nc
+        GPPphy3d: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/GPPphy3d_fesom_20010101.nc
+        GRAZdia3d: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/GRAZdia3d_fesom_20010101.nc
+        GRAZphy3d: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/GRAZphy3d_fesom_20010101.nc
         Hp: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/Hp_fesom_20010101.nc
         Kw: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/Kw_fesom_20010101.nc
         NNAd: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/NNAd_fesom_20010101.nc
         NNAn: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/NNAn_fesom_20010101.nc
+        NNAsdia3d: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/NNAsdia3d_fesom_20010101.nc
+        NNAsphy3d: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/NNAsphy3d_fesom_20010101.nc
         NPPd: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/NPPd_fesom_20010101.nc
+        NPPdia3d: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/NPPdia3d_fesom_20010101.nc
         NPPn: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/NPPn_fesom_20010101.nc
+        NPPphy3d: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/NPPphy3d_fesom_20010101.nc
         O2f: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/O2f_fesom_20010101.nc
         PAR: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/PAR_fesom_20010101.nc
+        RESdia3d: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/RESdia3d_fesom_20010101.nc
+        RESphy3d: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/RESphy3d_fesom_20010101.nc
+        RESzoo3d: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/RESzoo3d_fesom_20010101.nc
+        TotGraz3d: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/TotGraz3d_fesom_20010101.nc
         aCO2: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/aCO2_fesom_20010101.nc
         aFe: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/aFe_fesom_20010101.nc
         aN: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/aN_fesom_20010101.nc
-        age01: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/age01_fesom_20010101.nc
         alphaCO2: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/alphaCO2_fesom_20010101.nc
         benC: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/benC_fesom_20010101.nc
         benCalc: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/benCalc_fesom_20010101.nc
@@ -3367,9 +3479,35 @@ recom:
         bgc20: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/bgc20_fesom_20010101.nc
         bgc21: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/bgc21_fesom_20010101.nc
         bgc22: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/bgc22_fesom_20010101.nc
+        bgc23: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/bgc23_fesom_20010101.nc
+        bgc24: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/bgc24_fesom_20010101.nc
+        bgc25: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/bgc25_fesom_20010101.nc
+        bgc26: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/bgc26_fesom_20010101.nc
+        bgc27: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/bgc27_fesom_20010101.nc
+        bgc28: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/bgc28_fesom_20010101.nc
+        calcdiss: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/calcdiss_fesom_20010101.nc
+        calcif3d: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/calcif3d_fesom_20010101.nc
         denb: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/denb_fesom_20010101.nc
         diags3d01: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/diags3d01_fesom_20010101.nc
         diags3d02: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/diags3d02_fesom_20010101.nc
+        diags3d03: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/diags3d03_fesom_20010101.nc
+        diags3d04: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/diags3d04_fesom_20010101.nc
+        diags3d05: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/diags3d05_fesom_20010101.nc
+        diags3d06: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/diags3d06_fesom_20010101.nc
+        diags3d07: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/diags3d07_fesom_20010101.nc
+        diags3d08: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/diags3d08_fesom_20010101.nc
+        diags3d09: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/diags3d09_fesom_20010101.nc
+        diags3d10: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/diags3d10_fesom_20010101.nc
+        diags3d11: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/diags3d11_fesom_20010101.nc
+        diags3d12: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/diags3d12_fesom_20010101.nc
+        diags3d13: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/diags3d13_fesom_20010101.nc
+        diags3d14: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/diags3d14_fesom_20010101.nc
+        diags3d15: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/diags3d15_fesom_20010101.nc
+        diags3d16: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/diags3d16_fesom_20010101.nc
+        diags3d17: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/diags3d17_fesom_20010101.nc
+        diags3d18: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/diags3d18_fesom_20010101.nc
+        diags3d19: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/diags3d19_fesom_20010101.nc
+        diags3d20: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/diags3d20_fesom_20010101.nc
         dpCO2s: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/dpCO2s_fesom_20010101.nc
         pCO2s: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/pCO2s_fesom_20010101.nc
         rDIN: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/rDIN_fesom_20010101.nc
@@ -3377,25 +3515,49 @@ recom:
         rDON: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/rDON_fesom_20010101.nc
         rDSi: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/rDSi_fesom_20010101.nc
         slp: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/slp_fesom_20010101.nc
+        virtual_alk: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/virtual_alk_fesom_20010101.nc
+        virtual_dfe: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/virtual_dfe_fesom_20010101.nc
+        virtual_dic: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/virtual_dic_fesom_20010101.nc
+        virtual_din: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/virtual_din_fesom_20010101.nc
+        virtual_dsi: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/virtual_dsi_fesom_20010101.nc
+        virtual_oxy: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/virtual_oxy_fesom_20010101.nc
+        w10w: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010131/outdata/recom/w10w_fesom_20010101.nc
     outdata_sources:
+        AGGdia3d: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//AGGdia3d_fesom_20010101.nc
+        AGGphy3d: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//AGGphy3d_fesom_20010101.nc
         CO2f: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//CO2f_fesom_20010101.nc
         CO2y: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//CO2y_fesom_20010101.nc
+        EXCdia3d: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//EXCdia3d_fesom_20010101.nc
+        EXCphy3d: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//EXCphy3d_fesom_20010101.nc
         GNAd: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//GNAd_fesom_20010101.nc
         GNAn: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//GNAn_fesom_20010101.nc
+        GNAsdia3d: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//GNAsdia3d_fesom_20010101.nc
+        GNAsphy3d: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//GNAsphy3d_fesom_20010101.nc
         GPPd: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//GPPd_fesom_20010101.nc
+        GPPdia3d: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//GPPdia3d_fesom_20010101.nc
         GPPn: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//GPPn_fesom_20010101.nc
+        GPPphy3d: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//GPPphy3d_fesom_20010101.nc
+        GRAZdia3d: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//GRAZdia3d_fesom_20010101.nc
+        GRAZphy3d: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//GRAZphy3d_fesom_20010101.nc
         Hp: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//Hp_fesom_20010101.nc
         Kw: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//Kw_fesom_20010101.nc
         NNAd: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//NNAd_fesom_20010101.nc
         NNAn: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//NNAn_fesom_20010101.nc
+        NNAsdia3d: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//NNAsdia3d_fesom_20010101.nc
+        NNAsphy3d: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//NNAsphy3d_fesom_20010101.nc
         NPPd: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//NPPd_fesom_20010101.nc
+        NPPdia3d: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//NPPdia3d_fesom_20010101.nc
         NPPn: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//NPPn_fesom_20010101.nc
+        NPPphy3d: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//NPPphy3d_fesom_20010101.nc
         O2f: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//O2f_fesom_20010101.nc
         PAR: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//PAR_fesom_20010101.nc
+        RESdia3d: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//RESdia3d_fesom_20010101.nc
+        RESphy3d: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//RESphy3d_fesom_20010101.nc
+        RESzoo3d: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//RESzoo3d_fesom_20010101.nc
+        TotGraz3d: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//TotGraz3d_fesom_20010101.nc
         aCO2: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//aCO2_fesom_20010101.nc
         aFe: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//aFe_fesom_20010101.nc
         aN: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//aN_fesom_20010101.nc
-        age01: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//age01_fesom_20010101.nc
         alphaCO2: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//alphaCO2_fesom_20010101.nc
         benC: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//benC_fesom_20010101.nc
         benCalc: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//benCalc_fesom_20010101.nc
@@ -3423,9 +3585,35 @@ recom:
         bgc20: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//bgc20_fesom_20010101.nc
         bgc21: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//bgc21_fesom_20010101.nc
         bgc22: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//bgc22_fesom_20010101.nc
+        bgc23: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//bgc23_fesom_20010101.nc
+        bgc24: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//bgc24_fesom_20010101.nc
+        bgc25: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//bgc25_fesom_20010101.nc
+        bgc26: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//bgc26_fesom_20010101.nc
+        bgc27: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//bgc27_fesom_20010101.nc
+        bgc28: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//bgc28_fesom_20010101.nc
+        calcdiss: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//calcdiss_fesom_20010101.nc
+        calcif3d: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//calcif3d_fesom_20010101.nc
         denb: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//denb_fesom_20010101.nc
         diags3d01: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//diags3d01_fesom_20010101.nc
         diags3d02: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//diags3d02_fesom_20010101.nc
+        diags3d03: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//diags3d03_fesom_20010101.nc
+        diags3d04: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//diags3d04_fesom_20010101.nc
+        diags3d05: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//diags3d05_fesom_20010101.nc
+        diags3d06: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//diags3d06_fesom_20010101.nc
+        diags3d07: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//diags3d07_fesom_20010101.nc
+        diags3d08: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//diags3d08_fesom_20010101.nc
+        diags3d09: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//diags3d09_fesom_20010101.nc
+        diags3d10: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//diags3d10_fesom_20010101.nc
+        diags3d11: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//diags3d11_fesom_20010101.nc
+        diags3d12: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//diags3d12_fesom_20010101.nc
+        diags3d13: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//diags3d13_fesom_20010101.nc
+        diags3d14: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//diags3d14_fesom_20010101.nc
+        diags3d15: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//diags3d15_fesom_20010101.nc
+        diags3d16: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//diags3d16_fesom_20010101.nc
+        diags3d17: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//diags3d17_fesom_20010101.nc
+        diags3d18: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//diags3d18_fesom_20010101.nc
+        diags3d19: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//diags3d19_fesom_20010101.nc
+        diags3d20: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//diags3d20_fesom_20010101.nc
         dpCO2s: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//dpCO2s_fesom_20010101.nc
         pCO2s: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//pCO2s_fesom_20010101.nc
         rDIN: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//rDIN_fesom_20010101.nc
@@ -3433,25 +3621,49 @@ recom:
         rDON: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//rDON_fesom_20010101.nc
         rDSi: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//rDSi_fesom_20010101.nc
         slp: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//slp_fesom_20010101.nc
+        virtual_alk: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//virtual_alk_fesom_20010101.nc
+        virtual_dfe: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//virtual_dfe_fesom_20010101.nc
+        virtual_dic: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//virtual_dic_fesom_20010101.nc
+        virtual_din: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//virtual_din_fesom_20010101.nc
+        virtual_dsi: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//virtual_dsi_fesom_20010101.nc
+        virtual_oxy: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//virtual_oxy_fesom_20010101.nc
+        w10w: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//w10w_fesom_20010101.nc
     outdata_targets:
+        AGGdia3d: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/AGGdia3d_fesom_20010101.nc
+        AGGphy3d: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/AGGphy3d_fesom_20010101.nc
         CO2f: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/CO2f_fesom_20010101.nc
         CO2y: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/CO2y_fesom_20010101.nc
+        EXCdia3d: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/EXCdia3d_fesom_20010101.nc
+        EXCphy3d: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/EXCphy3d_fesom_20010101.nc
         GNAd: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/GNAd_fesom_20010101.nc
         GNAn: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/GNAn_fesom_20010101.nc
+        GNAsdia3d: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/GNAsdia3d_fesom_20010101.nc
+        GNAsphy3d: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/GNAsphy3d_fesom_20010101.nc
         GPPd: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/GPPd_fesom_20010101.nc
+        GPPdia3d: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/GPPdia3d_fesom_20010101.nc
         GPPn: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/GPPn_fesom_20010101.nc
+        GPPphy3d: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/GPPphy3d_fesom_20010101.nc
+        GRAZdia3d: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/GRAZdia3d_fesom_20010101.nc
+        GRAZphy3d: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/GRAZphy3d_fesom_20010101.nc
         Hp: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/Hp_fesom_20010101.nc
         Kw: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/Kw_fesom_20010101.nc
         NNAd: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/NNAd_fesom_20010101.nc
         NNAn: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/NNAn_fesom_20010101.nc
+        NNAsdia3d: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/NNAsdia3d_fesom_20010101.nc
+        NNAsphy3d: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/NNAsphy3d_fesom_20010101.nc
         NPPd: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/NPPd_fesom_20010101.nc
+        NPPdia3d: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/NPPdia3d_fesom_20010101.nc
         NPPn: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/NPPn_fesom_20010101.nc
+        NPPphy3d: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/NPPphy3d_fesom_20010101.nc
         O2f: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/O2f_fesom_20010101.nc
         PAR: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/PAR_fesom_20010101.nc
+        RESdia3d: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/RESdia3d_fesom_20010101.nc
+        RESphy3d: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/RESphy3d_fesom_20010101.nc
+        RESzoo3d: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/RESzoo3d_fesom_20010101.nc
+        TotGraz3d: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/TotGraz3d_fesom_20010101.nc
         aCO2: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/aCO2_fesom_20010101.nc
         aFe: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/aFe_fesom_20010101.nc
         aN: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/aN_fesom_20010101.nc
-        age01: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/age01_fesom_20010101.nc
         alphaCO2: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/alphaCO2_fesom_20010101.nc
         benC: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/benC_fesom_20010101.nc
         benCalc: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/benCalc_fesom_20010101.nc
@@ -3479,9 +3691,35 @@ recom:
         bgc20: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/bgc20_fesom_20010101.nc
         bgc21: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/bgc21_fesom_20010101.nc
         bgc22: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/bgc22_fesom_20010101.nc
+        bgc23: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/bgc23_fesom_20010101.nc
+        bgc24: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/bgc24_fesom_20010101.nc
+        bgc25: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/bgc25_fesom_20010101.nc
+        bgc26: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/bgc26_fesom_20010101.nc
+        bgc27: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/bgc27_fesom_20010101.nc
+        bgc28: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/bgc28_fesom_20010101.nc
+        calcdiss: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/calcdiss_fesom_20010101.nc
+        calcif3d: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/calcif3d_fesom_20010101.nc
         denb: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/denb_fesom_20010101.nc
         diags3d01: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/diags3d01_fesom_20010101.nc
         diags3d02: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/diags3d02_fesom_20010101.nc
+        diags3d03: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/diags3d03_fesom_20010101.nc
+        diags3d04: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/diags3d04_fesom_20010101.nc
+        diags3d05: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/diags3d05_fesom_20010101.nc
+        diags3d06: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/diags3d06_fesom_20010101.nc
+        diags3d07: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/diags3d07_fesom_20010101.nc
+        diags3d08: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/diags3d08_fesom_20010101.nc
+        diags3d09: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/diags3d09_fesom_20010101.nc
+        diags3d10: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/diags3d10_fesom_20010101.nc
+        diags3d11: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/diags3d11_fesom_20010101.nc
+        diags3d12: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/diags3d12_fesom_20010101.nc
+        diags3d13: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/diags3d13_fesom_20010101.nc
+        diags3d14: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/diags3d14_fesom_20010101.nc
+        diags3d15: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/diags3d15_fesom_20010101.nc
+        diags3d16: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/diags3d16_fesom_20010101.nc
+        diags3d17: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/diags3d17_fesom_20010101.nc
+        diags3d18: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/diags3d18_fesom_20010101.nc
+        diags3d19: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/diags3d19_fesom_20010101.nc
+        diags3d20: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/diags3d20_fesom_20010101.nc
         dpCO2s: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/dpCO2s_fesom_20010101.nc
         pCO2s: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/pCO2s_fesom_20010101.nc
         rDIN: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/rDIN_fesom_20010101.nc
@@ -3489,6 +3727,13 @@ recom:
         rDON: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/rDON_fesom_20010101.nc
         rDSi: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/rDSi_fesom_20010101.nc
         slp: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/slp_fesom_20010101.nc
+        virtual_alk: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/virtual_alk_fesom_20010101.nc
+        virtual_dfe: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/virtual_dfe_fesom_20010101.nc
+        virtual_dic: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/virtual_dic_fesom_20010101.nc
+        virtual_din: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/virtual_din_fesom_20010101.nc
+        virtual_dsi: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/virtual_dsi_fesom_20010101.nc
+        virtual_oxy: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/virtual_oxy_fesom_20010101.nc
+        w10w: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/outdata/recom/w10w_fesom_20010101.nc
     parent_date: '2000-12-31T23:30:00'
     parent_expid: all_awiesm-2.1-recom
     parent_restart_dir: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/restart/recom/
@@ -3509,7 +3754,7 @@ recom:
         bio_restart: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/work//fesom.2001.bio.restart.nc
     restart_out_targets:
         bio_restart: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/restart/recom/fesom.2001.bio.nc
-    scenario: preindustrial
+    scenario: PI-CTRL
     setup_dir: NONE
     thisrun_analysis_dir: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/analysis/recom/
     thisrun_bin_dir: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/bin/recom/
@@ -3526,4 +3771,40 @@ recom:
     thisrun_viz_dir: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010131/viz/recom/
     time_step: 1800
     version: 2
-    yearly_outputs: []
+    yearly_outputs:
+    - alphaCO2
+    - benC
+    - benCalc
+    - benN
+    - benSi
+    - denb
+    - GNAd
+    - GNAn
+    - Hp
+    - Kw
+    - NNAd
+    - NNAn
+    - rDIN
+    - rDOC
+    - rDON
+    - rDSi
+    - AGGdia3d
+    - AGGphy3d
+    - calcdiss
+    - calcif3d
+    - EXCdia3d
+    - EXCphy3d
+    - GNAsdia3d
+    - GNAsphy3d
+    - GPPdia3d
+    - GPPphy3d
+    - GRAZdia3d
+    - GRAZphy3d
+    - NNAsdia3d
+    - NNAsphy3d
+    - NPPdia3d
+    - NPPphy3d
+    - RESdia3d
+    - RESphy3d
+    - RESzoo3d
+    - TotGraz3d

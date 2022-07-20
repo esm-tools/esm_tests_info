@@ -287,6 +287,10 @@ echam:
     config_targets:
         namelist.echam: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/work/namelist.echam
     coupling_fields:
+        co2_atmo:
+            grid: atmo
+        co2c_atm:
+            grid: atmo
         evap_atm:
             grid: atmo
         heat_atm:
@@ -318,6 +322,8 @@ echam:
         tauy_atm:
             grid: atmo
         tauy_ica:
+            grid: atmo
+        w10w_atm:
             grid: atmo
     dataset: r0007
     debug_info:
@@ -419,73 +425,102 @@ echam:
         aerocoarse:
         - need_year_before
         - need_year_after
-        aerocoarse_kinne_1850:
-        - need_year_before
-        - need_year_after
+        - need_2years_before
+        - need_2years_after
         aerofarir:
         - need_year_before
         - need_year_after
-        aerofarir_kinne_1850:
-        - need_year_before
-        - need_year_after
+        - need_2years_before
+        - need_2years_after
         aerofin:
         - need_year_before
         - need_year_after
-        aerofin_kinne_1850:
-        - need_year_before
-        - need_year_after
+        - need_2years_before
+        - need_2years_after
         ozone:
         - need_year_before
         - need_year_after
+        - need_2years_before
+        - need_2years_after
         swflux:
         - need_year_before
         - need_year_after
+        - need_2years_before
+        - need_2years_after
         volcir:
         - need_year_before
         - need_year_after
+        - need_2years_before
+        - need_2years_after
         volcsw:
         - need_year_before
         - need_year_after
+        - need_2years_before
+        - need_2years_after
     forcing_dir: /pool/data/ECHAM6//input/r0007/T127
     forcing_intermediate:
+        aerocoarse_year_1848: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/forcing/echam/aero_coarse_1848.nc
         aerocoarse_year_1849: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/forcing/echam/aero_coarse_1849.nc
         aerocoarse_year_1850: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/forcing/echam/aero_coarse_1850.nc
         aerocoarse_year_1851: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/forcing/echam/aero_coarse_1851.nc
+        aerocoarse_year_1852: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/forcing/echam/aero_coarse_1852.nc
+        aerofarir_year_1848: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/forcing/echam/aero_farir_1848.nc
         aerofarir_year_1849: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/forcing/echam/aero_farir_1849.nc
         aerofarir_year_1850: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/forcing/echam/aero_farir_1850.nc
         aerofarir_year_1851: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/forcing/echam/aero_farir_1851.nc
+        aerofarir_year_1852: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/forcing/echam/aero_farir_1852.nc
+        aerofin_year_1848: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/forcing/echam/aero_fine_1848.nc
         aerofin_year_1849: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/forcing/echam/aero_fine_1849.nc
         aerofin_year_1850: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/forcing/echam/aero_fine_1850.nc
         aerofin_year_1851: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/forcing/echam/aero_fine_1851.nc
+        aerofin_year_1852: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/forcing/echam/aero_fine_1852.nc
+        ozone_year_1848: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/forcing/echam/ozon1848
         ozone_year_1849: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/forcing/echam/ozon1849
         ozone_year_1850: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/forcing/echam/ozon1850
         ozone_year_1851: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/forcing/echam/ozon1851
+        ozone_year_1852: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/forcing/echam/ozon1852
     forcing_sources:
+        aerocoarse_year_1848: /pool/data/ECHAM6//input/r0007/T127/aero/T127_aeropt_kinne_sw_b14_coa.nc
         aerocoarse_year_1849: /pool/data/ECHAM6//input/r0007/T127/aero/T127_aeropt_kinne_sw_b14_coa.nc
         aerocoarse_year_1850: /pool/data/ECHAM6//input/r0007/T127/aero/T127_aeropt_kinne_sw_b14_coa.nc
         aerocoarse_year_1851: /pool/data/ECHAM6//input/r0007/T127/aero/T127_aeropt_kinne_sw_b14_coa.nc
+        aerocoarse_year_1852: /pool/data/ECHAM6//input/r0007/T127/aero/T127_aeropt_kinne_sw_b14_coa.nc
+        aerofarir_year_1848: /pool/data/ECHAM6//input/r0007/T127/aero/T127_aeropt_kinne_lw_b16_coa.nc
         aerofarir_year_1849: /pool/data/ECHAM6//input/r0007/T127/aero/T127_aeropt_kinne_lw_b16_coa.nc
         aerofarir_year_1850: /pool/data/ECHAM6//input/r0007/T127/aero/T127_aeropt_kinne_lw_b16_coa.nc
         aerofarir_year_1851: /pool/data/ECHAM6//input/r0007/T127/aero/T127_aeropt_kinne_lw_b16_coa.nc
+        aerofarir_year_1852: /pool/data/ECHAM6//input/r0007/T127/aero/T127_aeropt_kinne_lw_b16_coa.nc
+        aerofin_year_1848: /pool/data/ECHAM6//input/r0007/T127/aero/T127_aeropt_kinne_sw_b14_fin_1865.nc
         aerofin_year_1849: /pool/data/ECHAM6//input/r0007/T127/aero/T127_aeropt_kinne_sw_b14_fin_1865.nc
         aerofin_year_1850: /pool/data/ECHAM6//input/r0007/T127/aero/T127_aeropt_kinne_sw_b14_fin_1865.nc
         aerofin_year_1851: /pool/data/ECHAM6//input/r0007/T127/aero/T127_aeropt_kinne_sw_b14_fin_1865.nc
+        aerofin_year_1852: /pool/data/ECHAM6//input/r0007/T127/aero/T127_aeropt_kinne_sw_b14_fin_1865.nc
+        ozone_year_1848: /pool/data/ECHAM6//input/r0007/T127/ozone/T127_ozone_picontrol.nc
         ozone_year_1849: /pool/data/ECHAM6//input/r0007/T127/ozone/T127_ozone_picontrol.nc
         ozone_year_1850: /pool/data/ECHAM6//input/r0007/T127/ozone/T127_ozone_picontrol.nc
         ozone_year_1851: /pool/data/ECHAM6//input/r0007/T127/ozone/T127_ozone_picontrol.nc
+        ozone_year_1852: /pool/data/ECHAM6//input/r0007/T127/ozone/T127_ozone_picontrol.nc
     forcing_targets:
+        aerocoarse_year_1848: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/work/aero_coarse_1848.nc
         aerocoarse_year_1849: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/work/aero_coarse_1849.nc
         aerocoarse_year_1850: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/work/aero_coarse_1850.nc
         aerocoarse_year_1851: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/work/aero_coarse_1851.nc
+        aerocoarse_year_1852: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/work/aero_coarse_1852.nc
+        aerofarir_year_1848: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/work/aero_farir_1848.nc
         aerofarir_year_1849: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/work/aero_farir_1849.nc
         aerofarir_year_1850: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/work/aero_farir_1850.nc
         aerofarir_year_1851: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/work/aero_farir_1851.nc
+        aerofarir_year_1852: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/work/aero_farir_1852.nc
+        aerofin_year_1848: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/work/aero_fine_1848.nc
         aerofin_year_1849: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/work/aero_fine_1849.nc
         aerofin_year_1850: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/work/aero_fine_1850.nc
         aerofin_year_1851: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/work/aero_fine_1851.nc
+        aerofin_year_1852: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/work/aero_fine_1852.nc
+        ozone_year_1848: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/work/ozon1848
         ozone_year_1849: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/work/ozon1849
         ozone_year_1850: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/work/ozon1850
         ozone_year_1851: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/work/ozon1851
+        ozone_year_1852: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/work/ozon1852
     greenhouse_dir: /pool/data/ECHAM6/
     grids:
         atmo:
@@ -707,26 +742,46 @@ echam:
     other_date: '1850-01-31T23:56:40'
     outdata_intermediate:
         aclcim_nc: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/outdata/echam/awicm1-CMIP6-initial-monthly_185001.01_aclcim.nc
+        aeropt_nc: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/outdata/echam/awicm1-CMIP6-initial-monthly_185001.01_aeropt.nc
+        cfdiag_nc: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/outdata/echam/awicm1-CMIP6-initial-monthly_185001.01_cfdiag.nc
+        co2_nc: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/outdata/echam/awicm1-CMIP6-initial-monthly_185001.01_co2.nc
         g3b1hi_nc: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/outdata/echam/awicm1-CMIP6-initial-monthly_185001.01_g3b1hi.nc
+        g3b_nc: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/outdata/echam/awicm1-CMIP6-initial-monthly_185001.01_g3b.nc
         g3bday_nc: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/outdata/echam/awicm1-CMIP6-initial-monthly_185001.01_g3bday.nc
         g3bid_nc: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/outdata/echam/awicm1-CMIP6-initial-monthly_185001.01_g3bid.nc
         g3bim_nc: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/outdata/echam/awicm1-CMIP6-initial-monthly_185001.01_g3bim.nc
+        gl_nc: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/outdata/echam/awicm1-CMIP6-initial-monthly_185001.01_gl.nc
         glday_nc: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/outdata/echam/awicm1-CMIP6-initial-monthly_185001.01_glday.nc
         glim_nc: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/outdata/echam/awicm1-CMIP6-initial-monthly_185001.01_glim.nc
         jsbid_nc: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/outdata/echam/awicm1-CMIP6-initial-monthly_185001.01_jsbid.nc
+        ma_nc: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/outdata/echam/awicm1-CMIP6-initial-monthly_185001.01_ma.nc
+        scm_nc: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/outdata/echam/awicm1-CMIP6-initial-monthly_185001.01_scm.nc
         sp6h_nc: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/outdata/echam/awicm1-CMIP6-initial-monthly_185001.01_sp6h.nc
+        sp_nc: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/outdata/echam/awicm1-CMIP6-initial-monthly_185001.01_sp.nc
         spim_nc: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/outdata/echam/awicm1-CMIP6-initial-monthly_185001.01_spim.nc
+        surf_nc: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/outdata/echam/awicm1-CMIP6-initial-monthly_185001.01_surf.nc
+        tdiag_nc: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/outdata/echam/awicm1-CMIP6-initial-monthly_185001.01_tdiag.nc
     outdata_sources:
         aclcim_nc: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/work//awicm1-CMIP6-initial-monthly_185001.01_aclcim.nc
+        aeropt_nc: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/work//awicm1-CMIP6-initial-monthly_185001.01_aeropt.nc
+        cfdiag_nc: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/work//awicm1-CMIP6-initial-monthly_185001.01_cfdiag.nc
+        co2_nc: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/work//awicm1-CMIP6-initial-monthly_185001.01_co2.nc
         g3b1hi_nc: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/work//awicm1-CMIP6-initial-monthly_185001.01_g3b1hi.nc
+        g3b_nc: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/work//awicm1-CMIP6-initial-monthly_185001.01_g3b.nc
         g3bday_nc: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/work//awicm1-CMIP6-initial-monthly_185001.01_g3bday.nc
         g3bid_nc: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/work//awicm1-CMIP6-initial-monthly_185001.01_g3bid.nc
         g3bim_nc: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/work//awicm1-CMIP6-initial-monthly_185001.01_g3bim.nc
+        gl_nc: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/work//awicm1-CMIP6-initial-monthly_185001.01_gl.nc
         glday_nc: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/work//awicm1-CMIP6-initial-monthly_185001.01_glday.nc
         glim_nc: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/work//awicm1-CMIP6-initial-monthly_185001.01_glim.nc
         jsbid_nc: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/work//awicm1-CMIP6-initial-monthly_185001.01_jsbid.nc
+        ma_nc: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/work//awicm1-CMIP6-initial-monthly_185001.01_ma.nc
+        scm_nc: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/work//awicm1-CMIP6-initial-monthly_185001.01_scm.nc
         sp6h_nc: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/work//awicm1-CMIP6-initial-monthly_185001.01_sp6h.nc
+        sp_nc: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/work//awicm1-CMIP6-initial-monthly_185001.01_sp.nc
         spim_nc: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/work//awicm1-CMIP6-initial-monthly_185001.01_spim.nc
+        surf_nc: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/work//awicm1-CMIP6-initial-monthly_185001.01_surf.nc
+        tdiag_nc: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/work//awicm1-CMIP6-initial-monthly_185001.01_tdiag.nc
     outdata_sources_wild_card:
         accw: awicm1-CMIP6-initial-monthly_1850*.01_accw
         accw_codes: awicm1-CMIP6-initial-monthly_1850*.01_accw.codes
@@ -754,15 +809,25 @@ echam:
         spim_codes: awicm1-CMIP6-initial-monthly_1850*.01_spim.codes
     outdata_targets:
         aclcim_nc: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/outdata/echam/awicm1-CMIP6-initial-monthly_185001.01_aclcim.nc
+        aeropt_nc: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/outdata/echam/awicm1-CMIP6-initial-monthly_185001.01_aeropt.nc
+        cfdiag_nc: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/outdata/echam/awicm1-CMIP6-initial-monthly_185001.01_cfdiag.nc
+        co2_nc: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/outdata/echam/awicm1-CMIP6-initial-monthly_185001.01_co2.nc
         g3b1hi_nc: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/outdata/echam/awicm1-CMIP6-initial-monthly_185001.01_g3b1hi.nc
+        g3b_nc: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/outdata/echam/awicm1-CMIP6-initial-monthly_185001.01_g3b.nc
         g3bday_nc: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/outdata/echam/awicm1-CMIP6-initial-monthly_185001.01_g3bday.nc
         g3bid_nc: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/outdata/echam/awicm1-CMIP6-initial-monthly_185001.01_g3bid.nc
         g3bim_nc: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/outdata/echam/awicm1-CMIP6-initial-monthly_185001.01_g3bim.nc
+        gl_nc: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/outdata/echam/awicm1-CMIP6-initial-monthly_185001.01_gl.nc
         glday_nc: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/outdata/echam/awicm1-CMIP6-initial-monthly_185001.01_glday.nc
         glim_nc: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/outdata/echam/awicm1-CMIP6-initial-monthly_185001.01_glim.nc
         jsbid_nc: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/outdata/echam/awicm1-CMIP6-initial-monthly_185001.01_jsbid.nc
+        ma_nc: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/outdata/echam/awicm1-CMIP6-initial-monthly_185001.01_ma.nc
+        scm_nc: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/outdata/echam/awicm1-CMIP6-initial-monthly_185001.01_scm.nc
         sp6h_nc: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/outdata/echam/awicm1-CMIP6-initial-monthly_185001.01_sp6h.nc
+        sp_nc: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/outdata/echam/awicm1-CMIP6-initial-monthly_185001.01_sp.nc
         spim_nc: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/outdata/echam/awicm1-CMIP6-initial-monthly_185001.01_spim.nc
+        surf_nc: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/outdata/echam/awicm1-CMIP6-initial-monthly_185001.01_surf.nc
+        tdiag_nc: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/outdata/echam/awicm1-CMIP6-initial-monthly_185001.01_tdiag.nc
     parent_date: '1849-12-31T23:56:40'
     parent_expid: awicm1-CMIP6-initial-monthly
     parent_restart_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/restart/echam/
@@ -1119,6 +1184,16 @@ echam:
     - jsbid
     - sp6h
     - spim
+    - sp
+    - gl
+    - g3b
+    - scm
+    - ma
+    - surf
+    - cfdiag
+    - aeropt
+    - co2
+    - tdiag
     switch: 1
     thisrun_analysis_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/analysis/echam/
     thisrun_bin_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/bin/echam/
@@ -1155,14 +1230,8 @@ echam:
     with_wiso: false
     yr_perp_off: false
 fesom:
-    12_step_outputs:
-    - tso
-    add_namelist_changes:
-        namelist.oce:
-            boundary:
-                restore_s_surf: 0
-            oce_tra: &id003
-                surf_relax_s: 0
+    12_step_outputs: []
+    12_step_outputs_for_AWI_FESOM_YAML: []
     all_filetypes:
     - analysis
     - bin
@@ -1179,17 +1248,17 @@ fesom:
     - ignore
     asforcing: ECHAM5
     available_versions:
-    - 2.0-o
-    - 1.4-esm_interface
     - 1.4
-    - 1.4-recom-mocsy-slp
-    - 2.0-paleodyn
+    - 1.4-esm_interface
+    - 1.4-recom
     - 1.4-recom-awicm
     - 2
+    - 2.0-o
+    - 2.0-paleodyn
     - 2.0-r
+    - 2.1
     - 2.1-recom
     - 2.1-wiso
-    - 2.1
     bin_dir: <TEST_DIR>/comp/awicm/awicm-CMIP6/bin
     bin_intermediate:
         fesom: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/bin/fesom/fesom
@@ -1231,6 +1300,10 @@ fesom:
         ice: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/work/namelist.ice
         oce: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/work/namelist.oce
     coupling_fields:
+        co2_feom:
+            grid: feom
+        co2c_oce:
+            grid: feom
         evap_oce:
             grid: feom
         heat_ico:
@@ -1263,39 +1336,19 @@ fesom:
             grid: feom
         tauy_oce:
             grid: feom
+        w10w_oce:
+            grid: feom
     create_config:
         fesom.clock:
         - <--append-- 0.0000000000000 1 1850
         - <--append-- 0.0000000000000 1 1850
     currentday: 1
-    daily_outputs:
-    - mlotst
-    - omldamax
-    - sic
-    - sistrxdtop
-    - sistrxubot
-    - sistrydtop
-    - sistryubot
-    - sithick
-    - sitimefrac
-    - siu
-    - siv
-    - so
-    - sos
-    - tauuo
-    - tauvo
-    - thetao
-    - tos
-    - zos
-    - flice
-    - wnet
-    - evap
-    - runoff
-    - thdgr
-    - thdgrsn
+    daily_outputs: []
+    daily_outputs_for_AWI_FESOM_YAML: []
     daynew: 1
     debug_info:
         loaded_from_file: <HOME_DIR>/esm_tools/configs//components/fesom/fesom.yaml
+    destination: fesom-1.4
     executable: fesom
     experiment_analysis_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/analysis/fesom/
     experiment_bin_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/bin/fesom/
@@ -1424,65 +1477,101 @@ fesom:
     metadata:
         Authors: Dmitry Sidorenko (Dmitry.Sidorenko@awi.de), Nikolay V. Koldunov (nikolay.koldunov@awi.de)
         Description: Multiresolution sea ice-ocean model that solves the equations of motion on unestructured meshes
-        Institute: Alfred Wegener Institute
-        License: Please make sure you have a licence to use FESOM. In case you are unsure, please contact redmine...
+        Institute: Alfred Wegener Institute for Polar and Marine Research (AWI)
+        License: www.fesom.de
         Publications:
-        - The Finite-volumE Sea ice-Ocean Model (FESOM2) <https://doi.org/10.5194/gmd-10-765-2017>
-        - Scalability and some optimization of the Finite-volumE Sea ice-Ocean Model, Version 2.0 (FESOM2) <https://doi.org/10.5194/gmd-12-3991-2019>
+        - 'Danilov et al. 2004: A finite-element ocean model: principles and evaluation <https://doi.org/10.1016/s1463-5003(02)00063-x>'
+        - 'Wang et al. 2014: The Finite Element Sea Ice-Ocean Model (FESOM) v.1.4: formulation of an ocean general circulation model. <https://doi.org/10.5194/gmd-7-663-2014>'
     model: fesom
     model_dir: <TEST_DIR>/comp/awicm/awicm-CMIP6/fesom-1.4
     monthly_outputs:
+    - evap
     - evs
-    - fsitherm
     - hfds
-    - opottemptend
-    - pbo
+    - lwrd
+    - mlotst
+    - olat
+    - olwout
+    - omldamax
+    - osen
     - prlq
     - prsn
     - rsdo
+    - runoff
+    - shum
     - siarean
     - siareas
-    - sidmassevapsubl
-    - sidmasssi
-    - sidmassth
-    - sidmasstranx
-    - sidmasstrany
+    - sic
     - siextentn
     - siextents
-    - sifllatstop
-    - sisnconc
-    - sisnmass
-    - sisnthick
-    - sispeed
+    - sithick
+    - sitimefrac
+    - siu
+    - siv
     - sivol
     - sivoln
     - sivols
+    - so
     - soga
+    - sos
+    - tair
+    - tauuo
+    - tauvo
+    - thetao
     - thetaoga
-    - u2o
+    - tos
+    - tso
     - uo
-    - uso
-    - uto
-    - v2o
+    - uwind
     - vo
-    - volo
-    - vso
-    - vto
-    - w2o
-    - wfo
+    - vwind
+    - wnet
     - wo
-    - wso
-    - wto
-    - zossq
-    - rho
-    - uhice
-    - uhsnow
-    - urho
-    - uv
-    - vhice
-    - vhsnow
-    - virtual_salt
-    - vrho
+    - zos
+    monthly_outputs_for_AWI_FESOM_YAML:
+    - evap
+    - evs
+    - hfds
+    - lwrd
+    - mlotst
+    - olat
+    - olwout
+    - omldamax
+    - osen
+    - prlq
+    - prsn
+    - rsdo
+    - runoff
+    - shum
+    - siarean
+    - siareas
+    - sic
+    - siextentn
+    - siextents
+    - sithick
+    - sitimefrac
+    - siu
+    - siv
+    - sivol
+    - sivoln
+    - sivols
+    - so
+    - soga
+    - sos
+    - tair
+    - tauuo
+    - tauvo
+    - thetao
+    - thetaoga
+    - tos
+    - tso
+    - uo
+    - uwind
+    - vo
+    - vwind
+    - wnet
+    - wo
+    - zos
     namelist_changes:
         namelist.config:
             calendar:
@@ -1516,20 +1605,19 @@ fesom:
         namelist.oce:
             boundary:
                 restore_s_surf: 0
-            oce_tra: *id003
     namelist_dir: <HOME_DIR>/esm_tools/namelists//fesom
     namelist_objs:
-        namelist.config: &id004 f90nml.name
-        namelist.diag: &id005 f90nml.name
-        namelist.forcing: &id006 f90nml.name
-        namelist.ice: &id007 f90nml.name
-        namelist.oce: &id008 f90nml.name
+        namelist.config: &id003 f90nml.name
+        namelist.diag: &id004 f90nml.name
+        namelist.forcing: &id005 f90nml.name
+        namelist.ice: &id006 f90nml.name
+        namelist.oce: &id007 f90nml.name
     namelists:
-        namelist.config: *id004
-        namelist.diag: *id005
-        namelist.forcing: *id006
-        namelist.ice: *id007
-        namelist.oce: *id008
+        namelist.config: *id003
+        namelist.diag: *id004
+        namelist.forcing: *id005
+        namelist.ice: *id006
+        namelist.oce: *id007
     nproc: 384
     nx: 126859
     old_mesh_format: false
@@ -1592,6 +1680,7 @@ fesom:
         thetao: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/outdata/fesom/thetao_fesom_18500101.nc
         thetaoga: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/outdata/fesom/thetaoga_fesom_18500101.nc
         tos: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/outdata/fesom/tos_fesom_18500101.nc
+        tso: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/outdata/fesom/tso_fesom_18500101.nc
         u2o: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/outdata/fesom/u2o_fesom_18500101.nc
         uhice: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/outdata/fesom/uhice_fesom_18500101.nc
         uhsnow: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/outdata/fesom/uhsnow_fesom_18500101.nc
@@ -1677,6 +1766,7 @@ fesom:
         thetao: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/work//thetao_fesom_18500101.nc
         thetaoga: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/work//thetaoga_fesom_18500101.nc
         tos: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/work//tos_fesom_18500101.nc
+        tso: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/work//tso_fesom_18500101.nc
         u2o: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/work//u2o_fesom_18500101.nc
         uhice: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/work//uhice_fesom_18500101.nc
         uhsnow: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/work//uhsnow_fesom_18500101.nc
@@ -1762,6 +1852,7 @@ fesom:
         thetao: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/outdata/fesom/thetao_fesom_18500101.nc
         thetaoga: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/outdata/fesom/thetaoga_fesom_18500101.nc
         tos: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/outdata/fesom/tos_fesom_18500101.nc
+        tso: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/outdata/fesom/tso_fesom_18500101.nc
         u2o: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/outdata/fesom/u2o_fesom_18500101.nc
         uhice: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/outdata/fesom/uhice_fesom_18500101.nc
         uhsnow: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/outdata/fesom/uhsnow_fesom_18500101.nc
@@ -1823,104 +1914,104 @@ fesom:
                     unit: m
                     vars:
                     - restart
-                -   rate: 1
-                    unit: m
+                -   first: 1
+                    rate: 1
+                    unit: y
                     vars:
-                    - evs
+                    - flice
                     - fsitherm
-                    - hfds
                     - opottemptend
                     - pbo
-                    - prlq
-                    - prsn
-                    - rsdo
-                    - siarean
-                    - siareas
+                    - relax_salt
+                    - rho
                     - sidmassevapsubl
                     - sidmasssi
                     - sidmassth
                     - sidmasstranx
                     - sidmasstrany
-                    - siextentn
-                    - siextents
                     - sifllatstop
                     - sisnconc
                     - sisnmass
                     - sisnthick
                     - sispeed
-                    - sivol
-                    - sivoln
-                    - sivols
-                    - soga
-                    - thetaoga
-                    - u2o
-                    - uo
-                    - uso
-                    - uto
-                    - v2o
-                    - vo
-                    - volo
-                    - vso
-                    - vto
-                    - w2o
-                    - wfo
-                    - wo
-                    - wso
-                    - wto
-                    - zossq
-                    - rho
-                    - uhice
-                    - uhsnow
-                    - urho
-                    - uv
-                    - vhice
-                    - vhsnow
-                    - virtual_salt
-                    - vrho
-                -   rate: 1
-                    unit: d
-                    vars:
-                    - mlotst
-                    - omldamax
-                    - sic
                     - sistrxdtop
                     - sistrxubot
                     - sistrydtop
                     - sistryubot
+                    - thdgr
+                    - thdgrsn
+                    - u2o
+                    - uhice
+                    - uhsnow
+                    - urho
+                    - uso
+                    - uto
+                    - uv
+                    - v2o
+                    - vhice
+                    - vhsnow
+                    - virtual_salt
+                    - volo
+                    - vrho
+                    - vso
+                    - vto
+                    - w2o
+                    - wfo
+                    - wso
+                    - wto
+                    - zossq
+                -   rate: 1
+                    unit: m
+                    vars:
+                    - evap
+                    - evs
+                    - hfds
+                    - lwrd
+                    - mlotst
+                    - olat
+                    - olwout
+                    - omldamax
+                    - osen
+                    - prlq
+                    - prsn
+                    - rsdo
+                    - runoff
+                    - shum
+                    - siarean
+                    - siareas
+                    - sic
+                    - siextentn
+                    - siextents
                     - sithick
                     - sitimefrac
                     - siu
                     - siv
+                    - sivol
+                    - sivoln
+                    - sivols
                     - so
+                    - soga
                     - sos
+                    - tair
                     - tauuo
                     - tauvo
                     - thetao
+                    - thetaoga
                     - tos
-                    - zos
-                    - flice
+                    - tso
+                    - uo
+                    - uwind
+                    - vo
+                    - vwind
                     - wnet
-                    - evap
-                    - runoff
-                    - thdgr
-                    - thdgrsn
+                    - wo
+                    - zos
+                -   rate: 1
+                    unit: d
+                    vars: []
                 -   rate: 12
                     unit: s
-                    vars:
-                    - tso
-                -   first: 1000
-                    rate: 1
-                    unit: y
-                    vars:
-                    - lwrd
-                    - olat
-                    - olwout
-                    - osen
-                    - relax_salt
-                    - shum
-                    - tair
-                    - uwind
-                    - vwind
+                    vars: []
     setup_dir: <TEST_DIR>/comp/awicm/awicm-CMIP6
     startday: 1
     starttime: 0
@@ -1945,15 +2036,92 @@ fesom:
     version: 1.4
     with_part_format: false
     yearly_outputs:
-    - lwrd
-    - olat
-    - olwout
-    - osen
+    - flice
+    - fsitherm
+    - opottemptend
+    - pbo
     - relax_salt
-    - shum
-    - tair
-    - uwind
-    - vwind
+    - rho
+    - sidmassevapsubl
+    - sidmasssi
+    - sidmassth
+    - sidmasstranx
+    - sidmasstrany
+    - sifllatstop
+    - sisnconc
+    - sisnmass
+    - sisnthick
+    - sispeed
+    - sistrxdtop
+    - sistrxubot
+    - sistrydtop
+    - sistryubot
+    - thdgr
+    - thdgrsn
+    - u2o
+    - uhice
+    - uhsnow
+    - urho
+    - uso
+    - uto
+    - uv
+    - v2o
+    - vhice
+    - vhsnow
+    - virtual_salt
+    - volo
+    - vrho
+    - vso
+    - vto
+    - w2o
+    - wfo
+    - wso
+    - wto
+    - zossq
+    yearly_outputs_for_AWI_FESOM_YAML:
+    - flice
+    - fsitherm
+    - opottemptend
+    - pbo
+    - relax_salt
+    - rho
+    - sidmassevapsubl
+    - sidmasssi
+    - sidmassth
+    - sidmasstranx
+    - sidmasstrany
+    - sifllatstop
+    - sisnconc
+    - sisnmass
+    - sisnthick
+    - sispeed
+    - sistrxdtop
+    - sistrxubot
+    - sistrydtop
+    - sistryubot
+    - thdgr
+    - thdgrsn
+    - u2o
+    - uhice
+    - uhsnow
+    - urho
+    - uso
+    - uto
+    - uv
+    - v2o
+    - vhice
+    - vhsnow
+    - virtual_salt
+    - volo
+    - vrho
+    - vso
+    - vto
+    - w2o
+    - wfo
+    - wso
+    - wto
+    - zossq
+    yearly_outputs_start: 1
     yearnew: 1850
 general:
     account: ab0995
@@ -2137,7 +2305,7 @@ general:
     initial_date: '1850-01-01T00:00:00'
     inspect: null
     isinteractive: false
-    jobid: 2984176
+    jobid: 3743572
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 18491201-18491231
@@ -2256,6 +2424,7 @@ general:
     - echam
     - jsbach
     - fesom
+    - recom
     - oasis3mct
     - debug_info
     verbose: false
@@ -2339,7 +2508,7 @@ hdmodel:
 
         paper citation'
     domain: hydrology
-    executable: NONE
+    executable: null
     experiment_analysis_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/analysis/hdmodel/
     experiment_bin_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/bin/hdmodel/
     experiment_config_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/config/hdmodel/
@@ -2634,6 +2803,8 @@ jsbach:
         LU_trans_year_1850: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/work/landuseTransitions.1850.nc
         Ndepo_year_1849: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/work/Ndepo.1849.nc
         Ndepo_year_1850: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/work/Ndepo.1850.nc
+    hist_extend_scenario: ssp370
+    hist_fold: hist_harvest
     ignore_intermediate:
         jsbach: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/ignore/jsbach/awicm1-CMIP6-initial-monthly_185002.01_jsbach
         jsbach_codes: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/ignore/jsbach/awicm1-CMIP6-initial-monthly_185002.01_jsbach.codes
@@ -2686,6 +2857,7 @@ jsbach:
     ini_parent_exp_id: awicm1-CMIP6-initial-monthly
     ini_restart_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/restart/echam//../jsbach/
     input_dir: /pool/data/JSBACH/input/r0009
+    input_dir_awi: /pool/data/AWICM/JSBACH/input/r0009
     input_intermediate:
         jsbach: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/input/jsbach/jsbach.nc
         lctlib: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/input/jsbach/lctlib.def
@@ -2709,9 +2881,9 @@ jsbach:
             hydrology_ctl: {}
     namelist_dir: <HOME_DIR>/esm_tools/namelists//jsbach/3.20/PI-CTRL/no_dynveg
     namelist_objs:
-        namelist.jsbach: &id009 f90nml.name
+        namelist.jsbach: &id008 f90nml.name
     namelists:
-        namelist.jsbach: *id009
+        namelist.jsbach: *id008
     no_dynveg_file_ending: _no-dynveg
     other_date: '1850-01-31T23:56:40'
     outdata_intermediate: {}
@@ -2732,15 +2904,16 @@ jsbach:
     parent_expid: awicm1-CMIP6-initial-monthly
     parent_restart_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/restart/jsbach/
     pool_dir: /pool/data/JSBACH
+    pool_dir_awi: /pool/data/AWICM/JSBACH
     prev_date: '1849-12-31T23:56:40'
     repository: https://gitlab.dkrz.de/modular_esm/echam6
     resolution: T127
     restart_out_intermediate:
-        jsbach: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/restart/jsbach/restart_awicm1-CMIP6-initial-monthly_jsbach_18500131.nc
-        jsbid: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/restart/jsbach/restart_awicm1-CMIP6-initial-monthly_jsbid_18500131.nc
-        surf: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/restart/jsbach/restart_awicm1-CMIP6-initial-monthly_surf_18500131.nc
-        veg: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/restart/jsbach/restart_awicm1-CMIP6-initial-monthly_veg_18500131.nc
-        yasso: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/restart/jsbach/restart_awicm1-CMIP6-initial-monthly_yasso_18500131.nc
+        jsbach: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/restart/jsbach/restart_awicm1-CMIP6-initial-monthly_18500131_jsbach.nc
+        jsbid: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/restart/jsbach/restart_awicm1-CMIP6-initial-monthly_18500131_jsbid.nc
+        surf: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/restart/jsbach/restart_awicm1-CMIP6-initial-monthly_18500131_surf.nc
+        veg: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/restart/jsbach/restart_awicm1-CMIP6-initial-monthly_18500131_veg.nc
+        yasso: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/restart/jsbach/restart_awicm1-CMIP6-initial-monthly_18500131_yasso.nc
     restart_out_sources:
         jsbach: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/work//restart_awicm1-CMIP6-initial-monthly_18500131235640_jsbach.nc
         jsbid: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/work//restart_awicm1-CMIP6-initial-monthly_18500131235640_jsbid.nc
@@ -2748,13 +2921,15 @@ jsbach:
         veg: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/work//restart_awicm1-CMIP6-initial-monthly_18500131235640_veg.nc
         yasso: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/work//restart_awicm1-CMIP6-initial-monthly_18500131235640_yasso.nc
     restart_out_targets:
-        jsbach: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/restart/jsbach/restart_awicm1-CMIP6-initial-monthly_jsbach_18500131.nc
-        jsbid: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/restart/jsbach/restart_awicm1-CMIP6-initial-monthly_jsbid_18500131.nc
-        surf: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/restart/jsbach/restart_awicm1-CMIP6-initial-monthly_surf_18500131.nc
-        veg: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/restart/jsbach/restart_awicm1-CMIP6-initial-monthly_veg_18500131.nc
-        yasso: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/restart/jsbach/restart_awicm1-CMIP6-initial-monthly_yasso_18500131.nc
+        jsbach: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/restart/jsbach/restart_awicm1-CMIP6-initial-monthly_18500131_jsbach.nc
+        jsbid: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/restart/jsbach/restart_awicm1-CMIP6-initial-monthly_18500131_jsbid.nc
+        surf: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/restart/jsbach/restart_awicm1-CMIP6-initial-monthly_18500131_surf.nc
+        veg: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/restart/jsbach/restart_awicm1-CMIP6-initial-monthly_18500131_veg.nc
+        yasso: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/restart/jsbach/restart_awicm1-CMIP6-initial-monthly_18500131_yasso.nc
     scenario: PI-CTRL
+    scenario_is_ssp: false
     scenario_type: PI-CTRL
+    ssp_num: null
     streams:
     - jsbach
     - jsbid
@@ -2779,7 +2954,7 @@ jsbach:
 oasis3mct:
     a2o_lag: 200
     a2o_seq: 2
-    add_compiletime_environment_changes: &id010
+    add_compiletime_environment_changes: &id009
         choose_computer.fc:
             ftn:
                 add_export_vars:
@@ -2842,7 +3017,7 @@ oasis3mct:
     cf_name_dir: <TEST_DIR>/comp/awicm/awicm-CMIP6/oasis
     clean_command: rm -rf build CMakeCache.txt include lib/libpsmile.a lib/libscrip.a lib/libmct.a lib/libmpeu.a
     comp_command: mkdir -p build; cd build; cmake ..;   make -j 1; mkdir -p ../include/; cp lib/psmile/libpsmile.a lib/psmile/mct/libmct.a lib/psmile/mct/mpeu/libmpeu.a lib/psmile/scrip/libscrip.a ../lib; cp lib/psmile/mod_oasis*mod ../include
-    compiletime_environment_changes: *id010
+    compiletime_environment_changes: *id009
     config_intermediate:
         cf: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/config/oasis3mct/cf_name_table.txt
         namcouple: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/config/oasis3mct/namcouple
@@ -3181,3 +3356,5 @@ oasis3mct:
     time_step: 900
     use_lucia: false
     version: 2.8
+recom:
+    not_used: ''

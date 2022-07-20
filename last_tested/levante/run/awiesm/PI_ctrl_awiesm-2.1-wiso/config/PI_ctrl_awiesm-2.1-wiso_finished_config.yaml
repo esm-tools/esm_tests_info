@@ -296,6 +296,10 @@ echam:
     config_targets:
         namelist.echam: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/work/namelist.echam
     coupling_fields:
+        co2_atmo:
+            grid: atmo
+        co2c_atm:
+            grid: atmo
         evap_atm:
             grid: atmo
         hdoi_atm:
@@ -345,6 +349,8 @@ echam:
         tauy_atm:
             grid: atmo
         tauy_ica:
+            grid: atmo
+        w10w_atm:
             grid: atmo
         w1_atm:
             grid: atmo
@@ -452,79 +458,108 @@ echam:
         aerocoarse:
         - need_year_before
         - need_year_after
-        aerocoarse_kinne_1850:
-        - need_year_before
-        - need_year_after
+        - need_2years_before
+        - need_2years_after
         aerofarir:
         - need_year_before
         - need_year_after
-        aerofarir_kinne_1850:
-        - need_year_before
-        - need_year_after
+        - need_2years_before
+        - need_2years_after
         aerofin:
         - need_year_before
         - need_year_after
-        aerofin_kinne_1850:
-        - need_year_before
-        - need_year_after
+        - need_2years_before
+        - need_2years_after
         ozone:
         - need_year_before
         - need_year_after
+        - need_2years_before
+        - need_2years_after
         swflux:
         - need_year_before
         - need_year_after
+        - need_2years_before
+        - need_2years_after
         volcir:
         - need_year_before
         - need_year_after
+        - need_2years_before
+        - need_2years_after
         volcsw:
         - need_year_before
         - need_year_after
+        - need_2years_before
+        - need_2years_after
     forcing_dir: /pool/data/ECHAM6//input/r0007/T63
     forcing_intermediate:
+        aerocoarse_year_1999: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/forcing/echam/aero_coarse_1999.nc
         aerocoarse_year_2000: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/forcing/echam/aero_coarse_2000.nc
         aerocoarse_year_2001: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/forcing/echam/aero_coarse_2001.nc
         aerocoarse_year_2002: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/forcing/echam/aero_coarse_2002.nc
+        aerocoarse_year_2003: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/forcing/echam/aero_coarse_2003.nc
+        aerofarir_year_1999: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/forcing/echam/aero_farir_1999.nc
         aerofarir_year_2000: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/forcing/echam/aero_farir_2000.nc
         aerofarir_year_2001: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/forcing/echam/aero_farir_2001.nc
         aerofarir_year_2002: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/forcing/echam/aero_farir_2002.nc
+        aerofarir_year_2003: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/forcing/echam/aero_farir_2003.nc
+        aerofin_year_1999: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/forcing/echam/aero_fine_1999.nc
         aerofin_year_2000: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/forcing/echam/aero_fine_2000.nc
         aerofin_year_2001: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/forcing/echam/aero_fine_2001.nc
         aerofin_year_2002: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/forcing/echam/aero_fine_2002.nc
+        aerofin_year_2003: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/forcing/echam/aero_fine_2003.nc
+        ozone_year_1999: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/forcing/echam/ozon1999
         ozone_year_2000: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/forcing/echam/ozon2000
         ozone_year_2001: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/forcing/echam/ozon2001
         ozone_year_2002: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/forcing/echam/ozon2002
+        ozone_year_2003: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/forcing/echam/ozon2003
         ozonea: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/forcing/echam/ozon1988
         ozoneb: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/forcing/echam/ozon1989
         ozonec: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/forcing/echam/ozon1990
     forcing_sources:
+        aerocoarse_year_1999: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_sw_b14_coa.nc
         aerocoarse_year_2000: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_sw_b14_coa.nc
         aerocoarse_year_2001: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_sw_b14_coa.nc
         aerocoarse_year_2002: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_sw_b14_coa.nc
+        aerocoarse_year_2003: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_sw_b14_coa.nc
+        aerofarir_year_1999: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_lw_b16_coa.nc
         aerofarir_year_2000: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_lw_b16_coa.nc
         aerofarir_year_2001: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_lw_b16_coa.nc
         aerofarir_year_2002: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_lw_b16_coa.nc
+        aerofarir_year_2003: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_lw_b16_coa.nc
+        aerofin_year_1999: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_sw_b14_fin_1865.nc
         aerofin_year_2000: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_sw_b14_fin_1865.nc
         aerofin_year_2001: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_sw_b14_fin_1865.nc
         aerofin_year_2002: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_sw_b14_fin_1865.nc
+        aerofin_year_2003: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_sw_b14_fin_1865.nc
+        ozone_year_1999: /pool/data/ECHAM6//input/r0007/T63/ozone/T63_ozone_picontrol.nc
         ozone_year_2000: /pool/data/ECHAM6//input/r0007/T63/ozone/T63_ozone_picontrol.nc
         ozone_year_2001: /pool/data/ECHAM6//input/r0007/T63/ozone/T63_ozone_picontrol.nc
         ozone_year_2002: /pool/data/ECHAM6//input/r0007/T63/ozone/T63_ozone_picontrol.nc
+        ozone_year_2003: /pool/data/ECHAM6//input/r0007/T63/ozone/T63_ozone_picontrol.nc
         ozonea: /pool/data/ECHAM6//input/r0007/T63/ozone/T63_ozone_picontrol.nc
         ozoneb: /pool/data/ECHAM6//input/r0007/T63/ozone/T63_ozone_picontrol.nc
         ozonec: /pool/data/ECHAM6//input/r0007/T63/ozone/T63_ozone_picontrol.nc
     forcing_targets:
+        aerocoarse_year_1999: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/work/aero_coarse_1999.nc
         aerocoarse_year_2000: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/work/aero_coarse_2000.nc
         aerocoarse_year_2001: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/work/aero_coarse_2001.nc
         aerocoarse_year_2002: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/work/aero_coarse_2002.nc
+        aerocoarse_year_2003: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/work/aero_coarse_2003.nc
+        aerofarir_year_1999: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/work/aero_farir_1999.nc
         aerofarir_year_2000: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/work/aero_farir_2000.nc
         aerofarir_year_2001: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/work/aero_farir_2001.nc
         aerofarir_year_2002: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/work/aero_farir_2002.nc
+        aerofarir_year_2003: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/work/aero_farir_2003.nc
+        aerofin_year_1999: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/work/aero_fine_1999.nc
         aerofin_year_2000: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/work/aero_fine_2000.nc
         aerofin_year_2001: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/work/aero_fine_2001.nc
         aerofin_year_2002: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/work/aero_fine_2002.nc
+        aerofin_year_2003: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/work/aero_fine_2003.nc
+        ozone_year_1999: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/work/ozon1999
         ozone_year_2000: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/work/ozon2000
         ozone_year_2001: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/work/ozon2001
         ozone_year_2002: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/work/ozon2002
+        ozone_year_2003: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/work/ozon2003
         ozonea: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/work/ozon1988
         ozoneb: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/work/ozon1989
         ozonec: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/work/ozon1990
@@ -789,26 +824,46 @@ echam:
     other_date: '2001-01-31T23:52:30'
     outdata_intermediate:
         aclcim_nc: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/outdata/echam/PI_ctrl_awiesm-2.1-wiso_200101.01_aclcim.nc
+        aeropt_nc: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/outdata/echam/PI_ctrl_awiesm-2.1-wiso_200101.01_aeropt.nc
+        cfdiag_nc: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/outdata/echam/PI_ctrl_awiesm-2.1-wiso_200101.01_cfdiag.nc
+        co2_nc: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/outdata/echam/PI_ctrl_awiesm-2.1-wiso_200101.01_co2.nc
         g3b1hi_nc: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/outdata/echam/PI_ctrl_awiesm-2.1-wiso_200101.01_g3b1hi.nc
+        g3b_nc: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/outdata/echam/PI_ctrl_awiesm-2.1-wiso_200101.01_g3b.nc
         g3bday_nc: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/outdata/echam/PI_ctrl_awiesm-2.1-wiso_200101.01_g3bday.nc
         g3bid_nc: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/outdata/echam/PI_ctrl_awiesm-2.1-wiso_200101.01_g3bid.nc
         g3bim_nc: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/outdata/echam/PI_ctrl_awiesm-2.1-wiso_200101.01_g3bim.nc
+        gl_nc: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/outdata/echam/PI_ctrl_awiesm-2.1-wiso_200101.01_gl.nc
         glday_nc: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/outdata/echam/PI_ctrl_awiesm-2.1-wiso_200101.01_glday.nc
         glim_nc: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/outdata/echam/PI_ctrl_awiesm-2.1-wiso_200101.01_glim.nc
         jsbid_nc: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/outdata/echam/PI_ctrl_awiesm-2.1-wiso_200101.01_jsbid.nc
+        ma_nc: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/outdata/echam/PI_ctrl_awiesm-2.1-wiso_200101.01_ma.nc
+        scm_nc: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/outdata/echam/PI_ctrl_awiesm-2.1-wiso_200101.01_scm.nc
         sp6h_nc: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/outdata/echam/PI_ctrl_awiesm-2.1-wiso_200101.01_sp6h.nc
+        sp_nc: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/outdata/echam/PI_ctrl_awiesm-2.1-wiso_200101.01_sp.nc
         spim_nc: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/outdata/echam/PI_ctrl_awiesm-2.1-wiso_200101.01_spim.nc
+        surf_nc: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/outdata/echam/PI_ctrl_awiesm-2.1-wiso_200101.01_surf.nc
+        tdiag_nc: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/outdata/echam/PI_ctrl_awiesm-2.1-wiso_200101.01_tdiag.nc
     outdata_sources:
         aclcim_nc: <TEST_DIR>/run/awiesm//PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/work//PI_ctrl_awiesm-2.1-wiso_200101.01_aclcim.nc
+        aeropt_nc: <TEST_DIR>/run/awiesm//PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/work//PI_ctrl_awiesm-2.1-wiso_200101.01_aeropt.nc
+        cfdiag_nc: <TEST_DIR>/run/awiesm//PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/work//PI_ctrl_awiesm-2.1-wiso_200101.01_cfdiag.nc
+        co2_nc: <TEST_DIR>/run/awiesm//PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/work//PI_ctrl_awiesm-2.1-wiso_200101.01_co2.nc
         g3b1hi_nc: <TEST_DIR>/run/awiesm//PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/work//PI_ctrl_awiesm-2.1-wiso_200101.01_g3b1hi.nc
+        g3b_nc: <TEST_DIR>/run/awiesm//PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/work//PI_ctrl_awiesm-2.1-wiso_200101.01_g3b.nc
         g3bday_nc: <TEST_DIR>/run/awiesm//PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/work//PI_ctrl_awiesm-2.1-wiso_200101.01_g3bday.nc
         g3bid_nc: <TEST_DIR>/run/awiesm//PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/work//PI_ctrl_awiesm-2.1-wiso_200101.01_g3bid.nc
         g3bim_nc: <TEST_DIR>/run/awiesm//PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/work//PI_ctrl_awiesm-2.1-wiso_200101.01_g3bim.nc
+        gl_nc: <TEST_DIR>/run/awiesm//PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/work//PI_ctrl_awiesm-2.1-wiso_200101.01_gl.nc
         glday_nc: <TEST_DIR>/run/awiesm//PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/work//PI_ctrl_awiesm-2.1-wiso_200101.01_glday.nc
         glim_nc: <TEST_DIR>/run/awiesm//PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/work//PI_ctrl_awiesm-2.1-wiso_200101.01_glim.nc
         jsbid_nc: <TEST_DIR>/run/awiesm//PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/work//PI_ctrl_awiesm-2.1-wiso_200101.01_jsbid.nc
+        ma_nc: <TEST_DIR>/run/awiesm//PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/work//PI_ctrl_awiesm-2.1-wiso_200101.01_ma.nc
+        scm_nc: <TEST_DIR>/run/awiesm//PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/work//PI_ctrl_awiesm-2.1-wiso_200101.01_scm.nc
         sp6h_nc: <TEST_DIR>/run/awiesm//PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/work//PI_ctrl_awiesm-2.1-wiso_200101.01_sp6h.nc
+        sp_nc: <TEST_DIR>/run/awiesm//PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/work//PI_ctrl_awiesm-2.1-wiso_200101.01_sp.nc
         spim_nc: <TEST_DIR>/run/awiesm//PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/work//PI_ctrl_awiesm-2.1-wiso_200101.01_spim.nc
+        surf_nc: <TEST_DIR>/run/awiesm//PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/work//PI_ctrl_awiesm-2.1-wiso_200101.01_surf.nc
+        tdiag_nc: <TEST_DIR>/run/awiesm//PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/work//PI_ctrl_awiesm-2.1-wiso_200101.01_tdiag.nc
     outdata_sources_wild_card:
         accw: PI_ctrl_awiesm-2.1-wiso_2001*.01_accw
         accw_codes: PI_ctrl_awiesm-2.1-wiso_2001*.01_accw.codes
@@ -842,15 +897,25 @@ echam:
         wiso_codes: PI_ctrl_awiesm-2.1-wiso_2001*.01_wiso.codes
     outdata_targets:
         aclcim_nc: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/outdata/echam/PI_ctrl_awiesm-2.1-wiso_200101.01_aclcim.nc
+        aeropt_nc: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/outdata/echam/PI_ctrl_awiesm-2.1-wiso_200101.01_aeropt.nc
+        cfdiag_nc: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/outdata/echam/PI_ctrl_awiesm-2.1-wiso_200101.01_cfdiag.nc
+        co2_nc: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/outdata/echam/PI_ctrl_awiesm-2.1-wiso_200101.01_co2.nc
         g3b1hi_nc: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/outdata/echam/PI_ctrl_awiesm-2.1-wiso_200101.01_g3b1hi.nc
+        g3b_nc: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/outdata/echam/PI_ctrl_awiesm-2.1-wiso_200101.01_g3b.nc
         g3bday_nc: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/outdata/echam/PI_ctrl_awiesm-2.1-wiso_200101.01_g3bday.nc
         g3bid_nc: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/outdata/echam/PI_ctrl_awiesm-2.1-wiso_200101.01_g3bid.nc
         g3bim_nc: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/outdata/echam/PI_ctrl_awiesm-2.1-wiso_200101.01_g3bim.nc
+        gl_nc: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/outdata/echam/PI_ctrl_awiesm-2.1-wiso_200101.01_gl.nc
         glday_nc: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/outdata/echam/PI_ctrl_awiesm-2.1-wiso_200101.01_glday.nc
         glim_nc: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/outdata/echam/PI_ctrl_awiesm-2.1-wiso_200101.01_glim.nc
         jsbid_nc: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/outdata/echam/PI_ctrl_awiesm-2.1-wiso_200101.01_jsbid.nc
+        ma_nc: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/outdata/echam/PI_ctrl_awiesm-2.1-wiso_200101.01_ma.nc
+        scm_nc: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/outdata/echam/PI_ctrl_awiesm-2.1-wiso_200101.01_scm.nc
         sp6h_nc: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/outdata/echam/PI_ctrl_awiesm-2.1-wiso_200101.01_sp6h.nc
+        sp_nc: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/outdata/echam/PI_ctrl_awiesm-2.1-wiso_200101.01_sp.nc
         spim_nc: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/outdata/echam/PI_ctrl_awiesm-2.1-wiso_200101.01_spim.nc
+        surf_nc: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/outdata/echam/PI_ctrl_awiesm-2.1-wiso_200101.01_surf.nc
+        tdiag_nc: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/outdata/echam/PI_ctrl_awiesm-2.1-wiso_200101.01_tdiag.nc
     parent_date: '2000-12-31T23:52:30'
     parent_expid: PI_ctrl_awiesm-2.1-wiso
     parent_restart_dir: <TEST_DIR>/run/awiesm//PI_ctrl_awiesm-2.1-wiso/restart/echam/
@@ -1319,6 +1384,16 @@ echam:
     - jsbid
     - sp6h
     - spim
+    - sp
+    - gl
+    - g3b
+    - scm
+    - ma
+    - surf
+    - cfdiag
+    - aeropt
+    - co2
+    - tdiag
     switch: 1
     thisrun_analysis_dir: <TEST_DIR>/run/awiesm//PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/analysis/echam/
     thisrun_bin_dir: <TEST_DIR>/run/awiesm//PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/bin/echam/
@@ -2049,7 +2124,7 @@ general:
     inspect: null
     isinteractive: false
     jP: /work/ba1066/a270061/mesh_CORE2_finaltopo_mean/tarfilesT63/input/jsbach/jsbach_T63CORE2_11tiles_5layers_1850.nc
-    jobid: 2983860
+    jobid: 3741872
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 20001201-20001231
@@ -2270,7 +2345,7 @@ hdmodel:
 
         paper citation'
     domain: hydrology
-    executable: NONE
+    executable: null
     experiment_analysis_dir: <TEST_DIR>/run/awiesm//PI_ctrl_awiesm-2.1-wiso/analysis/hdmodel/
     experiment_bin_dir: <TEST_DIR>/run/awiesm//PI_ctrl_awiesm-2.1-wiso/bin/hdmodel/
     experiment_config_dir: <TEST_DIR>/run/awiesm//PI_ctrl_awiesm-2.1-wiso/config/hdmodel/
@@ -2583,6 +2658,8 @@ jsbach:
         a_nd_file: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/work/a_nd_file.nc
         lightning: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/work/lightning.nc
         popdens: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/work/population_density.nc
+    hist_extend_scenario: ssp370
+    hist_fold: hist_harvest
     ignore_intermediate:
         js_wiso: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/ignore/jsbach/PI_ctrl_awiesm-2.1-wiso_200102.01_js_wiso
         js_wiso_codes: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/ignore/jsbach/PI_ctrl_awiesm-2.1-wiso_200102.01_js_wiso.codes
@@ -2680,6 +2757,7 @@ jsbach:
     ini_parent_exp_id: PI_ctrl_awiesm-2.1-wiso
     ini_restart_dir: <TEST_DIR>/run/awiesm//PI_ctrl_awiesm-2.1-wiso/restart/echam//../jsbach/
     input_dir: /pool/data/JSBACH/input/r0010
+    input_dir_awi: /pool/data/AWICM/JSBACH/input/r0010
     input_intermediate:
         jsbach: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/input/jsbach/jsbach.nc
         lctlib: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/run_20010101-20010131/input/jsbach/lctlib.def
@@ -2738,6 +2816,7 @@ jsbach:
     parent_expid: PI_ctrl_awiesm-2.1-wiso
     parent_restart_dir: <TEST_DIR>/run/awiesm//PI_ctrl_awiesm-2.1-wiso/restart/jsbach/
     pool_dir: /pool/data/JSBACH
+    pool_dir_awi: /pool/data/AWICM/JSBACH
     prev_date: '2000-12-31T23:52:30'
     repository: https://gitlab.dkrz.de/modular_esm/echam6
     resolution: T63
@@ -2775,7 +2854,9 @@ jsbach:
         veg: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/restart/jsbach/restart_PI_ctrl_awiesm-2.1-wiso_20010131235230_veg.nc
         yasso: <TEST_DIR>run/awiesm/PI_ctrl_awiesm-2.1-wiso/restart/jsbach/restart_PI_ctrl_awiesm-2.1-wiso_20010131235230_yasso.nc
     scenario: PI-CTRL
+    scenario_is_ssp: false
     scenario_type: PI-CTRL
+    ssp_num: null
     streams:
     - jsbach
     - jsbid
