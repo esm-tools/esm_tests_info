@@ -283,7 +283,7 @@ echam:
     config_intermediate:
         namelist.echam: <TEST_DIR>run/awicm/awicm1_recom_ssp585/run_20150101-20150131/config/echam/namelist.echam
     config_sources:
-        namelist.echam: /home/a/a270073/esm/namelists/echam/6.3.04p1/SSP585//namelist.echam
+        namelist.echam: <HOME_DIR>/esm_tools/configs//../src/esm_tests/resources/runscripts/awicm/run_files4check_runs/awicm1_recom/SSP585//namelist.echam
     config_targets:
         namelist.echam: <TEST_DIR>run/awicm/awicm1_recom_ssp585/run_20150101-20150131/work/namelist.echam
     coupling_fields:
@@ -757,7 +757,7 @@ echam:
                 - months
                 - first
                 - 0
-    namelist_dir: /home/a/a270073/esm/namelists/echam/6.3.04p1/SSP585/
+    namelist_dir: <HOME_DIR>/esm_tools/configs//../src/esm_tests/resources/runscripts/awicm/run_files4check_runs/awicm1_recom/SSP585/
     namelist_objs:
         namelist.echam: &id002 f90nml.name
     namelists:
@@ -2204,10 +2204,10 @@ general:
     base_dir: <TEST_DIR>/run/awicm/
     batch: slurm
     calendar: esm_calendar object with allowed leap years
-    check: false
+    check: true
     chunk_number: 1
     command_line_config:
-        check: false
+        check: true
         current_date: null
         expid: awicm1_recom_ssp585
         ignore_config_warnings: false
@@ -2216,7 +2216,7 @@ general:
         last_jobtype: prepcompute
         launcher_pid: -666
         no_motd: true
-        original_command: awicm1_recom_ssp585.yaml -e awicm1_recom_ssp585 --open-run --no-motd --last-jobtype prepcompute
+        original_command: awicm1_recom_ssp585.yaml -e awicm1_recom_ssp585 --open-run -c --no-motd --last-jobtype prepcompute
         profile: false
         run_number: null
         runscript_abspath: <TEST_DIR>run/awicm/awicm1_recom_ssp585/scripts/awicm1_recom_ssp585.yaml
@@ -2358,7 +2358,7 @@ general:
     initial_date: '2015-01-01T00:00:00'
     inspect: null
     isinteractive: false
-    jobid: 575103
+    jobid: 1458259
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 20141201-20141231
@@ -2384,7 +2384,7 @@ general:
     no_motd: true
     nsecond: 0
     nyear: 0
-    original_command: awicm1_recom_ssp585.yaml -e awicm1_recom_ssp585 --open-run --no-motd --last-jobtype prepcompute
+    original_command: awicm1_recom_ssp585.yaml -e awicm1_recom_ssp585 --open-run -c --no-motd --last-jobtype prepcompute
     out_filetypes:
     - analysis
     - log
