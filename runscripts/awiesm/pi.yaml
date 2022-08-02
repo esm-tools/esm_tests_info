@@ -3,9 +3,10 @@ general:
     setup_name: "awiesm"
     compute_time: "00:20:00"
     initial_date: "1850-01-01T00:00:00"       # Initial exp. date
-    final_date: "1850-04-01T00:00:00"         # Final date of the experiment
+    final_date: "1850-01-04T00:00:00"         # Final date of the experiment
     base_dir: !ENV ${ESM_TESTING_DIR}
-    nmonth: 1
+    nday: 1
+    nmonth: 0
     nyear: 0
     with_wiso: False
     use_venv: False
@@ -25,7 +26,7 @@ awiesm:
 
 echam:
     restart_rate: 1
-    restart_unit: "months"
+    restart_unit: "days"
     input_sources:
         jansurf: "${general.project_base}/input/echam6/T63CORE2_jan_surf.nc"
         vgratclim: "${general.project_base}/input/echam6/T63CORE2_VGRATCLIM.nc"
@@ -36,7 +37,7 @@ jsbach:
 
 fesom:
     restart_rate: 1
-    restart_unit: "m"
+    restart_unit: "d"
     restart_first: 1
 
     choose_computer.name:

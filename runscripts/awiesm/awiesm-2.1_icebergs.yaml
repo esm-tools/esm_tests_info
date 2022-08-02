@@ -6,9 +6,10 @@ general:
     version: "2.1"
     compute_time: "02:0:00"
     initial_date: "2001-01-01"
-    final_date: "2003-01-01"
+    final_date: "2001-01-03"
+    nday: 1
     nmonth: 0
-    nyear: 1
+    nyear: 0
     iterative_coupling: false
     use_venv: False
     with_wiso: false
@@ -22,7 +23,7 @@ awiesm:
 echam:
     lresume: false
     restart_rate: 1
-    restart_unit: "years"
+    restart_unit: "days"
     nprocar: 0
     nprocbr: 0
     nproma: 8
@@ -64,7 +65,7 @@ fesom:
     mesh_dir: "/work/ollie/sxu/AWICM-2.0/meshes/core2_dkrz/"
     resolution: "CORE2"
     restart_rate: 1
-    restart_unit: "y"
+    restart_unit: "d"
     restart_first: 1
     add_required_plugins:
             - "git+https:/gitlab.awi.de/paleodyn/Projects/PalMod/gfw_creator.git"
