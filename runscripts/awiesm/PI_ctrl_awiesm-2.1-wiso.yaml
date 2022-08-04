@@ -4,9 +4,10 @@ general:
     version: "2.1-wiso"
     compute_time: "01:00:00"
     initial_date: "2001-01-01"
-    final_date: "2001-04-01"
+    final_date: "2001-01-04"
     base_dir: !ENV ${ESM_TESTING_DIR}
-    nmonth: 1
+    nday: 1
+    nmonth: 0
     nyear: 0
     with_wiso: true
     use_venv: False
@@ -25,7 +26,7 @@ general:
 
 echam:
     restart_rate: 1
-    restart_unit: "months"
+    restart_unit: "days"
     nproca: 6
     nprocb:  6
     lresume: 0
@@ -44,7 +45,7 @@ echam:
 
 awiesm:
     postprocessing: true
-    scenario: "PALEO"
+    scenario: "PI-CTRL"
     # NOTE: In a future version, model code will become part of the experiment
     # tree and will be compiled for you...
     version: "2.1-wiso"
@@ -57,7 +58,7 @@ fesom:
     mesh_dir: ${general.fesom_mesh}
     namelist_dir: ${general.esm_function_dir}/../src/esm_tests/resources/runscripts/awiesm/comp_files4check_runs/PI_ctrl_awiesm-2.1-wiso/awiesm-2.1-wiso/fesom-2.1/config/
     restart_rate: 1
-    restart_unit: "m"
+    restart_unit: "d"
     restart_first: 1
     lresume: 0
     # ini_parent_exp_id: piw_zstar_swon

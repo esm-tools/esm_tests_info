@@ -6,11 +6,11 @@ general:
     version: "2.1-recom"
     compute_time: "01:00:00"
     initial_date: "2001-01-01"
-    final_date: "2001-03-01"
+    final_date: "2001-01-03"
     base_dir: !ENV ${ESM_TESTING_DIR}
-#    nday: 1
-    nmonth: 1
-#    nyear: 1
+    nday: 1
+    nmonth: 0
+    nyear: 0
     use_venv: False
     #clean_runs: 2
 
@@ -31,7 +31,7 @@ general:
 
 echam:
     restart_rate: 1
-    restart_unit: "months"
+    restart_unit: "days"
     lrad_async: False
     namelist_changes:
             namelist.echam:
@@ -50,7 +50,7 @@ hdmodel:
 awiesm:
     version: "2.1-recom"
     postprocessing: false
-    scenario: "PALEO"
+    scenario: "PI-CTRL"
     # NOTE: In a future version, model code will become part of the experiment
     # tree and will be compiled for you...
     model_dir: !ENV ${MODEL_DIR}
@@ -60,7 +60,7 @@ fesom:
     # NOTE: This will be incorporated into the pool at a later stage
     mesh_dir: ${general.fesom_mesh} #/pool/data/AWICM/FESOM2/MESHES_FESOM2.1/core2
     restart_rate: 1
-    restart_unit: "m"
+    restart_unit: "d"
     restart_first: 1
     lresume: 0
     num_tracers: 24
