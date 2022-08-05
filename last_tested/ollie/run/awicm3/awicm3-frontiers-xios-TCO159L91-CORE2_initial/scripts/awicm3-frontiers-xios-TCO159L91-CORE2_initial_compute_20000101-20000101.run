@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 #SBATCH --partition=mpp
 #SBATCH --time=01:00:00
-#SBATCH --nodes=7
+#SBATCH --nodes=11
 #SBATCH --output=<TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/log/awicm3-frontiers-xios-TCO159L91-CORE2_initial_awicm3_compute_20000101-20000101_%j.log --error=<TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/log/awicm3-frontiers-xios-TCO159L91-CORE2_initial_awicm3_compute_20000101-20000101_%j.log
 #SBATCH --job-name=awicm3-frontiers-xios-TCO159L91-CORE2_initial
 #SBATCH --mail-type=NONE
@@ -87,7 +87,7 @@ unset SLURM_ARBITRARY_NODELIST
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 97567 - start >> <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/log//awicm3-frontiers-xios-TCO159L91-CORE2_initial_awicm3.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 67865 - start >> <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/log//awicm3-frontiers-xios-TCO159L91-CORE2_initial_awicm3.log
 
 cd <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work/
 
@@ -100,7 +100,7 @@ unset IFS; set +f
 rank=0
 current_core=0
 current_core_mpi=0
-mpi_tasks_fesom=144
+mpi_tasks_fesom=288
 omp_threads_fesom=1
 mpi_tasks_oifs=18
 omp_threads_oifs=2
@@ -129,6 +129,6 @@ process=$!
 cd <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/scripts/
 esm_runscripts awicm3-frontiers-xios-TCO159L91-CORE2_initial.yaml -e awicm3-frontiers-xios-TCO159L91-CORE2_initial -t observe_compute -p ${process} -s 20000101 -r 1 -v  --last-jobtype prepcompute --open-run
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 97567 - done >> <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/log//awicm3-frontiers-xios-TCO159L91-CORE2_initial_awicm3.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 67865 - done >> <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/log//awicm3-frontiers-xios-TCO159L91-CORE2_initial_awicm3.log
 
 wait
