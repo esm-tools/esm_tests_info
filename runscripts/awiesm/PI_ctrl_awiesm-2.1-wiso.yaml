@@ -77,14 +77,12 @@ fesom:
                 ForcingDataPath: remove_from_namelist
                 OpbndPath: remove_from_namelist
                 TideForcingPath: remove_from_namelist
-            restart_log:
-                restart_length_unit: "m"
             run_config:
                 lwiso: True
             inout:
                 restartflag: 'last'
                 output_length: 1
-                output_length_unit: 'm'
+                output_length_unit: ${restart_unit}
                 restart_length: "${restart_rate}"
                 restart_length_unit: "${restart_unit}"
 
