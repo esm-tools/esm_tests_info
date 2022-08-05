@@ -1786,10 +1786,10 @@ general:
     base_dir: <TEST_DIR>/run/awiesm/
     batch: slurm
     calendar: esm_calendar object with allowed leap years
-    check: false
+    check: true
     chunk_number: 1
     command_line_config:
-        check: false
+        check: true
         current_date: null
         expid: pi
         ignore_config_warnings: false
@@ -1798,7 +1798,7 @@ general:
         last_jobtype: prepcompute
         launcher_pid: -666
         no_motd: true
-        original_command: pi.yaml -e pi --open-run --no-motd --last-jobtype prepcompute
+        original_command: pi.yaml -e pi --open-run -c --no-motd --last-jobtype prepcompute
         profile: false
         run_number: null
         runscript_abspath: <TEST_DIR>run/awiesm/pi/scripts/pi.yaml
@@ -1935,7 +1935,7 @@ general:
     initial_date: '1850-01-01T00:00:00'
     inspect: null
     isinteractive: false
-    jobid: 121718
+    jobid: 105086
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 18491231-18491231
@@ -1959,7 +1959,7 @@ general:
     no_motd: true
     nsecond: 0
     nyear: 0
-    original_command: pi.yaml -e pi --open-run --no-motd --last-jobtype prepcompute
+    original_command: pi.yaml -e pi --open-run -c --no-motd --last-jobtype prepcompute
     out_filetypes:
     - analysis
     - log
@@ -2001,6 +2001,8 @@ general:
     - modify_files
     - copy_files_to_work
     - report_missing_files
+    - add_vcs_info
+    - check_vcs_info_against_last_run
     - _write_finalized_config
     - database_entry
     prev_date: '1849-12-31T00:00:00'

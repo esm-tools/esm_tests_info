@@ -1303,10 +1303,10 @@ general:
     base_dir: <TEST_DIR>/run/fesom-recom/
     batch: slurm
     calendar: esm_calender object with no leap years allowed
-    check: false
+    check: true
     chunk_number: 1
     command_line_config:
-        check: false
+        check: true
         current_date: null
         expid: fesom-recom1.4-initial-daily
         ignore_config_warnings: false
@@ -1315,7 +1315,7 @@ general:
         last_jobtype: prepcompute
         launcher_pid: -666
         no_motd: true
-        original_command: fesom-recom1.4-initial-daily.yaml -e fesom-recom1.4-initial-daily --open-run --no-motd --last-jobtype prepcompute
+        original_command: fesom-recom1.4-initial-daily.yaml -e fesom-recom1.4-initial-daily --open-run -c --no-motd --last-jobtype prepcompute
         profile: false
         run_number: null
         runscript_abspath: <TEST_DIR>run/fesom-recom/fesom-recom1.4-initial-daily/scripts/fesom-recom1.4-initial-daily.yaml
@@ -1448,7 +1448,7 @@ general:
     initial_date: '1958-01-01T00:00:00'
     inspect: null
     isinteractive: false
-    jobid: 66705
+    jobid: 108230
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 19571231-19571231
@@ -1472,7 +1472,7 @@ general:
     no_motd: true
     nsecond: 0
     nyear: 0
-    original_command: fesom-recom1.4-initial-daily.yaml -e fesom-recom1.4-initial-daily --open-run --no-motd --last-jobtype prepcompute
+    original_command: fesom-recom1.4-initial-daily.yaml -e fesom-recom1.4-initial-daily --open-run -c --no-motd --last-jobtype prepcompute
     out_filetypes:
     - analysis
     - log
