@@ -1,9 +1,9 @@
 #!/bin/bash
 #SBATCH --partition=compute
-#SBATCH --time=02:00:00
+#SBATCH --time=00:30:00
 #SBATCH --ntasks=544
-#SBATCH --output=<TEST_DIR>/run/awiesm//bootstrap/log/bootstrap_awiesm_compute_18500101-18501231_%j.log --error=<TEST_DIR>/run/awiesm//bootstrap/log/bootstrap_awiesm_compute_18500101-18501231_%j.log
-#SBATCH --job-name=bootstrap
+#SBATCH --output=<TEST_DIR>/run/awiesm//pico/log/pico_awiesm_compute_18500101-18500101_%j.log --error=<TEST_DIR>/run/awiesm//pico/log/pico_awiesm_compute_18500101-18500101_%j.log
+#SBATCH --job-name=pico
 #SBATCH --account=ab0995
 #SBATCH --mail-type=NONE
 #SBATCH --ntasks-per-core=1
@@ -80,18 +80,18 @@ export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 1850-01-01T00:00:00 2123713 - start >> <TEST_DIR>/run/awiesm//bootstrap/log//bootstrap_awiesm.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 1850-01-01T00:00:00 2122812 - start >> <TEST_DIR>/run/awiesm//pico/log//pico_awiesm.log
 
-cd <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work/
+cd <TEST_DIR>/run/awiesm//pico/run_18500101-18500101/work/
 time srun -l --hint=nomultithread --multi-prog hostfile_srun 2>&1 &
 
 # Call to esm_runscript to start subjobs:
 # ['tidy']
 process=$! 
 # Comment the following line if you don't want esm_runscripts to restart:
-cd <TEST_DIR>/run/awiesm//bootstrap/scripts/
-esm_runscripts bootstrap.yaml -e bootstrap -t observe_compute -p ${process} -s 18500101 -r 1 -v  --last-jobtype prepcompute --open-run
+cd <TEST_DIR>/run/awiesm//pico/scripts/
+esm_runscripts pico.yaml -e pico -t observe_compute -p ${process} -s 18500101 -r 1 -v  --last-jobtype prepcompute --open-run
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 1850-01-01T00:00:00 2123713 - done >> <TEST_DIR>/run/awiesm//bootstrap/log//bootstrap_awiesm.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 1850-01-01T00:00:00 2122812 - done >> <TEST_DIR>/run/awiesm//pico/log//pico_awiesm.log
 
 wait
