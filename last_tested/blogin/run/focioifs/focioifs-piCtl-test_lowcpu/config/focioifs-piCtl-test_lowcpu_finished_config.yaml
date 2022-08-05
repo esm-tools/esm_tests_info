@@ -210,10 +210,10 @@ general:
     base_dir: <TEST_DIR>/run/focioifs/
     batch: slurm
     calendar: esm_calendar object with allowed leap years
-    check: false
+    check: true
     chunk_number: 1
     command_line_config:
-        check: false
+        check: true
         current_date: null
         expid: focioifs-piCtl-test_lowcpu
         ignore_config_warnings: false
@@ -222,7 +222,7 @@ general:
         last_jobtype: prepcompute
         launcher_pid: -666
         no_motd: true
-        original_command: focioifs-piCtl-test_lowcpu.yaml -e focioifs-piCtl-test_lowcpu --open-run --no-motd --last-jobtype prepcompute
+        original_command: focioifs-piCtl-test_lowcpu.yaml -e focioifs-piCtl-test_lowcpu --open-run -c --no-motd --last-jobtype prepcompute
         profile: false
         run_number: null
         runscript_abspath: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/scripts/focioifs-piCtl-test_lowcpu.yaml
@@ -362,7 +362,7 @@ general:
     initial_date: '1850-01-01T00:00:00'
     inspect: null
     isinteractive: false
-    jobid: 31279
+    jobid: 85108
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 18491227-18491231
@@ -390,7 +390,7 @@ general:
     nsecond: 0
     nyear: 0
     oasis_date_stamp: _18500101-1850101
-    original_command: focioifs-piCtl-test_lowcpu.yaml -e focioifs-piCtl-test_lowcpu --open-run --no-motd --last-jobtype prepcompute
+    original_command: focioifs-piCtl-test_lowcpu.yaml -e focioifs-piCtl-test_lowcpu --open-run -c --no-motd --last-jobtype prepcompute
     out_filetypes:
     - analysis
     - log
@@ -435,6 +435,8 @@ general:
     - modify_files
     - copy_files_to_work
     - report_missing_files
+    - add_vcs_info
+    - check_vcs_info_against_last_run
     - database_entry
     prev_date: '1849-12-31T00:00:00'
     profile: false
@@ -2982,6 +2984,8 @@ oifs:
     - modify_files
     - copy_files_to_work
     - report_missing_files
+    - add_vcs_info
+    - check_vcs_info_against_last_run
     - database_entry
     prepifs_dir: /scratch/usr/shkifmsw/foci_input2/OPENIFS43R3-TCO95//2008010100/
     prepifs_expid: hagw
