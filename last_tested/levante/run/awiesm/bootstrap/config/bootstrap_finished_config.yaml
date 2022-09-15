@@ -1817,10 +1817,10 @@ general:
     base_dir: <TEST_DIR>/run/awiesm/
     batch: slurm
     calendar: esm_calendar object with allowed leap years
-    check: true
+    check: false
     chunk_number: 1
     command_line_config:
-        check: true
+        check: false
         current_date: null
         expid: bootstrap
         ignore_config_warnings: false
@@ -1829,7 +1829,7 @@ general:
         last_jobtype: prepcompute
         launcher_pid: -666
         no_motd: true
-        original_command: bootstrap.yaml -e bootstrap --open-run -c --no-motd --last-jobtype prepcompute
+        original_command: bootstrap.yaml -e bootstrap --open-run --no-motd --last-jobtype prepcompute
         profile: false
         run_number: null
         runscript_abspath: <TEST_DIR>run/awiesm/bootstrap/scripts/bootstrap.yaml
@@ -1967,7 +1967,7 @@ general:
     initial_date: '1850-01-01T00:00:00'
     inspect: null
     isinteractive: false
-    jobid: 3622251
+    jobid: 3606169
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 18490101-18491231
@@ -1991,7 +1991,7 @@ general:
     no_motd: true
     nsecond: 0
     nyear: 1
-    original_command: bootstrap.yaml -e bootstrap --open-run -c --no-motd --last-jobtype prepcompute
+    original_command: bootstrap.yaml -e bootstrap --open-run --no-motd --last-jobtype prepcompute
     out_filetypes:
     - analysis
     - log
@@ -2033,8 +2033,6 @@ general:
     - modify_files
     - copy_files_to_work
     - report_missing_files
-    - add_vcs_info
-    - check_vcs_info_against_last_run
     - _write_finalized_config
     - database_entry
     prev_date: '1849-12-31T00:00:00'

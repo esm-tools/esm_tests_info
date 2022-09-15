@@ -2204,10 +2204,10 @@ general:
     base_dir: <TEST_DIR>/run/awicm/
     batch: slurm
     calendar: esm_calendar object with allowed leap years
-    check: true
+    check: false
     chunk_number: 1
     command_line_config:
-        check: true
+        check: false
         current_date: null
         expid: awicm1_recom_ssp585
         ignore_config_warnings: false
@@ -2216,7 +2216,7 @@ general:
         last_jobtype: prepcompute
         launcher_pid: -666
         no_motd: true
-        original_command: awicm1_recom_ssp585.yaml -e awicm1_recom_ssp585 --open-run -c --no-motd --last-jobtype prepcompute
+        original_command: awicm1_recom_ssp585.yaml -e awicm1_recom_ssp585 --open-run --no-motd --last-jobtype prepcompute
         profile: false
         run_number: null
         runscript_abspath: <TEST_DIR>run/awicm/awicm1_recom_ssp585/scripts/awicm1_recom_ssp585.yaml
@@ -2358,7 +2358,7 @@ general:
     initial_date: '2015-01-01T00:00:00'
     inspect: null
     isinteractive: false
-    jobid: 3625853
+    jobid: 3698813
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 20141201-20141231
@@ -2384,7 +2384,7 @@ general:
     no_motd: true
     nsecond: 0
     nyear: 0
-    original_command: awicm1_recom_ssp585.yaml -e awicm1_recom_ssp585 --open-run -c --no-motd --last-jobtype prepcompute
+    original_command: awicm1_recom_ssp585.yaml -e awicm1_recom_ssp585 --open-run --no-motd --last-jobtype prepcompute
     out_filetypes:
     - analysis
     - log
@@ -3336,7 +3336,7 @@ oasis3mct:
         debug_r1: <TEST_DIR>run/awicm/awicm1_recom_ssp585/log/oasis3mct/debug.root.01
         debug_r2: <TEST_DIR>run/awicm/awicm1_recom_ssp585/log/oasis3mct/debug.root.02
         nout: <TEST_DIR>run/awicm/awicm1_recom_ssp585/log/oasis3mct/nout.000000
-    lresume: true
+    lresume: false
     mct_version: 2.8
     model: oasis3mct
     model_dir: <TEST_DIR>/comp/awicm/awicm-1.0-recom/oasis
@@ -3462,40 +3462,13 @@ oasis3mct:
         tauy_oce_fesom_04.nc: <TEST_DIR>run/awicm/awicm1_recom_ssp585/outdata/oasis3mct/tauy_oce_fesom_04.nc
         w10w_atm_echam6_14.nc: <TEST_DIR>run/awicm/awicm1_recom_ssp585/outdata/oasis3mct/w10w_atm_echam6_14.nc
         w10w_oce_fesom_14.nc: <TEST_DIR>run/awicm/awicm1_recom_ssp585/outdata/oasis3mct/w10w_oce_fesom_14.nc
-    parent_date: '2014-12-31'
-    parent_expid: historical2
-    parent_restart_dir: /work/ba1103/a270073/out/awicm-1.0-recom/awi-esm-1-1-lr_kh800/historical2/restart//oasis3mct/
+    parent_date: '2014-12-31T21:00:00'
+    parent_expid: awicm1_recom_ssp585
+    parent_restart_dir: <TEST_DIR>/run/awicm//awicm1_recom_ssp585/restart/oasis3mct/
     prev_date: '2014-12-31T21:00:00'
     process_ordering:
     - fesom
     - echam
-    restart_in_intermediate:
-        a2o_flux: <TEST_DIR>run/awicm/awicm1_recom_ssp585/run_20150101-20150131/restart/oasis3mct/a2o_flux
-        areas: <TEST_DIR>run/awicm/awicm1_recom_ssp585/run_20150101-20150131/restart/oasis3mct/areas.nc
-        grids: <TEST_DIR>run/awicm/awicm1_recom_ssp585/run_20150101-20150131/restart/oasis3mct/grids.nc
-        masks: <TEST_DIR>run/awicm/awicm1_recom_ssp585/run_20150101-20150131/restart/oasis3mct/masks.nc
-        o2a_flux: <TEST_DIR>run/awicm/awicm1_recom_ssp585/run_20150101-20150131/restart/oasis3mct/o2a_flux
-        rmp_a2f_B: <TEST_DIR>run/awicm/awicm1_recom_ssp585/run_20150101-20150131/restart/oasis3mct/rmp_atmo_to_feom_BICUBIC.nc
-        rmp_a2f_D: <TEST_DIR>run/awicm/awicm1_recom_ssp585/run_20150101-20150131/restart/oasis3mct/rmp_atmo_to_feom_DISTWGT.nc
-        rmp_f2a_D: <TEST_DIR>run/awicm/awicm1_recom_ssp585/run_20150101-20150131/restart/oasis3mct/rmp_feom_to_atmo_DISTWGT.nc
-    restart_in_sources:
-        a2o_flux: /work/ba1103/a270073/out/awicm-1.0-recom/awi-esm-1-1-lr_kh800/historical2/restart//oasis3mct/a2o_flux
-        areas: /work/ba1103/a270073/out/awicm-1.0-recom/awi-esm-1-1-lr_kh800/historical2/restart//oasis3mct/areas.nc
-        grids: /work/ba1103/a270073/out/awicm-1.0-recom/awi-esm-1-1-lr_kh800/historical2/restart//oasis3mct/grids.nc
-        masks: /work/ba1103/a270073/out/awicm-1.0-recom/awi-esm-1-1-lr_kh800/historical2/restart//oasis3mct/masks.nc
-        o2a_flux: /work/ba1103/a270073/out/awicm-1.0-recom/awi-esm-1-1-lr_kh800/historical2/restart//oasis3mct/o2a_flux
-        rmp_a2f_B: /work/ba1103/a270073/out/awicm-1.0-recom/awi-esm-1-1-lr_kh800/historical2/restart//oasis3mct/rmp_atmo_to_feom_BICUBIC.nc
-        rmp_a2f_D: /work/ba1103/a270073/out/awicm-1.0-recom/awi-esm-1-1-lr_kh800/historical2/restart//oasis3mct/rmp_atmo_to_feom_DISTWGT.nc
-        rmp_f2a_D: /work/ba1103/a270073/out/awicm-1.0-recom/awi-esm-1-1-lr_kh800/historical2/restart//oasis3mct/rmp_feom_to_atmo_DISTWGT.nc
-    restart_in_targets:
-        a2o_flux: <TEST_DIR>run/awicm/awicm1_recom_ssp585/run_20150101-20150131/work/a2o_flux
-        areas: <TEST_DIR>run/awicm/awicm1_recom_ssp585/run_20150101-20150131/work/areas.nc
-        grids: <TEST_DIR>run/awicm/awicm1_recom_ssp585/run_20150101-20150131/work/grids.nc
-        masks: <TEST_DIR>run/awicm/awicm1_recom_ssp585/run_20150101-20150131/work/masks.nc
-        o2a_flux: <TEST_DIR>run/awicm/awicm1_recom_ssp585/run_20150101-20150131/work/o2a_flux
-        rmp_a2f_B: <TEST_DIR>run/awicm/awicm1_recom_ssp585/run_20150101-20150131/work/rmp_atmo_to_feom_BICUBIC.nc
-        rmp_a2f_D: <TEST_DIR>run/awicm/awicm1_recom_ssp585/run_20150101-20150131/work/rmp_atmo_to_feom_DISTWGT.nc
-        rmp_f2a_D: <TEST_DIR>run/awicm/awicm1_recom_ssp585/run_20150101-20150131/work/rmp_feom_to_atmo_DISTWGT.nc
     restart_out_intermediate:
         a2o_flux: <TEST_DIR>run/awicm/awicm1_recom_ssp585/run_20150101-20150131/restart/oasis3mct/a2o_flux
         a2o_flux_recv: <TEST_DIR>run/awicm/awicm1_recom_ssp585/run_20150101-20150131/restart/oasis3mct/a2o_flux_recv

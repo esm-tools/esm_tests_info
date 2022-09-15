@@ -15,8 +15,8 @@
 ###############################################################################
 ###############################################################################
 #
-sst_feom:sit_feom:sie_feom sst_atmo:sit_atmo:sie_atmo 1 3600 2 o2a_flux EXPORTED
-126859 1 192 96 feom atmo LAG=1800
+sst_feom:sit_feom:sie_feom sst_atmo:sit_atmo:sie_atmo 1 3600 2 o2a_flux EXPOUT
+126859 1 192 96 feom atmo LAG=0
 P 0 P 0
 LOCTRANS SCRIPR
 INSTANT
@@ -26,8 +26,8 @@ DISTWGT U SCALAR LATITUDE 15 6
 #
 ###############################################################################
 #
-snt_feom snt_atmo 4 3600 2 o2a_flux EXPORTED
-126859 1 192 96 feom atmo LAG=1800
+snt_feom snt_atmo 4 3600 2 o2a_flux EXPOUT
+126859 1 192 96 feom atmo LAG=0
 P 0 P 0
 LOCTRANS SCRIPR
 INSTANT
@@ -37,8 +37,8 @@ DISTWGT U SCALAR LATITUDE 15 6
 #
 ###############################################################################
 #
-co2_feom co2_atmo 5 3600 2 o2a_flux EXPORTED
-126859 1 192 96 feom atmo LAG=1800
+co2_feom co2_atmo 5 3600 2 o2a_flux EXPOUT
+126859 1 192 96 feom atmo LAG=0
 P 0 P 0
 LOCTRANS SCRIPR
 INSTANT
@@ -48,8 +48,8 @@ DISTWGT U SCALAR LATITUDE 15 6
 #
 ###############################################################################
 #
-taux_atm:tauy_atm:taux_ica:tauy_ica taux_oce:tauy_oce:taux_ico:tauy_ico 6 3600 2 a2o_flux EXPORTED
-192 96 126859 1 atmo feom LAG=450
+taux_atm:tauy_atm:taux_ica:tauy_ica taux_oce:tauy_oce:taux_ico:tauy_ico 6 3600 2 a2o_flux EXPOUT
+192 96 126859 1 atmo feom LAG=0
 P 0 P 0
 LOCTRANS SCRIPR
 INSTANT
@@ -59,8 +59,8 @@ BICUBIC D SCALAR LATITUDE 15
 #
 ###############################################################################
 #
-prec_atm prec_oce 10 3600 2 a2o_flux EXPORTED
-192 96 126859 1 atmo feom LAG=450
+prec_atm prec_oce 10 3600 2 a2o_flux EXPOUT
+192 96 126859 1 atmo feom LAG=0
 P 0 P 0
 LOCTRANS SCRIPR
 INSTANT
@@ -70,8 +70,8 @@ DISTWGT D SCALAR LATITUDE 15 6
 #
 ###############################################################################
 #
-snow_atm snow_oce 11 3600 2 a2o_flux EXPORTED
-192 96 126859 1 atmo feom LAG=450
+snow_atm snow_oce 11 3600 2 a2o_flux EXPOUT
+192 96 126859 1 atmo feom LAG=0
 P 0 P 0
 LOCTRANS SCRIPR
 INSTANT
@@ -81,8 +81,8 @@ DISTWGT D SCALAR LATITUDE 15 6
 #
 ###############################################################################
 #
-evap_atm evap_oce 12 3600 2 a2o_flux EXPORTED
-192 96 126859 1 atmo feom LAG=450
+evap_atm evap_oce 12 3600 2 a2o_flux EXPOUT
+192 96 126859 1 atmo feom LAG=0
 P 0 P 0
 LOCTRANS SCRIPR
 INSTANT
@@ -92,8 +92,8 @@ DISTWGT D SCALAR LATITUDE 15 6
 #
 ###############################################################################
 #
-subl_atm subl_oce 13 3600 2 a2o_flux EXPORTED
-192 96 126859 1 atmo feom LAG=450
+subl_atm subl_oce 13 3600 2 a2o_flux EXPOUT
+192 96 126859 1 atmo feom LAG=0
 P 0 P 0
 LOCTRANS SCRIPR
 INSTANT
@@ -103,8 +103,8 @@ DISTWGT D SCALAR LATITUDE 15 6
 #
 ###############################################################################
 #
-heat_atm heat_oce 14 3600 2 a2o_flux EXPORTED
-192 96 126859 1 atmo feom LAG=450
+heat_atm heat_oce 14 3600 2 a2o_flux EXPOUT
+192 96 126859 1 atmo feom LAG=0
 P 0 P 0
 LOCTRANS SCRIPR
 INSTANT
@@ -114,8 +114,8 @@ DISTWGT D SCALAR LATITUDE 15 6
 #
 ###############################################################################
 #
-heat_ica heat_ico 15 3600 2 a2o_flux EXPORTED
-192 96 126859 1 atmo feom LAG=450
+heat_ica heat_ico 15 3600 2 a2o_flux EXPOUT
+192 96 126859 1 atmo feom LAG=0
 P 0 P 0
 LOCTRANS SCRIPR
 INSTANT
@@ -125,8 +125,8 @@ DISTWGT D SCALAR LATITUDE 15 6
 #
 ###############################################################################
 #
-heat_swa heat_swo 16 3600 2 a2o_flux EXPORTED
-192 96 126859 1 atmo feom LAG=450
+heat_swa heat_swo 16 3600 2 a2o_flux EXPOUT
+192 96 126859 1 atmo feom LAG=0
 P 0 P 0
 LOCTRANS SCRIPR
 INSTANT
@@ -136,8 +136,8 @@ DISTWGT D SCALAR LATITUDE 15 6
 #
 ###############################################################################
 #
-hydr_atm hydr_oce 17 3600 2 a2o_flux EXPORTED
-192 96 126859 1 atmo feom LAG=450
+hydr_atm hydr_oce 17 3600 2 a2o_flux EXPOUT
+192 96 126859 1 atmo feom LAG=0
 P 0 P 0
 LOCTRANS SCRIPR
 INSTANT
@@ -147,8 +147,8 @@ DISTWGT D SCALAR LATITUDE 15 6
 #
 ###############################################################################
 #
-co2c_atm co2c_oce 18 3600 2 a2o_flux EXPORTED
-192 96 126859 1 atmo feom LAG=450
+co2c_atm co2c_oce 18 3600 2 a2o_flux EXPOUT
+192 96 126859 1 atmo feom LAG=0
 P 0 P 0
 LOCTRANS SCRIPR
 INSTANT
@@ -158,8 +158,8 @@ DISTWGT D SCALAR LATITUDE 15 6
 #
 ###############################################################################
 #
-w10w_atm w10w_oce 19 3600 2 a2o_flux EXPORTED
-192 96 126859 1 atmo feom LAG=450
+w10w_atm w10w_oce 19 3600 2 a2o_flux EXPOUT
+192 96 126859 1 atmo feom LAG=0
 P 0 P 0
 LOCTRANS SCRIPR
 INSTANT
