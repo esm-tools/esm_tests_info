@@ -9,6 +9,10 @@
     ldiag_forc = .true.
 /
 
+&nml_output_settings
+    keep_nth_level = 1
+/
+
 &nml_listsize
     io_listsize = 100
 /

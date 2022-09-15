@@ -168,10 +168,6 @@ defaults:
     debug_info:
         loaded_from_file: <HOME_DIR>/esm_tools/configs//defaults/download_and_compile.yaml
 fesom:
-    add_config_files:
-        cvmix: cvmix
-    add_config_sources:
-        cvmix: <HOME_DIR>/esm_tools/namelists//fesom2/2.0/awicm3/v3.0//namelist.cvmix
     all_filetypes:
     - analysis
     - bin
@@ -208,7 +204,6 @@ fesom:
             taken2from: fesom2_compile
     config_intermediate:
         config: <TEST_DIR>run/awicm3/awicm3-v3.0-TCO159L91-CORE2_initial/run_20000101-20000101/config/fesom/namelist.config
-        cvmix: <TEST_DIR>run/awicm3/awicm3-v3.0-TCO159L91-CORE2_initial/run_20000101-20000101/config/fesom/namelist.cvmix
         fesom.clock: <TEST_DIR>run/awicm3/awicm3-v3.0-TCO159L91-CORE2_initial/run_20000101-20000101/config/fesom/fesom.clock
         forcing: <TEST_DIR>run/awicm3/awicm3-v3.0-TCO159L91-CORE2_initial/run_20000101-20000101/config/fesom/namelist.forcing
         ice: <TEST_DIR>run/awicm3/awicm3-v3.0-TCO159L91-CORE2_initial/run_20000101-20000101/config/fesom/namelist.ice
@@ -216,7 +211,6 @@ fesom:
         oce: <TEST_DIR>run/awicm3/awicm3-v3.0-TCO159L91-CORE2_initial/run_20000101-20000101/config/fesom/namelist.oce
     config_sources:
         config: <HOME_DIR>/esm_tools/namelists//fesom2/2.0/awicm3/v3.0//namelist.config
-        cvmix: <HOME_DIR>/esm_tools/namelists//fesom2/2.0/awicm3/v3.0//namelist.cvmix
         fesom.clock: <TEST_DIR>/run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/run_20000101-20000101/config/fesom//fesom.clock
         forcing: <HOME_DIR>/esm_tools/namelists//fesom2/2.0/awicm3/v3.0//namelist.forcing
         ice: <HOME_DIR>/esm_tools/namelists//fesom2/2.0/awicm3/v3.0//namelist.ice
@@ -224,7 +218,6 @@ fesom:
         oce: <HOME_DIR>/esm_tools/namelists//fesom2/2.0/awicm3/v3.0//namelist.oce
     config_targets:
         config: <TEST_DIR>run/awicm3/awicm3-v3.0-TCO159L91-CORE2_initial/run_20000101-20000101/work/namelist.config
-        cvmix: <TEST_DIR>run/awicm3/awicm3-v3.0-TCO159L91-CORE2_initial/run_20000101-20000101/work/namelist.cvmix
         fesom.clock: <TEST_DIR>run/awicm3/awicm3-v3.0-TCO159L91-CORE2_initial/run_20000101-20000101/work/fesom.clock
         forcing: <TEST_DIR>run/awicm3/awicm3-v3.0-TCO159L91-CORE2_initial/run_20000101-20000101/work/namelist.forcing
         ice: <TEST_DIR>run/awicm3/awicm3-v3.0-TCO159L91-CORE2_initial/run_20000101-20000101/work/namelist.ice
@@ -568,15 +561,14 @@ general:
     - v3.0
     - v3.1
     - master
-    - frontiers
     - frontiers-xios
     base_dir: <TEST_DIR>/run/awicm3/
     batch: slurm
     calendar: esm_calendar object with allowed leap years
-    check: true
+    check: false
     chunk_number: 1
     command_line_config:
-        check: true
+        check: false
         current_date: null
         expid: awicm3-v3.0-TCO159L91-CORE2_initial
         ignore_config_warnings: false
@@ -585,7 +577,7 @@ general:
         last_jobtype: prepcompute
         launcher_pid: -666
         no_motd: true
-        original_command: awicm3-v3.0-TCO159L91-CORE2_initial.yaml -e awicm3-v3.0-TCO159L91-CORE2_initial --open-run -c --no-motd --last-jobtype prepcompute
+        original_command: awicm3-v3.0-TCO159L91-CORE2_initial.yaml -e awicm3-v3.0-TCO159L91-CORE2_initial --open-run --no-motd --last-jobtype prepcompute
         profile: false
         run_number: null
         runscript_abspath: <TEST_DIR>run/awicm3/awicm3-v3.0-TCO159L91-CORE2_initial/scripts/awicm3-v3.0-TCO159L91-CORE2_initial.yaml
@@ -1019,7 +1011,7 @@ general:
     initial_date: '2000-01-01T00:00:00'
     inspect: null
     isinteractive: false
-    jobid: 109467
+    jobid: 9542
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 19991231-19991231
@@ -1045,7 +1037,7 @@ general:
     no_motd: true
     nsecond: 0
     nyear: 0
-    original_command: awicm3-v3.0-TCO159L91-CORE2_initial.yaml -e awicm3-v3.0-TCO159L91-CORE2_initial --open-run -c --no-motd --last-jobtype prepcompute
+    original_command: awicm3-v3.0-TCO159L91-CORE2_initial.yaml -e awicm3-v3.0-TCO159L91-CORE2_initial --open-run --no-motd --last-jobtype prepcompute
     out_filetypes:
     - analysis
     - log
@@ -1090,8 +1082,6 @@ general:
     - modify_files
     - copy_files_to_work
     - report_missing_files
-    - add_vcs_info
-    - check_vcs_info_against_last_run
     - database_entry
     - oasis_rmp_rst_to_input
     prev_date: '1999-12-31T00:00:00'
@@ -1869,7 +1859,6 @@ oifs:
         - 43r3-master
         - 43r3-awicm-3.0
         - 43r3-awicm-3.1
-        - 43r3-awicm-frontiers
         - 43r3-awicm-frontiers-xios
         - 43r3
         - 40r1-foci
@@ -1909,15 +1898,6 @@ oifs:
                 requires:
                 - oasis3mct-4.0-awicm-3.1
                 with_xios: true
-            43r3-awicm-frontiers:
-                branch: awicm-3-frontiers
-                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-v3.0/oifs-43r3; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.cfg ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
-                destination: oifs-43r3
-                git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3.git
-                install_bins: make/esm/oifs/bin/oifs
-                requires:
-                - oasis3mct-4.0-awicm-frontiers
-                with_xios: false
             43r3-awicm-frontiers-xios:
                 branch: awicm-3-frontiers-xios
                 comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-v3.0/oifs-43r3; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/awicm3/awicm3-v3.0/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/awicm3/awicm3-v3.0/oifs-43r3/../xios/inc/; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
@@ -1937,13 +1917,13 @@ oifs:
                 - xios-2.5_r1910
             43r3-master:
                 branch: master
-                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-v3.0/oifs-43r3; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.cfg ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
+                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-v3.0/oifs-43r3; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/awicm3/awicm3-v3.0/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/awicm3/awicm3-v3.0/oifs-43r3/../xios/inc/; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
                 destination: oifs-43r3
                 git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3.git
                 install_bins: make/esm/oifs/bin/oifs
                 requires:
                 - oasis3mct-4.0-awicm-frontiers
-                with_xios: false
+                with_xios: true
             43r3-v1:
                 branch: master
                 comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-v3.0/oifs-43r3; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/awicm3/awicm3-v3.0/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/awicm3/awicm3-v3.0/oifs-43r3/../xios/inc/ ; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
@@ -2992,8 +2972,6 @@ oifs:
     - modify_files
     - copy_files_to_work
     - report_missing_files
-    - add_vcs_info
-    - check_vcs_info_against_last_run
     - database_entry
     - oasis_rmp_rst_to_input
     prepifs_dir: /work/ollie/jstreffi/input/oifs-43r3/TCO159L91/
