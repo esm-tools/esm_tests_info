@@ -183,10 +183,10 @@ general:
     base_dir: <TEST_DIR>/run/oifs/
     batch: slurm
     calendar: esm_calendar object with allowed leap years
-    check: true
+    check: false
     chunk_number: 1
     command_line_config:
-        check: true
+        check: false
         current_date: null
         expid: oifs-43r3-tco95-amip-test_lowcpu
         ignore_config_warnings: false
@@ -195,7 +195,7 @@ general:
         last_jobtype: prepcompute
         launcher_pid: -666
         no_motd: true
-        original_command: oifs-43r3-tco95-amip-test_lowcpu.yaml -e oifs-43r3-tco95-amip-test_lowcpu --open-run -c --no-motd --last-jobtype prepcompute
+        original_command: oifs-43r3-tco95-amip-test_lowcpu.yaml -e oifs-43r3-tco95-amip-test_lowcpu --open-run --no-motd --last-jobtype prepcompute
         profile: false
         run_number: null
         runscript_abspath: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/scripts/oifs-43r3-tco95-amip-test_lowcpu.yaml
@@ -327,7 +327,7 @@ general:
     initial_date: '1979-01-01T00:00:00'
     inspect: null
     isinteractive: false
-    jobid: 86212
+    jobid: 267806
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 19781231-19781231
@@ -349,7 +349,7 @@ general:
     no_motd: true
     nsecond: 0
     nyear: 0
-    original_command: oifs-43r3-tco95-amip-test_lowcpu.yaml -e oifs-43r3-tco95-amip-test_lowcpu --open-run -c --no-motd --last-jobtype prepcompute
+    original_command: oifs-43r3-tco95-amip-test_lowcpu.yaml -e oifs-43r3-tco95-amip-test_lowcpu --open-run --no-motd --last-jobtype prepcompute
     out_filetypes:
     - analysis
     - log
@@ -528,7 +528,6 @@ oifs:
         - 43r3-master
         - 43r3-awicm-3.0
         - 43r3-awicm-3.1
-        - 43r3-awicm-frontiers
         - 43r3-awicm-frontiers-xios
         - 43r3
         - 40r1-foci
@@ -568,15 +567,6 @@ oifs:
                 requires:
                 - oasis3mct-4.0-awicm-3.1
                 with_xios: true
-            43r3-awicm-frontiers:
-                branch: awicm-3-frontiers
-                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/oifs/oifs-43r3-v1; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.cfg ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
-                destination: oifs-43r3
-                git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3.git
-                install_bins: make/esm/oifs/bin/oifs
-                requires:
-                - oasis3mct-4.0-awicm-frontiers
-                with_xios: false
             43r3-awicm-frontiers-xios:
                 branch: awicm-3-frontiers-xios
                 comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/oifs/oifs-43r3-v1; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/oifs/oifs-43r3-v1/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/oifs/oifs-43r3-v1/../xios/inc/; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
@@ -596,13 +586,13 @@ oifs:
                 - xios-2.5_r1910
             43r3-master:
                 branch: master
-                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/oifs/oifs-43r3-v1; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.cfg ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
+                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/oifs/oifs-43r3-v1; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/oifs/oifs-43r3-v1/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/oifs/oifs-43r3-v1/../xios/inc/; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
                 destination: oifs-43r3
                 git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3.git
                 install_bins: make/esm/oifs/bin/oifs
                 requires:
                 - oasis3mct-4.0-awicm-frontiers
-                with_xios: false
+                with_xios: true
             43r3-v1:
                 branch: master
                 comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/oifs/oifs-43r3-v1; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/oifs/oifs-43r3-v1/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/oifs/oifs-43r3-v1/../xios/inc/ ; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
@@ -1496,8 +1486,6 @@ oifs:
     - modify_files
     - copy_files_to_work
     - report_missing_files
-    - add_vcs_info
-    - check_vcs_info_against_last_run
     - database_entry
     prepifs_dir: /scratch/usr/shkifmsw/foci_input2/OPENIFS43R3-TCO95//2008010100/
     prepifs_expid: hagw
