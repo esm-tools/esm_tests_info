@@ -63,7 +63,6 @@ fesom:
     restart_unit: "d"
     restart_first: 1
     lresume: 0
-    num_tracers: 24
     namelist_changes:
         namelist.config:
             geometry:
@@ -74,12 +73,10 @@ fesom:
                 ForcingDataPath: remove_from_namelist
                 OpbndPath: remove_from_namelist
                 TideForcingPath: remove_from_namelist
-    config_sources:
-        io: "${namelist_dir}/namelist.io.recom.ciso"
 
 recom:
+    use_ciso: false
     lresume: 0
-    bgc_num: 22
     benthos_num: 4
     bottflx_num: 4
     namelist_changes:

@@ -24,6 +24,7 @@ use_photodamage       = .true.      ! use Alvarez et al (2018) for chlorophyll d
 HetRespFlux_plus      = .true.      ! More stable computation of zooplankton respiration fluxes adding a small number to HetN
 REcoMDataPath         = '/work/ollie/mbutzin/fesom2/input/dust/pi-mesh/'
 restore_alkalinity    = .true.
+useRivers             = .true.
 NitrogenSS            = .false.     ! When set to true, external sources and sinks of nitrogen are activated (Riverine, aeolian and denitrification)
 useAeolianN           = .false.     ! When set to true, aeolian nitrogen deposition is activated
 firstyearoffesomcycle = 1984        ! The first year of the actual physical forcing (e.g. JRA-55) used
@@ -38,11 +39,14 @@ benthos_num           = 8           ! number of benthic BGC tracers -> 4 if (cis
 use_MEDUSA            = .true.      ! Main switch for the sediment model MEDUSA
 sedflx_num            = 0           ! if 0: no file from MEDUSA is read but default sediment
 bottflx_num           = 8           ! if ciso&ciso_14: =8; if .not.ciso_14: =6; no ciso: =4
-use_atbox             = .false.
+use_atbox             = .true.
+add_loopback          = .false.      ! add loopback fluxes through rivers to the surface
+lb_tscale             = 0.001         ! /year: fraction of loopback fluxes yearly added to the surface
 /
 
 &pasinking
 Vdet_a                = 0.0288      ! [1/day]
+Vcalc                 = 0.0144      ! [1/day]
 /
 
 &painitialization_N
@@ -194,6 +198,7 @@ Fe2C                  = 0.005d0
 Fe2C_benthos          = 0.02125     ! 0.68d0/32.d0 ! [umol/m2/day]
 kScavFe               = 0.07d0
 dust_sol              = 0.02d0      ! Dissolution of Dust for bioavaliable
+RiverFeConc           = 1000
 /
 
 &pacalc
@@ -215,22 +220,24 @@ permeg                = 1.e-6                       ! [atm/uatm] Changes units f
 !X1                    = exp(-5.d0*log(10.d0))       ! Lowest ph-value = 7.7 (phlo)
 !X2                    = exp(-9.d0*log(10.d0))       ! Highest ph-value = 9.5 (phhi)
 Xacc                  = 1.e-12                      ! Accuracy for ph-iteration (phacc)
-CO2_for_spinup        = 284.3 ! [uatm] Atmospheric partial pressure of CO2, CMIP6 value for 1850 ! 278.d0
+CO2_for_spinup        = 185.0 ! [uatm] Atmospheric partial pressure of CO2, CMIP6 value for 1850 ! 278.d0
 /
 
 &paalkalinity_restoring
-surf_relax_Alk      = 3.2e-07 !10.d0/31536000.d0
+surf_relax_Alk      = 0. !!3.2e-07 !10.d0/31536000.d0
 /
 
 &paciso
-ciso_init         = .true.      ! initial fractionation of bulk organic matter
+ciso_init         = .false.      ! initial fractionation of bulk organic matter
 ciso_14           = .true.      ! include inorganic radiocarbon
 ciso_organic_14   = .false.     ! include organic radiocarbon
 ciso_warp         = .false.     ! accelerate RECOM -- HIGHLY EXPERIMENTAL
 warp_file         = "warptracers.nc"
 lambda_14         = 3.8561e-12  ! corresponding to 1 year = 365.00 days
-delta_CO2_13      = -6.61       ! atmospheric d13C (permil), global-mean value
-big_delta_CO2_14(1)  = 0.!! for spinup only !-2.3 ! atmospheric D14C (permil), northern hemisphere polewards of 30°N
-big_delta_CO2_14(2)  = 0.!! for spinup only !-4.0 ! atmospheric D14C (permil), (sub) tropical zone 30°N - 30°S
-big_delta_CO2_14(3)  = 0.!! for spinup only !-5.8 ! atmospheric D14C (permil), southern hemisphere polewards of 30°S
+delta_CO2_13      = -6.45       ! atmospheric d13C (permil), global-mean value
+big_delta_CO2_14(1)  = 443. ! atmospheric D14C (permil), northern hemisphere polewards of 30°N
+big_delta_CO2_14(2)  = 443. ! atmospheric D14C (permil), (sub) tropical zone 30°N - 30°S
+big_delta_CO2_14(3)  = 443. ! atmospheric D14C (permil), southern hemisphere polewards of 30°S
+atbox_spinup      = .true.
+cosmic_14_init    = 2.0
 /
