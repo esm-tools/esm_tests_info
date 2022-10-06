@@ -1,7 +1,7 @@
 computer:
     account: None
     accounting: true
-    accounting_flag: --account=ab0995
+    accounting_flag: --account=None
     actual_script_dir: <--methods.script_dir--
     add_choose_heterogeneous_parallelization: &id001
         false:
@@ -155,7 +155,7 @@ computer:
         pool: /pool/data
     runtime_environment_changes:
         add_export_vars:
-            ACCOUNT: ab0995
+            ACCOUNT: None
             ESM_TESTING_DIR: <TEST_DIR>/run/awiesm/
             MODEL_DIR: <TEST_DIR>/comp/awiesm/awiesm-2.1
     script_name: <--methods.scriptname--
@@ -1729,7 +1729,6 @@ fesom:
         fesom: '*.fesom.*.nc'
     outdata_targets:
         buoys_track: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/outdata/fesom/buoys_track.nc_20010101-20010101
-    par_tracers: false
     parent_date: '2000-12-31T23:30:00'
     parent_expid: awiesm-2.1_icebergs
     parent_restart_dir: <TEST_DIR>/run/awiesm//awiesm-2.1_icebergs/restart/fesom/
@@ -1833,7 +1832,7 @@ fesom:
     yearnew: 2001
     ywind_prefix: vas.
 general:
-    account: ab0995
+    account: None
     additional_files: []
     all_filetypes:
     - analysis
@@ -2014,7 +2013,7 @@ general:
     inspect: null
     isinteractive: false
     iterative_coupling: false
-    jobid: 1819288
+    jobid: 1099
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 20001231-20001231
@@ -2154,6 +2153,7 @@ general:
     with_bootstrap: false
     with_icebergs: false
     with_pico: false
+    with_recom: false
     with_wiso: false
     work_dir: <TEST_DIR>/run/awiesm//awiesm-2.1_icebergs/run_20010101-20010101/work/
     workflow:

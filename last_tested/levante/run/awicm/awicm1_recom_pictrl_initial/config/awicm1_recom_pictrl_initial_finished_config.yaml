@@ -1,7 +1,7 @@
 computer:
     account: None
     accounting: true
-    accounting_flag: --account=ab0995
+    accounting_flag: --account=None
     actual_script_dir: <--methods.script_dir--
     add_choose_heterogeneous_parallelization: &id001
         false:
@@ -155,7 +155,7 @@ computer:
         pool: /pool/data
     runtime_environment_changes:
         add_export_vars:
-            ACCOUNT: ab0995
+            ACCOUNT: None
             ESM_TESTING_DIR: <TEST_DIR>/run/awicm/
             MODEL_DIR: <TEST_DIR>/comp/awicm/awicm-1.0-recom
     script_name: <--methods.scriptname--
@@ -2244,7 +2244,7 @@ fesom:
     yearly_outputs_start: 1
     yearnew: 1850
 general:
-    account: ab0995
+    account: None
     additional_files: []
     all_filetypes:
     - analysis
@@ -2278,10 +2278,10 @@ general:
     base_dir: <TEST_DIR>/run/awicm/
     batch: slurm
     calendar: esm_calendar object with allowed leap years
-    check: false
+    check: true
     chunk_number: 1
     command_line_config:
-        check: false
+        check: true
         current_date: null
         expid: awicm1_recom_pictrl_initial
         ignore_config_warnings: false
@@ -2290,7 +2290,7 @@ general:
         last_jobtype: prepcompute
         launcher_pid: -666
         no_motd: true
-        original_command: awicm1_recom_pictrl_initial.yaml -e awicm1_recom_pictrl_initial --open-run --no-motd --last-jobtype prepcompute
+        original_command: awicm1_recom_pictrl_initial.yaml -e awicm1_recom_pictrl_initial --open-run -c --no-motd --last-jobtype prepcompute
         profile: false
         run_number: null
         runscript_abspath: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/scripts/awicm1_recom_pictrl_initial.yaml
@@ -2428,7 +2428,7 @@ general:
     initial_date: '1850-01-01T00:00:00'
     inspect: null
     isinteractive: false
-    jobid: 3674210
+    jobid: 883
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 18491201-18491231
@@ -2454,7 +2454,7 @@ general:
     no_motd: true
     nsecond: 0
     nyear: 0
-    original_command: awicm1_recom_pictrl_initial.yaml -e awicm1_recom_pictrl_initial --open-run --no-motd --last-jobtype prepcompute
+    original_command: awicm1_recom_pictrl_initial.yaml -e awicm1_recom_pictrl_initial --open-run -c --no-motd --last-jobtype prepcompute
     out_filetypes:
     - analysis
     - log
@@ -3760,6 +3760,7 @@ recom:
     namelist_dir: <TEST_DIR>/comp/awicm/awicm-1.0-recom/recom/
     namelist_objs:
         namelist.recom: &id010 f90nml.name
+    namelist_sce: ''
     namelists:
         namelist.recom: *id010
     numofCO2cycles: 1
@@ -3953,6 +3954,7 @@ recom:
     parent_expid: awicm1_recom_pictrl_initial
     parent_restart_dir: <TEST_DIR>/run/awicm//awicm1_recom_pictrl_initial/restart/recom/
     prev_date: '1849-12-31T23:30:00'
+    recom_namelist: namelist.recom
     restart_name: ''
     restart_out_intermediate:
         bio_restart: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/run_18500101-18500131/restart/recom/fesom.1850.bio.nc
@@ -3976,6 +3978,7 @@ recom:
     thisrun_restart_out_dir: <TEST_DIR>/run/awicm//awicm1_recom_pictrl_initial/run_18500101-18500131/restart/recom/
     thisrun_viz_dir: <TEST_DIR>/run/awicm//awicm1_recom_pictrl_initial/run_18500101-18500131/viz/recom/
     time_step: 1800
+    use_ciso: false
     version: 2.0-recom-awicm
     yearly_outputs:
     - alphaCO2
