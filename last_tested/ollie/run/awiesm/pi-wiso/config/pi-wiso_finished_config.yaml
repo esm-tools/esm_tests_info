@@ -1813,7 +1813,6 @@ fesom:
     outdata_sources_wild_card:
         fesom: '*.fesom.*.nc'
     outdata_targets: {}
-    par_tracers: false
     parent_date: '1849-12-31T23:30:00'
     parent_expid: pi-wiso
     parent_restart_dir: <TEST_DIR>/run/awiesm//pi-wiso/restart/fesom/
@@ -1947,10 +1946,10 @@ general:
     base_dir: <TEST_DIR>/run/awiesm/
     batch: slurm
     calendar: esm_calendar object with allowed leap years
-    check: false
+    check: true
     chunk_number: 1
     command_line_config:
-        check: false
+        check: true
         current_date: null
         expid: pi-wiso
         ignore_config_warnings: false
@@ -1959,7 +1958,7 @@ general:
         last_jobtype: prepcompute
         launcher_pid: -666
         no_motd: true
-        original_command: pi-wiso.yaml -e pi-wiso --open-run --no-motd --last-jobtype prepcompute
+        original_command: pi-wiso.yaml -e pi-wiso --open-run -c --no-motd --last-jobtype prepcompute
         profile: false
         run_number: null
         runscript_abspath: <TEST_DIR>run/awiesm/pi-wiso/scripts/pi-wiso.yaml
@@ -2096,7 +2095,7 @@ general:
     initial_date: '1850-01-01T00:00:00'
     inspect: null
     isinteractive: false
-    jobid: 3822
+    jobid: 1310
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 18491231-18491231
@@ -2120,7 +2119,7 @@ general:
     no_motd: true
     nsecond: 0
     nyear: 0
-    original_command: pi-wiso.yaml -e pi-wiso --open-run --no-motd --last-jobtype prepcompute
+    original_command: pi-wiso.yaml -e pi-wiso --open-run -c --no-motd --last-jobtype prepcompute
     out_filetypes:
     - analysis
     - log
@@ -2237,6 +2236,7 @@ general:
     with_bootstrap: false
     with_icebergs: false
     with_pico: false
+    with_recom: false
     with_wiso: true
     work_dir: <TEST_DIR>/run/awiesm//pi-wiso/run_18500101-18500101/work/
     workflow:
