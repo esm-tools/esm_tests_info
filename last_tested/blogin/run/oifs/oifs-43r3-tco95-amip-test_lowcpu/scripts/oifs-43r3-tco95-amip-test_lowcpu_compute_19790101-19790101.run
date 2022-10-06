@@ -4,7 +4,7 @@
 #SBATCH --ntasks=64
 #SBATCH --output=<TEST_DIR>/run/oifs//oifs-43r3-tco95-amip-test_lowcpu/log/oifs-43r3-tco95-amip-test_lowcpu_oifs_compute_19790101-19790101_%j.log --error=<TEST_DIR>/run/oifs//oifs-43r3-tco95-amip-test_lowcpu/log/oifs-43r3-tco95-amip-test_lowcpu_oifs_compute_19790101-19790101_%j.log
 #SBATCH --job-name=oifs-43r3-tco95-amip-test_lowcpu
-#SBATCH --account=hbkmandr
+#SBATCH --account=None
 #SBATCH --mail-type=NONE
 #SBATCH --ntasks-per-core=1
 #SBATCH --exclusive
@@ -42,7 +42,7 @@ export NETCDF_Fortran_INCLUDE_DIRECTORIES=$NETCDFFROOT/include
 export NETCDF_C_INCLUDE_DIRECTORIES=$NETCDFROOT/include
 export NETCDF_CXX_INCLUDE_DIRECTORIES=$NETCDFROOT/include
 export OASIS3MCT_FC_LIB="-L$NETCDFFROOT/lib -lnetcdff"
-export ACCOUNT=hbkmandr
+export ACCOUNT=None
 export MODEL_DIR=<TEST_DIR>/comp/oifs/oifs-43r3-v1
 export ESM_TESTING_DIR=<TEST_DIR>/run/oifs/
 export OIFS_FFIXED=""
@@ -57,7 +57,7 @@ export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 1979-01-01T00:00:00 267806 - start >> <TEST_DIR>/run/oifs//oifs-43r3-tco95-amip-test_lowcpu/log//oifs-43r3-tco95-amip-test_lowcpu_oifs.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 1979-01-01T00:00:00 847 - start >> <TEST_DIR>/run/oifs//oifs-43r3-tco95-amip-test_lowcpu/log//oifs-43r3-tco95-amip-test_lowcpu_oifs.log
 
 cd <TEST_DIR>/run/oifs//oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/
 time srun -l --kill-on-bad-exit=1 --cpu_bind=cores --multi-prog hostfile_srun 2>&1 &
@@ -69,6 +69,6 @@ process=$!
 cd <TEST_DIR>/run/oifs//oifs-43r3-tco95-amip-test_lowcpu/scripts/
 esm_runscripts oifs-43r3-tco95-amip-test_lowcpu.yaml -e oifs-43r3-tco95-amip-test_lowcpu -t observe_compute -p ${process} -s 19790101 -r 1 -v  --last-jobtype prepcompute --open-run
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 1979-01-01T00:00:00 267806 - done >> <TEST_DIR>/run/oifs//oifs-43r3-tco95-amip-test_lowcpu/log//oifs-43r3-tco95-amip-test_lowcpu_oifs.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 1979-01-01T00:00:00 847 - done >> <TEST_DIR>/run/oifs//oifs-43r3-tco95-amip-test_lowcpu/log//oifs-43r3-tco95-amip-test_lowcpu_oifs.log
 
 wait

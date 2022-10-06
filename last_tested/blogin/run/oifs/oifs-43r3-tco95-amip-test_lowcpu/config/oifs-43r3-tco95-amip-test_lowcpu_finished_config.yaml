@@ -6,7 +6,7 @@ computer:
     OpenMP_flag: ''
     account: None
     accounting: true
-    accounting_flag: --account=hbkmandr
+    accounting_flag: --account=None
     actual_script_dir: <--methods.script_dir--
     add_choose_heterogeneous_parallelization: &id001
         false:
@@ -130,7 +130,7 @@ computer:
         pool: /scratch/usr/hbkawi
     runtime_environment_changes:
         add_export_vars:
-            ACCOUNT: hbkmandr
+            ACCOUNT: None
             ESM_TESTING_DIR: <TEST_DIR>/run/oifs/
             MODEL_DIR: <TEST_DIR>/comp/oifs/oifs-43r3-v1
     script_name: <--methods.scriptname--
@@ -153,7 +153,7 @@ defaults:
     debug_info:
         loaded_from_file: <HOME_DIR>/esm_tools/configs//defaults/download_and_compile.yaml
 general:
-    account: hbkmandr
+    account: None
     additional_files: []
     all_filetypes:
     - analysis
@@ -183,10 +183,10 @@ general:
     base_dir: <TEST_DIR>/run/oifs/
     batch: slurm
     calendar: esm_calendar object with allowed leap years
-    check: false
+    check: true
     chunk_number: 1
     command_line_config:
-        check: false
+        check: true
         current_date: null
         expid: oifs-43r3-tco95-amip-test_lowcpu
         ignore_config_warnings: false
@@ -195,7 +195,7 @@ general:
         last_jobtype: prepcompute
         launcher_pid: -666
         no_motd: true
-        original_command: oifs-43r3-tco95-amip-test_lowcpu.yaml -e oifs-43r3-tco95-amip-test_lowcpu --open-run --no-motd --last-jobtype prepcompute
+        original_command: oifs-43r3-tco95-amip-test_lowcpu.yaml -e oifs-43r3-tco95-amip-test_lowcpu --open-run -c --no-motd --last-jobtype prepcompute
         profile: false
         run_number: null
         runscript_abspath: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/scripts/oifs-43r3-tco95-amip-test_lowcpu.yaml
@@ -327,7 +327,7 @@ general:
     initial_date: '1979-01-01T00:00:00'
     inspect: null
     isinteractive: false
-    jobid: 267806
+    jobid: 847
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 19781231-19781231
@@ -349,7 +349,7 @@ general:
     no_motd: true
     nsecond: 0
     nyear: 0
-    original_command: oifs-43r3-tco95-amip-test_lowcpu.yaml -e oifs-43r3-tco95-amip-test_lowcpu --open-run --no-motd --last-jobtype prepcompute
+    original_command: oifs-43r3-tco95-amip-test_lowcpu.yaml -e oifs-43r3-tco95-amip-test_lowcpu --open-run -c --no-motd --last-jobtype prepcompute
     out_filetypes:
     - analysis
     - log
@@ -1065,180 +1065,10 @@ oifs:
         ICMGG_INIT: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/ICMGGECE3INIT
         ICMGG_INIUA: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/ICMGGECE3INIUA
         ICMSH_INIT: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/ICMSHECE3INIT
-        ifsdata_glob_0: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/ifsdata/SO4_A1B2070
-        ifsdata_glob_1: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/ifsdata/SO4_A1B2050
-        ifsdata_glob_10: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/ifsdata/C11CLIM
-        ifsdata_glob_11: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/ifsdata/aerosol_cams_climatology_43R3a.nc
-        ifsdata_glob_12: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/ifsdata/aerosol_ifs_rrtm_43R1.nc
-        ifsdata_glob_13: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/ifsdata/SO4_OBS1950
-        ifsdata_glob_14: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/ifsdata/NO2CLIM
-        ifsdata_glob_15: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/ifsdata/mcica_gamma.nc
-        ifsdata_glob_16: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/ifsdata/slingo_droplet_scattering_rrtm.nc
-        ifsdata_glob_17: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/ifsdata/SO4_A1B2090
-        ifsdata_glob_18: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/ifsdata/SO4_A1B2040
-        ifsdata_glob_19: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/ifsdata/SO4_OBS1930
-        ifsdata_glob_2: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/ifsdata/MCICA
-        ifsdata_glob_20: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/ifsdata/fu_ice_scattering_rrtm.nc
-        ifsdata_glob_21: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/ifsdata/aerosol_ifs_rrtm_AB.nc
-        ifsdata_glob_22: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/ifsdata/aerosol_ifs_rrtm_43R3.nc
-        ifsdata_glob_23: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/ifsdata/SO4_OBS1920
-        ifsdata_glob_24: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/ifsdata/aerosol_ifs_rrtm_43R1a.nc
-        ifsdata_glob_25: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/ifsdata/aerosol_cams_climatology_43R3.nc
-        ifsdata_glob_26: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/ifsdata/CO2CLIM
-        ifsdata_glob_27: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/ifsdata/MOZOCLIM
-        ifsdata_glob_28: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/ifsdata/SO4_A1B2000
-        ifsdata_glob_29: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/ifsdata/es_droplet_scattering_rrtm.nc
-        ifsdata_glob_3: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/ifsdata/SO4_A1B2060
-        ifsdata_glob_30: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/ifsdata/mcica_lognormal.nc
-        ifsdata_glob_31: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/ifsdata/C12CLIM
-        ifsdata_glob_32: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/ifsdata/C22CLIM
-        ifsdata_glob_33: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/ifsdata/SO4_OBS1960
-        ifsdata_glob_34: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/ifsdata/aerosol_ifs_rrtm_tegen.nc
-        ifsdata_glob_35: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/ifsdata/SO4_A1B2020
-        ifsdata_glob_36: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/ifsdata/ECOZC
-        ifsdata_glob_37: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/ifsdata/SO4_OBS1970
-        ifsdata_glob_38: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/ifsdata/GCH4CLIM
-        ifsdata_glob_39: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/ifsdata/SO4_A1B2100
-        ifsdata_glob_4: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/ifsdata/RADRRTM
-        ifsdata_glob_40: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/ifsdata/SO4_A1B2010
-        ifsdata_glob_41: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/ifsdata/socrates_droplet_scattering_rrtm.nc
-        ifsdata_glob_42: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/ifsdata/GOZOCLIM
-        ifsdata_glob_43: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/ifsdata/CH4CLIM
-        ifsdata_glob_44: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/ifsdata/baran_ice_scattering_rrtm.nc
-        ifsdata_glob_45: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/ifsdata/aerosol_ifs_rrtm_42R1.nc
-        ifsdata_glob_46: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/ifsdata/SO4_A1B2030
-        ifsdata_glob_47: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/ifsdata/SO4_A1B2080
-        ifsdata_glob_48: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/ifsdata/aerosol_ifs_rrtm.nc
-        ifsdata_glob_49: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/ifsdata/GCO2CLIM
-        ifsdata_glob_5: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/ifsdata/RADSRTM
-        ifsdata_glob_50: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/ifsdata/MCH4CLIM
-        ifsdata_glob_51: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/ifsdata/SO4_OBS1980
-        ifsdata_glob_52: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/ifsdata/CCL4CLIM
-        ifsdata_glob_53: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/ifsdata/SO4_OBS1940
-        ifsdata_glob_6: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/ifsdata/N2OCLIM
-        ifsdata_glob_7: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/ifsdata/SO4_OBS1990
-        ifsdata_glob_8: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/ifsdata/OZOCLIM
-        ifsdata_glob_9: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/ifsdata/MCO2CLIM
-        o3_data_glob_0: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/95_4/o3chem_l91/O3CHEM12_V2.9
-        o3_data_glob_1: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/95_4/o3chem_l91/O3CHEM01_V2.9
-        o3_data_glob_10: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/95_4/o3chem_l91/O3CHEM05_V2.9
-        o3_data_glob_11: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/95_4/o3chem_l91/O3CHEM04_V2.9
-        o3_data_glob_2: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/95_4/o3chem_l91/O3CHEM06_V2.9
-        o3_data_glob_3: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/95_4/o3chem_l91/O3CHEM07_V2.9
-        o3_data_glob_4: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/95_4/o3chem_l91/O3CHEM08_V2.9
-        o3_data_glob_5: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/95_4/o3chem_l91/O3CHEM11_V2.9
-        o3_data_glob_6: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/95_4/o3chem_l91/O3CHEM02_V2.9
-        o3_data_glob_7: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/95_4/o3chem_l91/O3CHEM03_V2.9
-        o3_data_glob_8: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/95_4/o3chem_l91/O3CHEM10_V2.9
-        o3_data_glob_9: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/95_4/o3chem_l91/O3CHEM09_V2.9
-        tl_data_glob_0: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/95_4/month_lail
-        tl_data_glob_1: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/95_4/sfc
-        tl_data_glob_10: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/95_4/month_laih
-        tl_data_glob_11: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/95_4/month_aluvv
-        tl_data_glob_12: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/95_4/month_alniv
-        tl_data_glob_13: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/95_4/cicecap
-        tl_data_glob_14: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/95_4/month_aluvp
-        tl_data_glob_15: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/95_4/month_alnip
-        tl_data_glob_16: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/95_4/slt
-        tl_data_glob_17: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/95_4/sporog
-        tl_data_glob_18: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/95_4/sdfor
-        tl_data_glob_2: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/95_4/month_alnid
-        tl_data_glob_3: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/95_4/month_aluvd
-        tl_data_glob_4: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/95_4/month_alnii
-        tl_data_glob_5: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/95_4/lsmoro
-        tl_data_glob_6: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/95_4/month_aluvi
-        tl_data_glob_7: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/95_4/month_alb
-        tl_data_glob_8: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/95_4/month_aluvg
-        tl_data_glob_9: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs/95_4/month_alnig
     input_sources:
         ICMGG_INIT: /scratch/usr/shkifmsw/foci_input2/OPENIFS43R3-TCO95//2008010100//ICMGGhagwINIT
         ICMGG_INIUA: /scratch/usr/shkifmsw/foci_input2/OPENIFS43R3-TCO95//2008010100//ICMGGhagwINIUA
         ICMSH_INIT: /scratch/usr/shkifmsw/foci_input2/OPENIFS43R3-TCO95//2008010100//ICMSHhagwINIT
-        ifsdata_glob_0: /scratch/usr/shkifmsw/foci_input2/OPENIFS_CY43_GENERAL/ifsdata/SO4_A1B2070
-        ifsdata_glob_1: /scratch/usr/shkifmsw/foci_input2/OPENIFS_CY43_GENERAL/ifsdata/SO4_A1B2050
-        ifsdata_glob_10: /scratch/usr/shkifmsw/foci_input2/OPENIFS_CY43_GENERAL/ifsdata/C11CLIM
-        ifsdata_glob_11: /scratch/usr/shkifmsw/foci_input2/OPENIFS_CY43_GENERAL/ifsdata/aerosol_cams_climatology_43R3a.nc
-        ifsdata_glob_12: /scratch/usr/shkifmsw/foci_input2/OPENIFS_CY43_GENERAL/ifsdata/aerosol_ifs_rrtm_43R1.nc
-        ifsdata_glob_13: /scratch/usr/shkifmsw/foci_input2/OPENIFS_CY43_GENERAL/ifsdata/SO4_OBS1950
-        ifsdata_glob_14: /scratch/usr/shkifmsw/foci_input2/OPENIFS_CY43_GENERAL/ifsdata/NO2CLIM
-        ifsdata_glob_15: /scratch/usr/shkifmsw/foci_input2/OPENIFS_CY43_GENERAL/ifsdata/mcica_gamma.nc
-        ifsdata_glob_16: /scratch/usr/shkifmsw/foci_input2/OPENIFS_CY43_GENERAL/ifsdata/slingo_droplet_scattering_rrtm.nc
-        ifsdata_glob_17: /scratch/usr/shkifmsw/foci_input2/OPENIFS_CY43_GENERAL/ifsdata/SO4_A1B2090
-        ifsdata_glob_18: /scratch/usr/shkifmsw/foci_input2/OPENIFS_CY43_GENERAL/ifsdata/SO4_A1B2040
-        ifsdata_glob_19: /scratch/usr/shkifmsw/foci_input2/OPENIFS_CY43_GENERAL/ifsdata/SO4_OBS1930
-        ifsdata_glob_2: /scratch/usr/shkifmsw/foci_input2/OPENIFS_CY43_GENERAL/ifsdata/MCICA
-        ifsdata_glob_20: /scratch/usr/shkifmsw/foci_input2/OPENIFS_CY43_GENERAL/ifsdata/fu_ice_scattering_rrtm.nc
-        ifsdata_glob_21: /scratch/usr/shkifmsw/foci_input2/OPENIFS_CY43_GENERAL/ifsdata/aerosol_ifs_rrtm_AB.nc
-        ifsdata_glob_22: /scratch/usr/shkifmsw/foci_input2/OPENIFS_CY43_GENERAL/ifsdata/aerosol_ifs_rrtm_43R3.nc
-        ifsdata_glob_23: /scratch/usr/shkifmsw/foci_input2/OPENIFS_CY43_GENERAL/ifsdata/SO4_OBS1920
-        ifsdata_glob_24: /scratch/usr/shkifmsw/foci_input2/OPENIFS_CY43_GENERAL/ifsdata/aerosol_ifs_rrtm_43R1a.nc
-        ifsdata_glob_25: /scratch/usr/shkifmsw/foci_input2/OPENIFS_CY43_GENERAL/ifsdata/aerosol_cams_climatology_43R3.nc
-        ifsdata_glob_26: /scratch/usr/shkifmsw/foci_input2/OPENIFS_CY43_GENERAL/ifsdata/CO2CLIM
-        ifsdata_glob_27: /scratch/usr/shkifmsw/foci_input2/OPENIFS_CY43_GENERAL/ifsdata/MOZOCLIM
-        ifsdata_glob_28: /scratch/usr/shkifmsw/foci_input2/OPENIFS_CY43_GENERAL/ifsdata/SO4_A1B2000
-        ifsdata_glob_29: /scratch/usr/shkifmsw/foci_input2/OPENIFS_CY43_GENERAL/ifsdata/es_droplet_scattering_rrtm.nc
-        ifsdata_glob_3: /scratch/usr/shkifmsw/foci_input2/OPENIFS_CY43_GENERAL/ifsdata/SO4_A1B2060
-        ifsdata_glob_30: /scratch/usr/shkifmsw/foci_input2/OPENIFS_CY43_GENERAL/ifsdata/mcica_lognormal.nc
-        ifsdata_glob_31: /scratch/usr/shkifmsw/foci_input2/OPENIFS_CY43_GENERAL/ifsdata/C12CLIM
-        ifsdata_glob_32: /scratch/usr/shkifmsw/foci_input2/OPENIFS_CY43_GENERAL/ifsdata/C22CLIM
-        ifsdata_glob_33: /scratch/usr/shkifmsw/foci_input2/OPENIFS_CY43_GENERAL/ifsdata/SO4_OBS1960
-        ifsdata_glob_34: /scratch/usr/shkifmsw/foci_input2/OPENIFS_CY43_GENERAL/ifsdata/aerosol_ifs_rrtm_tegen.nc
-        ifsdata_glob_35: /scratch/usr/shkifmsw/foci_input2/OPENIFS_CY43_GENERAL/ifsdata/SO4_A1B2020
-        ifsdata_glob_36: /scratch/usr/shkifmsw/foci_input2/OPENIFS_CY43_GENERAL/ifsdata/ECOZC
-        ifsdata_glob_37: /scratch/usr/shkifmsw/foci_input2/OPENIFS_CY43_GENERAL/ifsdata/SO4_OBS1970
-        ifsdata_glob_38: /scratch/usr/shkifmsw/foci_input2/OPENIFS_CY43_GENERAL/ifsdata/GCH4CLIM
-        ifsdata_glob_39: /scratch/usr/shkifmsw/foci_input2/OPENIFS_CY43_GENERAL/ifsdata/SO4_A1B2100
-        ifsdata_glob_4: /scratch/usr/shkifmsw/foci_input2/OPENIFS_CY43_GENERAL/ifsdata/RADRRTM
-        ifsdata_glob_40: /scratch/usr/shkifmsw/foci_input2/OPENIFS_CY43_GENERAL/ifsdata/SO4_A1B2010
-        ifsdata_glob_41: /scratch/usr/shkifmsw/foci_input2/OPENIFS_CY43_GENERAL/ifsdata/socrates_droplet_scattering_rrtm.nc
-        ifsdata_glob_42: /scratch/usr/shkifmsw/foci_input2/OPENIFS_CY43_GENERAL/ifsdata/GOZOCLIM
-        ifsdata_glob_43: /scratch/usr/shkifmsw/foci_input2/OPENIFS_CY43_GENERAL/ifsdata/CH4CLIM
-        ifsdata_glob_44: /scratch/usr/shkifmsw/foci_input2/OPENIFS_CY43_GENERAL/ifsdata/baran_ice_scattering_rrtm.nc
-        ifsdata_glob_45: /scratch/usr/shkifmsw/foci_input2/OPENIFS_CY43_GENERAL/ifsdata/aerosol_ifs_rrtm_42R1.nc
-        ifsdata_glob_46: /scratch/usr/shkifmsw/foci_input2/OPENIFS_CY43_GENERAL/ifsdata/SO4_A1B2030
-        ifsdata_glob_47: /scratch/usr/shkifmsw/foci_input2/OPENIFS_CY43_GENERAL/ifsdata/SO4_A1B2080
-        ifsdata_glob_48: /scratch/usr/shkifmsw/foci_input2/OPENIFS_CY43_GENERAL/ifsdata/aerosol_ifs_rrtm.nc
-        ifsdata_glob_49: /scratch/usr/shkifmsw/foci_input2/OPENIFS_CY43_GENERAL/ifsdata/GCO2CLIM
-        ifsdata_glob_5: /scratch/usr/shkifmsw/foci_input2/OPENIFS_CY43_GENERAL/ifsdata/RADSRTM
-        ifsdata_glob_50: /scratch/usr/shkifmsw/foci_input2/OPENIFS_CY43_GENERAL/ifsdata/MCH4CLIM
-        ifsdata_glob_51: /scratch/usr/shkifmsw/foci_input2/OPENIFS_CY43_GENERAL/ifsdata/SO4_OBS1980
-        ifsdata_glob_52: /scratch/usr/shkifmsw/foci_input2/OPENIFS_CY43_GENERAL/ifsdata/CCL4CLIM
-        ifsdata_glob_53: /scratch/usr/shkifmsw/foci_input2/OPENIFS_CY43_GENERAL/ifsdata/SO4_OBS1940
-        ifsdata_glob_6: /scratch/usr/shkifmsw/foci_input2/OPENIFS_CY43_GENERAL/ifsdata/N2OCLIM
-        ifsdata_glob_7: /scratch/usr/shkifmsw/foci_input2/OPENIFS_CY43_GENERAL/ifsdata/SO4_OBS1990
-        ifsdata_glob_8: /scratch/usr/shkifmsw/foci_input2/OPENIFS_CY43_GENERAL/ifsdata/OZOCLIM
-        ifsdata_glob_9: /scratch/usr/shkifmsw/foci_input2/OPENIFS_CY43_GENERAL/ifsdata/MCO2CLIM
-        o3_data_glob_0: /scratch/usr/shkifmsw/foci_input2/OPENIFS43R3-TCO95//95_4/o3chem_l91/O3CHEM12_V2.9
-        o3_data_glob_1: /scratch/usr/shkifmsw/foci_input2/OPENIFS43R3-TCO95//95_4/o3chem_l91/O3CHEM01_V2.9
-        o3_data_glob_10: /scratch/usr/shkifmsw/foci_input2/OPENIFS43R3-TCO95//95_4/o3chem_l91/O3CHEM05_V2.9
-        o3_data_glob_11: /scratch/usr/shkifmsw/foci_input2/OPENIFS43R3-TCO95//95_4/o3chem_l91/O3CHEM04_V2.9
-        o3_data_glob_2: /scratch/usr/shkifmsw/foci_input2/OPENIFS43R3-TCO95//95_4/o3chem_l91/O3CHEM06_V2.9
-        o3_data_glob_3: /scratch/usr/shkifmsw/foci_input2/OPENIFS43R3-TCO95//95_4/o3chem_l91/O3CHEM07_V2.9
-        o3_data_glob_4: /scratch/usr/shkifmsw/foci_input2/OPENIFS43R3-TCO95//95_4/o3chem_l91/O3CHEM08_V2.9
-        o3_data_glob_5: /scratch/usr/shkifmsw/foci_input2/OPENIFS43R3-TCO95//95_4/o3chem_l91/O3CHEM11_V2.9
-        o3_data_glob_6: /scratch/usr/shkifmsw/foci_input2/OPENIFS43R3-TCO95//95_4/o3chem_l91/O3CHEM02_V2.9
-        o3_data_glob_7: /scratch/usr/shkifmsw/foci_input2/OPENIFS43R3-TCO95//95_4/o3chem_l91/O3CHEM03_V2.9
-        o3_data_glob_8: /scratch/usr/shkifmsw/foci_input2/OPENIFS43R3-TCO95//95_4/o3chem_l91/O3CHEM10_V2.9
-        o3_data_glob_9: /scratch/usr/shkifmsw/foci_input2/OPENIFS43R3-TCO95//95_4/o3chem_l91/O3CHEM09_V2.9
-        tl_data_glob_0: /scratch/usr/shkifmsw/foci_input2/OPENIFS43R3-TCO95//95_4/month_lail
-        tl_data_glob_1: /scratch/usr/shkifmsw/foci_input2/OPENIFS43R3-TCO95//95_4/sfc
-        tl_data_glob_10: /scratch/usr/shkifmsw/foci_input2/OPENIFS43R3-TCO95//95_4/month_laih
-        tl_data_glob_11: /scratch/usr/shkifmsw/foci_input2/OPENIFS43R3-TCO95//95_4/month_aluvv
-        tl_data_glob_12: /scratch/usr/shkifmsw/foci_input2/OPENIFS43R3-TCO95//95_4/month_alniv
-        tl_data_glob_13: /scratch/usr/shkifmsw/foci_input2/OPENIFS43R3-TCO95//95_4/cicecap
-        tl_data_glob_14: /scratch/usr/shkifmsw/foci_input2/OPENIFS43R3-TCO95//95_4/month_aluvp
-        tl_data_glob_15: /scratch/usr/shkifmsw/foci_input2/OPENIFS43R3-TCO95//95_4/month_alnip
-        tl_data_glob_16: /scratch/usr/shkifmsw/foci_input2/OPENIFS43R3-TCO95//95_4/slt
-        tl_data_glob_17: /scratch/usr/shkifmsw/foci_input2/OPENIFS43R3-TCO95//95_4/sporog
-        tl_data_glob_18: /scratch/usr/shkifmsw/foci_input2/OPENIFS43R3-TCO95//95_4/sdfor
-        tl_data_glob_2: /scratch/usr/shkifmsw/foci_input2/OPENIFS43R3-TCO95//95_4/month_alnid
-        tl_data_glob_3: /scratch/usr/shkifmsw/foci_input2/OPENIFS43R3-TCO95//95_4/month_aluvd
-        tl_data_glob_4: /scratch/usr/shkifmsw/foci_input2/OPENIFS43R3-TCO95//95_4/month_alnii
-        tl_data_glob_5: /scratch/usr/shkifmsw/foci_input2/OPENIFS43R3-TCO95//95_4/lsmoro
-        tl_data_glob_6: /scratch/usr/shkifmsw/foci_input2/OPENIFS43R3-TCO95//95_4/month_aluvi
-        tl_data_glob_7: /scratch/usr/shkifmsw/foci_input2/OPENIFS43R3-TCO95//95_4/month_alb
-        tl_data_glob_8: /scratch/usr/shkifmsw/foci_input2/OPENIFS43R3-TCO95//95_4/month_aluvg
-        tl_data_glob_9: /scratch/usr/shkifmsw/foci_input2/OPENIFS43R3-TCO95//95_4/month_alnig
     input_sources_wild_card:
         ifsdata: '*'
         o3_data: '*'
@@ -1247,91 +1077,6 @@ oifs:
         ICMGG_INIT: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ICMGGECE3INIT
         ICMGG_INIUA: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ICMGGECE3INIUA
         ICMSH_INIT: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ICMSHECE3INIT
-        ifsdata_glob_0: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ifsdata/SO4_A1B2070
-        ifsdata_glob_1: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ifsdata/SO4_A1B2050
-        ifsdata_glob_10: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ifsdata/C11CLIM
-        ifsdata_glob_11: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ifsdata/aerosol_cams_climatology_43R3a.nc
-        ifsdata_glob_12: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ifsdata/aerosol_ifs_rrtm_43R1.nc
-        ifsdata_glob_13: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ifsdata/SO4_OBS1950
-        ifsdata_glob_14: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ifsdata/NO2CLIM
-        ifsdata_glob_15: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ifsdata/mcica_gamma.nc
-        ifsdata_glob_16: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ifsdata/slingo_droplet_scattering_rrtm.nc
-        ifsdata_glob_17: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ifsdata/SO4_A1B2090
-        ifsdata_glob_18: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ifsdata/SO4_A1B2040
-        ifsdata_glob_19: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ifsdata/SO4_OBS1930
-        ifsdata_glob_2: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ifsdata/MCICA
-        ifsdata_glob_20: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ifsdata/fu_ice_scattering_rrtm.nc
-        ifsdata_glob_21: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ifsdata/aerosol_ifs_rrtm_AB.nc
-        ifsdata_glob_22: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ifsdata/aerosol_ifs_rrtm_43R3.nc
-        ifsdata_glob_23: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ifsdata/SO4_OBS1920
-        ifsdata_glob_24: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ifsdata/aerosol_ifs_rrtm_43R1a.nc
-        ifsdata_glob_25: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ifsdata/aerosol_cams_climatology_43R3.nc
-        ifsdata_glob_26: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ifsdata/CO2CLIM
-        ifsdata_glob_27: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ifsdata/MOZOCLIM
-        ifsdata_glob_28: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ifsdata/SO4_A1B2000
-        ifsdata_glob_29: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ifsdata/es_droplet_scattering_rrtm.nc
-        ifsdata_glob_3: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ifsdata/SO4_A1B2060
-        ifsdata_glob_30: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ifsdata/mcica_lognormal.nc
-        ifsdata_glob_31: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ifsdata/C12CLIM
-        ifsdata_glob_32: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ifsdata/C22CLIM
-        ifsdata_glob_33: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ifsdata/SO4_OBS1960
-        ifsdata_glob_34: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ifsdata/aerosol_ifs_rrtm_tegen.nc
-        ifsdata_glob_35: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ifsdata/SO4_A1B2020
-        ifsdata_glob_36: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ifsdata/ECOZC
-        ifsdata_glob_37: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ifsdata/SO4_OBS1970
-        ifsdata_glob_38: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ifsdata/GCH4CLIM
-        ifsdata_glob_39: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ifsdata/SO4_A1B2100
-        ifsdata_glob_4: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ifsdata/RADRRTM
-        ifsdata_glob_40: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ifsdata/SO4_A1B2010
-        ifsdata_glob_41: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ifsdata/socrates_droplet_scattering_rrtm.nc
-        ifsdata_glob_42: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ifsdata/GOZOCLIM
-        ifsdata_glob_43: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ifsdata/CH4CLIM
-        ifsdata_glob_44: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ifsdata/baran_ice_scattering_rrtm.nc
-        ifsdata_glob_45: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ifsdata/aerosol_ifs_rrtm_42R1.nc
-        ifsdata_glob_46: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ifsdata/SO4_A1B2030
-        ifsdata_glob_47: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ifsdata/SO4_A1B2080
-        ifsdata_glob_48: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ifsdata/aerosol_ifs_rrtm.nc
-        ifsdata_glob_49: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ifsdata/GCO2CLIM
-        ifsdata_glob_5: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ifsdata/RADSRTM
-        ifsdata_glob_50: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ifsdata/MCH4CLIM
-        ifsdata_glob_51: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ifsdata/SO4_OBS1980
-        ifsdata_glob_52: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ifsdata/CCL4CLIM
-        ifsdata_glob_53: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ifsdata/SO4_OBS1940
-        ifsdata_glob_6: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ifsdata/N2OCLIM
-        ifsdata_glob_7: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ifsdata/SO4_OBS1990
-        ifsdata_glob_8: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ifsdata/OZOCLIM
-        ifsdata_glob_9: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ifsdata/MCO2CLIM
-        o3_data_glob_0: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/95_4/o3chem_l91/O3CHEM12_V2.9
-        o3_data_glob_1: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/95_4/o3chem_l91/O3CHEM01_V2.9
-        o3_data_glob_10: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/95_4/o3chem_l91/O3CHEM05_V2.9
-        o3_data_glob_11: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/95_4/o3chem_l91/O3CHEM04_V2.9
-        o3_data_glob_2: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/95_4/o3chem_l91/O3CHEM06_V2.9
-        o3_data_glob_3: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/95_4/o3chem_l91/O3CHEM07_V2.9
-        o3_data_glob_4: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/95_4/o3chem_l91/O3CHEM08_V2.9
-        o3_data_glob_5: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/95_4/o3chem_l91/O3CHEM11_V2.9
-        o3_data_glob_6: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/95_4/o3chem_l91/O3CHEM02_V2.9
-        o3_data_glob_7: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/95_4/o3chem_l91/O3CHEM03_V2.9
-        o3_data_glob_8: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/95_4/o3chem_l91/O3CHEM10_V2.9
-        o3_data_glob_9: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/95_4/o3chem_l91/O3CHEM09_V2.9
-        tl_data_glob_0: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/95_4/month_lail
-        tl_data_glob_1: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/95_4/sfc
-        tl_data_glob_10: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/95_4/month_laih
-        tl_data_glob_11: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/95_4/month_aluvv
-        tl_data_glob_12: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/95_4/month_alniv
-        tl_data_glob_13: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/95_4/cicecap
-        tl_data_glob_14: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/95_4/month_aluvp
-        tl_data_glob_15: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/95_4/month_alnip
-        tl_data_glob_16: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/95_4/slt
-        tl_data_glob_17: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/95_4/sporog
-        tl_data_glob_18: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/95_4/sdfor
-        tl_data_glob_2: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/95_4/month_alnid
-        tl_data_glob_3: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/95_4/month_aluvd
-        tl_data_glob_4: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/95_4/month_alnii
-        tl_data_glob_5: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/95_4/lsmoro
-        tl_data_glob_6: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/95_4/month_aluvi
-        tl_data_glob_7: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/95_4/month_alb
-        tl_data_glob_8: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/95_4/month_aluvg
-        tl_data_glob_9: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/95_4/month_alnig
     lassi: false
     last_parent_date: '1978-12-31T22:00:00'
     leapyear: true
@@ -1709,32 +1454,14 @@ xios:
     comp_command: export XIOS_TOPLEVEL=<TEST_DIR>/comp/oifs/oifs-43r3-v1; ./make_xios --arch ESMTOOLS_generic_intel --netcdf_lib netcdf4_par --full  --job 24; cp bin/xios_server.exe bin/xios.x
     config_intermediate:
         context_ifs: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/config/xios/context_ifs.xml
-        ifs_xml_glob_0: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/config/xios/ifs_xml/file_def_ifs.xml
-        ifs_xml_glob_1: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/config/xios/ifs_xml/field_def_ifs.xml
-        ifs_xml_glob_2: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/config/xios/ifs_xml/axis_def_ifs.xml
-        ifs_xml_glob_3: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/config/xios/ifs_xml/domain_def_ifs.xml
-        ifs_xml_glob_4: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/config/xios/ifs_xml/grid_def_ifs.xml
-        ifs_xml_glob_5: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/config/xios/ifs_xml/file_def_ifs.xml~
         io_def: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/config/xios/iodef.xml
     config_sources:
         context_ifs: /scratch/usr/shkifmsw/foci_input2/OPENIFS43R3-TCO95/output_6hrPLev+Aday+Amon/context_ifs.xml
-        ifs_xml_glob_0: /scratch/usr/shkifmsw/foci_input2/OPENIFS43R3-TCO95/output_6hrPLev+Aday+Amon/ifs_xml/file_def_ifs.xml
-        ifs_xml_glob_1: /scratch/usr/shkifmsw/foci_input2/OPENIFS43R3-TCO95/output_6hrPLev+Aday+Amon/ifs_xml/field_def_ifs.xml
-        ifs_xml_glob_2: /scratch/usr/shkifmsw/foci_input2/OPENIFS43R3-TCO95/output_6hrPLev+Aday+Amon/ifs_xml/axis_def_ifs.xml
-        ifs_xml_glob_3: /scratch/usr/shkifmsw/foci_input2/OPENIFS43R3-TCO95/output_6hrPLev+Aday+Amon/ifs_xml/domain_def_ifs.xml
-        ifs_xml_glob_4: /scratch/usr/shkifmsw/foci_input2/OPENIFS43R3-TCO95/output_6hrPLev+Aday+Amon/ifs_xml/grid_def_ifs.xml
-        ifs_xml_glob_5: /scratch/usr/shkifmsw/foci_input2/OPENIFS43R3-TCO95/output_6hrPLev+Aday+Amon/ifs_xml/file_def_ifs.xml~
         io_def: /scratch/usr/shkifmsw/foci_input2/OPENIFS43R3-TCO95/output_6hrPLev+Aday+Amon/iodef.xml
     config_sources_wild_card:
         ifs_xml: '*'
     config_targets:
         context_ifs: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/context_ifs.xml
-        ifs_xml_glob_0: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ifs_xml/file_def_ifs.xml
-        ifs_xml_glob_1: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ifs_xml/field_def_ifs.xml
-        ifs_xml_glob_2: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ifs_xml/axis_def_ifs.xml
-        ifs_xml_glob_3: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ifs_xml/domain_def_ifs.xml
-        ifs_xml_glob_4: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ifs_xml/grid_def_ifs.xml
-        ifs_xml_glob_5: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/ifs_xml/file_def_ifs.xml~
         io_def: <TEST_DIR>run/oifs/oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/iodef.xml
     debug_info:
         loaded_from_file:
