@@ -197,6 +197,7 @@ echam:
         available_versions:
         - 6.3.05p2
         - 6.3.05p2-foci
+        - 6.3.05p2-foci_autotools
         - 6.3.05p2-foci_oasismct4
         - 6.3.02p4
         - 6.3.04p1-esm_interface
@@ -251,6 +252,12 @@ echam:
             6.3.05p2-foci:
                 branch: esm-tools
                 git-repository: https://git.geomar.de/foci/src/echam.git
+            6.3.05p2-foci_autotools:
+                branch: esm-tools
+                clean_command: rm -rf src/echam/bin; rm -rf bin; make clean; make distclean
+                comp_command: mkdir -p src/.deps yaxt/src/.deps yaxt/tests/.deps; ./configure --prefix=$(pwd)/../ --with-coupler=oasis3-mct-nemo --disable-mh-file --enable-cdi-pio --disable-shared CFLAGS="-O2 -DgFortran -std=gnu99" FCFLAGS="-DQBO -I. -O3 -traceback -fp-model source -fast-transcendentals -no-prec-sqrt -no-prec-div -xHost" FFLAGS="-I. -traceback -O3 -xHost -DTREAT_OVERLAY -Duse_netCDF -Duse_comm_MPI1" LAPACK_LIB='-mkl=sequential' OASIS3MCTROOT=$(pwd)/../ SUPPORTROOT=$(pwd)/../ SUPPORT_LIB='-L$(SUPPORTROOT)/lib -lsupport' SRCDIRS="support" ; make -j `nproc --all`; make install -j `nproc --all`;
+                git-repository: https://git.geomar.de/foci/src/echam.git
+                install_bins: ''
             6.3.05p2-foci_oasismct4:
                 branch: esm-tools-oasis3mct4
                 git-repository: https://git.geomar.de/foci/src/echam.git
@@ -340,7 +347,6 @@ echam:
         loaded_from_file:
         - <HOME_DIR>/esm_tools/configs//components/echam/echam.yaml
         - <HOME_DIR>/esm_tools/configs//components/echam/echam.postprocessing.yaml
-    default_output: true
     disturbance: 1.000001
     executable: echam6
     experiment_analysis_dir: <TEST_DIR>/run/awiesm//PI_ctrl_awiesm-2.1-wiso/analysis/echam/
@@ -1816,6 +1822,7 @@ fesom:
     outdata_sources_wild_card:
         fesom: '*.fesom.*.nc'
     outdata_targets: {}
+    par_tracers: false
     parent_date: '2000-12-31T23:30:00'
     parent_expid: PI_ctrl_awiesm-2.1-wiso
     parent_restart_dir: <TEST_DIR>/run/awiesm//PI_ctrl_awiesm-2.1-wiso/restart/fesom/
@@ -2101,7 +2108,7 @@ general:
     inspect: null
     isinteractive: false
     jP: /work/ollie/dsidoren/input/fesom2.0/meshes/mesh_CORE2_finaltopo_mean/tarfilesT63/input/jsbach/jsbach_T63CORE2_11tiles_5layers_1850.nc
-    jobid: 1262
+    jobid: 1260
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 20001231-20001231
@@ -2242,7 +2249,6 @@ general:
     with_bootstrap: false
     with_icebergs: false
     with_pico: false
-    with_recom: false
     with_wiso: true
     work_dir: <TEST_DIR>/run/awiesm//PI_ctrl_awiesm-2.1-wiso/run_20010101-20010101/work/
     workflow:
@@ -2913,6 +2919,7 @@ oasis3mct:
     - ignore
     available_versions:
     - foci
+    - foci_autotools
     - fociagrif
     - ec-earth
     - 2.8
@@ -3120,6 +3127,7 @@ oasis3mct:
     model_dir: <TEST_DIR>/comp/awiesm/awiesm-2.1-wiso/oasis
     namelist_objs: {}
     namelists: {}
+    nb_of_neighbours_a2o: 9
     norestart: F
     o2a_lag: 1800
     oasis_date_stamp: ''
@@ -3350,5 +3358,6 @@ oasis3mct:
     time_step: 900
     use_lucia: false
     version: 2.8
+    weight_a2o: 2
 recom:
     not_used: ''
