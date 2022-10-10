@@ -7,6 +7,7 @@ module load HLRNenv
 module load sw.skl
 module load cmake
 module load cdo nco
+module load git
 module load intel/19.0.5
 module load impi/2019.5
 
@@ -37,5 +38,5 @@ export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 
 
 cd nemo-ORCA05_LIM2_KCM_AOW/CONFIG/ORCA05_LIM2_KCM_AOW
-echo Compilation is handled by nemobasemodel.yaml
+export NEMO_TOPLEVEL=<TEST_DIR>comp/foci/foci-default/nemo-ORCA05_LIM2_KCM_AOW/CONFIG/ORCA05_LIM2_KCM_AOW/../../ ; cp cfg.inc ../cfg.txt ; cd ../ ; ./makenemo -n ORCA05_LIM2_KCM_AOW -m ESMTOOLS_generic_oasis_intel -j 24; cp -p ORCA05_LIM2_KCM_AOW/BLD/bin/nemo.exe ORCA05_LIM2_KCM_AOW/BLD/bin/oceanx ; cd ..
 cd ..

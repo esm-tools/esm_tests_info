@@ -7,6 +7,7 @@ module load HLRNenv
 module load sw.skl
 module load cmake
 module load cdo nco
+module load git
 module load intel/19.0.5
 module load impi/2019.5
 

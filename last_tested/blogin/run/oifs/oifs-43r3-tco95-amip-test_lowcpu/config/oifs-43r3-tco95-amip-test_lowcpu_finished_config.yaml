@@ -99,6 +99,7 @@ computer:
     - load sw.skl
     - load cmake
     - load cdo nco
+    - load git
     - load intel/19.0.5
     - load impi/2019.5
     mpicc: $MPICC
@@ -327,7 +328,7 @@ general:
     initial_date: '1979-01-01T00:00:00'
     inspect: null
     isinteractive: false
-    jobid: 847
+    jobid: 846
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 19781231-19781231
@@ -577,12 +578,20 @@ oifs:
                 - oasis3mct-4.0-awicm-frontiers
                 with_xios: true
             43r3-foci:
-                branch: master
+                branch: 43r3v1-foci
                 comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/oifs/oifs-43r3-v1; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/oifs/oifs-43r3-v1/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/oifs/oifs-43r3-v1/../xios/inc/ ; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
                 git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3.git
                 install_bins: make/esm/oifs/bin/oifs
                 requires:
                 - oasis3mct-4.0
+                - xios-2.5_r1910
+            43r3-foci21:
+                branch: master
+                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/oifs/oifs-43r3-v1; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/oifs/oifs-43r3-v1/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/oifs/oifs-43r3-v1/../xios/inc/ ; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
+                git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3.git
+                install_bins: make/esm/oifs/bin/oifs
+                requires:
+                - oasis3mct-EM21
                 - xios-2.5_r1910
             43r3-master:
                 branch: master
@@ -594,6 +603,14 @@ oifs:
                 - oasis3mct-4.0-awicm-frontiers
                 with_xios: true
             43r3-v1:
+                branch: 43r3v1-foci
+                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/oifs/oifs-43r3-v1; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/oifs/oifs-43r3-v1/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/oifs/oifs-43r3-v1/../xios/inc/ ; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
+                git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3.git
+                install_bins: make/esm/oifs/bin/oifs
+                requires:
+                - oasis3mct-4.0
+                - xios-2.5_r1910_oifs
+            43r3-v2:
                 branch: master
                 comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/oifs/oifs-43r3-v1; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/oifs/oifs-43r3-v1/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/oifs/oifs-43r3-v1/../xios/inc/ ; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
                 git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3.git
@@ -659,12 +676,12 @@ oifs:
                 - OIFS_NETCDFF_INCLUDE="-I$NETCDFFROOT/include"
                 - OIFS_NETCDFF_LIB="-L$NETCDFFROOT/lib -lnetcdff"
                 - OIFS_FC=$FC
-                - OIFS_FFLAGS="-r8 -fp-model precise -align array32byte -O1 -xCORE_AVX2 -g -traceback -convert big_endian -fpe0"
+                - OIFS_FFLAGS="-qopenmp -r8 -fp-model precise -align array32byte -O1 -xCORE_AVX2 -g -traceback -convert big_endian -fpe0"
                 - OIFS_FFIXED=""
                 - OIFS_FCDEFS="BLAS LITTLE LINUX INTEGER_IS_INT"
-                - OIFS_LFLAGS=$OIFS_MPI_LIB
+                - OIFS_LFLAGS="$OIFS_MPI_LIB -qopenmp"
                 - OIFS_CC=$CC
-                - OIFS_CFLAGS="-fp-model precise -O1 -xCORE_AVX2 -g -traceback -qopt-report=0 -fpe0"
+                - OIFS_CFLAGS="-qopenmp -fp-model precise -O1 -xCORE_AVX2 -g -traceback -qopt-report=0 -fpe0"
                 - OIFS_CCDEFS="LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS"
             glogin:
                 add_export_vars:
@@ -689,12 +706,12 @@ oifs:
                 - OIFS_NETCDFF_INCLUDE="-I$NETCDFFROOT/include"
                 - OIFS_NETCDFF_LIB="-L$NETCDFFROOT/lib -lnetcdff"
                 - OIFS_FC=$FC
-                - OIFS_FFLAGS="-r8 -fp-model precise -align array32byte -O1 -xCORE_AVX2 -g -traceback -convert big_endian -fpe0"
+                - OIFS_FFLAGS="-qopenmp -r8 -fp-model precise -align array32byte -O1 -xCORE_AVX2 -g -traceback -convert big_endian -fpe0"
                 - OIFS_FFIXED=""
                 - OIFS_FCDEFS="BLAS LITTLE LINUX INTEGER_IS_INT"
-                - OIFS_LFLAGS=$OIFS_MPI_LIB
+                - OIFS_LFLAGS="$OIFS_MPI_LIB -qopenmp"
                 - OIFS_CC=$CC
-                - OIFS_CFLAGS="-fp-model precise -O1 -xCORE_AVX2 -g -traceback -qopt-report=0 -fpe0"
+                - OIFS_CFLAGS="-qopenmp -fp-model precise -O1 -xCORE_AVX2 -g -traceback -qopt-report=0 -fpe0"
                 - OIFS_CCDEFS="LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS"
             juwels:
                 add_export_vars:
@@ -1122,6 +1139,7 @@ oifs:
                 CRTABLEDIR: /scratch/usr/shkifmsw/foci_input2/OPENIFS_CY43_GENERAL/rtables/
                 LCMIP6: true
                 LECOMPGRID: true
+                NGHGRAD: 21
             NAMARG:
                 CNMEXP: ECE3
                 CUSTOP: t24
@@ -1186,6 +1204,7 @@ oifs:
     nspecresmin: 96
     nx: 40320
     ny: 1
+    o3_scheme: default
     oasis_grid_name: 96
     oasis_grid_name_a: A096
     oasis_grid_name_l: L096
@@ -1199,7 +1218,7 @@ oifs:
     outdata_sources: {}
     outdata_sources_wild_card:
         ICMUA: ICMUAECE3+*
-        atm: atm*
+        atm: atm_*
         oifsnc: ECE3_*_19790101_*.nc
     outdata_targets: {}
     output: default
@@ -1376,6 +1395,7 @@ oifs:
     setup_dir: <TEST_DIR>/comp/oifs/oifs-43r3-v1
     simulation_length_seconds: 86400
     slice_icml: <HOME_DIR>/esm_tools/configs//components/oifs/slice_icmcl_file.sh <TEST_DIR>/run/oifs//oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/input/oifs// /scratch/usr/shkifmsw/foci_input2/OPENIFS43R3-TCO95-AMIP//ICMCLhagwINIT_AMIP-1-1-6_19790101_20171231 ECE3 19790101 19790103 <TEST_DIR>/run/oifs//oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/work/;
+    solarspectrum: false
     source_days_string: -1
     source_ndays_wam: -1
     start_days_string: -1
@@ -1436,6 +1456,7 @@ xios:
     available_versions:
     - 2.0_r982_ogcm
     - 2.0_r982
+    - 2.0_r982_autotools
     - trunk
     - trunk_oasis
     - 2.5

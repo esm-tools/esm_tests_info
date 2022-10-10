@@ -7,6 +7,7 @@ module load HLRNenv
 module load sw.skl
 module load cmake
 module load cdo nco
+module load git
 module load intel/19.0.5
 module load impi/2019.5
 
@@ -55,12 +56,12 @@ export OIFS_NETCDF_LIB="-L$NETCDFROOT/lib -lnetcdf"
 export OIFS_NETCDFF_INCLUDE="-I$NETCDFFROOT/include"
 export OIFS_NETCDFF_LIB="-L$NETCDFFROOT/lib -lnetcdff"
 export OIFS_FC=$FC
-export OIFS_FFLAGS="-r8 -fp-model precise -align array32byte -O1 -xCORE_AVX2 -g -traceback -convert big_endian -fpe0"
+export OIFS_FFLAGS="-qopenmp -r8 -fp-model precise -align array32byte -O1 -xCORE_AVX2 -g -traceback -convert big_endian -fpe0"
 export OIFS_FFIXED=""
 export OIFS_FCDEFS="BLAS LITTLE LINUX INTEGER_IS_INT"
-export OIFS_LFLAGS=$OIFS_MPI_LIB
+export OIFS_LFLAGS="$OIFS_MPI_LIB -qopenmp"
 export OIFS_CC=$CC
-export OIFS_CFLAGS="-fp-model precise -O1 -xCORE_AVX2 -g -traceback -qopt-report=0 -fpe0"
+export OIFS_CFLAGS="-qopenmp -fp-model precise -O1 -xCORE_AVX2 -g -traceback -qopt-report=0 -fpe0"
 export OIFS_CCDEFS="LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS"
 export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 
