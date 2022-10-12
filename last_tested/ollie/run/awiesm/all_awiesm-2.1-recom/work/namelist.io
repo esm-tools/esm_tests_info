@@ -14,14 +14,11 @@
 /
 
 &nml_list
-    io_list = 'sst       ', 1, 'm', 4, 'sss       ', 1, 'm', 4, 'ssh       ',
-              1, 'm', 4, 'uice      ', 1, 'm', 4, 'vice      ', 1, 'm',
-              4, 'a_ice     ', 1, 'm', 4, 'm_ice     ', 1, 'm', 4, 'm_snow    ',
-              1, 'm', 4, 'MLD1      ', 1, 'm', 4, 'MLD2      ', 1, 'm',
-              4, 'tx_sur    ', 1, 'm', 4, 'ty_sur    ', 1, 'm', 4, 'temp      ',
-              1, 'y', 4, 'salt      ', 1, 'y', 8, 'N2        ', 1, 'y',
-              4, 'Kv        ', 1, 'y', 4, 'u         ', 1, 'y', 4, 'v         ',
-              1, 'y', 4, 'w         ', 1, 'y', 4, 'Av        ', 1, 'y',
-              4, 'bolus_u   ', 1, 'y', 4, 'bolus_v   ', 1, 'y', 4, 'bolus_w   ',
-              1, 'y', 4
+    io_list = 'sst       ', 1, 'y', 4, 'sss       ', 1, 'y', 4, 'a_ice     ',
+              1, 'y', 4, 'm_ice     ', 1, 'y', 4, 'temp      ', 1, 'y',
+              4, 'salt      ', 1, 'y', 4, 'otracers  ', 1, 'y', 4, 'dpCO2s    ',
+              1, 'y', 4, 'pCO2s     ', 1, 'y', 4, 'CO2f      ', 1, 'y',
+              4, 'NPPd      ', 1, 'y', 4, 'NPPn      ', 1, 'y', 4, 'sinkPON   ',
+              1, 'y', 4, 'sinkPOC   ', 1, 'y', 4, 'sinkOpal  ', 1, 'y',
+              4, 'sinkCalc  ', 1, 'y', 4
 /
