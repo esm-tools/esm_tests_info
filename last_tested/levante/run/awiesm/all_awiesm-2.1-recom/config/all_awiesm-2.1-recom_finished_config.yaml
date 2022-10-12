@@ -364,6 +364,7 @@ echam:
         loaded_from_file:
         - <HOME_DIR>/esm_tools/configs//components/echam/echam.yaml
         - <HOME_DIR>/esm_tools/configs//components/echam/echam.postprocessing.yaml
+    default_output: true
     disturbance: 1.000001
     executable: echam6
     experiment_analysis_dir: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/analysis/echam/
@@ -1344,7 +1345,7 @@ fesom:
     - restart_out
     - viz
     - ignore
-    asforcing: JRA55
+    asforcing: CORE2
     bin_dir: <TEST_DIR>/comp/awiesm/awiesm-2.1-recom/bin
     bin_intermediate:
         fesom: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010101/bin/fesom/fesom
@@ -1352,7 +1353,7 @@ fesom:
         fesom: <TEST_DIR>/comp/awiesm/awiesm-2.1-recom/bin/fesom.x
     bin_targets:
         fesom: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010101/work/fesom
-    branch: awiesm2-recom-wiso-mass
+    branch: awiesm2-recom-mpi
     branchoff: false
     clean_command: rm -rf build CMakeCache.txt
     climate_data_dir: /pool/data/AWICM//FESOM2/INITIAL/phc3.0/
@@ -1383,8 +1384,8 @@ fesom:
         forcing: <TEST_DIR>/comp/awiesm/awiesm-2.1-recom/fesom-2.1/config//namelist.forcing
         ice: <TEST_DIR>/comp/awiesm/awiesm-2.1-recom/fesom-2.1/config//namelist.ice
         icepack: <TEST_DIR>/comp/awiesm/awiesm-2.1-recom/fesom-2.1/config//namelist.icepack
-        io: <TEST_DIR>/comp/awiesm/awiesm-2.1-recom/fesom-2.1/config//namelist.io
-        oce: <TEST_DIR>/comp/awiesm/awiesm-2.1-recom/fesom-2.1/config//namelist.oce.recom.ciso
+        io: <TEST_DIR>/comp/awiesm/awiesm-2.1-recom/fesom-2.1/config//namelist.io.recom
+        oce: <TEST_DIR>/comp/awiesm/awiesm-2.1-recom/fesom-2.1/config//namelist.oce.recom
     config_targets:
         config: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010101/work/namelist.config
         cvmix: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010101/work/namelist.cvmix
@@ -1546,7 +1547,7 @@ fesom:
             run_to_work: copy
             work_to_run: copy
     forcing_data_dir: remove_from_namelist
-    forcing_folder: /JRA55-do-v1.4.0/
+    forcing_folder: CORE2
     git-repository:
     - https://gitlab.dkrz.de/FESOM/fesom2.git
     grids:
@@ -1556,7 +1557,7 @@ fesom:
             nx: 126858
             ny: 1
             oasis_grid_type: U
-    humi_prefix: huss.
+    humi_prefix: q_10.
     icb_code: false
     ini_data_dir: /pool/data/AWICM//pool-data/
     install_bins: bin/fesom.x
@@ -1588,7 +1589,7 @@ fesom:
     mesh_rotated: false
     model: fesom
     model_dir: <TEST_DIR>/comp/awiesm/awiesm-2.1-recom/fesom-2.1
-    mslp_prefix: psl.
+    mslp_prefix: slp.
     namelist_changes:
         namelist.config:
             calendar:
@@ -1636,31 +1637,31 @@ fesom:
                 l_tair: true
                 l_xwind: true
                 l_ywind: true
-                nm_humi_file: remove_from_namelist//JRA55-do-v1.4.0//huss.
-                nm_humi_var: huss
-                nm_mslp_file: remove_from_namelist//JRA55-do-v1.4.0//psl.
-                nm_mslp_var: psl
+                nm_humi_file: remove_from_namelist/CORE2/q_10.
+                nm_humi_var: Q_10_MOD
+                nm_mslp_file: remove_from_namelist/CORE2/slp.
+                nm_mslp_var: SLP
                 nm_nc_freq: 1
                 nm_nc_idd: 1
                 nm_nc_imm: 1
-                nm_nc_iyear: 1900
-                nm_nc_tmid: 0
-                nm_prec_file: remove_from_namelist//JRA55-do-v1.4.0//prra.
-                nm_prec_var: prra
-                nm_qlw_file: remove_from_namelist//JRA55-do-v1.4.0//rlds.
-                nm_qlw_var: rlds
-                nm_qsr_file: remove_from_namelist//JRA55-do-v1.4.0//rsds.
-                nm_qsr_var: rsds
-                nm_runoff_file: remove_from_namelist//JRA55-do-v1.4.0//CORE2_runoff.nc
-                nm_snow_file: remove_from_namelist//JRA55-do-v1.4.0//prsn.
-                nm_snow_var: prsn
-                nm_sss_data_file: remove_from_namelist//JRA55-do-v1.4.0//PHC2_salx.nc
-                nm_tair_file: remove_from_namelist//JRA55-do-v1.4.0//tas.
-                nm_tair_var: tas
-                nm_xwind_file: remove_from_namelist//JRA55-do-v1.4.0//uas.
-                nm_xwind_var: uas
-                nm_ywind_file: remove_from_namelist//JRA55-do-v1.4.0//vas.
-                nm_ywind_var: vas
+                nm_nc_iyear: 1948
+                nm_nc_tmid: 1
+                nm_prec_file: remove_from_namelist/CORE2/ncar_precip.
+                nm_prec_var: RAIN
+                nm_qlw_file: remove_from_namelist/CORE2/ncar_rad.
+                nm_qlw_var: LWDN_MOD
+                nm_qsr_file: remove_from_namelist/CORE2/ncar_rad.
+                nm_qsr_var: SWDN_MOD
+                nm_runoff_file: remove_from_namelist/CORE2/runoff.nc
+                nm_snow_file: remove_from_namelist/CORE2/ncar_precip.
+                nm_snow_var: SNOW
+                nm_sss_data_file: remove_from_namelist/CORE2/PHC2_salx.nc
+                nm_tair_file: remove_from_namelist/CORE2/t_10.
+                nm_tair_var: T_10_MOD
+                nm_xwind_file: remove_from_namelist/CORE2/u_10.
+                nm_xwind_var: U_10_MOD
+                nm_ywind_file: remove_from_namelist/CORE2/v_10.
+                nm_ywind_var: V_10_MOD
                 runoff_data_source: CORE2
                 sss_data_source: CORE2
             pico:
@@ -1672,8 +1673,9 @@ fesom:
                 K_gm_max: 2000
             oce_tra:
                 K_hor: 3000
-                num_tracers: 33
+                num_tracers: 24
                 surf_relax_s: 0
+    namelist_ciso_sufix: ''
     namelist_dir: <TEST_DIR>/comp/awiesm/awiesm-2.1-recom/fesom-2.1/config/
     namelist_objs:
         namelist.config: &id004 f90nml.name
@@ -1695,22 +1697,22 @@ fesom:
     ncar_bulk_z_shum: 10
     ncar_bulk_z_tair: 10
     ncar_bulk_z_wind: 10
-    nm_humi_var: huss
-    nm_mslp_var: psl
+    nm_humi_var: Q_10_MOD
+    nm_mslp_var: SLP
     nm_nc_freq: 1
     nm_nc_idd: 1
     nm_nc_imm: 1
-    nm_nc_iyear: 1900
-    nm_nc_tmid: 0
-    nm_prec_var: prra
-    nm_qlw_var: rlds
-    nm_qsr_var: rsds
-    nm_snow_var: prsn
-    nm_tair_var: tas
-    nm_xwind_var: uas
-    nm_ywind_var: vas
+    nm_nc_iyear: 1948
+    nm_nc_tmid: 1
+    nm_prec_var: RAIN
+    nm_qlw_var: LWDN_MOD
+    nm_qsr_var: SWDN_MOD
+    nm_snow_var: SNOW
+    nm_tair_var: T_10_MOD
+    nm_xwind_var: U_10_MOD
+    nm_ywind_var: V_10_MOD
     nproc: 288
-    num_tracers: 33
+    num_tracers: 24
     nx: 126858
     old_mesh_format: false
     opbnd_dir: remove_from_namelist
@@ -1719,15 +1721,14 @@ fesom:
     outdata_sources_wild_card:
         fesom: '*.fesom.*.nc'
     outdata_targets: {}
-    par_tracers: false
     parent_date: '2000-12-31T23:30:00'
     parent_expid: all_awiesm-2.1-recom
     parent_restart_dir: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/restart/fesom/
     pool_dir: /pool/data/AWICM/
-    prec_prefix: prra.
+    prec_prefix: ncar_precip.
     prev_date: '2000-12-31T23:30:00'
-    qlw_prefix: rlds.
-    qsr_prefix: rsds.
+    qlw_prefix: ncar_rad.
+    qsr_prefix: ncar_rad.
     res: CORE2
     resolution: CORE2
     restart_first: 1
@@ -1756,7 +1757,7 @@ fesom:
     restart_rate: 1
     restart_unit: d
     runoff_data_source: CORE2
-    runoff_file: CORE2_runoff.nc
+    runoff_file: runoff.nc
     runtime_environment_changes:
         add_export_vars:
             taken2from: fesom2_ru
@@ -1768,13 +1769,13 @@ fesom:
                 - load ParaStationMPI/5.4.4-1
                 - load netCDF-Fortran/4.4.5
     setup_dir: <TEST_DIR>/comp/awiesm/awiesm-2.1-recom
-    snow_prefix: prsn.
+    snow_prefix: ncar_precip.
     sss_data_file: PHC2_salx.nc
     sss_data_source: CORE2
     startday: 1
     starttime: 0
     steps_per_day: 48
-    tair_prefix: tas.
+    tair_prefix: t_10.
     thisrun_analysis_dir: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010101/analysis/fesom/
     thisrun_bin_dir: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010101/bin/fesom/
     thisrun_config_dir: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010101/config/fesom/
@@ -1809,9 +1810,9 @@ fesom:
     with_part_format: false
     with_pico: false
     with_wiso: false
-    xwind_prefix: uas.
+    xwind_prefix: u_10.
     yearnew: 2001
-    ywind_prefix: vas.
+    ywind_prefix: v_10.
 general:
     CDP: /pf/a/a270108/fesom2_recom_config/input-for-awiesm/
     RDP: /pf/a/a270108/fesom2_recom_config/input-for-awiesm/
@@ -1876,7 +1877,7 @@ general:
     coupler: oasis3mct
     coupler_config_dir: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010101/config/oasis3mct/
     couplings:
-    - fesom-2.1-wiso+echam-6.3.05p2-wiso+recom-2.0
+    - fesom-2.1-recom-par_tracers_mpi+echam-6.3.05p2-wiso+recom-2.0
     current_date: '2001-01-01T00:00:00'
     debug_info:
         loaded_from_file: <HOME_DIR>/esm_tools/configs//defaults/general.yaml
@@ -2145,6 +2146,7 @@ general:
     with_bootstrap: false
     with_icebergs: false
     with_pico: false
+    with_recom: true
     with_wiso: false
     work_dir: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010101/work/
     workflow:
@@ -3212,7 +3214,6 @@ recom:
     - 2.0-r
     - 2.0-recom-awicm
     benthos_num: 4
-    bgc_num: 31
     bin_dir: NONE/bin
     bottflx_num: 4
     branch: oxygen
@@ -3227,7 +3228,7 @@ recom:
     constant_CO2: true
     currentCO2cycle: 1
     daily_outputs: []
-    data_path: /work/ollie/mbutzin/fesom2/input/dust/
+    data_path: /home/a/a270105/initial_files/pi_init/dust_coremesh/
     debug_info:
         loaded_from_file: <HOME_DIR>/esm_tools/configs//components/recom/recom.yaml
     destination: recom
@@ -3414,15 +3415,13 @@ recom:
             pavariables:
                 DIC_PI: false
                 REcoMDataPath: /pf/a/a270108/fesom2_recom_config/input-for-awiesm/
-                benthos_num: 4
-                bgc_num: 31
-                bottflx_num: 4
                 ciso: false
                 recom_restart: false
                 use_atbox: true
     namelist_dir: <TEST_DIR>/comp/awiesm/awiesm-2.1-recom/fesom-2.1/config/
     namelist_objs:
         namelist.recom: &id013 f90nml.name
+    namelist_sce: ''
     namelists:
         namelist.recom: *id013
     numofCO2cycles: 1
@@ -3748,6 +3747,7 @@ recom:
     parent_expid: all_awiesm-2.1-recom
     parent_restart_dir: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/restart/recom/
     prev_date: '2000-12-31T23:30:00'
+    recom_namelist: namelist.recom
     remove_namelist_changes.namelist.recom.paco2_flux_param:
     - CO2_for_spinup
     remove_namelist_changes.namelist.recom.pavariables:

@@ -3808,6 +3808,7 @@ recom:
     namelist_dir: <TEST_DIR>/comp/awicm/awicm-1.0-recom/recom/
     namelist_objs:
         namelist.recom: &id010 f90nml.name
+    namelist_sce: ''
     namelists:
         namelist.recom: *id010
     num_CO2_cycles: 1
@@ -4002,6 +4003,7 @@ recom:
     parent_expid: awicm1_recom_hist_initial
     parent_restart_dir: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/restart/recom/
     prev_date: '2006-12-31T23:30:00'
+    recom_namelist: namelist.recom
     restart_name: ''
     restart_out_intermediate:
         bio_restart: <TEST_DIR>run/awicm/awicm1_recom_hist_initial/run_20070101-20070131/restart/recom/fesom.2007.bio.nc
@@ -4025,6 +4027,7 @@ recom:
     thisrun_restart_out_dir: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/run_20070101-20070131/restart/recom/
     thisrun_viz_dir: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/run_20070101-20070131/viz/recom/
     time_step: 1800
+    use_ciso: false
     version: 2.0-recom-awicm
     yearly_outputs:
     - alphaCO2
