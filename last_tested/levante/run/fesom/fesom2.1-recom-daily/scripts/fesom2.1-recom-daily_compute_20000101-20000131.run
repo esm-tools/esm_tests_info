@@ -1,9 +1,9 @@
 #!/bin/bash
 #SBATCH --partition=compute
 #SBATCH --time=00:30:00
-#SBATCH --ntasks=544
-#SBATCH --output=<TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/log/all_awiesm-2.1-recom_awiesm_compute_20010101-20010101_%j.log --error=<TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/log/all_awiesm-2.1-recom_awiesm_compute_20010101-20010101_%j.log
-#SBATCH --job-name=all_awiesm-2.1-recom
+#SBATCH --ntasks=256
+#SBATCH --output=<TEST_DIR>/run/fesom//fesom2.1-recom-daily/log/fesom2.1-recom-daily_fesom_compute_20000101-20000131_%j.log --error=<TEST_DIR>/run/fesom//fesom2.1-recom-daily/log/fesom2.1-recom-daily_fesom_compute_20000101-20000131_%j.log
+#SBATCH --job-name=fesom2.1-recom-daily
 #SBATCH --account=ab0995
 #SBATCH --mail-type=NONE
 #SBATCH --ntasks-per-core=1
@@ -68,11 +68,11 @@ export PERL5LIB=/usr/lib64/perl5
 export LD_LIBRARY_PATH=$HDF5ROOT/lib:$NETCDFROOT/lib:$NETCDFFROOT/lib:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/sw/spack-levante/intel-oneapi-mkl-2022.0.1-ttdktf/mkl/2022.0.1/lib/intel64:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/sw/spack-levante/intel-oneapi-mpi-2021.5.0-mrcss7/mpi/2021.5.0/libfabric/lib:$LD_LIBRARY_PATH
+export ESM_TESTING_DIR=<TEST_DIR>/run/fesom/
+export ACCOUNT=ab0995
+export MODEL_DIR=<TEST_DIR>/comp/fesom/fesom-2.1-recom
 export takenfrom=fesom2_run
 export taken2from=fesom2_ru
-export ACCOUNT=ab0995
-export ESM_TESTING_DIR=<TEST_DIR>/run/awiesm/
-export MODEL_DIR=<TEST_DIR>/comp/awiesm/awiesm-2.1-recom
 export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 
 
@@ -80,18 +80,18 @@ export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 2001-01-01T00:00:00 2629468 - start >> <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/log//all_awiesm-2.1-recom_awiesm.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 2717610 - start >> <TEST_DIR>/run/fesom//fesom2.1-recom-daily/log//fesom2.1-recom-daily_fesom.log
 
-cd <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010101/work/
-time srun -l --hint=nomultithread --multi-prog hostfile_srun 2>&1 &
+cd <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work/
+time srun -l --kill-on-bad-exit=1 --cpu_bind=cores --hint=nomultithread --multi-prog hostfile_srun 2>&1 &
 
 # Call to esm_runscript to start subjobs:
 # ['tidy']
 process=$! 
 # Comment the following line if you don't want esm_runscripts to restart:
-cd <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/scripts/
-esm_runscripts all_awiesm-2.1-recom.yaml -e all_awiesm-2.1-recom -t observe_compute -p ${process} -s 20010101 -r 1 -v  --last-jobtype prepcompute --open-run
+cd <TEST_DIR>/run/fesom//fesom2.1-recom-daily/scripts/
+esm_runscripts fesom2.1-recom-daily.yaml -e fesom2.1-recom-daily -t observe_compute -p ${process} -s 20000101 -r 1 -v  --last-jobtype prepcompute --open-run
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 2001-01-01T00:00:00 2629468 - done >> <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/log//all_awiesm-2.1-recom_awiesm.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 2717610 - done >> <TEST_DIR>/run/fesom//fesom2.1-recom-daily/log//fesom2.1-recom-daily_fesom.log
 
 wait

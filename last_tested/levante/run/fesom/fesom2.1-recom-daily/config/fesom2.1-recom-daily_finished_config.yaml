@@ -1,0 +1,1682 @@
+computer:
+    account: None
+    accounting: true
+    accounting_flag: --account=ab0995
+    actual_script_dir: <--methods.script_dir--
+    add_choose_heterogeneous_parallelization: &id001
+        false:
+            cpu_bind: cores
+            srun_execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=cores --hint=nomultithread --multi-prog hostfile_srun
+        true:
+            choose_taskset:
+                false:
+                    launcher_comp_sep: '\
+
+                        :'
+                    launcher_flags_per_component: --hint=nomultithread  --nodes=@nnodes@ --ntasks=@nproc@ --ntasks-per-node=@nproc_per_node@ --cpus-per-task=@cpus_per_proc@ --export=ALL,OMP_NUM_THREADS=@omp_num_threads@
+                    srun_execution_command: 'srun -l --kill-on-bad-exit=1 --cpu_bind=cores \
+
+                        @components@'
+                true:
+                    srun_execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=cores --hint=nomultithread --multi-prog hostfile_srun
+            cpu_bind: none
+    additional_flags: []
+    batch_system: slurm
+    cc: $CC
+    check_error:
+        'slurmstepd: error: execve():':
+            file: stdout
+            frequency: 600
+            message: 'SLURM ERROR: slurm probably didn''t find executable'
+            method: kill
+        'srun: error:':
+            file: stdout
+            frequency: 30
+            message: 'SLURM ERROR: slurm ended with an error, exiting.'
+            method: kill
+    choose_heterogeneous_parallelization: *id001
+    compiler_mpi: intel2022_openmpi
+    config_files:
+        hostfile: hostfile_srun
+    cpu_bind: cores
+    cxx: $CXX
+    debug_info:
+        loaded_from_file:
+        - <HOME_DIR>/esm_tools/configs//machines/levante.yaml
+    debugger: None
+    debugger_flags_prelauncher: ''
+    exclusive_flag: --exclusive
+    execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=cores --hint=nomultithread --multi-prog hostfile_srun
+    export_vars:
+        CC: mpicc
+        CPU_MODEL: AMD_EPYC_ZEN3
+        CXX: mpicxx
+        F77: mpif90
+        FC: mpif90
+        FESOM_PLATFORM_STRATEGY: levante.dkrz.de
+        FI_PROVIDER: mlx
+        HCOLL_ENABLE_MCAST_ALL: 1
+        HCOLL_MAIN_IB: mlx5_0:1
+        HDF5ROOT: /sw/spack-levante/hdf5-1.12.1-tvymb5
+        HDF5_C_INCLUDE_DIRECTORIES: $HDF5ROOT/include
+        HDF5_ROOT: $HDF5ROOT
+        IO_LIB_ROOT: /work/ab0246/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0
+        I_MPI_FABRICS: shm:ofi
+        I_MPI_OFI_PROVIDER: mlx
+        I_MPI_PMI: pmi2
+        I_MPI_PMI_LIBRARY: /usr/lib64/libpmi2.so
+        KMP_AFFINITY: granularity=fine,scatter
+        KMP_LIBRARY: turnaround
+        LAPACK_LIB: '''-mkl=sequential'''
+        LC_ALL: en_US.UTF-8
+        LD_LIBRARY_PATH[(0)]: $HDF5ROOT/lib:$NETCDFROOT/lib:$NETCDFFROOT/lib:$LD_LIBRARY_PATH
+        LD_LIBRARY_PATH[(1)]: /sw/spack-levante/intel-oneapi-mkl-2022.0.1-ttdktf/mkl/2022.0.1/lib/intel64:$LD_LIBRARY_PATH
+        LD_LIBRARY_PATH[(2)]: /sw/spack-levante/intel-oneapi-mpi-2021.5.0-mrcss7/mpi/2021.5.0/libfabric/lib:$LD_LIBRARY_PATH
+        MPICC: mpicc
+        MPIFC: mpif90
+        MPIROOT: '"$(mpif90 -show | perl -lne ''m{ -I(.*?)/include } and print $1'')"'
+        MPI_LIB: '"$(mpif90 -show |sed -e ''s/^[^ ]*//'' -e ''s/-[I][^ ]*//g'')"'
+        NETCDFFROOT: /sw/spack-levante/netcdf-fortran-4.5.3-k6xq5g
+        NETCDFROOT: /sw/spack-levante/netcdf-c-4.8.1-2k3cmu
+        NETCDF_CXX_INCLUDE_DIRECTORIES: $NETCDFROOT/include
+        NETCDF_CXX_LIBRARIES: $NETCDFROOT/lib
+        NETCDF_C_INCLUDE_DIRECTORIES: $NETCDFROOT/include
+        NETCDF_Fortran_INCLUDE_DIRECTORIES: $NETCDFFROOT/include
+        OASIS3MCT_FC_LIB: '"-L$NETCDFFROOT/lib -lnetcdff"'
+        OMPI_MCA_btl: self
+        OMPI_MCA_coll: ^ml
+        OMPI_MCA_coll_hcoll_enable: 1
+        OMPI_MCA_io: romio321
+        OMPI_MCA_osc: pt2pt
+        OMPI_MCA_pml: ucx
+        PERL5LIB: /usr/lib64/perl5
+        PSMPIFLAGS: '"-lrt -lm -ldl"'
+        UCX_IB_ADDR_TYPE: ib_global
+        UCX_NET_DEVICES: mlx5_0:1
+        UCX_TLS: mm,knem,cma,dc_mlx5,dc_x,self
+        UCX_UNIFIED_MODE: y
+        ZLIBROOT: /usr
+    fc: $FC
+    header_start: '#SBATCH'
+    heterogeneous_parallelization: false
+    hetjob_flag: hetjob
+    hostname_list: DUMMY_HOST1 DUMMY_HOST2
+    hyperthreading_flag: --ntasks-per-core=1
+    iolibraries: system_libs
+    jobtype: unknown
+    launcher: srun
+    launcher_flags: -l --kill-on-bad-exit=1 --cpu_bind=cores
+    logical_cpus_per_core: 2
+    mail1: --mail-type=NONE
+    mail2: ''
+    mail_type: NONE
+    mod_hdf5: hdf5/1.12.1-openmpi-4.1.2-intel-2021.5.0
+    mod_netcdf_c: netcdf-c/4.8.1-openmpi-4.1.2-intel-2021.5.0
+    mod_netcdf_f: netcdf-fortran/4.5.3-openmpi-4.1.2-intel-2021.5.0
+    model: computer
+    module_actions:
+    - purge
+    - load git/2.31.1-gcc-11.2.0
+    - load cdo/2.0.5-gcc-11.2.0
+    - load nco/5.0.6-gcc-11.2.0
+    - load intel-oneapi-compilers/2022.0.1-gcc-11.2.0
+    - load intel-oneapi-mkl/2022.0.1-gcc-11.2.0
+    - load openmpi/4.1.2-intel-2021.5.0
+    - load netcdf-c/4.8.1-openmpi-4.1.2-intel-2021.5.0
+    - load netcdf-fortran/4.5.3-openmpi-4.1.2-intel-2021.5.0
+    - load hdf5/1.12.1-openmpi-4.1.2-intel-2021.5.0
+    mpicc: $MPICC
+    mpifc: $MPIFC
+    mt_launcher_flag: --hint=nomultithread
+    name: levante
+    name_flag: --job-name=fesom2.1-recom-daily
+    netcdf_cxx_root: /work/ab0995/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0
+    nodes_flag: --nodes=@nodes@
+    notification_flag: --mail-type=NONE
+    output_flags: --output=<TEST_DIR>/run/fesom//fesom2.1-recom-daily/log/fesom2.1-recom-daily_fesom_@jobtype@_20000101-20000131_%j.log --error=<TEST_DIR>/run/fesom//fesom2.1-recom-daily/log/fesom2.1-recom-daily_fesom_@jobtype@_20000101-20000131_%j.log
+    output_path: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/log/
+    overcommit_flag: ''
+    overcommit_nodes: None
+    overcommit_rule: ''
+    partition: compute
+    partition_cpn: 128
+    partition_flag: --partition=@partition@
+    partition_name: compute
+    partitions:
+        compute:
+            cores_per_node: 128
+            name: compute
+        pp:
+            cores_per_node: 128
+            name: compute
+    pool_dir: /pool/data
+    pool_directories:
+        focipool: /work/bb0519/foci_input2
+        pool: /pool/data
+    runtime_environment_changes:
+        add_export_vars:
+            ACCOUNT: ab0995
+            ESM_TESTING_DIR: <TEST_DIR>/run/fesom/
+            MODEL_DIR: <TEST_DIR>/comp/fesom/fesom-2.1-recom
+    script_name: <--methods.scriptname--
+    sh_interpreter: /bin/bash
+    single_proc_submit_flag: --ntasks-per-node=1
+    srun_execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=cores --hint=nomultithread --multi-prog hostfile_srun
+    submit: sbatch
+    submitted: false
+    tasks_flag: --ntasks=@tasks@
+    taskset: false
+    thisrun_logfile: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/log/fesom2.1-recom-daily_fesom_@jobtype@_20000101-20000131_%j.log
+    threads_per_core: 1
+    time_flag: --time=00:30:00
+    use_hyperthreading: false
+debug_info:
+    loaded_from_file: <TEST_DIR>run/fesom/fesom2.1-recom-daily/scripts/fesom2.1-recom-daily.yaml
+defaults:
+    clean_command: rm -rf build CMakeCache.txt
+    comp_command: mkdir -p build; cd build; cmake ..;   make install -j `nproc --all`
+    debug_info:
+        loaded_from_file: <HOME_DIR>/esm_tools/configs//defaults/download_and_compile.yaml
+fesom:
+    ALE_scheme: zstar
+    AOMIP_drag_coeff: false
+    Cd_atm_ice: 0.0012
+    Cd_atm_oce: 0.001
+    Ce_atm_ice: 0.00175
+    Ce_atm_oce: 0.00175
+    Ch_atm_ice: 0.00175
+    Ch_atm_oce: 0.00175
+    all_filetypes:
+    - analysis
+    - bin
+    - config
+    - forcing
+    - input
+    - couple
+    - log
+    - mon
+    - outdata
+    - restart_in
+    - restart_out
+    - viz
+    - ignore
+    asforcing: CORE2
+    bin_dir: <TEST_DIR>/comp/fesom/fesom-2.1-recom/bin
+    bin_intermediate:
+        fesom: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/bin/fesom/fesom
+    bin_sources:
+        fesom: <TEST_DIR>/comp/fesom/fesom-2.1-recom/bin/fesom.x
+    bin_targets:
+        fesom: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/work/fesom
+    branch: awiesm2-recom-mpi
+    branchoff: false
+    clean_command: rm -rf build CMakeCache.txt
+    climate_data_dir: /home/a/a270105/initial_files/pi_init/
+    comp_command: mkdir -p build; cd build; cmake ..;   make install -j `nproc --all`
+    comp_executable: fesom.x
+    compiletime_environment_changes:
+        add_export_vars:
+            taken2from: fesom2_compile
+        choose_computer.name:
+            juwels:
+                add_module_actions:
+                - unload ParaStationMPI
+                - load ParaStationMPI/5.4.4-1
+                - load netCDF-Fortran/4.4.5
+    config_intermediate:
+        config: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/config/fesom/namelist.config
+        cvmix: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/config/fesom/namelist.cvmix
+        fesom.clock: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/config/fesom/fesom.clock
+        forcing: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/config/fesom/namelist.forcing
+        ice: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/config/fesom/namelist.ice
+        icepack: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/config/fesom/namelist.icepack
+        io: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/config/fesom/namelist.io
+        oce: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/config/fesom/namelist.oce
+    config_sources:
+        config: <TEST_DIR>/comp/fesom/fesom-2.1-recom/config//namelist.config
+        cvmix: <TEST_DIR>/comp/fesom/fesom-2.1-recom/config//namelist.cvmix
+        fesom.clock: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/config/fesom//fesom.clock
+        forcing: <TEST_DIR>/comp/fesom/fesom-2.1-recom/config//namelist.forcing
+        ice: <TEST_DIR>/comp/fesom/fesom-2.1-recom/config//namelist.ice
+        icepack: <TEST_DIR>/comp/fesom/fesom-2.1-recom/config//namelist.icepack
+        io: <TEST_DIR>/comp/fesom/fesom-2.1-recom/config//namelist.io.recom.ciso
+        oce: <TEST_DIR>/comp/fesom/fesom-2.1-recom/config//namelist.oce.recom.ciso
+    config_targets:
+        config: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/work/namelist.config
+        cvmix: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/work/namelist.cvmix
+        fesom.clock: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/work/fesom.clock
+        forcing: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/work/namelist.forcing
+        ice: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/work/namelist.ice
+        icepack: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/work/namelist.icepack
+        io: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/work/namelist.io
+        oce: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/work/namelist.oce
+    coupling_fields:
+        evap_oce:
+            grid: feom
+        heat_ico:
+            grid: feom
+        heat_oce:
+            grid: feom
+        heat_swo:
+            grid: feom
+        hydr_oce:
+            grid: feom
+        prec_oce:
+            grid: feom
+        sie_feom:
+            grid: feom
+        sit_feom:
+            grid: feom
+        snow_oce:
+            grid: feom
+        snt_feom:
+            grid: feom
+        sst_feom:
+            grid: feom
+        subl_oce:
+            grid: feom
+        taux_ico:
+            grid: feom
+        taux_oce:
+            grid: feom
+        tauy_ico:
+            grid: feom
+        tauy_oce:
+            grid: feom
+    create_config:
+        fesom.clock:
+        - <--append-- 0.0000000000000 1 2000
+        - <--append-- 0.0000000000000 1 2000
+    currentday: 1
+    daynew: 1
+    debug_info:
+        loaded_from_file:
+        - <HOME_DIR>/esm_tools/configs//components/fesom/fesom-2.1.yaml
+    destination: fesom-2.1-recom
+    executable: fesom
+    experiment_analysis_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/analysis/fesom/
+    experiment_bin_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/bin/fesom/
+    experiment_config_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/config/fesom/
+    experiment_couple_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/couple/fesom/
+    experiment_forcing_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/forcing/fesom/
+    experiment_ignore_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/ignore/fesom/
+    experiment_input_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/input/fesom/
+    experiment_log_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/log/fesom/
+    experiment_mon_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/mon/fesom/
+    experiment_outdata_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/outdata/fesom/
+    experiment_restart_in_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/restart/fesom/
+    experiment_restart_out_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/restart/fesom/
+    experiment_viz_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/viz/fesom/
+    fesom_Dflags: -DRECOM_COUPLED=ON
+    file_movements:
+        analysis:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        bin:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        config:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        couple:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        forcing:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        ignore:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        input:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        log:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        mon:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        outdata:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        restart_in:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        restart_out:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        scripts:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        unknown:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        viz:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+    forcing_data_dir: /pool/data/AWICM//FESOM2/FORCING/
+    forcing_folder: CORE2
+    git-repository:
+    - https://gitlab.dkrz.de/FESOM/fesom2.git
+    grids:
+        feom:
+            name: feom
+            number_of_overlapping_points: 0
+            nx: 126858
+            ny: 1
+            oasis_grid_type: U
+    humi_prefix: q_10.
+    icb_code: false
+    include_models:
+    - recom
+    ini_data_dir: /pool/data/AWICM//pool-data/
+    install_bins: bin/fesom.x
+    l_cloud: false
+    l_humi: true
+    l_mslp: false
+    l_prec: true
+    l_qlw: true
+    l_qsr: true
+    l_snow: true
+    l_tair: true
+    l_xwind: true
+    l_ywind: true
+    last_parent_date: '1999-12-31T23:00:00'
+    lasttime: 84600
+    leapyear: false
+    log_intermediate:
+        clock: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/log/fesom/fesom.clock
+        mesh_diag: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/log/fesom/fesom.mesh.diag.nc
+    log_sources:
+        clock: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//fesom.clock
+        mesh_diag: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//fesom.mesh.diag.nc
+    log_targets:
+        clock: <TEST_DIR>run/fesom/fesom2.1-recom-daily/log/fesom/fesom.clock
+        mesh_diag: <TEST_DIR>run/fesom/fesom2.1-recom-daily/log/fesom/fesom.mesh.diag.nc
+    lresume: false
+    mesh_base_dir: /pool/data/AWICM//FESOM2/MESHES_FESOM2.1/
+    mesh_dir: /work/k20200/k202138/bb1029/AWIESM2.1-EXP/mesh_core2/
+    mesh_rotated: false
+    model: fesom
+    models:
+    - recom
+    mpi_num_groups: 2
+    mslp_prefix: slp.
+    namelist_changes:
+        namelist.config:
+            calendar:
+                include_fleapyear: false
+            clockinit:
+                daynew: 1
+                yearnew: 2000
+            paths:
+                ClimateDataPath: /home/a/a270105/initial_files/pi_init/
+                MeshPath: /work/k20200/k202138/bb1029/AWIESM2.1-EXP/mesh_core2/
+                ResultPath: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work/
+            restart_log:
+                restart_length: 1
+                restart_length_unit: m
+            run_config:
+                lwiso: false
+                num_fesom_groups: 2
+            timestep:
+                run_length: 1
+                run_length_unit: m
+                step_per_day: 48
+        namelist.forcing:
+            forcing_bulk:
+                AOMIP_drag_coeff: false
+                ncar_bulk_formulae: true
+                ncar_bulk_z_shum: 10
+                ncar_bulk_z_tair: 10
+                ncar_bulk_z_wind: 10
+            forcing_exchange_coeff:
+                Cd_atm_ice: 0.0012
+                Cd_atm_oce: 0.001
+                Ce_atm_ice: 0.00175
+                Ce_atm_oce: 0.00175
+                Ch_atm_ice: 0.00175
+                Ch_atm_oce: 0.00175
+            nam_sbc:
+                l_cloud: false
+                l_humi: true
+                l_mslp: false
+                l_prec: true
+                l_qlw: true
+                l_qsr: true
+                l_snow: true
+                l_tair: true
+                l_xwind: true
+                l_ywind: true
+                nm_humi_file: /pool/data/AWICM//FESOM2/FORCING//CORE2/q_10.
+                nm_humi_var: Q_10_MOD
+                nm_mslp_file: /pool/data/AWICM//FESOM2/FORCING//CORE2/slp.
+                nm_mslp_var: SLP
+                nm_nc_freq: 1
+                nm_nc_idd: 1
+                nm_nc_imm: 1
+                nm_nc_iyear: 1948
+                nm_nc_tmid: 1
+                nm_prec_file: /pool/data/AWICM//FESOM2/FORCING//CORE2/ncar_precip.
+                nm_prec_var: RAIN
+                nm_qlw_file: /pool/data/AWICM//FESOM2/FORCING//CORE2/ncar_rad.
+                nm_qlw_var: LWDN_MOD
+                nm_qsr_file: /pool/data/AWICM//FESOM2/FORCING//CORE2/ncar_rad.
+                nm_qsr_var: SWDN_MOD
+                nm_runoff_file: /pool/data/AWICM//FESOM2/FORCING//CORE2/runoff.nc
+                nm_snow_file: /pool/data/AWICM//FESOM2/FORCING//CORE2/ncar_precip.
+                nm_snow_var: SNOW
+                nm_sss_data_file: /pool/data/AWICM//FESOM2/FORCING//CORE2/PHC2_salx.nc
+                nm_tair_file: /pool/data/AWICM//FESOM2/FORCING//CORE2/t_10.
+                nm_tair_var: T_10_MOD
+                nm_xwind_file: /pool/data/AWICM//FESOM2/FORCING//CORE2/u_10.
+                nm_xwind_var: U_10_MOD
+                nm_ywind_file: /pool/data/AWICM//FESOM2/FORCING//CORE2/v_10.
+                nm_ywind_var: V_10_MOD
+                runoff_data_source: CORE2
+                sss_data_source: CORE2
+                y_perpetual: false
+        namelist.io:
+            nml_list:
+                io_list:
+                - sst
+                - 1
+                - m
+                - 4
+                - sss
+                - 1
+                - m
+                - 4
+                - ssh
+                - 1
+                - m
+                - 4
+                - uice
+                - 1
+                - m
+                - 4
+                - vice
+                - 1
+                - m
+                - 4
+                - a_ice
+                - 1
+                - m
+                - 4
+                - m_ice
+                - 1
+                - m
+                - 4
+                - m_snow
+                - 1
+                - m
+                - 4
+                - MLD1
+                - 1
+                - m
+                - 4
+                - MLD2
+                - 1
+                - m
+                - 4
+                - tx_sur
+                - 1
+                - m
+                - 4
+                - ty_sur
+                - 1
+                - m
+                - 4
+        namelist.oce:
+            oce_tra:
+                num_tracers: 33
+    namelist_ciso_sufix: .ciso
+    namelist_dir: <TEST_DIR>/comp/fesom/fesom-2.1-recom/config/
+    namelist_objs:
+        namelist.config: &id002 f90nml.name
+        namelist.cvmix: &id003 f90nml.name
+        namelist.forcing: &id004 f90nml.name
+        namelist.ice: &id005 f90nml.name
+        namelist.icepack: &id006 f90nml.name
+        namelist.io: &id007 f90nml.name
+        namelist.oce: &id008 f90nml.name
+    namelists:
+        namelist.config: *id002
+        namelist.cvmix: *id003
+        namelist.forcing: *id004
+        namelist.ice: *id005
+        namelist.icepack: *id006
+        namelist.io: *id007
+        namelist.oce: *id008
+    ncar_bulk_formulae: true
+    ncar_bulk_z_shum: 10
+    ncar_bulk_z_tair: 10
+    ncar_bulk_z_wind: 10
+    nm_humi_var: Q_10_MOD
+    nm_mslp_var: SLP
+    nm_nc_freq: 1
+    nm_nc_idd: 1
+    nm_nc_imm: 1
+    nm_nc_iyear: 1948
+    nm_nc_tmid: 1
+    nm_prec_var: RAIN
+    nm_qlw_var: LWDN_MOD
+    nm_qsr_var: SWDN_MOD
+    nm_snow_var: SNOW
+    nm_tair_var: T_10_MOD
+    nm_xwind_var: U_10_MOD
+    nm_ywind_var: V_10_MOD
+    nproc: 128
+    num_tracers: 33
+    nx: 126858
+    old_mesh_format: false
+    opbnd_dir: somepath
+    outdata_intermediate: {}
+    outdata_sources: {}
+    outdata_sources_wild_card:
+        fesom: '*.fesom.*.nc'
+    outdata_targets: {}
+    parent_date: '1999-12-31T23:30:00'
+    parent_expid: fesom2.1-recom-daily
+    parent_restart_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/restart/fesom/
+    pool_dir: /pool/data/AWICM/
+    prec_prefix: ncar_precip.
+    prev_date: '1999-12-31T23:30:00'
+    qlw_prefix: ncar_rad.
+    qsr_prefix: ncar_rad.
+    resolution: CORE2
+    restart_first: 1
+    restart_flag: last
+    restart_in_in_workdir:
+        icb_restart: iceberg.restart
+        icb_restart_ISM: iceberg.restart.ISM
+        ice_restart: fesom.1999.ice.restart.nc
+        oce_restart: fesom.1999.oce.restart.nc
+        wiso_restart: fesom.1999.wiso.restart.nc
+    restart_out_in_workdir:
+        icb_restart: iceberg.restart
+        icb_restart_ISM: iceberg.restart.ISM
+        ice_restart: fesom.2000.ice.restart.nc
+        oce_restart: fesom.2000.oce.restart.nc
+        wiso_restart: fesom.2000.wiso.restart.nc
+    restart_out_intermediate:
+        ice_restart: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/restart/fesom/fesom.2000.ice.restart.nc
+        oce_restart: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/restart/fesom/fesom.2000.oce.restart.nc
+    restart_out_sources:
+        ice_restart: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//fesom.2000.ice.restart.nc
+        oce_restart: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//fesom.2000.oce.restart.nc
+    restart_out_targets:
+        ice_restart: <TEST_DIR>run/fesom/fesom2.1-recom-daily/restart/fesom/fesom.2000.ice.restart.nc
+        oce_restart: <TEST_DIR>run/fesom/fesom2.1-recom-daily/restart/fesom/fesom.2000.oce.restart.nc
+    restart_rate: 1
+    restart_unit: m
+    run_length: 1
+    runoff_data_source: CORE2
+    runoff_file: runoff.nc
+    runtime_environment_changes:
+        add_export_vars:
+            taken2from: fesom2_ru
+            takenfrom: fesom2_run
+        choose_computer.name:
+            juwels:
+                add_module_actions:
+                - unload ParaStationMPI
+                - load ParaStationMPI/5.4.4-1
+                - load netCDF-Fortran/4.4.5
+    setup_dir: <TEST_DIR>/comp/fesom/fesom-2.1-recom
+    snow_prefix: ncar_precip.
+    sss_data_file: PHC2_salx.nc
+    sss_data_source: CORE2
+    startday: 1
+    starttime: 0
+    steps_per_day: 48
+    tair_prefix: t_10.
+    thisrun_analysis_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/analysis/fesom/
+    thisrun_bin_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/bin/fesom/
+    thisrun_config_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/config/fesom/
+    thisrun_couple_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/couple/fesom/
+    thisrun_forcing_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/forcing/fesom/
+    thisrun_ignore_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/ignore/fesom/
+    thisrun_input_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/input/fesom/
+    thisrun_log_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/log/fesom/
+    thisrun_mon_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/mon/fesom/
+    thisrun_outdata_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/outdata/fesom/
+    thisrun_restart_in_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/restart/fesom/
+    thisrun_restart_out_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/restart/fesom/
+    thisrun_viz_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/viz/fesom/
+    tide_forcing_dir: somepath
+    time_dimension: time
+    time_step: 1800
+    type: ocean
+    use_icebergs: false
+    use_icesheet_coupling: false
+    version: 2.1-recom
+    wiso_code: true
+    wiso_fields:
+    - o18w_oce
+    - hdow_oce
+    - o16w_oce
+    - o18i_oce
+    - hdoi_oce
+    - o16i_oce
+    - w1_oce
+    - w2_oce
+    - w3_oce
+    - i1_oce
+    - i2_oce
+    - i3_oce
+    with_part_format: false
+    with_recom: true
+    with_wiso: false
+    xwind_prefix: u_10.
+    yearnew: 2000
+    ywind_prefix: v_10.
+general:
+    account: ab0995
+    additional_files: []
+    all_filetypes:
+    - analysis
+    - config
+    - log
+    - mon
+    - couple
+    - scripts
+    - ignore
+    - unknown
+    - src
+    - work
+    all_model_filetypes:
+    - analysis
+    - bin
+    - config
+    - forcing
+    - input
+    - couple
+    - log
+    - mon
+    - outdata
+    - restart_in
+    - restart_out
+    - viz
+    - ignore
+    base_dir: <TEST_DIR>/run/fesom/
+    batch: slurm
+    calendar: esm_calender object with no leap years allowed
+    check: false
+    chunk_number: 1
+    command_line_config:
+        check: false
+        current_date: null
+        expid: fesom2.1-recom-daily
+        ignore_config_warnings: false
+        inspect: null
+        jobtype: prepcompute
+        last_jobtype: prepcompute
+        launcher_pid: -666
+        no_motd: true
+        original_command: fesom2.1-recom-daily.yaml -e fesom2.1-recom-daily --open-run --no-motd --last-jobtype prepcompute
+        profile: false
+        run_number: null
+        runscript_abspath: <TEST_DIR>run/fesom/fesom2.1-recom-daily/scripts/fesom2.1-recom-daily.yaml
+        scriptname: fesom2.1-recom-daily.yaml
+        started_from: <TEST_DIR>run/fesom/fesom2.1-recom-daily/scripts/
+        update: false
+        update_filetypes: []
+        use_venv: false
+        verbose: false
+    compute_time: 00:30:00
+    current_date: '2000-01-01T00:00:00'
+    debug_info:
+        loaded_from_file: <HOME_DIR>/esm_tools/configs//defaults/general.yaml
+    defaults.yaml:
+        debug_info:
+            loaded_from_file: <HOME_DIR>/esm_tools/configs//esm_software/esm_runscripts/defaults.yaml
+        per_model_defaults: {}
+    delta_date:
+    - 0
+    - 1
+    - 0
+    - 0
+    - 0
+    - 0
+    end_date: '2000-01-31T00:00:00'
+    esm_function_dir: <HOME_DIR>/esm_tools/configs/
+    esm_namelist_dir: <HOME_DIR>/esm_tools/namelists/
+    esm_runscript_dir: <HOME_DIR>/esm_tools/runscripts/
+    experiment_analysis_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/analysis/
+    experiment_config_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/config/
+    experiment_couple_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/couple/
+    experiment_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily
+    experiment_ignore_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/ignore/
+    experiment_log_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/log/
+    experiment_log_file: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/log//fesom2.1-recom-daily_fesom.log
+    experiment_mon_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/mon/
+    experiment_scripts_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/scripts/
+    experiment_src_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/src/
+    experiment_unknown_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/unknown/
+    expid: fesom2.1-recom-daily
+    file_movements:
+        analysis:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        bin:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        config:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        couple:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        forcing:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        ignore:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        input:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        log:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        mon:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        outdata:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        restart_in:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        restart_out:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        scripts:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        unknown:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        viz:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+    final_date: '2000-04-01T00:00:00'
+    first_run_in_chunk: true
+    ignore_config_warnings: false
+    in_filetypes:
+    - scripts
+    - input
+    - forcing
+    - bin
+    - config
+    - restart_in
+    initial_date: '2000-01-01T00:00:00'
+    inspect: null
+    isinteractive: false
+    iterative_coupled_model: ''
+    jobid: 2717610
+    jobtype: prepcompute
+    last_jobtype: prepcompute
+    last_run_datestamp: 19991201-19991231
+    last_run_in_chunk: false
+    last_start_date: '1999-12-01T00:00:00'
+    launcher_pid: -666
+    leapyear: false
+    logfile_path: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/log//fesom2.1-recom-daily_fesom_prepcompute_20000101-20000131.log
+    logfile_path_in_run: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/log//fesom2.1-recom-daily_fesom_prepcompute_20000101-20000131.log
+    model_dir: <TEST_DIR>/comp/fesom/fesom-2.1-recom
+    models:
+    - recom
+    - fesom
+    nday: 0
+    next_date: '2000-02-01T00:00:00'
+    nhour: 0
+    nminute: 0
+    nmonth: 1
+    no_motd: true
+    nsecond: 0
+    nyear: 0
+    original_command: fesom2.1-recom-daily.yaml -e fesom2.1-recom-daily --open-run --no-motd --last-jobtype prepcompute
+    out_filetypes:
+    - analysis
+    - log
+    - mon
+    - scripts
+    - ignore
+    - unknown
+    - outdata
+    - restart_out
+    potentially_reusable_filetypes:
+    - analysis
+    - config
+    - log
+    - mon
+    - couple
+    - scripts
+    - ignore
+    - unknown
+    - src
+    - scripts
+    - input
+    - forcing
+    - bin
+    - config
+    - restart_in
+    prev_date: '1999-12-31T00:00:00'
+    profile: false
+    relevant_filetypes:
+    - bin
+    - config
+    - forcing
+    - input
+    - restart_in
+    reset_calendar_to_last: false
+    reusable_filetypes:
+    - bin
+    - src
+    run_datestamp: 20000101-20000131
+    run_number: 1
+    run_or_compile: runtime
+    runscript_abspath: <TEST_DIR>run/fesom/fesom2.1-recom-daily/scripts/fesom2.1-recom-daily.yaml
+    runtime:
+    - 0
+    - 1
+    - 31
+    - 744
+    - 44640
+    - 2678400
+    scriptname: fesom2.1-recom-daily.yaml
+    setup_name: fesom
+    standalone: true
+    start_date: '2000-01-01T00:00:00'
+    started_from: <TEST_DIR>run/fesom/fesom2.1-recom-daily/scripts/
+    submitted: false
+    thisrun_analysis_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/analysis/
+    thisrun_config_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/config/
+    thisrun_couple_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/couple/
+    thisrun_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131
+    thisrun_ignore_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/ignore/
+    thisrun_log_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/log/
+    thisrun_mon_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/mon/
+    thisrun_scripts_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/scripts/
+    thisrun_src_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/src/
+    thisrun_unknown_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/unknown/
+    thisrun_work_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work/
+    total_runtime:
+    - 0
+    - 1
+    - 31
+    - 744
+    - 44640
+    - 2678400
+    update: false
+    update_filetypes: []
+    use_database: false
+    use_venv: false
+    valid_model_names:
+    - fesom
+    - recom
+    valid_setup_names:
+    - computer
+    - general
+    verbose: false
+    work_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work/
+    workflow:
+        first_task_in_queue: prepcompute
+        last_task_in_queue: tidy
+        next_run_triggered_by: tidy
+        subjob_clusters:
+            compute:
+                batch_or_shell: batch
+                called_from: prepcompute
+                next_submit:
+                - tidy
+                nproc: 128
+                order_in_cluster: sequential
+                run_before: tidy
+                run_on_queue: compute
+                subjobs:
+                - compute_general
+                submit_to_batch_system: true
+            prepcompute:
+                batch_or_shell: SimulationSetup
+                called_from: tidy
+                next_submit:
+                - compute
+                nproc: 1
+                order_in_cluster: sequential
+                run_before: compute
+                subjobs:
+                - prepcompute_general
+                submit_to_batch_system: false
+            tidy:
+                batch_or_shell: SimulationSetup
+                called_from: compute
+                next_submit:
+                - prepcompute
+                nproc: 1
+                order_in_cluster: sequential
+                run_after: compute
+                subjobs:
+                - tidy_general
+                submit_to_batch_system: false
+        subjobs:
+            compute_general:
+                nproc: 128
+                run_before: tidy
+                run_on_queue: compute
+                subjob_cluster: compute
+                submit_to_batch_system: true
+            prepcompute_general:
+                nproc: 1
+                run_before: compute
+                subjob_cluster: prepcompute
+            tidy_general:
+                nproc: 1
+                run_after: compute
+                subjob_cluster: tidy
+recom:
+    12_step_outputs: []
+    CO2_for_spinup: 278
+    REcoM_PI: true
+    add_namelist_changes:
+        namelist.recom:
+            pavariables:
+                benthos_num: 8
+                bottflx_num: 8
+    all_filetypes:
+    - analysis
+    - bin
+    - config
+    - forcing
+    - input
+    - couple
+    - log
+    - mon
+    - outdata
+    - restart_in
+    - restart_out
+    - viz
+    - ignore
+    available_versions:
+    - 2
+    - 2.0-r
+    - 2.0-recom-awicm
+    benthos_num: 8
+    bin_dir: NONE/bin
+    bottflx_num: 8
+    branch: oxygen
+    check_error:
+        'ERROR: CANNOT READ runoff FILE CORRECTLY':
+            file: stdout
+            frequency: 30
+            message: 'REcoM ERROR: CANNOT READ runoff FILE CORRECTLY'
+            method: kill
+    clean_command: rm -rf build CMakeCache.txt
+    comp_command: mkdir -p build; cd build; cmake ..;  make -j `nproc --all`
+    config_intermediate:
+        recom: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/config/recom/namelist.recom
+    config_sources:
+        recom: <TEST_DIR>/comp/fesom/fesom-2.1-recom/config//namelist.recom.ciso
+    config_targets:
+        recom: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/work/namelist.recom
+    constant_CO2: true
+    currentCO2cycle: 1
+    daily_outputs: []
+    data_path: /home/a/a270105/initial_files/pi_init/dust_coremesh/
+    debug_info:
+        loaded_from_file: <HOME_DIR>/esm_tools/configs//components/recom/recom.yaml
+    destination: recom
+    experiment_analysis_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/analysis/recom/
+    experiment_bin_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/bin/recom/
+    experiment_config_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/config/recom/
+    experiment_couple_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/couple/recom/
+    experiment_forcing_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/forcing/recom/
+    experiment_ignore_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/ignore/recom/
+    experiment_input_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/input/recom/
+    experiment_log_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/log/recom/
+    experiment_mon_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/mon/recom/
+    experiment_outdata_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/outdata/recom/
+    experiment_restart_in_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/restart/recom/
+    experiment_restart_out_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/restart/recom/
+    experiment_viz_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/viz/recom/
+    fesom2_standalone: true
+    file_movements:
+        analysis:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        bin:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        config:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        couple:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        forcing:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        ignore:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        input:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        log:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        mon:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        outdata:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        restart_in:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        restart_out:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        scripts:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        unknown:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        viz:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+    firstyearoffesomcycle: 2000
+    git-repository: https://gitlab.dkrz.de/modular_esm/recom.git
+    install_libs:
+    - build/librecom.a
+    last_parent_date: '1999-12-31T23:00:00'
+    lastyearoffesomcycle: 2000
+    leapyear: false
+    lresume: false
+    metadata:
+        Authors: Judith Hauck, Ozgur Gurses
+        Description: REcoM (Regulated Ecosystem Model) is an ecosystem and biogeochemistry model.
+        Institute: Alfred Wegener Institute for Polar and Marine Research (AWI)
+        License: https://recom.readthedocs.io/en/latest/index.html
+        Publications:
+        - Seasonally different carbon flux changes in the Southern Ocean in response to the southern annular mode <https://doi.org/10.1002/2013GB004600>
+        - Arctic Ocean biogeochemistry in the high resolution FESOM 1.4-REcoM2 model <https://doi.org/10.1016/j.pocean.2018.09.006>
+    model: recom
+    model_dir: NONE
+    monthly_outputs:
+    - aCO2
+    - aFe
+    - aN
+    - bgc01
+    - bgc02
+    - bgc03
+    - bgc04
+    - bgc05
+    - bgc06
+    - bgc07
+    - bgc08
+    - bgc09
+    - bgc10
+    - bgc11
+    - bgc12
+    - bgc13
+    - bgc14
+    - bgc15
+    - bgc16
+    - bgc17
+    - bgc18
+    - bgc19
+    - bgc20
+    - bgc21
+    - bgc22
+    - CO2f
+    - CO2y
+    - diags3d01
+    - diags3d02
+    - dpCO2s
+    - GPPd
+    - GPPn
+    - NPPd
+    - NPPn
+    - O2f
+    - PAR
+    - pCO2s
+    - slp
+    - virtual_alk
+    - virtual_dfe
+    - virtual_dic
+    - virtual_din
+    - virtual_dsi
+    - virtual_oxy
+    - w10w
+    - bgc23
+    - bgc24
+    - bgc25
+    - bgc26
+    - bgc27
+    - bgc28
+    - diags3d03
+    - diags3d04
+    - diags3d05
+    - diags3d06
+    - diags3d07
+    - diags3d08
+    - diags3d09
+    - diags3d10
+    - diags3d11
+    - diags3d12
+    - diags3d13
+    - diags3d14
+    - diags3d15
+    - diags3d16
+    - diags3d17
+    - diags3d18
+    - diags3d19
+    - diags3d20
+    namelist_changes:
+        namelist.recom:
+            paco2_flux_param: {}
+            pavariables:
+                DIC_PI: false
+                REcoMDataPath: /home/a/a270105/initial_files/pi_init/dust_coremesh/
+                benthos_num: 8
+                bottflx_num: 8
+                ciso: true
+                recom_restart: false
+                use_atbox: true
+    namelist_dir: <TEST_DIR>/comp/fesom/fesom-2.1-recom/config/
+    namelist_objs:
+        namelist.recom: &id009 f90nml.name
+    namelist_sce: ''
+    namelists:
+        namelist.recom: *id009
+    numofCO2cycles: 1
+    outdata_intermediate:
+        AGGdia3d: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/AGGdia3d_fesom_20000101.nc
+        AGGphy3d: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/AGGphy3d_fesom_20000101.nc
+        CO2f: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/CO2f_fesom_20000101.nc
+        CO2y: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/CO2y_fesom_20000101.nc
+        EXCdia3d: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/EXCdia3d_fesom_20000101.nc
+        EXCphy3d: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/EXCphy3d_fesom_20000101.nc
+        GNAd: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/GNAd_fesom_20000101.nc
+        GNAn: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/GNAn_fesom_20000101.nc
+        GNAsdia3d: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/GNAsdia3d_fesom_20000101.nc
+        GNAsphy3d: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/GNAsphy3d_fesom_20000101.nc
+        GPPd: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/GPPd_fesom_20000101.nc
+        GPPdia3d: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/GPPdia3d_fesom_20000101.nc
+        GPPn: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/GPPn_fesom_20000101.nc
+        GPPphy3d: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/GPPphy3d_fesom_20000101.nc
+        GRAZdia3d: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/GRAZdia3d_fesom_20000101.nc
+        GRAZphy3d: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/GRAZphy3d_fesom_20000101.nc
+        Hp: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/Hp_fesom_20000101.nc
+        Kw: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/Kw_fesom_20000101.nc
+        NNAd: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/NNAd_fesom_20000101.nc
+        NNAn: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/NNAn_fesom_20000101.nc
+        NNAsdia3d: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/NNAsdia3d_fesom_20000101.nc
+        NNAsphy3d: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/NNAsphy3d_fesom_20000101.nc
+        NPPd: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/NPPd_fesom_20000101.nc
+        NPPdia3d: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/NPPdia3d_fesom_20000101.nc
+        NPPn: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/NPPn_fesom_20000101.nc
+        NPPphy3d: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/NPPphy3d_fesom_20000101.nc
+        O2f: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/O2f_fesom_20000101.nc
+        PAR: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/PAR_fesom_20000101.nc
+        RESdia3d: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/RESdia3d_fesom_20000101.nc
+        RESphy3d: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/RESphy3d_fesom_20000101.nc
+        RESzoo3d: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/RESzoo3d_fesom_20000101.nc
+        TotGraz3d: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/TotGraz3d_fesom_20000101.nc
+        aCO2: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/aCO2_fesom_20000101.nc
+        aFe: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/aFe_fesom_20000101.nc
+        aN: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/aN_fesom_20000101.nc
+        alphaCO2: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/alphaCO2_fesom_20000101.nc
+        benC: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/benC_fesom_20000101.nc
+        benCalc: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/benCalc_fesom_20000101.nc
+        benN: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/benN_fesom_20000101.nc
+        benSi: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/benSi_fesom_20000101.nc
+        bgc01: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/bgc01_fesom_20000101.nc
+        bgc02: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/bgc02_fesom_20000101.nc
+        bgc03: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/bgc03_fesom_20000101.nc
+        bgc04: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/bgc04_fesom_20000101.nc
+        bgc05: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/bgc05_fesom_20000101.nc
+        bgc06: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/bgc06_fesom_20000101.nc
+        bgc07: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/bgc07_fesom_20000101.nc
+        bgc08: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/bgc08_fesom_20000101.nc
+        bgc09: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/bgc09_fesom_20000101.nc
+        bgc10: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/bgc10_fesom_20000101.nc
+        bgc11: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/bgc11_fesom_20000101.nc
+        bgc12: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/bgc12_fesom_20000101.nc
+        bgc13: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/bgc13_fesom_20000101.nc
+        bgc14: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/bgc14_fesom_20000101.nc
+        bgc15: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/bgc15_fesom_20000101.nc
+        bgc16: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/bgc16_fesom_20000101.nc
+        bgc17: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/bgc17_fesom_20000101.nc
+        bgc18: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/bgc18_fesom_20000101.nc
+        bgc19: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/bgc19_fesom_20000101.nc
+        bgc20: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/bgc20_fesom_20000101.nc
+        bgc21: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/bgc21_fesom_20000101.nc
+        bgc22: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/bgc22_fesom_20000101.nc
+        bgc23: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/bgc23_fesom_20000101.nc
+        bgc24: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/bgc24_fesom_20000101.nc
+        bgc25: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/bgc25_fesom_20000101.nc
+        bgc26: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/bgc26_fesom_20000101.nc
+        bgc27: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/bgc27_fesom_20000101.nc
+        bgc28: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/bgc28_fesom_20000101.nc
+        calcdiss: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/calcdiss_fesom_20000101.nc
+        calcif3d: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/calcif3d_fesom_20000101.nc
+        denb: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/denb_fesom_20000101.nc
+        diags3d01: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/diags3d01_fesom_20000101.nc
+        diags3d02: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/diags3d02_fesom_20000101.nc
+        diags3d03: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/diags3d03_fesom_20000101.nc
+        diags3d04: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/diags3d04_fesom_20000101.nc
+        diags3d05: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/diags3d05_fesom_20000101.nc
+        diags3d06: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/diags3d06_fesom_20000101.nc
+        diags3d07: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/diags3d07_fesom_20000101.nc
+        diags3d08: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/diags3d08_fesom_20000101.nc
+        diags3d09: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/diags3d09_fesom_20000101.nc
+        diags3d10: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/diags3d10_fesom_20000101.nc
+        diags3d11: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/diags3d11_fesom_20000101.nc
+        diags3d12: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/diags3d12_fesom_20000101.nc
+        diags3d13: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/diags3d13_fesom_20000101.nc
+        diags3d14: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/diags3d14_fesom_20000101.nc
+        diags3d15: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/diags3d15_fesom_20000101.nc
+        diags3d16: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/diags3d16_fesom_20000101.nc
+        diags3d17: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/diags3d17_fesom_20000101.nc
+        diags3d18: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/diags3d18_fesom_20000101.nc
+        diags3d19: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/diags3d19_fesom_20000101.nc
+        diags3d20: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/diags3d20_fesom_20000101.nc
+        dpCO2s: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/dpCO2s_fesom_20000101.nc
+        pCO2s: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/pCO2s_fesom_20000101.nc
+        rDIN: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/rDIN_fesom_20000101.nc
+        rDOC: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/rDOC_fesom_20000101.nc
+        rDON: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/rDON_fesom_20000101.nc
+        rDSi: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/rDSi_fesom_20000101.nc
+        slp: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/slp_fesom_20000101.nc
+        virtual_alk: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/virtual_alk_fesom_20000101.nc
+        virtual_dfe: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/virtual_dfe_fesom_20000101.nc
+        virtual_dic: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/virtual_dic_fesom_20000101.nc
+        virtual_din: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/virtual_din_fesom_20000101.nc
+        virtual_dsi: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/virtual_dsi_fesom_20000101.nc
+        virtual_oxy: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/virtual_oxy_fesom_20000101.nc
+        w10w: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/w10w_fesom_20000101.nc
+    outdata_sources:
+        AGGdia3d: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//AGGdia3d_fesom_20000101.nc
+        AGGphy3d: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//AGGphy3d_fesom_20000101.nc
+        CO2f: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//CO2f_fesom_20000101.nc
+        CO2y: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//CO2y_fesom_20000101.nc
+        EXCdia3d: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//EXCdia3d_fesom_20000101.nc
+        EXCphy3d: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//EXCphy3d_fesom_20000101.nc
+        GNAd: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//GNAd_fesom_20000101.nc
+        GNAn: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//GNAn_fesom_20000101.nc
+        GNAsdia3d: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//GNAsdia3d_fesom_20000101.nc
+        GNAsphy3d: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//GNAsphy3d_fesom_20000101.nc
+        GPPd: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//GPPd_fesom_20000101.nc
+        GPPdia3d: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//GPPdia3d_fesom_20000101.nc
+        GPPn: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//GPPn_fesom_20000101.nc
+        GPPphy3d: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//GPPphy3d_fesom_20000101.nc
+        GRAZdia3d: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//GRAZdia3d_fesom_20000101.nc
+        GRAZphy3d: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//GRAZphy3d_fesom_20000101.nc
+        Hp: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//Hp_fesom_20000101.nc
+        Kw: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//Kw_fesom_20000101.nc
+        NNAd: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//NNAd_fesom_20000101.nc
+        NNAn: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//NNAn_fesom_20000101.nc
+        NNAsdia3d: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//NNAsdia3d_fesom_20000101.nc
+        NNAsphy3d: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//NNAsphy3d_fesom_20000101.nc
+        NPPd: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//NPPd_fesom_20000101.nc
+        NPPdia3d: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//NPPdia3d_fesom_20000101.nc
+        NPPn: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//NPPn_fesom_20000101.nc
+        NPPphy3d: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//NPPphy3d_fesom_20000101.nc
+        O2f: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//O2f_fesom_20000101.nc
+        PAR: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//PAR_fesom_20000101.nc
+        RESdia3d: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//RESdia3d_fesom_20000101.nc
+        RESphy3d: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//RESphy3d_fesom_20000101.nc
+        RESzoo3d: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//RESzoo3d_fesom_20000101.nc
+        TotGraz3d: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//TotGraz3d_fesom_20000101.nc
+        aCO2: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//aCO2_fesom_20000101.nc
+        aFe: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//aFe_fesom_20000101.nc
+        aN: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//aN_fesom_20000101.nc
+        alphaCO2: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//alphaCO2_fesom_20000101.nc
+        benC: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//benC_fesom_20000101.nc
+        benCalc: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//benCalc_fesom_20000101.nc
+        benN: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//benN_fesom_20000101.nc
+        benSi: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//benSi_fesom_20000101.nc
+        bgc01: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//bgc01_fesom_20000101.nc
+        bgc02: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//bgc02_fesom_20000101.nc
+        bgc03: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//bgc03_fesom_20000101.nc
+        bgc04: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//bgc04_fesom_20000101.nc
+        bgc05: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//bgc05_fesom_20000101.nc
+        bgc06: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//bgc06_fesom_20000101.nc
+        bgc07: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//bgc07_fesom_20000101.nc
+        bgc08: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//bgc08_fesom_20000101.nc
+        bgc09: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//bgc09_fesom_20000101.nc
+        bgc10: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//bgc10_fesom_20000101.nc
+        bgc11: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//bgc11_fesom_20000101.nc
+        bgc12: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//bgc12_fesom_20000101.nc
+        bgc13: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//bgc13_fesom_20000101.nc
+        bgc14: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//bgc14_fesom_20000101.nc
+        bgc15: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//bgc15_fesom_20000101.nc
+        bgc16: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//bgc16_fesom_20000101.nc
+        bgc17: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//bgc17_fesom_20000101.nc
+        bgc18: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//bgc18_fesom_20000101.nc
+        bgc19: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//bgc19_fesom_20000101.nc
+        bgc20: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//bgc20_fesom_20000101.nc
+        bgc21: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//bgc21_fesom_20000101.nc
+        bgc22: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//bgc22_fesom_20000101.nc
+        bgc23: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//bgc23_fesom_20000101.nc
+        bgc24: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//bgc24_fesom_20000101.nc
+        bgc25: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//bgc25_fesom_20000101.nc
+        bgc26: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//bgc26_fesom_20000101.nc
+        bgc27: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//bgc27_fesom_20000101.nc
+        bgc28: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//bgc28_fesom_20000101.nc
+        calcdiss: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//calcdiss_fesom_20000101.nc
+        calcif3d: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//calcif3d_fesom_20000101.nc
+        denb: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//denb_fesom_20000101.nc
+        diags3d01: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//diags3d01_fesom_20000101.nc
+        diags3d02: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//diags3d02_fesom_20000101.nc
+        diags3d03: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//diags3d03_fesom_20000101.nc
+        diags3d04: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//diags3d04_fesom_20000101.nc
+        diags3d05: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//diags3d05_fesom_20000101.nc
+        diags3d06: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//diags3d06_fesom_20000101.nc
+        diags3d07: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//diags3d07_fesom_20000101.nc
+        diags3d08: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//diags3d08_fesom_20000101.nc
+        diags3d09: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//diags3d09_fesom_20000101.nc
+        diags3d10: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//diags3d10_fesom_20000101.nc
+        diags3d11: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//diags3d11_fesom_20000101.nc
+        diags3d12: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//diags3d12_fesom_20000101.nc
+        diags3d13: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//diags3d13_fesom_20000101.nc
+        diags3d14: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//diags3d14_fesom_20000101.nc
+        diags3d15: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//diags3d15_fesom_20000101.nc
+        diags3d16: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//diags3d16_fesom_20000101.nc
+        diags3d17: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//diags3d17_fesom_20000101.nc
+        diags3d18: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//diags3d18_fesom_20000101.nc
+        diags3d19: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//diags3d19_fesom_20000101.nc
+        diags3d20: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//diags3d20_fesom_20000101.nc
+        dpCO2s: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//dpCO2s_fesom_20000101.nc
+        pCO2s: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//pCO2s_fesom_20000101.nc
+        rDIN: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//rDIN_fesom_20000101.nc
+        rDOC: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//rDOC_fesom_20000101.nc
+        rDON: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//rDON_fesom_20000101.nc
+        rDSi: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//rDSi_fesom_20000101.nc
+        slp: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//slp_fesom_20000101.nc
+        virtual_alk: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//virtual_alk_fesom_20000101.nc
+        virtual_dfe: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//virtual_dfe_fesom_20000101.nc
+        virtual_dic: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//virtual_dic_fesom_20000101.nc
+        virtual_din: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//virtual_din_fesom_20000101.nc
+        virtual_dsi: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//virtual_dsi_fesom_20000101.nc
+        virtual_oxy: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//virtual_oxy_fesom_20000101.nc
+        w10w: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//w10w_fesom_20000101.nc
+    outdata_targets:
+        AGGdia3d: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/AGGdia3d_fesom_20000101.nc
+        AGGphy3d: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/AGGphy3d_fesom_20000101.nc
+        CO2f: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/CO2f_fesom_20000101.nc
+        CO2y: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/CO2y_fesom_20000101.nc
+        EXCdia3d: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/EXCdia3d_fesom_20000101.nc
+        EXCphy3d: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/EXCphy3d_fesom_20000101.nc
+        GNAd: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/GNAd_fesom_20000101.nc
+        GNAn: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/GNAn_fesom_20000101.nc
+        GNAsdia3d: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/GNAsdia3d_fesom_20000101.nc
+        GNAsphy3d: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/GNAsphy3d_fesom_20000101.nc
+        GPPd: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/GPPd_fesom_20000101.nc
+        GPPdia3d: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/GPPdia3d_fesom_20000101.nc
+        GPPn: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/GPPn_fesom_20000101.nc
+        GPPphy3d: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/GPPphy3d_fesom_20000101.nc
+        GRAZdia3d: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/GRAZdia3d_fesom_20000101.nc
+        GRAZphy3d: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/GRAZphy3d_fesom_20000101.nc
+        Hp: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/Hp_fesom_20000101.nc
+        Kw: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/Kw_fesom_20000101.nc
+        NNAd: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/NNAd_fesom_20000101.nc
+        NNAn: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/NNAn_fesom_20000101.nc
+        NNAsdia3d: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/NNAsdia3d_fesom_20000101.nc
+        NNAsphy3d: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/NNAsphy3d_fesom_20000101.nc
+        NPPd: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/NPPd_fesom_20000101.nc
+        NPPdia3d: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/NPPdia3d_fesom_20000101.nc
+        NPPn: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/NPPn_fesom_20000101.nc
+        NPPphy3d: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/NPPphy3d_fesom_20000101.nc
+        O2f: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/O2f_fesom_20000101.nc
+        PAR: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/PAR_fesom_20000101.nc
+        RESdia3d: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/RESdia3d_fesom_20000101.nc
+        RESphy3d: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/RESphy3d_fesom_20000101.nc
+        RESzoo3d: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/RESzoo3d_fesom_20000101.nc
+        TotGraz3d: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/TotGraz3d_fesom_20000101.nc
+        aCO2: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/aCO2_fesom_20000101.nc
+        aFe: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/aFe_fesom_20000101.nc
+        aN: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/aN_fesom_20000101.nc
+        alphaCO2: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/alphaCO2_fesom_20000101.nc
+        benC: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/benC_fesom_20000101.nc
+        benCalc: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/benCalc_fesom_20000101.nc
+        benN: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/benN_fesom_20000101.nc
+        benSi: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/benSi_fesom_20000101.nc
+        bgc01: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/bgc01_fesom_20000101.nc
+        bgc02: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/bgc02_fesom_20000101.nc
+        bgc03: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/bgc03_fesom_20000101.nc
+        bgc04: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/bgc04_fesom_20000101.nc
+        bgc05: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/bgc05_fesom_20000101.nc
+        bgc06: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/bgc06_fesom_20000101.nc
+        bgc07: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/bgc07_fesom_20000101.nc
+        bgc08: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/bgc08_fesom_20000101.nc
+        bgc09: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/bgc09_fesom_20000101.nc
+        bgc10: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/bgc10_fesom_20000101.nc
+        bgc11: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/bgc11_fesom_20000101.nc
+        bgc12: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/bgc12_fesom_20000101.nc
+        bgc13: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/bgc13_fesom_20000101.nc
+        bgc14: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/bgc14_fesom_20000101.nc
+        bgc15: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/bgc15_fesom_20000101.nc
+        bgc16: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/bgc16_fesom_20000101.nc
+        bgc17: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/bgc17_fesom_20000101.nc
+        bgc18: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/bgc18_fesom_20000101.nc
+        bgc19: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/bgc19_fesom_20000101.nc
+        bgc20: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/bgc20_fesom_20000101.nc
+        bgc21: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/bgc21_fesom_20000101.nc
+        bgc22: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/bgc22_fesom_20000101.nc
+        bgc23: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/bgc23_fesom_20000101.nc
+        bgc24: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/bgc24_fesom_20000101.nc
+        bgc25: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/bgc25_fesom_20000101.nc
+        bgc26: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/bgc26_fesom_20000101.nc
+        bgc27: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/bgc27_fesom_20000101.nc
+        bgc28: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/bgc28_fesom_20000101.nc
+        calcdiss: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/calcdiss_fesom_20000101.nc
+        calcif3d: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/calcif3d_fesom_20000101.nc
+        denb: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/denb_fesom_20000101.nc
+        diags3d01: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/diags3d01_fesom_20000101.nc
+        diags3d02: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/diags3d02_fesom_20000101.nc
+        diags3d03: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/diags3d03_fesom_20000101.nc
+        diags3d04: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/diags3d04_fesom_20000101.nc
+        diags3d05: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/diags3d05_fesom_20000101.nc
+        diags3d06: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/diags3d06_fesom_20000101.nc
+        diags3d07: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/diags3d07_fesom_20000101.nc
+        diags3d08: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/diags3d08_fesom_20000101.nc
+        diags3d09: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/diags3d09_fesom_20000101.nc
+        diags3d10: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/diags3d10_fesom_20000101.nc
+        diags3d11: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/diags3d11_fesom_20000101.nc
+        diags3d12: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/diags3d12_fesom_20000101.nc
+        diags3d13: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/diags3d13_fesom_20000101.nc
+        diags3d14: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/diags3d14_fesom_20000101.nc
+        diags3d15: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/diags3d15_fesom_20000101.nc
+        diags3d16: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/diags3d16_fesom_20000101.nc
+        diags3d17: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/diags3d17_fesom_20000101.nc
+        diags3d18: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/diags3d18_fesom_20000101.nc
+        diags3d19: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/diags3d19_fesom_20000101.nc
+        diags3d20: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/diags3d20_fesom_20000101.nc
+        dpCO2s: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/dpCO2s_fesom_20000101.nc
+        pCO2s: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/pCO2s_fesom_20000101.nc
+        rDIN: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/rDIN_fesom_20000101.nc
+        rDOC: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/rDOC_fesom_20000101.nc
+        rDON: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/rDON_fesom_20000101.nc
+        rDSi: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/rDSi_fesom_20000101.nc
+        slp: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/slp_fesom_20000101.nc
+        virtual_alk: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/virtual_alk_fesom_20000101.nc
+        virtual_dfe: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/virtual_dfe_fesom_20000101.nc
+        virtual_dic: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/virtual_dic_fesom_20000101.nc
+        virtual_din: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/virtual_din_fesom_20000101.nc
+        virtual_dsi: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/virtual_dsi_fesom_20000101.nc
+        virtual_oxy: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/virtual_oxy_fesom_20000101.nc
+        w10w: <TEST_DIR>run/fesom/fesom2.1-recom-daily/outdata/recom/w10w_fesom_20000101.nc
+    parent_date: '1999-12-31T23:30:00'
+    parent_expid: fesom2.1-recom-daily
+    parent_restart_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/restart/recom/
+    prev_date: '1999-12-31T23:30:00'
+    recom_namelist: namelist.recom.ciso
+    remove_namelist_changes.namelist.recom.paco2_flux_param:
+    - CO2_for_spinup
+    remove_namelist_changes.namelist.recom.pavariables:
+    - constant_CO2
+    - firstyearoffesomcycle
+    - lastyearoffesomcycle
+    - numofCO2cycles
+    - currentCO2cycle
+    - REcoM_PI
+    restart_name: restart.
+    restart_out_intermediate:
+        bio_restart: <TEST_DIR>run/fesom/fesom2.1-recom-daily/run_20000101-20000131/restart/recom/fesom.2000.bio.nc
+    restart_out_sources:
+        bio_restart: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/work//fesom.2000.bio.restart.nc
+    restart_out_targets:
+        bio_restart: <TEST_DIR>run/fesom/fesom2.1-recom-daily/restart/recom/fesom.2000.bio.nc
+    scenario: PI-CTRL
+    setup_dir: NONE
+    thisrun_analysis_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/analysis/recom/
+    thisrun_bin_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/bin/recom/
+    thisrun_config_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/config/recom/
+    thisrun_couple_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/couple/recom/
+    thisrun_forcing_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/forcing/recom/
+    thisrun_ignore_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/ignore/recom/
+    thisrun_input_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/input/recom/
+    thisrun_log_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/log/recom/
+    thisrun_mon_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/mon/recom/
+    thisrun_outdata_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/outdata/recom/
+    thisrun_restart_in_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/restart/recom/
+    thisrun_restart_out_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/restart/recom/
+    thisrun_viz_dir: <TEST_DIR>/run/fesom//fesom2.1-recom-daily/run_20000101-20000131/viz/recom/
+    time_step: 1800
+    use_atbox: remove_from_namelists
+    use_ciso: true
+    use_medusa: false
+    version: 2
+    yearly_outputs:
+    - alphaCO2
+    - benC
+    - benCalc
+    - benN
+    - benSi
+    - denb
+    - GNAd
+    - GNAn
+    - Hp
+    - Kw
+    - NNAd
+    - NNAn
+    - rDIN
+    - rDOC
+    - rDON
+    - rDSi
+    - AGGdia3d
+    - AGGphy3d
+    - calcdiss
+    - calcif3d
+    - EXCdia3d
+    - EXCphy3d
+    - GNAsdia3d
+    - GNAsphy3d
+    - GPPdia3d
+    - GPPphy3d
+    - GRAZdia3d
+    - GRAZphy3d
+    - NNAsdia3d
+    - NNAsphy3d
+    - NPPdia3d
+    - NPPphy3d
+    - RESdia3d
+    - RESphy3d
+    - RESzoo3d
+    - TotGraz3d

@@ -1,0 +1,21 @@
+comp:
+        actual:
+                files:
+                    - "bin/medusa_recom_paleo"
+        check: {}
+run:
+        actual:
+                errors:
+                    - "MISSING FILES"
+                files:
+                    - "outdata/medusa/medusa_aux.nc"
+                    - "outdata/medusa/medusa_bc.*.nc"
+                    - "outdata/medusa/medusa_procrate.*.nc"
+                    - "outdata/medusa/medusa_reaclay.*.nc"
+                    - "outdata/medusa/medusa_reaction.*.nc"
+                    - "outdata/medusa/medusa_flux2fesom.*.nc"
+                    - "restart/medusa/medusa_flx.*.nc"
+                    - "restart/medusa/medusa_reaclay.*.nc"
+        check: {}
+computers:
+        - levante

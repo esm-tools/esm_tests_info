@@ -1,0 +1,92 @@
+general:
+        base_dir: !ENV ${ESM_TESTING_DIR}
+        initial_date: "2000-01-01"
+        final_date: "2000-04-01"
+        setup_name: fesom
+        compute_time: 00:30:00
+        nyear: 0
+        nmonth: 1
+        nday: 0
+        account: !ENV ${ACCOUNT}
+        model_dir: !ENV ${MODEL_DIR}
+        #use_venv: False
+        #submit_to_batch_system: False
+
+fesom:
+        version: "2.1-recom"
+        with_recom: true
+        nproc: 128
+        mpi_num_groups: 2
+        lresume: False
+        restart_rate: 1
+        restart_first: 1
+        restart_unit: 'm'
+        mesh_dir: /work/k20200/k202138/bb1029/AWIESM2.1-EXP/mesh_core2/
+        climate_data_dir: "/home/a/a270105/initial_files/pi_init/"
+        run_length: 1
+
+        # FESOM-RECOM BLOCK ###########################################################
+        # Copied from awiesm.yaml: FESOM-2.1-REcoM was never implemented as standalone
+        # version
+        # TODO: eventually move this to fesom-2.1.yaml?
+        #version: "2.1-recom"
+        ALE_scheme: 'zstar'
+
+        namelist_changes:
+            namelist.forcing:
+                nam_sbc:
+                    y_perpetual: false
+            # Changes to produce monthly output for the automatic tests
+            namelist.io:
+                nml_list:
+                    io_list: [
+                        'sst       ',1, 'm', 4,
+                        'sss       ',1, 'm', 4,
+                        'ssh       ',1, 'm', 4,
+                        'uice      ',1, 'm', 4,
+                        'vice      ',1, 'm', 4,
+                        'a_ice     ',1, 'm', 4,
+                        'm_ice     ',1, 'm', 4,
+                        'm_snow    ',1, 'm', 4,
+                        'MLD1      ',1, 'm', 4,
+                        'MLD2      ',1, 'm', 4,
+                        'tx_sur    ',1, 'm', 4,
+                        'ty_sur    ',1, 'm', 4
+                    ]
+#                namelist.config:
+#                        paths:
+#                            ForcingDataPath: remove_from_namelist
+#                            OpbndPath: remove_from_namelist
+#                            TideForcingPath: remove_from_namelist
+
+
+recom:
+    use_ciso: true
+    use_medusa: false
+    lresume: false
+    benthos_num: 8
+    bottflx_num: 8
+    add_namelist_changes:
+        namelist.recom:
+            pavariables:
+                benthos_num: "${benthos_num}"
+                bottflx_num: "${bottflx_num}"
+    data_path: /home/a/a270105/initial_files/pi_init/dust_coremesh/
+    restart_name: "restart."
+    remove_namelist_changes.namelist.recom.pavariables:
+        - constant_CO2
+        - firstyearoffesomcycle
+        - lastyearoffesomcycle
+        - numofCO2cycles
+        - currentCO2cycle
+        - REcoM_PI
+    remove_namelist_changes.namelist.recom.paco2_flux_param:
+        - CO2_for_spinup
+
+    namelist_changes:
+        namelist.recom:
+            pavariables:
+                DIC_PI: false
+                use_atbox: true
+
+        # END FESOM-RECOM BLOCK #######################################################
