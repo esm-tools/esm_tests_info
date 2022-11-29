@@ -292,6 +292,7 @@ echam:
                 git-repository: https://gitlab.awi.de/paleodyn/Models/echam6.git
         clean_command: rm -rf build CMakeCache.txt
         comp_command: mkdir -p build; cd build; cmake ..;   make install -j `nproc --all`
+        contact: miguel.andres-martinez(at)awi.de, paul.gierz(at)awi.de
         git-repository: https://gitlab.dkrz.de/modular_esm/echam6.git
         install_bins: src/echam/bin/echam6
     compiletime_environment_changes: *id002
@@ -1395,6 +1396,7 @@ fesom:
         icepack: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010101/work/namelist.icepack
         io: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010101/work/namelist.io
         oce: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010101/work/namelist.oce
+    contact: dmitry.sidorenko(at)awi.de, nikolay.koldunov(at)awi.de, miguel.andres-martinez(at)awi.de, paul.gierz(at)awi.de
     coupling_fields:
         evap_oce:
             grid: feom
@@ -2002,9 +2004,8 @@ general:
     initial_date: '2001-01-01T00:00:00'
     inspect: null
     isinteractive: false
-    iterative_coupled_model: ''
     jP: /pf/a/a270064/bb1029/AWIESM2.1-EXP/mesh_core2/tarfilesT63/input/jsbach/jsbach_T63CORE2_11tiles_5layers_1850.nc
-    jobid: 979
+    jobid: 1065
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 20001231-20001231
@@ -2784,7 +2785,6 @@ oasis3mct:
     - 4.0-awicm-frontiers
     - 4.0-awicm-3.0
     - 4.0-awicm-3.1
-    - 5.0-smhi
     branch: v2.8
     cf_name_dir: <TEST_DIR>/comp/awiesm/awiesm-2.1-recom/oasis
     clean_command: rm -rf build CMakeCache.txt include lib/libpsmile.a lib/libscrip.a lib/libmct.a lib/libmpeu.a
@@ -2799,6 +2799,7 @@ oasis3mct:
     config_targets:
         cf: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010101/work/cf_name_table.txt
         namcouple: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010101/work/namcouple
+    contact: miguel.andres-martinez(at)awi.de, paul.gierz(at)awi.de
     coupling_directions:
         atmo->feom:
             lag: 450
@@ -3228,6 +3229,7 @@ recom:
     config_targets:
         recom: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010101/work/namelist.recom
     constant_CO2: true
+    contact: miguel.andres-martinez(at)awi.de, ozgur.gurses(at)awi.de
     currentCO2cycle: 1
     daily_outputs: []
     data_path: /home/a/a270105/initial_files/pi_init/dust_coremesh/
