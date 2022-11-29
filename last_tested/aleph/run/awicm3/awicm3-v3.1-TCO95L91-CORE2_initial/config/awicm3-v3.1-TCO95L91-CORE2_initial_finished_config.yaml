@@ -978,6 +978,7 @@ general:
     initial_date: '2000-01-01T00:00:00'
     inspect: null
     isinteractive: false
+    iterative_coupled_model: ''
     jobid: 767
     jobtype: prepcompute
     last_jobtype: prepcompute
@@ -1318,19 +1319,17 @@ oasis3mct:
     - 4.0-awicm-frontiers
     - 4.0-awicm-3.0
     - 4.0-awicm-3.1
+    - 5.0-smhi
     branch: v2.8
     cf_name_dir: <TEST_DIR>/comp/awicm3/awicm3-v3.1/oasis
     clean_command: rm -rf build CMakeCache.txt include lib/libpsmile.a lib/libscrip.a lib/libmct.a lib/libmpeu.a
     comp_command: mkdir -p build; cd build; cmake ..;   make -j 1; mkdir -p ../include/; cp lib/psmile/libpsmile.a lib/psmile/mct/libmct.a lib/psmile/mct/mpeu/libmpeu.a lib/psmile/scrip/libscrip.a ../lib; cp lib/psmile/mod_oasis*mod ../include
     compiletime_environment_changes: *id002
     config_intermediate:
-        cf: <TEST_DIR>run/awicm3/awicm3-v3.1-TCO95L91-CORE2_initial/run_20000101-20000101/config/oasis3mct/cf_name_table.txt
         namcouple: <TEST_DIR>run/awicm3/awicm3-v3.1-TCO95L91-CORE2_initial/run_20000101-20000101/config/oasis3mct/namcouple
     config_sources:
-        cf: <TEST_DIR>/comp/awicm3/awicm3-v3.1/oasis/cf_name_table.txt
         namcouple: <TEST_DIR>/run/awicm3//awicm3-v3.1-TCO95L91-CORE2_initial/run_20000101-20000101/config/oasis3mct//namcouple
     config_targets:
-        cf: <TEST_DIR>run/awicm3/awicm3-v3.1-TCO95L91-CORE2_initial/run_20000101-20000101/work/cf_name_table.txt
         namcouple: <TEST_DIR>run/awicm3/awicm3-v3.1-TCO95L91-CORE2_initial/run_20000101-20000101/work/namcouple
     contact: miguel.andres-martinez(at)awi.de, paul.gierz(at)awi.de
     coupling_directions:
@@ -1792,6 +1791,7 @@ oifs:
     - restart_out
     - viz
     - ignore
+    append_icmcl: ''
     awicm3_fields:
     - A_Qns_oce
     - A_Qs_all
@@ -1820,6 +1820,7 @@ oifs:
         bin: <TEST_DIR>run/awicm3/awicm3-v3.1-TCO95L91-CORE2_initial/run_20000101-20000101/work/oifs
     branchoff: false
     clim_dir: /proj/awi/input/oifs-43r3/../
+    cloudfixer: 1
     cmip5_data_dir: /proj/awi/input/oifs-43r3/../cmip5_data
     cmip5_data_dir_nml: /proj/awi/input/oifs-43r3/cmip5-data
     cmip6_data_dir: /proj/awi/input/oifs-43r3/../cmip6_data
@@ -1899,13 +1900,14 @@ oifs:
                 - oasis3mct-EM21
                 - xios-2.5_r1910
             43r3-master:
-                branch: master
-                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-v3.1/oifs-43r3; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/awicm3/awicm3-v3.1/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/awicm3/awicm3-v3.1/oifs-43r3/../xios/inc/; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
+                branch: development/2022/awi-cm3-integration
+                comp_command: export OIFS_CPLNG_LIB=$OIFS_OASIS_LIB; export OIFS_CPLNG_INCLUDE=$OIFS_OASIS_INCLUDE ;export OIFS_COMP=esm; export OIFS_BUILD=opt; export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-v3.1/oifs-43r3; export OIFS_XIOS=enable; export OIFS_CPLNG=enable; export OIFS_XIOS_DIR=<TEST_DIR>/comp/awicm3/awicm3-v3.1/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/awicm3/awicm3-v3.1/oifs-43r3/../xios/inc/; cd make; ../fcm/bin/fcm make -v -j10 -f oifs_esm.fcm ; mv esm/oifs/bin/master.exe esm/oifs/bin/OpenIFS
                 destination: oifs-43r3
-                git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3.git
-                install_bins: make/esm/oifs/bin/oifs
+                executable: OpenIFS
+                git-repository: https://git.smhi.se/jan.streffing/oifs43r3/
+                install_bins: make/esm/oifs/bin/OpenIFS
                 requires:
-                - oasis3mct-4.0-awicm-frontiers
+                - oasis3mct-5.0-smhi
                 with_xios: true
             43r3-v1:
                 branch: 43r3v1-foci
@@ -2657,9 +2659,9 @@ oifs:
     prepifs_startdate: '19820101'
     preprocess:
         preprocess_shell:
-            method: '<HOME_DIR>/esm_tools/configs//components/oifs/change_icm_date.sh <TEST_DIR>/run/awicm3//awicm3-v3.1-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs// awi3 awi3 20000101 20000101 1 0 40320 1;  echo ''Run number for internal OpenIFS timekeeping: 1'''
+            method: '<HOME_DIR>/esm_tools/configs//components/oifs/change_icm_date.sh <TEST_DIR>/run/awicm3//awicm3-v3.1-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs// awi3 awi3 20000101 20000101 1 0 40320 1;   echo ''Run number for internal OpenIFS timekeeping: 1'''
             type: shell
-    preprocess_method: '<HOME_DIR>/esm_tools/configs//components/oifs/change_icm_date.sh <TEST_DIR>/run/awicm3//awicm3-v3.1-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs// awi3 awi3 20000101 20000101 1 0 40320 1;  echo ''Run number for internal OpenIFS timekeeping: 1'''
+    preprocess_method: '<HOME_DIR>/esm_tools/configs//components/oifs/change_icm_date.sh <TEST_DIR>/run/awicm3//awicm3-v3.1-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs// awi3 awi3 20000101 20000101 1 0 40320 1;   echo ''Run number for internal OpenIFS timekeeping: 1'''
     prev_date: '1999-12-31T23:00:00'
     pseudo_initial_date: '2000-01-01T00:00:00'
     read_icmcl: 0
@@ -2874,6 +2876,7 @@ rnfmap:
     - awicm-3.0
     - awicm-3.1
     - awicm-frontiers
+    - smhi
     - focioifs
     - focioifs1
     - focioifs21
@@ -3120,6 +3123,7 @@ xios:
     - 2.5_r1910
     - 2.5_r1910_oifs
     - 2.5_r1910_ogcm
+    - 2.5_smhi
     bin_dir: <TEST_DIR>/comp/awicm3/awicm3-v3.1/bin
     bin_intermediate:
         server: <TEST_DIR>run/awicm3/awicm3-v3.1-TCO95L91-CORE2_initial/run_20000101-20000101/bin/xios/xios.x
