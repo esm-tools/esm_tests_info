@@ -263,6 +263,7 @@ echam:
                 git-repository: https://gitlab.awi.de/paleodyn/Models/echam6.git
         clean_command: rm -rf build CMakeCache.txt
         comp_command: mkdir -p build; cd build; cmake ..;   make install -j `nproc --all`
+        contact: miguel.andres-martinez(at)awi.de, paul.gierz(at)awi.de
         git-repository: https://gitlab.dkrz.de/modular_esm/echam6.git
         install_bins: src/echam/bin/echam6
     config_intermediate:
@@ -1272,6 +1273,7 @@ fesom:
         ice: <TEST_DIR>run/awicm/awicm2-initial-monthly/run_20000101-20000131/work/namelist.ice
         io: <TEST_DIR>run/awicm/awicm2-initial-monthly/run_20000101-20000131/work/namelist.io
         oce: <TEST_DIR>run/awicm/awicm2-initial-monthly/run_20000101-20000131/work/namelist.oce
+    contact: dmitry.sidorenko(at)awi.de, nikolay.koldunov(at)awi.de, miguel.andres-martinez(at)awi.de, paul.gierz(at)awi.de
     coupling_fields:
         enth_oce:
             grid: feom
@@ -1755,8 +1757,7 @@ general:
     initial_date: '2000-01-01T00:00:00'
     inspect: null
     isinteractive: false
-    iterative_coupled_model: ''
-    jobid: 1197
+    jobid: 1333
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 19991201-19991231
@@ -2508,7 +2509,6 @@ oasis3mct:
     - 4.0-awicm-frontiers
     - 4.0-awicm-3.0
     - 4.0-awicm-3.1
-    - 5.0-smhi
     branch: v2.8
     cf_name_dir: <TEST_DIR>/comp/awicm/awicm-2.0/oasis
     clean_command: rm -rf build CMakeCache.txt include lib/libpsmile.a lib/libscrip.a lib/libmct.a lib/libmpeu.a
@@ -2523,6 +2523,7 @@ oasis3mct:
     config_targets:
         cf: <TEST_DIR>run/awicm/awicm2-initial-monthly/run_20000101-20000131/work/cf_name_table.txt
         namcouple: <TEST_DIR>run/awicm/awicm2-initial-monthly/run_20000101-20000131/work/namcouple
+    contact: miguel.andres-martinez(at)awi.de, paul.gierz(at)awi.de
     coupling_directions:
         atmo->feom:
             lag: 450
