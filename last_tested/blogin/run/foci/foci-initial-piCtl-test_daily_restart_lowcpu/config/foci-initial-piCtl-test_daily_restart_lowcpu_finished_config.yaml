@@ -260,6 +260,7 @@ echam:
                 git-repository: https://gitlab.awi.de/paleodyn/Models/echam6.git
         clean_command: rm -rf build CMakeCache.txt
         comp_command: mkdir -p build; cd build; cmake ..;   make install -j `nproc --all`
+        contact: miguel.andres-martinez(at)awi.de, paul.gierz(at)awi.de
         git-repository: https://gitlab.dkrz.de/modular_esm/echam6.git
         install_bins: src/echam/bin/echam6
     compiletime_environment_changes:
@@ -1146,8 +1147,7 @@ general:
     initial_date: '1850-01-01T00:00:00'
     inspect: null
     isinteractive: false
-    iterative_coupled_model: ''
-    jobid: 905
+    jobid: 847
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 18491231-18491231
@@ -1929,6 +1929,7 @@ nemo:
         namelist_cfg: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/work/namelist_cfg
         namelist_ice_cfg: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/work/namelist_ice_cfg
         namelist_top_cfg: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/work/namelist_top_cfg
+    contact: swahl(at)geomar.de
     correct_neg_tracer_conc: true
     coupling_fields:
         1_O_Runoff:
@@ -2404,7 +2405,6 @@ oasis3mct:
     - 4.0-awicm-frontiers
     - 4.0-awicm-3.0
     - 4.0-awicm-3.1
-    - 5.0-smhi
     branch: oasis3mct2.8-foci
     cf_name_dir: <TEST_DIR>/comp/foci/foci-default/oasis
     clean_command: rm -rf build CMakeCache.txt include lib/libpsmile.a lib/libscrip.a lib/libmct.a lib/libmpeu.a
@@ -2419,6 +2419,7 @@ oasis3mct:
     config_targets:
         cf: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/work/cf_name_table.txt
         namcouple: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/work/namcouple
+    contact: swahl(at)geomar.de
     coupling_directions:
         atmo->agr1:
             export_mode: EXPORTED
@@ -2948,7 +2949,6 @@ xios:
     - 2.5_r1910
     - 2.5_r1910_oifs
     - 2.5_r1910_ogcm
-    - 2.5_smhi
     bin_dir: <TEST_DIR>/comp/foci/foci-default/bin
     bin_intermediate:
         server: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/bin/xios/xios.x
@@ -2974,6 +2974,7 @@ xios:
         field_def: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/work/field_def.xml
         file_def: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/work/file_def.xml
         io_def: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/work/iodef.xml
+    contact: jan.streffing(at)awi.de, miguel.andres-martinez(at)awi.de
     debug_info:
         loaded_from_file:
         - <HOME_DIR>/esm_tools/configs//components/xios/xios.yaml
