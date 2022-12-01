@@ -3,6 +3,7 @@
 set -e
 module purge
 module load intel-oneapi-compilers/2022.1.0
+module load intel-oneapi-mkl/2022.1.0
 module load openmpi/4.1.3
 module load automake/1.16.1-oneapi2022.1.0
 module load cdo/2.0.5
@@ -12,6 +13,7 @@ module load udunits/2.2.28
 module load netcdf-c/4.8.1-openmpi4.1.3-oneapi2022.1.0
 module load netcdf-fortran/4.5.4-openmpi4.1.3-oneapi2022.1.0
 module load hdf5/1.12.2-openmpi4.1.3-oneapi2022.1.0
+module load python/3.10.4
 module list
 
 export LC_ALL=en_US.UTF-8
@@ -24,6 +26,8 @@ export CXX=mpicxx
 export MPIROOT=$(mpif90 -show | perl -lne 'm{ -I(.*?)/include } and print $1')
 export MPI_LIB=$(mpif90 -show |sed -e 's/^[^ ]*//' -e 's/-[I][^ ]*//g')
 export HDF5ROOT=/albedo/soft/sw/spack-sw/hdf5/1.12.2-fknnmx5/
+export HDF5_C_INCLUDE_DIRECTORIES=$HDF5ROOT/include
+export HDF5_ROOT=$HDF5ROOT
 export NETCDFFROOT=/albedo/soft/sw/spack-sw/netcdf-fortran/4.5.4-lzqfsg3/
 export NETCDFROOT=/albedo/soft/sw/spack-sw/netcdf-c/4.8.1-sp3ulf4/
 export NETCDF_Fortran_INCLUDE_DIRECTORIES=$NETCDFROOT/include
