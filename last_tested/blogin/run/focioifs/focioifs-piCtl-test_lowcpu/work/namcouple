@@ -30,20 +30,7 @@ rmp_opat_to_L096_GAUSWGT_ORCA05.nc dst
 #
 ###############################################################################
 #
-A_Runoff R_Runoff_atm 8 10800 4 rnfatm EXPORTED
-40320 1 512 256 R096 rnfa LAG=3600
-P 0 P 0
-LOCTRANS SCRIPR MAPPING CONSERV
-AVERAGE
-GAUSWGT D SCALAR LATITUDE 1 9 2
-rmp_R096_to_rnfa_GAUSWGT.nc src
-GLBPOS
-#
-#
-#
-###############################################################################
-#
-A_QsrIce:A_QnsIce:A_dQnsdT O_QsrIce:O_QnsIce:O_dQnsdT 9 10800 3 flxatmos EXPORTED
+A_QsrIce:A_QnsIce:A_dQnsdT O_QsrIce:O_QnsIce:O_dQnsdT 8 10800 3 flxatmos EXPORTED
 40320 1 722 511 L096 opac LAG=3600
 P 0 P 2
 LOCTRANS SCRIPR MAPPING
@@ -55,7 +42,7 @@ rmp_L096_to_opat_GAUSWGT_ORCA05.nc src
 #
 ###############################################################################
 #
-A_OTaux1:A_OTauy1:A_ITaux1:A_ITauy1 O_OTaux1:O_OTauy1:O_ITaux1:O_ITauy1 12 10800 3 atmtau EXPORTED
+A_OTaux1:A_OTauy1:A_ITaux1:A_ITauy1 O_OTaux1:O_OTauy1:O_ITaux1:O_ITauy1 11 10800 3 atmtau EXPORTED
 40320 1 722 511 L096 opat LAG=3600
 P 0 P 2
 LOCTRANS SCRIPR MAPPING
@@ -67,13 +54,26 @@ rmp_L096_to_opat_GAUSWGT_ORCA05.nc src
 #
 ###############################################################################
 #
-A_QsrMix:A_QnsMix:ATotRain:ATotSnow:AIceEvap:ATotEvap O_QsrMix:O_QnsMix:OTotRain:OTotSnow:OIceEvap:OTotEvap 16 10800 4 atmflx EXPORTED
+A_QsrMix:A_QnsMix:ATotRain:ATotSnow:AIceEvap:ATotEvap O_QsrMix:O_QnsMix:OTotRain:OTotSnow:OIceEvap:OTotEvap 15 10800 4 atmflx EXPORTED
 40320 1 722 511 A096 opac LAG=3600
 P 0 P 2
 LOCTRANS SCRIPR MAPPING CONSERV
 AVERAGE
 GAUSWGT D SCALAR LATITUDE 1 9 2
 rmp_A096_to_opac_GAUSWGT_ORCA05.nc src
+GLBPOS
+#
+#
+#
+###############################################################################
+#
+A_Runoff R_Runoff_atm 21 10800 4 rnfatm EXPORTED
+40320 1 512 256 R096 rnfa LAG=3600
+P 0 P 0
+LOCTRANS SCRIPR MAPPING CONSERV
+AVERAGE
+GAUSWGT D SCALAR LATITUDE 1 9 2
+rmp_R096_to_rnfa_GAUSWGT.nc src
 GLBPOS
 #
 #

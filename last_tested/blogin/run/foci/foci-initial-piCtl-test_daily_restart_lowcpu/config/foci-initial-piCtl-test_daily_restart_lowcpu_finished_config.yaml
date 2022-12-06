@@ -135,7 +135,7 @@ computer:
     submit: sbatch
     submitted: false
     tasks_flag: --ntasks=@tasks@
-    taskset: false
+    taskset: true
     thisrun_logfile: <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/log/foci-initial-piCtl-test_daily_restart_lowcpu_foci_@jobtype@_18500101-18500101_%j.log
     threads_per_core: 1
     time_flag: --time=00:15:00
@@ -393,9 +393,9 @@ echam:
             run_to_work: copy
             work_to_run: copy
         config:
-            exp_to_run: copy
+            exp_to_run: link
             init_to_exp: copy
-            run_to_work: copy
+            run_to_work: link
             work_to_run: copy
         couple:
             exp_to_run: copy
@@ -428,20 +428,20 @@ echam:
             run_to_work: copy
             work_to_run: copy
         outdata:
-            exp_to_run: copy
-            init_to_exp: copy
-            run_to_work: copy
-            work_to_run: copy
+            exp_to_run: move
+            init_to_exp: move
+            run_to_work: move
+            work_to_run: move
         restart_in:
-            exp_to_run: copy
-            init_to_exp: copy
-            run_to_work: copy
+            exp_to_run: link
+            init_to_exp: link
+            run_to_work: link
             work_to_run: link
         restart_out:
-            exp_to_run: copy
-            init_to_exp: copy
-            run_to_work: copy
-            work_to_run: copy
+            exp_to_run: move
+            init_to_exp: move
+            run_to_work: move
+            work_to_run: move
         scripts:
             exp_to_run: copy
             init_to_exp: copy
@@ -615,7 +615,7 @@ echam:
         vgratclim: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/work/unit.91
         vltclim: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/work/unit.90
     last_parent_date: '1849-12-31T23:45:00'
-    leapyear: true
+    leapyear: false
     levels: L95
     log_intermediate:
         atmout: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/log/echam/atmout
@@ -995,7 +995,7 @@ general:
     - agrif_oasismct4
     base_dir: <TEST_DIR>/run/foci/
     batch: slurm
-    calendar: esm_calendar object with allowed leap years
+    calendar: esm_calender object with no leap years allowed
     check: true
     chunk_number: 1
     command_line_config:
@@ -1076,20 +1076,20 @@ general:
             run_to_work: copy
             work_to_run: copy
         forcing:
-            exp_to_run: link
-            init_to_exp: link
-            run_to_work: link
-            work_to_run: link
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
         ignore:
             exp_to_run: copy
             init_to_exp: copy
             run_to_work: copy
             work_to_run: copy
         input:
-            exp_to_run: link
-            init_to_exp: link
-            run_to_work: link
-            work_to_run: link
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
         log:
             exp_to_run: copy
             init_to_exp: copy
@@ -1109,7 +1109,7 @@ general:
             exp_to_run: copy
             init_to_exp: copy
             run_to_work: copy
-            work_to_run: link
+            work_to_run: copy
         restart_out:
             exp_to_run: copy
             init_to_exp: copy
@@ -1148,14 +1148,14 @@ general:
     inspect: null
     isinteractive: false
     iterative_coupled_model: ''
-    jobid: 849
+    jobid: 845
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 18491231-18491231
     last_run_in_chunk: false
     last_start_date: '1849-12-31T00:00:00'
     launcher_pid: -666
-    leapyear: true
+    leapyear: false
     logfile_path: <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/log//foci-initial-piCtl-test_daily_restart_lowcpu_foci_prepcompute_18500101-18500101.log
     logfile_path_in_run: <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/log//foci-initial-piCtl-test_daily_restart_lowcpu_foci_prepcompute_18500101-18500101.log
     lresume: false
@@ -1380,9 +1380,9 @@ hdmodel:
             run_to_work: copy
             work_to_run: copy
         config:
-            exp_to_run: copy
+            exp_to_run: link
             init_to_exp: copy
-            run_to_work: copy
+            run_to_work: link
             work_to_run: copy
         couple:
             exp_to_run: copy
@@ -1415,15 +1415,15 @@ hdmodel:
             run_to_work: copy
             work_to_run: copy
         outdata:
-            exp_to_run: copy
-            init_to_exp: copy
-            run_to_work: copy
-            work_to_run: copy
+            exp_to_run: move
+            init_to_exp: move
+            run_to_work: move
+            work_to_run: move
         restart_in:
             exp_to_run: copy
             init_to_exp: copy
             run_to_work: copy
-            work_to_run: link
+            work_to_run: copy
         restart_out:
             exp_to_run: copy
             init_to_exp: copy
@@ -1462,7 +1462,7 @@ hdmodel:
         hdstart: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/work/hdstart.nc
         rmp_hd: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/work/rmp_hd.nc
     last_parent_date: '1849-12-31T23:45:00'
-    leapyear: true
+    leapyear: false
     license_text: 'Please make sure you have a licence to use echam. In case you are
 
         unsure, please contact redmine....'
@@ -1559,9 +1559,9 @@ jsbach:
             run_to_work: copy
             work_to_run: copy
         config:
-            exp_to_run: copy
+            exp_to_run: link
             init_to_exp: copy
-            run_to_work: copy
+            run_to_work: link
             work_to_run: copy
         couple:
             exp_to_run: copy
@@ -1594,20 +1594,20 @@ jsbach:
             run_to_work: copy
             work_to_run: copy
         outdata:
-            exp_to_run: copy
-            init_to_exp: copy
-            run_to_work: copy
-            work_to_run: copy
+            exp_to_run: move
+            init_to_exp: move
+            run_to_work: move
+            work_to_run: move
         restart_in:
-            exp_to_run: copy
-            init_to_exp: copy
-            run_to_work: copy
+            exp_to_run: link
+            init_to_exp: link
+            run_to_work: link
             work_to_run: link
         restart_out:
-            exp_to_run: copy
-            init_to_exp: copy
-            run_to_work: copy
-            work_to_run: copy
+            exp_to_run: move
+            init_to_exp: move
+            run_to_work: move
+            work_to_run: move
         scripts:
             exp_to_run: copy
             init_to_exp: copy
@@ -1750,7 +1750,7 @@ jsbach:
         npools_foci: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/work/Ndepo.nc
     jsbachnc_file_ending: _dynveg
     last_parent_date: '1849-12-31T23:45:00'
-    leapyear: true
+    leapyear: false
     license_text: 'Please make sure you have a licence to use echam.In case you are
 
         unsure, please contact redmine....'
@@ -1908,6 +1908,7 @@ nemo:
     - ORCA05_LIM2_NEMO_JRA55_test
     - GYRE_XIOS
     - GYRE_PISCES
+    - ORCA05.z75.ICE.JRA
     bin_dir: <TEST_DIR>/comp/foci/foci-default/bin
     bin_intermediate:
         nemo: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/bin/nemo/oceanx
@@ -2008,9 +2009,9 @@ nemo:
             run_to_work: copy
             work_to_run: copy
         config:
-            exp_to_run: copy
+            exp_to_run: link
             init_to_exp: copy
-            run_to_work: copy
+            run_to_work: link
             work_to_run: copy
         couple:
             exp_to_run: copy
@@ -2043,15 +2044,15 @@ nemo:
             run_to_work: copy
             work_to_run: copy
         outdata:
-            exp_to_run: copy
-            init_to_exp: copy
-            run_to_work: copy
-            work_to_run: copy
+            exp_to_run: move
+            init_to_exp: move
+            run_to_work: move
+            work_to_run: move
         restart_in:
             exp_to_run: copy
             init_to_exp: copy
             run_to_work: copy
-            work_to_run: link
+            work_to_run: copy
         restart_out:
             exp_to_run: copy
             init_to_exp: copy
@@ -2162,11 +2163,12 @@ nemo:
     install_bins: BLD/bin/oceanx
     jpni: 0
     jpnj: 0
-    jra55_forcing_dir: /scratch/usr/shkifmsw/foci_input2/NEMO_JRA55-do_drowned_test
+    jra55_forcing_dir: /scratch/usr/shkifmsw/foci_input2/JRA55-do/v1.5
     jra55_runoff_dir: /scratch/usr/shkifmsw/foci_input2/NEMO_ORCA05_JRA_runoff_forcing
     last_parent_date: '1849-12-31T23:00:00'
-    leapyear: true
+    leapyear: false
     levels: L46
+    ln_iceini: true
     ln_limini: true
     ln_limini_agrif: false
     ln_meshmask: true
@@ -2221,14 +2223,14 @@ nemo:
             namrun:
                 cn_exp: foci-initial-piCtl-test_daily_restart_lowcpu
                 cn_ocerst_in: foci-initial-piCtl-test_daily_restart_lowcpu_00000000_restart_18491231
-                cn_ocerst_indir: <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/work//
+                cn_ocerst_indir: <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/restart/nemo//
                 cn_ocerst_out: restart_18500101
-                cn_ocerst_outdir: <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/work//
+                cn_ocerst_outdir: <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/restart/nemo//
                 ln_rstart: false
                 nn_date0: 18500101
                 nn_it000: 1
                 nn_itend: 48
-                nn_leapy: 1
+                nn_leapy: 0
                 nn_rstctl: 2
                 nn_stock: 48
             namsbc:
@@ -2241,9 +2243,9 @@ nemo:
                 ln_limini: true
             namicerun:
                 cn_icerst_in: foci-initial-piCtl-test_daily_restart_lowcpu_00000000_restart_ice_18491231
-                cn_icerst_indir: <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/work/
+                cn_icerst_indir: <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/restart/nemo//
                 cn_icerst_out: restart_ice_18500101
-                cn_icerst_outdir: <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/work/
+                cn_icerst_outdir: <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/restart/nemo//
         namelist_top_cfg:
             namtrc:
                 ln_trcdta: true
@@ -2251,9 +2253,9 @@ nemo:
                 ln_trcrad: true
             namtrc_run:
                 cn_trcrst_in: foci-initial-piCtl-test_daily_restart_lowcpu_00000000_restart_trc_18491231
-                cn_trcrst_indir: <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/work/
+                cn_trcrst_indir: <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/restart/nemo//
                 cn_trcrst_out: restart_trc_18500101
-                cn_trcrst_outdir: <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/work/
+                cn_trcrst_outdir: <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/restart/nemo//
                 ln_rsttr: false
                 nn_rsttr: 2
     namelist_dir: <TEST_DIR>/comp/foci/foci-default/nemo-ORCA05_LIM2_KCM_AOW/CONFIG/ORCA05_LIM2_KCM_AOW/EXP00
@@ -2277,7 +2279,7 @@ nemo:
     newstep_formatted: 48
     newstep_formatted_nest: 144
     newstep_nest: 144
-    nn_leapy: 1
+    nn_leapy: 0
     nn_msh: 1
     nn_rstctl: 2
     nn_rsttr: 2
@@ -2326,14 +2328,10 @@ nemo:
     prevstep_formatted: 0
     prevstep_formatted_nest: 0
     prevstep_nest: 0
+    reference_expid: EXP00
     requires:
     - nemobasemodel-3.6foci
     resolution: ORCA05
-    restart_out_intermediate: {}
-    restart_out_sources: {}
-    restart_out_sources_wild_card:
-        restart_out: foci-initial-piCtl-test_daily_restart_lowcpu_00000048_restart*_18500101_*.nc
-    restart_out_targets: {}
     restart_rate: 1
     restart_unit: days
     runoff_method: old
@@ -2625,20 +2623,20 @@ oasis3mct:
             run_to_work: copy
             work_to_run: copy
         forcing:
-            exp_to_run: link
-            init_to_exp: link
-            run_to_work: link
-            work_to_run: link
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
         ignore:
             exp_to_run: copy
             init_to_exp: copy
             run_to_work: copy
             work_to_run: copy
         input:
-            exp_to_run: link
-            init_to_exp: link
-            run_to_work: link
-            work_to_run: link
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
         log:
             exp_to_run: copy
             init_to_exp: copy
@@ -2658,7 +2656,7 @@ oasis3mct:
             exp_to_run: copy
             init_to_exp: copy
             run_to_work: copy
-            work_to_run: link
+            work_to_run: copy
         restart_out:
             exp_to_run: copy
             init_to_exp: copy
@@ -2721,7 +2719,7 @@ oasis3mct:
     - build/lib/psmile/mct/mpeu/libmpeu.a
     - build/lib/psmile/scrip/libscrip.a
     last_parent_date: '1849-12-31T23:30:00'
-    leapyear: true
+    leapyear: false
     log_intermediate:
         debug_nr1: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/log/oasis3mct/debug_notroot.01
         debug_nr2: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/log/oasis3mct/debug_notroot.02
@@ -3024,20 +3022,20 @@ xios:
             run_to_work: copy
             work_to_run: copy
         forcing:
-            exp_to_run: link
-            init_to_exp: link
-            run_to_work: link
-            work_to_run: link
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
         ignore:
             exp_to_run: copy
             init_to_exp: copy
             run_to_work: copy
             work_to_run: copy
         input:
-            exp_to_run: link
-            init_to_exp: link
-            run_to_work: link
-            work_to_run: link
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
         log:
             exp_to_run: copy
             init_to_exp: copy
@@ -3057,7 +3055,7 @@ xios:
             exp_to_run: copy
             init_to_exp: copy
             run_to_work: copy
-            work_to_run: link
+            work_to_run: copy
         restart_out:
             exp_to_run: copy
             init_to_exp: copy
@@ -3093,7 +3091,7 @@ xios:
     ini_parent_dir: /scratch/usr/shkifmsw/foci_input2/FOCI_RESTART/unset//xios
     ini_parent_exp_id: unset
     install_bins: bin/xios.x
-    leapyear: true
+    leapyear: false
     lresume: false
     metadata:
         Authors: Yann Meurdesoif (yann.meurdesoif@cea.fr)

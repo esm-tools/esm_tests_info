@@ -1011,7 +1011,7 @@ general:
     inspect: null
     isinteractive: false
     iterative_coupled_model: ''
-    jobid: 988
+    jobid: 984
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 19991231-19991231
@@ -1911,6 +1911,15 @@ oifs:
                 - xios-2.5_r1910
             43r3-foci21:
                 branch: master
+                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3/../xios/inc/ ; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
+                contact: swahl(at)geomar.de
+                git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3.git
+                install_bins: make/esm/oifs/bin/oifs
+                requires:
+                - oasis3mct-EM21
+                - xios-2.5_r1910
+            43r3-foci211:
+                branch: foci211
                 comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3/../xios/inc/ ; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
                 contact: swahl(at)geomar.de
                 git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3.git
@@ -2897,6 +2906,7 @@ rnfmap:
     - focioifs
     - focioifs1
     - focioifs21
+    - foci211
     bin_dir: <TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/bin
     bin_intermediate:
         bin: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/bin/rnfmap/rnfma

@@ -141,7 +141,7 @@ computer:
     submit: sbatch
     submitted: false
     tasks_flag: --ntasks=@tasks@
-    taskset: false
+    taskset: true
     thisrun_logfile: <TEST_DIR>/run/oifs//oifs-43r3-tco95-amip-test_lowcpu/log/oifs-43r3-tco95-amip-test_lowcpu_oifs_@jobtype@_19790101-19790101_%j.log
     threads_per_core: 1
     time_flag: --time=00:30:00
@@ -329,7 +329,7 @@ general:
     inspect: null
     isinteractive: false
     iterative_coupled_model: ''
-    jobid: 861
+    jobid: 857
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 19781231-19781231
@@ -592,6 +592,15 @@ oifs:
                 - xios-2.5_r1910
             43r3-foci21:
                 branch: master
+                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/oifs/oifs-43r3-v1; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/oifs/oifs-43r3-v1/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/oifs/oifs-43r3-v1/../xios/inc/ ; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
+                contact: swahl(at)geomar.de
+                git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3.git
+                install_bins: make/esm/oifs/bin/oifs
+                requires:
+                - oasis3mct-EM21
+                - xios-2.5_r1910
+            43r3-foci211:
+                branch: foci211
                 comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/oifs/oifs-43r3-v1; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/oifs/oifs-43r3-v1/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/oifs/oifs-43r3-v1/../xios/inc/ ; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
                 contact: swahl(at)geomar.de
                 git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3.git
