@@ -1,6 +1,7 @@
 computer:
     account: None
-    accounting: false
+    accounting: true
+    accounting_flag: --account=None
     actual_script_dir: <--methods.script_dir--
     add_choose_heterogeneous_parallelization: &id001
         false:
@@ -34,10 +35,13 @@ computer:
             message: 'SLURM ERROR: slurm ended with an error, exiting.'
             method: kill
     choose_heterogeneous_parallelization: *id001
+    compiler_module: intel-oneapi-compilers/2022.1.0 intel-oneapi-mkl/2022.1.0
+    compiler_suffix: oneapi2022.1.0
+    compiler_suite: intel-oneapi
     config_files:
         hostfile: hostfile_srun
     cpu_bind: cores
-    cxx: mpicxx
+    cxx: mpic++
     debug_info:
         loaded_from_file:
         - <HOME_DIR>/esm_tools/configs//machines/albedo.yaml
@@ -47,26 +51,26 @@ computer:
     execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=cores --multi-prog hostfile_srun
     export_vars:
         CC: mpicc
-        CXX: mpicxx
+        CXX: mpic++
+        ECCODESROOT: <HOME_DIR>/.spack/sw/eccodes/2.25.0-hwsa4h3/
         F77: mpif90
         FC: mpif90
-        HDF5ROOT: /albedo/soft/sw/spack-sw/hdf5/1.12.2-fknnmx5/
-        HDF5_C_INCLUDE_DIRECTORIES: $HDF5ROOT/include
-        HDF5_ROOT: $HDF5ROOT
-        LAPACK_LIB: '"-lmkl_intel_lp64 -lmkl_core -mkl=sequential -lpthread -lm -ldl"'
-        LAPACK_LIB_DEFAULT: '"-L/global/AWIsoft/intel/2018/compilers_and_libraries_2018.5.274/linux/mkl/lib/intel64 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential"'
+        HDF5ROOT: <HOME_DIR>/.spack/sw/hdf5/1.12.2-okkbjga/
+        LAPACK_LIB: '''-mkl=sequential'''
         LC_ALL: en_US.UTF-8
+        LD_LIBRARY_PATH[(1)]: <HOME_DIR>/.spack/sw/intel-oneapi-mkl/2022.0.1-ebd776q/mkl/2022.0.1/lib/intel64:$LD_LIBRARY_PATH
         MPICC: mpicc
         MPIFC: mpif90
         MPIROOT: $(mpif90 -show | perl -lne 'm{ -I(.*?)/include } and print $1')
         MPI_LIB: $(mpif90 -show |sed -e 's/^[^ ]*//' -e 's/-[I][^ ]*//g')
-        NETCDFFROOT: /albedo/soft/sw/spack-sw/netcdf-fortran/4.5.4-lzqfsg3/
-        NETCDFROOT: /albedo/soft/sw/spack-sw/netcdf-c/4.8.1-sp3ulf4/
-        NETCDF_CXX_INCLUDE_DIRECTORIES: $NETCDFROOT/include
-        NETCDF_CXX_LIBRARIES: $NETCDFROOT/lib
-        NETCDF_Fortran_INCLUDE_DIRECTORIES: $NETCDFROOT/include
+        NETCDFFROOT: <HOME_DIR>/.spack/sw/netcdf-fortran/4.5.4-h37jgao/
+        NETCDFROOT: <HOME_DIR>/.spack/sw/netcdf-c/4.8.1-24hqns7/
+        OASIS3MCT_FC_LIB: '"-L$NETCDFFROOT/lib -lnetcdff"'
+        PATH: $PERL5LIB/../bin:$PATH
+        PERL5LIB: <HOME_DIR>/my_libs/perl-5.32.0/lib
     f77: mpif90
     fc: mpif90
+    hdf5_version: 1.12.2
     header_start: '#SBATCH'
     heterogeneous_parallelization: false
     hetjob_flag: packjob
@@ -82,28 +86,30 @@ computer:
     model: computer
     module_actions:
     - purge
-    - load intel-oneapi-compilers/2022.1.0
-    - load intel-oneapi-mkl/2022.1.0
-    - load openmpi/4.1.3
-    - load automake/1.16.1-oneapi2022.1.0
+    - load udunits/2.2.28
+    - load <HOME_DIR>/.spack/modules/intel-oneapi-compilers-2022.0.1-gcc-12.1.0-mech5is
+    - load <HOME_DIR>/.spack/modules/intel-oneapi-mkl-2022.0.1-gcc-12.1.0-ebd776q
+    - load <HOME_DIR>/.spack/modules/openmpi-4.1.3-intel-2021.5.0-uyqbpcs
+    - load <HOME_DIR>/.spack/modules/hdf5-1.12.2-intel-2021.5.0-okkbjga
+    - load <HOME_DIR>/.spack/modules/netcdf-c-4.8.1-intel-2021.5.0-24hqns7
+    - load <HOME_DIR>/.spack/modules/netcdf-fortran-4.5.4-intel-2021.5.0-h37jgao
+    - load <HOME_DIR>/.spack/modules/eccodes-2.25.0-intel-2021.5.0-bjv3v4v
     - load cdo/2.0.5
     - load nco/5.0.1
     - load git/2.35.2
-    - load udunits/2.2.28
-    - load netcdf-c/4.8.1-openmpi4.1.3-oneapi2022.1.0
-    - load netcdf-fortran/4.5.4-openmpi4.1.3-oneapi2022.1.0
-    - load hdf5/1.12.2-openmpi4.1.3-oneapi2022.1.0
     - load python/3.10.4
     - list
-    module_hdf5: hdf5/1.12.2-openmpi4.1.3-oneapi2022.1.0
-    module_mpi: openmpi/4.1.3
-    module_netcdf-c: netcdf-c/4.8.1-openmpi4.1.3-oneapi2022.1.0
-    module_netcdf-fortran: netcdf-fortran/4.5.4-openmpi4.1.3-oneapi2022.1.0
+    mpi_implementation: openmpi
+    mpi_implementation_module: openmpi/4.1.3
+    mpi_implementation_suffix: openmpi4.1.3
     mpicc: mpicc
     mpifc: mpif90
     mt_launcher_flag: ''
     name: albedo
     name_flag: --job-name=fesom2.0-initial-monthly
+    netcdf_c_version: 4.8.1
+    netcdf_cxx_version: 4.2
+    netcdf_fortran_version: 4.5.4
     nodes_flag: --nodes=@nodes@
     notification_flag: --mail-type=NONE
     operating_system: linux-rocky
@@ -120,11 +126,11 @@ computer:
         pp:
             cores_per_node: 1
             name: smp
-    pool_dir: /dev/null
+    pool_dir: /albedo/pool
     pool_directories:
         focipool: /dev/null
-        pool: /dev/null
-        projects: /dev/null
+        pool: /albedo/pool
+        projects: /albedo/work/projects
     runtime_environment_changes:
         add_export_vars:
             ACCOUNT: None
@@ -144,7 +150,6 @@ computer:
     unset_vars:
     - SLURM_MEM_PER_NODE
     - SLURM_MEM_PER_CPU
-    useMPI: openmpi
 debug_info:
     loaded_from_file: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/scripts/fesom2.0-initial-monthly.yaml
 defaults:
@@ -178,7 +183,7 @@ fesom:
     branch: 2.0.2
     branchoff: false
     clean_command: rm -rf build CMakeCache.txt
-    climate_data_dir: /dev/null/hydrography/
+    climate_data_dir: /albedo/pool/hydrography/
     comp_command: mkdir -p build; cd build; cmake ..;   make install -j `nproc --all`
     comp_executable: fesom.x
     compiletime_environment_changes:
@@ -364,7 +369,7 @@ fesom:
             init_to_exp: copy
             run_to_work: copy
             work_to_run: copy
-    forcing_data_dir: /dev/null/forcing/
+    forcing_data_dir: /albedo/pool/forcing/
     git-repository:
     - https://github.com/FESOM/fesom2.git
     - https://gitlab.dkrz.de/FESOM/fesom2.git
@@ -375,7 +380,7 @@ fesom:
             nx: 126858
             ny: 1
             oasis_grid_type: U
-    ini_data_dir: /dev/null/pool-data/
+    ini_data_dir: /albedo/pool/pool-data/
     install_bins: bin/fesom.x
     last_parent_date: '2000-12-31T23:00:00'
     lasttime: 84600
@@ -390,7 +395,7 @@ fesom:
         clock: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/log/fesom/fesom.clock
         mesh_diag: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/log/fesom/fesom.mesh.diag.nc
     lresume: false
-    mesh_dir: /dev/null/CORE2/
+    mesh_dir: /albedo/pool/CORE2/
     mesh_rotated: false
     model: fesom
     model_dir: <TEST_DIR>/comp/fesom/fesom-2.0
@@ -408,9 +413,9 @@ fesom:
                 restart_length_unit: m
                 restartflag: last
             paths:
-                ClimateDataPath: /dev/null/hydrography/
-                ForcingDataPath: /dev/null/forcing/
-                MeshPath: /dev/null/CORE2/
+                ClimateDataPath: /albedo/pool/hydrography/
+                ForcingDataPath: /albedo/pool/forcing/
+                MeshPath: /albedo/pool/CORE2/
                 ResultPath: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/work/
             timestep:
                 run_length: 1
@@ -418,17 +423,17 @@ fesom:
                 step_per_day: 48
         namelist.forcing:
             namsbc:
-                nm_humi_file: /dev/null/forcing//q_10.
-                nm_mslp_file: /dev/null/forcing//slp.
-                nm_prec_file: /dev/null/forcing//ncar_precip.
-                nm_qlw_file: /dev/null/forcing//ncar_rad.
-                nm_qsr_file: /dev/null/forcing//ncar_rad.
-                nm_runoff_file: /dev/null/forcing//runoff.nc
-                nm_snow_file: /dev/null/forcing//ncar_precip.
-                nm_sss_data_file: /dev/null/forcing//PHC2_salx.nc
-                nm_tair_file: /dev/null/forcing//t_10.
-                nm_xwind_file: /dev/null/forcing//u_10.
-                nm_ywind_file: /dev/null/forcing//v_10.
+                nm_humi_file: /albedo/pool/forcing//q_10.
+                nm_mslp_file: /albedo/pool/forcing//slp.
+                nm_prec_file: /albedo/pool/forcing//ncar_precip.
+                nm_qlw_file: /albedo/pool/forcing//ncar_rad.
+                nm_qsr_file: /albedo/pool/forcing//ncar_rad.
+                nm_runoff_file: /albedo/pool/forcing//runoff.nc
+                nm_snow_file: /albedo/pool/forcing//ncar_precip.
+                nm_sss_data_file: /albedo/pool/forcing//PHC2_salx.nc
+                nm_tair_file: /albedo/pool/forcing//t_10.
+                nm_xwind_file: /albedo/pool/forcing//u_10.
+                nm_ywind_file: /albedo/pool/forcing//v_10.
     namelist_dir: <HOME_DIR>/esm_tools/namelists//fesom2/2.0/
     namelist_objs:
         namelist.config: &id002 f90nml.name
@@ -456,7 +461,7 @@ fesom:
     parent_date: '2000-12-31T23:30:00'
     parent_expid: fesom2.0-initial-monthly
     parent_restart_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/restart/fesom/
-    pool_dir: /dev/null
+    pool_dir: /albedo/pool
     post_processing: 0
     prev_date: '2000-12-31T23:30:00'
     res: CORE2
@@ -681,7 +686,7 @@ general:
     inspect: null
     isinteractive: false
     iterative_coupled_model: ''
-    jobid: 2360158
+    jobid: 3598074
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 20001201-20001231

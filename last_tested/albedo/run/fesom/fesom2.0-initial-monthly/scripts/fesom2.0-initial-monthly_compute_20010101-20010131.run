@@ -4,21 +4,22 @@
 #SBATCH --ntasks=288
 #SBATCH --output=<TEST_DIR>/run/fesom//fesom2.0-initial-monthly/log/fesom2.0-initial-monthly_fesom_compute_20010101-20010131_%j.log --error=<TEST_DIR>/run/fesom//fesom2.0-initial-monthly/log/fesom2.0-initial-monthly_fesom_compute_20010101-20010131_%j.log
 #SBATCH --job-name=fesom2.0-initial-monthly
+#SBATCH --account=None
 #SBATCH --mail-type=NONE
 #SBATCH --exclusive
 
 module purge
-module load intel-oneapi-compilers/2022.1.0
-module load intel-oneapi-mkl/2022.1.0
-module load openmpi/4.1.3
-module load automake/1.16.1-oneapi2022.1.0
+module load udunits/2.2.28
+module load <HOME_DIR>/.spack/modules/intel-oneapi-compilers-2022.0.1-gcc-12.1.0-mech5is
+module load <HOME_DIR>/.spack/modules/intel-oneapi-mkl-2022.0.1-gcc-12.1.0-ebd776q
+module load <HOME_DIR>/.spack/modules/openmpi-4.1.3-intel-2021.5.0-uyqbpcs
+module load <HOME_DIR>/.spack/modules/hdf5-1.12.2-intel-2021.5.0-okkbjga
+module load <HOME_DIR>/.spack/modules/netcdf-c-4.8.1-intel-2021.5.0-24hqns7
+module load <HOME_DIR>/.spack/modules/netcdf-fortran-4.5.4-intel-2021.5.0-h37jgao
+module load <HOME_DIR>/.spack/modules/eccodes-2.25.0-intel-2021.5.0-bjv3v4v
 module load cdo/2.0.5
 module load nco/5.0.1
 module load git/2.35.2
-module load udunits/2.2.28
-module load netcdf-c/4.8.1-openmpi4.1.3-oneapi2022.1.0
-module load netcdf-fortran/4.5.4-openmpi4.1.3-oneapi2022.1.0
-module load hdf5/1.12.2-openmpi4.1.3-oneapi2022.1.0
 module load python/3.10.4
 module list
 
@@ -28,19 +29,18 @@ export F77=mpif90
 export MPIFC=mpif90
 export MPICC=mpicc
 export CC=mpicc
-export CXX=mpicxx
+export CXX=mpic++
 export MPIROOT=$(mpif90 -show | perl -lne 'm{ -I(.*?)/include } and print $1')
 export MPI_LIB=$(mpif90 -show |sed -e 's/^[^ ]*//' -e 's/-[I][^ ]*//g')
-export HDF5ROOT=/albedo/soft/sw/spack-sw/hdf5/1.12.2-fknnmx5/
-export HDF5_C_INCLUDE_DIRECTORIES=$HDF5ROOT/include
-export HDF5_ROOT=$HDF5ROOT
-export NETCDFFROOT=/albedo/soft/sw/spack-sw/netcdf-fortran/4.5.4-lzqfsg3/
-export NETCDFROOT=/albedo/soft/sw/spack-sw/netcdf-c/4.8.1-sp3ulf4/
-export NETCDF_Fortran_INCLUDE_DIRECTORIES=$NETCDFROOT/include
-export NETCDF_CXX_INCLUDE_DIRECTORIES=$NETCDFROOT/include
-export NETCDF_CXX_LIBRARIES=$NETCDFROOT/lib
-export LAPACK_LIB="-lmkl_intel_lp64 -lmkl_core -mkl=sequential -lpthread -lm -ldl"
-export LAPACK_LIB_DEFAULT="-L/global/AWIsoft/intel/2018/compilers_and_libraries_2018.5.274/linux/mkl/lib/intel64 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential"
+export LAPACK_LIB='-mkl=sequential'
+export OASIS3MCT_FC_LIB="-L$NETCDFFROOT/lib -lnetcdff"
+export PERL5LIB=<HOME_DIR>/my_libs/perl-5.32.0/lib
+export HDF5ROOT=<HOME_DIR>/.spack/sw/hdf5/1.12.2-okkbjga/
+export NETCDFROOT=<HOME_DIR>/.spack/sw/netcdf-c/4.8.1-24hqns7/
+export NETCDFFROOT=<HOME_DIR>/.spack/sw/netcdf-fortran/4.5.4-h37jgao/
+export ECCODESROOT=<HOME_DIR>/.spack/sw/eccodes/2.25.0-hwsa4h3/
+export PATH=$PERL5LIB/../bin:$PATH
+export LD_LIBRARY_PATH=<HOME_DIR>/.spack/sw/intel-oneapi-mkl/2022.0.1-ebd776q/mkl/2022.0.1/lib/intel64:$LD_LIBRARY_PATH
 export ACCOUNT=None
 export ESM_TESTING_DIR=<TEST_DIR>/run/fesom/
 export MODEL_DIR=<TEST_DIR>/comp/fesom/fesom-2.0
@@ -55,7 +55,7 @@ unset SLURM_MEM_PER_CPU
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 2001-01-01T00:00:00 2360158 - start >> <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/log//fesom2.0-initial-monthly_fesom.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 2001-01-01T00:00:00 3598074 - start >> <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/log//fesom2.0-initial-monthly_fesom.log
 
 cd <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/work/
 time srun -l --kill-on-bad-exit=1 --cpu_bind=cores --multi-prog hostfile_srun 2>&1 &
@@ -67,6 +67,6 @@ process=$!
 cd <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/scripts/
 esm_runscripts fesom2.0-initial-monthly.yaml -e fesom2.0-initial-monthly -t observe_compute -p ${process} -s 20010101 -r 1 -v  --last-jobtype prepcompute --open-run
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 2001-01-01T00:00:00 2360158 - done >> <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/log//fesom2.0-initial-monthly_fesom.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 2001-01-01T00:00:00 3598074 - done >> <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/log//fesom2.0-initial-monthly_fesom.log
 
 wait
