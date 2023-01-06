@@ -60,7 +60,7 @@ unset SLURM_MEM_PER_CPU
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 1850-01-01T00:00:00 1102 - start >> <TEST_DIR>/run/awiesm//bootstrap/log//bootstrap_awiesm.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 1850-01-01T00:00:00 1065 - start >> <TEST_DIR>/run/awiesm//bootstrap/log//bootstrap_awiesm.log
 
 cd <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work/
 time srun -l --kill-on-bad-exit=1 --cpu_bind=cores --multi-prog hostfile_srun 2>&1 &
@@ -72,6 +72,6 @@ process=$!
 cd <TEST_DIR>/run/awiesm//bootstrap/scripts/
 esm_runscripts bootstrap.yaml -e bootstrap -t observe_compute -p ${process} -s 18500101 -r 1 -v  --last-jobtype prepcompute --open-run
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 1850-01-01T00:00:00 1102 - done >> <TEST_DIR>/run/awiesm//bootstrap/log//bootstrap_awiesm.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 1850-01-01T00:00:00 1065 - done >> <TEST_DIR>/run/awiesm//bootstrap/log//bootstrap_awiesm.log
 
 wait
