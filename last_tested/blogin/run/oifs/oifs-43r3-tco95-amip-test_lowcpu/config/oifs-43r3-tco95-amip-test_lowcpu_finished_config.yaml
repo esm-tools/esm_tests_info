@@ -329,7 +329,7 @@ general:
     inspect: null
     isinteractive: false
     iterative_coupled_model: ''
-    jobid: 865
+    jobid: 851
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 19781231-19781231
@@ -609,11 +609,11 @@ oifs:
                 - oasis3mct-EM21
                 - xios-2.5_r1910
             43r3-master:
-                branch: development/2022/awi-cm3-integration
+                branch: main
                 comp_command: export OIFS_CPLNG_LIB=$OIFS_OASIS_LIB; export OIFS_CPLNG_INCLUDE=$OIFS_OASIS_INCLUDE ;export OIFS_COMP=esm; export OIFS_BUILD=opt; export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/oifs/oifs-43r3-v1; export OIFS_XIOS=enable; export OIFS_CPLNG=enable; export OIFS_XIOS_DIR=<TEST_DIR>/comp/oifs/oifs-43r3-v1/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/oifs/oifs-43r3-v1/../xios/inc/; cd make; ../fcm/bin/fcm make -v -j10 -f oifs_esm.fcm ; mv esm/oifs/bin/master.exe esm/oifs/bin/OpenIFS
                 destination: oifs-43r3
                 executable: OpenIFS
-                git-repository: https://git.smhi.se/jan.streffing/oifs43r3/
+                git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3-ece
                 install_bins: make/esm/oifs/bin/OpenIFS
                 requires:
                 - oasis3mct-5.0-smhi
@@ -1625,10 +1625,10 @@ xios:
         Website: https://portal.enes.org/models/software-tools/xios
     model: xios
     nproc: 16
-    parent_date: '1978-12-31T00:00:00'
+    parent_date: '1979-01-01T00:00:00'
     parent_expid: oifs-43r3-tco95-amip-test_lowcpu
     parent_restart_dir: <TEST_DIR>/run/oifs//oifs-43r3-tco95-amip-test_lowcpu/restart/xios/
-    prev_date: '1978-12-31T00:00:00'
+    prev_date: '1979-01-01T00:00:00'
     setup_dir: <TEST_DIR>/comp/oifs/oifs-43r3-v1
     thisrun_analysis_dir: <TEST_DIR>/run/oifs//oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/analysis/xios/
     thisrun_bin_dir: <TEST_DIR>/run/oifs//oifs-43r3-tco95-amip-test_lowcpu/run_19790101-19790101/bin/xios/
