@@ -1035,7 +1035,7 @@ general:
     inspect: null
     isinteractive: false
     iterative_coupled_model: ''
-    jobid: 1035
+    jobid: 992
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 19991231-19991231
@@ -1949,11 +1949,11 @@ oifs:
                 - oasis3mct-EM21
                 - xios-2.5_r1910
             43r3-master:
-                branch: development/2022/awi-cm3-integration
+                branch: main
                 comp_command: export OIFS_CPLNG_LIB=$OIFS_OASIS_LIB; export OIFS_CPLNG_INCLUDE=$OIFS_OASIS_INCLUDE ;export OIFS_COMP=esm; export OIFS_BUILD=opt; export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-v3.0/oifs-43r3; export OIFS_XIOS=enable; export OIFS_CPLNG=enable; export OIFS_XIOS_DIR=<TEST_DIR>/comp/awicm3/awicm3-v3.0/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/awicm3/awicm3-v3.0/oifs-43r3/../xios/inc/; cd make; ../fcm/bin/fcm make -v -j10 -f oifs_esm.fcm ; mv esm/oifs/bin/master.exe esm/oifs/bin/OpenIFS
                 destination: oifs-43r3
                 executable: OpenIFS
-                git-repository: https://git.smhi.se/jan.streffing/oifs43r3/
+                git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3-ece
                 install_bins: make/esm/oifs/bin/OpenIFS
                 requires:
                 - oasis3mct-5.0-smhi
