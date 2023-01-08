@@ -4,7 +4,7 @@
 #SBATCH --ntasks=544
 #SBATCH --output=<TEST_DIR>/run/awiesm//pi-wiso/log/pi-wiso_awiesm_compute_18500101-18500101_%j.log --error=<TEST_DIR>/run/awiesm//pi-wiso/log/pi-wiso_awiesm_compute_18500101-18500101_%j.log
 #SBATCH --job-name=pi-wiso
-#SBATCH --account=ab0995
+#SBATCH --account=None
 #SBATCH --mail-type=NONE
 #SBATCH --ntasks-per-core=1
 #SBATCH --exclusive
@@ -70,7 +70,7 @@ export LD_LIBRARY_PATH=/sw/spack-levante/intel-oneapi-mkl-2022.0.1-ttdktf/mkl/20
 export LD_LIBRARY_PATH=/sw/spack-levante/intel-oneapi-mpi-2021.5.0-mrcss7/mpi/2021.5.0/libfabric/lib:$LD_LIBRARY_PATH
 export takenfrom=fesom2_run
 export taken2from=fesom2_ru
-export ACCOUNT=ab0995
+export ACCOUNT=None
 export ESM_TESTING_DIR=<TEST_DIR>/run/awiesm/
 export MODEL_DIR=<TEST_DIR>/comp/awiesm/awiesm-2.1
 export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
@@ -80,7 +80,7 @@ export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 1850-01-01T00:00:00 3212526 - start >> <TEST_DIR>/run/awiesm//pi-wiso/log//pi-wiso_awiesm.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 1850-01-01T00:00:00 959 - start >> <TEST_DIR>/run/awiesm//pi-wiso/log//pi-wiso_awiesm.log
 
 cd <TEST_DIR>/run/awiesm//pi-wiso/run_18500101-18500101/work/
 time srun -l --hint=nomultithread --multi-prog hostfile_srun 2>&1 &
@@ -92,6 +92,6 @@ process=$!
 cd <TEST_DIR>/run/awiesm//pi-wiso/scripts/
 esm_runscripts pi-wiso.yaml -e pi-wiso -t observe_compute -p ${process} -s 18500101 -r 1 -v  --last-jobtype prepcompute --open-run
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 1850-01-01T00:00:00 3212526 - done >> <TEST_DIR>/run/awiesm//pi-wiso/log//pi-wiso_awiesm.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 1850-01-01T00:00:00 959 - done >> <TEST_DIR>/run/awiesm//pi-wiso/log//pi-wiso_awiesm.log
 
 wait
