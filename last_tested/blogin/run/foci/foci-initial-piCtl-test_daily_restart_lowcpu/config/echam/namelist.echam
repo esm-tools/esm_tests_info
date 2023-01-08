@@ -14,17 +14,17 @@
 /
 
 &runctl
-    dt_start = 2014, 12, 31, 23, 52, 30
-    dt_stop = 2015, 1, 3, 23, 52, 30
+    dt_start = 1849, 12, 31, 23, 52, 30
+    dt_stop = 1850, 1, 3, 23, 52, 30
     putrerun = 1, 'days', 'last', 0
     lfractional_mask = .false.
-    out_datapath = '<TEST_DIR>/run/foci//foci-initial-ssp-scenario/run_20150101-20150101/work/'
-    out_expname = 'foci-initial-ssp-scenario'
+    out_datapath = '<TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/work/'
+    out_expname = 'foci-initial-piCtl-test_daily_restart_lowcpu'
     rerun_filetype = 4
     delta_time = 450
     putdata = 1, 'days', 'last', 0
     trigfiles = 1, 'months', 'first', 0
-    nproma = 32
+    nproma = 8
     lcouple = .true.
     getocean = 24, 'steps', 'exact', 0
     putocean = 24, 'steps', 'exact', -450
@@ -105,12 +105,13 @@
 /
 
 &radctl
-    iaero = 9
-    ighg = 1
+    iaero = 3
     io3 = 4
-    isolrad = 1
-    ico2 = 4
-    ich4 = 4
-    in2o = 4
-    icfc = 4
+    isolrad = 6
+    ich4 = 3
+    in2o = 3
+    co2vmr = 0.000284316986084
+    ch4vmr = 8.082490234375e-07
+    n2ovmr = 2.730210571289e-07
+    yr_perp = 1850
 /

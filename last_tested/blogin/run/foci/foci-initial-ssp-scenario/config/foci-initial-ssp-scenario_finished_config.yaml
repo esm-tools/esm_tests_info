@@ -1,7 +1,7 @@
 computer:
     account: None
     accounting: true
-    accounting_flag: --account=None
+    accounting_flag: --account=hbkmandr
     actual_script_dir: <--methods.script_dir--
     add_choose_heterogeneous_parallelization: &id001
         false:
@@ -125,7 +125,7 @@ computer:
         pool: /scratch/usr/hbkawi
     runtime_environment_changes:
         add_export_vars:
-            ACCOUNT: None
+            ACCOUNT: hbkmandr
             ESM_TESTING_DIR: <TEST_DIR>/run/foci/
             MODEL_DIR: <TEST_DIR>/comp/foci/foci-default
     script_name: <--methods.scriptname--
@@ -149,9 +149,11 @@ defaults:
     debug_info:
         loaded_from_file: <HOME_DIR>/esm_tools/configs//defaults/download_and_compile.yaml
 echam:
+    MAC-SP_hist_name: MAC-SP_ssp245
     _nx: 192
     _ny: 96
     adj_input_dir: /scratch/usr/shkifmsw/foci_input2/ECHAM6/input/r0008/T63
+    after_2014: true
     all_filetypes:
     - analysis
     - bin
@@ -166,6 +168,7 @@ echam:
     - restart_out
     - viz
     - ignore
+    allow_hist2ssp_transition: true
     bin_dir: <TEST_DIR>/comp/foci/foci-default/bin
     bin_intermediate:
         echam_bin: <TEST_DIR>run/foci/foci-initial-ssp-scenario/run_20150101-20150101/bin/echam/echam6
@@ -597,6 +600,7 @@ echam:
         volcsw_year_2016: <TEST_DIR>run/foci/foci-initial-ssp-scenario/run_20150101-20150101/work/strat_aerosol_sw_2016.nc
         volcsw_year_2017: <TEST_DIR>run/foci/foci-initial-ssp-scenario/run_20150101-20150101/work/strat_aerosol_sw_2017.nc
     greenhouse_dir: /scratch/usr/shkifmsw/foci_input2/ECHAM6/input
+    greenhouse_hist_name: greenhouse_ssp245
     grids:
         atmo:
             name: atmo
@@ -604,6 +608,7 @@ echam:
             nx: 192
             ny: 96
             oasis_grid_type: D
+    iaero: 9
     ignore_intermediate:
         accw: <TEST_DIR>run/foci/foci-initial-ssp-scenario/run_20150101-20150101/ignore/echam/foci-initial-ssp-scenario_201501.02_accw
         accw_codes: <TEST_DIR>run/foci/foci-initial-ssp-scenario/run_20150101-20150101/ignore/echam/foci-initial-ssp-scenario_201501.02_accw.codes
@@ -637,6 +642,7 @@ echam:
     ini_parent_date: '18491231'
     ini_parent_dir: /scratch/usr/shkifmsw/foci_input2/ECHAM6/FOCI_RESTART/unset//echam6/
     ini_parent_exp_id: unset
+    initial_date_non_ssp: false
     input_dir: /scratch/usr/shkifmsw/foci_input2/ECHAM6/input/r0008
     input_intermediate:
         cldoptprops: <TEST_DIR>run/foci/foci-initial-ssp-scenario/run_20150101-20150101/input/echam/ECHAM6_CldOptProps.nc
@@ -699,6 +705,8 @@ echam:
             parctl:
                 nproca: 8
                 nprocb: 4
+            radctl:
+                iaero: 9
             runctl:
                 delta_time: 450
                 dt_start:
@@ -946,6 +954,7 @@ echam:
                 compiler_mpi: intel2019_impi2019
         iolibraries: geomar_libs
     scenario: ssp585
+    scenario_is_ssp: true
     scenario_type: cmip6
     setup_dir: <TEST_DIR>/comp/foci/foci-default
     standalone_model: true
@@ -1010,7 +1019,7 @@ echam:
     with_wiso: false
     yr_perp_off: false
 general:
-    account: None
+    account: hbkmandr
     additional_files: []
     all_filetypes:
     - analysis
@@ -1047,10 +1056,10 @@ general:
     base_dir: <TEST_DIR>/run/foci/
     batch: slurm
     calendar: esm_calender object with no leap years allowed
-    check: true
+    check: false
     chunk_number: 1
     command_line_config:
-        check: true
+        check: false
         current_date: null
         expid: foci-initial-ssp-scenario
         ignore_config_warnings: false
@@ -1059,7 +1068,7 @@ general:
         last_jobtype: prepcompute
         launcher_pid: -666
         no_motd: true
-        original_command: foci-initial-ssp-scenario.yaml -e foci-initial-ssp-scenario --open-run -c --no-motd --last-jobtype prepcompute
+        original_command: foci-initial-ssp-scenario.yaml -e foci-initial-ssp-scenario --open-run --no-motd --last-jobtype prepcompute
         profile: false
         run_number: null
         runscript_abspath: <TEST_DIR>run/foci/foci-initial-ssp-scenario/scripts/foci-initial-ssp-scenario.yaml
@@ -1199,7 +1208,7 @@ general:
     inspect: null
     isinteractive: false
     iterative_coupled_model: ''
-    jobid: 919
+    jobid: 126631
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 20141231-20141231
@@ -1225,7 +1234,7 @@ general:
     no_motd: true
     nsecond: 0
     nyear: 0
-    original_command: foci-initial-ssp-scenario.yaml -e foci-initial-ssp-scenario --open-run -c --no-motd --last-jobtype prepcompute
+    original_command: foci-initial-ssp-scenario.yaml -e foci-initial-ssp-scenario --open-run --no-motd --last-jobtype prepcompute
     out_filetypes:
     - analysis
     - log
@@ -1549,7 +1558,10 @@ hdmodel:
     thisrun_viz_dir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/run_20150101-20150101/viz/hdmodel/
     time_step: 450
 jsbach:
-    adj_input_dir: /scratch/usr/shkifmsw/foci_input2/JSBACH/input/r0010/T63
+    Ndepo_cmip6: Ndepo_ssp
+    Ndepo_path: T63/ndepo/Ndepo_ssp585.
+    Ndepo_sufix: _ssp585
+    adj_input_dir: /scratch/usr/shkifmsw/foci_input2/ECHAM6_T63/JSBACH//input/r0010/T63
     all_filetypes:
     - analysis
     - bin
@@ -1570,7 +1582,8 @@ jsbach:
         namelist.jsbach: <HOME_DIR>/esm_tools/namelists//jsbach/3.20p1/cmip6/dynveg/namelist.jsbach
     config_targets:
         namelist.jsbach: <TEST_DIR>run/foci/foci-initial-ssp-scenario/run_20150101-20150101/work/namelist.jsbach
-    cover_fract_dir: /scratch/usr/shkifmsw/foci_input2/JSBACH/input/r0010/T63/land_use_maps/
+    cover_fract_cmip6: cover_fract_ssp
+    cover_fract_dir: /scratch/usr/shkifmsw/foci_input2/ECHAM6_T63/JSBACH//input/r0010/T63/land_use_maps/
     dataset: r0010
     debug_info:
         loaded_from_file:
@@ -1692,20 +1705,22 @@ jsbach:
         Ndepo_year_2014: <TEST_DIR>run/foci/foci-initial-ssp-scenario/run_20150101-20150101/forcing/jsbach/Ndepo.2014.nc
         Ndepo_year_2015: <TEST_DIR>run/foci/foci-initial-ssp-scenario/run_20150101-20150101/forcing/jsbach/Ndepo.2015.nc
         a_nd_file: <TEST_DIR>run/foci/foci-initial-ssp-scenario/run_20150101-20150101/forcing/jsbach/a_nd_file.nc
+        cover_fract: <TEST_DIR>run/foci/foci-initial-ssp-scenario/run_20150101-20150101/forcing/jsbach/cover_fract.2015.nc
         lightning: <TEST_DIR>run/foci/foci-initial-ssp-scenario/run_20150101-20150101/forcing/jsbach/lightning.nc
         popdens: <TEST_DIR>run/foci/foci-initial-ssp-scenario/run_20150101-20150101/forcing/jsbach/population_density.nc
     forcing_modifications:
         Ndepo: <--setyear-- @YEAR@
     forcing_sources:
-        LU_trans_year_2014: /scratch/usr/shkifmsw/foci_input2/JSBACH/input/r0010/T63/New_Hampshire_LCC/hist_dynveg/LUH_scaled_transitions_T63_2014.nc
-        LU_trans_year_2015: /scratch/usr/shkifmsw/foci_input2/JSBACH/input/r0010/T63/New_Hampshire_LCC/ssp585_dynveg/LUH_scaled_transitions_T63_2015.nc
-        LU_year_2014: /scratch/usr/shkifmsw/foci_input2/JSBACH/input/r0010/T63/New_Hampshire_LCC/hist_harvest/LUH_harvest_T63_2014.nc
-        LU_year_2015: /scratch/usr/shkifmsw/foci_input2/JSBACH/input/r0010/T63/New_Hampshire_LCC/ssp585_harvest/LUH_harvest_T63_2015.nc
-        Ndepo_year_2014: /scratch/usr/shkifmsw/foci_input2/JSBACH/input/r0010/T63/ndepo/Ndepo.2014.nc
-        Ndepo_year_2015: /scratch/usr/shkifmsw/foci_input2/JSBACH/input/r0010/T63/ndepo/Ndepo_ssp585.2015.nc
-        a_nd_file: /scratch/usr/shkifmsw/foci_input2/JSBACH/input/r0010/T63/spitfire/a_nd_T63.nc
-        lightning: /scratch/usr/shkifmsw/foci_input2/JSBACH/input/r0010/T63/spitfire/LISOTD_HRMC_V2.2_T63.nc
-        popdens: /scratch/usr/shkifmsw/foci_input2/JSBACH/input/r0010/T63/spitfire/population_density_HYDE_T63.nc
+        LU_trans_year_2014: /scratch/usr/shkifmsw/foci_input2/ECHAM6_T63/JSBACH//input/r0010/T63/New_Hampshire_LCC/hist_dynveg/LUH_scaled_transitions_T63_2014.nc
+        LU_trans_year_2015: /scratch/usr/shkifmsw/foci_input2/ECHAM6_T63/JSBACH//input/r0010/T63/New_Hampshire_LCC/ssp585_dynveg/LUH_scaled_transitions_T63_2015.nc
+        LU_year_2014: /scratch/usr/shkifmsw/foci_input2/ECHAM6_T63/JSBACH//input/r0010/T63/New_Hampshire_LCC/hist_harvest/LUH_harvest_T63_2014.nc
+        LU_year_2015: /scratch/usr/shkifmsw/foci_input2/ECHAM6_T63/JSBACH//input/r0010/T63/New_Hampshire_LCC/ssp585_harvest/LUH_harvest_T63_2015.nc
+        Ndepo_year_2014: /scratch/usr/shkifmsw/foci_input2/ECHAM6_T63/JSBACH//input//T63/ndepo/Ndepo_ssp585.2014.nc
+        Ndepo_year_2015: /scratch/usr/shkifmsw/foci_input2/ECHAM6_T63/JSBACH//input//T63/ndepo/Ndepo_ssp585.2015.nc
+        a_nd_file: /scratch/usr/shkifmsw/foci_input2/ECHAM6_T63/JSBACH//input/r0010/T63/spitfire/a_nd_T63.nc
+        cover_fract: /scratch/usr/shkifmsw/foci_input2/ECHAM6_T63/JSBACH//input/r0010/T63/land_use_maps/ssp585/cover_fract_T63_11tiles_2015.nc
+        lightning: /scratch/usr/shkifmsw/foci_input2/ECHAM6_T63/JSBACH//input/r0010/T63/spitfire/LISOTD_HRMC_V2.2_T63.nc
+        popdens: /scratch/usr/shkifmsw/foci_input2/ECHAM6_T63/JSBACH//input//T63/spitfire/population_density_ssp5_T63.nc
     forcing_targets:
         LU_trans_year_2014: <TEST_DIR>run/foci/foci-initial-ssp-scenario/run_20150101-20150101/work/landuseTransitions.2014.nc
         LU_trans_year_2015: <TEST_DIR>run/foci/foci-initial-ssp-scenario/run_20150101-20150101/work/landuseTransitions.2015.nc
@@ -1714,6 +1729,7 @@ jsbach:
         Ndepo_year_2014: <TEST_DIR>run/foci/foci-initial-ssp-scenario/run_20150101-20150101/work/Ndepo.2014.nc
         Ndepo_year_2015: <TEST_DIR>run/foci/foci-initial-ssp-scenario/run_20150101-20150101/work/Ndepo.2015.nc
         a_nd_file: <TEST_DIR>run/foci/foci-initial-ssp-scenario/run_20150101-20150101/work/a_nd_file.nc
+        cover_fract: <TEST_DIR>run/foci/foci-initial-ssp-scenario/run_20150101-20150101/work/cover_fract.2015.nc
         lightning: <TEST_DIR>run/foci/foci-initial-ssp-scenario/run_20150101-20150101/work/lightning.nc
         popdens: <TEST_DIR>run/foci/foci-initial-ssp-scenario/run_20150101-20150101/work/population_density.nc
     hist_extend_scenario: ssp370
@@ -1776,11 +1792,11 @@ jsbach:
         yasso_codes: <TEST_DIR>run/foci/foci-initial-ssp-scenario/ignore/jsbach/foci-initial-ssp-scenario_201501.02_yasso.codes
         yasso_restart: <TEST_DIR>run/foci/foci-initial-ssp-scenario/ignore/jsbach/restart_foci-initial-ssp-scenario_yasso.nc
     ini_parent_date: '18491231'
-    ini_parent_dir: /scratch/usr/shkifmsw/foci_input2/JSBACH/FOCI_RESTART/unset//jsbach/
+    ini_parent_dir: /scratch/usr/shkifmsw/foci_input2/ECHAM6_T63/JSBACH//FOCI_RESTART/unset//jsbach/
     ini_parent_exp_id: unset
     ini_restart_dir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/restart/echam//../jsbach/
-    input_dir: /scratch/usr/shkifmsw/foci_input2/JSBACH/input/r0010
-    input_dir_awi: /scratch/usr/hbkawi/AWICM/JSBACH/input/r0010
+    input_dir: /scratch/usr/shkifmsw/foci_input2/ECHAM6_T63/JSBACH//input/r0010
+    input_dir_couple: /scratch/usr/shkifmsw/foci_input2/ECHAM6_T63/JSBACH//input/
     input_intermediate:
         cpools_foci: <TEST_DIR>run/foci/foci-initial-ssp-scenario/run_20150101-20150101/input/jsbach/Cpools.nc
         fpc_foci: <TEST_DIR>run/foci/foci-initial-ssp-scenario/run_20150101-20150101/input/jsbach/fpc.nc
@@ -1788,11 +1804,11 @@ jsbach:
         lctlib: <TEST_DIR>run/foci/foci-initial-ssp-scenario/run_20150101-20150101/input/jsbach/lctlib.def
         npools_foci: <TEST_DIR>run/foci/foci-initial-ssp-scenario/run_20150101-20150101/input/jsbach/Ndepo.nc
     input_sources:
-        cpools_foci: /scratch/usr/shkifmsw/foci_input2/JSBACH/input/r0010/T63/cpools_T63ORCA05_pdv0002_51251231.nc
-        fpc_foci: /scratch/usr/shkifmsw/foci_input2/JSBACH/input/r0010/T63/cpools_T63ORCA05_pdv0002_51251231.nc
-        jsbach: /scratch/usr/shkifmsw/foci_input2/JSBACH/input/r0010/T63/jsbach_T63ORCA05_11tiles_5layers_1850_dynveg.nc
+        cpools_foci: /scratch/usr/shkifmsw/foci_input2/ECHAM6_T63/JSBACH//input/r0010/T63/cpools_T63ORCA05_pdv0002_51251231.nc
+        fpc_foci: /scratch/usr/shkifmsw/foci_input2/ECHAM6_T63/JSBACH//input/r0010/T63/cpools_T63ORCA05_pdv0002_51251231.nc
+        jsbach: /scratch/usr/shkifmsw/foci_input2/ECHAM6_T63/JSBACH//input/r0010/T63/jsbach_T63ORCA05_11tiles_5layers_1850_dynveg.nc
         lctlib: /scratch/usr/shkifmsw/foci_input2/ECHAM6_GENERAL/JSBACH/input/lctlib_nlct21.def
-        npools_foci: /scratch/usr/shkifmsw/foci_input2/JSBACH/input/r0010/T63/cpools_T63ORCA05_pdv0002_51251231.nc
+        npools_foci: /scratch/usr/shkifmsw/foci_input2/ECHAM6_T63/JSBACH//input/r0010/T63/cpools_T63ORCA05_pdv0002_51251231.nc
     input_targets:
         cpools_foci: <TEST_DIR>run/foci/foci-initial-ssp-scenario/run_20150101-20150101/work/Cpools.nc
         fpc_foci: <TEST_DIR>run/foci/foci-initial-ssp-scenario/run_20150101-20150101/work/fpc.nc
@@ -1847,8 +1863,9 @@ jsbach:
     parent_date: '2014-12-31T23:52:30'
     parent_expid: foci-initial-ssp-scenario
     parent_restart_dir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/restart/jsbach/
-    pool_dir: /scratch/usr/shkifmsw/foci_input2/JSBACH
-    pool_dir_awi: /scratch/usr/hbkawi/AWICM/JSBACH
+    pool_dir: /scratch/usr/shkifmsw/foci_input2/ECHAM6_T63/JSBACH/
+    pool_dir_couple: /scratch/usr/hbkawi/AWICM/JSBACH
+    popdens_cmip6: popdens_ssp
     prev_date: '2014-12-31T23:52:30'
     pseudo_end_date: '2015-01-01T23:45:00'
     pseudo_start_date: '2014-12-31T23:52:30'
