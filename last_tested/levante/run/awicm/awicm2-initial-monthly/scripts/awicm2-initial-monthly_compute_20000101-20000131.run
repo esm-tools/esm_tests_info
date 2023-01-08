@@ -4,7 +4,7 @@
 #SBATCH --ntasks=544
 #SBATCH --output=<TEST_DIR>/run/awicm//awicm2-initial-monthly/log/awicm2-initial-monthly_awicm_compute_20000101-20000131_%j.log --error=<TEST_DIR>/run/awicm//awicm2-initial-monthly/log/awicm2-initial-monthly_awicm_compute_20000101-20000131_%j.log
 #SBATCH --job-name=awicm2-initial-monthly
-#SBATCH --account=None
+#SBATCH --account=ab0995
 #SBATCH --mail-type=NONE
 #SBATCH --ntasks-per-core=1
 #SBATCH --exclusive
@@ -70,7 +70,7 @@ export LD_LIBRARY_PATH=/sw/spack-levante/intel-oneapi-mkl-2022.0.1-ttdktf/mkl/20
 export LD_LIBRARY_PATH=/sw/spack-levante/intel-oneapi-mpi-2021.5.0-mrcss7/mpi/2021.5.0/libfabric/lib:$LD_LIBRARY_PATH
 export takenfrom=fesom2_run
 export taken2from=fesom2_ru
-export ACCOUNT=None
+export ACCOUNT=ab0995
 export ESM_TESTING_DIR=<TEST_DIR>/run/awicm/
 export MODEL_DIR=<TEST_DIR>/comp/awicm/awicm-2.0
 export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
@@ -80,7 +80,7 @@ export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 1148 - start >> <TEST_DIR>/run/awicm//awicm2-initial-monthly/log//awicm2-initial-monthly_awicm.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 3214067 - start >> <TEST_DIR>/run/awicm//awicm2-initial-monthly/log//awicm2-initial-monthly_awicm.log
 
 cd <TEST_DIR>/run/awicm//awicm2-initial-monthly/run_20000101-20000131/work/
 time srun -l --hint=nomultithread --multi-prog hostfile_srun 2>&1 &
@@ -92,6 +92,6 @@ process=$!
 cd <TEST_DIR>/run/awicm//awicm2-initial-monthly/scripts/
 esm_runscripts awicm2-initial-monthly.yaml -e awicm2-initial-monthly -t observe_compute -p ${process} -s 20000101 -r 1 -v  --last-jobtype prepcompute --open-run
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 1148 - done >> <TEST_DIR>/run/awicm//awicm2-initial-monthly/log//awicm2-initial-monthly_awicm.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 3214067 - done >> <TEST_DIR>/run/awicm//awicm2-initial-monthly/log//awicm2-initial-monthly_awicm.log
 
 wait

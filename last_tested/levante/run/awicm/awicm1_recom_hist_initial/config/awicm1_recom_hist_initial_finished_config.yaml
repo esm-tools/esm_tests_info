@@ -1,7 +1,7 @@
 computer:
     account: None
     accounting: true
-    accounting_flag: --account=None
+    accounting_flag: --account=ab0995
     actual_script_dir: <--methods.script_dir--
     add_choose_heterogeneous_parallelization: &id001
         false:
@@ -155,7 +155,7 @@ computer:
         pool: /pool/data
     runtime_environment_changes:
         add_export_vars:
-            ACCOUNT: None
+            ACCOUNT: ab0995
             ESM_TESTING_DIR: <TEST_DIR>/run/awicm/
             MODEL_DIR: <TEST_DIR>/comp/awicm/awicm-1.0-recom
     script_name: <--methods.scriptname--
@@ -179,6 +179,7 @@ defaults:
     debug_info:
         loaded_from_file: <HOME_DIR>/esm_tools/configs//defaults/download_and_compile.yaml
 echam:
+    MAC-SP_hist_name: MAC-SP
     _nx: 192
     _ny: 96
     adj_input_dir: /pool/data/AWICM/FESOM1/MESHES/core//tarfilesT63/input/echam6
@@ -196,6 +197,7 @@ echam:
     - restart_out
     - viz
     - ignore
+    allow_hist2ssp_transition: false
     bin_dir: <TEST_DIR>/comp/awicm/awicm-1.0-recom/bin
     bin_intermediate:
         echam_bin: <TEST_DIR>run/awicm/awicm1_recom_hist_initial/run_20070101-20070131/bin/echam/echam6
@@ -563,6 +565,7 @@ echam:
         volcsw_year_2008: <TEST_DIR>run/awicm/awicm1_recom_hist_initial/run_20070101-20070131/work/strat_aerosol_sw_2008.nc
         volcsw_year_2009: <TEST_DIR>run/awicm/awicm1_recom_hist_initial/run_20070101-20070131/work/strat_aerosol_sw_2009.nc
     greenhouse_dir: /pool/data/ECHAM6//input/r0007
+    greenhouse_hist_name: greenhouse_historical
     grids:
         atmo:
             name: atmo
@@ -1197,6 +1200,7 @@ echam:
     restart_rate: 1
     restart_unit: months
     scenario: HIST
+    scenario_is_ssp: false
     scenario_type: HIST
     setup_dir: <TEST_DIR>/comp/awicm/awicm-1.0-recom
     standalone_model: true
@@ -2286,7 +2290,7 @@ fesom:
     yearly_outputs_start: 1
     yearnew: 2007
 general:
-    account: None
+    account: ab0995
     additional_files: []
     all_filetypes:
     - analysis
@@ -2320,10 +2324,10 @@ general:
     base_dir: <TEST_DIR>/run/awicm/
     batch: slurm
     calendar: esm_calendar object with allowed leap years
-    check: true
+    check: false
     chunk_number: 1
     command_line_config:
-        check: true
+        check: false
         current_date: null
         expid: awicm1_recom_hist_initial
         ignore_config_warnings: false
@@ -2332,7 +2336,7 @@ general:
         last_jobtype: prepcompute
         launcher_pid: -666
         no_motd: true
-        original_command: awicm1_recom_hist_initial.yaml -e awicm1_recom_hist_initial --open-run -c --no-motd --last-jobtype prepcompute
+        original_command: awicm1_recom_hist_initial.yaml -e awicm1_recom_hist_initial --open-run --no-motd --last-jobtype prepcompute
         profile: false
         run_number: null
         runscript_abspath: <TEST_DIR>run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml
@@ -2471,7 +2475,7 @@ general:
     inspect: null
     isinteractive: false
     iterative_coupled_model: ''
-    jobid: 1112
+    jobid: 3214481
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 20061201-20061231
@@ -2497,7 +2501,7 @@ general:
     no_motd: true
     nsecond: 0
     nyear: 0
-    original_command: awicm1_recom_hist_initial.yaml -e awicm1_recom_hist_initial --open-run -c --no-motd --last-jobtype prepcompute
+    original_command: awicm1_recom_hist_initial.yaml -e awicm1_recom_hist_initial --open-run --no-motd --last-jobtype prepcompute
     out_filetypes:
     - analysis
     - log
@@ -2819,6 +2823,9 @@ hdmodel:
     thisrun_viz_dir: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/run_20070101-20070131/viz/hdmodel/
     time_step: 450
 jsbach:
+    Ndepo_cmip6: Ndepo_hist_scenario
+    Ndepo_path: ''
+    Ndepo_sufix: ''
     add_input_sources:
         jsbach_1850: /work/ab0995/from_Mistral/ab0995/a270046/meshes_default/core/tarfilesT63/input/jsbach/jsbach_T63CORE2_11tiles_5layers_1850.nc
     adj_input_dir: /pool/data/AWICM/FESOM1/MESHES/core//tarfilesT63/input/jsbach
@@ -2842,6 +2849,7 @@ jsbach:
         namelist.jsbach: <HOME_DIR>/esm_tools/namelists//jsbach/3.20/HIST/dynveg/namelist.jsbach
     config_targets:
         namelist.jsbach: <TEST_DIR>run/awicm/awicm1_recom_hist_initial/run_20070101-20070131/work/namelist.jsbach
+    cover_fract_cmip6: cover_fract.@YEAR@.nc
     cover_fract_dir: /pool/data/JSBACH/input/r0010/T63/land_use_maps/
     dataset: r0010
     debug_info:
@@ -3063,7 +3071,7 @@ jsbach:
     ini_parent_exp_id: awicm1_recom_hist_initial
     ini_restart_dir: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/restart/echam//../jsbach/
     input_dir: /pool/data/JSBACH/input/r0010
-    input_dir_awi: /pool/data/AWICM/JSBACH/input/r0010
+    input_dir_couple: /pool/data/AWICM/JSBACH/input/r0010
     input_intermediate:
         jsbach: <TEST_DIR>run/awicm/awicm1_recom_hist_initial/run_20070101-20070131/input/jsbach/jsbach.nc
         lctlib: <TEST_DIR>run/awicm/awicm1_recom_hist_initial/run_20070101-20070131/input/jsbach/lctlib.def
@@ -3114,7 +3122,8 @@ jsbach:
     parent_expid: awicm1_recom_hist_initial
     parent_restart_dir: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/restart/jsbach/
     pool_dir: /pool/data/JSBACH
-    pool_dir_awi: /pool/data/AWICM/JSBACH
+    pool_dir_couple: /pool/data/AWICM/JSBACH
+    popdens_cmip6: popdens
     prev_date: '2006-12-31T23:52:30'
     repository: https://gitlab.dkrz.de/modular_esm/echam6
     resolution: T63
