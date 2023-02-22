@@ -66,5 +66,5 @@ export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 
 
 cd oifs-43r3-foci
-export OIFS_TOPLEVEL_DIR=<TEST_DIR>comp/focioifs/focioifs-2.0/oifs-43r3-foci; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>comp/focioifs/focioifs-2.0/oifs-43r3-foci/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>comp/focioifs/focioifs-2.0/oifs-43r3-foci/../xios/inc/ ; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
+export OIFS_TOPLEVEL_DIR=<TEST_DIR>comp/focioifs/focioifs-2.0/oifs-43r3-foci; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>comp/focioifs/focioifs-2.0/oifs-43r3-foci/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>comp/focioifs/focioifs-2.0/oifs-43r3-foci/../xios/inc/ ; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; chmod -R 700 . ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
 cd ..
