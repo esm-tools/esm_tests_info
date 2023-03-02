@@ -1,0 +1,28 @@
+general:
+    account: !ENV ${ACCOUNT}
+    setup_name: fesom
+    compute_time: "00:20:00"
+    initial_date: "1950-01-01"
+    final_date: "1950-01-03"
+    base_dir: !ENV ${ESM_TESTING_DIR}
+    nyear: 0
+    nmonth: 0
+    nday: 1
+
+fesom:
+    version: "1.4"
+    model_dir: !ENV ${MODEL_DIR}
+    restart_rate: 1
+    restart_first: 1
+    restart_unit: "d"
+    opbnd_dir: "remove_from_namelist"
+    tide_forcing_dir: "remove_from_namelist"
+    choose_computer.name:
+        blogin:
+            pool_dir: "/scratch/usr/hbkawi/"
+            rnproc: 384
+        levante:
+            rnproc: 128
+        ollie:
+            rnproc: 288
+    nproc: ${rnproc}

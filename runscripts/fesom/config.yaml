@@ -1,18 +1,25 @@
 comp:
         actual:
                 files:
-                    - "bin/fesom.x"
+                    - "bin/fesom.x except [1.4]"
+                    - "bin/fesom in [1.4]"
         check: {}
 run:
         actual:
                 errors:
                     - "MISSING FILES"
                 files:
-                    - "outdata/fesom/*.fesom.*.nc"
-                    - "restart/fesom/fesom.*.oce.restart.nc*"
-                    - "restart/fesom/fesom.*.ice.restart.nc*"
+                    # Files specific to version 1.4
+                    - "outdata/fesom/*_fesom_*.nc in [1.4]"
+                    - "restart/fesom/fesom.*.oce.nc in [1.4]"
+                    - "restart/fesom/fesom.*.ice.nc in [1.4]"
+                    # Files specific to versions 2
+                    - "outdata/fesom/*.fesom.*.nc except [1.4]"
+                    - "restart/fesom/fesom.*.oce.restart.nc* except [1.4]"
+                    - "restart/fesom/fesom.*.ice.restart.nc* except [1.4]"
         check: {}
 computers:
         - ollie
         - mistral
         - levante
+        - blogin
