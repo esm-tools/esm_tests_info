@@ -1,0 +1,1376 @@
+computer:
+    account: None
+    accounting: false
+    actual_script_dir: <--methods.script_dir--
+    add_choose_heterogeneous_parallelization: &id001
+        false:
+            cpu_bind: cores
+            srun_execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=cores --multi-prog hostfile_srun
+        true:
+            choose_taskset:
+                false:
+                    launcher_comp_sep: '\
+
+                        :'
+                    launcher_flags_per_component: --nodes=@nnodes@ --ntasks=@nproc@ --ntasks-per-node=@nproc_per_node@ --cpus-per-task=@cpus_per_proc@ --export=ALL,OMP_NUM_THREADS=@omp_num_threads@
+                    srun_execution_command: 'srun -l --kill-on-bad-exit=1 --cpu_bind=cores \
+
+                        @components@'
+                true:
+                    srun_execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=cores --multi-prog hostfile_srun
+            cpu_bind: none
+    additional_flags: []
+    batch_system: slurm
+    cc: mpiicc
+    check_error:
+        'slurmstepd: error: execve():':
+            file: stdout
+            frequency: 600
+            message: 'SLURM ERROR: slurm probably didn''t find executable'
+            method: kill
+        'srun: error:':
+            file: stdout
+            frequency: 30
+            message: 'SLURM ERROR: slurm ended with an error, exiting.'
+            method: kill
+    choose_heterogeneous_parallelization: *id001
+    config_files:
+        hostfile: hostfile_srun
+    cpu_bind: cores
+    cxx: mpiicpc
+    debug_info:
+        loaded_from_file:
+        - <HOME_DIR>/esm_tools/configs//machines/ollie.yaml
+    debugger: None
+    debugger_flags_prelauncher: ''
+    exclusive_flag: --exclusive
+    execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=cores --multi-prog hostfile_srun
+    export_vars:
+        CC: mpiicc
+        CXX: mpiicpc
+        F77: '"mpiifort -mkl"'
+        FC: '"mpiifort -mkl"'
+        HDF5ROOT: $HDF5_ROOT
+        IO_LIB_ROOT: ''
+        LAPACK_LIB: '"-lmkl_intel_lp64 -lmkl_core -mkl=sequential -lpthread -lm -ldl"'
+        LAPACK_LIB_DEFAULT: '"-L/global/AWIsoft/intel/2018/compilers_and_libraries_2018.5.274/linux/mkl/lib/intel64 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential"'
+        LC_ALL: en_US.UTF-8
+        MPICC: mpiicc
+        MPIFC: mpiifort
+        MPIROOT: ${I_MPI_ROOT}/intel64
+        MPI_LIB: $(mpiifort -show |sed -e 's/^[^ ]*//' -e 's/-[I][^ ]*//g')
+        NETCDFFROOT: $NETCDF_DIR
+        NETCDFROOT: $NETCDF_DIR
+        NETCDF_CXX_INCLUDE_DIRECTORIES: $NETCDFROOT/include
+        NETCDF_CXX_LIBRARIES: $NETCDFROOT/lib
+        NETCDF_Fortran_INCLUDE_DIRECTORIES: $NETCDFROOT/include
+        PATH: /work/ollie/jhegewal/sw/cmake/bin:$PATH
+        PERL5LIB: /usr/lib64/perl5
+        XML2ROOT: /usr
+        ZLIBROOT: /usr
+    f77: '"mpiifort -mkl"'
+    fc: '"mpiifort -mkl"'
+    header_start: '#SBATCH'
+    heterogeneous_parallelization: false
+    hetjob_flag: packjob
+    hostname_list: DUMMY_HOST1 DUMMY_HOST2
+    hyper_flag: ''
+    jobtype: unknown
+    launcher: srun
+    launcher_flags: -l --kill-on-bad-exit=1 --cpu_bind=cores
+    logical_cpus_per_core: 2
+    mail1: --mail-type=NONE
+    mail2: ''
+    mail_type: NONE
+    model: computer
+    module_actions:
+    - source /etc/profile.d/modules.sh
+    - purge
+    - load cmake
+    - load udunits
+    - load gribapi/1.28.0
+    - unload intel.compiler
+    - load intel.compiler
+    - unload netcdf
+    - load hdf5
+    - load centoslibs cdo nco netcdf/4.6.2_intel
+    - load automake
+    - load python3/3.7.7_intel2020u2
+    - load git
+    - list
+    - unload intel.mpi
+    - load intel.mpi
+    mpicc: mpiicc
+    mpifc: mpiifort
+    mt_launcher_flag: ''
+    name: ollie
+    name_flag: --job-name=fesom1.4-initial-monthly
+    nodes_flag: --nodes=@nodes@
+    nothing: much
+    notification_flag: --mail-type=NONE
+    operating_system: linux-centos
+    output_flags: --output=<TEST_DIR>/run/fesom//fesom1.4-initial-monthly/log/fesom1.4-initial-monthly_fesom_@jobtype@_19500101-19500101_%j.log --error=<TEST_DIR>/run/fesom//fesom1.4-initial-monthly/log/fesom1.4-initial-monthly_fesom_@jobtype@_19500101-19500101_%j.log
+    output_path: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/log/
+    overcommit_flag: ''
+    overcommit_nodes: None
+    overcommit_rule: ''
+    partition_flag: --partition=@partition@
+    partitions:
+        compute:
+            cores_per_node: 36
+            name: mpp
+        pp:
+            cores_per_node: 1
+            name: smp
+    pool_dir: /work/ollie/pool
+    pool_directories:
+        focipool: /dev/null
+        pool: /work/ollie/pool
+        projects: /work/ollie/projects
+    runtime_environment_changes:
+        add_export_vars:
+            ACCOUNT: None
+            ESM_TESTING_DIR: <TEST_DIR>/run/fesom/
+            MODEL_DIR: <TEST_DIR>/comp/fesom/fesom-1.4
+    script_name: <--methods.scriptname--
+    sh_interpreter: /usr/bin/bash
+    single_proc_submit_flag: --ntasks-per-node=1
+    srun_execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=cores --multi-prog hostfile_srun
+    submit: sbatch
+    submitted: false
+    tasks_flag: --ntasks=@tasks@
+    taskset: false
+    thisrun_logfile: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/log/fesom1.4-initial-monthly_fesom_@jobtype@_19500101-19500101_%j.log
+    threads_per_core: 1
+    time_flag: --time=00:20:00
+    unset_vars:
+    - SLURM_MEM_PER_NODE
+    - SLURM_MEM_PER_CPU
+    useMPI: intelmpi
+debug_info:
+    loaded_from_file: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/scripts/fesom1.4-initial-monthly.yaml
+defaults:
+    clean_command: rm -rf build CMakeCache.txt
+    comp_command: mkdir -p build; cd build; cmake ..;   make install -j `nproc --all`
+    debug_info:
+        loaded_from_file: <HOME_DIR>/esm_tools/configs//defaults/download_and_compile.yaml
+fesom:
+    12_step_outputs: []
+    12_step_outputs_for_AWI_FESOM_YAML: []
+    all_filetypes:
+    - analysis
+    - bin
+    - config
+    - forcing
+    - input
+    - couple
+    - log
+    - mon
+    - outdata
+    - restart_in
+    - restart_out
+    - viz
+    - ignore
+    asforcing: CORE2
+    available_versions:
+    - 1.4
+    - 1.4-esm_interface
+    - 1.4-recom
+    - 1.4-recom-awicm
+    - 2
+    - 2.0-o
+    - 2.0-paleodyn
+    - 2.0-r
+    - 2.1
+    - 2.1-recom
+    - 2.1-wiso
+    bin_dir: <TEST_DIR>/comp/fesom/fesom-1.4/bin
+    bin_intermediate:
+        fesom: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/bin/fesom/fesom
+    bin_sources:
+        fesom: <TEST_DIR>/comp/fesom/fesom-1.4/bin/fesom
+    bin_targets:
+        fesom: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/work/fesom
+    branch: master
+    branchoff: false
+    clean_command: rm -rf build CMakeCache.txt
+    climate_data_dir: /work/ollie/pool/FESOM//hydrography/
+    comp_command: mkdir -p build; cd build; cmake ..;   make install
+    config_intermediate:
+        config: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/config/fesom/namelist.config
+        diag: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/config/fesom/namelist.diag
+        fesom.clock: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/config/fesom/fesom.clock
+        forcing: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/config/fesom/namelist.forcing
+        ice: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/config/fesom/namelist.ice
+        oce: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/config/fesom/namelist.oce
+    config_sources:
+        config: <HOME_DIR>/esm_tools/namelists//fesom/namelist.config
+        diag: <HOME_DIR>/esm_tools/namelists//fesom/namelist.diag
+        fesom.clock: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/config/fesom//fesom.clock
+        forcing: <HOME_DIR>/esm_tools/namelists//fesom/namelist.forcing
+        ice: <HOME_DIR>/esm_tools/namelists//fesom/namelist.ice
+        oce: <HOME_DIR>/esm_tools/namelists//fesom/namelist.oce
+    config_targets:
+        config: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/work/namelist.config
+        diag: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/work/namelist.diag
+        fesom.clock: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/work/fesom.clock
+        forcing: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/work/namelist.forcing
+        ice: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/work/namelist.ice
+        oce: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/work/namelist.oce
+    contact: dmitry.sidorenko(at)awi.de, nikolay.koldunov(at)awi.de, miguel.andres-martinez(at)awi.de, paul.gierz(at)awi.de
+    coupling_fields:
+        co2_feom:
+            grid: feom
+        co2c_oce:
+            grid: feom
+        evap_oce:
+            grid: feom
+        heat_ico:
+            grid: feom
+        heat_oce:
+            grid: feom
+        heat_swo:
+            grid: feom
+        hydr_oce:
+            grid: feom
+        prec_oce:
+            grid: feom
+        sie_feom:
+            grid: feom
+        sit_feom:
+            grid: feom
+        snow_oce:
+            grid: feom
+        snt_feom:
+            grid: feom
+        sst_feom:
+            grid: feom
+        subl_oce:
+            grid: feom
+        taux_ico:
+            grid: feom
+        taux_oce:
+            grid: feom
+        tauy_ico:
+            grid: feom
+        tauy_oce:
+            grid: feom
+        w10w_oce:
+            grid: feom
+    create_config:
+        fesom.clock:
+        - <--append-- 0.0000000000000 1 1950
+        - <--append-- 0.0000000000000 1 1950
+    currentday: 1
+    daily_outputs: []
+    daily_outputs_for_AWI_FESOM_YAML: []
+    daynew: 1
+    debug_info:
+        loaded_from_file: <HOME_DIR>/esm_tools/configs//components/fesom/fesom.yaml
+    destination: fesom-1.4
+    environment_changes:
+        choose_computer.name:
+            blogin:
+                iolibraries: system_libs
+            glogin:
+                iolibraries: system_libs
+    executable: fesom
+    experiment_analysis_dir: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/analysis/fesom/
+    experiment_bin_dir: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/bin/fesom/
+    experiment_config_dir: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/config/fesom/
+    experiment_couple_dir: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/couple/fesom/
+    experiment_forcing_dir: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/forcing/fesom/
+    experiment_ignore_dir: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/ignore/fesom/
+    experiment_input_dir: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/input/fesom/
+    experiment_log_dir: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/log/fesom/
+    experiment_mon_dir: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/mon/fesom/
+    experiment_outdata_dir: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/outdata/fesom/
+    experiment_restart_in_dir: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/restart/fesom/
+    experiment_restart_out_dir: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/restart/fesom/
+    experiment_viz_dir: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/viz/fesom/
+    file_movements:
+        analysis:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        bin:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        config:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        couple:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        forcing:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        ignore:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        input:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        log:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        mon:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        outdata:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        restart_in:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        restart_out:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        scripts:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        unknown:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        viz:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+    forcing_data_dir: /work/ollie/pool/FESOM//forcing/
+    git-repository: https://gitlab.dkrz.de/modular_esm/fesom-1.4.git
+    grids:
+        feom:
+            name: feom
+            number_of_overlapping_points: 0
+            nx: 126859
+            ny: 1
+            oasis_grid_type: U
+    ignore_intermediate:
+        chloro: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/ignore/fesom/Chl_Sweeney.dat
+        gf: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/ignore/fesom/goodfile
+    ignore_sources:
+        chloro: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//Chl_Sweeney.dat
+        gf: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//goodfile
+    ignore_targets:
+        chloro: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/ignore/fesom/Chl_Sweeney.dat
+        gf: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/ignore/fesom/goodfile
+    ini_data_dir: /work/ollie/pool/FESOM//pool-data/
+    install_bins: bin/fesom
+    last_parent_date: '1949-12-31T23:00:00'
+    lasttime: 84600
+    leapyear: false
+    log_intermediate:
+        clock: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/log/fesom/fesom.clock
+        mesh_diag: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/log/fesom/fesom.initial.mesh.diag.nc
+    log_sources:
+        clock: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//fesom.clock
+        mesh_diag: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//fesom.initial.mesh.diag.nc
+    log_targets:
+        clock: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/log/fesom/fesom.clock
+        mesh_diag: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/log/fesom/fesom.initial.mesh.diag.nc
+    lresume: false
+    mesh_base_dir: /work/ollie/pool/FESOM//meshes_default/
+    mesh_dir: /work/ollie/pool/FESOM//meshes_default//core/
+    mesh_rotated: false
+    metadata:
+        Authors: Dmitry Sidorenko (Dmitry.Sidorenko@awi.de), Nikolay V. Koldunov (nikolay.koldunov@awi.de)
+        Description: Multiresolution sea ice-ocean model that solves the equations of motion on unestructured meshes
+        Institute: Alfred Wegener Institute for Polar and Marine Research (AWI)
+        License: www.fesom.de
+        Publications:
+        - 'Danilov et al. 2004: A finite-element ocean model: principles and evaluation <https://doi.org/10.1016/s1463-5003(02)00063-x>'
+        - 'Wang et al. 2014: The Finite Element Sea Ice-Ocean Model (FESOM) v.1.4: formulation of an ocean general circulation model. <https://doi.org/10.5194/gmd-7-663-2014>'
+    model: fesom
+    model_dir: <TEST_DIR>/comp/fesom/fesom-1.4
+    monthly_outputs:
+    - evap
+    - evs
+    - hfds
+    - lwrd
+    - mlotst
+    - olat
+    - olwout
+    - omldamax
+    - osen
+    - prlq
+    - prsn
+    - rsdo
+    - runoff
+    - shum
+    - siarean
+    - siareas
+    - sic
+    - siextentn
+    - siextents
+    - sithick
+    - sitimefrac
+    - siu
+    - siv
+    - sivol
+    - sivoln
+    - sivols
+    - so
+    - soga
+    - sos
+    - tair
+    - tauuo
+    - tauvo
+    - thetao
+    - thetaoga
+    - tos
+    - tso
+    - uo
+    - uwind
+    - vo
+    - vwind
+    - wnet
+    - wo
+    - zos
+    monthly_outputs_for_AWI_FESOM_YAML:
+    - evap
+    - evs
+    - hfds
+    - lwrd
+    - mlotst
+    - olat
+    - olwout
+    - omldamax
+    - osen
+    - prlq
+    - prsn
+    - rsdo
+    - runoff
+    - shum
+    - siarean
+    - siareas
+    - sic
+    - siextentn
+    - siextents
+    - sithick
+    - sitimefrac
+    - siu
+    - siv
+    - sivol
+    - sivoln
+    - sivols
+    - so
+    - soga
+    - sos
+    - tair
+    - tauuo
+    - tauvo
+    - thetao
+    - thetaoga
+    - tos
+    - tso
+    - uo
+    - uwind
+    - vo
+    - vwind
+    - wnet
+    - wo
+    - zos
+    namelist_changes:
+        namelist.config:
+            calendar:
+                include_fleapyear: false
+            clockinit:
+                daynew: 1
+                yearnew: 1950
+            inout:
+                output_length: 1
+                output_length_unit: d
+                restartflag: last
+            mesh_def: {}
+            paths:
+                ClimateDataPath: /work/ollie/pool/FESOM//hydrography/
+                ForcingDataPath: /work/ollie/pool/FESOM//forcing/
+                MeshPath: /work/ollie/pool/FESOM//meshes_default//core/
+                ResultPath: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work/
+            timestep:
+                run_length: 1
+                run_length_unit: d
+                step_per_day: 48
+        namelist.forcing:
+            forcing_source:
+                precip_data_source: CORE2
+                rad_data_source: CORE2
+                runoff_data_source: CORE2
+                sss_data_source: CORE2
+                wind_data_source: CORE2
+    namelist_dir: <HOME_DIR>/esm_tools/namelists//fesom
+    namelist_objs:
+        namelist.config: &id002 f90nml.name
+        namelist.diag: &id003 f90nml.name
+        namelist.forcing: &id004 f90nml.name
+        namelist.ice: &id005 f90nml.name
+        namelist.oce: &id006 f90nml.name
+    namelists:
+        namelist.config: *id002
+        namelist.diag: *id003
+        namelist.forcing: *id004
+        namelist.ice: *id005
+        namelist.oce: *id006
+    nproc: 288
+    nx: 126859
+    old_mesh_format: false
+    opbnd_dir: remove_from_namelist
+    outdata_intermediate:
+        evap: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/evap_fesom_19500101.nc
+        evs: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/evs_fesom_19500101.nc
+        flice: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/flice_fesom_19500101.nc
+        fsitherm: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/fsitherm_fesom_19500101.nc
+        hfds: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/hfds_fesom_19500101.nc
+        lwrd: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/lwrd_fesom_19500101.nc
+        mlotst: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/mlotst_fesom_19500101.nc
+        olat: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/olat_fesom_19500101.nc
+        olwout: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/olwout_fesom_19500101.nc
+        omldamax: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/omldamax_fesom_19500101.nc
+        opottemptend: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/opottemptend_fesom_19500101.nc
+        osen: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/osen_fesom_19500101.nc
+        pbo: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/pbo_fesom_19500101.nc
+        prlq: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/prlq_fesom_19500101.nc
+        prsn: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/prsn_fesom_19500101.nc
+        relax_salt: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/relax_salt_fesom_19500101.nc
+        rho: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/rho_fesom_19500101.nc
+        rsdo: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/rsdo_fesom_19500101.nc
+        runoff: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/runoff_fesom_19500101.nc
+        shum: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/shum_fesom_19500101.nc
+        siarean: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/siarean_fesom_19500101.nc
+        siareas: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/siareas_fesom_19500101.nc
+        sic: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/sic_fesom_19500101.nc
+        sidmassevapsubl: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/sidmassevapsubl_fesom_19500101.nc
+        sidmasssi: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/sidmasssi_fesom_19500101.nc
+        sidmassth: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/sidmassth_fesom_19500101.nc
+        sidmasstranx: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/sidmasstranx_fesom_19500101.nc
+        sidmasstrany: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/sidmasstrany_fesom_19500101.nc
+        siextentn: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/siextentn_fesom_19500101.nc
+        siextents: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/siextents_fesom_19500101.nc
+        sifllatstop: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/sifllatstop_fesom_19500101.nc
+        sisnconc: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/sisnconc_fesom_19500101.nc
+        sisnmass: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/sisnmass_fesom_19500101.nc
+        sisnthick: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/sisnthick_fesom_19500101.nc
+        sispeed: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/sispeed_fesom_19500101.nc
+        sistrxdtop: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/sistrxdtop_fesom_19500101.nc
+        sistrxubot: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/sistrxubot_fesom_19500101.nc
+        sistrydtop: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/sistrydtop_fesom_19500101.nc
+        sistryubot: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/sistryubot_fesom_19500101.nc
+        sithick: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/sithick_fesom_19500101.nc
+        sitimefrac: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/sitimefrac_fesom_19500101.nc
+        siu: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/siu_fesom_19500101.nc
+        siv: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/siv_fesom_19500101.nc
+        sivol: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/sivol_fesom_19500101.nc
+        sivoln: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/sivoln_fesom_19500101.nc
+        sivols: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/sivols_fesom_19500101.nc
+        so: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/so_fesom_19500101.nc
+        soga: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/soga_fesom_19500101.nc
+        sos: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/sos_fesom_19500101.nc
+        tair: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/tair_fesom_19500101.nc
+        tauuo: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/tauuo_fesom_19500101.nc
+        tauvo: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/tauvo_fesom_19500101.nc
+        thdgr: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/thdgr_fesom_19500101.nc
+        thdgrsn: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/thdgrsn_fesom_19500101.nc
+        thetao: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/thetao_fesom_19500101.nc
+        thetaoga: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/thetaoga_fesom_19500101.nc
+        tos: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/tos_fesom_19500101.nc
+        tso: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/tso_fesom_19500101.nc
+        u2o: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/u2o_fesom_19500101.nc
+        uhice: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/uhice_fesom_19500101.nc
+        uhsnow: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/uhsnow_fesom_19500101.nc
+        uo: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/uo_fesom_19500101.nc
+        urho: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/urho_fesom_19500101.nc
+        uso: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/uso_fesom_19500101.nc
+        uto: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/uto_fesom_19500101.nc
+        uv: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/uv_fesom_19500101.nc
+        uwind: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/uwind_fesom_19500101.nc
+        v2o: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/v2o_fesom_19500101.nc
+        vhice: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/vhice_fesom_19500101.nc
+        vhsnow: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/vhsnow_fesom_19500101.nc
+        virtual_salt: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/virtual_salt_fesom_19500101.nc
+        vo: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/vo_fesom_19500101.nc
+        volo: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/volo_fesom_19500101.nc
+        vrho: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/vrho_fesom_19500101.nc
+        vso: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/vso_fesom_19500101.nc
+        vto: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/vto_fesom_19500101.nc
+        vwind: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/vwind_fesom_19500101.nc
+        w2o: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/w2o_fesom_19500101.nc
+        wfo: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/wfo_fesom_19500101.nc
+        wnet: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/wnet_fesom_19500101.nc
+        wo: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/wo_fesom_19500101.nc
+        wso: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/wso_fesom_19500101.nc
+        wto: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/wto_fesom_19500101.nc
+        zos: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/zos_fesom_19500101.nc
+        zossq: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/zossq_fesom_19500101.nc
+    outdata_sources:
+        evap: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//evap_fesom_19500101.nc
+        evs: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//evs_fesom_19500101.nc
+        flice: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//flice_fesom_19500101.nc
+        fsitherm: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//fsitherm_fesom_19500101.nc
+        hfds: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//hfds_fesom_19500101.nc
+        lwrd: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//lwrd_fesom_19500101.nc
+        mlotst: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//mlotst_fesom_19500101.nc
+        olat: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//olat_fesom_19500101.nc
+        olwout: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//olwout_fesom_19500101.nc
+        omldamax: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//omldamax_fesom_19500101.nc
+        opottemptend: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//opottemptend_fesom_19500101.nc
+        osen: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//osen_fesom_19500101.nc
+        pbo: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//pbo_fesom_19500101.nc
+        prlq: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//prlq_fesom_19500101.nc
+        prsn: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//prsn_fesom_19500101.nc
+        relax_salt: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//relax_salt_fesom_19500101.nc
+        rho: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//rho_fesom_19500101.nc
+        rsdo: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//rsdo_fesom_19500101.nc
+        runoff: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//runoff_fesom_19500101.nc
+        shum: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//shum_fesom_19500101.nc
+        siarean: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//siarean_fesom_19500101.nc
+        siareas: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//siareas_fesom_19500101.nc
+        sic: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//sic_fesom_19500101.nc
+        sidmassevapsubl: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//sidmassevapsubl_fesom_19500101.nc
+        sidmasssi: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//sidmasssi_fesom_19500101.nc
+        sidmassth: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//sidmassth_fesom_19500101.nc
+        sidmasstranx: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//sidmasstranx_fesom_19500101.nc
+        sidmasstrany: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//sidmasstrany_fesom_19500101.nc
+        siextentn: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//siextentn_fesom_19500101.nc
+        siextents: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//siextents_fesom_19500101.nc
+        sifllatstop: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//sifllatstop_fesom_19500101.nc
+        sisnconc: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//sisnconc_fesom_19500101.nc
+        sisnmass: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//sisnmass_fesom_19500101.nc
+        sisnthick: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//sisnthick_fesom_19500101.nc
+        sispeed: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//sispeed_fesom_19500101.nc
+        sistrxdtop: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//sistrxdtop_fesom_19500101.nc
+        sistrxubot: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//sistrxubot_fesom_19500101.nc
+        sistrydtop: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//sistrydtop_fesom_19500101.nc
+        sistryubot: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//sistryubot_fesom_19500101.nc
+        sithick: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//sithick_fesom_19500101.nc
+        sitimefrac: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//sitimefrac_fesom_19500101.nc
+        siu: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//siu_fesom_19500101.nc
+        siv: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//siv_fesom_19500101.nc
+        sivol: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//sivol_fesom_19500101.nc
+        sivoln: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//sivoln_fesom_19500101.nc
+        sivols: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//sivols_fesom_19500101.nc
+        so: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//so_fesom_19500101.nc
+        soga: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//soga_fesom_19500101.nc
+        sos: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//sos_fesom_19500101.nc
+        tair: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//tair_fesom_19500101.nc
+        tauuo: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//tauuo_fesom_19500101.nc
+        tauvo: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//tauvo_fesom_19500101.nc
+        thdgr: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//thdgr_fesom_19500101.nc
+        thdgrsn: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//thdgrsn_fesom_19500101.nc
+        thetao: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//thetao_fesom_19500101.nc
+        thetaoga: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//thetaoga_fesom_19500101.nc
+        tos: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//tos_fesom_19500101.nc
+        tso: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//tso_fesom_19500101.nc
+        u2o: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//u2o_fesom_19500101.nc
+        uhice: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//uhice_fesom_19500101.nc
+        uhsnow: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//uhsnow_fesom_19500101.nc
+        uo: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//uo_fesom_19500101.nc
+        urho: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//urho_fesom_19500101.nc
+        uso: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//uso_fesom_19500101.nc
+        uto: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//uto_fesom_19500101.nc
+        uv: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//uv_fesom_19500101.nc
+        uwind: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//uwind_fesom_19500101.nc
+        v2o: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//v2o_fesom_19500101.nc
+        vhice: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//vhice_fesom_19500101.nc
+        vhsnow: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//vhsnow_fesom_19500101.nc
+        virtual_salt: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//virtual_salt_fesom_19500101.nc
+        vo: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//vo_fesom_19500101.nc
+        volo: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//volo_fesom_19500101.nc
+        vrho: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//vrho_fesom_19500101.nc
+        vso: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//vso_fesom_19500101.nc
+        vto: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//vto_fesom_19500101.nc
+        vwind: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//vwind_fesom_19500101.nc
+        w2o: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//w2o_fesom_19500101.nc
+        wfo: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//wfo_fesom_19500101.nc
+        wnet: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//wnet_fesom_19500101.nc
+        wo: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//wo_fesom_19500101.nc
+        wso: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//wso_fesom_19500101.nc
+        wto: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//wto_fesom_19500101.nc
+        zos: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//zos_fesom_19500101.nc
+        zossq: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//zossq_fesom_19500101.nc
+    outdata_targets:
+        evap: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/evap_fesom_19500101.nc
+        evs: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/evs_fesom_19500101.nc
+        flice: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/flice_fesom_19500101.nc
+        fsitherm: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/fsitherm_fesom_19500101.nc
+        hfds: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/hfds_fesom_19500101.nc
+        lwrd: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/lwrd_fesom_19500101.nc
+        mlotst: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/mlotst_fesom_19500101.nc
+        olat: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/olat_fesom_19500101.nc
+        olwout: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/olwout_fesom_19500101.nc
+        omldamax: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/omldamax_fesom_19500101.nc
+        opottemptend: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/opottemptend_fesom_19500101.nc
+        osen: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/osen_fesom_19500101.nc
+        pbo: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/pbo_fesom_19500101.nc
+        prlq: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/prlq_fesom_19500101.nc
+        prsn: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/prsn_fesom_19500101.nc
+        relax_salt: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/relax_salt_fesom_19500101.nc
+        rho: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/rho_fesom_19500101.nc
+        rsdo: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/rsdo_fesom_19500101.nc
+        runoff: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/runoff_fesom_19500101.nc
+        shum: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/shum_fesom_19500101.nc
+        siarean: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/siarean_fesom_19500101.nc
+        siareas: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/siareas_fesom_19500101.nc
+        sic: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/sic_fesom_19500101.nc
+        sidmassevapsubl: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/sidmassevapsubl_fesom_19500101.nc
+        sidmasssi: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/sidmasssi_fesom_19500101.nc
+        sidmassth: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/sidmassth_fesom_19500101.nc
+        sidmasstranx: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/sidmasstranx_fesom_19500101.nc
+        sidmasstrany: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/sidmasstrany_fesom_19500101.nc
+        siextentn: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/siextentn_fesom_19500101.nc
+        siextents: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/siextents_fesom_19500101.nc
+        sifllatstop: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/sifllatstop_fesom_19500101.nc
+        sisnconc: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/sisnconc_fesom_19500101.nc
+        sisnmass: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/sisnmass_fesom_19500101.nc
+        sisnthick: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/sisnthick_fesom_19500101.nc
+        sispeed: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/sispeed_fesom_19500101.nc
+        sistrxdtop: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/sistrxdtop_fesom_19500101.nc
+        sistrxubot: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/sistrxubot_fesom_19500101.nc
+        sistrydtop: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/sistrydtop_fesom_19500101.nc
+        sistryubot: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/sistryubot_fesom_19500101.nc
+        sithick: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/sithick_fesom_19500101.nc
+        sitimefrac: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/sitimefrac_fesom_19500101.nc
+        siu: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/siu_fesom_19500101.nc
+        siv: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/siv_fesom_19500101.nc
+        sivol: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/sivol_fesom_19500101.nc
+        sivoln: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/sivoln_fesom_19500101.nc
+        sivols: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/sivols_fesom_19500101.nc
+        so: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/so_fesom_19500101.nc
+        soga: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/soga_fesom_19500101.nc
+        sos: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/sos_fesom_19500101.nc
+        tair: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/tair_fesom_19500101.nc
+        tauuo: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/tauuo_fesom_19500101.nc
+        tauvo: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/tauvo_fesom_19500101.nc
+        thdgr: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/thdgr_fesom_19500101.nc
+        thdgrsn: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/thdgrsn_fesom_19500101.nc
+        thetao: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/thetao_fesom_19500101.nc
+        thetaoga: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/thetaoga_fesom_19500101.nc
+        tos: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/tos_fesom_19500101.nc
+        tso: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/tso_fesom_19500101.nc
+        u2o: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/u2o_fesom_19500101.nc
+        uhice: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/uhice_fesom_19500101.nc
+        uhsnow: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/uhsnow_fesom_19500101.nc
+        uo: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/uo_fesom_19500101.nc
+        urho: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/urho_fesom_19500101.nc
+        uso: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/uso_fesom_19500101.nc
+        uto: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/uto_fesom_19500101.nc
+        uv: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/uv_fesom_19500101.nc
+        uwind: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/uwind_fesom_19500101.nc
+        v2o: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/v2o_fesom_19500101.nc
+        vhice: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/vhice_fesom_19500101.nc
+        vhsnow: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/vhsnow_fesom_19500101.nc
+        virtual_salt: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/virtual_salt_fesom_19500101.nc
+        vo: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/vo_fesom_19500101.nc
+        volo: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/volo_fesom_19500101.nc
+        vrho: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/vrho_fesom_19500101.nc
+        vso: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/vso_fesom_19500101.nc
+        vto: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/vto_fesom_19500101.nc
+        vwind: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/vwind_fesom_19500101.nc
+        w2o: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/w2o_fesom_19500101.nc
+        wfo: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/wfo_fesom_19500101.nc
+        wnet: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/wnet_fesom_19500101.nc
+        wo: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/wo_fesom_19500101.nc
+        wso: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/wso_fesom_19500101.nc
+        wto: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/wto_fesom_19500101.nc
+        zos: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/zos_fesom_19500101.nc
+        zossq: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/outdata/fesom/zossq_fesom_19500101.nc
+    parent_date: '1949-12-31T23:30:00'
+    parent_expid: fesom1.4-initial-monthly
+    parent_restart_dir: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/restart/fesom/
+    pool_dir: /work/ollie/pool/FESOM/
+    prev_date: '1949-12-31T23:30:00'
+    resolution: CORE2
+    restart_first: 1
+    restart_flag: last
+    restart_out_intermediate:
+        ice_restart: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/restart/fesom/fesom.1950.ice.nc
+        oce_diag: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/restart/fesom/fesom.1950.oce.diag.nc
+        oce_restart: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/run_19500101-19500101/restart/fesom/fesom.1950.oce.nc
+    restart_out_sources:
+        ice_restart: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//fesom.1950.ice.nc
+        oce_diag: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//fesom.1950.oce.diag.nc
+        oce_restart: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//fesom.1950.oce.nc
+    restart_out_targets:
+        ice_restart: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/restart/fesom/fesom.1950.ice.nc
+        oce_diag: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/restart/fesom/fesom.1950.oce.diag.nc
+        oce_restart: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/restart/fesom/fesom.1950.oce.nc
+    restart_rate: 1
+    restart_unit: d
+    rnproc: 288
+    runtime_environment_changes:
+        add_export_vars:
+            AWI_FESOM_YAML:
+                output_schedules:
+                -   first: 1
+                    rate: 1
+                    unit: d
+                    vars:
+                    - restart
+                -   first: 1
+                    rate: 1
+                    unit: y
+                    vars:
+                    - flice
+                    - fsitherm
+                    - opottemptend
+                    - pbo
+                    - relax_salt
+                    - rho
+                    - sidmassevapsubl
+                    - sidmasssi
+                    - sidmassth
+                    - sidmasstranx
+                    - sidmasstrany
+                    - sifllatstop
+                    - sisnconc
+                    - sisnmass
+                    - sisnthick
+                    - sispeed
+                    - sistrxdtop
+                    - sistrxubot
+                    - sistrydtop
+                    - sistryubot
+                    - thdgr
+                    - thdgrsn
+                    - u2o
+                    - uhice
+                    - uhsnow
+                    - urho
+                    - uso
+                    - uto
+                    - uv
+                    - v2o
+                    - vhice
+                    - vhsnow
+                    - virtual_salt
+                    - volo
+                    - vrho
+                    - vso
+                    - vto
+                    - w2o
+                    - wfo
+                    - wso
+                    - wto
+                    - zossq
+                -   rate: 1
+                    unit: m
+                    vars:
+                    - evap
+                    - evs
+                    - hfds
+                    - lwrd
+                    - mlotst
+                    - olat
+                    - olwout
+                    - omldamax
+                    - osen
+                    - prlq
+                    - prsn
+                    - rsdo
+                    - runoff
+                    - shum
+                    - siarean
+                    - siareas
+                    - sic
+                    - siextentn
+                    - siextents
+                    - sithick
+                    - sitimefrac
+                    - siu
+                    - siv
+                    - sivol
+                    - sivoln
+                    - sivols
+                    - so
+                    - soga
+                    - sos
+                    - tair
+                    - tauuo
+                    - tauvo
+                    - thetao
+                    - thetaoga
+                    - tos
+                    - tso
+                    - uo
+                    - uwind
+                    - vo
+                    - vwind
+                    - wnet
+                    - wo
+                    - zos
+                -   rate: 1
+                    unit: d
+                    vars: []
+                -   rate: 12
+                    unit: s
+                    vars: []
+    setup_dir: <TEST_DIR>/comp/fesom/fesom-1.4
+    startday: 1
+    starttime: 0
+    steps_per_day: 48
+    thisrun_analysis_dir: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/analysis/fesom/
+    thisrun_bin_dir: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/bin/fesom/
+    thisrun_config_dir: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/config/fesom/
+    thisrun_couple_dir: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/couple/fesom/
+    thisrun_forcing_dir: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/forcing/fesom/
+    thisrun_ignore_dir: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/ignore/fesom/
+    thisrun_input_dir: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/input/fesom/
+    thisrun_log_dir: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/log/fesom/
+    thisrun_mon_dir: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/mon/fesom/
+    thisrun_outdata_dir: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/outdata/fesom/
+    thisrun_restart_in_dir: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/restart/fesom/
+    thisrun_restart_out_dir: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/restart/fesom/
+    thisrun_viz_dir: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/viz/fesom/
+    tide_forcing_dir: remove_from_namelist
+    time_dimension: time
+    time_step: 1800
+    type: ocean
+    version: 1.4
+    with_part_format: false
+    yearly_outputs:
+    - flice
+    - fsitherm
+    - opottemptend
+    - pbo
+    - relax_salt
+    - rho
+    - sidmassevapsubl
+    - sidmasssi
+    - sidmassth
+    - sidmasstranx
+    - sidmasstrany
+    - sifllatstop
+    - sisnconc
+    - sisnmass
+    - sisnthick
+    - sispeed
+    - sistrxdtop
+    - sistrxubot
+    - sistrydtop
+    - sistryubot
+    - thdgr
+    - thdgrsn
+    - u2o
+    - uhice
+    - uhsnow
+    - urho
+    - uso
+    - uto
+    - uv
+    - v2o
+    - vhice
+    - vhsnow
+    - virtual_salt
+    - volo
+    - vrho
+    - vso
+    - vto
+    - w2o
+    - wfo
+    - wso
+    - wto
+    - zossq
+    yearly_outputs_for_AWI_FESOM_YAML:
+    - flice
+    - fsitherm
+    - opottemptend
+    - pbo
+    - relax_salt
+    - rho
+    - sidmassevapsubl
+    - sidmasssi
+    - sidmassth
+    - sidmasstranx
+    - sidmasstrany
+    - sifllatstop
+    - sisnconc
+    - sisnmass
+    - sisnthick
+    - sispeed
+    - sistrxdtop
+    - sistrxubot
+    - sistrydtop
+    - sistryubot
+    - thdgr
+    - thdgrsn
+    - u2o
+    - uhice
+    - uhsnow
+    - urho
+    - uso
+    - uto
+    - uv
+    - v2o
+    - vhice
+    - vhsnow
+    - virtual_salt
+    - volo
+    - vrho
+    - vso
+    - vto
+    - w2o
+    - wfo
+    - wso
+    - wto
+    - zossq
+    yearly_outputs_start: 1
+    yearnew: 1950
+general:
+    account: None
+    additional_files: []
+    all_filetypes:
+    - analysis
+    - config
+    - log
+    - mon
+    - couple
+    - scripts
+    - ignore
+    - unknown
+    - src
+    - work
+    all_model_filetypes:
+    - analysis
+    - bin
+    - config
+    - forcing
+    - input
+    - couple
+    - log
+    - mon
+    - outdata
+    - restart_in
+    - restart_out
+    - viz
+    - ignore
+    base_dir: <TEST_DIR>/run/fesom/
+    batch: slurm
+    calendar: esm_calender object with no leap years allowed
+    check: false
+    chunk_number: 1
+    command_line_config:
+        check: false
+        current_date: null
+        expid: fesom1.4-initial-monthly
+        ignore_config_warnings: false
+        inspect: null
+        jobtype: prepcompute
+        last_jobtype: prepcompute
+        launcher_pid: -666
+        no_motd: true
+        original_command: fesom1.4-initial-monthly.yaml -e fesom1.4-initial-monthly --open-run --no-motd --last-jobtype prepcompute
+        profile: false
+        run_number: null
+        runscript_abspath: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/scripts/fesom1.4-initial-monthly.yaml
+        scriptname: fesom1.4-initial-monthly.yaml
+        started_from: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/scripts/
+        update: false
+        update_filetypes: []
+        use_venv: false
+        verbose: false
+    compute_time: 00:20:00
+    current_date: '1950-01-01T00:00:00'
+    debug_info:
+        loaded_from_file: <HOME_DIR>/esm_tools/configs//defaults/general.yaml
+    defaults.yaml:
+        debug_info:
+            loaded_from_file: <HOME_DIR>/esm_tools/configs//esm_software/esm_runscripts/defaults.yaml
+        per_model_defaults: {}
+    delta_date:
+    - 0
+    - 0
+    - 1
+    - 0
+    - 0
+    - 0
+    end_date: '1950-01-01T00:00:00'
+    esm_function_dir: <HOME_DIR>/esm_tools/configs/
+    esm_namelist_dir: <HOME_DIR>/esm_tools/namelists/
+    esm_runscript_dir: <HOME_DIR>/esm_tools/runscripts/
+    experiment_analysis_dir: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/analysis/
+    experiment_config_dir: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/config/
+    experiment_couple_dir: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/couple/
+    experiment_dir: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly
+    experiment_ignore_dir: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/ignore/
+    experiment_log_dir: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/log/
+    experiment_log_file: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/log//fesom1.4-initial-monthly_fesom.log
+    experiment_mon_dir: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/mon/
+    experiment_scripts_dir: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/scripts/
+    experiment_src_dir: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/src/
+    experiment_unknown_dir: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/unknown/
+    expid: fesom1.4-initial-monthly
+    file_movements:
+        analysis:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        bin:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        config:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        couple:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        forcing:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        ignore:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        input:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        log:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        mon:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        outdata:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        restart_in:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        restart_out:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        scripts:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        unknown:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+        viz:
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
+            work_to_run: copy
+    final_date: '1950-01-03T00:00:00'
+    first_run_in_chunk: true
+    ignore_config_warnings: false
+    in_filetypes:
+    - scripts
+    - input
+    - forcing
+    - bin
+    - config
+    - restart_in
+    initial_date: '1950-01-01T00:00:00'
+    inspect: null
+    isinteractive: false
+    iterative_coupled_model: ''
+    jobid: 115607
+    jobtype: prepcompute
+    last_jobtype: prepcompute
+    last_run_datestamp: 19491231-19491231
+    last_run_in_chunk: false
+    last_start_date: '1949-12-31T00:00:00'
+    launcher_pid: -666
+    leapyear: false
+    logfile_path: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/log//fesom1.4-initial-monthly_fesom_prepcompute_19500101-19500101.log
+    logfile_path_in_run: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/log//fesom1.4-initial-monthly_fesom_prepcompute_19500101-19500101.log
+    models:
+    - fesom
+    nday: 1
+    next_date: '1950-01-02T00:00:00'
+    nhour: 0
+    nminute: 0
+    nmonth: 0
+    no_motd: true
+    nsecond: 0
+    nyear: 0
+    original_command: fesom1.4-initial-monthly.yaml -e fesom1.4-initial-monthly --open-run --no-motd --last-jobtype prepcompute
+    out_filetypes:
+    - analysis
+    - log
+    - mon
+    - scripts
+    - ignore
+    - unknown
+    - outdata
+    - restart_out
+    potentially_reusable_filetypes:
+    - analysis
+    - config
+    - log
+    - mon
+    - couple
+    - scripts
+    - ignore
+    - unknown
+    - src
+    - scripts
+    - input
+    - forcing
+    - bin
+    - config
+    - restart_in
+    prev_date: '1949-12-31T00:00:00'
+    profile: false
+    relevant_filetypes:
+    - bin
+    - config
+    - forcing
+    - input
+    - restart_in
+    reset_calendar_to_last: false
+    reusable_filetypes:
+    - bin
+    - src
+    run_datestamp: 19500101-19500101
+    run_number: 1
+    run_or_compile: runtime
+    runscript_abspath: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/scripts/fesom1.4-initial-monthly.yaml
+    runtime:
+    - 0
+    - 0
+    - 1
+    - 24
+    - 1440
+    - 86400
+    scriptname: fesom1.4-initial-monthly.yaml
+    setup_name: fesom
+    standalone: true
+    start_date: '1950-01-01T00:00:00'
+    started_from: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/scripts/
+    submitted: false
+    thisrun_analysis_dir: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/analysis/
+    thisrun_config_dir: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/config/
+    thisrun_couple_dir: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/couple/
+    thisrun_dir: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101
+    thisrun_ignore_dir: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/ignore/
+    thisrun_log_dir: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/log/
+    thisrun_mon_dir: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/mon/
+    thisrun_scripts_dir: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/scripts/
+    thisrun_src_dir: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/src/
+    thisrun_unknown_dir: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/unknown/
+    thisrun_work_dir: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work/
+    total_runtime:
+    - 0
+    - 0
+    - 1
+    - 24
+    - 1440
+    - 86400
+    update: false
+    update_filetypes: []
+    use_database: false
+    use_venv: false
+    valid_model_names:
+    - fesom
+    valid_setup_names:
+    - computer
+    - general
+    verbose: false
+    work_dir: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work/
+    workflow:
+        first_task_in_queue: prepcompute
+        last_task_in_queue: tidy
+        next_run_triggered_by: tidy
+        subjob_clusters:
+            compute:
+                batch_or_shell: batch
+                called_from: prepcompute
+                next_submit:
+                - tidy
+                nproc: 288
+                order_in_cluster: sequential
+                run_before: tidy
+                run_on_queue: mpp
+                subjobs:
+                - compute_general
+                submit_to_batch_system: true
+            prepcompute:
+                batch_or_shell: SimulationSetup
+                called_from: tidy
+                next_submit:
+                - compute
+                nproc: 1
+                order_in_cluster: sequential
+                run_before: compute
+                subjobs:
+                - prepcompute_general
+                submit_to_batch_system: false
+            tidy:
+                batch_or_shell: SimulationSetup
+                called_from: compute
+                next_submit:
+                - prepcompute
+                nproc: 1
+                order_in_cluster: sequential
+                run_after: compute
+                subjobs:
+                - tidy_general
+                submit_to_batch_system: false
+        subjobs:
+            compute_general:
+                nproc: 288
+                run_before: tidy
+                run_on_queue: mpp
+                subjob_cluster: compute
+                submit_to_batch_system: true
+            prepcompute_general:
+                nproc: 1
+                run_before: compute
+                subjob_cluster: prepcompute
+            tidy_general:
+                nproc: 1
+                run_after: compute
+                subjob_cluster: tidy

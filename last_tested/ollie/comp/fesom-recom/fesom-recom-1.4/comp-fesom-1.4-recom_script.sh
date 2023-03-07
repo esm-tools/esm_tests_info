@@ -40,7 +40,6 @@ export ZLIBROOT=/usr
 export MPIROOT=${I_MPI_ROOT}/intel64
 export MPI_LIB=$(mpiifort -show |sed -e 's/^[^ ]*//' -e 's/-[I][^ ]*//g')
 export PATH=/work/ollie/jhegewal/sw/cmake/bin:$PATH
-export takenfrom=fesom1
 export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 
 unset SLURM_MEM_PER_NODE
