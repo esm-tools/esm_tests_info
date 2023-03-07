@@ -1,7 +1,7 @@
 computer:
     account: None
     accounting: true
-    accounting_flag: --account=None
+    accounting_flag: --account=ab0995
     actual_script_dir: <--methods.script_dir--
     add_choose_heterogeneous_parallelization: &id001
         false:
@@ -155,7 +155,7 @@ computer:
         pool: /pool/data
     runtime_environment_changes:
         add_export_vars:
-            ACCOUNT: None
+            ACCOUNT: ab0995
             ESM_TESTING_DIR: <TEST_DIR>/run/awicm/
             MODEL_DIR: <TEST_DIR>/comp/awicm/awicm-2.0
     script_name: <--methods.scriptname--
@@ -1276,9 +1276,6 @@ fesom:
     climate_data_dir: /work/ba0989/a270077/AWIESM_2_1_LR_concurrent_rad/nonstandard_input_files/fesom/hydrography/
     comp_command: mkdir -p build; cd build; cmake ..;   make install -j `nproc --all`
     comp_executable: fesom.x
-    compiletime_environment_changes:
-        add_export_vars:
-            taken2from: fesom2_compile
     config_intermediate:
         config: <TEST_DIR>run/awicm/awicm2-initial-monthly/run_20000101-20000131/config/fesom/namelist.config
         fesom.clock: <TEST_DIR>run/awicm/awicm2-initial-monthly/run_20000101-20000131/config/fesom/fesom.clock
@@ -1576,10 +1573,6 @@ fesom:
         oce_restart: <TEST_DIR>run/awicm/awicm2-initial-monthly/restart/fesom/fesom.2000.oce.restart.nc
     restart_rate: 1
     restart_unit: m
-    runtime_environment_changes:
-        add_export_vars:
-            taken2from: fesom2_ru
-            takenfrom: fesom2_run
     setup_dir: <TEST_DIR>/comp/awicm/awicm-2.0
     startday: 1
     starttime: 0
@@ -1605,7 +1598,7 @@ fesom:
     with_part_format: false
     yearnew: 2000
 general:
-    account: None
+    account: ab0995
     additional_files: []
     all_filetypes:
     - analysis
@@ -1637,10 +1630,10 @@ general:
     base_dir: <TEST_DIR>/run/awicm/
     batch: slurm
     calendar: esm_calendar object with allowed leap years
-    check: true
+    check: false
     chunk_number: 1
     command_line_config:
-        check: true
+        check: false
         current_date: null
         expid: awicm2-initial-monthly
         ignore_config_warnings: false
@@ -1649,7 +1642,7 @@ general:
         last_jobtype: prepcompute
         launcher_pid: -666
         no_motd: true
-        original_command: awicm2-initial-monthly.yaml -e awicm2-initial-monthly --open-run -c --no-motd --last-jobtype prepcompute
+        original_command: awicm2-initial-monthly.yaml -e awicm2-initial-monthly --open-run --no-motd --last-jobtype prepcompute
         profile: false
         run_number: null
         runscript_abspath: <TEST_DIR>run/awicm/awicm2-initial-monthly/scripts/awicm2-initial-monthly.yaml
@@ -1785,7 +1778,7 @@ general:
     inspect: null
     isinteractive: false
     iterative_coupled_model: ''
-    jobid: 1100
+    jobid: 1983812
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 19991201-19991231
@@ -1809,7 +1802,7 @@ general:
     no_motd: true
     nsecond: 0
     nyear: 0
-    original_command: awicm2-initial-monthly.yaml -e awicm2-initial-monthly --open-run -c --no-motd --last-jobtype prepcompute
+    original_command: awicm2-initial-monthly.yaml -e awicm2-initial-monthly --open-run --no-motd --last-jobtype prepcompute
     out_filetypes:
     - analysis
     - log

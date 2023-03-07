@@ -1,7 +1,7 @@
 computer:
     account: None
     accounting: true
-    accounting_flag: --account=None
+    accounting_flag: --account=ab0995
     actual_script_dir: <--methods.script_dir--
     add_choose_heterogeneous_parallelization: &id001
         false:
@@ -155,7 +155,7 @@ computer:
         pool: /pool/data
     runtime_environment_changes:
         add_export_vars:
-            ACCOUNT: None
+            ACCOUNT: ab0995
             ESM_TESTING_DIR: <TEST_DIR>/run/awicm/
             MODEL_DIR: <TEST_DIR>/comp/awicm/awicm-1.0-recom
     script_name: <--methods.scriptname--
@@ -1288,7 +1288,6 @@ fesom:
             NETCDF_CXX_INCLUDE_DIRECTORIES: /work/ab0995/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0/include
             NETCDF_CXX_LIBRARIES: /work/ab0995/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0/lib
             NETCDF_DIR: /work/ab0995/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0
-            takenfrom: fesom1
     config_intermediate:
         config: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/run_18500101-18500131/config/fesom/namelist.config
         diag: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/run_18500101-18500131/config/fesom/namelist.diag
@@ -1361,6 +1360,12 @@ fesom:
     debug_info:
         loaded_from_file: <HOME_DIR>/esm_tools/configs//components/fesom/fesom.yaml
     destination: fesom-1.4
+    environment_changes:
+        choose_computer.name:
+            blogin:
+                iolibraries: system_libs
+            glogin:
+                iolibraries: system_libs
     executable: fesom
     experiment_analysis_dir: <TEST_DIR>/run/awicm//awicm1_recom_pictrl_initial/analysis/fesom/
     experiment_bin_dir: <TEST_DIR>/run/awicm//awicm1_recom_pictrl_initial/bin/fesom/
@@ -1484,6 +1489,7 @@ fesom:
         clock: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/log/fesom/fesom.clock
         mesh_diag: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/log/fesom/fesom.initial.mesh.diag.nc
     lresume: false
+    mesh_base_dir: /work/ab0995/from_Mistral/ab0995/a270046/iceberg-input//MESHES/
     mesh_dir: /pool/data/AWICM/FESOM1/MESHES/core/
     mesh_rotated: false
     metadata:
@@ -2257,7 +2263,7 @@ fesom:
     yearly_outputs_start: 1
     yearnew: 1850
 general:
-    account: None
+    account: ab0995
     additional_files: []
     all_filetypes:
     - analysis
@@ -2291,10 +2297,10 @@ general:
     base_dir: <TEST_DIR>/run/awicm/
     batch: slurm
     calendar: esm_calendar object with allowed leap years
-    check: true
+    check: false
     chunk_number: 1
     command_line_config:
-        check: true
+        check: false
         current_date: null
         expid: awicm1_recom_pictrl_initial
         ignore_config_warnings: false
@@ -2303,7 +2309,7 @@ general:
         last_jobtype: prepcompute
         launcher_pid: -666
         no_motd: true
-        original_command: awicm1_recom_pictrl_initial.yaml -e awicm1_recom_pictrl_initial --open-run -c --no-motd --last-jobtype prepcompute
+        original_command: awicm1_recom_pictrl_initial.yaml -e awicm1_recom_pictrl_initial --open-run --no-motd --last-jobtype prepcompute
         profile: false
         run_number: null
         runscript_abspath: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/scripts/awicm1_recom_pictrl_initial.yaml
@@ -2442,7 +2448,7 @@ general:
     inspect: null
     isinteractive: false
     iterative_coupled_model: ''
-    jobid: 1112
+    jobid: 197956
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 18491201-18491231
@@ -2468,7 +2474,7 @@ general:
     no_motd: true
     nsecond: 0
     nyear: 0
-    original_command: awicm1_recom_pictrl_initial.yaml -e awicm1_recom_pictrl_initial --open-run -c --no-motd --last-jobtype prepcompute
+    original_command: awicm1_recom_pictrl_initial.yaml -e awicm1_recom_pictrl_initial --open-run --no-motd --last-jobtype prepcompute
     out_filetypes:
     - analysis
     - log
