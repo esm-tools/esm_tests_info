@@ -1,7 +1,7 @@
 computer:
     account: None
     accounting: true
-    accounting_flag: --account=ab0995
+    accounting_flag: --account=None
     actual_script_dir: <--methods.script_dir--
     add_choose_heterogeneous_parallelization: &id001
         false:
@@ -155,7 +155,7 @@ computer:
         pool: /pool/data
     runtime_environment_changes:
         add_export_vars:
-            ACCOUNT: ab0995
+            ACCOUNT: None
             ESM_TESTING_DIR: <TEST_DIR>/run/awicm/
             MODEL_DIR: <TEST_DIR>/comp/awicm/awicm-1.0-recom
     script_name: <--methods.scriptname--
@@ -2296,7 +2296,7 @@ fesom:
     yearly_outputs_start: 1
     yearnew: 2007
 general:
-    account: ab0995
+    account: None
     additional_files: []
     all_filetypes:
     - analysis
@@ -2330,10 +2330,10 @@ general:
     base_dir: <TEST_DIR>/run/awicm/
     batch: slurm
     calendar: esm_calendar object with allowed leap years
-    check: false
+    check: true
     chunk_number: 1
     command_line_config:
-        check: false
+        check: true
         current_date: null
         expid: awicm1_recom_hist_initial
         ignore_config_warnings: false
@@ -2342,7 +2342,7 @@ general:
         last_jobtype: prepcompute
         launcher_pid: -666
         no_motd: true
-        original_command: awicm1_recom_hist_initial.yaml -e awicm1_recom_hist_initial --open-run --no-motd --last-jobtype prepcompute
+        original_command: awicm1_recom_hist_initial.yaml -e awicm1_recom_hist_initial --open-run -c --no-motd --last-jobtype prepcompute
         profile: false
         run_number: null
         runscript_abspath: <TEST_DIR>run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml
@@ -2481,7 +2481,7 @@ general:
     inspect: null
     isinteractive: false
     iterative_coupled_model: ''
-    jobid: 206522
+    jobid: 1018
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 20061201-20061231
@@ -2507,7 +2507,7 @@ general:
     no_motd: true
     nsecond: 0
     nyear: 0
-    original_command: awicm1_recom_hist_initial.yaml -e awicm1_recom_hist_initial --open-run --no-motd --last-jobtype prepcompute
+    original_command: awicm1_recom_hist_initial.yaml -e awicm1_recom_hist_initial --open-run -c --no-motd --last-jobtype prepcompute
     out_filetypes:
     - analysis
     - log

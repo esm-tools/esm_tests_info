@@ -4,7 +4,7 @@
 #SBATCH --ntasks=640
 #SBATCH --output=<TEST_DIR>/run/awicm//awicm1_recom_pictrl_initial/log/awicm1_recom_pictrl_initial_awicm_compute_18500101-18500131_%j.log --error=<TEST_DIR>/run/awicm//awicm1_recom_pictrl_initial/log/awicm1_recom_pictrl_initial_awicm_compute_18500101-18500131_%j.log
 #SBATCH --job-name=awicm1_recom_pictrl_initial
-#SBATCH --account=ab0995
+#SBATCH --account=None
 #SBATCH --mail-type=NONE
 #SBATCH --ntasks-per-core=1
 #SBATCH --exclusive
@@ -69,7 +69,7 @@ export LD_LIBRARY_PATH=$HDF5ROOT/lib:$NETCDFROOT/lib:$NETCDFFROOT/lib:$LD_LIBRAR
 export LD_LIBRARY_PATH=/sw/spack-levante/intel-oneapi-mkl-2022.0.1-ttdktf/mkl/2022.0.1/lib/intel64:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/sw/spack-levante/intel-oneapi-mpi-2021.5.0-mrcss7/mpi/2021.5.0/libfabric/lib:$LD_LIBRARY_PATH
 export AWI_FESOM_YAML='{'output_schedules': [{'vars': ['restart'], 'unit': 'm', 'first': 1, 'rate': 1}, {'vars': ['flice', 'fsitherm', 'opottemptend', 'pbo', 'relax_salt', 'rho', 'sidmassevapsubl', 'sidmasssi', 'sidmassth', 'sidmasstranx', 'sidmasstrany', 'sifllatstop', 'sisnconc', 'sisnmass', 'sisnthick', 'sispeed', 'sistrxdtop', 'sistrxubot', 'sistrydtop', 'sistryubot', 'thdgr', 'thdgrsn', 'u2o', 'uhice', 'uhsnow', 'urho', 'uso', 'uto', 'uv', 'v2o', 'vhice', 'vhsnow', 'virtual_salt', 'volo', 'vrho', 'vso', 'vto', 'w2o', 'wfo', 'wso', 'wto', 'zossq', 'alphaCO2', 'benC', 'benCalc', 'benN', 'benSi', 'denb', 'GNAd', 'GNAn', 'Hp', 'Kw', 'NNAd', 'NNAn', 'rDIN', 'rDOC', 'rDON', 'rDSi'], 'unit': 'y', 'first': 1, 'rate': 1}, {'vars': ['evap', 'evs', 'hfds', 'lwrd', 'mlotst', 'olat', 'olwout', 'omldamax', 'osen', 'prlq', 'prsn', 'rsdo', 'runoff', 'shum', 'siarean', 'siareas', 'sic', 'siextentn', 'siextents', 'sithick', 'sitimefrac', 'siu', 'siv', 'sivol', 'sivoln', 'sivols', 'so', 'soga', 'sos', 'tair', 'tauuo', 'tauvo', 'thetao', 'thetaoga', 'tos', 'tso', 'uo', 'uwind', 'vo', 'vwind', 'wnet', 'wo', 'zos', 'aCO2', 'aFe', 'aN', 'bgc01', 'bgc02', 'bgc03', 'bgc04', 'bgc05', 'bgc06', 'bgc07', 'bgc08', 'bgc09', 'bgc10', 'bgc11', 'bgc12', 'bgc13', 'bgc14', 'bgc15', 'bgc16', 'bgc17', 'bgc18', 'bgc19', 'bgc20', 'bgc21', 'bgc22', 'CO2f', 'CO2y', 'diags3d01', 'diags3d02', 'dpCO2s', 'GPPd', 'GPPn', 'NPPd', 'NPPn', 'O2f', 'PAR', 'pCO2s', 'slp', 'virtual_alk', 'virtual_dfe', 'virtual_dic', 'virtual_din', 'virtual_dsi', 'virtual_oxy', 'w10w'], 'unit': 'm', 'rate': 1}, {'vars': [], 'unit': 'd', 'rate': 1}, {'vars': [], 'unit': 's', 'rate': 12}]}'
-export ACCOUNT=ab0995
+export ACCOUNT=None
 export ESM_TESTING_DIR=<TEST_DIR>/run/awicm/
 export MODEL_DIR=<TEST_DIR>/comp/awicm/awicm-1.0-recom
 export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
@@ -79,7 +79,7 @@ export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 1850-01-01T00:00:00 197956 - start >> <TEST_DIR>/run/awicm//awicm1_recom_pictrl_initial/log//awicm1_recom_pictrl_initial_awicm.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 1850-01-01T00:00:00 1030 - start >> <TEST_DIR>/run/awicm//awicm1_recom_pictrl_initial/log//awicm1_recom_pictrl_initial_awicm.log
 
 cd <TEST_DIR>/run/awicm//awicm1_recom_pictrl_initial/run_18500101-18500131/work/
 time srun -l --hint=nomultithread --multi-prog hostfile_srun 2>&1 &
@@ -91,6 +91,6 @@ process=$!
 cd <TEST_DIR>/run/awicm//awicm1_recom_pictrl_initial/scripts/
 esm_runscripts awicm1_recom_pictrl_initial.yaml -e awicm1_recom_pictrl_initial -t observe_compute -p ${process} -s 18500101 -r 1 -v  --last-jobtype prepcompute --open-run
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 1850-01-01T00:00:00 197956 - done >> <TEST_DIR>/run/awicm//awicm1_recom_pictrl_initial/log//awicm1_recom_pictrl_initial_awicm.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 1850-01-01T00:00:00 1030 - done >> <TEST_DIR>/run/awicm//awicm1_recom_pictrl_initial/log//awicm1_recom_pictrl_initial_awicm.log
 
 wait
