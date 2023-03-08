@@ -197,9 +197,6 @@ fesom:
     climate_data_dir: /p/project/chhb19/jstreffi/input//fesom2//hydrography/
     comp_command: mkdir -p build; cd build; cmake -DOIFS_COUPLED=ON -DFESOM_COUPLED=ON ..;   make install -j `nproc --all`
     comp_executable: fesom.x
-    compiletime_environment_changes:
-        add_export_vars:
-            taken2from: fesom2_compile
     config_intermediate:
         config: <TEST_DIR>run/awicm3/awicm3-v3.1-TCO95L91-CORE2_initial/run_20000101-20000101/config/fesom/namelist.config
         fesom.clock: <TEST_DIR>run/awicm3/awicm3-v3.1-TCO95L91-CORE2_initial/run_20000101-20000101/config/fesom/fesom.clock
@@ -490,10 +487,6 @@ fesom:
     restart_rate: 1
     restart_unit: d
     rnproc: 144
-    runtime_environment_changes:
-        add_export_vars:
-            taken2from: fesom2_ru
-            takenfrom: fesom2_run
     setup_dir: <TEST_DIR>/comp/awicm3/awicm3-v3.1
     startday: 1
     starttime: 0
@@ -1015,7 +1008,7 @@ general:
     inspect: null
     isinteractive: false
     iterative_coupled_model: ''
-    jobid: 810
+    jobid: 813
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 19991231-19991231
