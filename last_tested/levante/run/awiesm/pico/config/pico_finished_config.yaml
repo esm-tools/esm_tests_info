@@ -179,6 +179,7 @@ defaults:
     debug_info:
         loaded_from_file: <HOME_DIR>/esm_tools/configs//defaults/download_and_compile.yaml
 echam:
+    MAC-SP_hist_name: MAC-SP_ssp245
     _nx: 192
     _ny: 96
     add_compiletime_environment_changes: &id002
@@ -203,6 +204,7 @@ echam:
     - restart_out
     - viz
     - ignore
+    allow_hist2ssp_transition: false
     bin_dir: <TEST_DIR>/comp/awiesm/awiesm-2.1/bin
     bin_intermediate:
         echam_bin: <TEST_DIR>run/awiesm/pico/run_18500101-18500101/bin/echam/echam6
@@ -342,7 +344,7 @@ echam:
             grid: atmo
         w10w_atm:
             grid: atmo
-    dataset: r0007
+    dataset: r0008
     debug_info:
         loaded_from_file:
         - <HOME_DIR>/esm_tools/configs//components/echam/echam.yaml
@@ -474,7 +476,7 @@ echam:
         - need_year_after
         - need_2years_before
         - need_2years_after
-    forcing_dir: /pool/data/ECHAM6//input/r0007/T63
+    forcing_dir: /pool/data/ECHAM6//input/r0008/T63
     forcing_intermediate:
         aerocoarse_year_1848: <TEST_DIR>run/awiesm/pico/run_18500101-18500101/forcing/echam/aero_coarse_1848.nc
         aerocoarse_year_1849: <TEST_DIR>run/awiesm/pico/run_18500101-18500101/forcing/echam/aero_coarse_1849.nc
@@ -497,26 +499,26 @@ echam:
         ozone_year_1851: <TEST_DIR>run/awiesm/pico/run_18500101-18500101/forcing/echam/ozon1851
         ozone_year_1852: <TEST_DIR>run/awiesm/pico/run_18500101-18500101/forcing/echam/ozon1852
     forcing_sources:
-        aerocoarse_year_1848: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_sw_b14_coa.nc
-        aerocoarse_year_1849: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_sw_b14_coa.nc
-        aerocoarse_year_1850: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_sw_b14_coa.nc
-        aerocoarse_year_1851: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_sw_b14_coa.nc
-        aerocoarse_year_1852: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_sw_b14_coa.nc
-        aerofarir_year_1848: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_lw_b16_coa.nc
-        aerofarir_year_1849: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_lw_b16_coa.nc
-        aerofarir_year_1850: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_lw_b16_coa.nc
-        aerofarir_year_1851: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_lw_b16_coa.nc
-        aerofarir_year_1852: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_lw_b16_coa.nc
-        aerofin_year_1848: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_sw_b14_fin_1865.nc
-        aerofin_year_1849: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_sw_b14_fin_1865.nc
-        aerofin_year_1850: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_sw_b14_fin_1865.nc
-        aerofin_year_1851: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_sw_b14_fin_1865.nc
-        aerofin_year_1852: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_sw_b14_fin_1865.nc
-        ozone_year_1848: /pool/data/ECHAM6//input/r0007/T63/ozone/T63_ozone_picontrol.nc
-        ozone_year_1849: /pool/data/ECHAM6//input/r0007/T63/ozone/T63_ozone_picontrol.nc
-        ozone_year_1850: /pool/data/ECHAM6//input/r0007/T63/ozone/T63_ozone_picontrol.nc
-        ozone_year_1851: /pool/data/ECHAM6//input/r0007/T63/ozone/T63_ozone_picontrol.nc
-        ozone_year_1852: /pool/data/ECHAM6//input/r0007/T63/ozone/T63_ozone_picontrol.nc
+        aerocoarse_year_1848: /pool/data/ECHAM6//input/r0008/T63/aero/T63_aeropt_kinne_sw_b14_coa.nc
+        aerocoarse_year_1849: /pool/data/ECHAM6//input/r0008/T63/aero/T63_aeropt_kinne_sw_b14_coa.nc
+        aerocoarse_year_1850: /pool/data/ECHAM6//input/r0008/T63/aero/T63_aeropt_kinne_sw_b14_coa.nc
+        aerocoarse_year_1851: /pool/data/ECHAM6//input/r0008/T63/aero/T63_aeropt_kinne_sw_b14_coa.nc
+        aerocoarse_year_1852: /pool/data/ECHAM6//input/r0008/T63/aero/T63_aeropt_kinne_sw_b14_coa.nc
+        aerofarir_year_1848: /pool/data/ECHAM6//input/r0008/T63/aero/T63_aeropt_kinne_lw_b16_coa.nc
+        aerofarir_year_1849: /pool/data/ECHAM6//input/r0008/T63/aero/T63_aeropt_kinne_lw_b16_coa.nc
+        aerofarir_year_1850: /pool/data/ECHAM6//input/r0008/T63/aero/T63_aeropt_kinne_lw_b16_coa.nc
+        aerofarir_year_1851: /pool/data/ECHAM6//input/r0008/T63/aero/T63_aeropt_kinne_lw_b16_coa.nc
+        aerofarir_year_1852: /pool/data/ECHAM6//input/r0008/T63/aero/T63_aeropt_kinne_lw_b16_coa.nc
+        aerofin_year_1848: /pool/data/ECHAM6//input/r0008/T63/aero/T63_aeropt_kinne_sw_b14_fin_1865.nc
+        aerofin_year_1849: /pool/data/ECHAM6//input/r0008/T63/aero/T63_aeropt_kinne_sw_b14_fin_1865.nc
+        aerofin_year_1850: /pool/data/ECHAM6//input/r0008/T63/aero/T63_aeropt_kinne_sw_b14_fin_1865.nc
+        aerofin_year_1851: /pool/data/ECHAM6//input/r0008/T63/aero/T63_aeropt_kinne_sw_b14_fin_1865.nc
+        aerofin_year_1852: /pool/data/ECHAM6//input/r0008/T63/aero/T63_aeropt_kinne_sw_b14_fin_1865.nc
+        ozone_year_1848: /pool/data/ECHAM6//input/r0008/T63/ozone/T63_ozone_picontrol.nc
+        ozone_year_1849: /pool/data/ECHAM6//input/r0008/T63/ozone/T63_ozone_picontrol.nc
+        ozone_year_1850: /pool/data/ECHAM6//input/r0008/T63/ozone/T63_ozone_picontrol.nc
+        ozone_year_1851: /pool/data/ECHAM6//input/r0008/T63/ozone/T63_ozone_picontrol.nc
+        ozone_year_1852: /pool/data/ECHAM6//input/r0008/T63/ozone/T63_ozone_picontrol.nc
     forcing_targets:
         aerocoarse_year_1848: <TEST_DIR>run/awiesm/pico/run_18500101-18500101/work/aero_coarse_1848.nc
         aerocoarse_year_1849: <TEST_DIR>run/awiesm/pico/run_18500101-18500101/work/aero_coarse_1849.nc
@@ -539,6 +541,7 @@ echam:
         ozone_year_1851: <TEST_DIR>run/awiesm/pico/run_18500101-18500101/work/ozon1851
         ozone_year_1852: <TEST_DIR>run/awiesm/pico/run_18500101-18500101/work/ozon1852
     greenhouse_dir: /pool/data/ECHAM6/
+    greenhouse_hist_name: greenhouse_ssp245
     grids:
         atmo:
             name: atmo
@@ -669,7 +672,7 @@ echam:
     ini_parent_date: '22941231'
     ini_parent_dir: /pool/data/ECHAM6//MPIESM/restart/dev/pico/restart/echam6
     ini_parent_exp_id: khw0030
-    input_dir: /pool/data/ECHAM6//input/r0007
+    input_dir: /pool/data/ECHAM6//input/r0008
     input_intermediate:
         cldoptprops: <TEST_DIR>run/awiesm/pico/run_18500101-18500101/input/echam/ECHAM6_CldOptProps.nc
         janspec: <TEST_DIR>run/awiesm/pico/run_18500101-18500101/input/echam/unit.23
@@ -680,12 +683,12 @@ echam:
         vgratclim: <TEST_DIR>run/awiesm/pico/run_18500101-18500101/input/echam/unit.91
         vltclim: <TEST_DIR>run/awiesm/pico/run_18500101-18500101/input/echam/unit.90
     input_sources:
-        cldoptprops: /pool/data/ECHAM6//input/r0007/ECHAM6_CldOptProps.nc
-        janspec: /pool/data/ECHAM6//input/r0007/T63/T63L47_jan_spec.nc
+        cldoptprops: /pool/data/ECHAM6//input/r0008/ECHAM6_CldOptProps.nc
+        janspec: /pool/data/ECHAM6//input/r0008/T63/T63L47_jan_spec.nc
         jansurf: /work/ollie/pool/FESOM/meshes_default/core/tarfilesT63/input/echam6/T63CORE2_jan_surf.nc
-        rrtmglw: /pool/data/ECHAM6//input/r0007/rrtmg_lw.nc
-        rrtmgsw: /pool/data/ECHAM6//input/r0007/rrtmg_sw.nc
-        tslclim: /pool/data/ECHAM6//input/r0007/T63/T63_TSLCLIM.nc
+        rrtmglw: /pool/data/ECHAM6//input/r0008/rrtmg_lw.nc
+        rrtmgsw: /pool/data/ECHAM6//input/r0008/rrtmg_sw.nc
+        tslclim: /pool/data/ECHAM6//input/r0008/T63/T63_TSLCLIM.nc
         vgratclim: /work/ollie/pool/FESOM/meshes_default/core/tarfilesT63/input/echam6/T63CORE2_VGRATCLIM.nc
         vltclim: /work/ollie/pool/FESOM/meshes_default/core/tarfilesT63/input/echam6/T63CORE2_VLTCLIM.nc
     input_targets:
@@ -1231,6 +1234,7 @@ echam:
     restart_rate: 1
     restart_unit: days
     scenario: PI-CTRL
+    scenario_is_ssp: false
     scenario_type: PI-CTRL
     setup_dir: <TEST_DIR>/comp/awiesm/awiesm-2.1
     standalone_model: true
@@ -1705,18 +1709,6 @@ fesom:
     resolution: CORE2
     restart_first: 1
     restart_flag: last
-    restart_in_in_workdir:
-        icb_restart: iceberg.restart
-        icb_restart_ISM: iceberg.restart.ISM
-        ice_restart: fesom.1849.ice.restart.nc
-        oce_restart: fesom.1849.oce.restart.nc
-        wiso_restart: fesom.1849.wiso.restart.nc
-    restart_out_in_workdir:
-        icb_restart: iceberg.restart
-        icb_restart_ISM: iceberg.restart.ISM
-        ice_restart: fesom.1850.ice.restart.nc
-        oce_restart: fesom.1850.oce.restart.nc
-        wiso_restart: fesom.1850.wiso.restart.nc
     restart_out_intermediate:
         ice_restart: <TEST_DIR>run/awiesm/pico/run_18500101-18500101/restart/fesom/fesom.1850.ice.restart.nc
         oce_restart: <TEST_DIR>run/awiesm/pico/run_18500101-18500101/restart/fesom/fesom.1850.oce.restart.nc
@@ -1731,9 +1723,6 @@ fesom:
     runoff_data_source: CORE2
     runoff_file: CORE2_runoff.nc
     runtime_environment_changes:
-        add_export_vars:
-            taken2from: fesom2_ru
-            takenfrom: fesom2_run
         choose_computer.name:
             juwels:
                 add_module_actions:
@@ -1973,7 +1962,7 @@ general:
     inspect: null
     isinteractive: false
     iterative_coupled_model: ''
-    jobid: 1027
+    jobid: 1078
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 18491231-18491231
@@ -2339,6 +2328,9 @@ hdmodel:
     thisrun_viz_dir: <TEST_DIR>/run/awiesm//pico/run_18500101-18500101/viz/hdmodel/
     time_step: 450
 jsbach:
+    Ndepo_cmip6: Ndepo_hist_scenario
+    Ndepo_path: ''
+    Ndepo_sufix: ''
     adj_input_dir: /pool/data/AWICM//FESOM2/MESHES_FESOM2.1//core2//tarfilesT63/input/jsbach
     all_filetypes:
     - analysis
@@ -2360,6 +2352,7 @@ jsbach:
         namelist.jsbach: <HOME_DIR>/esm_tools/namelists//jsbach/3.20/PI-CTRL/dynveg/namelist.jsbach
     config_targets:
         namelist.jsbach: <TEST_DIR>run/awiesm/pico/run_18500101-18500101/work/namelist.jsbach
+    cover_fract_cmip6: cover_fract.@YEAR@.nc
     cover_fract_dir: /pool/data/JSBACH/input/r0010/T63/land_use_maps/
     dataset: r0010
     debug_info:
@@ -2578,7 +2571,7 @@ jsbach:
     ini_parent_exp_id: pico
     ini_restart_dir: <TEST_DIR>/run/awiesm//pico/restart/echam//../jsbach/
     input_dir: /pool/data/JSBACH/input/r0010
-    input_dir_awi: /pool/data/AWICM/JSBACH/input/r0010
+    input_dir_couple: /pool/data/AWICM/JSBACH/input/r0010
     input_intermediate:
         jsbach: <TEST_DIR>run/awiesm/pico/run_18500101-18500101/input/jsbach/jsbach.nc
         lctlib: <TEST_DIR>run/awiesm/pico/run_18500101-18500101/input/jsbach/lctlib.def
@@ -2631,7 +2624,8 @@ jsbach:
     parent_expid: pico
     parent_restart_dir: <TEST_DIR>/run/awiesm//pico/restart/jsbach/
     pool_dir: /pool/data/JSBACH
-    pool_dir_awi: /pool/data/AWICM/JSBACH
+    pool_dir_couple: /pool/data/AWICM/JSBACH
+    popdens_cmip6: popdens
     prev_date: '1849-12-31T23:52:30'
     repository: https://gitlab.dkrz.de/modular_esm/echam6
     resolution: T63

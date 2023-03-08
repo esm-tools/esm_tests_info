@@ -46,8 +46,6 @@ export ZLIBROOT=/usr
 export MPIROOT=${I_MPI_ROOT}/intel64
 export MPI_LIB=$(mpiifort -show |sed -e 's/^[^ ]*//' -e 's/-[I][^ ]*//g')
 export PATH=/work/ollie/jhegewal/sw/cmake/bin:$PATH
-export takenfrom=fesom2_run
-export taken2from=fesom2_ru
 export ACCOUNT=None
 export ESM_TESTING_DIR=<TEST_DIR>/run/awiesm/
 export MODEL_DIR=<TEST_DIR>/comp/awiesm/awiesm-2.1
@@ -60,7 +58,7 @@ unset SLURM_MEM_PER_CPU
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 1850-01-01T00:00:00 1247 - start >> <TEST_DIR>/run/awiesm//pico/log//pico_awiesm.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 1850-01-01T00:00:00 1165 - start >> <TEST_DIR>/run/awiesm//pico/log//pico_awiesm.log
 
 cd <TEST_DIR>/run/awiesm//pico/run_18500101-18500101/work/
 time srun -l --kill-on-bad-exit=1 --cpu_bind=cores --multi-prog hostfile_srun 2>&1 &
@@ -72,6 +70,6 @@ process=$!
 cd <TEST_DIR>/run/awiesm//pico/scripts/
 esm_runscripts pico.yaml -e pico -t observe_compute -p ${process} -s 18500101 -r 1 -v  --last-jobtype prepcompute --open-run
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 1850-01-01T00:00:00 1247 - done >> <TEST_DIR>/run/awiesm//pico/log//pico_awiesm.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 1850-01-01T00:00:00 1165 - done >> <TEST_DIR>/run/awiesm//pico/log//pico_awiesm.log
 
 wait

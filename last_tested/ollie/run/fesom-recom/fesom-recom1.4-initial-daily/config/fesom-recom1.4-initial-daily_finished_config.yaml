@@ -199,9 +199,6 @@ fesom:
     clean_command: rm -rf build CMakeCache.txt
     climate_data_dir: /work/ollie/pool/FESOM//hydrography/
     comp_command: mkdir -p build; cd build; cmake ..;   make install
-    compiletime_environment_changes:
-        add_export_vars:
-            takenfrom: fesom1
     config_intermediate:
         config: <TEST_DIR>run/fesom-recom/fesom-recom1.4-initial-daily/run_19580101-19580101/config/fesom/namelist.config
         diag: <TEST_DIR>run/fesom-recom/fesom-recom1.4-initial-daily/run_19580101-19580101/config/fesom/namelist.diag
@@ -274,6 +271,12 @@ fesom:
     debug_info:
         loaded_from_file: <HOME_DIR>/esm_tools/configs//components/fesom/fesom.yaml
     destination: fesom-1.4
+    environment_changes:
+        choose_computer.name:
+            blogin:
+                iolibraries: system_libs
+            glogin:
+                iolibraries: system_libs
     executable: fesom
     experiment_analysis_dir: <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily/analysis/fesom/
     experiment_bin_dir: <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily/bin/fesom/
@@ -397,7 +400,8 @@ fesom:
         clock: <TEST_DIR>run/fesom-recom/fesom-recom1.4-initial-daily/log/fesom/fesom.clock
         mesh_diag: <TEST_DIR>run/fesom-recom/fesom-recom1.4-initial-daily/log/fesom/fesom.initial.mesh.diag.nc
     lresume: false
-    mesh_dir: /work/ollie/pool/FESOM//meshes_default/core/
+    mesh_base_dir: /work/ollie/pool/FESOM//meshes_default/
+    mesh_dir: /work/ollie/pool/FESOM//meshes_default//core/
     mesh_rotated: false
     metadata:
         Authors: Dmitry Sidorenko (Dmitry.Sidorenko@awi.de), Nikolay V. Koldunov (nikolay.koldunov@awi.de)
@@ -583,7 +587,7 @@ fesom:
             paths:
                 ClimateDataPath: /work/ollie/pool/FESOM//hydrography/
                 ForcingDataPath: /work/ollie/projects/MarESys/forcing_clim61/
-                MeshPath: /work/ollie/pool/FESOM//meshes_default/core/
+                MeshPath: /work/ollie/pool/FESOM//meshes_default//core/
                 OpbndPath: ''
                 ResultPath: <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily/run_19580101-19580101/work/
                 TideForcingPath: ''
@@ -1450,7 +1454,7 @@ general:
     inspect: null
     isinteractive: false
     iterative_coupled_model: ''
-    jobid: 1085
+    jobid: 1045
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 19571231-19571231

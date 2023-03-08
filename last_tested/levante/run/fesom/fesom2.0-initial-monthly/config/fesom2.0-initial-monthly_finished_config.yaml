@@ -206,9 +206,6 @@ fesom:
     climate_data_dir: /pool/data/AWICM/FESOM2/INITIAL/phc3.0/
     comp_command: mkdir -p build; cd build; cmake ..;   make install -j `nproc --all`
     comp_executable: fesom.x
-    compiletime_environment_changes:
-        add_export_vars:
-            taken2from: fesom2_compile
     config_intermediate:
         config: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/config/fesom/namelist.config
         fesom.clock: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/config/fesom/fesom.clock
@@ -504,10 +501,6 @@ fesom:
         oce_restart: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/restart/fesom/fesom.2001.oce.restart.nc
     restart_rate: 1
     restart_unit: m
-    runtime_environment_changes:
-        add_export_vars:
-            taken2from: fesom2_ru
-            takenfrom: fesom2_run
     setup_dir: <TEST_DIR>/comp/fesom/fesom-2.0
     startday: 1
     starttime: 0
@@ -706,7 +699,7 @@ general:
     inspect: null
     isinteractive: false
     iterative_coupled_model: ''
-    jobid: 895
+    jobid: 1150
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 20001201-20001231

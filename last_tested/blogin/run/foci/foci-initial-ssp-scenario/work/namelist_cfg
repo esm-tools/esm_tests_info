@@ -1,0 +1,41 @@
+&namrun
+    cn_exp = 'foci-initial-ssp-scenario'
+    nn_it000 = 1
+    nn_itend = 48
+    nn_date0 = 20150101
+    cn_ocerst_in = 'foci-initial-ssp-scenario_00000000_restart_20141231'
+    cn_ocerst_indir = '<TEST_DIR>/run/foci//foci-initial-ssp-scenario/restart/nemo//'
+    cn_ocerst_out = 'restart_20150101'
+    cn_ocerst_outdir = '<TEST_DIR>/run/foci//foci-initial-ssp-scenario/restart/nemo//'
+    nn_stock = 48
+    nn_leapy = 0
+    nn_rstctl = 2
+    ln_rstart = .false.
+/
+
+&namtsd
+    ln_tsd_init = .true.
+    ln_tsd_tradmp = .false.
+/
+
+&namsbc
+    nn_fsbc = 6
+/
+
+&nammpp
+    jpni = 0
+    jpnj = 0
+    jpnij = 24
+/
+
+&namdom
+    nn_closea = 1
+    nn_msh = 1
+    rn_rdt = 1800
+/
+
+&namdyn_hpg
+    ln_hpg_zps = .true.
+    ln_hpg_sco = .false.
+    ln_dynhpg_imp = .true.
+/

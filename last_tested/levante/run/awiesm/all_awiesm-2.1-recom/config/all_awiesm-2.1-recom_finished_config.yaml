@@ -179,6 +179,7 @@ defaults:
     debug_info:
         loaded_from_file: <HOME_DIR>/esm_tools/configs//defaults/download_and_compile.yaml
 echam:
+    MAC-SP_hist_name: MAC-SP_ssp245
     _nx: 192
     _ny: 96
     add_compiletime_environment_changes: &id002
@@ -203,6 +204,7 @@ echam:
     - restart_out
     - viz
     - ignore
+    allow_hist2ssp_transition: false
     bin_dir: <TEST_DIR>/comp/awiesm/awiesm-2.1-recom/bin
     bin_intermediate:
         echam_bin: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010101/bin/echam/echam6
@@ -360,7 +362,7 @@ echam:
             grid: atmo
         w3_atm:
             grid: atmo
-    dataset: r0007
+    dataset: r0008
     debug_info:
         loaded_from_file:
         - <HOME_DIR>/esm_tools/configs//components/echam/echam.yaml
@@ -493,7 +495,7 @@ echam:
         - need_year_after
         - need_2years_before
         - need_2years_after
-    forcing_dir: /pool/data/ECHAM6//input/r0007/T63
+    forcing_dir: /pool/data/ECHAM6//input/r0008/T63
     forcing_intermediate:
         aerocoarse_year_1999: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010101/forcing/echam/aero_coarse_1999.nc
         aerocoarse_year_2000: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010101/forcing/echam/aero_coarse_2000.nc
@@ -516,26 +518,26 @@ echam:
         ozone_year_2002: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010101/forcing/echam/ozon2002
         ozone_year_2003: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010101/forcing/echam/ozon2003
     forcing_sources:
-        aerocoarse_year_1999: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_sw_b14_coa.nc
-        aerocoarse_year_2000: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_sw_b14_coa.nc
-        aerocoarse_year_2001: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_sw_b14_coa.nc
-        aerocoarse_year_2002: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_sw_b14_coa.nc
-        aerocoarse_year_2003: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_sw_b14_coa.nc
-        aerofarir_year_1999: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_lw_b16_coa.nc
-        aerofarir_year_2000: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_lw_b16_coa.nc
-        aerofarir_year_2001: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_lw_b16_coa.nc
-        aerofarir_year_2002: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_lw_b16_coa.nc
-        aerofarir_year_2003: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_lw_b16_coa.nc
-        aerofin_year_1999: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_sw_b14_fin_1865.nc
-        aerofin_year_2000: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_sw_b14_fin_1865.nc
-        aerofin_year_2001: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_sw_b14_fin_1865.nc
-        aerofin_year_2002: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_sw_b14_fin_1865.nc
-        aerofin_year_2003: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_sw_b14_fin_1865.nc
-        ozone_year_1999: /pool/data/ECHAM6//input/r0007/T63/ozone/T63_ozone_picontrol.nc
-        ozone_year_2000: /pool/data/ECHAM6//input/r0007/T63/ozone/T63_ozone_picontrol.nc
-        ozone_year_2001: /pool/data/ECHAM6//input/r0007/T63/ozone/T63_ozone_picontrol.nc
-        ozone_year_2002: /pool/data/ECHAM6//input/r0007/T63/ozone/T63_ozone_picontrol.nc
-        ozone_year_2003: /pool/data/ECHAM6//input/r0007/T63/ozone/T63_ozone_picontrol.nc
+        aerocoarse_year_1999: /pool/data/ECHAM6//input/r0008/T63/aero/T63_aeropt_kinne_sw_b14_coa.nc
+        aerocoarse_year_2000: /pool/data/ECHAM6//input/r0008/T63/aero/T63_aeropt_kinne_sw_b14_coa.nc
+        aerocoarse_year_2001: /pool/data/ECHAM6//input/r0008/T63/aero/T63_aeropt_kinne_sw_b14_coa.nc
+        aerocoarse_year_2002: /pool/data/ECHAM6//input/r0008/T63/aero/T63_aeropt_kinne_sw_b14_coa.nc
+        aerocoarse_year_2003: /pool/data/ECHAM6//input/r0008/T63/aero/T63_aeropt_kinne_sw_b14_coa.nc
+        aerofarir_year_1999: /pool/data/ECHAM6//input/r0008/T63/aero/T63_aeropt_kinne_lw_b16_coa.nc
+        aerofarir_year_2000: /pool/data/ECHAM6//input/r0008/T63/aero/T63_aeropt_kinne_lw_b16_coa.nc
+        aerofarir_year_2001: /pool/data/ECHAM6//input/r0008/T63/aero/T63_aeropt_kinne_lw_b16_coa.nc
+        aerofarir_year_2002: /pool/data/ECHAM6//input/r0008/T63/aero/T63_aeropt_kinne_lw_b16_coa.nc
+        aerofarir_year_2003: /pool/data/ECHAM6//input/r0008/T63/aero/T63_aeropt_kinne_lw_b16_coa.nc
+        aerofin_year_1999: /pool/data/ECHAM6//input/r0008/T63/aero/T63_aeropt_kinne_sw_b14_fin_1865.nc
+        aerofin_year_2000: /pool/data/ECHAM6//input/r0008/T63/aero/T63_aeropt_kinne_sw_b14_fin_1865.nc
+        aerofin_year_2001: /pool/data/ECHAM6//input/r0008/T63/aero/T63_aeropt_kinne_sw_b14_fin_1865.nc
+        aerofin_year_2002: /pool/data/ECHAM6//input/r0008/T63/aero/T63_aeropt_kinne_sw_b14_fin_1865.nc
+        aerofin_year_2003: /pool/data/ECHAM6//input/r0008/T63/aero/T63_aeropt_kinne_sw_b14_fin_1865.nc
+        ozone_year_1999: /pool/data/ECHAM6//input/r0008/T63/ozone/T63_ozone_picontrol.nc
+        ozone_year_2000: /pool/data/ECHAM6//input/r0008/T63/ozone/T63_ozone_picontrol.nc
+        ozone_year_2001: /pool/data/ECHAM6//input/r0008/T63/ozone/T63_ozone_picontrol.nc
+        ozone_year_2002: /pool/data/ECHAM6//input/r0008/T63/ozone/T63_ozone_picontrol.nc
+        ozone_year_2003: /pool/data/ECHAM6//input/r0008/T63/ozone/T63_ozone_picontrol.nc
     forcing_targets:
         aerocoarse_year_1999: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010101/work/aero_coarse_1999.nc
         aerocoarse_year_2000: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010101/work/aero_coarse_2000.nc
@@ -558,6 +560,7 @@ echam:
         ozone_year_2002: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010101/work/ozon2002
         ozone_year_2003: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010101/work/ozon2003
     greenhouse_dir: /pool/data/ECHAM6/
+    greenhouse_hist_name: greenhouse_ssp245
     grids:
         atmo:
             name: atmo
@@ -688,7 +691,7 @@ echam:
     ini_parent_date: '22941231'
     ini_parent_dir: /pool/data/ECHAM6//MPIESM/restart/dev/all_awiesm-2.1-recom/restart/echam6
     ini_parent_exp_id: khw0030
-    input_dir: /pool/data/ECHAM6//input/r0007
+    input_dir: /pool/data/ECHAM6//input/r0008
     input_intermediate:
         cldoptprops: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010101/input/echam/ECHAM6_CldOptProps.nc
         janspec: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010101/input/echam/unit.23
@@ -699,12 +702,12 @@ echam:
         vgratclim: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010101/input/echam/unit.91
         vltclim: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010101/input/echam/unit.90
     input_sources:
-        cldoptprops: /pool/data/ECHAM6//input/r0007/ECHAM6_CldOptProps.nc
-        janspec: /pool/data/ECHAM6//input/r0007/T63/T63L47_jan_spec.nc
+        cldoptprops: /pool/data/ECHAM6//input/r0008/ECHAM6_CldOptProps.nc
+        janspec: /pool/data/ECHAM6//input/r0008/T63/T63L47_jan_spec.nc
         jansurf: /pf/a/a270064/bb1029/AWIESM2.1-EXP/mesh_core2//tarfilesT63/input/echam6/T63CORE2_jan_surf.nc
-        rrtmglw: /pool/data/ECHAM6//input/r0007/rrtmg_lw.nc
-        rrtmgsw: /pool/data/ECHAM6//input/r0007/rrtmg_sw.nc
-        tslclim: /pool/data/ECHAM6//input/r0007/T63/T63_TSLCLIM.nc
+        rrtmglw: /pool/data/ECHAM6//input/r0008/rrtmg_lw.nc
+        rrtmgsw: /pool/data/ECHAM6//input/r0008/rrtmg_sw.nc
+        tslclim: /pool/data/ECHAM6//input/r0008/T63/T63_TSLCLIM.nc
         vgratclim: /pf/a/a270064/bb1029/AWIESM2.1-EXP/mesh_core2//tarfilesT63/input/echam6/T63CORE2_VGRATCLIM.nc
         vltclim: /pf/a/a270064/bb1029/AWIESM2.1-EXP/mesh_core2//tarfilesT63/input/echam6/T63CORE2_VLTCLIM.nc
     input_targets:
@@ -1250,6 +1253,7 @@ echam:
     restart_rate: 1
     restart_unit: days
     scenario: PI-CTRL
+    scenario_is_ssp: false
     scenario_type: PI-CTRL
     setup_dir: <TEST_DIR>/comp/awiesm/awiesm-2.1-recom
     standalone_model: true
@@ -1735,18 +1739,6 @@ fesom:
     resolution: CORE2
     restart_first: 1
     restart_flag: last
-    restart_in_in_workdir:
-        icb_restart: iceberg.restart
-        icb_restart_ISM: iceberg.restart.ISM
-        ice_restart: fesom.2000.ice.restart.nc
-        oce_restart: fesom.2000.oce.restart.nc
-        wiso_restart: fesom.2000.wiso.restart.nc
-    restart_out_in_workdir:
-        icb_restart: iceberg.restart
-        icb_restart_ISM: iceberg.restart.ISM
-        ice_restart: fesom.2001.ice.restart.nc
-        oce_restart: fesom.2001.oce.restart.nc
-        wiso_restart: fesom.2001.wiso.restart.nc
     restart_out_intermediate:
         ice_restart: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010101/restart/fesom/fesom.2001.ice.restart.nc
         oce_restart: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010101/restart/fesom/fesom.2001.oce.restart.nc
@@ -1761,9 +1753,6 @@ fesom:
     runoff_data_source: CORE2
     runoff_file: runoff.nc
     runtime_environment_changes:
-        add_export_vars:
-            taken2from: fesom2_ru
-            takenfrom: fesom2_run
         choose_computer.name:
             juwels:
                 add_module_actions:
@@ -2006,7 +1995,7 @@ general:
     isinteractive: false
     iterative_coupled_model: ''
     jP: /pf/a/a270064/bb1029/AWIESM2.1-EXP/mesh_core2/tarfilesT63/input/jsbach/jsbach_T63CORE2_11tiles_5layers_1850.nc
-    jobid: 1063
+    jobid: 1090
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 20001231-20001231
@@ -2376,6 +2365,9 @@ hdmodel:
     thisrun_viz_dir: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010101/viz/hdmodel/
     time_step: 450
 jsbach:
+    Ndepo_cmip6: Ndepo_hist_scenario
+    Ndepo_path: ''
+    Ndepo_sufix: ''
     adj_input_dir: /pf/a/a270064/bb1029/AWIESM2.1-EXP/mesh_core2//tarfilesT63/input/jsbach
     all_filetypes:
     - analysis
@@ -2397,6 +2389,7 @@ jsbach:
         namelist.jsbach: <HOME_DIR>/esm_tools/namelists//jsbach/3.20/PI-CTRL/dynveg/namelist.jsbach
     config_targets:
         namelist.jsbach: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010101/work/namelist.jsbach
+    cover_fract_cmip6: cover_fract.@YEAR@.nc
     cover_fract_dir: /pool/data/JSBACH/input/r0010/T63/land_use_maps/
     dataset: r0010
     debug_info:
@@ -2615,7 +2608,7 @@ jsbach:
     ini_parent_exp_id: all_awiesm-2.1-recom
     ini_restart_dir: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/restart/echam//../jsbach/
     input_dir: /pool/data/JSBACH/input/r0010
-    input_dir_awi: /pool/data/AWICM/JSBACH/input/r0010
+    input_dir_couple: /pool/data/AWICM/JSBACH/input/r0010
     input_intermediate:
         jsbach: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010101/input/jsbach/jsbach.nc
         lctlib: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010101/input/jsbach/lctlib.def
@@ -2668,7 +2661,8 @@ jsbach:
     parent_expid: all_awiesm-2.1-recom
     parent_restart_dir: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/restart/jsbach/
     pool_dir: /pool/data/JSBACH
-    pool_dir_awi: /pool/data/AWICM/JSBACH
+    pool_dir_couple: /pool/data/AWICM/JSBACH
+    popdens_cmip6: popdens
     prev_date: '2000-12-31T23:52:30'
     repository: https://gitlab.dkrz.de/modular_esm/echam6
     resolution: T63

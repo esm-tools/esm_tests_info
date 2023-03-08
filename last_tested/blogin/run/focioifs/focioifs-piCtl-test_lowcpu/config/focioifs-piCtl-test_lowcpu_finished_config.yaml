@@ -163,7 +163,7 @@ computer:
     submit: sbatch
     submitted: false
     tasks_flag: --ntasks=@tasks@
-    taskset: false
+    taskset: true
     thisrun_logfile: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/log/focioifs-piCtl-test_lowcpu_focioifs_@jobtype@_18500101-18500105_%j.log
     threads_per_core: 1
     time_flag: --time=01:00:00
@@ -209,9 +209,11 @@ general:
     - 2
     - 2.1
     - 2.1-O12
+    - 2.1.1
     base_dir: <TEST_DIR>/run/focioifs/
     batch: slurm
-    calendar: esm_calendar object with allowed leap years
+    calendar: esm_calender object with no leap years allowed
+    calving_method: old
     check: true
     chunk_number: 1
     command_line_config:
@@ -365,14 +367,14 @@ general:
     inspect: null
     isinteractive: false
     iterative_coupled_model: ''
-    jobid: 814
+    jobid: 978
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 18491227-18491231
     last_run_in_chunk: false
     last_start_date: '1849-12-27T00:00:00'
     launcher_pid: -666
-    leapyear: true
+    leapyear: false
     logfile_path: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/log//focioifs-piCtl-test_lowcpu_focioifs_prepcompute_18500101-18500105.log
     logfile_path_in_run: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/log//focioifs-piCtl-test_lowcpu_focioifs_prepcompute_18500101-18500105.log
     lresume: false
@@ -628,6 +630,7 @@ nemo:
     - ORCA05_LIM2_NEMO_JRA55_test
     - GYRE_XIOS
     - GYRE_PISCES
+    - ORCA05.z75.ICE.JRA
     bin_dir: <TEST_DIR>/comp/focioifs/focioifs-2.0/bin
     bin_intermediate:
         nemo: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/bin/nemo/oceanx
@@ -729,9 +732,9 @@ nemo:
             run_to_work: copy
             work_to_run: copy
         config:
-            exp_to_run: copy
+            exp_to_run: link
             init_to_exp: copy
-            run_to_work: copy
+            run_to_work: link
             work_to_run: copy
         couple:
             exp_to_run: copy
@@ -764,14 +767,14 @@ nemo:
             run_to_work: copy
             work_to_run: copy
         outdata:
-            exp_to_run: copy
-            init_to_exp: copy
-            run_to_work: copy
-            work_to_run: copy
+            exp_to_run: move
+            init_to_exp: move
+            run_to_work: move
+            work_to_run: move
         restart_in:
-            exp_to_run: copy
-            init_to_exp: copy
-            run_to_work: copy
+            exp_to_run: link
+            init_to_exp: link
+            run_to_work: link
             work_to_run: link
         restart_out:
             exp_to_run: copy
@@ -883,11 +886,12 @@ nemo:
     install_bins: BLD/bin/oceanx
     jpni: 8
     jpnj: 4
-    jra55_forcing_dir: /scratch/usr/shkifmsw/foci_input2/NEMO_JRA55-do_drowned_test
+    jra55_forcing_dir: /scratch/usr/shkifmsw/foci_input2/JRA55-do/v1.5
     jra55_runoff_dir: /scratch/usr/shkifmsw/foci_input2/NEMO_ORCA05_JRA_runoff_forcing
     last_parent_date: '1849-12-31T23:00:00'
-    leapyear: true
+    leapyear: false
     levels: L46
+    ln_iceini: true
     ln_limini: true
     ln_limini_agrif: false
     ln_meshmask: true
@@ -944,14 +948,14 @@ nemo:
             namrun:
                 cn_exp: focioifs-piCtl-test_lowcpu
                 cn_ocerst_in: focioifs-piCtl-test_lowcpu_00000000_restart_18491231
-                cn_ocerst_indir: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//
+                cn_ocerst_indir: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/restart/nemo//
                 cn_ocerst_out: restart_18500105
-                cn_ocerst_outdir: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//
+                cn_ocerst_outdir: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/restart/nemo//
                 ln_rstart: false
                 nn_date0: 18500101
                 nn_it000: 1
                 nn_itend: 240
-                nn_leapy: 1
+                nn_leapy: 0
                 nn_rstctl: 2
                 nn_stock: 240
             namsbc:
@@ -984,9 +988,9 @@ nemo:
                 ln_limini: true
             namicerun:
                 cn_icerst_in: focioifs-piCtl-test_lowcpu_00000000_restart_ice_18491231
-                cn_icerst_indir: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work/
+                cn_icerst_indir: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/restart/nemo//
                 cn_icerst_out: restart_ice_18500105
-                cn_icerst_outdir: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work/
+                cn_icerst_outdir: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/restart/nemo//
         namelist_top_cfg:
             namtrc:
                 ln_trcdta: true
@@ -994,9 +998,9 @@ nemo:
                 ln_trcrad: true
             namtrc_run:
                 cn_trcrst_in: focioifs-piCtl-test_lowcpu_00000000_restart_trc_18491231
-                cn_trcrst_indir: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work/
+                cn_trcrst_indir: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/restart/nemo//
                 cn_trcrst_out: restart_trc_18500105
-                cn_trcrst_outdir: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work/
+                cn_trcrst_outdir: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/restart/nemo//
                 ln_rsttr: false
                 nn_rsttr: 2
     namelist_dir: <TEST_DIR>/comp/focioifs/focioifs-2.0/nemo-ORCA05_LIM2_KCM_AOW_FS_OASISMCT4/CONFIG/ORCA05_LIM2_KCM_AOW_FS_OASISMCT4/EXP00
@@ -1013,7 +1017,7 @@ nemo:
     newstep_formatted: 240
     newstep_formatted_nest: 720
     newstep_nest: 720
-    nn_leapy: 1
+    nn_leapy: 0
     nn_msh: 1
     nn_rstctl: 2
     nn_rsttr: 2
@@ -1064,14 +1068,10 @@ nemo:
     prevstep_formatted: 0
     prevstep_formatted_nest: 0
     prevstep_nest: 0
+    reference_expid: EXP00
     requires:
     - nemobasemodel-3.6foci
     resolution: ORCA05
-    restart_out_intermediate: {}
-    restart_out_sources: {}
-    restart_out_sources_wild_card:
-        restart_out: focioifs-piCtl-test_lowcpu_00000240_restart*_18500105_*.nc
-    restart_out_targets: {}
     runoff_method: old
     runtime: 432000
     seconds_since_initial: 0
@@ -1525,9 +1525,9 @@ oasis3mct:
             run_to_work: copy
             work_to_run: copy
         input:
-            exp_to_run: link
-            init_to_exp: link
-            run_to_work: link
+            exp_to_run: copy
+            init_to_exp: copy
+            run_to_work: copy
             work_to_run: link
         log:
             exp_to_run: copy
@@ -1601,7 +1601,7 @@ oasis3mct:
     - build/lib/psmile/mct/mpeu/libmpeu.a
     - build/lib/psmile/scrip/libscrip.a
     last_parent_date: '1849-12-31T23:30:00'
-    leapyear: true
+    leapyear: false
     log_intermediate:
         debug_nr1: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/log/oasis3mct/debug_notroot.01
         debug_nr2: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/log/oasis3mct/debug_notroot.02
@@ -1630,139 +1630,139 @@ oasis3mct:
     o2a_seq: 1
     oasis_date_stamp: ''
     outdata_intermediate:
-        AIceEvap_oifs_05.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/AIceEvap_oifs_05.nc
+        AIceEvap_oifs_04.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/AIceEvap_oifs_04.nc
         AIceFrac_oifs_01.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/AIceFrac_oifs_01.nc
-        ATotEvap_oifs_05.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/ATotEvap_oifs_05.nc
-        ATotRain_oifs_05.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/ATotRain_oifs_05.nc
-        ATotSnow_oifs_05.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/ATotSnow_oifs_05.nc
-        A_ITaux1_oifs_04.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/A_ITaux1_oifs_04.nc
-        A_ITauy1_oifs_04.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/A_ITauy1_oifs_04.nc
+        ATotEvap_oifs_04.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/ATotEvap_oifs_04.nc
+        ATotRain_oifs_04.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/ATotRain_oifs_04.nc
+        ATotSnow_oifs_04.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/ATotSnow_oifs_04.nc
+        A_ITaux1_oifs_03.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/A_ITaux1_oifs_03.nc
+        A_ITauy1_oifs_03.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/A_ITauy1_oifs_03.nc
         A_IceTck_oifs_01.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/A_IceTck_oifs_01.nc
         A_OCurx1_oifs_01.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/A_OCurx1_oifs_01.nc
         A_OCury1_oifs_01.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/A_OCury1_oifs_01.nc
-        A_OTaux1_oifs_04.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/A_OTaux1_oifs_04.nc
-        A_OTauy1_oifs_04.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/A_OTauy1_oifs_04.nc
-        A_QnsIce_oifs_03.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/A_QnsIce_oifs_03.nc
-        A_QnsMix_oifs_05.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/A_QnsMix_oifs_05.nc
-        A_QsrIce_oifs_03.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/A_QsrIce_oifs_03.nc
-        A_QsrMix_oifs_05.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/A_QsrMix_oifs_05.nc
-        A_Runoff_oifs_02.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/A_Runoff_oifs_02.nc
+        A_OTaux1_oifs_03.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/A_OTaux1_oifs_03.nc
+        A_OTauy1_oifs_03.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/A_OTauy1_oifs_03.nc
+        A_QnsIce_oifs_02.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/A_QnsIce_oifs_02.nc
+        A_QnsMix_oifs_04.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/A_QnsMix_oifs_04.nc
+        A_QsrIce_oifs_02.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/A_QsrIce_oifs_02.nc
+        A_QsrMix_oifs_04.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/A_QsrMix_oifs_04.nc
+        A_Runoff_oifs_05.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/A_Runoff_oifs_05.nc
         A_SSTSST_oifs_01.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/A_SSTSST_oifs_01.nc
         A_SnwTck_oifs_01.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/A_SnwTck_oifs_01.nc
         A_TepIce_oifs_01.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/A_TepIce_oifs_01.nc
-        A_dQnsdT_oifs_03.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/A_dQnsdT_oifs_03.nc
-        OIceEvap_oceanx_05.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/OIceEvap_oceanx_05.nc
+        A_dQnsdT_oifs_02.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/A_dQnsdT_oifs_02.nc
+        OIceEvap_oceanx_04.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/OIceEvap_oceanx_04.nc
         OIceFrac_oceanx_01.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/OIceFrac_oceanx_01.nc
-        OTotEvap_oceanx_05.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/OTotEvap_oceanx_05.nc
-        OTotRain_oceanx_05.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/OTotRain_oceanx_05.nc
-        OTotSnow_oceanx_05.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/OTotSnow_oceanx_05.nc
-        O_ITaux1_oceanx_04.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/O_ITaux1_oceanx_04.nc
-        O_ITauy1_oceanx_04.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/O_ITauy1_oceanx_04.nc
+        OTotEvap_oceanx_04.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/OTotEvap_oceanx_04.nc
+        OTotRain_oceanx_04.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/OTotRain_oceanx_04.nc
+        OTotSnow_oceanx_04.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/OTotSnow_oceanx_04.nc
+        O_ITaux1_oceanx_03.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/O_ITaux1_oceanx_03.nc
+        O_ITauy1_oceanx_03.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/O_ITauy1_oceanx_03.nc
         O_IceTck_oceanx_01.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/O_IceTck_oceanx_01.nc
         O_OCurx1_oceanx_01.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/O_OCurx1_oceanx_01.nc
         O_OCury1_oceanx_01.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/O_OCury1_oceanx_01.nc
-        O_OTaux1_oceanx_04.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/O_OTaux1_oceanx_04.nc
-        O_OTauy1_oceanx_04.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/O_OTauy1_oceanx_04.nc
-        O_QnsIce_oceanx_03.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/O_QnsIce_oceanx_03.nc
-        O_QnsMix_oceanx_05.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/O_QnsMix_oceanx_05.nc
-        O_QsrIce_oceanx_03.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/O_QsrIce_oceanx_03.nc
-        O_QsrMix_oceanx_05.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/O_QsrMix_oceanx_05.nc
+        O_OTaux1_oceanx_03.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/O_OTaux1_oceanx_03.nc
+        O_OTauy1_oceanx_03.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/O_OTauy1_oceanx_03.nc
+        O_QnsIce_oceanx_02.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/O_QnsIce_oceanx_02.nc
+        O_QnsMix_oceanx_04.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/O_QnsMix_oceanx_04.nc
+        O_QsrIce_oceanx_02.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/O_QsrIce_oceanx_02.nc
+        O_QsrMix_oceanx_04.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/O_QsrMix_oceanx_04.nc
         O_Runoff_oceanx_06.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/O_Runoff_oceanx_06.nc
         O_SSTSST_oceanx_01.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/O_SSTSST_oceanx_01.nc
         O_SnwTck_oceanx_01.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/O_SnwTck_oceanx_01.nc
         O_TepIce_oceanx_01.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/O_TepIce_oceanx_01.nc
-        O_dQnsdT_oceanx_03.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/O_dQnsdT_oceanx_03.nc
-        R_Runoff_atm_rnfma_02.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/R_Runoff_atm_rnfma_02.nc
+        O_dQnsdT_oceanx_02.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/O_dQnsdT_oceanx_02.nc
+        R_Runoff_atm_rnfma_05.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/R_Runoff_atm_rnfma_05.nc
         R_Runoff_oce_rnfma_06.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/oasis3mct/R_Runoff_oce_rnfma_06.nc
     outdata_sources:
-        AIceEvap_oifs_05.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//AIceEvap_oifs_05.nc
+        AIceEvap_oifs_04.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//AIceEvap_oifs_04.nc
         AIceFrac_oifs_01.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//AIceFrac_oifs_01.nc
-        ATotEvap_oifs_05.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//ATotEvap_oifs_05.nc
-        ATotRain_oifs_05.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//ATotRain_oifs_05.nc
-        ATotSnow_oifs_05.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//ATotSnow_oifs_05.nc
-        A_ITaux1_oifs_04.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//A_ITaux1_oifs_04.nc
-        A_ITauy1_oifs_04.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//A_ITauy1_oifs_04.nc
+        ATotEvap_oifs_04.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//ATotEvap_oifs_04.nc
+        ATotRain_oifs_04.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//ATotRain_oifs_04.nc
+        ATotSnow_oifs_04.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//ATotSnow_oifs_04.nc
+        A_ITaux1_oifs_03.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//A_ITaux1_oifs_03.nc
+        A_ITauy1_oifs_03.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//A_ITauy1_oifs_03.nc
         A_IceTck_oifs_01.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//A_IceTck_oifs_01.nc
         A_OCurx1_oifs_01.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//A_OCurx1_oifs_01.nc
         A_OCury1_oifs_01.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//A_OCury1_oifs_01.nc
-        A_OTaux1_oifs_04.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//A_OTaux1_oifs_04.nc
-        A_OTauy1_oifs_04.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//A_OTauy1_oifs_04.nc
-        A_QnsIce_oifs_03.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//A_QnsIce_oifs_03.nc
-        A_QnsMix_oifs_05.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//A_QnsMix_oifs_05.nc
-        A_QsrIce_oifs_03.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//A_QsrIce_oifs_03.nc
-        A_QsrMix_oifs_05.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//A_QsrMix_oifs_05.nc
-        A_Runoff_oifs_02.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//A_Runoff_oifs_02.nc
+        A_OTaux1_oifs_03.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//A_OTaux1_oifs_03.nc
+        A_OTauy1_oifs_03.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//A_OTauy1_oifs_03.nc
+        A_QnsIce_oifs_02.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//A_QnsIce_oifs_02.nc
+        A_QnsMix_oifs_04.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//A_QnsMix_oifs_04.nc
+        A_QsrIce_oifs_02.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//A_QsrIce_oifs_02.nc
+        A_QsrMix_oifs_04.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//A_QsrMix_oifs_04.nc
+        A_Runoff_oifs_05.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//A_Runoff_oifs_05.nc
         A_SSTSST_oifs_01.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//A_SSTSST_oifs_01.nc
         A_SnwTck_oifs_01.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//A_SnwTck_oifs_01.nc
         A_TepIce_oifs_01.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//A_TepIce_oifs_01.nc
-        A_dQnsdT_oifs_03.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//A_dQnsdT_oifs_03.nc
-        OIceEvap_oceanx_05.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//OIceEvap_oceanx_05.nc
+        A_dQnsdT_oifs_02.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//A_dQnsdT_oifs_02.nc
+        OIceEvap_oceanx_04.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//OIceEvap_oceanx_04.nc
         OIceFrac_oceanx_01.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//OIceFrac_oceanx_01.nc
-        OTotEvap_oceanx_05.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//OTotEvap_oceanx_05.nc
-        OTotRain_oceanx_05.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//OTotRain_oceanx_05.nc
-        OTotSnow_oceanx_05.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//OTotSnow_oceanx_05.nc
-        O_ITaux1_oceanx_04.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//O_ITaux1_oceanx_04.nc
-        O_ITauy1_oceanx_04.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//O_ITauy1_oceanx_04.nc
+        OTotEvap_oceanx_04.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//OTotEvap_oceanx_04.nc
+        OTotRain_oceanx_04.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//OTotRain_oceanx_04.nc
+        OTotSnow_oceanx_04.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//OTotSnow_oceanx_04.nc
+        O_ITaux1_oceanx_03.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//O_ITaux1_oceanx_03.nc
+        O_ITauy1_oceanx_03.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//O_ITauy1_oceanx_03.nc
         O_IceTck_oceanx_01.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//O_IceTck_oceanx_01.nc
         O_OCurx1_oceanx_01.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//O_OCurx1_oceanx_01.nc
         O_OCury1_oceanx_01.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//O_OCury1_oceanx_01.nc
-        O_OTaux1_oceanx_04.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//O_OTaux1_oceanx_04.nc
-        O_OTauy1_oceanx_04.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//O_OTauy1_oceanx_04.nc
-        O_QnsIce_oceanx_03.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//O_QnsIce_oceanx_03.nc
-        O_QnsMix_oceanx_05.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//O_QnsMix_oceanx_05.nc
-        O_QsrIce_oceanx_03.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//O_QsrIce_oceanx_03.nc
-        O_QsrMix_oceanx_05.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//O_QsrMix_oceanx_05.nc
+        O_OTaux1_oceanx_03.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//O_OTaux1_oceanx_03.nc
+        O_OTauy1_oceanx_03.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//O_OTauy1_oceanx_03.nc
+        O_QnsIce_oceanx_02.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//O_QnsIce_oceanx_02.nc
+        O_QnsMix_oceanx_04.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//O_QnsMix_oceanx_04.nc
+        O_QsrIce_oceanx_02.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//O_QsrIce_oceanx_02.nc
+        O_QsrMix_oceanx_04.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//O_QsrMix_oceanx_04.nc
         O_Runoff_oceanx_06.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//O_Runoff_oceanx_06.nc
         O_SSTSST_oceanx_01.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//O_SSTSST_oceanx_01.nc
         O_SnwTck_oceanx_01.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//O_SnwTck_oceanx_01.nc
         O_TepIce_oceanx_01.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//O_TepIce_oceanx_01.nc
-        O_dQnsdT_oceanx_03.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//O_dQnsdT_oceanx_03.nc
-        R_Runoff_atm_rnfma_02.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//R_Runoff_atm_rnfma_02.nc
+        O_dQnsdT_oceanx_02.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//O_dQnsdT_oceanx_02.nc
+        R_Runoff_atm_rnfma_05.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//R_Runoff_atm_rnfma_05.nc
         R_Runoff_oce_rnfma_06.nc: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//R_Runoff_oce_rnfma_06.nc
     outdata_targets:
-        AIceEvap_oifs_05.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/AIceEvap_oifs_05.nc
+        AIceEvap_oifs_04.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/AIceEvap_oifs_04.nc
         AIceFrac_oifs_01.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/AIceFrac_oifs_01.nc
-        ATotEvap_oifs_05.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/ATotEvap_oifs_05.nc
-        ATotRain_oifs_05.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/ATotRain_oifs_05.nc
-        ATotSnow_oifs_05.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/ATotSnow_oifs_05.nc
-        A_ITaux1_oifs_04.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/A_ITaux1_oifs_04.nc
-        A_ITauy1_oifs_04.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/A_ITauy1_oifs_04.nc
+        ATotEvap_oifs_04.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/ATotEvap_oifs_04.nc
+        ATotRain_oifs_04.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/ATotRain_oifs_04.nc
+        ATotSnow_oifs_04.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/ATotSnow_oifs_04.nc
+        A_ITaux1_oifs_03.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/A_ITaux1_oifs_03.nc
+        A_ITauy1_oifs_03.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/A_ITauy1_oifs_03.nc
         A_IceTck_oifs_01.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/A_IceTck_oifs_01.nc
         A_OCurx1_oifs_01.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/A_OCurx1_oifs_01.nc
         A_OCury1_oifs_01.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/A_OCury1_oifs_01.nc
-        A_OTaux1_oifs_04.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/A_OTaux1_oifs_04.nc
-        A_OTauy1_oifs_04.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/A_OTauy1_oifs_04.nc
-        A_QnsIce_oifs_03.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/A_QnsIce_oifs_03.nc
-        A_QnsMix_oifs_05.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/A_QnsMix_oifs_05.nc
-        A_QsrIce_oifs_03.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/A_QsrIce_oifs_03.nc
-        A_QsrMix_oifs_05.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/A_QsrMix_oifs_05.nc
-        A_Runoff_oifs_02.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/A_Runoff_oifs_02.nc
+        A_OTaux1_oifs_03.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/A_OTaux1_oifs_03.nc
+        A_OTauy1_oifs_03.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/A_OTauy1_oifs_03.nc
+        A_QnsIce_oifs_02.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/A_QnsIce_oifs_02.nc
+        A_QnsMix_oifs_04.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/A_QnsMix_oifs_04.nc
+        A_QsrIce_oifs_02.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/A_QsrIce_oifs_02.nc
+        A_QsrMix_oifs_04.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/A_QsrMix_oifs_04.nc
+        A_Runoff_oifs_05.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/A_Runoff_oifs_05.nc
         A_SSTSST_oifs_01.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/A_SSTSST_oifs_01.nc
         A_SnwTck_oifs_01.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/A_SnwTck_oifs_01.nc
         A_TepIce_oifs_01.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/A_TepIce_oifs_01.nc
-        A_dQnsdT_oifs_03.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/A_dQnsdT_oifs_03.nc
-        OIceEvap_oceanx_05.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/OIceEvap_oceanx_05.nc
+        A_dQnsdT_oifs_02.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/A_dQnsdT_oifs_02.nc
+        OIceEvap_oceanx_04.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/OIceEvap_oceanx_04.nc
         OIceFrac_oceanx_01.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/OIceFrac_oceanx_01.nc
-        OTotEvap_oceanx_05.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/OTotEvap_oceanx_05.nc
-        OTotRain_oceanx_05.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/OTotRain_oceanx_05.nc
-        OTotSnow_oceanx_05.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/OTotSnow_oceanx_05.nc
-        O_ITaux1_oceanx_04.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/O_ITaux1_oceanx_04.nc
-        O_ITauy1_oceanx_04.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/O_ITauy1_oceanx_04.nc
+        OTotEvap_oceanx_04.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/OTotEvap_oceanx_04.nc
+        OTotRain_oceanx_04.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/OTotRain_oceanx_04.nc
+        OTotSnow_oceanx_04.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/OTotSnow_oceanx_04.nc
+        O_ITaux1_oceanx_03.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/O_ITaux1_oceanx_03.nc
+        O_ITauy1_oceanx_03.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/O_ITauy1_oceanx_03.nc
         O_IceTck_oceanx_01.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/O_IceTck_oceanx_01.nc
         O_OCurx1_oceanx_01.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/O_OCurx1_oceanx_01.nc
         O_OCury1_oceanx_01.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/O_OCury1_oceanx_01.nc
-        O_OTaux1_oceanx_04.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/O_OTaux1_oceanx_04.nc
-        O_OTauy1_oceanx_04.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/O_OTauy1_oceanx_04.nc
-        O_QnsIce_oceanx_03.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/O_QnsIce_oceanx_03.nc
-        O_QnsMix_oceanx_05.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/O_QnsMix_oceanx_05.nc
-        O_QsrIce_oceanx_03.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/O_QsrIce_oceanx_03.nc
-        O_QsrMix_oceanx_05.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/O_QsrMix_oceanx_05.nc
+        O_OTaux1_oceanx_03.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/O_OTaux1_oceanx_03.nc
+        O_OTauy1_oceanx_03.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/O_OTauy1_oceanx_03.nc
+        O_QnsIce_oceanx_02.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/O_QnsIce_oceanx_02.nc
+        O_QnsMix_oceanx_04.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/O_QnsMix_oceanx_04.nc
+        O_QsrIce_oceanx_02.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/O_QsrIce_oceanx_02.nc
+        O_QsrMix_oceanx_04.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/O_QsrMix_oceanx_04.nc
         O_Runoff_oceanx_06.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/O_Runoff_oceanx_06.nc
         O_SSTSST_oceanx_01.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/O_SSTSST_oceanx_01.nc
         O_SnwTck_oceanx_01.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/O_SnwTck_oceanx_01.nc
         O_TepIce_oceanx_01.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/O_TepIce_oceanx_01.nc
-        O_dQnsdT_oceanx_03.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/O_dQnsdT_oceanx_03.nc
-        R_Runoff_atm_rnfma_02.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/R_Runoff_atm_rnfma_02.nc
+        O_dQnsdT_oceanx_02.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/O_dQnsdT_oceanx_02.nc
+        R_Runoff_atm_rnfma_05.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/R_Runoff_atm_rnfma_05.nc
         R_Runoff_oce_rnfma_06.nc: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/oasis3mct/R_Runoff_oce_rnfma_06.nc
     output_exchanged_vars: false
     parent_date: '18500101'
@@ -1952,21 +1952,21 @@ oifs:
             40r1:
                 branch: foci_conserv
             40r1-agcm:
-                compile_command: export OIFS_COMP=agcm; cd make; ../fcm/bin/fcm make -v -j8 -f oifs-agcm.cfg
+                compile_command: export OIFS_COMP=agcm; cd make; ../fcm/bin/fcm make -v -j8 -f oifs-agcm.cfg;  chmod -R 700 .
             40r1-foci:
                 branch: foci_conserv
-                comp_command: cd make; ../fcm/bin/fcm make -v -j24 -f oifs.cfg
+                comp_command: cd make; ../fcm/bin/fcm make -v -j24 -f oifs.cfg ; chmod -R 700 .
                 contact: swahl(at)geomar.de
                 destination: 40r1
             43r3:
                 branch: oifs-deck
-                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/focioifs/focioifs-2.0/oifs-43r3; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.cfg ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
+                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/focioifs/focioifs-2.0/oifs-43r3; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.cfg ; chmod -R 700 . ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
                 git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3.git
                 install_bins: make/esm/oifs/bin/oifs
                 with_xios: false
             43r3-awicm-3.0:
                 branch: awicm3-frontiers-freeze-candidate-1
-                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/focioifs/focioifs-2.0/oifs-43r3; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.cfg ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
+                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/focioifs/focioifs-2.0/oifs-43r3; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.cfg ; chmod -R 700 . ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
                 destination: oifs-43r3
                 git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3.git
                 install_bins: make/esm/oifs/bin/oifs
@@ -1975,7 +1975,7 @@ oifs:
                 with_xios: false
             43r3-awicm-3.1:
                 branch: awicm-3.1
-                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/focioifs/focioifs-2.0/oifs-43r3; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/focioifs/focioifs-2.0/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/focioifs/focioifs-2.0/oifs-43r3/../xios/inc/; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
+                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/focioifs/focioifs-2.0/oifs-43r3; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/focioifs/focioifs-2.0/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/focioifs/focioifs-2.0/oifs-43r3/../xios/inc/; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; chmod -R 700 .; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
                 destination: oifs-43r3
                 git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3.git
                 install_bins: make/esm/oifs/bin/oifs
@@ -1984,7 +1984,7 @@ oifs:
                 with_xios: true
             43r3-awicm-frontiers-xios:
                 branch: awicm-3-frontiers-xios
-                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/focioifs/focioifs-2.0/oifs-43r3; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/focioifs/focioifs-2.0/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/focioifs/focioifs-2.0/oifs-43r3/../xios/inc/; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
+                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/focioifs/focioifs-2.0/oifs-43r3; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/focioifs/focioifs-2.0/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/focioifs/focioifs-2.0/oifs-43r3/../xios/inc/; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; chmod -R 700 . ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
                 destination: oifs-43r3
                 git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3.git
                 install_bins: make/esm/oifs/bin/oifs
@@ -1993,7 +1993,7 @@ oifs:
                 with_xios: true
             43r3-foci:
                 branch: 43r3v1-foci
-                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/focioifs/focioifs-2.0/oifs-43r3; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/focioifs/focioifs-2.0/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/focioifs/focioifs-2.0/oifs-43r3/../xios/inc/ ; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
+                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/focioifs/focioifs-2.0/oifs-43r3; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/focioifs/focioifs-2.0/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/focioifs/focioifs-2.0/oifs-43r3/../xios/inc/ ; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; chmod -R 700 . ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
                 contact: swahl(at)geomar.de
                 git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3.git
                 install_bins: make/esm/oifs/bin/oifs
@@ -2002,7 +2002,16 @@ oifs:
                 - xios-2.5_r1910
             43r3-foci21:
                 branch: master
-                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/focioifs/focioifs-2.0/oifs-43r3; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/focioifs/focioifs-2.0/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/focioifs/focioifs-2.0/oifs-43r3/../xios/inc/ ; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
+                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/focioifs/focioifs-2.0/oifs-43r3; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/focioifs/focioifs-2.0/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/focioifs/focioifs-2.0/oifs-43r3/../xios/inc/ ; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; chmod -R 700 . ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
+                contact: swahl(at)geomar.de
+                git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3.git
+                install_bins: make/esm/oifs/bin/oifs
+                requires:
+                - oasis3mct-EM21
+                - xios-2.5_r1910
+            43r3-foci211:
+                branch: foci211
+                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/focioifs/focioifs-2.0/oifs-43r3; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/focioifs/focioifs-2.0/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/focioifs/focioifs-2.0/oifs-43r3/../xios/inc/ ; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; chmod -R 700 . ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
                 contact: swahl(at)geomar.de
                 git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3.git
                 install_bins: make/esm/oifs/bin/oifs
@@ -2010,18 +2019,18 @@ oifs:
                 - oasis3mct-EM21
                 - xios-2.5_r1910
             43r3-master:
-                branch: development/2022/awi-cm3-integration
-                comp_command: export OIFS_CPLNG_LIB=$OIFS_OASIS_LIB; export OIFS_CPLNG_INCLUDE=$OIFS_OASIS_INCLUDE ;export OIFS_COMP=esm; export OIFS_BUILD=opt; export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/focioifs/focioifs-2.0/oifs-43r3; export OIFS_XIOS=enable; export OIFS_CPLNG=enable; export OIFS_XIOS_DIR=<TEST_DIR>/comp/focioifs/focioifs-2.0/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/focioifs/focioifs-2.0/oifs-43r3/../xios/inc/; cd make; ../fcm/bin/fcm make -v -j10 -f oifs_esm.fcm ; mv esm/oifs/bin/master.exe esm/oifs/bin/OpenIFS
+                branch: main_dkrz
+                comp_command: export OIFS_CPLNG_LIB=$OIFS_OASIS_LIB; export OIFS_CPLNG_INCLUDE=$OIFS_OASIS_INCLUDE ;export OIFS_COMP=esm; export OIFS_BUILD=opt; export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/focioifs/focioifs-2.0/oifs-43r3; export OIFS_XIOS=enable; export OIFS_CPLNG=enable; export OIFS_XIOS_DIR=<TEST_DIR>/comp/focioifs/focioifs-2.0/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/focioifs/focioifs-2.0/oifs-43r3/../xios/inc/; cd make; ../fcm/bin/fcm make -v -j10 -f oifs_esm.fcm ; chmod -R 700 . ; mv esm/oifs/bin/master.exe esm/oifs/bin/OpenIFS
                 destination: oifs-43r3
                 executable: OpenIFS
-                git-repository: https://git.smhi.se/jan.streffing/oifs43r3/
+                git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3-ece
                 install_bins: make/esm/oifs/bin/OpenIFS
                 requires:
                 - oasis3mct-5.0-smhi
                 with_xios: true
             43r3-v1:
                 branch: 43r3v1-foci
-                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/focioifs/focioifs-2.0/oifs-43r3; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/focioifs/focioifs-2.0/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/focioifs/focioifs-2.0/oifs-43r3/../xios/inc/ ; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
+                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/focioifs/focioifs-2.0/oifs-43r3; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/focioifs/focioifs-2.0/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/focioifs/focioifs-2.0/oifs-43r3/../xios/inc/ ; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; chmod -R 700 .; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
                 git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3.git
                 install_bins: make/esm/oifs/bin/oifs
                 requires:
@@ -2029,7 +2038,7 @@ oifs:
                 - xios-2.5_r1910_oifs
             43r3-v2:
                 branch: master
-                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/focioifs/focioifs-2.0/oifs-43r3; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/focioifs/focioifs-2.0/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/focioifs/focioifs-2.0/oifs-43r3/../xios/inc/ ; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
+                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/focioifs/focioifs-2.0/oifs-43r3; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/focioifs/focioifs-2.0/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/focioifs/focioifs-2.0/oifs-43r3/../xios/inc/ ; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; chmod -R 700 .; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
                 git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3.git
                 install_bins: make/esm/oifs/bin/oifs
                 requires:
@@ -2603,7 +2612,7 @@ oifs:
         ICMSH_INIT: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/work/ICMSHECE3INIT
     lassi: false
     last_parent_date: '1849-12-31T22:00:00'
-    leapyear: true
+    leapyear: false
     lecompgrid: true
     levels: L91
     levels_number: 91
@@ -2923,6 +2932,7 @@ oifs:
     simulation_length_seconds: 432000
     slice_icml: ''
     solarspectrum: false
+    source_code_permissions: 700
     source_days_string: -1
     source_ndays_wam: -1
     start_days_string: -1
@@ -2966,6 +2976,12 @@ oifs:
     with_xios: true
     xml_dir: ''
 rnfmap:
+    add_outdata_files:
+        runoff_out: runoff_out
+    add_outdata_in_work:
+        runoff_out: runoff_out.nc
+    add_outdata_sources:
+        runoff_out: runoff_out.nc
     all_filetypes:
     - analysis
     - bin
@@ -2989,6 +3005,7 @@ rnfmap:
     - focioifs
     - focioifs1
     - focioifs21
+    - foci211
     bin_dir: <TEST_DIR>/comp/focioifs/focioifs-2.0/rnfmap-focioifs1/bin
     bin_intermediate:
         bin: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/bin/rnfmap/rnfma
@@ -3165,7 +3182,7 @@ rnfmap:
     input_targets: {}
     install_bins: bin/rnfma
     last_parent_date: '1849-12-31T18:00:00'
-    leapyear: true
+    leapyear: false
     lresume: false
     model: rnfmap
     model_dir: <TEST_DIR>/comp/focioifs/focioifs-2.0/rnfmap-focioifs1
@@ -3182,6 +3199,12 @@ rnfmap:
     nprocb: 1
     nx: 512
     ny: 256
+    outdata_intermediate:
+        runoff_out: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/run_18500101-18500105/outdata/rnfmap/runoff_out.nc
+    outdata_sources:
+        runoff_out: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/work//runoff_out.nc
+    outdata_targets:
+        runoff_out: <TEST_DIR>run/focioifs/focioifs-piCtl-test_lowcpu/outdata/rnfmap/runoff_out.nc
     parent_date: '1849-12-31T21:00:00'
     parent_dir: /scratch/usr/hbkawi/RUNOFF_MAPPER/restart/focioifs-piCtl-test_lowcpu
     parent_expid: focioifs-piCtl-test_lowcpu
@@ -3390,7 +3413,7 @@ xios:
     ini_parent_dir: /path/to/restart/data//xios
     ini_parent_exp_id: unset
     install_bins: bin/xios.x
-    leapyear: true
+    leapyear: false
     lresume: false
     metadata:
         Authors: Yann Meurdesoif (yann.meurdesoif@cea.fr)
@@ -3401,10 +3424,10 @@ xios:
     model: xios
     model_dir: <TEST_DIR>/comp/focioifs/focioifs-2.0/xios-ORCA05_LIM2_KCM_AOW_FS_OASISMCT4
     nproc: 16
-    parent_date: '1850-01-01T00:00:00'
+    parent_date: '1849-12-31T00:00:00'
     parent_expid: focioifs-piCtl-test_lowcpu
     parent_restart_dir: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/restart/xios/
-    prev_date: '1850-01-01T00:00:00'
+    prev_date: '1849-12-31T00:00:00'
     setup_dir: <TEST_DIR>/comp/focioifs/focioifs-2.0
     thisrun_analysis_dir: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/analysis/xios/
     thisrun_bin_dir: <TEST_DIR>/run/focioifs//focioifs-piCtl-test_lowcpu/run_18500101-18500105/bin/xios/

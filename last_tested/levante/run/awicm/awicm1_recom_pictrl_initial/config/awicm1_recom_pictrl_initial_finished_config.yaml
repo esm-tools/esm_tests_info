@@ -179,6 +179,7 @@ defaults:
     debug_info:
         loaded_from_file: <HOME_DIR>/esm_tools/configs//defaults/download_and_compile.yaml
 echam:
+    MAC-SP_hist_name: MAC-SP
     _nx: 192
     _ny: 96
     adj_input_dir: /pool/data/AWICM/FESOM1/MESHES/core//tarfilesT63/input/echam6
@@ -196,6 +197,7 @@ echam:
     - restart_out
     - viz
     - ignore
+    allow_hist2ssp_transition: false
     bin_dir: <TEST_DIR>/comp/awicm/awicm-1.0-recom/bin
     bin_intermediate:
         echam_bin: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/run_18500101-18500131/bin/echam/echam6
@@ -530,6 +532,7 @@ echam:
         ozone_year_1851: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/run_18500101-18500131/work/ozon1851
         ozone_year_1852: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/run_18500101-18500131/work/ozon1852
     greenhouse_dir: /pool/data/ECHAM6/
+    greenhouse_hist_name: greenhouse_historical
     grids:
         atmo:
             name: atmo
@@ -1164,6 +1167,7 @@ echam:
     restart_rate: 1
     restart_unit: months
     scenario: PI-CTRL
+    scenario_is_ssp: false
     scenario_type: PI-CTRL
     setup_dir: <TEST_DIR>/comp/awicm/awicm-1.0-recom
     standalone_model: true
@@ -1284,7 +1288,6 @@ fesom:
             NETCDF_CXX_INCLUDE_DIRECTORIES: /work/ab0995/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0/include
             NETCDF_CXX_LIBRARIES: /work/ab0995/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0/lib
             NETCDF_DIR: /work/ab0995/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0
-            takenfrom: fesom1
     config_intermediate:
         config: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/run_18500101-18500131/config/fesom/namelist.config
         diag: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/run_18500101-18500131/config/fesom/namelist.diag
@@ -1357,6 +1360,12 @@ fesom:
     debug_info:
         loaded_from_file: <HOME_DIR>/esm_tools/configs//components/fesom/fesom.yaml
     destination: fesom-1.4
+    environment_changes:
+        choose_computer.name:
+            blogin:
+                iolibraries: system_libs
+            glogin:
+                iolibraries: system_libs
     executable: fesom
     experiment_analysis_dir: <TEST_DIR>/run/awicm//awicm1_recom_pictrl_initial/analysis/fesom/
     experiment_bin_dir: <TEST_DIR>/run/awicm//awicm1_recom_pictrl_initial/bin/fesom/
@@ -1480,6 +1489,7 @@ fesom:
         clock: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/log/fesom/fesom.clock
         mesh_diag: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/log/fesom/fesom.initial.mesh.diag.nc
     lresume: false
+    mesh_base_dir: /work/ab0995/from_Mistral/ab0995/a270046/iceberg-input//MESHES/
     mesh_dir: /pool/data/AWICM/FESOM1/MESHES/core/
     mesh_rotated: false
     metadata:
@@ -2438,7 +2448,7 @@ general:
     inspect: null
     isinteractive: false
     iterative_coupled_model: ''
-    jobid: 1099
+    jobid: 1030
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 18491201-18491231
@@ -2788,6 +2798,9 @@ hdmodel:
     thisrun_viz_dir: <TEST_DIR>/run/awicm//awicm1_recom_pictrl_initial/run_18500101-18500131/viz/hdmodel/
     time_step: 450
 jsbach:
+    Ndepo_cmip6: Ndepo_hist_scenario
+    Ndepo_path: ''
+    Ndepo_sufix: ''
     add_input_sources:
         jsbach_1850: /work/ab0995/from_Mistral/ab0995/a270046/meshes_default/core/tarfilesT63/input/jsbach/jsbach_T63CORE2_11tiles_5layers_1850.nc
     adj_input_dir: /pool/data/AWICM/FESOM1/MESHES/core//tarfilesT63/input/jsbach
@@ -2811,6 +2824,7 @@ jsbach:
         namelist.jsbach: <HOME_DIR>/esm_tools/namelists//jsbach/3.20/PI-CTRL/dynveg/namelist.jsbach
     config_targets:
         namelist.jsbach: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/run_18500101-18500131/work/namelist.jsbach
+    cover_fract_cmip6: cover_fract.@YEAR@.nc
     cover_fract_dir: /pool/data/JSBACH/input/r0010/T63/land_use_maps/
     dataset: r0010
     debug_info:
@@ -3029,7 +3043,7 @@ jsbach:
     ini_parent_exp_id: awicm1_recom_pictrl_initial
     ini_restart_dir: <TEST_DIR>/run/awicm//awicm1_recom_pictrl_initial/restart/echam//../jsbach/
     input_dir: /pool/data/JSBACH/input/r0010
-    input_dir_awi: /pool/data/AWICM/JSBACH/input/r0010
+    input_dir_couple: /pool/data/AWICM/JSBACH/input/r0010
     input_intermediate:
         jsbach: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/run_18500101-18500131/input/jsbach/jsbach.nc
         lctlib: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/run_18500101-18500131/input/jsbach/lctlib.def
@@ -3080,7 +3094,8 @@ jsbach:
     parent_expid: awicm1_recom_pictrl_initial
     parent_restart_dir: <TEST_DIR>/run/awicm//awicm1_recom_pictrl_initial/restart/jsbach/
     pool_dir: /pool/data/JSBACH
-    pool_dir_awi: /pool/data/AWICM/JSBACH
+    pool_dir_couple: /pool/data/AWICM/JSBACH
+    popdens_cmip6: popdens
     prev_date: '1849-12-31T23:52:30'
     repository: https://gitlab.dkrz.de/modular_esm/echam6
     resolution: T63

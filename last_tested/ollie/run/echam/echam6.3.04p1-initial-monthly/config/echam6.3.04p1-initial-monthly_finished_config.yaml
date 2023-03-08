@@ -155,6 +155,7 @@ defaults:
     debug_info:
         loaded_from_file: <HOME_DIR>/esm_tools/configs//defaults/download_and_compile.yaml
 echam:
+    MAC-SP_hist_name: MAC-SP
     _nx: 192
     _ny: 96
     adj_input_dir: /work/ollie/pool/ECHAM6//input/r0007/T63
@@ -172,6 +173,7 @@ echam:
     - restart_out
     - viz
     - ignore
+    allow_hist2ssp_transition: false
     bin_dir: <TEST_DIR>/comp/echam/echam-6.3.04p1/bin
     bin_intermediate:
         echam_bin: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/bin/echam/echam6
@@ -512,6 +514,7 @@ echam:
         sic: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/unit.96
         sst: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/unit.20
     greenhouse_dir: /work/ollie/pool/ECHAM6/
+    greenhouse_hist_name: greenhouse_historical
     grids:
         atmo:
             name: atmo
@@ -1149,6 +1152,7 @@ echam:
     restart_rate: 1
     restart_unit: months
     scenario: PI-CTRL
+    scenario_is_ssp: false
     scenario_type: PI-CTRL
     setup_dir: <TEST_DIR>/comp/echam/echam-6.3.04p1
     standalone_model: true
@@ -1395,7 +1399,7 @@ general:
     inspect: null
     isinteractive: false
     iterative_coupled_model: ''
-    jobid: 1073
+    jobid: 1033
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 19991201-19991231
@@ -1725,6 +1729,9 @@ hdmodel:
     thisrun_viz_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/viz/hdmodel/
     time_step: 450
 jsbach:
+    Ndepo_cmip6: Ndepo_hist_scenario
+    Ndepo_path: ''
+    Ndepo_sufix: ''
     adj_input_dir: /work/ollie/pool/JSBACH/input/r0010/T63
     all_filetypes:
     - analysis
@@ -1746,6 +1753,7 @@ jsbach:
         namelist.jsbach: <HOME_DIR>/esm_tools/namelists//jsbach/3.20/PI-CTRL/no_dynveg/namelist.jsbach
     config_targets:
         namelist.jsbach: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/work/namelist.jsbach
+    cover_fract_cmip6: cover_fract.@YEAR@.nc
     cover_fract_dir: /work/ollie/pool/JSBACH/input/r0010/T63/land_use_maps/
     dataset: r0010
     debug_info:
@@ -1759,7 +1767,7 @@ jsbach:
         paper citation'
     domain: vegetation
     dynamic_vegetations: false
-    dynveg: _no_dynveg
+    dynveg: _no-dynveg
     dynveg_file_ending: _dynveg
     experiment_analysis_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/analysis/jsbach/
     experiment_bin_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/bin/jsbach/
@@ -1965,7 +1973,7 @@ jsbach:
     ini_parent_exp_id: echam6.3.04p1-initial-monthly
     ini_restart_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/restart/echam//../jsbach/
     input_dir: /work/ollie/pool/JSBACH/input/r0010
-    input_dir_awi: /work/ollie/pool/AWICM/JSBACH/input/r0010
+    input_dir_couple: /work/ollie/pool/AWICM/JSBACH/input/r0010
     input_intermediate:
         jsbach: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/input/jsbach/jsbach.nc
         lctlib: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/input/jsbach/lctlib.def
@@ -2013,7 +2021,8 @@ jsbach:
     parent_expid: echam6.3.04p1-initial-monthly
     parent_restart_dir: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/restart/jsbach/
     pool_dir: /work/ollie/pool/JSBACH
-    pool_dir_awi: /work/ollie/pool/AWICM/JSBACH
+    pool_dir_couple: /work/ollie/pool/AWICM/JSBACH
+    popdens_cmip6: popdens
     prev_date: '1999-12-31T23:52:30'
     repository: https://gitlab.dkrz.de/modular_esm/echam6
     resolution: T63

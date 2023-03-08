@@ -179,6 +179,7 @@ defaults:
     debug_info:
         loaded_from_file: <HOME_DIR>/esm_tools/configs//defaults/download_and_compile.yaml
 echam:
+    MAC-SP_hist_name: MAC-SP
     _nx: 192
     _ny: 96
     adj_input_dir: /work/ab0246/a270152/pool/AWICM/ECHAM6/tarfilesT63/input/echam6
@@ -197,6 +198,7 @@ echam:
     - restart_out
     - viz
     - ignore
+    allow_hist2ssp_transition: false
     bin_dir: <TEST_DIR>/comp/awicm/awicm-2.0/bin
     bin_intermediate:
         echam_bin: <TEST_DIR>run/awicm/awicm2-initial-monthly/run_20000101-20000131/bin/echam/echam6
@@ -531,6 +533,7 @@ echam:
         ozone_year_2001: <TEST_DIR>run/awicm/awicm2-initial-monthly/run_20000101-20000131/work/ozon2001
         ozone_year_2002: <TEST_DIR>run/awicm/awicm2-initial-monthly/run_20000101-20000131/work/ozon2002
     greenhouse_dir: /pool/data/ECHAM6/
+    greenhouse_hist_name: greenhouse_historical
     grids:
         atmo:
             name: atmo
@@ -1165,6 +1168,7 @@ echam:
     restart_rate: 1
     restart_unit: months
     scenario: PI-CTRL
+    scenario_is_ssp: false
     scenario_type: PI-CTRL
     setup_dir: <TEST_DIR>/comp/awicm/awicm-2.0
     standalone_model: true
@@ -1272,9 +1276,6 @@ fesom:
     climate_data_dir: /work/ba0989/a270077/AWIESM_2_1_LR_concurrent_rad/nonstandard_input_files/fesom/hydrography/
     comp_command: mkdir -p build; cd build; cmake ..;   make install -j `nproc --all`
     comp_executable: fesom.x
-    compiletime_environment_changes:
-        add_export_vars:
-            taken2from: fesom2_compile
     config_intermediate:
         config: <TEST_DIR>run/awicm/awicm2-initial-monthly/run_20000101-20000131/config/fesom/namelist.config
         fesom.clock: <TEST_DIR>run/awicm/awicm2-initial-monthly/run_20000101-20000131/config/fesom/fesom.clock
@@ -1572,10 +1573,6 @@ fesom:
         oce_restart: <TEST_DIR>run/awicm/awicm2-initial-monthly/restart/fesom/fesom.2000.oce.restart.nc
     restart_rate: 1
     restart_unit: m
-    runtime_environment_changes:
-        add_export_vars:
-            taken2from: fesom2_ru
-            takenfrom: fesom2_run
     setup_dir: <TEST_DIR>/comp/awicm/awicm-2.0
     startday: 1
     starttime: 0
@@ -1781,7 +1778,7 @@ general:
     inspect: null
     isinteractive: false
     iterative_coupled_model: ''
-    jobid: 1147
+    jobid: 1006
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 19991201-19991231
@@ -2124,6 +2121,9 @@ hdmodel:
     thisrun_viz_dir: <TEST_DIR>/run/awicm//awicm2-initial-monthly/run_20000101-20000131/viz/hdmodel/
     time_step: 450
 jsbach:
+    Ndepo_cmip6: Ndepo_hist_scenario
+    Ndepo_path: ''
+    Ndepo_sufix: ''
     adj_input_dir: /work/ab0246/a270152/pool/AWICM/ECHAM6/tarfilesT63/input/jsbach
     adj_input_dir_base: /work/ab0246/a270152/pool/AWICM/ECHAM6/tarfilesT63
     all_filetypes:
@@ -2146,6 +2146,7 @@ jsbach:
         namelist.jsbach: <HOME_DIR>/esm_tools/namelists//jsbach/3.20/PI-CTRL/no_dynveg/namelist.jsbach
     config_targets:
         namelist.jsbach: <TEST_DIR>run/awicm/awicm2-initial-monthly/run_20000101-20000131/work/namelist.jsbach
+    cover_fract_cmip6: cover_fract.@YEAR@.nc
     cover_fract_dir: /pool/data/JSBACH/input/r0010/T63/land_use_maps/
     dataset: r0010
     debug_info:
@@ -2159,7 +2160,7 @@ jsbach:
         paper citation'
     domain: vegetation
     dynamic_vegetations: false
-    dynveg: _no_dynveg
+    dynveg: _no-dynveg
     dynveg_file_ending: ''
     experiment_analysis_dir: <TEST_DIR>/run/awicm//awicm2-initial-monthly/analysis/jsbach/
     experiment_bin_dir: <TEST_DIR>/run/awicm//awicm2-initial-monthly/bin/jsbach/
@@ -2364,7 +2365,7 @@ jsbach:
     ini_parent_exp_id: awicm2-initial-monthly
     ini_restart_dir: <TEST_DIR>/run/awicm//awicm2-initial-monthly/restart/echam//../jsbach/
     input_dir: /pool/data/JSBACH/input/r0010
-    input_dir_awi: /pool/data/AWICM/JSBACH/input/r0010
+    input_dir_couple: /pool/data/AWICM/JSBACH/input/r0010
     input_intermediate:
         jsbach: <TEST_DIR>run/awicm/awicm2-initial-monthly/run_20000101-20000131/input/jsbach/jsbach.nc
         lctlib: <TEST_DIR>run/awicm/awicm2-initial-monthly/run_20000101-20000131/input/jsbach/lctlib.def
@@ -2415,7 +2416,8 @@ jsbach:
     parent_expid: awicm2-initial-monthly
     parent_restart_dir: <TEST_DIR>/run/awicm//awicm2-initial-monthly/restart/jsbach/
     pool_dir: /pool/data/JSBACH
-    pool_dir_awi: /pool/data/AWICM/JSBACH
+    pool_dir_couple: /pool/data/AWICM/JSBACH
+    popdens_cmip6: popdens
     prev_date: '1999-12-31T23:52:30'
     repository: https://gitlab.dkrz.de/modular_esm/echam6
     resolution: T63
