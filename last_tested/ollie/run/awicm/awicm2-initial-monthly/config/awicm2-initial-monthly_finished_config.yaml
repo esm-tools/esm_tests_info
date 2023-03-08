@@ -1253,9 +1253,6 @@ fesom:
     climate_data_dir: /work/ollie/pool/FESOM//hydrography/
     comp_command: mkdir -p build; cd build; cmake ..;   make install -j `nproc --all`
     comp_executable: fesom.x
-    compiletime_environment_changes:
-        add_export_vars:
-            taken2from: fesom2_compile
     config_intermediate:
         config: <TEST_DIR>run/awicm/awicm2-initial-monthly/run_20000101-20000131/config/fesom/namelist.config
         fesom.clock: <TEST_DIR>run/awicm/awicm2-initial-monthly/run_20000101-20000131/config/fesom/fesom.clock
@@ -1553,10 +1550,6 @@ fesom:
         oce_restart: <TEST_DIR>run/awicm/awicm2-initial-monthly/restart/fesom/fesom.2000.oce.restart.nc
     restart_rate: 1
     restart_unit: m
-    runtime_environment_changes:
-        add_export_vars:
-            taken2from: fesom2_ru
-            takenfrom: fesom2_run
     setup_dir: <TEST_DIR>/comp/awicm/awicm-2.0
     startday: 1
     starttime: 0
@@ -1762,7 +1755,7 @@ general:
     inspect: null
     isinteractive: false
     iterative_coupled_model: ''
-    jobid: 1320
+    jobid: 1349
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 19991201-19991231
