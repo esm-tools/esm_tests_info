@@ -4,7 +4,7 @@
 #SBATCH --ntasks=288
 #SBATCH --output=<TEST_DIR>/run/fesom//fesom2.0-initial-monthly/log/fesom2.0-initial-monthly_fesom_compute_20010101-20010131_%j.log --error=<TEST_DIR>/run/fesom//fesom2.0-initial-monthly/log/fesom2.0-initial-monthly_fesom_compute_20010101-20010131_%j.log
 #SBATCH --job-name=fesom2.0-initial-monthly
-#SBATCH --account=hbkmandr
+#SBATCH --account=None
 #SBATCH --mail-type=NONE
 #SBATCH --ntasks-per-core=1
 #SBATCH --exclusive
@@ -42,7 +42,7 @@ export NETCDF_Fortran_INCLUDE_DIRECTORIES=$NETCDFFROOT/include
 export NETCDF_C_INCLUDE_DIRECTORIES=$NETCDFROOT/include
 export NETCDF_CXX_INCLUDE_DIRECTORIES=$NETCDFROOT/include
 export OASIS3MCT_FC_LIB="-L$NETCDFFROOT/lib -lnetcdff"
-export ACCOUNT=hbkmandr
+export ACCOUNT=None
 export ESM_TESTING_DIR=<TEST_DIR>/run/fesom/
 export MODEL_DIR=<TEST_DIR>/comp/fesom/fesom-2.0
 export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
@@ -52,7 +52,7 @@ export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 2001-01-01T00:00:00 220811 - start >> <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/log//fesom2.0-initial-monthly_fesom.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 2001-01-01T00:00:00 1084 - start >> <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/log//fesom2.0-initial-monthly_fesom.log
 
 cd <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/work/
 time srun -l --kill-on-bad-exit=1 --cpu_bind=cores --multi-prog hostfile_srun 2>&1 &
@@ -64,6 +64,6 @@ process=$!
 cd <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/scripts/
 esm_runscripts fesom2.0-initial-monthly.yaml -e fesom2.0-initial-monthly -t observe_compute -p ${process} -s 20010101 -r 1 -v  --last-jobtype prepcompute --open-run
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 2001-01-01T00:00:00 220811 - done >> <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/log//fesom2.0-initial-monthly_fesom.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 2001-01-01T00:00:00 1084 - done >> <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/log//fesom2.0-initial-monthly_fesom.log
 
 wait
