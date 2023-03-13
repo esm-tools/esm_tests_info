@@ -1,7 +1,7 @@
 computer:
     account: None
     accounting: true
-    accounting_flag: --account=None
+    accounting_flag: --account=hbkmandr
     actual_script_dir: <--methods.script_dir--
     add_choose_heterogeneous_parallelization: &id001
         false:
@@ -116,7 +116,7 @@ computer:
         pool: /scratch/usr/hbkawi
     runtime_environment_changes:
         add_export_vars:
-            ACCOUNT: None
+            ACCOUNT: hbkmandr
             ESM_TESTING_DIR: <TEST_DIR>/run/fesom/
             MODEL_DIR: <TEST_DIR>/comp/fesom/fesom-1.4
     script_name: <--methods.scriptname--
@@ -1027,7 +1027,7 @@ fesom:
     yearly_outputs_start: 1
     yearnew: 1950
 general:
-    account: None
+    account: hbkmandr
     additional_files: []
     all_filetypes:
     - analysis
@@ -1057,10 +1057,10 @@ general:
     base_dir: <TEST_DIR>/run/fesom/
     batch: slurm
     calendar: esm_calender object with no leap years allowed
-    check: true
+    check: false
     chunk_number: 1
     command_line_config:
-        check: true
+        check: false
         current_date: null
         expid: fesom1.4-initial-monthly
         ignore_config_warnings: false
@@ -1069,7 +1069,7 @@ general:
         last_jobtype: prepcompute
         launcher_pid: -666
         no_motd: true
-        original_command: fesom1.4-initial-monthly.yaml -e fesom1.4-initial-monthly --open-run -c --no-motd --last-jobtype prepcompute
+        original_command: fesom1.4-initial-monthly.yaml -e fesom1.4-initial-monthly --open-run --no-motd --last-jobtype prepcompute
         profile: false
         run_number: null
         runscript_abspath: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/scripts/fesom1.4-initial-monthly.yaml
@@ -1200,7 +1200,7 @@ general:
     inspect: null
     isinteractive: false
     iterative_coupled_model: ''
-    jobid: 909
+    jobid: 220651
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 19491231-19491231
@@ -1220,7 +1220,7 @@ general:
     no_motd: true
     nsecond: 0
     nyear: 0
-    original_command: fesom1.4-initial-monthly.yaml -e fesom1.4-initial-monthly --open-run -c --no-motd --last-jobtype prepcompute
+    original_command: fesom1.4-initial-monthly.yaml -e fesom1.4-initial-monthly --open-run --no-motd --last-jobtype prepcompute
     out_filetypes:
     - analysis
     - log
