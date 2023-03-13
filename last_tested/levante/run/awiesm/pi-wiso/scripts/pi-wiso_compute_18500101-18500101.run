@@ -78,7 +78,7 @@ export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 1850-01-01T00:00:00 1102 - start >> <TEST_DIR>/run/awiesm//pi-wiso/log//pi-wiso_awiesm.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 1850-01-01T00:00:00 1104 - start >> <TEST_DIR>/run/awiesm//pi-wiso/log//pi-wiso_awiesm.log
 
 cd <TEST_DIR>/run/awiesm//pi-wiso/run_18500101-18500101/work/
 time srun -l --hint=nomultithread --multi-prog hostfile_srun 2>&1 &
@@ -90,6 +90,6 @@ process=$!
 cd <TEST_DIR>/run/awiesm//pi-wiso/scripts/
 esm_runscripts pi-wiso.yaml -e pi-wiso -t observe_compute -p ${process} -s 18500101 -r 1 -v  --last-jobtype prepcompute --open-run
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 1850-01-01T00:00:00 1102 - done >> <TEST_DIR>/run/awiesm//pi-wiso/log//pi-wiso_awiesm.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 1850-01-01T00:00:00 1104 - done >> <TEST_DIR>/run/awiesm//pi-wiso/log//pi-wiso_awiesm.log
 
 wait
