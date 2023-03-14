@@ -485,6 +485,15 @@ general:
                 add_export_vars:
                 - OASIS_FFLAGS=-emf
         choose_computer.name:
+            albedo:
+                choose_computer.compiler_suite: &id002
+                    gcc:
+                        add_export_vars:
+                            FCFLAGS: '''-fallow-argument-mismatch -w'''
+                            FFLAGS: '''-fallow-argument-mismatch -w'''
+                    intel-oneapi:
+                        add_export_vars:
+                            OASIS_FFLAGS: '"-march=core-avx2"'
             levante:
                 add_export_vars:
                     OASIS_FFLAGS: '"-march=core-avx2 -mtune=core-avx2"'
@@ -547,6 +556,39 @@ general:
     compiletime_environment_changes:
         choose_computer.fc: *id001
         choose_computer.name:
+            albedo:
+                add_export_vars:
+                    ECCODESROOT: /albedo/home/mandresm/.spack/sw/eccodes/2.25.0-hwsa4h3/
+                    ESM_NETCDF_C_DIR: $NETCDFROOT
+                    ESM_NETCDF_F_DIR: $NETCDFFROOT
+                    HDF5_C_INCLUDE_DIRECTORIES: $HDF5_ROOT/include
+                    HDF5_ROOT: $HDF5ROOT
+                    LAPACK_LIB_DEFAULT: '"-L$MKLROOT/lib/intel64 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential"'
+                    NETCDF_C_INCLUDE_DIRECTORIES: $NETCDFROOT/include
+                    NETCDF_Fortran_INCLUDE_DIRECTORIES: $NETCDFFROOT/include
+                    OASIS3MCT_FC_LIB: '"-L$NETCDFFROOT/lib -lnetcdff"'
+                    OIFS_CC: $CC
+                    OIFS_CCDEFS: '"LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS _OPENMP"'
+                    OIFS_CFLAGS: '"-fp-model precise -O3 -g -traceback -qopt-report=0 -fpe0 -qopenmp -march=core-avx2 -mtune=core-avx2"'
+                    OIFS_FC: $FC
+                    OIFS_FCDEFS: '"BLAS LITTLE LINUX INTEGER_IS_INT"'
+                    OIFS_FFIXED: '""'
+                    OIFS_FFLAGS: '"-r8 -fp-model precise -align array32byte -O3 -qopenmp -g -traceback -convert big_endian -march=core-avx2 -mtune=core-avx2"'
+                    OIFS_GRIB_API_BIN: '"$ECCODESROOT/bin"'
+                    OIFS_GRIB_API_INCLUDE: '"-I$ECCODESROOT/include"'
+                    OIFS_GRIB_API_LIB: '"-L$ECCODESROOT/lib64 -leccodes_f90 -leccodes"'
+                    OIFS_GRIB_INCLUDE: '"$OIFS_GRIB_API_INCLUDE"'
+                    OIFS_GRIB_LIB: '"$OIFS_GRIB_API_LIB"'
+                    OIFS_LFLAGS: '"$OIFS_MPI_LIB -qopenmp"'
+                    OIFS_MPI_LIB: '"$MPI_LIB"'
+                    OIFS_NETCDFF_INCLUDE: '"-I$NETCDFFROOT/include"'
+                    OIFS_NETCDFF_LIB: '"-L$NETCDFFROOT/lib -lnetcdff"'
+                    OIFS_NETCDF_INCLUDE: '"-I$NETCDFROOT/include"'
+                    OIFS_NETCDF_LIB: '"-L$NETCDFROOT/lib -lnetcdf"'
+                    OIFS_OASIS_BASE: $(pwd)/oasis
+                    OIFS_OASIS_INCLUDE: '"-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu"'
+                    OIFS_OASIS_LIB: '"-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu -lpsmile -lmct -lmpeu -lscrip"'
+                choose_computer.compiler_suite: *id002
             aleph:
                 add_export_vars:
                     GRIB_SAMPLES_PATH: '"$GRIBAPIROOT/share/grib_api/ifs_samples/grib1_mlgrib2/"'
@@ -973,7 +1015,7 @@ general:
     inspect: null
     isinteractive: false
     iterative_coupled_model: ''
-    jobid: 802
+    jobid: 804
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 19991231-19991231
@@ -1074,6 +1116,10 @@ general:
     - 86400
     runtime_environment_changes:
         choose_computer.name:
+            albedo:
+                add_export_vars:
+                - GRIB_SAMPLES_PATH="$ECCODESROOT/share/eccodes/ifs_samples/grib1_mlgrib2/"
+                - DR_HOOK_IGNORE_SIGNALS=-1
             aleph:
                 add_export_vars:
                     DR_HOOK_IGNORE_SIGNALS: -1
@@ -1277,12 +1323,21 @@ oasis3mct:
     a2o_lag: 0
     a2o_seq: 2
     a2r_lag: 0
-    add_compiletime_environment_changes: &id002
+    add_compiletime_environment_changes: &id003
         choose_computer.fc:
             ftn:
                 add_export_vars:
                 - OASIS_FFLAGS=-emf
         choose_computer.name:
+            albedo:
+                choose_computer.compiler_suite:
+                    gcc:
+                        add_export_vars:
+                            FCFLAGS: '''-fallow-argument-mismatch -w'''
+                            FFLAGS: '''-fallow-argument-mismatch -w'''
+                    intel-oneapi:
+                        add_export_vars:
+                            OASIS_FFLAGS: '"-march=core-avx2"'
             levante:
                 add_export_vars:
                     OASIS_FFLAGS: '"-march=core-avx2 -mtune=core-avx2"'
@@ -1318,7 +1373,7 @@ oasis3mct:
     cf_name_dir: <TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oasis
     clean_command: rm -rf build CMakeCache.txt include lib/libpsmile.a lib/libscrip.a lib/libmct.a lib/libmpeu.a
     comp_command: mkdir -p build; cd build; cmake ..;   make -j 1; mkdir -p ../include/; cp lib/psmile/libpsmile.a lib/psmile/mct/libmct.a lib/psmile/mct/mpeu/libmpeu.a lib/psmile/scrip/libscrip.a ../lib; cp lib/psmile/mod_oasis*mod ../include
-    compiletime_environment_changes: *id002
+    compiletime_environment_changes: *id003
     config_intermediate:
         namcouple: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/config/oasis3mct/namcouple
     config_sources:
@@ -1924,6 +1979,38 @@ oifs:
         - oasis3mct-4.0
     compiletime_environment_changes:
         choose_computer.name:
+            albedo:
+                add_export_vars:
+                    ECCODESROOT: /albedo/home/mandresm/.spack/sw/eccodes/2.25.0-hwsa4h3/
+                    ESM_NETCDF_C_DIR: $NETCDFROOT
+                    ESM_NETCDF_F_DIR: $NETCDFFROOT
+                    HDF5_C_INCLUDE_DIRECTORIES: $HDF5_ROOT/include
+                    HDF5_ROOT: $HDF5ROOT
+                    LAPACK_LIB_DEFAULT: '"-L$MKLROOT/lib/intel64 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential"'
+                    NETCDF_C_INCLUDE_DIRECTORIES: $NETCDFROOT/include
+                    NETCDF_Fortran_INCLUDE_DIRECTORIES: $NETCDFFROOT/include
+                    OASIS3MCT_FC_LIB: '"-L$NETCDFFROOT/lib -lnetcdff"'
+                    OIFS_CC: $CC
+                    OIFS_CCDEFS: '"LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS _OPENMP"'
+                    OIFS_CFLAGS: '"-fp-model precise -O3 -g -traceback -qopt-report=0 -fpe0 -qopenmp -march=core-avx2 -mtune=core-avx2"'
+                    OIFS_FC: $FC
+                    OIFS_FCDEFS: '"BLAS LITTLE LINUX INTEGER_IS_INT"'
+                    OIFS_FFIXED: '""'
+                    OIFS_FFLAGS: '"-r8 -fp-model precise -align array32byte -O3 -qopenmp -g -traceback -convert big_endian -march=core-avx2 -mtune=core-avx2"'
+                    OIFS_GRIB_API_BIN: '"$ECCODESROOT/bin"'
+                    OIFS_GRIB_API_INCLUDE: '"-I$ECCODESROOT/include"'
+                    OIFS_GRIB_API_LIB: '"-L$ECCODESROOT/lib64 -leccodes_f90 -leccodes"'
+                    OIFS_GRIB_INCLUDE: '"$OIFS_GRIB_API_INCLUDE"'
+                    OIFS_GRIB_LIB: '"$OIFS_GRIB_API_LIB"'
+                    OIFS_LFLAGS: '"$OIFS_MPI_LIB -qopenmp"'
+                    OIFS_MPI_LIB: '"$MPI_LIB"'
+                    OIFS_NETCDFF_INCLUDE: '"-I$NETCDFFROOT/include"'
+                    OIFS_NETCDFF_LIB: '"-L$NETCDFFROOT/lib -lnetcdff"'
+                    OIFS_NETCDF_INCLUDE: '"-I$NETCDFROOT/include"'
+                    OIFS_NETCDF_LIB: '"-L$NETCDFROOT/lib -lnetcdf"'
+                    OIFS_OASIS_BASE: $(pwd)/oasis
+                    OIFS_OASIS_INCLUDE: '"-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu"'
+                    OIFS_OASIS_LIB: '"-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu -lpsmile -lmct -lmpeu -lscrip"'
             aleph:
                 add_export_vars:
                     GRIB_SAMPLES_PATH: '"$GRIBAPIROOT/share/grib_api/ifs_samples/grib1_mlgrib2/"'
@@ -2692,6 +2779,10 @@ oifs:
             ECE_CPL_NEMO_LIM: '"false"'
             FESOM_USE_CPLNG: '"active"'
         choose_computer.name:
+            albedo:
+                add_export_vars:
+                - GRIB_SAMPLES_PATH="$ECCODESROOT/share/eccodes/ifs_samples/grib1_mlgrib2/"
+                - DR_HOOK_IGNORE_SIGNALS=-1
             aleph:
                 add_export_vars:
                     DR_HOOK_IGNORE_SIGNALS: -1
