@@ -182,8 +182,8 @@ echam:
     MAC-SP_hist_name: MAC-SP_ssp245
     _nx: 192
     _ny: 96
-    add_compiletime_environment_changes: &id002
-        add_export_vars:
+    add_compiletime_environment_changes:
+        add_export_vars: &id002
             OASIS3MCTROOT: $(pwd)/oasis/
             OASIS3MCT_FC_LIB: $(pwd)/lib/
             OIFS_OASIS_BASE: $(pwd)/oasis
@@ -297,7 +297,17 @@ echam:
         contact: miguel.andres-martinez(at)awi.de, paul.gierz(at)awi.de
         git-repository: https://gitlab.dkrz.de/modular_esm/echam6.git
         install_bins: src/echam/bin/echam6
-    compiletime_environment_changes: *id002
+    compiletime_environment_changes:
+        add_export_vars: *id002
+        choose_computer.name:
+            albedo:
+                add_export_vars:
+                    FCFLAGS: '''-fallow-argument-mismatch -w'''
+                    FFLAGS: '''-fallow-argument-mismatch -w'''
+                    configure_opts: '''--without-regard-for-quality'''
+                add_unset_vars:
+                - FFLAGS
+                - FCFLAGS
     concurrent_radiation_code: true
     config_intermediate:
         namelist.echam: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20010101/config/echam/namelist.echam
@@ -305,6 +315,7 @@ echam:
         namelist.echam: <HOME_DIR>/esm_tools/namelists//echam/6.3.05p2-awiesm-2.1/production/namelist.echam
     config_targets:
         namelist.echam: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20010101/work/namelist.echam
+    configure_opts: --with-coupler=oasis3-mct
     coupling_fields:
         co2_atmo:
             grid: atmo
@@ -2012,7 +2023,7 @@ general:
     isinteractive: false
     iterative_coupled_model: ''
     iterative_coupling: false
-    jobid: 1140
+    jobid: 1142
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 20001231-20001231
@@ -2737,6 +2748,15 @@ oasis3mct:
                 add_export_vars:
                 - OASIS_FFLAGS=-emf
         choose_computer.name:
+            albedo:
+                choose_computer.compiler_suite:
+                    gcc:
+                        add_export_vars:
+                            FCFLAGS: '''-fallow-argument-mismatch -w'''
+                            FFLAGS: '''-fallow-argument-mismatch -w'''
+                    intel-oneapi:
+                        add_export_vars:
+                            OASIS_FFLAGS: '"-march=core-avx2"'
             levante:
                 add_export_vars:
                     OASIS_FFLAGS: '"-march=core-avx2 -mtune=core-avx2"'

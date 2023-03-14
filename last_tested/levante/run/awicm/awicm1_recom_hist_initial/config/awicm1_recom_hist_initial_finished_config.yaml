@@ -290,6 +290,16 @@ echam:
         contact: miguel.andres-martinez(at)awi.de, paul.gierz(at)awi.de
         git-repository: https://gitlab.dkrz.de/modular_esm/echam6.git
         install_bins: src/echam/bin/echam6
+    compiletime_environment_changes:
+        choose_computer.name:
+            albedo:
+                add_export_vars:
+                    FCFLAGS: '''-fallow-argument-mismatch -w'''
+                    FFLAGS: '''-fallow-argument-mismatch -w'''
+                    configure_opts: '''--without-regard-for-quality'''
+                add_unset_vars:
+                - FFLAGS
+                - FCFLAGS
     config_intermediate:
         namelist.echam: <TEST_DIR>run/awicm/awicm1_recom_hist_initial/run_20070101-20070131/config/echam/namelist.echam
     config_sources:
@@ -2481,7 +2491,7 @@ general:
     inspect: null
     isinteractive: false
     iterative_coupled_model: ''
-    jobid: 1020
+    jobid: 1022
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 20061201-20061231
@@ -3193,6 +3203,15 @@ oasis3mct:
                 add_export_vars:
                 - OASIS_FFLAGS=-emf
         choose_computer.name:
+            albedo:
+                choose_computer.compiler_suite:
+                    gcc:
+                        add_export_vars:
+                            FCFLAGS: '''-fallow-argument-mismatch -w'''
+                            FFLAGS: '''-fallow-argument-mismatch -w'''
+                    intel-oneapi:
+                        add_export_vars:
+                            OASIS_FFLAGS: '"-march=core-avx2"'
             levante:
                 add_export_vars:
                     OASIS_FFLAGS: '"-march=core-avx2 -mtune=core-avx2"'
