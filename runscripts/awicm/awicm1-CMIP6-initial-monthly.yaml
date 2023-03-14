@@ -36,6 +36,10 @@ fesom:
             rpool_dir: "${computer.pool_directories.pool}/FESOM/"
             rmesh_dir: "${computer.pool_directories.pool}/FESOM/meshes_default/core/"
             rproc: 288
+        albedo:
+            rpool_dir: "${computer.pool_directories.pool}/FESOM/"
+            rmesh_dir: "${computer.pool_directories.pool}/FESOM/meshes_default/core/"
+            rproc: 384
     pool_dir: ${fesom.rpool_dir}
     mesh_dir: ${fesom.rmesh_dir}
     resolution: CORE2
@@ -50,6 +54,9 @@ echam:
     lresume: False
     choose_computer.name:
         levante:
+            nproca: 32
+            nprocb: 32
+        albedo:
             nproca: 32
             nprocb: 32
         "*":
