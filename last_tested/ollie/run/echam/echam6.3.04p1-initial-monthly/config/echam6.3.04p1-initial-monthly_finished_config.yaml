@@ -266,6 +266,16 @@ echam:
         contact: miguel.andres-martinez(at)awi.de, paul.gierz(at)awi.de
         git-repository: https://gitlab.dkrz.de/modular_esm/echam6.git
         install_bins: src/echam/bin/echam6
+    compiletime_environment_changes:
+        choose_computer.name:
+            albedo:
+                add_export_vars:
+                    FCFLAGS: '''-fallow-argument-mismatch -w'''
+                    FFLAGS: '''-fallow-argument-mismatch -w'''
+                    configure_opts: '''--without-regard-for-quality'''
+                add_unset_vars:
+                - FFLAGS
+                - FCFLAGS
     config_intermediate:
         namelist.echam: <TEST_DIR>run/echam/echam6.3.04p1-initial-monthly/run_20000101-20000131/config/echam/namelist.echam
     config_sources:
@@ -1399,7 +1409,7 @@ general:
     inspect: null
     isinteractive: false
     iterative_coupled_model: ''
-    jobid: 1033
+    jobid: 1030
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 19991201-19991231
