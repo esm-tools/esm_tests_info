@@ -267,6 +267,14 @@ echam:
         install_bins: src/echam/bin/echam6
     compiletime_environment_changes:
         choose_computer.name:
+            albedo:
+                add_export_vars:
+                    FCFLAGS: '''-fallow-argument-mismatch -w'''
+                    FFLAGS: '''-fallow-argument-mismatch -w'''
+                    configure_opts: '''--without-regard-for-quality'''
+                add_unset_vars:
+                - FFLAGS
+                - FCFLAGS
             blogin:
                 compiler_mpi: intel2019_impi2019
             glogin:
@@ -1152,7 +1160,7 @@ general:
     inspect: null
     isinteractive: false
     iterative_coupled_model: ''
-    jobid: 1015
+    jobid: 1011
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 18491231-18491231
@@ -2383,6 +2391,15 @@ oasis3mct:
                 add_export_vars:
                 - OASIS_FFLAGS=-emf
         choose_computer.name:
+            albedo:
+                choose_computer.compiler_suite:
+                    gcc:
+                        add_export_vars:
+                            FCFLAGS: '''-fallow-argument-mismatch -w'''
+                            FFLAGS: '''-fallow-argument-mismatch -w'''
+                    intel-oneapi:
+                        add_export_vars:
+                            OASIS_FFLAGS: '"-march=core-avx2"'
             levante:
                 add_export_vars:
                     OASIS_FFLAGS: '"-march=core-avx2 -mtune=core-avx2"'

@@ -329,7 +329,7 @@ general:
     inspect: null
     isinteractive: false
     iterative_coupled_model: ''
-    jobid: 1027
+    jobid: 1023
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 19781231-19781231
@@ -643,6 +643,38 @@ oifs:
         - oasis3mct-4.0
     compiletime_environment_changes:
         choose_computer.name:
+            albedo:
+                add_export_vars:
+                    ECCODESROOT: /albedo/home/mandresm/.spack/sw/eccodes/2.25.0-hwsa4h3/
+                    ESM_NETCDF_C_DIR: $NETCDFROOT
+                    ESM_NETCDF_F_DIR: $NETCDFFROOT
+                    HDF5_C_INCLUDE_DIRECTORIES: $HDF5_ROOT/include
+                    HDF5_ROOT: $HDF5ROOT
+                    LAPACK_LIB_DEFAULT: '"-L$MKLROOT/lib/intel64 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential"'
+                    NETCDF_C_INCLUDE_DIRECTORIES: $NETCDFROOT/include
+                    NETCDF_Fortran_INCLUDE_DIRECTORIES: $NETCDFFROOT/include
+                    OASIS3MCT_FC_LIB: '"-L$NETCDFFROOT/lib -lnetcdff"'
+                    OIFS_CC: $CC
+                    OIFS_CCDEFS: '"LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS _OPENMP"'
+                    OIFS_CFLAGS: '"-fp-model precise -O3 -g -traceback -qopt-report=0 -fpe0 -qopenmp -march=core-avx2 -mtune=core-avx2"'
+                    OIFS_FC: $FC
+                    OIFS_FCDEFS: '"BLAS LITTLE LINUX INTEGER_IS_INT"'
+                    OIFS_FFIXED: '""'
+                    OIFS_FFLAGS: '"-r8 -fp-model precise -align array32byte -O3 -qopenmp -g -traceback -convert big_endian -march=core-avx2 -mtune=core-avx2"'
+                    OIFS_GRIB_API_BIN: '"$ECCODESROOT/bin"'
+                    OIFS_GRIB_API_INCLUDE: '"-I$ECCODESROOT/include"'
+                    OIFS_GRIB_API_LIB: '"-L$ECCODESROOT/lib64 -leccodes_f90 -leccodes"'
+                    OIFS_GRIB_INCLUDE: '"$OIFS_GRIB_API_INCLUDE"'
+                    OIFS_GRIB_LIB: '"$OIFS_GRIB_API_LIB"'
+                    OIFS_LFLAGS: '"$OIFS_MPI_LIB -qopenmp"'
+                    OIFS_MPI_LIB: '"$MPI_LIB"'
+                    OIFS_NETCDFF_INCLUDE: '"-I$NETCDFFROOT/include"'
+                    OIFS_NETCDFF_LIB: '"-L$NETCDFFROOT/lib -lnetcdff"'
+                    OIFS_NETCDF_INCLUDE: '"-I$NETCDFROOT/include"'
+                    OIFS_NETCDF_LIB: '"-L$NETCDFROOT/lib -lnetcdf"'
+                    OIFS_OASIS_BASE: $(pwd)/oasis
+                    OIFS_OASIS_INCLUDE: '"-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu"'
+                    OIFS_OASIS_LIB: '"-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu -lpsmile -lmct -lmpeu -lscrip"'
             aleph:
                 add_export_vars:
                     GRIB_SAMPLES_PATH: '"$GRIBAPIROOT/share/grib_api/ifs_samples/grib1_mlgrib2/"'
@@ -1305,6 +1337,10 @@ oifs:
     rtables_dir: /scratch/usr/shkifmsw/foci_input2/OPENIFS_CY43_GENERAL/rtables/
     runtime_environment_changes:
         choose_computer.name:
+            albedo:
+                add_export_vars:
+                - GRIB_SAMPLES_PATH="$ECCODESROOT/share/eccodes/ifs_samples/grib1_mlgrib2/"
+                - DR_HOOK_IGNORE_SIGNALS=-1
             aleph:
                 add_export_vars:
                     DR_HOOK_IGNORE_SIGNALS: -1
