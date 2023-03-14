@@ -1,22 +1,24 @@
 #!/usr/bin/bash
 #SBATCH --partition=mpp
 #SBATCH --time=01:00:00
-#SBATCH --nodes=14
+#SBATCH --nodes=5
 #SBATCH --output=<TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/log/awicm3-frontiers-xios-TCO159L91-CORE2_initial_awicm3_compute_20000101-20000101_%j.log --error=<TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/log/awicm3-frontiers-xios-TCO159L91-CORE2_initial_awicm3_compute_20000101-20000101_%j.log
 #SBATCH --job-name=awicm3-frontiers-xios-TCO159L91-CORE2_initial
-#SBATCH --account=None
+#SBATCH --account=clidyn.clidyn
 #SBATCH --mail-type=NONE
+#SBATCH --qos=12h
 #SBATCH --exclusive
 
 module purge
+module load intel-oneapi-compilers/2022.1.0
+module load intel-oneapi-mkl/2022.1.0-gcc12.1.0
+module load openmpi/4.1.3-intel2021.6.0
 module load udunits/2.2.28
-module load <HOME_DIR>/.spack/modules/intel-oneapi-compilers-2022.0.1-gcc-12.1.0-mech5is
-module load <HOME_DIR>/.spack/modules/intel-oneapi-mkl-2022.0.1-gcc-12.1.0-ebd776q
-module load <HOME_DIR>/.spack/modules/openmpi-4.1.3-intel-2021.5.0-uyqbpcs
-module load <HOME_DIR>/.spack/modules/hdf5-1.12.2-intel-2021.5.0-okkbjga
-module load <HOME_DIR>/.spack/modules/netcdf-c-4.8.1-intel-2021.5.0-24hqns7
-module load <HOME_DIR>/.spack/modules/netcdf-fortran-4.5.4-intel-2021.5.0-h37jgao
-module load <HOME_DIR>/.spack/modules/eccodes-2.25.0-intel-2021.5.0-bjv3v4v
+module load hdf5/1.12.2-openmpi4.1.3-intel2021.6.0
+module load netcdf-c/4.8.1-openmpi4.1.3-intel2021.6.0
+module load netcdf-fortran/4.5.4-openmpi4.1.3-intel2021.6.0
+module load netcdf-cxx4/4.3.1-openmpi4.1.3-intel2021.6.0
+module load eccodes/2.25.0-openmpi4.1.3-intel2021.6.0
 module load cdo/2.0.5
 module load nco/5.0.1
 module load git/2.35.2
@@ -30,18 +32,23 @@ export MPIFC=mpif90
 export MPICC=mpicc
 export CC=mpicc
 export CXX=mpic++
+export CPU_MODEL=AMD_EPYC_ZEN2
+export FESOM_PLATFORM_STRATEGY=albedo
+export PERL5LIB=<HOME_DIR>/my_libs/perl-5.32.0/lib
+export HDF5ROOT=/albedo/soft/sw/spack-sw/hdf5/1.12.2-mstdrjw/
+export NETCDFROOT=/albedo/soft/sw/spack-sw/netcdf-c/4.8.1-vvxxdc3/
+export NETCDFFROOT=/albedo/soft/sw/spack-sw/netcdf-fortran/4.5.4-uwfs3bu/
+export ECCODESROOT=/albedo/soft/sw/spack-sw/eccodes/2.25.0-vn2k575/
+export OASIS3MCT_FC_LIB="-L$NETCDFFROOT/lib -lnetcdff"
 export MPIROOT=$(mpif90 -show | perl -lne 'm{ -I(.*?)/include } and print $1')
 export MPI_LIB=$(mpif90 -show |sed -e 's/^[^ ]*//' -e 's/-[I][^ ]*//g')
-export LAPACK_LIB='-mkl=sequential'
-export OASIS3MCT_FC_LIB="-L$NETCDFFROOT/lib -lnetcdff"
-export PERL5LIB=<HOME_DIR>/my_libs/perl-5.32.0/lib
-export HDF5ROOT=<HOME_DIR>/.spack/sw/hdf5/1.12.2-okkbjga/
-export NETCDFROOT=<HOME_DIR>/.spack/sw/netcdf-c/4.8.1-24hqns7/
-export NETCDFFROOT=<HOME_DIR>/.spack/sw/netcdf-fortran/4.5.4-h37jgao/
-export ECCODESROOT=<HOME_DIR>/.spack/sw/eccodes/2.25.0-hwsa4h3/
+export LAPACK_LIB='-L/albedo/soft/sw/spack-sw/intel-oneapi-mkl/2022.1.0-akthm3n/mkl/2022.1.0 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential -lm -ldl'
+export LD_LIBRARY_PATH=/albedo/soft/sw/spack-sw/intel-oneapi-mkl/2022.1.0-akthm3n/mkl/2022.1.0/lib/intel64:$LD_LIBRARY_PATH
 export PATH=$PERL5LIB/../bin:$PATH
-export LD_LIBRARY_PATH=<HOME_DIR>/.spack/sw/intel-oneapi-mkl/2022.0.1-ebd776q/mkl/2022.0.1/lib/intel64:$LD_LIBRARY_PATH
-export ACCOUNT=None
+export PATH=$PATH:$ECCODESROOT/bin
+export GRIB_SAMPLES_PATH="$ECCODESROOT/share/eccodes/ifs_samples/grib1_mlgrib2/"
+export DR_HOOK_IGNORE_SIGNALS=-1
+export ACCOUNT=clidyn.clidyn
 export ESM_TESTING_DIR=<TEST_DIR>/run/awicm3/
 export MODEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios
 export FESOM_USE_CPLNG="active"
@@ -61,7 +68,7 @@ unset SLURM_ARBITRARY_NODELIST
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 3596168 - start >> <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/log//awicm3-frontiers-xios-TCO159L91-CORE2_initial_awicm3.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 762581 - start >> <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/log//awicm3-frontiers-xios-TCO159L91-CORE2_initial_awicm3.log
 
 cd <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work/
 
@@ -79,16 +86,16 @@ omp_threads_fesom=1
 mpi_tasks_oifs=128
 omp_threads_oifs=2
 mpi_tasks_rnfmap=1
-omp_threads_rnfmap=36
+omp_threads_rnfmap=128
 mpi_tasks_xios=1
-omp_threads_xios=36
+omp_threads_xios=128
 for model in fesom oifs rnfmap oasis3mct xios ;do
     eval nb_of_cores=\${mpi_tasks_${model}}
     eval nb_of_cores=$((${nb_of_cores}-1))
     for nb_proc_mpi in `seq 0 ${nb_of_cores}`; do
-        (( index_host = current_core / 36 ))
+        (( index_host = current_core / 128 ))
         host_value=${listnodes[${index_host}]}
-        (( slot =  current_core % 36 ))
+        (( slot =  current_core % 128 ))
         echo $host_value >> hostlist
         (( current_core = current_core + omp_threads_${model} ))
     done
@@ -103,6 +110,6 @@ process=$!
 cd <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/scripts/
 esm_runscripts awicm3-frontiers-xios-TCO159L91-CORE2_initial.yaml -e awicm3-frontiers-xios-TCO159L91-CORE2_initial -t observe_compute -p ${process} -s 20000101 -r 1 -v  --last-jobtype prepcompute --open-run
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 3596168 - done >> <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/log//awicm3-frontiers-xios-TCO159L91-CORE2_initial_awicm3.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 762581 - done >> <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/log//awicm3-frontiers-xios-TCO159L91-CORE2_initial_awicm3.log
 
 wait

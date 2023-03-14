@@ -1,7 +1,7 @@
 computer:
     account: None
     accounting: true
-    accounting_flag: --account=None
+    accounting_flag: --account=clidyn.clidyn
     actual_script_dir: <--methods.script_dir--
     add_choose_heterogeneous_parallelization: &id001
         false:
@@ -20,7 +20,8 @@ computer:
                 true:
                     srun_execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=cores --multi-prog hostfile_srun
             cpu_bind: none
-    additional_flags: []
+    additional_flags:
+    - --qos=30min
     batch_system: slurm
     cc: mpicc
     check_error:
@@ -35,9 +36,9 @@ computer:
             message: 'SLURM ERROR: slurm ended with an error, exiting.'
             method: kill
     choose_heterogeneous_parallelization: *id001
-    compiler_module: intel-oneapi-compilers/2022.1.0 intel-oneapi-mkl/2022.1.0
-    compiler_suffix: oneapi2022.1.0
+    compiler_module: intel-oneapi-compilers/2022.1.0
     compiler_suite: intel-oneapi
+    compute_time_minutes: 8
     config_files:
         hostfile: hostfile_srun
     cpu_bind: cores
@@ -47,30 +48,34 @@ computer:
         - <HOME_DIR>/esm_tools/configs//machines/albedo.yaml
     debugger: None
     debugger_flags_prelauncher: ''
+    eccodes_module: eccodes/2.25.0-openmpi4.1.3-intel2021.6.0
     exclusive_flag: --exclusive
     execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=cores --multi-prog hostfile_srun
     export_vars:
         CC: mpicc
+        CPU_MODEL: AMD_EPYC_ZEN2
         CXX: mpic++
-        ECCODESROOT: <HOME_DIR>/.spack/sw/eccodes/2.25.0-hwsa4h3/
+        ECCODESROOT: /albedo/soft/sw/spack-sw/eccodes/2.25.0-vn2k575/
         F77: mpif90
         FC: mpif90
-        HDF5ROOT: <HOME_DIR>/.spack/sw/hdf5/1.12.2-okkbjga/
-        LAPACK_LIB: '''-mkl=sequential'''
+        FESOM_PLATFORM_STRATEGY: albedo
+        HDF5ROOT: /albedo/soft/sw/spack-sw/hdf5/1.12.2-mstdrjw/
+        LAPACK_LIB: '''-L/albedo/soft/sw/spack-sw/intel-oneapi-mkl/2022.1.0-akthm3n/mkl/2022.1.0 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential -lm -ldl'''
         LC_ALL: en_US.UTF-8
-        LD_LIBRARY_PATH[(1)]: <HOME_DIR>/.spack/sw/intel-oneapi-mkl/2022.0.1-ebd776q/mkl/2022.0.1/lib/intel64:$LD_LIBRARY_PATH
+        LD_LIBRARY_PATH[(1)]: /albedo/soft/sw/spack-sw/intel-oneapi-mkl/2022.1.0-akthm3n/mkl/2022.1.0/lib/intel64:$LD_LIBRARY_PATH
         MPICC: mpicc
         MPIFC: mpif90
         MPIROOT: $(mpif90 -show | perl -lne 'm{ -I(.*?)/include } and print $1')
         MPI_LIB: $(mpif90 -show |sed -e 's/^[^ ]*//' -e 's/-[I][^ ]*//g')
-        NETCDFFROOT: <HOME_DIR>/.spack/sw/netcdf-fortran/4.5.4-h37jgao/
-        NETCDFROOT: <HOME_DIR>/.spack/sw/netcdf-c/4.8.1-24hqns7/
+        NETCDFFROOT: /albedo/soft/sw/spack-sw/netcdf-fortran/4.5.4-uwfs3bu/
+        NETCDFROOT: /albedo/soft/sw/spack-sw/netcdf-c/4.8.1-vvxxdc3/
         OASIS3MCT_FC_LIB: '"-L$NETCDFFROOT/lib -lnetcdff"'
-        PATH: $PERL5LIB/../bin:$PATH
+        PATH[(1)]: $PERL5LIB/../bin:$PATH
+        PATH[(2)]: $PATH:$ECCODESROOT/bin
         PERL5LIB: <HOME_DIR>/my_libs/perl-5.32.0/lib
     f77: mpif90
     fc: mpif90
-    hdf5_version: 1.12.2
+    hdf5_module: hdf5/1.12.2-openmpi4.1.3-intel2021.6.0
     header_start: '#SBATCH'
     heterogeneous_parallelization: false
     hetjob_flag: packjob
@@ -83,17 +88,20 @@ computer:
     mail1: --mail-type=NONE
     mail2: ''
     mail_type: NONE
+    mkl_module: intel-oneapi-mkl/2022.1.0-gcc12.1.0
+    mkl_root: /albedo/soft/sw/spack-sw/intel-oneapi-mkl/2022.1.0-akthm3n/mkl/2022.1.0
     model: computer
     module_actions:
     - purge
+    - load intel-oneapi-compilers/2022.1.0
+    - load intel-oneapi-mkl/2022.1.0-gcc12.1.0
+    - load openmpi/4.1.3-intel2021.6.0
     - load udunits/2.2.28
-    - load <HOME_DIR>/.spack/modules/intel-oneapi-compilers-2022.0.1-gcc-12.1.0-mech5is
-    - load <HOME_DIR>/.spack/modules/intel-oneapi-mkl-2022.0.1-gcc-12.1.0-ebd776q
-    - load <HOME_DIR>/.spack/modules/openmpi-4.1.3-intel-2021.5.0-uyqbpcs
-    - load <HOME_DIR>/.spack/modules/hdf5-1.12.2-intel-2021.5.0-okkbjga
-    - load <HOME_DIR>/.spack/modules/netcdf-c-4.8.1-intel-2021.5.0-24hqns7
-    - load <HOME_DIR>/.spack/modules/netcdf-fortran-4.5.4-intel-2021.5.0-h37jgao
-    - load <HOME_DIR>/.spack/modules/eccodes-2.25.0-intel-2021.5.0-bjv3v4v
+    - load hdf5/1.12.2-openmpi4.1.3-intel2021.6.0
+    - load netcdf-c/4.8.1-openmpi4.1.3-intel2021.6.0
+    - load netcdf-fortran/4.5.4-openmpi4.1.3-intel2021.6.0
+    - load netcdf-cxx4/4.3.1-openmpi4.1.3-intel2021.6.0
+    - load eccodes/2.25.0-openmpi4.1.3-intel2021.6.0
     - load cdo/2.0.5
     - load nco/5.0.1
     - load git/2.35.2
@@ -102,14 +110,15 @@ computer:
     mpi_implementation: openmpi
     mpi_implementation_module: openmpi/4.1.3
     mpi_implementation_suffix: openmpi4.1.3
+    mpi_module: openmpi/4.1.3-intel2021.6.0
     mpicc: mpicc
     mpifc: mpif90
     mt_launcher_flag: ''
     name: albedo
     name_flag: --job-name=fesom2.1-initial-monthly
-    netcdf_c_version: 4.8.1
-    netcdf_cxx_version: 4.2
-    netcdf_fortran_version: 4.5.4
+    netcdfc_module: netcdf-c/4.8.1-openmpi4.1.3-intel2021.6.0
+    netcdfcxx_module: netcdf-cxx4/4.3.1-openmpi4.1.3-intel2021.6.0
+    netcdff_module: netcdf-fortran/4.5.4-openmpi4.1.3-intel2021.6.0
     nodes_flag: --nodes=@nodes@
     notification_flag: --mail-type=NONE
     operating_system: linux-rocky
@@ -121,7 +130,7 @@ computer:
     partition_flag: --partition=@partition@
     partitions:
         compute:
-            cores_per_node: 36
+            cores_per_node: 128
             name: mpp
         pp:
             cores_per_node: 1
@@ -131,9 +140,10 @@ computer:
         focipool: /dev/null
         pool: /albedo/pool
         projects: /albedo/work/projects
+    qos: 30min
     runtime_environment_changes:
         add_export_vars:
-            ACCOUNT: None
+            ACCOUNT: clidyn.clidyn
             ESM_TESTING_DIR: <TEST_DIR>/run/fesom/
             MODEL_DIR: <TEST_DIR>/comp/fesom/fesom-2.1
     script_name: <--methods.scriptname--
@@ -190,7 +200,7 @@ fesom:
     branch: 2.1.0
     branchoff: false
     clean_command: rm -rf build CMakeCache.txt
-    climate_data_dir: /albedo/pool/FESOM2/hydrography/phc3.0/
+    climate_data_dir: /albedo/pool/FESOM/hydrography/
     comp_command: mkdir -p build; cd build; cmake ..;   make install -j `nproc --all`
     comp_executable: fesom.x
     compiletime_environment_changes:
@@ -401,8 +411,8 @@ fesom:
         clock: <TEST_DIR>run/fesom/fesom2.1-initial-monthly/log/fesom/fesom.clock
         mesh_diag: <TEST_DIR>run/fesom/fesom2.1-initial-monthly/log/fesom/fesom.mesh.diag.nc
     lresume: false
-    mesh_base_dir: /albedo/pool/FESOM2/meshes/
-    mesh_dir: /albedo/pool/FESOM2/meshes//core2/
+    mesh_base_dir: /albedo/pool/FESOM/meshes_default/
+    mesh_dir: /albedo/pool/FESOM/meshes_default//core2/
     mesh_rotated: false
     model: fesom
     model_dir: <TEST_DIR>/comp/fesom/fesom-2.1
@@ -415,8 +425,8 @@ fesom:
                 daynew: 1
                 yearnew: 2001
             paths:
-                ClimateDataPath: /albedo/pool/FESOM2/hydrography/phc3.0/
-                MeshPath: /albedo/pool/FESOM2/meshes//core2/
+                ClimateDataPath: /albedo/pool/FESOM/hydrography/
+                MeshPath: /albedo/pool/FESOM/meshes_default//core2/
                 ResultPath: <TEST_DIR>/run/fesom//fesom2.1-initial-monthly/run_20010101-20010131/work/
             restart_log:
                 restart_length: 1
@@ -534,18 +544,6 @@ fesom:
     resolution: CORE2
     restart_first: 1
     restart_flag: last
-    restart_in_in_workdir:
-        icb_restart: iceberg.restart
-        icb_restart_ISM: iceberg.restart.ISM
-        ice_restart: fesom.2000.ice.restart.nc
-        oce_restart: fesom.2000.oce.restart.nc
-        wiso_restart: fesom.2000.wiso.restart.nc
-    restart_out_in_workdir:
-        icb_restart: iceberg.restart
-        icb_restart_ISM: iceberg.restart.ISM
-        ice_restart: fesom.2001.ice.restart.nc
-        oce_restart: fesom.2001.oce.restart.nc
-        wiso_restart: fesom.2001.wiso.restart.nc
     restart_out_intermediate:
         ice_restart: <TEST_DIR>run/fesom/fesom2.1-initial-monthly/run_20010101-20010131/restart/fesom/fesom.2001.ice.restart.nc
         oce_restart: <TEST_DIR>run/fesom/fesom2.1-initial-monthly/run_20010101-20010131/restart/fesom/fesom.2001.oce.restart.nc
@@ -560,9 +558,6 @@ fesom:
     runoff_data_source: CORE2
     runoff_file: CORE2_runoff.nc
     runtime_environment_changes:
-        add_export_vars:
-            taken2from: fesom2_ru
-            takenfrom: fesom2_run
         choose_computer.name:
             juwels:
                 add_module_actions:
@@ -617,7 +612,7 @@ fesom:
     yearnew: 2001
     ywind_prefix: vas.
 general:
-    account: None
+    account: clidyn.clidyn
     additional_files: []
     all_filetypes:
     - analysis
@@ -790,7 +785,7 @@ general:
     inspect: null
     isinteractive: false
     iterative_coupled_model: ''
-    jobid: 3597802
+    jobid: 763270
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 20001201-20001231
