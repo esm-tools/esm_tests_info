@@ -307,6 +307,26 @@ fesom:
             init_to_exp: copy
             run_to_work: copy
             work_to_run: copy
+        fesom_bin_restart_in:
+            exp_to_run: move
+            init_to_exp: move
+            run_to_work: move
+            work_to_run: move
+        fesom_bin_restart_info_in:
+            exp_to_run: move
+            init_to_exp: move
+            run_to_work: move
+            work_to_run: move
+        fesom_bin_restart_info_out:
+            exp_to_run: move
+            init_to_exp: move
+            run_to_work: move
+            work_to_run: move
+        fesom_bin_restart_out:
+            exp_to_run: move
+            init_to_exp: move
+            run_to_work: move
+            work_to_run: move
         fesom_raw_restart_in:
             exp_to_run: move
             init_to_exp: move
@@ -477,6 +497,8 @@ fesom:
         ice_restart: <TEST_DIR>/run/awicm3//awicm3-v3.1-TCO95L91-CORE2_initial/run_20000101-20000101/work//fesom.2000.ice.restart.nc
         oce_restart: <TEST_DIR>/run/awicm3//awicm3-v3.1-TCO95L91-CORE2_initial/run_20000101-20000101/work//fesom.2000.oce.restart.nc
     restart_out_sources_wild_card:
+        fesom_bin_restart: '*'
+        fesom_bin_restart_info: '*.info'
         fesom_raw_restart: '*.dump'
         fesom_raw_restart_info: '*.info'
         par_ice_restart: '*.nc'
