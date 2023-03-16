@@ -1482,6 +1482,46 @@ fesom:
             init_to_exp: copy
             run_to_work: copy
             work_to_run: copy
+        fesom_bin_restart_in:
+            exp_to_run: move
+            init_to_exp: move
+            run_to_work: move
+            work_to_run: move
+        fesom_bin_restart_info_in:
+            exp_to_run: move
+            init_to_exp: move
+            run_to_work: move
+            work_to_run: move
+        fesom_bin_restart_info_out:
+            exp_to_run: move
+            init_to_exp: move
+            run_to_work: move
+            work_to_run: move
+        fesom_bin_restart_out:
+            exp_to_run: move
+            init_to_exp: move
+            run_to_work: move
+            work_to_run: move
+        fesom_raw_restart_in:
+            exp_to_run: move
+            init_to_exp: move
+            run_to_work: move
+            work_to_run: move
+        fesom_raw_restart_info_in:
+            exp_to_run: move
+            init_to_exp: move
+            run_to_work: move
+            work_to_run: move
+        fesom_raw_restart_info_out:
+            exp_to_run: move
+            init_to_exp: move
+            run_to_work: move
+            work_to_run: move
+        fesom_raw_restart_out:
+            exp_to_run: move
+            init_to_exp: move
+            run_to_work: move
+            work_to_run: move
         forcing:
             exp_to_run: copy
             init_to_exp: copy
@@ -1728,6 +1768,13 @@ fesom:
     restart_out_sources:
         ice_restart: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//fesom.1850.ice.restart.nc
         oce_restart: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//fesom.1850.oce.restart.nc
+    restart_out_sources_wild_card:
+        fesom_bin_restart: '*'
+        fesom_bin_restart_info: '*.info'
+        fesom_raw_restart: '*.dump'
+        fesom_raw_restart_info: '*.info'
+        par_ice_restart: '*.nc'
+        par_oce_restart: '*.nc'
     restart_out_targets:
         ice_restart: <TEST_DIR>run/awiesm/bootstrap/restart/fesom/fesom.1850.ice.restart.nc
         oce_restart: <TEST_DIR>run/awiesm/bootstrap/restart/fesom/fesom.1850.oce.restart.nc
@@ -1976,7 +2023,7 @@ general:
     inspect: null
     isinteractive: false
     iterative_coupled_model: ''
-    jobid: 1070
+    jobid: 1161
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 18490101-18491231
