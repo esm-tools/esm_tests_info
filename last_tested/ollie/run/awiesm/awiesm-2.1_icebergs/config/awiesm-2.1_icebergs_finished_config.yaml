@@ -1466,6 +1466,46 @@ fesom:
             init_to_exp: copy
             run_to_work: copy
             work_to_run: copy
+        fesom_bin_restart_in:
+            exp_to_run: move
+            init_to_exp: move
+            run_to_work: move
+            work_to_run: move
+        fesom_bin_restart_info_in:
+            exp_to_run: move
+            init_to_exp: move
+            run_to_work: move
+            work_to_run: move
+        fesom_bin_restart_info_out:
+            exp_to_run: move
+            init_to_exp: move
+            run_to_work: move
+            work_to_run: move
+        fesom_bin_restart_out:
+            exp_to_run: move
+            init_to_exp: move
+            run_to_work: move
+            work_to_run: move
+        fesom_raw_restart_in:
+            exp_to_run: move
+            init_to_exp: move
+            run_to_work: move
+            work_to_run: move
+        fesom_raw_restart_info_in:
+            exp_to_run: move
+            init_to_exp: move
+            run_to_work: move
+            work_to_run: move
+        fesom_raw_restart_info_out:
+            exp_to_run: move
+            init_to_exp: move
+            run_to_work: move
+            work_to_run: move
+        fesom_raw_restart_out:
+            exp_to_run: move
+            init_to_exp: move
+            run_to_work: move
+            work_to_run: move
         forcing:
             exp_to_run: copy
             init_to_exp: copy
@@ -1753,6 +1793,13 @@ fesom:
         icb_restart_ISM: <TEST_DIR>/run/awiesm//awiesm-2.1_icebergs/run_20010101-20010101/work//iceberg.restart.ISM
         ice_restart: <TEST_DIR>/run/awiesm//awiesm-2.1_icebergs/run_20010101-20010101/work//fesom.2001.ice.restart.nc
         oce_restart: <TEST_DIR>/run/awiesm//awiesm-2.1_icebergs/run_20010101-20010101/work//fesom.2001.oce.restart.nc
+    restart_out_sources_wild_card:
+        fesom_bin_restart: '*'
+        fesom_bin_restart_info: '*.info'
+        fesom_raw_restart: '*.dump'
+        fesom_raw_restart_info: '*.info'
+        par_ice_restart: '*.nc'
+        par_oce_restart: '*.nc'
     restart_out_targets:
         icb_restart: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/restart/fesom/iceberg.restart
         icb_restart_ISM: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/restart/fesom/iceberg.restart.ISM
@@ -2000,7 +2047,7 @@ general:
     isinteractive: false
     iterative_coupled_model: ''
     iterative_coupling: false
-    jobid: 1322
+    jobid: 1361
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 20001231-20001231
