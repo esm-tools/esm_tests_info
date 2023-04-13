@@ -1,16 +1,36 @@
 &namtrc_run
+    nn_writetrc = 1216
+    ln_rsttr = .false.
+    nn_rsttr = 2
     cn_trcrst_in = 'foci-initial-ssp-scenario_00000000_restart_trc_20141231'
     cn_trcrst_indir = '<TEST_DIR>/run/foci//foci-initial-ssp-scenario/restart/nemo//'
     cn_trcrst_out = 'restart_trc_20150101'
     cn_trcrst_outdir = '<TEST_DIR>/run/foci//foci-initial-ssp-scenario/restart/nemo//'
-    ln_rsttr = .false.
-    nn_rsttr = 2
 /
 
 &namtrc
+    sn_tracer(1) = 'AGE'
     ln_trcdta = .true.
+/
+
+&namtrc_ldf
+    rn_ahtrc_0 = 600.0
 /
 
 &namtrc_rad
     ln_trcrad = .true.
+/
+
+&namtrc_dmp
+    cn_resto_tr = ''
+/
+
+&namtrc_trd
+    nn_trd_trc = 1216
+    ln_trdtrc = .false.
+/
+
+&namtrc_dia
+    ln_diabio = .false.
+    nn_writedia = 1216
 /
