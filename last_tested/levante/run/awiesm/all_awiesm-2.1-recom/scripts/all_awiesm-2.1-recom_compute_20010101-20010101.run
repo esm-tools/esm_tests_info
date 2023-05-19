@@ -78,7 +78,7 @@ export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 2001-01-01T00:00:00 912 - start >> <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/log//all_awiesm-2.1-recom_awiesm.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 2001-01-01T00:00:00 959 - start >> <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/log//all_awiesm-2.1-recom_awiesm.log
 
 cd <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010101/work/
 time srun -l --hint=nomultithread --multi-prog hostfile_srun 2>&1 &
@@ -90,6 +90,6 @@ process=$!
 cd <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/scripts/
 esm_runscripts all_awiesm-2.1-recom.yaml -e all_awiesm-2.1-recom -t observe_compute -p ${process} -s 20010101 -r 1 -v  --last-jobtype prepcompute --open-run
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 2001-01-01T00:00:00 912 - done >> <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/log//all_awiesm-2.1-recom_awiesm.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 2001-01-01T00:00:00 959 - done >> <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/log//all_awiesm-2.1-recom_awiesm.log
 
 wait
