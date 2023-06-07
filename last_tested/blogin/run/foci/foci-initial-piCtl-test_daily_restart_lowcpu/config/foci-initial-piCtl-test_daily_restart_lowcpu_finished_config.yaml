@@ -647,7 +647,7 @@ echam:
         Authors: Bjorn Stevens (bjorn.stevens@mpimet.mpg.de) among others at MPI-Met
         Description: The ECHAM atmosphere model, major version 6
         Institute: MPI-Met
-        License: Please make sure you have a license to use ECHAM. Otherwise downloading ECHAM will already fail. To use the repository on gitlab.dkrz.de/modular_esm/echam.git, register for the MPI-ESM user forum at https://mpimet.mpg.de/en/science/modeling-with-icon/code-availability/mpi-esm-users-forum and send a screenshot to either dirk.barbi@awi.de, deniz.ural@awi.de or miguel.andres-martinez@awi.de
+        License: "Please make sure you have a license to use ECHAM. Otherwise downloading ECHAM will already fail. To use the repository on any of these locations: \n* gitlab.dkrz.de/modular_esm/echam.git * gitlab.awi.de/paleodyn/models/echam.git\nplease register for the MPI-ESM user forum at:\nhttps://code.mpimet.mpg.de/projects/mpi-esm-license \nand send a screenshot of yourself logged in to the forum to either paul.gierz@awi.de, miguel.andres-martinez@awi.de, or nadine.wieters@awi.de.\nNote also that you can otherwise ignore the instructions on that page, just the registiration and login screen shot is important for us.\nHave fun using ECHAM! :-)"
         Publications: 'Atmosphericcomponent of the MPI-M earth system model: ECHAM6 <https://doi.org/10.1002/jame.20015>'
     model: echam
     model_dir: <TEST_DIR>/comp/foci/foci-default/echam-6.3.05p2-foci
@@ -1160,7 +1160,7 @@ general:
     inspect: null
     isinteractive: false
     iterative_coupled_model: ''
-    jobid: 872
+    jobid: 904
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 18491231-18491231
@@ -2714,9 +2714,11 @@ oasis3mct:
         lucia: lucia.*
     ignore_targets:
         nout: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/ignore/oasis3mct/nout.000000
-    ini_parent_date: '18491231'
+    ini_parent_date: &id011 '18491231'
     ini_parent_dir: /scratch/usr/shkifmsw/foci_input2/OASIS3_ECHAM6T63_ORCA05/input/T63_ORCA05//
     ini_parent_exp_id: unset
+    ini_restart_date: *id011
+    ini_restart_dir: /scratch/usr/shkifmsw/foci_input2/OASIS3_ECHAM6T63_ORCA05/input/T63_ORCA05//
     input_dir: /scratch/usr/shkifmsw/foci_input2/OASIS3_ECHAM6T63_ORCA05/input/T63_ORCA05/
     input_intermediate:
         areas: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/input/oasis3mct/areas.nc
@@ -2903,8 +2905,8 @@ oasis3mct:
         flxatmos: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/restart/oasis3mct/flxatmos
         sstocean: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/restart/oasis3mct/sstocean
     restart_in_sources:
-        flxatmos: /scratch/usr/shkifmsw/foci_input2/OASIS3_ECHAM6T63_ORCA05/input/T63_ORCA05//flxatmos_FOCI1.4.1-KJH001_18501231
-        sstocean: /scratch/usr/shkifmsw/foci_input2/OASIS3_ECHAM6T63_ORCA05/input/T63_ORCA05//sstocean_FOCI1.4.1-KJH001_18501231
+        flxatmos: /scratch/usr/shkifmsw/foci_input2/OASIS3_ECHAM6T63_ORCA05/input/T63_ORCA05//flxatmos
+        sstocean: /scratch/usr/shkifmsw/foci_input2/OASIS3_ECHAM6T63_ORCA05/input/T63_ORCA05//sstocean
     restart_in_targets:
         flxatmos: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/work/flxatmos
         sstocean: <TEST_DIR>run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/work/sstocean
