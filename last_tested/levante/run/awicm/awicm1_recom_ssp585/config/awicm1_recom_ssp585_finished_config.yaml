@@ -2393,7 +2393,7 @@ general:
     inspect: null
     isinteractive: false
     iterative_coupled_model: ''
-    jobid: 989
+    jobid: 916
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 20141201-20141231
@@ -3596,6 +3596,12 @@ recom:
     - 2.0-recom-awicm
     bin_dir: NONE/bin
     branch: oxygen
+    check_error:
+        'ERROR: CANNOT READ runoff FILE CORRECTLY':
+            file: stdout
+            frequency: 30
+            message: 'REcoM ERROR: CANNOT READ runoff FILE CORRECTLY'
+            method: kill
     clean_command: rm -rf build CMakeCache.txt
     comp_command: mkdir -p build; cd build; cmake ..;  make -j `nproc --all`
     config_intermediate:
@@ -3627,6 +3633,7 @@ recom:
     experiment_restart_out_dir: <TEST_DIR>/run/awicm//awicm1_recom_ssp585/restart/recom/
     experiment_viz_dir: <TEST_DIR>/run/awicm//awicm1_recom_ssp585/viz/recom/
     f_year_fesom_cycle: 2015
+    fesom2_standalone: false
     file_movements:
         analysis:
             exp_to_run: copy
@@ -4012,7 +4019,9 @@ recom:
     thisrun_restart_out_dir: <TEST_DIR>/run/awicm//awicm1_recom_ssp585/run_20150101-20150131/restart/recom/
     thisrun_viz_dir: <TEST_DIR>/run/awicm//awicm1_recom_ssp585/run_20150101-20150131/viz/recom/
     time_step: 1800
+    use_atbox: remove_from_namelist
     use_ciso: false
+    use_medusa: without_medusa
     version: 2.0-recom-awicm
     yearly_outputs:
     - alphaCO2

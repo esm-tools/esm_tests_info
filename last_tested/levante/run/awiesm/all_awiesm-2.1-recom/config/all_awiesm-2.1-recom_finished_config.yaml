@@ -1487,6 +1487,7 @@ fesom:
     experiment_restart_in_dir: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/restart/fesom/
     experiment_restart_out_dir: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/restart/fesom/
     experiment_viz_dir: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/viz/fesom/
+    fesom_Dflags: -DRECOM_COUPLED=ON
     file_movements:
         analysis:
             exp_to_run: copy
@@ -1616,6 +1617,8 @@ fesom:
             oasis_grid_type: U
     humi_prefix: q_10.
     icb_code: false
+    include_models:
+    - recom
     ini_data_dir: /pool/data/AWICM//pool-data/
     install_bins: bin/fesom.x
     l_cloud: false
@@ -1646,6 +1649,9 @@ fesom:
     mesh_rotated: false
     model: fesom
     model_dir: <TEST_DIR>/comp/awiesm/awiesm-2.1-recom/fesom-2.1
+    models:
+    - recom
+    mpi_num_groups: 1
     mslp_prefix: slp.
     namelist_changes:
         namelist.config:
@@ -1665,6 +1671,7 @@ fesom:
                 restart_length_unit: d
             run_config:
                 lwiso: false
+                num_fesom_groups: 1
             timestep:
                 run_length: 1
                 run_length_unit: d
@@ -1858,6 +1865,7 @@ fesom:
     - i3_oce
     with_part_format: false
     with_pico: false
+    with_recom: true
     with_wiso: false
     xwind_prefix: u_10.
     yearnew: 2001
@@ -2053,7 +2061,7 @@ general:
     isinteractive: false
     iterative_coupled_model: ''
     jP: /pf/a/a270064/bb1029/AWIESM2.1-EXP/mesh_core2/tarfilesT63/input/jsbach/jsbach_T63CORE2_11tiles_5layers_1850.nc
-    jobid: 1181
+    jobid: 1096
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 20001231-20001231
@@ -3283,6 +3291,12 @@ recom:
     bin_dir: NONE/bin
     bottflx_num: 4
     branch: oxygen
+    check_error:
+        'ERROR: CANNOT READ runoff FILE CORRECTLY':
+            file: stdout
+            frequency: 30
+            message: 'REcoM ERROR: CANNOT READ runoff FILE CORRECTLY'
+            method: kill
     clean_command: rm -rf build CMakeCache.txt
     comp_command: mkdir -p build; cd build; cmake ..;  make -j `nproc --all`
     config_intermediate:
@@ -3312,6 +3326,7 @@ recom:
     experiment_restart_in_dir: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/restart/recom/
     experiment_restart_out_dir: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/restart/recom/
     experiment_viz_dir: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/viz/recom/
+    fesom2_standalone: false
     file_movements:
         analysis:
             exp_to_run: copy
@@ -3482,8 +3497,11 @@ recom:
             pavariables:
                 DIC_PI: false
                 REcoMDataPath: /pf/a/a270108/fesom2_recom_config/input-for-awiesm/
+                add_loopback: false
                 ciso: false
                 recom_restart: false
+                sedflx_num: 0
+                use_MEDUSA: true
                 use_atbox: true
     namelist_dir: <TEST_DIR>/comp/awiesm/awiesm-2.1-recom/fesom-2.1/config/
     namelist_objs:
@@ -3847,7 +3865,9 @@ recom:
     thisrun_restart_out_dir: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010101/restart/recom/
     thisrun_viz_dir: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010101/viz/recom/
     time_step: 1800
+    use_atbox: remove_from_namelist
     use_ciso: false
+    use_medusa: false
     version: 2
     yearly_outputs:
     - alphaCO2
