@@ -1454,7 +1454,7 @@ general:
     inspect: null
     isinteractive: false
     iterative_coupled_model: ''
-    jobid: 1109
+    jobid: 1365
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 19571231-19571231
@@ -1645,6 +1645,12 @@ recom:
     - 2.0-recom-awicm
     bin_dir: <TEST_DIR>/comp/fesom-recom/fesom-recom-1.4/bin
     branch: oxygen
+    check_error:
+        'ERROR: CANNOT READ runoff FILE CORRECTLY':
+            file: stdout
+            frequency: 30
+            message: 'REcoM ERROR: CANNOT READ runoff FILE CORRECTLY'
+            method: kill
     clean_command: rm -rf build CMakeCache.txt
     comp_command: mkdir -p build; cd build; cmake ..;  make -j `nproc --all`
     config_intermediate:
@@ -1674,6 +1680,7 @@ recom:
     experiment_restart_in_dir: <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily/restart/recom/
     experiment_restart_out_dir: <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily/restart/recom/
     experiment_viz_dir: <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily/viz/recom/
+    fesom2_standalone: false
     file_movements:
         analysis:
             exp_to_run: copy
@@ -1845,12 +1852,15 @@ recom:
             pavariables:
                 REcoMDataPath: /work/ollie/projects/MarESys/forcing/CORE2mesh/
                 REcoM_PI: true
+                add_loopback: false
                 constant_CO2: true
                 currentCO2cycle: 1
                 firstyearoffesomcycle: 1958
                 lastyearoffesomcycle: 1958
                 numofCO2cycles: 1
                 recom_restart: false
+                sedflx_num: 0
+                use_MEDUSA: true
     namelist_dir: <TEST_DIR>/comp/fesom-recom/fesom-recom-1.4/recom/
     namelist_objs:
         namelist.recom: &id007 f90nml.name
@@ -2204,7 +2214,9 @@ recom:
     thisrun_restart_out_dir: <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily/run_19580101-19580101/restart/recom/
     thisrun_viz_dir: <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily/run_19580101-19580101/viz/recom/
     time_step: 900
+    use_atbox: remove_from_namelist
     use_ciso: false
+    use_medusa: false
     version: 2
     yearly_outputs:
     - alphaCO2
