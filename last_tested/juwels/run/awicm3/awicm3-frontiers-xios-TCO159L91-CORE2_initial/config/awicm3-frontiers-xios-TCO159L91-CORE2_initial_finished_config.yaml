@@ -586,6 +586,7 @@ general:
     - v3.1
     - v3.1.1
     - v3.1.2
+    - v3.2
     - master
     - frontiers-xios
     base_dir: <TEST_DIR>/run/awicm3/
@@ -1074,7 +1075,7 @@ general:
     inspect: null
     isinteractive: false
     iterative_coupled_model: ''
-    jobid: 818
+    jobid: 862
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 19991231-19991231
@@ -1930,6 +1931,7 @@ oifs:
         - 43r3-awicm-3.1
         - 43r3-awicm-3.1.1
         - 43r3-awicm-3.1.2
+        - 43r3-awicm-3.2
         - 43r3-awicm-frontiers-xios
         - 43r3
         - 40r1-foci
@@ -1981,6 +1983,15 @@ oifs:
                 with_xios: true
             43r3-awicm-3.1.2:
                 branch: awicm-3.1.2
+                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3/../xios/inc/; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; chmod -R 700 .; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
+                destination: oifs-43r3
+                git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3.git
+                install_bins: make/esm/oifs/bin/oifs
+                requires:
+                - oasis3mct-4.0-awicm-3.1
+                with_xios: true
+            43r3-awicm-3.2:
+                branch: awicm-3.2
                 comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3/../xios/inc/; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; chmod -R 700 .; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
                 destination: oifs-43r3
                 git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3.git
@@ -2661,6 +2672,8 @@ oifs:
     mip: cmip6
     model: oifs
     model_dir: <TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3
+    models:
+    - xios
     namelist_case: uppercase
     namelist_changes:
         fort.4:
