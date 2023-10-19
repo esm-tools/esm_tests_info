@@ -32,15 +32,14 @@ run:
                     - "restart/oifs/*/rcf"
                     - "restart/oifs/*/srf*"
                     - "restart/oifs/*/waminfo*"
-                    - "outdata/oifs/*/ICMGG* except [frontiers-xios, v3.1.1]"
-                    - "outdata/oifs/*/ICMSH* except [frontiers-xios, v3.1.1]"
-                    - "outdata/oifs/*/ICMUA* except [frontiers-xios, v3.1.1]"
-                    - "outdata/oifs/atm_remapped* in [frontiers-xios, v3.1.1]"
+                    - "outdata/oifs/*/ICMGG* except [frontiers-xios, v3.1.1, v3.2]"
+                    - "outdata/oifs/*/ICMSH* except [frontiers-xios, v3.1.1, v3.2]"
+                    - "outdata/oifs/*/ICMUA* except [frontiers-xios, v3.1.1, v3.2]"
+                    - "outdata/oifs/atm_remapped* in [frontiers-xios, v3.1.1, v3.2]"
                     - "outdata/fesom/*.fesom.*.nc"
         check: {}
 computers:
         - ollie
-        - mistral
         - juwels
         - aleph
         - blogin
