@@ -2,8 +2,8 @@
 #PBS -q iccp
 #PBS -l walltime=01:00:00
 #PBS -l nodes=7
-#PBS -j oe -o <TEST_DIR>/run/awicm3//awicm3-v3.1-TCO95L91-CORE2_initial/log/awicm3-v3.1-TCO95L91-CORE2_initial_awicm3_compute_20000101-20000101_$PBS_JOBID.log
-#PBS -N awicm3-v3.1-TCO95L91-CORE2_initial
+#PBS -j oe -o <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/log/awicm3-v3.2-TCO95L91-CORE2_initial_awicm3_compute_20000101-20000101_$PBS_JOBID.log
+#PBS -N awicm3-v3.2-TCO95L91-CORE2_initial
 #PBS -A None
 
 module unload craype
@@ -49,7 +49,7 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$ECCODESROOT/lib:$PROJ4_DIR/lib
 export PATH=$ECCODESROOT/bin:${PATH}
 export ACCOUNT=None
 export ESM_TESTING_DIR=<TEST_DIR>/run/awicm3/
-export MODEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-v3.1.1
+export MODEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-v3.2
 export FESOM_USE_CPLNG="active"
 export ECE_CPL_NEMO_LIM="false"
 export ECE_CPL_FESOM_FESIM="true"
@@ -61,22 +61,22 @@ export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 825 - start >> <TEST_DIR>/run/awicm3//awicm3-v3.1-TCO95L91-CORE2_initial/log//awicm3-v3.1-TCO95L91-CORE2_initial_awicm3.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 895 - start >> <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/log//awicm3-v3.2-TCO95L91-CORE2_initial_awicm3.log
 
-cd <TEST_DIR>/run/awicm3//awicm3-v3.1-TCO95L91-CORE2_initial/run_20000101-20000101/work/
-qalter $PBS_JOBID -o <TEST_DIR>/run/awicm3//awicm3-v3.1-TCO95L91-CORE2_initial/log/awicm3-v3.1-TCO95L91-CORE2_initial_awicm3_compute_20000101-20000101_$PBS_JOBID.log
+cd <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work/
+qalter $PBS_JOBID -o <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/log/awicm3-v3.2-TCO95L91-CORE2_initial_awicm3_compute_20000101-20000101_$PBS_JOBID.log
 time aprun -n 40 -N 40 -d 1 env OMP_NUM_THREADS=1 env PMI_LABEL_ERROUT_FORMAT="[FESOM]%l:" ./fesom \
          : -n 80 -N 20 -d 2 env OMP_NUM_THREADS=2 env PMI_LABEL_ERROUT_FORMAT="[OIFS]%l:" ./oifs -v ecmwf -e awi3 \
          : -n 1 -N 1 -d 40 env OMP_NUM_THREADS=40 env PMI_LABEL_ERROUT_FORMAT="[RNFMAP]%l:" ./rnfma \
-         : -n 1 -N 1 -d 40 env OMP_NUM_THREADS=40 env PMI_LABEL_ERROUT_FORMAT="[XIOS]%l:" ./xios.x  2>&1| tee <TEST_DIR>/run/awicm3//awicm3-v3.1-TCO95L91-CORE2_initial/log/awicm3-v3.1-TCO95L91-CORE2_initial_awicm3_execution_20000101-20000101_$PBS_JOBID.log &
+         : -n 1 -N 1 -d 40 env OMP_NUM_THREADS=40 env PMI_LABEL_ERROUT_FORMAT="[XIOS]%l:" ./xios.x  2>&1| tee <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/log/awicm3-v3.2-TCO95L91-CORE2_initial_awicm3_execution_20000101-20000101_$PBS_JOBID.log &
 
 # Call to esm_runscript to start subjobs:
 # ['tidy']
 process=$! 
 # Comment the following line if you don't want esm_runscripts to restart:
-cd <TEST_DIR>/run/awicm3//awicm3-v3.1-TCO95L91-CORE2_initial/scripts/
-esm_runscripts awicm3-v3.1-TCO95L91-CORE2_initial.yaml -e awicm3-v3.1-TCO95L91-CORE2_initial -t observe_compute -p ${process} -s 20000101 -r 1 -v  --last-jobtype prepcompute --open-run
+cd <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/scripts/
+esm_runscripts awicm3-v3.2-TCO95L91-CORE2_initial.yaml -e awicm3-v3.2-TCO95L91-CORE2_initial -t observe_compute -p ${process} -s 20000101 -r 1 -v  --last-jobtype prepcompute --open-run
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 825 - done >> <TEST_DIR>/run/awicm3//awicm3-v3.1-TCO95L91-CORE2_initial/log//awicm3-v3.1-TCO95L91-CORE2_initial_awicm3.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 895 - done >> <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/log//awicm3-v3.2-TCO95L91-CORE2_initial_awicm3.log
 
 wait

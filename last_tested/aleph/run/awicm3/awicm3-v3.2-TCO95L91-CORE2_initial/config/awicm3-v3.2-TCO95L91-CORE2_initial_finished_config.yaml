@@ -13,12 +13,12 @@ computer:
     cc: cc
     check_error:
         Exiting due to errors. Application aborted:
-            file: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/log/awicm3-frontiers-xios-TCO159L91-CORE2_initial_awicm3_execution_20000101-20000101_@jobid@.log
+            file: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/log/awicm3-v3.2-TCO95L91-CORE2_initial_awicm3_execution_20000101-20000101_@jobid@.log
             frequency: 30
             message: 'PBS ERROR: pbs ended with an error, exiting.'
             method: kill
         'exit signals: Killed':
-            file: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/log/awicm3-frontiers-xios-TCO159L91-CORE2_initial_awicm3_execution_20000101-20000101_@jobid@.log
+            file: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/log/awicm3-v3.2-TCO95L91-CORE2_initial_awicm3_execution_20000101-20000101_@jobid@.log
             frequency: 30
             message: 'PBS ERROR: pbs ended with an error, exiting.'
             method: kill
@@ -86,14 +86,14 @@ computer:
     mpicc: cc
     mpifc: ftn
     name: aleph
-    name_flag: -N awicm3-frontiers-xios-TCO159L91-CORE2_initial
+    name_flag: -N awicm3-v3.2-TCO95L91-CORE2_initial
     nodes_flag: -l nodes=@nodes@
     notification_flag:
     - ''
     - ''
     operating_system: SLES
-    output_flags: -j oe -o <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/log/awicm3-frontiers-xios-TCO159L91-CORE2_initial_awicm3_@jobtype@_20000101-20000101_$PBS_JOBID.log
-    output_path: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/log/
+    output_flags: -j oe -o <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/log/awicm3-v3.2-TCO95L91-CORE2_initial_awicm3_@jobtype@_20000101-20000101_$PBS_JOBID.log
+    output_path: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/log/
     partition: iccp
     partition_cpn: 40
     partition_flag: -q iccp
@@ -113,16 +113,16 @@ computer:
         add_export_vars:
             ACCOUNT: None
             ESM_TESTING_DIR: <TEST_DIR>/run/awicm3/
-            MODEL_DIR: <TEST_DIR>/comp/awicm3/awicm3-frontiers-xios
+            MODEL_DIR: <TEST_DIR>/comp/awicm3/awicm3-v3.2
     sh_interpreter: /bin/sh
     submit: qsub
     submitted: false
     taskset: true
-    thisrun_logfile: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/log/awicm3-frontiers-xios-TCO159L91-CORE2_initial_awicm3_@jobtype@_20000101-20000101_$PBS_JOBID.log
+    thisrun_logfile: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/log/awicm3-v3.2-TCO95L91-CORE2_initial_awicm3_@jobtype@_20000101-20000101_$PBS_JOBID.log
     threads_per_core: 1
     time_flag: -l walltime=01:00:00
     useMPI: cray_mpich
-    write_execution_log: '| tee <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/log/awicm3-frontiers-xios-TCO159L91-CORE2_initial_awicm3_execution_20000101-20000101_$PBS_JOBID.log'
+    write_execution_log: '| tee <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/log/awicm3-v3.2-TCO95L91-CORE2_initial_awicm3_execution_20000101-20000101_$PBS_JOBID.log'
 debug_info:
     loaded_from_file:
     - <HOME_DIR>/esm_tools/configs//setups/awicm3/awicm3.yaml
@@ -132,6 +132,13 @@ defaults:
     debug_info:
         loaded_from_file: <HOME_DIR>/esm_tools/configs//defaults/download_and_compile.yaml
 fesom:
+    AOMIP_drag_coeff: false
+    Cd_atm_ice: 0.0012
+    Cd_atm_oce: 0.001
+    Ce_atm_ice: 0.00175
+    Ce_atm_oce: 0.00175
+    Ch_atm_ice: 0.00175
+    Ch_atm_oce: 0.00175
     all_filetypes:
     - analysis
     - bin
@@ -146,45 +153,60 @@ fesom:
     - restart_out
     - viz
     - ignore
-    asforcing: CORE2
+    asforcing: JRA55
     awicm3_fields:
     - ist_feom
     - sia_feom
-    bin_dir: <TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/bin
+    bin_dir: <TEST_DIR>/comp/awicm3/awicm3-v3.2/bin
     bin_intermediate:
-        fesom: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/bin/fesom/fesom
+        fesom: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/bin/fesom/fesom
     bin_sources:
-        fesom: <TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/bin/fesom.x
+        fesom: <TEST_DIR>/comp/awicm3/awicm3-v3.2/bin/fesom.x
     bin_targets:
-        fesom: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work/fesom
-    branch: 2.0.2
+        fesom: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work/fesom
+    branch: '2.5'
     branchoff: false
     clean_command: rm -rf build CMakeCache.txt
     climate_data_dir: /proj/awi/input/fesom2//hydrography/
     comp_command: mkdir -p build; cd build; cmake -DOIFS_COUPLED=ON -DFESOM_COUPLED=ON ..;   make install -j `nproc --all`
     comp_executable: fesom.x
+    compiletime_environment_changes:
+        add_export_vars:
+            taken2from: fesom2_compile
     config_intermediate:
-        config: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/config/fesom/namelist.config
-        fesom.clock: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/config/fesom/fesom.clock
-        forcing: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/config/fesom/namelist.forcing
-        ice: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/config/fesom/namelist.ice
-        io: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/config/fesom/namelist.io
-        oce: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/config/fesom/namelist.oce
+        config: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/config/fesom/namelist.config
+        cvmix: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/config/fesom/namelist.cvmix
+        dyn: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/config/fesom/namelist.dyn
+        fesom.clock: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/config/fesom/fesom.clock
+        forcing: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/config/fesom/namelist.forcing
+        ice: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/config/fesom/namelist.ice
+        icepack: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/config/fesom/namelist.icepack
+        io: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/config/fesom/namelist.io
+        oce: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/config/fesom/namelist.oce
+        tra: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/config/fesom/namelist.tra
     config_sources:
-        config: <HOME_DIR>/esm_tools/namelists//fesom2/2.0/awicm3/frontiers//namelist.config
-        fesom.clock: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/config/fesom//fesom.clock
-        forcing: <HOME_DIR>/esm_tools/namelists//fesom2/2.0/awicm3/frontiers//namelist.forcing
-        ice: <HOME_DIR>/esm_tools/namelists//fesom2/2.0/awicm3/frontiers//namelist.ice
-        io: <HOME_DIR>/esm_tools/namelists//fesom2/2.0/awicm3/frontiers//namelist.io
-        oce: <HOME_DIR>/esm_tools/namelists//fesom2/2.0/awicm3/frontiers//namelist.oce
+        config: <HOME_DIR>/esm_tools/namelists//fesom2/2.5/awicm3/v3.2//namelist.config
+        cvmix: <HOME_DIR>/esm_tools/namelists//fesom2/2.5/awicm3/v3.2//namelist.cvmix
+        dyn: <HOME_DIR>/esm_tools/namelists//fesom2/2.5/awicm3/v3.2//namelist.dyn
+        fesom.clock: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/config/fesom//fesom.clock
+        forcing: <HOME_DIR>/esm_tools/namelists//fesom2/2.5/awicm3/v3.2//namelist.forcing
+        ice: <HOME_DIR>/esm_tools/namelists//fesom2/2.5/awicm3/v3.2//namelist.ice
+        icepack: <HOME_DIR>/esm_tools/namelists//fesom2/2.5/awicm3/v3.2//namelist.icepack
+        io: <HOME_DIR>/esm_tools/namelists//fesom2/2.5/awicm3/v3.2//namelist.io
+        oce: <HOME_DIR>/esm_tools/namelists//fesom2/2.5/awicm3/v3.2//namelist.oce
+        tra: <HOME_DIR>/esm_tools/namelists//fesom2/2.5/awicm3/v3.2//namelist.tra
     config_targets:
-        config: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work/namelist.config
-        fesom.clock: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work/fesom.clock
-        forcing: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work/namelist.forcing
-        ice: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work/namelist.ice
-        io: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work/namelist.io
-        oce: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work/namelist.oce
-    contact: dmitry.sidorenko(at)awi.de, nikolay.koldunov(at)awi.de, miguel.andres-martinez(at)awi.de, paul.gierz(at)awi.de
+        config: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work/namelist.config
+        cvmix: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work/namelist.cvmix
+        dyn: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work/namelist.dyn
+        fesom.clock: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work/fesom.clock
+        forcing: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work/namelist.forcing
+        ice: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work/namelist.ice
+        icepack: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work/namelist.icepack
+        io: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work/namelist.io
+        oce: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work/namelist.oce
+        tra: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work/namelist.tra
+    contact: jan.streffing(at)awi.de, dmitry.sidorenko(at)awi.de, nikolay.koldunov(at)awi.de, miguel.andres-martinez(at)awi.de, paul.gierz(at)awi.de
     coupling_fields:
         enth_oce:
             grid: feom
@@ -236,22 +258,23 @@ fesom:
     currentday: 1
     daynew: 1
     debug_info:
-        loaded_from_file: <HOME_DIR>/esm_tools/configs//components/fesom/fesom-2.0.yaml
-    destination: fesom-2.0
+        loaded_from_file:
+        - <HOME_DIR>/esm_tools/configs//components/fesom/fesom-2.5.yaml
+    destination: fesom-2.5
     executable: fesom
-    experiment_analysis_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/analysis/fesom/
-    experiment_bin_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/bin/fesom/
-    experiment_config_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/config/fesom/
-    experiment_couple_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/couple/fesom/
-    experiment_forcing_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/forcing/fesom/
-    experiment_ignore_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/ignore/fesom/
-    experiment_input_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/input/fesom/
-    experiment_log_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/log/fesom/
-    experiment_mon_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/mon/fesom/
-    experiment_outdata_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/outdata/fesom/
-    experiment_restart_in_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/restart/fesom/
-    experiment_restart_out_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/restart/fesom/
-    experiment_viz_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/viz/fesom/
+    experiment_analysis_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/analysis/fesom/
+    experiment_bin_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/bin/fesom/
+    experiment_config_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/config/fesom/
+    experiment_couple_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/couple/fesom/
+    experiment_forcing_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/forcing/fesom/
+    experiment_ignore_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/ignore/fesom/
+    experiment_input_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/input/fesom/
+    experiment_log_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/log/fesom/
+    experiment_mon_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/mon/fesom/
+    experiment_outdata_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/outdata/fesom/
+    experiment_restart_in_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/restart/fesom/
+    experiment_restart_out_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/restart/fesom/
+    experiment_viz_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/viz/fesom/
     file_movements:
         analysis:
             exp_to_run: copy
@@ -369,9 +392,9 @@ fesom:
             run_to_work: copy
             work_to_run: copy
     forcing_data_dir: ''
+    forcing_folder: /JRA55-do-v1.4.0/
     git-repository:
     - https://github.com/FESOM/fesom2.git
-    - https://gitlab.dkrz.de/FESOM/fesom2.git
     grids:
         feom:
             name: feom
@@ -379,28 +402,43 @@ fesom:
             nx: 126858
             ny: 1
             oasis_grid_type: U
+    humi_prefix: huss.
+    icb_code: false
     ini_data_dir: /proj/awi/input/fesom2//pool-data/
     install_bins: bin/fesom.x
+    l_cloud: false
+    l_humi: true
+    l_mslp: false
+    l_prec: true
+    l_qlw: true
+    l_qsr: true
+    l_snow: true
+    l_tair: true
+    l_xwind: true
+    l_ywind: true
     last_parent_date: '1999-12-31T22:40:00'
     lasttime: 84000
     leapyear: true
     log_intermediate:
-        clock: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/log/fesom/fesom.clock
-        mesh_diag: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/log/fesom/fesom.mesh.diag.nc
+        clock: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/log/fesom/fesom.clock
+        mesh_diag: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/log/fesom/fesom.mesh.diag.nc
     log_sources:
-        clock: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//fesom.clock
-        mesh_diag: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//fesom.mesh.diag.nc
+        clock: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//fesom.clock
+        mesh_diag: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//fesom.mesh.diag.nc
     log_targets:
-        clock: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/log/fesom/fesom.clock
-        mesh_diag: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/log/fesom/fesom.mesh.diag.nc
+        clock: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/log/fesom/fesom.clock
+        mesh_diag: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/log/fesom/fesom.mesh.diag.nc
     lresume: false
+    mesh_base_dir: /proj/awi/input/fesom2//FESOM2/meshes/
     mesh_dir: /proj/awi/input/fesom2//core2/
     mesh_rotated: false
     model: fesom
-    model_dir: <TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/fesom-2.0
-    model_tag: frontiers
+    model_dir: <TEST_DIR>/comp/awicm3/awicm3-v3.2/fesom-2.5
+    mslp_prefix: psl.
     namelist_changes:
         namelist.config:
+            ale_def:
+                which_ALE: zstar
             calendar:
                 include_fleapyear: true
             clockinit:
@@ -413,7 +451,7 @@ fesom:
             paths:
                 ClimateDataPath: /proj/awi/input/fesom2//hydrography/
                 MeshPath: /proj/awi/input/fesom2//core2/
-                ResultPath: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work/
+                ResultPath: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work/
             restart_log:
                 restart_length: 1
                 restart_length_unit: d
@@ -421,6 +459,12 @@ fesom:
                 run_length: 1
                 run_length_unit: d
                 step_per_day: 36
+        namelist.ice:
+            ice_therm:
+                albi: 0.6
+                albim: 0.43
+                albsn: 0.81
+                albsnm: 0.77
         namelist.io:
             nml_list:
                 io_list:
@@ -429,16 +473,49 @@ fesom:
                 - d
                 - 4
         namelist.oce:
+            oce_dyn:
+                SPP: true
+                k_gm_max: 3000
+                k_gm_rampmax: 40
+                k_gm_rampmin: 30
+                scaling_ferreira: true
+                scaling_fesom14: true
             oce_tra:
                 surf_relax_s: 0
-    namelist_dir: <HOME_DIR>/esm_tools/namelists//fesom2/2.0/awicm3/frontiers/
+        namelist.tra:
+            tracer_phys:
+                kv0_const: false
+                surf_relax_s: 0
+                use_momix: false
+    namelist_dir: <HOME_DIR>/esm_tools/namelists//fesom2/2.5/awicm3/v3.2/
     namelists:
     - namelist.config
-    - namelist.forcing
-    - namelist.oce
-    - namelist.ice
-    - namelist.io
     - namelist.cvmix
+    - namelist.dyn
+    - namelist.forcing
+    - namelist.ice
+    - namelist.icepack
+    - namelist.io
+    - namelist.oce
+    - namelist.tra
+    ncar_bulk_formulae: true
+    ncar_bulk_z_shum: 10
+    ncar_bulk_z_tair: 10
+    ncar_bulk_z_wind: 10
+    nm_humi_var: huss
+    nm_mslp_var: psl
+    nm_nc_freq: 1
+    nm_nc_idd: 1
+    nm_nc_imm: 1
+    nm_nc_iyear: 1900
+    nm_nc_tmid: 0
+    nm_prec_var: prra
+    nm_qlw_var: rlds
+    nm_qsr_var: rsds
+    nm_snow_var: prsn
+    nm_tair_var: tas
+    nm_xwind_var: uas
+    nm_ywind_var: vas
     nproc: 40
     nx: 126858
     old_mesh_format: false
@@ -450,19 +527,18 @@ fesom:
         fesom: '*.fesom.*.nc'
     outdata_targets: {}
     parent_date: '1999-12-31T23:20:00'
-    parent_expid: awicm3-frontiers-xios-TCO159L91-CORE2_initial
-    parent_restart_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/restart/fesom/
+    parent_expid: awicm3-v3.2-TCO95L91-CORE2_initial
+    parent_restart_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/restart/fesom/
     pool_dir: /proj/awi/input/fesom2/
+    prec_prefix: prra.
     prev_date: '1999-12-31T23:20:00'
+    qlw_prefix: rlds.
+    qsr_prefix: rsds.
     resolution: CORE2
     restart_first: 1
     restart_flag: last
-    restart_out_intermediate:
-        ice_restart: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/restart/fesom/fesom.2000.ice.restart.nc
-        oce_restart: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/restart/fesom/fesom.2000.oce.restart.nc
-    restart_out_sources:
-        ice_restart: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//fesom.2000.ice.restart.nc
-        oce_restart: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//fesom.2000.oce.restart.nc
+    restart_out_intermediate: {}
+    restart_out_sources: {}
     restart_out_sources_wild_card:
         fesom_bin_restart: '*'
         fesom_bin_restart_info: '*.info'
@@ -470,37 +546,60 @@ fesom:
         fesom_raw_restart_info: '*.info'
         par_ice_restart: '*.nc'
         par_oce_restart: '*.nc'
-    restart_out_targets:
-        ice_restart: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/restart/fesom/fesom.2000.ice.restart.nc
-        oce_restart: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/restart/fesom/fesom.2000.oce.restart.nc
+    restart_out_targets: {}
     restart_rate: 1
     restart_unit: d
     rnproc: 40
-    setup_dir: <TEST_DIR>/comp/awicm3/awicm3-frontiers-xios
+    runoff_data_source: CORE2
+    runoff_file: CORE2_runoff.nc
+    setup_dir: <TEST_DIR>/comp/awicm3/awicm3-v3.2
+    snow_prefix: prsn.
+    sss_data_file: PHC2_salx.nc
+    sss_data_source: CORE2
     startday: 1
     starttime: 0
     steps_per_day: 36
     surf_relax_s: 0
-    thisrun_analysis_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/analysis/fesom/
-    thisrun_bin_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/bin/fesom/
-    thisrun_config_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/config/fesom/
-    thisrun_couple_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/couple/fesom/
-    thisrun_forcing_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/forcing/fesom/
-    thisrun_ignore_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/ignore/fesom/
-    thisrun_input_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/input/fesom/
-    thisrun_log_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/log/fesom/
-    thisrun_mon_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/mon/fesom/
-    thisrun_outdata_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/outdata/fesom/
-    thisrun_restart_in_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/restart/fesom/
-    thisrun_restart_out_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/restart/fesom/
-    thisrun_viz_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/viz/fesom/
+    tair_prefix: tas.
+    thisrun_analysis_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/analysis/fesom/
+    thisrun_bin_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/bin/fesom/
+    thisrun_config_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/config/fesom/
+    thisrun_couple_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/couple/fesom/
+    thisrun_forcing_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/forcing/fesom/
+    thisrun_ignore_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/ignore/fesom/
+    thisrun_input_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/input/fesom/
+    thisrun_log_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/log/fesom/
+    thisrun_mon_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/mon/fesom/
+    thisrun_outdata_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/outdata/fesom/
+    thisrun_restart_in_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/restart/fesom/
+    thisrun_restart_out_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/restart/fesom/
+    thisrun_viz_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/viz/fesom/
     tide_forcing_dir: ''
     time_dimension: time
     time_step: 2400
     type: ocean
-    version: 2
+    use_icebergs: false
+    use_icesheet_coupling: false
+    version: 2.5
+    wiso_code: false
+    wiso_fields:
+    - o18w_oce
+    - hdow_oce
+    - o16w_oce
+    - o18i_oce
+    - hdoi_oce
+    - o16i_oce
+    - w1_oce
+    - w2_oce
+    - w3_oce
+    - i1_oce
+    - i2_oce
+    - i3_oce
     with_part_format: false
+    with_wiso: false
+    xwind_prefix: uas.
     yearnew: 2000
+    ywind_prefix: vas.
 general:
     account: None
     add_compiletime_environment_changes:
@@ -563,19 +662,19 @@ general:
     command_line_config:
         check: true
         current_date: null
-        expid: awicm3-frontiers-xios-TCO159L91-CORE2_initial
+        expid: awicm3-v3.2-TCO95L91-CORE2_initial
         ignore_config_warnings: false
         inspect: null
         jobtype: prepcompute
         last_jobtype: prepcompute
         launcher_pid: -666
         no_motd: true
-        original_command: awicm3-frontiers-xios-TCO159L91-CORE2_initial.yaml -e awicm3-frontiers-xios-TCO159L91-CORE2_initial --open-run -c --no-motd --last-jobtype prepcompute
+        original_command: awicm3-v3.2-TCO95L91-CORE2_initial.yaml -e awicm3-v3.2-TCO95L91-CORE2_initial --open-run -c --no-motd --last-jobtype prepcompute
         profile: false
         run_number: null
-        runscript_abspath: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/scripts/awicm3-frontiers-xios-TCO159L91-CORE2_initial.yaml
-        scriptname: awicm3-frontiers-xios-TCO159L91-CORE2_initial.yaml
-        started_from: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/scripts/
+        runscript_abspath: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml
+        scriptname: awicm3-v3.2-TCO95L91-CORE2_initial.yaml
+        started_from: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/
         update: false
         update_filetypes: []
         use_venv: false
@@ -880,9 +979,9 @@ general:
     compute_time: 01:00:00
     coupled_setup: true
     coupler: oasis3mct
-    coupler_config_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/config/oasis3mct/
+    coupler_config_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/config/oasis3mct/
     couplings:
-    - fesom-2.0-frontiers+oifs-43r3-awicm-frontiers-xios+xios-2.5
+    - fesom-2.5+oifs-43r3-awicm-3.2+xios-2.5
     current_date: '2000-01-01T00:00:00'
     debug_info:
         loaded_from_file:
@@ -935,18 +1034,18 @@ general:
     esm_function_dir: <HOME_DIR>/esm_tools/configs/
     esm_namelist_dir: <HOME_DIR>/esm_tools/namelists/
     esm_runscript_dir: <HOME_DIR>/esm_tools/runscripts/
-    experiment_analysis_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/analysis/
-    experiment_config_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/config/
-    experiment_couple_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/couple/
-    experiment_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial
-    experiment_ignore_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/ignore/
-    experiment_log_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/log/
-    experiment_log_file: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/log//awicm3-frontiers-xios-TCO159L91-CORE2_initial_awicm3.log
-    experiment_mon_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/mon/
-    experiment_scripts_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/scripts/
-    experiment_src_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/src/
-    experiment_unknown_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/unknown/
-    expid: awicm3-frontiers-xios-TCO159L91-CORE2_initial
+    experiment_analysis_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/analysis/
+    experiment_config_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/config/
+    experiment_couple_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/couple/
+    experiment_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial
+    experiment_ignore_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/ignore/
+    experiment_log_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/log/
+    experiment_log_file: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/log//awicm3-v3.2-TCO95L91-CORE2_initial_awicm3.log
+    experiment_mon_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/mon/
+    experiment_scripts_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/scripts/
+    experiment_src_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/src/
+    experiment_unknown_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/unknown/
+    expid: awicm3-v3.2-TCO95L91-CORE2_initial
     file_movements:
         analysis:
             exp_to_run: copy
@@ -1041,7 +1140,7 @@ general:
     inspect: null
     isinteractive: false
     iterative_coupled_model: ''
-    jobid: 860
+    jobid: 895
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 19991231-19991231
@@ -1049,12 +1148,12 @@ general:
     last_start_date: '1999-12-31T00:00:00'
     launcher_pid: -666
     leapyear: true
-    logfile_path: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/log//awicm3-frontiers-xios-TCO159L91-CORE2_initial_awicm3_prepcompute_20000101-20000101.log
-    logfile_path_in_run: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/log//awicm3-frontiers-xios-TCO159L91-CORE2_initial_awicm3_prepcompute_20000101-20000101.log
+    logfile_path: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/log//awicm3-v3.2-TCO95L91-CORE2_initial_awicm3_prepcompute_20000101-20000101.log
+    logfile_path_in_run: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/log//awicm3-v3.2-TCO95L91-CORE2_initial_awicm3_prepcompute_20000101-20000101.log
     lresume: false
-    major_version: frontiers-xios
+    major_version: v3.2
     model: awicm3
-    model_dir: <TEST_DIR>/comp/awicm3/awicm3-frontiers-xios
+    model_dir: <TEST_DIR>/comp/awicm3/awicm3-v3.2
     models:
     - fesom
     - oifs
@@ -1069,7 +1168,7 @@ general:
     no_motd: true
     nsecond: 0
     nyear: 0
-    original_command: awicm3-frontiers-xios-TCO159L91-CORE2_initial.yaml -e awicm3-frontiers-xios-TCO159L91-CORE2_initial --open-run -c --no-motd --last-jobtype prepcompute
+    original_command: awicm3-v3.2-TCO95L91-CORE2_initial.yaml -e awicm3-v3.2-TCO95L91-CORE2_initial --open-run -c --no-motd --last-jobtype prepcompute
     out_filetypes:
     - analysis
     - log
@@ -1125,7 +1224,7 @@ general:
     - input
     - restart_in
     reset_calendar_to_last: false
-    resolution: TCO159_CORE2
+    resolution: TCO95_CORE2
     reusable_filetypes:
     - input
     - bin
@@ -1133,7 +1232,7 @@ general:
     run_datestamp: 20000101-20000101
     run_number: 1
     run_or_compile: runtime
-    runscript_abspath: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/scripts/awicm3-frontiers-xios-TCO159L91-CORE2_initial.yaml
+    runscript_abspath: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml
     runtime:
     - 0
     - 0
@@ -1246,23 +1345,23 @@ general:
                 - unload intel.mpi
                 - load intel.mpi/2021.3.0
     scenario: piControl
-    scriptname: awicm3-frontiers-xios-TCO159L91-CORE2_initial.yaml
+    scriptname: awicm3-v3.2-TCO95L91-CORE2_initial.yaml
     setup_name: awicm3
     standalone: false
     start_date: '2000-01-01T00:00:00'
-    started_from: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/scripts/
+    started_from: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/
     submitted: false
-    thisrun_analysis_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/analysis/
-    thisrun_config_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/config/
-    thisrun_couple_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/couple/
-    thisrun_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101
-    thisrun_ignore_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/ignore/
-    thisrun_log_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/log/
-    thisrun_mon_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/mon/
-    thisrun_scripts_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/scripts/
-    thisrun_src_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/src/
-    thisrun_unknown_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/unknown/
-    thisrun_work_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work/
+    thisrun_analysis_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/analysis/
+    thisrun_config_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/config/
+    thisrun_couple_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/couple/
+    thisrun_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101
+    thisrun_ignore_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/ignore/
+    thisrun_log_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/log/
+    thisrun_mon_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/mon/
+    thisrun_scripts_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/scripts/
+    thisrun_src_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/src/
+    thisrun_unknown_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/unknown/
+    thisrun_work_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work/
     total_runtime:
     - 0
     - 0
@@ -1290,8 +1389,8 @@ general:
     - oasis3mct
     - debug_info
     verbose: false
-    version: frontiers-xios
-    work_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work/
+    version: v3.2
+    work_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work/
     workflow:
         first_task_in_queue: prepcompute
         last_task_in_queue: tidy
@@ -1397,16 +1496,16 @@ oasis3mct:
     - 4.0-awicm-3.1
     - 5.0-smhi
     branch: v2.8
-    cf_name_dir: <TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oasis
+    cf_name_dir: <TEST_DIR>/comp/awicm3/awicm3-v3.2/oasis
     clean_command: rm -rf build CMakeCache.txt include lib/libpsmile.a lib/libscrip.a lib/libmct.a lib/libmpeu.a
     comp_command: mkdir -p build; cd build; cmake ..;   make -j 1; mkdir -p ../include/; cp lib/psmile/libpsmile.a lib/psmile/mct/libmct.a lib/psmile/mct/mpeu/libmpeu.a lib/psmile/scrip/libscrip.a ../lib; cp lib/psmile/mod_oasis*mod ../include
     compiletime_environment_changes: *id003
     config_intermediate:
-        namcouple: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/config/oasis3mct/namcouple
+        namcouple: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/config/oasis3mct/namcouple
     config_sources:
-        namcouple: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/config/oasis3mct//namcouple
+        namcouple: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/config/oasis3mct//namcouple
     config_targets:
-        namcouple: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work/namcouple
+        namcouple: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work/namcouple
     contact: miguel.andres-martinez(at)awi.de, paul.gierz(at)awi.de
     coupling_directions:
         atma->feom:
@@ -1482,32 +1581,33 @@ oasis3mct:
             time_transformation: instant
     coupling_target_fields:
         rstas.nc:
-        - heat_oce:heat_swo <--gauswgt_gss-- A_Qns_oce:A_Qs_all
-        - prec_oce:snow_oce:evap_oce:subl_oce <--gauswgt_gss-- A_Precip_liquid:A_Precip_solid:A_Evap:A_Subl
+        - heat_oce:heat_swo <--gauswgt_c-- A_Qns_oce:A_Qs_all
+        - prec_oce:snow_oce:evap_oce:subl_oce <--gauswgt_c-- A_Precip_liquid:A_Precip_solid:A_Evap:A_Subl
         - heat_ico <--gauswgt_gss-- A_Q_ice
         - taux_oce:tauy_oce:taux_ico:tauy_ico <--bicubic-- A_TauX_oce:A_TauY_oce:A_TauX_ice:A_TauY_ice
-        - R_Runoff_atm:R_Calving_atm <--gauswgt_gss-- A_Runoff:A_Calving
-        - hydr_oce:enth_oce <--gauswgt_gss-- R_Runoff_oce:R_Calving_oce
+        - R_Runoff_atm:R_Calving_atm <--gauswgt_c-- A_Runoff:A_Calving
+        - hydr_oce:enth_oce <--gauswgt_c-- R_Runoff_oce:R_Calving_oce
         rstos.nc:
         - A_SST:A_Ice_frac:A_Snow_thickness:A_Ice_temp:A_Ice_albedo <--gauswgt_i-- sst_feom:sie_feom:snt_feom:ist_feom:sia_feom
+        - A_CurX:A_CurY <--gauswgt_i-- u_feom:v_feom
     coupling_time_step: 7200
     debug_info:
         loaded_from_file:
         - <HOME_DIR>/esm_tools/configs//components/oasis3mct/oasis3mct.yaml
     destination: oasis
-    experiment_analysis_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/analysis/oasis3mct/
-    experiment_bin_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/bin/oasis3mct/
-    experiment_config_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/config/oasis3mct/
-    experiment_couple_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/couple/oasis3mct/
-    experiment_forcing_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/forcing/oasis3mct/
-    experiment_ignore_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/ignore/oasis3mct/
-    experiment_input_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/input/oasis3mct/
-    experiment_log_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/log/oasis3mct/
-    experiment_mon_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/mon/oasis3mct/
-    experiment_outdata_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/outdata/oasis3mct/
-    experiment_restart_in_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/restart/oasis3mct/
-    experiment_restart_out_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/restart/oasis3mct/
-    experiment_viz_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/viz/oasis3mct/
+    experiment_analysis_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/analysis/oasis3mct/
+    experiment_bin_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/bin/oasis3mct/
+    experiment_config_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/config/oasis3mct/
+    experiment_couple_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/couple/oasis3mct/
+    experiment_forcing_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/forcing/oasis3mct/
+    experiment_ignore_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/ignore/oasis3mct/
+    experiment_input_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/input/oasis3mct/
+    experiment_log_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/log/oasis3mct/
+    experiment_mon_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/mon/oasis3mct/
+    experiment_outdata_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/outdata/oasis3mct/
+    experiment_restart_in_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/restart/oasis3mct/
+    experiment_restart_out_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/restart/oasis3mct/
+    experiment_viz_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/viz/oasis3mct/
     file_movements:
         analysis:
             exp_to_run: copy
@@ -1586,34 +1686,34 @@ oasis3mct:
             work_to_run: copy
     git-repository: https://gitlab.dkrz.de/modular_esm/oasis3-mct.git
     ignore_intermediate:
-        nout: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/ignore/oasis3mct/nout.000000
+        nout: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/ignore/oasis3mct/nout.000000
     ignore_sources:
-        nout: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//nout.000000
+        nout: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//nout.000000
     ignore_sources_wild_card:
         debug.notroot: debug.notroot*
         debug.root: debug.root*
         lucia: lucia.*
     ignore_targets:
-        nout: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/ignore/oasis3mct/nout.000000
+        nout: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/ignore/oasis3mct/nout.000000
     ini_parent_date: '19500101'
-    ini_parent_dir: /proj/awi/input/oasis//cy43r3/TCO159-CORE2/
+    ini_parent_dir: /proj/awi/input/oasis//cy43r3/TCO95-CORE2/
     ini_parent_exp_id: khw0030
-    ini_restart_dir: /proj/awi/input/oasis//cy43r3/TCO159-CORE2/
-    input_dir: /proj/awi/input/oasis//cy43r3/TCO159-CORE2/
+    ini_restart_dir: /proj/awi/input/oasis//cy43r3/TCO95-CORE2/
+    input_dir: /proj/awi/input/oasis//cy43r3/TCO95-CORE2/
     input_intermediate:
-        areas: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/input/oasis3mct/areas.nc
-        grids: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/input/oasis3mct/grids.nc
-        masks: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/input/oasis3mct/masks.nc
+        areas: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/input/oasis3mct/areas.nc
+        grids: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/input/oasis3mct/grids.nc
+        masks: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/input/oasis3mct/masks.nc
     input_sources:
-        areas: /proj/awi/input/oasis//cy43r3/TCO159-CORE2//areas.nc
-        grids: /proj/awi/input/oasis//cy43r3/TCO159-CORE2//grids.nc
-        masks: /proj/awi/input/oasis//cy43r3/TCO159-CORE2//masks.nc
+        areas: /proj/awi/input/oasis//cy43r3/TCO95-CORE2//areas.nc
+        grids: /proj/awi/input/oasis//cy43r3/TCO95-CORE2//grids.nc
+        masks: /proj/awi/input/oasis//cy43r3/TCO95-CORE2//masks.nc
     input_sources_wild_card:
         rmp: rmp_*.nc
     input_targets:
-        areas: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work/areas.nc
-        grids: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work/grids.nc
-        masks: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work/masks.nc
+        areas: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work/areas.nc
+        grids: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work/grids.nc
+        masks: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work/masks.nc
     install_libs:
     - build/lib/psmile/libpsmile.a
     - build/lib/psmile/mct/libmct.a
@@ -1623,27 +1723,27 @@ oasis3mct:
     last_parent_date: '1999-12-31T20:00:00'
     leapyear: true
     log_intermediate:
-        debug_nr1: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/log/oasis3mct/debug_notroot.01
-        debug_nr2: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/log/oasis3mct/debug_notroot.02
-        debug_r1: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/log/oasis3mct/debug.root.01
-        debug_r2: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/log/oasis3mct/debug.root.02
-        nout: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/log/oasis3mct/nout.000000
+        debug_nr1: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/log/oasis3mct/debug_notroot.01
+        debug_nr2: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/log/oasis3mct/debug_notroot.02
+        debug_r1: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/log/oasis3mct/debug.root.01
+        debug_r2: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/log/oasis3mct/debug.root.02
+        nout: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/log/oasis3mct/nout.000000
     log_sources:
-        debug_nr1: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//debug_notroot.01
-        debug_nr2: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//debug_notroot.02
-        debug_r1: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//debug.root.01
-        debug_r2: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//debug.root.02
-        nout: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//nout.000000
+        debug_nr1: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//debug_notroot.01
+        debug_nr2: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//debug_notroot.02
+        debug_r1: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//debug.root.01
+        debug_r2: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//debug.root.02
+        nout: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//nout.000000
     log_targets:
-        debug_nr1: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/log/oasis3mct/debug_notroot.01
-        debug_nr2: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/log/oasis3mct/debug_notroot.02
-        debug_r1: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/log/oasis3mct/debug.root.01
-        debug_r2: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/log/oasis3mct/debug.root.02
-        nout: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/log/oasis3mct/nout.000000
+        debug_nr1: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/log/oasis3mct/debug_notroot.01
+        debug_nr2: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/log/oasis3mct/debug_notroot.02
+        debug_r1: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/log/oasis3mct/debug.root.01
+        debug_r2: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/log/oasis3mct/debug.root.02
+        nout: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/log/oasis3mct/nout.000000
     lresume: false
     mct_version: 4
     model: oasis3mct
-    model_dir: <TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oasis
+    model_dir: <TEST_DIR>/comp/awicm3/awicm3-v3.2/oasis
     nb_of_neighbours_a2o: 9
     norestart: F
     o2a_lag: 0
@@ -1652,132 +1752,144 @@ oasis3mct:
     o2r_seq: 1
     oasis_date_stamp: ''
     outdata_intermediate:
-        A_Calving_oifs_05.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/A_Calving_oifs_05.nc
-        A_Evap_oifs_02.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/A_Evap_oifs_02.nc
-        A_Ice_albedo_oifs_07.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/A_Ice_albedo_oifs_07.nc
-        A_Ice_frac_oifs_07.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/A_Ice_frac_oifs_07.nc
-        A_Ice_temp_oifs_07.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/A_Ice_temp_oifs_07.nc
-        A_Precip_liquid_oifs_02.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/A_Precip_liquid_oifs_02.nc
-        A_Precip_solid_oifs_02.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/A_Precip_solid_oifs_02.nc
-        A_Q_ice_oifs_03.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/A_Q_ice_oifs_03.nc
-        A_Qns_oce_oifs_01.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/A_Qns_oce_oifs_01.nc
-        A_Qs_all_oifs_01.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/A_Qs_all_oifs_01.nc
-        A_Runoff_oifs_05.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/A_Runoff_oifs_05.nc
-        A_SST_oifs_07.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/A_SST_oifs_07.nc
-        A_Snow_thickness_oifs_07.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/A_Snow_thickness_oifs_07.nc
-        A_Subl_oifs_02.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/A_Subl_oifs_02.nc
-        A_TauX_ice_oifs_04.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/A_TauX_ice_oifs_04.nc
-        A_TauX_oce_oifs_04.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/A_TauX_oce_oifs_04.nc
-        A_TauY_ice_oifs_04.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/A_TauY_ice_oifs_04.nc
-        A_TauY_oce_oifs_04.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/A_TauY_oce_oifs_04.nc
-        R_Calving_atm_rnfma_05.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/R_Calving_atm_rnfma_05.nc
-        R_Calving_oce_rnfma_06.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/R_Calving_oce_rnfma_06.nc
-        R_Runoff_atm_rnfma_05.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/R_Runoff_atm_rnfma_05.nc
-        R_Runoff_oce_rnfma_06.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/R_Runoff_oce_rnfma_06.nc
-        enth_oce_fesom_06.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/enth_oce_fesom_06.nc
-        evap_oce_fesom_02.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/evap_oce_fesom_02.nc
-        heat_ico_fesom_03.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/heat_ico_fesom_03.nc
-        heat_oce_fesom_01.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/heat_oce_fesom_01.nc
-        heat_swo_fesom_01.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/heat_swo_fesom_01.nc
-        hydr_oce_fesom_06.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/hydr_oce_fesom_06.nc
-        ist_feom_fesom_07.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/ist_feom_fesom_07.nc
-        prec_oce_fesom_02.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/prec_oce_fesom_02.nc
-        sia_feom_fesom_07.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/sia_feom_fesom_07.nc
-        sie_feom_fesom_07.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/sie_feom_fesom_07.nc
-        snow_oce_fesom_02.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/snow_oce_fesom_02.nc
-        snt_feom_fesom_07.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/snt_feom_fesom_07.nc
-        sst_feom_fesom_07.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/sst_feom_fesom_07.nc
-        subl_oce_fesom_02.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/subl_oce_fesom_02.nc
-        taux_ico_fesom_04.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/taux_ico_fesom_04.nc
-        taux_oce_fesom_04.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/taux_oce_fesom_04.nc
-        tauy_ico_fesom_04.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/tauy_ico_fesom_04.nc
-        tauy_oce_fesom_04.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/tauy_oce_fesom_04.nc
+        A_Calving_oifs_05.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/A_Calving_oifs_05.nc
+        A_CurX_oifs_08.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/A_CurX_oifs_08.nc
+        A_CurY_oifs_08.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/A_CurY_oifs_08.nc
+        A_Evap_oifs_02.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/A_Evap_oifs_02.nc
+        A_Ice_albedo_oifs_07.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/A_Ice_albedo_oifs_07.nc
+        A_Ice_frac_oifs_07.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/A_Ice_frac_oifs_07.nc
+        A_Ice_temp_oifs_07.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/A_Ice_temp_oifs_07.nc
+        A_Precip_liquid_oifs_02.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/A_Precip_liquid_oifs_02.nc
+        A_Precip_solid_oifs_02.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/A_Precip_solid_oifs_02.nc
+        A_Q_ice_oifs_03.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/A_Q_ice_oifs_03.nc
+        A_Qns_oce_oifs_01.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/A_Qns_oce_oifs_01.nc
+        A_Qs_all_oifs_01.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/A_Qs_all_oifs_01.nc
+        A_Runoff_oifs_05.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/A_Runoff_oifs_05.nc
+        A_SST_oifs_07.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/A_SST_oifs_07.nc
+        A_Snow_thickness_oifs_07.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/A_Snow_thickness_oifs_07.nc
+        A_Subl_oifs_02.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/A_Subl_oifs_02.nc
+        A_TauX_ice_oifs_04.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/A_TauX_ice_oifs_04.nc
+        A_TauX_oce_oifs_04.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/A_TauX_oce_oifs_04.nc
+        A_TauY_ice_oifs_04.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/A_TauY_ice_oifs_04.nc
+        A_TauY_oce_oifs_04.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/A_TauY_oce_oifs_04.nc
+        R_Calving_atm_rnfma_05.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/R_Calving_atm_rnfma_05.nc
+        R_Calving_oce_rnfma_06.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/R_Calving_oce_rnfma_06.nc
+        R_Runoff_atm_rnfma_05.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/R_Runoff_atm_rnfma_05.nc
+        R_Runoff_oce_rnfma_06.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/R_Runoff_oce_rnfma_06.nc
+        enth_oce_fesom_06.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/enth_oce_fesom_06.nc
+        evap_oce_fesom_02.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/evap_oce_fesom_02.nc
+        heat_ico_fesom_03.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/heat_ico_fesom_03.nc
+        heat_oce_fesom_01.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/heat_oce_fesom_01.nc
+        heat_swo_fesom_01.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/heat_swo_fesom_01.nc
+        hydr_oce_fesom_06.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/hydr_oce_fesom_06.nc
+        ist_feom_fesom_07.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/ist_feom_fesom_07.nc
+        prec_oce_fesom_02.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/prec_oce_fesom_02.nc
+        sia_feom_fesom_07.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/sia_feom_fesom_07.nc
+        sie_feom_fesom_07.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/sie_feom_fesom_07.nc
+        snow_oce_fesom_02.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/snow_oce_fesom_02.nc
+        snt_feom_fesom_07.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/snt_feom_fesom_07.nc
+        sst_feom_fesom_07.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/sst_feom_fesom_07.nc
+        subl_oce_fesom_02.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/subl_oce_fesom_02.nc
+        taux_ico_fesom_04.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/taux_ico_fesom_04.nc
+        taux_oce_fesom_04.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/taux_oce_fesom_04.nc
+        tauy_ico_fesom_04.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/tauy_ico_fesom_04.nc
+        tauy_oce_fesom_04.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/tauy_oce_fesom_04.nc
+        u_feom_fesom_08.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/u_feom_fesom_08.nc
+        v_feom_fesom_08.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/v_feom_fesom_08.nc
     outdata_sources:
-        A_Calving_oifs_05.nc: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//A_Calving_oifs_05.nc
-        A_Evap_oifs_02.nc: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//A_Evap_oifs_02.nc
-        A_Ice_albedo_oifs_07.nc: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//A_Ice_albedo_oifs_07.nc
-        A_Ice_frac_oifs_07.nc: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//A_Ice_frac_oifs_07.nc
-        A_Ice_temp_oifs_07.nc: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//A_Ice_temp_oifs_07.nc
-        A_Precip_liquid_oifs_02.nc: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//A_Precip_liquid_oifs_02.nc
-        A_Precip_solid_oifs_02.nc: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//A_Precip_solid_oifs_02.nc
-        A_Q_ice_oifs_03.nc: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//A_Q_ice_oifs_03.nc
-        A_Qns_oce_oifs_01.nc: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//A_Qns_oce_oifs_01.nc
-        A_Qs_all_oifs_01.nc: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//A_Qs_all_oifs_01.nc
-        A_Runoff_oifs_05.nc: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//A_Runoff_oifs_05.nc
-        A_SST_oifs_07.nc: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//A_SST_oifs_07.nc
-        A_Snow_thickness_oifs_07.nc: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//A_Snow_thickness_oifs_07.nc
-        A_Subl_oifs_02.nc: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//A_Subl_oifs_02.nc
-        A_TauX_ice_oifs_04.nc: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//A_TauX_ice_oifs_04.nc
-        A_TauX_oce_oifs_04.nc: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//A_TauX_oce_oifs_04.nc
-        A_TauY_ice_oifs_04.nc: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//A_TauY_ice_oifs_04.nc
-        A_TauY_oce_oifs_04.nc: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//A_TauY_oce_oifs_04.nc
-        R_Calving_atm_rnfma_05.nc: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//R_Calving_atm_rnfma_05.nc
-        R_Calving_oce_rnfma_06.nc: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//R_Calving_oce_rnfma_06.nc
-        R_Runoff_atm_rnfma_05.nc: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//R_Runoff_atm_rnfma_05.nc
-        R_Runoff_oce_rnfma_06.nc: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//R_Runoff_oce_rnfma_06.nc
-        enth_oce_fesom_06.nc: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//enth_oce_fesom_06.nc
-        evap_oce_fesom_02.nc: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//evap_oce_fesom_02.nc
-        heat_ico_fesom_03.nc: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//heat_ico_fesom_03.nc
-        heat_oce_fesom_01.nc: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//heat_oce_fesom_01.nc
-        heat_swo_fesom_01.nc: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//heat_swo_fesom_01.nc
-        hydr_oce_fesom_06.nc: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//hydr_oce_fesom_06.nc
-        ist_feom_fesom_07.nc: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//ist_feom_fesom_07.nc
-        prec_oce_fesom_02.nc: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//prec_oce_fesom_02.nc
-        sia_feom_fesom_07.nc: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//sia_feom_fesom_07.nc
-        sie_feom_fesom_07.nc: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//sie_feom_fesom_07.nc
-        snow_oce_fesom_02.nc: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//snow_oce_fesom_02.nc
-        snt_feom_fesom_07.nc: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//snt_feom_fesom_07.nc
-        sst_feom_fesom_07.nc: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//sst_feom_fesom_07.nc
-        subl_oce_fesom_02.nc: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//subl_oce_fesom_02.nc
-        taux_ico_fesom_04.nc: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//taux_ico_fesom_04.nc
-        taux_oce_fesom_04.nc: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//taux_oce_fesom_04.nc
-        tauy_ico_fesom_04.nc: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//tauy_ico_fesom_04.nc
-        tauy_oce_fesom_04.nc: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//tauy_oce_fesom_04.nc
+        A_Calving_oifs_05.nc: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//A_Calving_oifs_05.nc
+        A_CurX_oifs_08.nc: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//A_CurX_oifs_08.nc
+        A_CurY_oifs_08.nc: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//A_CurY_oifs_08.nc
+        A_Evap_oifs_02.nc: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//A_Evap_oifs_02.nc
+        A_Ice_albedo_oifs_07.nc: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//A_Ice_albedo_oifs_07.nc
+        A_Ice_frac_oifs_07.nc: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//A_Ice_frac_oifs_07.nc
+        A_Ice_temp_oifs_07.nc: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//A_Ice_temp_oifs_07.nc
+        A_Precip_liquid_oifs_02.nc: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//A_Precip_liquid_oifs_02.nc
+        A_Precip_solid_oifs_02.nc: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//A_Precip_solid_oifs_02.nc
+        A_Q_ice_oifs_03.nc: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//A_Q_ice_oifs_03.nc
+        A_Qns_oce_oifs_01.nc: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//A_Qns_oce_oifs_01.nc
+        A_Qs_all_oifs_01.nc: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//A_Qs_all_oifs_01.nc
+        A_Runoff_oifs_05.nc: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//A_Runoff_oifs_05.nc
+        A_SST_oifs_07.nc: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//A_SST_oifs_07.nc
+        A_Snow_thickness_oifs_07.nc: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//A_Snow_thickness_oifs_07.nc
+        A_Subl_oifs_02.nc: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//A_Subl_oifs_02.nc
+        A_TauX_ice_oifs_04.nc: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//A_TauX_ice_oifs_04.nc
+        A_TauX_oce_oifs_04.nc: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//A_TauX_oce_oifs_04.nc
+        A_TauY_ice_oifs_04.nc: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//A_TauY_ice_oifs_04.nc
+        A_TauY_oce_oifs_04.nc: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//A_TauY_oce_oifs_04.nc
+        R_Calving_atm_rnfma_05.nc: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//R_Calving_atm_rnfma_05.nc
+        R_Calving_oce_rnfma_06.nc: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//R_Calving_oce_rnfma_06.nc
+        R_Runoff_atm_rnfma_05.nc: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//R_Runoff_atm_rnfma_05.nc
+        R_Runoff_oce_rnfma_06.nc: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//R_Runoff_oce_rnfma_06.nc
+        enth_oce_fesom_06.nc: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//enth_oce_fesom_06.nc
+        evap_oce_fesom_02.nc: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//evap_oce_fesom_02.nc
+        heat_ico_fesom_03.nc: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//heat_ico_fesom_03.nc
+        heat_oce_fesom_01.nc: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//heat_oce_fesom_01.nc
+        heat_swo_fesom_01.nc: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//heat_swo_fesom_01.nc
+        hydr_oce_fesom_06.nc: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//hydr_oce_fesom_06.nc
+        ist_feom_fesom_07.nc: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//ist_feom_fesom_07.nc
+        prec_oce_fesom_02.nc: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//prec_oce_fesom_02.nc
+        sia_feom_fesom_07.nc: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//sia_feom_fesom_07.nc
+        sie_feom_fesom_07.nc: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//sie_feom_fesom_07.nc
+        snow_oce_fesom_02.nc: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//snow_oce_fesom_02.nc
+        snt_feom_fesom_07.nc: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//snt_feom_fesom_07.nc
+        sst_feom_fesom_07.nc: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//sst_feom_fesom_07.nc
+        subl_oce_fesom_02.nc: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//subl_oce_fesom_02.nc
+        taux_ico_fesom_04.nc: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//taux_ico_fesom_04.nc
+        taux_oce_fesom_04.nc: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//taux_oce_fesom_04.nc
+        tauy_ico_fesom_04.nc: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//tauy_ico_fesom_04.nc
+        tauy_oce_fesom_04.nc: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//tauy_oce_fesom_04.nc
+        u_feom_fesom_08.nc: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//u_feom_fesom_08.nc
+        v_feom_fesom_08.nc: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//v_feom_fesom_08.nc
     outdata_targets:
-        A_Calving_oifs_05.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/outdata/oasis3mct/A_Calving_oifs_05.nc
-        A_Evap_oifs_02.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/outdata/oasis3mct/A_Evap_oifs_02.nc
-        A_Ice_albedo_oifs_07.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/outdata/oasis3mct/A_Ice_albedo_oifs_07.nc
-        A_Ice_frac_oifs_07.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/outdata/oasis3mct/A_Ice_frac_oifs_07.nc
-        A_Ice_temp_oifs_07.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/outdata/oasis3mct/A_Ice_temp_oifs_07.nc
-        A_Precip_liquid_oifs_02.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/outdata/oasis3mct/A_Precip_liquid_oifs_02.nc
-        A_Precip_solid_oifs_02.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/outdata/oasis3mct/A_Precip_solid_oifs_02.nc
-        A_Q_ice_oifs_03.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/outdata/oasis3mct/A_Q_ice_oifs_03.nc
-        A_Qns_oce_oifs_01.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/outdata/oasis3mct/A_Qns_oce_oifs_01.nc
-        A_Qs_all_oifs_01.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/outdata/oasis3mct/A_Qs_all_oifs_01.nc
-        A_Runoff_oifs_05.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/outdata/oasis3mct/A_Runoff_oifs_05.nc
-        A_SST_oifs_07.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/outdata/oasis3mct/A_SST_oifs_07.nc
-        A_Snow_thickness_oifs_07.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/outdata/oasis3mct/A_Snow_thickness_oifs_07.nc
-        A_Subl_oifs_02.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/outdata/oasis3mct/A_Subl_oifs_02.nc
-        A_TauX_ice_oifs_04.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/outdata/oasis3mct/A_TauX_ice_oifs_04.nc
-        A_TauX_oce_oifs_04.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/outdata/oasis3mct/A_TauX_oce_oifs_04.nc
-        A_TauY_ice_oifs_04.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/outdata/oasis3mct/A_TauY_ice_oifs_04.nc
-        A_TauY_oce_oifs_04.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/outdata/oasis3mct/A_TauY_oce_oifs_04.nc
-        R_Calving_atm_rnfma_05.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/outdata/oasis3mct/R_Calving_atm_rnfma_05.nc
-        R_Calving_oce_rnfma_06.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/outdata/oasis3mct/R_Calving_oce_rnfma_06.nc
-        R_Runoff_atm_rnfma_05.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/outdata/oasis3mct/R_Runoff_atm_rnfma_05.nc
-        R_Runoff_oce_rnfma_06.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/outdata/oasis3mct/R_Runoff_oce_rnfma_06.nc
-        enth_oce_fesom_06.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/outdata/oasis3mct/enth_oce_fesom_06.nc
-        evap_oce_fesom_02.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/outdata/oasis3mct/evap_oce_fesom_02.nc
-        heat_ico_fesom_03.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/outdata/oasis3mct/heat_ico_fesom_03.nc
-        heat_oce_fesom_01.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/outdata/oasis3mct/heat_oce_fesom_01.nc
-        heat_swo_fesom_01.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/outdata/oasis3mct/heat_swo_fesom_01.nc
-        hydr_oce_fesom_06.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/outdata/oasis3mct/hydr_oce_fesom_06.nc
-        ist_feom_fesom_07.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/outdata/oasis3mct/ist_feom_fesom_07.nc
-        prec_oce_fesom_02.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/outdata/oasis3mct/prec_oce_fesom_02.nc
-        sia_feom_fesom_07.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/outdata/oasis3mct/sia_feom_fesom_07.nc
-        sie_feom_fesom_07.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/outdata/oasis3mct/sie_feom_fesom_07.nc
-        snow_oce_fesom_02.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/outdata/oasis3mct/snow_oce_fesom_02.nc
-        snt_feom_fesom_07.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/outdata/oasis3mct/snt_feom_fesom_07.nc
-        sst_feom_fesom_07.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/outdata/oasis3mct/sst_feom_fesom_07.nc
-        subl_oce_fesom_02.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/outdata/oasis3mct/subl_oce_fesom_02.nc
-        taux_ico_fesom_04.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/outdata/oasis3mct/taux_ico_fesom_04.nc
-        taux_oce_fesom_04.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/outdata/oasis3mct/taux_oce_fesom_04.nc
-        tauy_ico_fesom_04.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/outdata/oasis3mct/tauy_ico_fesom_04.nc
-        tauy_oce_fesom_04.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/outdata/oasis3mct/tauy_oce_fesom_04.nc
+        A_Calving_oifs_05.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/outdata/oasis3mct/A_Calving_oifs_05.nc
+        A_CurX_oifs_08.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/outdata/oasis3mct/A_CurX_oifs_08.nc
+        A_CurY_oifs_08.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/outdata/oasis3mct/A_CurY_oifs_08.nc
+        A_Evap_oifs_02.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/outdata/oasis3mct/A_Evap_oifs_02.nc
+        A_Ice_albedo_oifs_07.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/outdata/oasis3mct/A_Ice_albedo_oifs_07.nc
+        A_Ice_frac_oifs_07.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/outdata/oasis3mct/A_Ice_frac_oifs_07.nc
+        A_Ice_temp_oifs_07.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/outdata/oasis3mct/A_Ice_temp_oifs_07.nc
+        A_Precip_liquid_oifs_02.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/outdata/oasis3mct/A_Precip_liquid_oifs_02.nc
+        A_Precip_solid_oifs_02.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/outdata/oasis3mct/A_Precip_solid_oifs_02.nc
+        A_Q_ice_oifs_03.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/outdata/oasis3mct/A_Q_ice_oifs_03.nc
+        A_Qns_oce_oifs_01.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/outdata/oasis3mct/A_Qns_oce_oifs_01.nc
+        A_Qs_all_oifs_01.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/outdata/oasis3mct/A_Qs_all_oifs_01.nc
+        A_Runoff_oifs_05.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/outdata/oasis3mct/A_Runoff_oifs_05.nc
+        A_SST_oifs_07.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/outdata/oasis3mct/A_SST_oifs_07.nc
+        A_Snow_thickness_oifs_07.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/outdata/oasis3mct/A_Snow_thickness_oifs_07.nc
+        A_Subl_oifs_02.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/outdata/oasis3mct/A_Subl_oifs_02.nc
+        A_TauX_ice_oifs_04.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/outdata/oasis3mct/A_TauX_ice_oifs_04.nc
+        A_TauX_oce_oifs_04.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/outdata/oasis3mct/A_TauX_oce_oifs_04.nc
+        A_TauY_ice_oifs_04.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/outdata/oasis3mct/A_TauY_ice_oifs_04.nc
+        A_TauY_oce_oifs_04.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/outdata/oasis3mct/A_TauY_oce_oifs_04.nc
+        R_Calving_atm_rnfma_05.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/outdata/oasis3mct/R_Calving_atm_rnfma_05.nc
+        R_Calving_oce_rnfma_06.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/outdata/oasis3mct/R_Calving_oce_rnfma_06.nc
+        R_Runoff_atm_rnfma_05.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/outdata/oasis3mct/R_Runoff_atm_rnfma_05.nc
+        R_Runoff_oce_rnfma_06.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/outdata/oasis3mct/R_Runoff_oce_rnfma_06.nc
+        enth_oce_fesom_06.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/outdata/oasis3mct/enth_oce_fesom_06.nc
+        evap_oce_fesom_02.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/outdata/oasis3mct/evap_oce_fesom_02.nc
+        heat_ico_fesom_03.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/outdata/oasis3mct/heat_ico_fesom_03.nc
+        heat_oce_fesom_01.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/outdata/oasis3mct/heat_oce_fesom_01.nc
+        heat_swo_fesom_01.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/outdata/oasis3mct/heat_swo_fesom_01.nc
+        hydr_oce_fesom_06.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/outdata/oasis3mct/hydr_oce_fesom_06.nc
+        ist_feom_fesom_07.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/outdata/oasis3mct/ist_feom_fesom_07.nc
+        prec_oce_fesom_02.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/outdata/oasis3mct/prec_oce_fesom_02.nc
+        sia_feom_fesom_07.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/outdata/oasis3mct/sia_feom_fesom_07.nc
+        sie_feom_fesom_07.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/outdata/oasis3mct/sie_feom_fesom_07.nc
+        snow_oce_fesom_02.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/outdata/oasis3mct/snow_oce_fesom_02.nc
+        snt_feom_fesom_07.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/outdata/oasis3mct/snt_feom_fesom_07.nc
+        sst_feom_fesom_07.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/outdata/oasis3mct/sst_feom_fesom_07.nc
+        subl_oce_fesom_02.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/outdata/oasis3mct/subl_oce_fesom_02.nc
+        taux_ico_fesom_04.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/outdata/oasis3mct/taux_ico_fesom_04.nc
+        taux_oce_fesom_04.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/outdata/oasis3mct/taux_oce_fesom_04.nc
+        tauy_ico_fesom_04.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/outdata/oasis3mct/tauy_ico_fesom_04.nc
+        tauy_oce_fesom_04.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/outdata/oasis3mct/tauy_oce_fesom_04.nc
+        u_feom_fesom_08.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/outdata/oasis3mct/u_feom_fesom_08.nc
+        v_feom_fesom_08.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/outdata/oasis3mct/v_feom_fesom_08.nc
     output_exchanged_vars: false
     parent_date: '1999-12-31T22:00:00'
-    parent_expid: awicm3-frontiers-xios-TCO159L91-CORE2_initial
-    parent_restart_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/restart/oasis3mct/
+    parent_expid: awicm3-v3.2-TCO95L91-CORE2_initial
+    parent_restart_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/restart/oasis3mct/
     pool_dir: /proj/awi/input/oasis/
     prev_date: '1999-12-31T22:00:00'
     process_ordering:
@@ -1790,46 +1902,46 @@ oasis3mct:
     required_plugins:
     - git+https://github.com/esm-tools-plugins/oasis_rmp_rst_to_input
     restart_out_intermediate:
-        areas: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/restart/oasis3mct/areas.nc
-        grids: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/restart/oasis3mct/grids.nc
-        masks: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/restart/oasis3mct/masks.nc
-        rstas.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/restart/oasis3mct/rstas.nc
-        rstas.nc_recv: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/restart/oasis3mct/rstas.nc_recv
-        rstos.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/restart/oasis3mct/rstos.nc
-        rstos.nc_recv: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/restart/oasis3mct/rstos.nc_recv
+        areas: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/restart/oasis3mct/areas.nc
+        grids: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/restart/oasis3mct/grids.nc
+        masks: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/restart/oasis3mct/masks.nc
+        rstas.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/restart/oasis3mct/rstas.nc
+        rstas.nc_recv: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/restart/oasis3mct/rstas.nc_recv
+        rstos.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/restart/oasis3mct/rstos.nc
+        rstos.nc_recv: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/restart/oasis3mct/rstos.nc_recv
     restart_out_sources:
-        areas: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//areas.nc
-        grids: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//grids.nc
-        masks: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//masks.nc
-        rstas.nc: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//rstas.nc
-        rstas.nc_recv: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//rstas.nc_recv
-        rstos.nc: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//rstos.nc
-        rstos.nc_recv: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//rstos.nc_recv
+        areas: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//areas.nc
+        grids: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//grids.nc
+        masks: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//masks.nc
+        rstas.nc: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//rstas.nc
+        rstas.nc_recv: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//rstas.nc_recv
+        rstos.nc: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//rstos.nc
+        rstos.nc_recv: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//rstos.nc_recv
     restart_out_sources_wild_card:
         rmp: rmp_*.nc
     restart_out_targets:
-        areas: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/restart/oasis3mct/areas.nc
-        grids: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/restart/oasis3mct/grids.nc
-        masks: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/restart/oasis3mct/masks.nc
-        rstas.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/restart/oasis3mct/rstas.nc
-        rstas.nc_recv: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/restart/oasis3mct/rstas.nc_recv
-        rstos.nc: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/restart/oasis3mct/rstos.nc
-        rstos.nc_recv: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/restart/oasis3mct/rstos.nc_recv
-    rstas_file_name: rstas
-    rstos_file_name: rstos
-    thisrun_analysis_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/analysis/oasis3mct/
-    thisrun_bin_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/bin/oasis3mct/
-    thisrun_config_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/config/oasis3mct/
-    thisrun_couple_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/couple/oasis3mct/
-    thisrun_forcing_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/forcing/oasis3mct/
-    thisrun_ignore_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/ignore/oasis3mct/
-    thisrun_input_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/input/oasis3mct/
-    thisrun_log_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/log/oasis3mct/
-    thisrun_mon_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/mon/oasis3mct/
-    thisrun_outdata_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/
-    thisrun_restart_in_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/restart/oasis3mct/
-    thisrun_restart_out_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/restart/oasis3mct/
-    thisrun_viz_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/viz/oasis3mct/
+        areas: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/restart/oasis3mct/areas.nc
+        grids: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/restart/oasis3mct/grids.nc
+        masks: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/restart/oasis3mct/masks.nc
+        rstas.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/restart/oasis3mct/rstas.nc
+        rstas.nc_recv: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/restart/oasis3mct/rstas.nc_recv
+        rstos.nc: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/restart/oasis3mct/rstos.nc
+        rstos.nc_recv: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/restart/oasis3mct/rstos.nc_recv
+    rstas_file_name: rstas_uv
+    rstos_file_name: rstos_uv
+    thisrun_analysis_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/analysis/oasis3mct/
+    thisrun_bin_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/bin/oasis3mct/
+    thisrun_config_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/config/oasis3mct/
+    thisrun_couple_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/couple/oasis3mct/
+    thisrun_forcing_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/forcing/oasis3mct/
+    thisrun_ignore_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/ignore/oasis3mct/
+    thisrun_input_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/input/oasis3mct/
+    thisrun_log_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/log/oasis3mct/
+    thisrun_mon_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/mon/oasis3mct/
+    thisrun_outdata_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/outdata/oasis3mct/
+    thisrun_restart_in_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/restart/oasis3mct/
+    thisrun_restart_out_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/restart/oasis3mct/
+    thisrun_viz_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/viz/oasis3mct/
     time_step: 7200
     use_lucia: false
     version: 2.8
@@ -1874,13 +1986,13 @@ oifs:
     - A_Ice_albedo
     - A_CurX
     - A_CurY
-    bin_dir: <TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/bin
+    bin_dir: <TEST_DIR>/comp/awicm3/awicm3-v3.2/bin
     bin_intermediate:
-        bin: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/bin/oifs/oifs
+        bin: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/bin/oifs/oifs
     bin_sources:
-        bin: <TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/bin/oifs
+        bin: <TEST_DIR>/comp/awicm3/awicm3-v3.2/bin/oifs
     bin_targets:
-        bin: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work/oifs
+        bin: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work/oifs
     branchoff: false
     clim_dir: /proj/awi/input/oifs-43r3/../
     cloudfixer: 1
@@ -1916,13 +2028,13 @@ oifs:
                 destination: 40r1
             43r3:
                 branch: oifs-deck
-                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.cfg ; chmod -R 700 . ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
+                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-v3.2/oifs-43r3; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.cfg ; chmod -R 700 . ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
                 git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3.git
                 install_bins: make/esm/oifs/bin/oifs
                 with_xios: false
             43r3-awicm-3.0:
                 branch: awicm3-frontiers-freeze-candidate-1
-                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.cfg ; chmod -R 700 . ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
+                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-v3.2/oifs-43r3; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.cfg ; chmod -R 700 . ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
                 destination: oifs-43r3
                 git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3.git
                 install_bins: make/esm/oifs/bin/oifs
@@ -1931,7 +2043,7 @@ oifs:
                 with_xios: false
             43r3-awicm-3.1:
                 branch: awicm-3.1
-                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3/../xios/inc/; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; chmod -R 700 .; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
+                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-v3.2/oifs-43r3; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/awicm3/awicm3-v3.2/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/awicm3/awicm3-v3.2/oifs-43r3/../xios/inc/; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; chmod -R 700 .; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
                 destination: oifs-43r3
                 git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3.git
                 install_bins: make/esm/oifs/bin/oifs
@@ -1940,7 +2052,7 @@ oifs:
                 with_xios: true
             43r3-awicm-3.1.1:
                 branch: awicm-3.1.1
-                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3/../xios/inc/; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; chmod -R 700 .; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
+                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-v3.2/oifs-43r3; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/awicm3/awicm3-v3.2/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/awicm3/awicm3-v3.2/oifs-43r3/../xios/inc/; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; chmod -R 700 .; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
                 destination: oifs-43r3
                 git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3.git
                 install_bins: make/esm/oifs/bin/oifs
@@ -1949,7 +2061,7 @@ oifs:
                 with_xios: true
             43r3-awicm-3.1.2:
                 branch: awicm-3.1.2
-                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3/../xios/inc/; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; chmod -R 700 .; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
+                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-v3.2/oifs-43r3; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/awicm3/awicm3-v3.2/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/awicm3/awicm3-v3.2/oifs-43r3/../xios/inc/; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; chmod -R 700 .; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
                 destination: oifs-43r3
                 git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3.git
                 install_bins: make/esm/oifs/bin/oifs
@@ -1958,7 +2070,7 @@ oifs:
                 with_xios: true
             43r3-awicm-3.2:
                 branch: awicm-3.2
-                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3/../xios/inc/; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; chmod -R 700 .; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
+                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-v3.2/oifs-43r3; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/awicm3/awicm3-v3.2/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/awicm3/awicm3-v3.2/oifs-43r3/../xios/inc/; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; chmod -R 700 .; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
                 destination: oifs-43r3
                 git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3.git
                 install_bins: make/esm/oifs/bin/oifs
@@ -1967,7 +2079,7 @@ oifs:
                 with_xios: true
             43r3-awicm-frontiers-xios:
                 branch: awicm-3-frontiers-xios
-                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3/../xios/inc/; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; chmod -R 700 . ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
+                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-v3.2/oifs-43r3; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/awicm3/awicm3-v3.2/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/awicm3/awicm3-v3.2/oifs-43r3/../xios/inc/; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; chmod -R 700 . ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
                 destination: oifs-43r3
                 git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3.git
                 install_bins: make/esm/oifs/bin/oifs
@@ -1976,7 +2088,7 @@ oifs:
                 with_xios: true
             43r3-foci:
                 branch: 43r3v1-foci
-                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3/../xios/inc/ ; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; chmod -R 700 . ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
+                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-v3.2/oifs-43r3; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/awicm3/awicm3-v3.2/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/awicm3/awicm3-v3.2/oifs-43r3/../xios/inc/ ; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; chmod -R 700 . ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
                 contact: swahl(at)geomar.de
                 git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3.git
                 install_bins: make/esm/oifs/bin/oifs
@@ -1985,7 +2097,7 @@ oifs:
                 - xios-2.5_r1910
             43r3-foci21:
                 branch: master
-                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3/../xios/inc/ ; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; chmod -R 700 . ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
+                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-v3.2/oifs-43r3; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/awicm3/awicm3-v3.2/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/awicm3/awicm3-v3.2/oifs-43r3/../xios/inc/ ; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; chmod -R 700 . ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
                 contact: swahl(at)geomar.de
                 git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3.git
                 install_bins: make/esm/oifs/bin/oifs
@@ -1994,7 +2106,7 @@ oifs:
                 - xios-2.5_r1910
             43r3-foci211:
                 branch: foci211
-                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3/../xios/inc/ ; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; chmod -R 700 . ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
+                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-v3.2/oifs-43r3; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/awicm3/awicm3-v3.2/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/awicm3/awicm3-v3.2/oifs-43r3/../xios/inc/ ; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; chmod -R 700 . ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
                 contact: swahl(at)geomar.de
                 git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3.git
                 install_bins: make/esm/oifs/bin/oifs
@@ -2003,7 +2115,7 @@ oifs:
                 - xios-2.5_r1910
             43r3-master:
                 branch: main_dkrz
-                comp_command: export OIFS_CPLNG_LIB=$OIFS_OASIS_LIB; export OIFS_CPLNG_INCLUDE=$OIFS_OASIS_INCLUDE ;export OIFS_COMP=esm; export OIFS_BUILD=opt; export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3; export OIFS_XIOS=enable; export OIFS_CPLNG=enable; export OIFS_XIOS_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3/../xios/inc/; cd make; ../fcm/bin/fcm make -v -j10 -f oifs_esm.fcm ; chmod -R 700 . ; mv esm/oifs/bin/master.exe esm/oifs/bin/OpenIFS
+                comp_command: export OIFS_CPLNG_LIB=$OIFS_OASIS_LIB; export OIFS_CPLNG_INCLUDE=$OIFS_OASIS_INCLUDE ;export OIFS_COMP=esm; export OIFS_BUILD=opt; export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-v3.2/oifs-43r3; export OIFS_XIOS=enable; export OIFS_CPLNG=enable; export OIFS_XIOS_DIR=<TEST_DIR>/comp/awicm3/awicm3-v3.2/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/awicm3/awicm3-v3.2/oifs-43r3/../xios/inc/; cd make; ../fcm/bin/fcm make -v -j10 -f oifs_esm.fcm ; chmod -R 700 . ; mv esm/oifs/bin/master.exe esm/oifs/bin/OpenIFS
                 destination: oifs-43r3
                 executable: OpenIFS
                 git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3-ece
@@ -2013,7 +2125,7 @@ oifs:
                 with_xios: true
             43r3-v1:
                 branch: 43r3v1-foci
-                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3/../xios/inc/ ; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; chmod -R 700 .; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
+                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-v3.2/oifs-43r3; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/awicm3/awicm3-v3.2/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/awicm3/awicm3-v3.2/oifs-43r3/../xios/inc/ ; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; chmod -R 700 .; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
                 git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3.git
                 install_bins: make/esm/oifs/bin/oifs
                 requires:
@@ -2021,7 +2133,7 @@ oifs:
                 - xios-2.5_r1910_oifs
             43r3-v2:
                 branch: master
-                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3/../xios/inc/ ; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; chmod -R 700 .; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
+                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-v3.2/oifs-43r3; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/awicm3/awicm3-v3.2/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/awicm3/awicm3-v3.2/oifs-43r3/../xios/inc/ ; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; chmod -R 700 .; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
                 git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3.git
                 install_bins: make/esm/oifs/bin/oifs
                 requires:
@@ -2334,14 +2446,14 @@ oifs:
                 - load intel.mpi/2021.3.0 intel.compiler cmake
         iolibraries: awi_libs
     config_intermediate:
-        fort.4: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/config/oifs/fort.4
-        wam_namelist: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/config/oifs/wam_namelist
+        fort.4: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/config/oifs/fort.4
+        wam_namelist: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/config/oifs/wam_namelist
     config_sources:
-        fort.4: <HOME_DIR>/esm_tools/namelists//oifs/43r3/awicm3/frontiers/fort.4
-        wam_namelist: <HOME_DIR>/esm_tools/namelists//oifs/43r3/awicm3/frontiers/wam_namelist
+        fort.4: <HOME_DIR>/esm_tools/namelists//oifs/43r3/awicm3/v3.2/fort.4
+        wam_namelist: <HOME_DIR>/esm_tools/namelists//oifs/43r3/awicm3/v3.2/wam_namelist
     config_targets:
-        fort.4: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work/fort.4
-        wam_namelist: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work/wam_namelist
+        fort.4: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work/fort.4
+        wam_namelist: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work/wam_namelist
     copy_forcing: false
     coupling_fields:
         A_Calving:
@@ -2427,19 +2539,19 @@ oifs:
     eternal_run_number: 1
     executable: oifs
     execution_command: oifs -v ecmwf -e awi3
-    experiment_analysis_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/analysis/oifs/
-    experiment_bin_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/bin/oifs/
-    experiment_config_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/config/oifs/
-    experiment_couple_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/couple/oifs/
-    experiment_forcing_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/forcing/oifs/
-    experiment_ignore_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/ignore/oifs/
-    experiment_input_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/input/oifs/
-    experiment_log_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/log/oifs/
-    experiment_mon_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/mon/oifs/
-    experiment_outdata_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/outdata/oifs/
-    experiment_restart_in_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/restart/oifs/
-    experiment_restart_out_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/restart/oifs/
-    experiment_viz_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/viz/oifs/
+    experiment_analysis_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/analysis/oifs/
+    experiment_bin_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/bin/oifs/
+    experiment_config_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/config/oifs/
+    experiment_couple_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/couple/oifs/
+    experiment_forcing_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/forcing/oifs/
+    experiment_ignore_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/ignore/oifs/
+    experiment_input_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/input/oifs/
+    experiment_log_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/log/oifs/
+    experiment_mon_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/mon/oifs/
+    experiment_outdata_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/outdata/oifs/
+    experiment_restart_in_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/restart/oifs/
+    experiment_restart_out_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/restart/oifs/
+    experiment_viz_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/viz/oifs/
     file_movements:
         analysis:
             exp_to_run: copy
@@ -2535,25 +2647,25 @@ oifs:
     generate_namelist: 1
     grids:
         atma:
-            name: A160
-            nx: 108160
+            name: A096
+            nx: 40320
             ny: 1
             oasis_grid_type: D
         atml:
-            name: L160
-            nx: 108160
+            name: L096
+            nx: 40320
             ny: 1
             oasis_grid_type: D
         atmr:
-            name: R160
-            nx: 108160
+            name: R096
+            nx: 40320
             ny: 1
             oasis_grid_type: D
     hours: 0
     icmcl_dir: /proj/awi/input/oifs-43r3
     icmcl_end_date: '2000-01-03T00:00:00'
     icmcl_end_date_formatted: 20000103
-    icmcl_file: ICMCLh9wuINIT
+    icmcl_file: ICMCLaackINIT
     ifsdata_dir: /proj/awi/input/oifs-43r3/43r3/ifsdata/
     ignore_intermediate: {}
     ignore_sources: {}
@@ -2567,45 +2679,45 @@ oifs:
     input_dir: /proj/awi/input/oifs-43r3
     input_expid: awi3
     input_intermediate:
-        ICMGG_INIT: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ICMGGawi3INIT
-        ICMGG_INIUA: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ICMGGawi3INIUA
-        ICMSH_INIT: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/ICMSHawi3INIT
-        cdwavein: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/cdwavein
-        sfcwindin: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/sfcwindin
-        specwavein: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/specwavein
-        uwavein: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/uwavein
-        wam_grid_tables: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/wam_grid_tables
-        wam_subgrid_0: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/wam_subgrid_0
-        wam_subgrid_1: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/wam_subgrid_1
-        wam_subgrid_2: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/wam_subgrid_2
+        ICMGG_INIT: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/ICMGGawi3INIT
+        ICMGG_INIUA: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/ICMGGawi3INIUA
+        ICMSH_INIT: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/ICMSHawi3INIT
+        cdwavein: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/cdwavein
+        sfcwindin: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/sfcwindin
+        specwavein: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/specwavein
+        uwavein: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/uwavein
+        wam_grid_tables: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/wam_grid_tables
+        wam_subgrid_0: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/wam_subgrid_0
+        wam_subgrid_1: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/wam_subgrid_1
+        wam_subgrid_2: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/wam_subgrid_2
     input_sources:
-        ICMGG_INIT: /proj/awi/input/oifs-43r3/TCO159L91//ICMGGh9wuINIT_CORE2
-        ICMGG_INIUA: /proj/awi/input/oifs-43r3/TCO159L91//ICMGGh9wuINIUA
-        ICMSH_INIT: /proj/awi/input/oifs-43r3/TCO159L91//ICMSHh9wuINIT
-        cdwavein: /proj/awi/input/oifs-43r3/TCO159L91//cdwavein
-        sfcwindin: /proj/awi/input/oifs-43r3/TCO159L91//sfcwindin
-        specwavein: /proj/awi/input/oifs-43r3/TCO159L91//specwavein
-        uwavein: /proj/awi/input/oifs-43r3/TCO159L91//uwavein
-        wam_grid_tables: /proj/awi/input/oifs-43r3/TCO159L91//wam_grid_tables
-        wam_subgrid_0: /proj/awi/input/oifs-43r3/TCO159L91//wam_subgrid_0
-        wam_subgrid_1: /proj/awi/input/oifs-43r3/TCO159L91//wam_subgrid_1
-        wam_subgrid_2: /proj/awi/input/oifs-43r3/TCO159L91//wam_subgrid_2
+        ICMGG_INIT: /proj/awi/input/oifs-43r3/TCO95L91//ICMGGaackINIT_CORE2
+        ICMGG_INIUA: /proj/awi/input/oifs-43r3/TCO95L91//ICMGGaackINIUA
+        ICMSH_INIT: /proj/awi/input/oifs-43r3/TCO95L91//ICMSHaackINIT
+        cdwavein: /proj/awi/input/oifs-43r3/TCO95L91//cdwavein
+        sfcwindin: /proj/awi/input/oifs-43r3/TCO95L91//sfcwindin
+        specwavein: /proj/awi/input/oifs-43r3/TCO95L91//specwavein
+        uwavein: /proj/awi/input/oifs-43r3/TCO95L91//uwavein
+        wam_grid_tables: /proj/awi/input/oifs-43r3/TCO95L91//wam_grid_tables
+        wam_subgrid_0: /proj/awi/input/oifs-43r3/TCO95L91//wam_subgrid_0
+        wam_subgrid_1: /proj/awi/input/oifs-43r3/TCO95L91//wam_subgrid_1
+        wam_subgrid_2: /proj/awi/input/oifs-43r3/TCO95L91//wam_subgrid_2
     input_sources_wild_card:
         ifsdata: '*'
         o3_data: '*'
         tl_data: '*'
     input_targets:
-        ICMGG_INIT: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work/ICMGGawi3INIT
-        ICMGG_INIUA: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work/ICMGGawi3INIUA
-        ICMSH_INIT: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work/ICMSHawi3INIT
-        cdwavein: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work/cdwavein
-        sfcwindin: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work/sfcwindin
-        specwavein: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work/specwavein
-        uwavein: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work/uwavein
-        wam_grid_tables: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work/wam_grid_tables
-        wam_subgrid_0: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work/wam_subgrid_0
-        wam_subgrid_1: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work/wam_subgrid_1
-        wam_subgrid_2: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work/wam_subgrid_2
+        ICMGG_INIT: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work/ICMGGawi3INIT
+        ICMGG_INIUA: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work/ICMGGawi3INIUA
+        ICMSH_INIT: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work/ICMSHawi3INIT
+        cdwavein: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work/cdwavein
+        sfcwindin: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work/sfcwindin
+        specwavein: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work/specwavein
+        uwavein: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work/uwavein
+        wam_grid_tables: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work/wam_grid_tables
+        wam_subgrid_0: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work/wam_subgrid_0
+        wam_subgrid_1: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work/wam_subgrid_1
+        wam_subgrid_2: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work/wam_subgrid_2
     lassi: false
     last_parent_date: '1999-12-31T22:00:00'
     leapyear: true
@@ -2617,14 +2729,14 @@ oifs:
     lhvolca: false
     license_text: ECMWF license. AWI and GEOMAR have licenses.
     log_intermediate:
-        NODE: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/log/oifs/NODE.001_01
-        ifsstat: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/log/oifs/ifs.stat
+        NODE: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/log/oifs/NODE.001_01
+        ifsstat: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/log/oifs/ifs.stat
     log_sources:
-        NODE: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//NODE.001_01
-        ifsstat: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//ifs.stat
+        NODE: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//NODE.001_01
+        ifsstat: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//ifs.stat
     log_targets:
-        NODE: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/log/oifs/NODE.001_01
-        ifsstat: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/log/oifs/ifs.stat
+        NODE: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/log/oifs/NODE.001_01
+        ifsstat: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/log/oifs/ifs.stat
     lresume: false
     lsmssig: false
     massfixer: 2
@@ -2637,13 +2749,14 @@ oifs:
         Website: https://www.ecmwf.int/en/research/projects/openifs
     mip: cmip6
     model: oifs
-    model_dir: <TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3
+    model_dir: <TEST_DIR>/comp/awicm3/awicm3-v3.2/oifs-43r3
     models:
     - xios
     namelist_case: uppercase
     namelist_changes:
         fort.4:
             NAEPHY:
+                LECURR: true
                 LWCOU: true
                 LWCOU2W: true
             NAERAD:
@@ -2651,7 +2764,9 @@ oifs:
                 CRTABLEDIR: /proj/awi/input/oifs-43r3/rtables/
                 LCMIP6: true
                 LECOMPGRID: true
+                NAERANT_SCALE: 1
                 NGHGRAD: 21
+                NSOLARSPECTRUM: 1
             NAMARG:
                 CNMEXP: awi3
                 CUSTOP: t24
@@ -2671,11 +2786,11 @@ oifs:
             NAMDYNA:
                 LGRADSP: false
             NAMFPD:
-                NLAT: 320
-                NLON: 640
+                NLAT: 192
+                NLON: 384
             NAMFPG:
                 NFPLEV: 91
-                NFPMAX: 159
+                NFPMAX: 95
             NAMGFL:
                 LTRCMFMG: true
                 YI_NL%LMASSFIX: true
@@ -2697,7 +2812,7 @@ oifs:
                 ORBMODE: variable_year
             NAMPAR0:
                 NPROC: 80
-                NSPECRESMIN: 160
+                NSPECRESMIN: 96
             NAMPPC:
                 LRSACC: true
             NAMRES:
@@ -2710,7 +2825,7 @@ oifs:
                 CBPLTDT: '20000101000000'
                 CDATECURA: '20000101000000'
                 CDATEF: '20000101000000'
-    namelist_dir: <HOME_DIR>/esm_tools/namelists//oifs/43r3/awicm3/frontiers
+    namelist_dir: <HOME_DIR>/esm_tools/namelists//oifs/43r3/awicm3/v3.2
     namelists:
     - fort.4
     - wam_namelist
@@ -2728,19 +2843,19 @@ oifs:
     - -24
     nfrmasscon: 1
     nfrres: 1
-    nlat: 320
+    nlat: 192
     nlev: 91
-    nlon: 640
+    nlon: 384
     nproc: 80
     nrest_ind: ''
-    nspecresmin: 160
-    nx: 108160
+    nspecresmin: 96
+    nx: 40320
     ny: 1
     o3_scheme: default
-    oasis_grid_name: 160
-    oasis_grid_name_a: A160
-    oasis_grid_name_l: L160
-    oasis_grid_name_r: R160
+    oasis_grid_name: 96
+    oasis_grid_name_a: A096
+    oasis_grid_name_l: L096
+    oasis_grid_name_r: R096
     ocean_resolution: CORE2
     omp_num_threads: 2
     onepctco2: false
@@ -2758,16 +2873,16 @@ oifs:
     outdata_targets: {}
     output: default
     parent_date: '1999-12-31T23:00:00'
-    parent_dir: /proj/awi/input/OPENIFS43R3-TCO95/restart/awicm3-frontiers-xios-TCO159L91-CORE2_initial
-    parent_expid: awicm3-frontiers-xios-TCO159L91-CORE2_initial
-    parent_restart_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/restart/oifs/
+    parent_dir: /proj/awi/input/OPENIFS43R3-TCO95/restart/awicm3-v3.2-TCO95L91-CORE2_initial
+    parent_expid: awicm3-v3.2-TCO95L91-CORE2_initial
+    parent_restart_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/restart/oifs/
     perturb: 0
     pextra: 0
     pool_dir: /proj/awi/input
     post_processing: 0
     postprocess:
         postprocess_shell:
-            method: <HOME_DIR>/esm_tools/configs//components/oifs/oifs-43r3-postprocess.sh <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work/ ECE3 20000101 20000101
+            method: <HOME_DIR>/esm_tools/configs//components/oifs/oifs-43r3-postprocess.sh <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work/ ECE3 20000101 20000101
             type: shell
     prepcompute_recipe:
     - compile_model
@@ -2787,40 +2902,40 @@ oifs:
     - report_missing_files
     - database_entry
     - oasis_rmp_rst_to_input
-    prepifs_dir: /proj/awi/input/oifs-43r3/TCO159L91/
-    prepifs_expid: h9wu
+    prepifs_dir: /proj/awi/input/oifs-43r3/TCO95L91/
+    prepifs_expid: aack
     prepifs_startdate: '19820101'
     preprocess:
         preprocess_shell:
-            method: '<HOME_DIR>/esm_tools/configs//components/oifs/change_icm_date.sh <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs// awi3 awi3 20000101 20000101 1 0 108160 1;   echo ''Run number for internal OpenIFS timekeeping: 1'''
+            method: '<HOME_DIR>/esm_tools/configs//components/oifs/change_icm_date.sh <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs// awi3 awi3 20000101 20000101 1 0 40320 1;   echo ''Run number for internal OpenIFS timekeeping: 1'''
             type: shell
-    preprocess_method: '<HOME_DIR>/esm_tools/configs//components/oifs/change_icm_date.sh <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs// awi3 awi3 20000101 20000101 1 0 108160 1;   echo ''Run number for internal OpenIFS timekeeping: 1'''
+    preprocess_method: '<HOME_DIR>/esm_tools/configs//components/oifs/change_icm_date.sh <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs// awi3 awi3 20000101 20000101 1 0 40320 1;   echo ''Run number for internal OpenIFS timekeeping: 1'''
     prev_date: '1999-12-31T23:00:00'
     pseudo_initial_date: '2000-01-01T00:00:00'
     read_icmcl: 0
     required_plugins:
     - git+https://github.com/esm-tools-plugins/postprocess
     - git+https://github.com/esm-tools-plugins/preprocess
-    res_level: TCO159L91
-    res_number: 159
-    res_number_tl: '159_4'
-    resolution: TCO159
+    res_level: TCO95L91
+    res_number: 95
+    res_number_tl: '95_4'
+    resolution: TCO95
     restart: 1
     restart_dir: ''
     restart_firstlast: last
     restart_out_intermediate:
-        rcf: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/restart/oifs/20000101/rcf
-        waminfo: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/restart/oifs/20000101/waminfo00000001
+        rcf: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/restart/oifs/20000101/rcf
+        waminfo: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/restart/oifs/20000101/waminfo00000001
     restart_out_sources:
-        rcf: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//rcf
-        waminfo: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//waminfo
+        rcf: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//rcf
+        waminfo: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//waminfo
     restart_out_sources_wild_card:
         BLS: BLS20000101000000_000000230000.*
         LAW: LAW20000101000000_000000230000.*
         srf: srf000000010000.*
     restart_out_targets:
-        rcf: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/restart/oifs/20000101/rcf
-        waminfo: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/restart/oifs/20000101/waminfo00000001
+        rcf: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/restart/oifs/20000101/rcf
+        waminfo: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/restart/oifs/20000101/waminfo00000001
     restart_rate: 12
     restart_type: eternal
     restart_unit: months
@@ -2948,7 +3063,7 @@ oifs:
     scenario: historical
     sclct_switch: 2
     seconds_since_initial: 0
-    setup_dir: <TEST_DIR>/comp/awicm3/awicm3-frontiers-xios
+    setup_dir: <TEST_DIR>/comp/awicm3/awicm3-v3.2
     simulation_length_seconds: 86400
     slice_icml: ''
     solarspectrum: false
@@ -2962,19 +3077,19 @@ oifs:
     steps_per_day: 24
     steps_since_initial: 0
     supercooled_liquid_could_fix: 0
-    thisrun_analysis_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/analysis/oifs/
-    thisrun_bin_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/bin/oifs/
-    thisrun_config_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/config/oifs/
-    thisrun_couple_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/couple/oifs/
-    thisrun_forcing_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/forcing/oifs/
-    thisrun_ignore_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/ignore/oifs/
-    thisrun_input_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs/
-    thisrun_log_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/log/oifs/
-    thisrun_mon_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/mon/oifs/
-    thisrun_outdata_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/outdata/oifs/
-    thisrun_restart_in_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/restart/oifs/
-    thisrun_restart_out_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/restart/oifs/
-    thisrun_viz_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/viz/oifs/
+    thisrun_analysis_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/analysis/oifs/
+    thisrun_bin_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/bin/oifs/
+    thisrun_config_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/config/oifs/
+    thisrun_couple_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/couple/oifs/
+    thisrun_forcing_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/forcing/oifs/
+    thisrun_ignore_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/ignore/oifs/
+    thisrun_input_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/
+    thisrun_log_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/log/oifs/
+    thisrun_mon_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/mon/oifs/
+    thisrun_outdata_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/outdata/oifs/
+    thisrun_restart_in_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/restart/oifs/
+    thisrun_restart_out_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/restart/oifs/
+    thisrun_viz_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/viz/oifs/
     threads: 1
     time_step: 3600
     timestep_per_run: 24
@@ -3019,13 +3134,13 @@ rnfmap:
     - focioifs1
     - focioifs21
     - foci211
-    bin_dir: <TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/bin
+    bin_dir: <TEST_DIR>/comp/awicm3/awicm3-v3.2/bin
     bin_intermediate:
-        bin: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/bin/rnfmap/rnfma
+        bin: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/bin/rnfmap/rnfma
     bin_sources:
-        bin: <TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/bin/rnfma
+        bin: <TEST_DIR>/comp/awicm3/awicm3-v3.2/bin/rnfma
     bin_targets:
-        bin: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work/rnfma
+        bin: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work/rnfma
     branch: esm-tools-focioifs
     cflags: -fp-model precise -O3 -xCORE_AVX2 -g -traceback -qopt-report=0 -fpe0
     clean_command: rm -rf bin; cd src; make clean; cd ..
@@ -3048,11 +3163,11 @@ rnfmap:
         - OIFS_CFLAGS="-fp-model precise -O3 -xCORE_AVX2 -g -traceback -qopt-report=0 -fpe0"
         - OIFS_CCDEFS="LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS"
     config_intermediate:
-        namelist.runoffmapper: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/config/rnfmap/namelist.runoffmapper
+        namelist.runoffmapper: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/config/rnfmap/namelist.runoffmapper
     config_sources:
         namelist.runoffmapper: <HOME_DIR>/esm_tools/namelists//rnfmap//namelist.runoffmapper
     config_targets:
-        namelist.runoffmapper: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work/namelist.runoffmapper
+        namelist.runoffmapper: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work/namelist.runoffmapper
     contact: jan.streffing(at)awi.de, miguel.andres-martinez(at)awi.de
     coupling_fields:
         R_Calving_atm:
@@ -3070,19 +3185,19 @@ rnfmap:
         Modified for use in FOCI'
     executable: rnfma
     execution_command: rnfma
-    experiment_analysis_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/analysis/rnfmap/
-    experiment_bin_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/bin/rnfmap/
-    experiment_config_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/config/rnfmap/
-    experiment_couple_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/couple/rnfmap/
-    experiment_forcing_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/forcing/rnfmap/
-    experiment_ignore_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/ignore/rnfmap/
-    experiment_input_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/input/rnfmap/
-    experiment_log_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/log/rnfmap/
-    experiment_mon_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/mon/rnfmap/
-    experiment_outdata_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/outdata/rnfmap/
-    experiment_restart_in_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/restart/rnfmap/
-    experiment_restart_out_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/restart/rnfmap/
-    experiment_viz_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/viz/rnfmap/
+    experiment_analysis_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/analysis/rnfmap/
+    experiment_bin_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/bin/rnfmap/
+    experiment_config_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/config/rnfmap/
+    experiment_couple_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/couple/rnfmap/
+    experiment_forcing_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/forcing/rnfmap/
+    experiment_ignore_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/ignore/rnfmap/
+    experiment_input_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/input/rnfmap/
+    experiment_log_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/log/rnfmap/
+    experiment_mon_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/mon/rnfmap/
+    experiment_outdata_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/outdata/rnfmap/
+    experiment_restart_in_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/restart/rnfmap/
+    experiment_restart_out_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/restart/rnfmap/
+    experiment_viz_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/viz/rnfmap/
     fflags: -r8 -fp-model precise -align array32byte -O3 -xCORE_AVX2 -g -traceback -convert big_endian -fpe0
     file_movements:
         analysis:
@@ -3175,17 +3290,17 @@ rnfmap:
             oasis_grid_type: LR
     input_dir: /proj/awi/input/runoff-mapper
     input_intermediate:
-        runoff_maps: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/input/rnfmap/runoff_maps.nc
+        runoff_maps: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/input/rnfmap/runoff_maps.nc
     input_sources:
         runoff_maps: /proj/awi/input/runoff-mapper/runoff_maps_CORE2.nc
     input_targets:
-        runoff_maps: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work/runoff_maps.nc
+        runoff_maps: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work/runoff_maps.nc
     install_bins: bin/rnfma
     last_parent_date: '1999-12-31T20:00:00'
     leapyear: true
     lresume: false
     model: rnfmap
-    model_dir: <TEST_DIR>/comp/awicm3/awicm3-frontiers-xios
+    model_dir: <TEST_DIR>/comp/awicm3/awicm3-v3.2
     namelist_changes:
         namelist.runoffmapper:
             NAMRNFMAP:
@@ -3201,9 +3316,9 @@ rnfmap:
     ny: 256
     omp_num_threads: 40
     parent_date: '1999-12-31T22:00:00'
-    parent_dir: /proj/awi/input/RUNOFF_MAPPER/restart/awicm3-frontiers-xios-TCO159L91-CORE2_initial
-    parent_expid: awicm3-frontiers-xios-TCO159L91-CORE2_initial
-    parent_restart_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/restart/rnfmap/
+    parent_dir: /proj/awi/input/RUNOFF_MAPPER/restart/awicm3-v3.2-TCO95L91-CORE2_initial
+    parent_expid: awicm3-v3.2-TCO95L91-CORE2_initial
+    parent_restart_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/restart/rnfmap/
     pool_dir: /proj/awi/input
     prev_date: '1999-12-31T22:00:00'
     resolution: 512x256
@@ -3220,19 +3335,19 @@ rnfmap:
     runoff_maps_name: _CORE2
     runoff_method: awicm3-default
     runtime_seconds: 86400
-    thisrun_analysis_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/analysis/rnfmap/
-    thisrun_bin_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/bin/rnfmap/
-    thisrun_config_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/config/rnfmap/
-    thisrun_couple_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/couple/rnfmap/
-    thisrun_forcing_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/forcing/rnfmap/
-    thisrun_ignore_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/ignore/rnfmap/
-    thisrun_input_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/input/rnfmap/
-    thisrun_log_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/log/rnfmap/
-    thisrun_mon_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/mon/rnfmap/
-    thisrun_outdata_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/outdata/rnfmap/
-    thisrun_restart_in_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/restart/rnfmap/
-    thisrun_restart_out_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/restart/rnfmap/
-    thisrun_viz_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/viz/rnfmap/
+    thisrun_analysis_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/analysis/rnfmap/
+    thisrun_bin_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/bin/rnfmap/
+    thisrun_config_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/config/rnfmap/
+    thisrun_couple_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/couple/rnfmap/
+    thisrun_forcing_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/forcing/rnfmap/
+    thisrun_ignore_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/ignore/rnfmap/
+    thisrun_input_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/input/rnfmap/
+    thisrun_log_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/log/rnfmap/
+    thisrun_mon_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/mon/rnfmap/
+    thisrun_outdata_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/outdata/rnfmap/
+    thisrun_restart_in_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/restart/rnfmap/
+    thisrun_restart_out_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/restart/rnfmap/
+    thisrun_viz_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/viz/rnfmap/
     time_step: 7200
     type: river
     version: focioifs1
@@ -3263,42 +3378,42 @@ xios:
     - 2.5_r1910_oifs
     - 2.5_r1910_ogcm
     - 2.5_smhi
-    bin_dir: <TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/bin
+    bin_dir: <TEST_DIR>/comp/awicm3/awicm3-v3.2/bin
     bin_intermediate:
-        server: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/bin/xios/xios.x
+        server: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/bin/xios/xios.x
     bin_sources:
-        server: <TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/bin/xios.x
+        server: <TEST_DIR>/comp/awicm3/awicm3-v3.2/bin/xios.x
     bin_targets:
-        server: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work/xios.x
+        server: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work/xios.x
     branch: esm-tools
     clean_command: rm -rf bin lib obj ppsrc cfg done etc flags inc tmp
-    comp_command: export XIOS_TOPLEVEL=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios; ./make_xios --arch ESMTOOLS_generic_intel --netcdf_lib netcdf4_par --full  --job 24; cp bin/xios_server.exe bin/xios.x
+    comp_command: export XIOS_TOPLEVEL=<TEST_DIR>/comp/awicm3/awicm3-v3.2; ./make_xios --arch ESMTOOLS_generic_intel --netcdf_lib netcdf4_par --full  --job 24; cp bin/xios_server.exe bin/xios.x
     config_intermediate:
-        axis_def: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/config/xios/axis_def.xml
-        context_ifs: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/config/xios/context_ifs.xml
-        domain_def: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/config/xios/domain_def.xml
-        field_def: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/config/xios/field_def.xml
-        file_def: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/config/xios/file_def.xml
-        grid_def: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/config/xios/grid_def.xml
-        io_def: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/config/xios/iodef.xml
+        axis_def: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/config/xios/axis_def.xml
+        context_ifs: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/config/xios/context_ifs.xml
+        domain_def: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/config/xios/domain_def.xml
+        field_def: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/config/xios/field_def.xml
+        file_def: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/config/xios/file_def.xml
+        grid_def: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/config/xios/grid_def.xml
+        io_def: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/config/xios/iodef.xml
     config_sources:
-        axis_def: <HOME_DIR>/esm_tools/namelists//oifs/43r3/xios/TCO159_CORE2/axis_def.xml
-        context_ifs: <HOME_DIR>/esm_tools/namelists//oifs/43r3/xios/TCO159_CORE2/context_ifs.xml
-        domain_def: <HOME_DIR>/esm_tools/namelists//oifs/43r3/xios/TCO159_CORE2/domain_def.xml
-        field_def: <HOME_DIR>/esm_tools/namelists//oifs/43r3/xios/TCO159_CORE2/field_def.xml
-        file_def: <HOME_DIR>/esm_tools/namelists//oifs/43r3/xios/TCO159_CORE2/file_def.xml
-        grid_def: <HOME_DIR>/esm_tools/namelists//oifs/43r3/xios/TCO159_CORE2/grid_def.xml
-        io_def: <HOME_DIR>/esm_tools/namelists//oifs/43r3/xios/TCO159_CORE2/iodef.xml
+        axis_def: <HOME_DIR>/esm_tools/namelists//oifs/43r3/xios/TCO95_CORE2/axis_def.xml
+        context_ifs: <HOME_DIR>/esm_tools/namelists//oifs/43r3/xios/TCO95_CORE2/context_ifs.xml
+        domain_def: <HOME_DIR>/esm_tools/namelists//oifs/43r3/xios/TCO95_CORE2/domain_def.xml
+        field_def: <HOME_DIR>/esm_tools/namelists//oifs/43r3/xios/TCO95_CORE2/field_def.xml
+        file_def: <HOME_DIR>/esm_tools/namelists//oifs/43r3/xios/TCO95_CORE2/file_def.xml
+        grid_def: <HOME_DIR>/esm_tools/namelists//oifs/43r3/xios/TCO95_CORE2/grid_def.xml
+        io_def: <HOME_DIR>/esm_tools/namelists//oifs/43r3/xios/TCO95_CORE2/iodef.xml
     config_sources_wild_card:
         ifs_xml: '*'
     config_targets:
-        axis_def: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work/axis_def.xml
-        context_ifs: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work/context_ifs.xml
-        domain_def: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work/domain_def.xml
-        field_def: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work/field_def.xml
-        file_def: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work/file_def.xml
-        grid_def: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work/grid_def.xml
-        io_def: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work/iodef.xml
+        axis_def: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work/axis_def.xml
+        context_ifs: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work/context_ifs.xml
+        domain_def: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work/domain_def.xml
+        field_def: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work/field_def.xml
+        file_def: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work/file_def.xml
+        grid_def: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work/grid_def.xml
+        io_def: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work/iodef.xml
     contact: jan.streffing(at)awi.de, miguel.andres-martinez(at)awi.de
     debug_info:
         loaded_from_file:
@@ -3311,19 +3426,19 @@ xios:
                 - unload netcdf
                 - load netcdf/4.4.1.1_intel_mpi
     executable: xios.x
-    experiment_analysis_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/analysis/xios/
-    experiment_bin_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/bin/xios/
-    experiment_config_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/config/xios/
-    experiment_couple_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/couple/xios/
-    experiment_forcing_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/forcing/xios/
-    experiment_ignore_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/ignore/xios/
-    experiment_input_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/input/xios/
-    experiment_log_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/log/xios/
-    experiment_mon_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/mon/xios/
-    experiment_outdata_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/outdata/xios/
-    experiment_restart_in_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/restart/xios/
-    experiment_restart_out_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/restart/xios/
-    experiment_viz_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/viz/xios/
+    experiment_analysis_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/analysis/xios/
+    experiment_bin_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/bin/xios/
+    experiment_config_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/config/xios/
+    experiment_couple_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/couple/xios/
+    experiment_forcing_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/forcing/xios/
+    experiment_ignore_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/ignore/xios/
+    experiment_input_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/input/xios/
+    experiment_log_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/log/xios/
+    experiment_mon_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/mon/xios/
+    experiment_outdata_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/outdata/xios/
+    experiment_restart_in_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/restart/xios/
+    experiment_restart_out_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/restart/xios/
+    experiment_viz_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/viz/xios/
     file_movements:
         analysis:
             exp_to_run: copy
@@ -3402,15 +3517,15 @@ xios:
             work_to_run: copy
     git-repository: https://git.geomar.de/foci/src/xios.git
     ignore_intermediate:
-        xios_registry: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/ignore/xios/xios_registry.bin
+        xios_registry: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/ignore/xios/xios_registry.bin
     ignore_sources:
-        xios_registry: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//xios_registry.bin
+        xios_registry: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//xios_registry.bin
     ignore_sources_wild_card:
         xios_err: xios*.err
         xios_int: xios_interpolation_weights*
         xios_out: xios*.out
     ignore_targets:
-        xios_registry: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/ignore/xios/xios_registry.bin
+        xios_registry: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/ignore/xios/xios_registry.bin
     install_bins: bin/xios.x
     leapyear: true
     lresume: false
@@ -3424,23 +3539,23 @@ xios:
     nproc: 1
     omp_num_threads: 40
     parent_date: '1999-12-31T00:00:00'
-    parent_expid: awicm3-frontiers-xios-TCO159L91-CORE2_initial
-    parent_restart_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/restart/xios/
+    parent_expid: awicm3-v3.2-TCO95L91-CORE2_initial
+    parent_restart_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/restart/xios/
     prev_date: '1999-12-31T00:00:00'
-    setup_dir: <TEST_DIR>/comp/awicm3/awicm3-frontiers-xios
-    thisrun_analysis_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/analysis/xios/
-    thisrun_bin_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/bin/xios/
-    thisrun_config_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/config/xios/
-    thisrun_couple_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/couple/xios/
-    thisrun_forcing_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/forcing/xios/
-    thisrun_ignore_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/ignore/xios/
-    thisrun_input_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/input/xios/
-    thisrun_log_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/log/xios/
-    thisrun_mon_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/mon/xios/
-    thisrun_outdata_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/outdata/xios/
-    thisrun_restart_in_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/restart/xios/
-    thisrun_restart_out_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/restart/xios/
-    thisrun_viz_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/viz/xios/
+    setup_dir: <TEST_DIR>/comp/awicm3/awicm3-v3.2
+    thisrun_analysis_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/analysis/xios/
+    thisrun_bin_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/bin/xios/
+    thisrun_config_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/config/xios/
+    thisrun_couple_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/couple/xios/
+    thisrun_forcing_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/forcing/xios/
+    thisrun_ignore_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/ignore/xios/
+    thisrun_input_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/input/xios/
+    thisrun_log_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/log/xios/
+    thisrun_mon_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/mon/xios/
+    thisrun_outdata_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/outdata/xios/
+    thisrun_restart_in_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/restart/xios/
+    thisrun_restart_out_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/restart/xios/
+    thisrun_viz_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/viz/xios/
     use_oasis: ''
     version: 2.0r982
-    xml_dir: <HOME_DIR>/esm_tools/namelists//oifs/43r3/xios/TCO159_CORE2
+    xml_dir: <HOME_DIR>/esm_tools/namelists//oifs/43r3/xios/TCO95_CORE2
