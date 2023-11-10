@@ -1,6 +1,6 @@
 general:
     setup_name: 'awicm'
-    #machine_name: "mistral"
+    version: "CMIP6"
     account: !ENV ${ACCOUNT}
     compute_time: "01:00:00"
     initial_date: "1850-01-01"
@@ -11,7 +11,6 @@ general:
     nday: 0
 
 awicm:
-    version: "CMIP6"
     scenario: "PI-CTRL"
     post_processing: 0
     model_dir: !ENV ${MODEL_DIR}

@@ -3,6 +3,7 @@ general:
         verbose: False
         comp_command: "esm_master comp-oifs-43r3-v1" # for esm_tests only!
         comp_version: 43r3-v1
+        version: 43r3
 
         setup_name: oifs
         compute_time: "00:30:00"
@@ -23,7 +24,6 @@ general:
         base_dir: !ENV ${ESM_TESTING_DIR}
 
 oifs:
-        version: 43r3
         with_xios: True
         input_dir: ${pool_dir}/OPENIFS43R3-TCO95/
         rtables_dir: ${pool_dir}/OPENIFS_CY43_GENERAL/rtables/
