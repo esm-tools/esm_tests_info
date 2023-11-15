@@ -329,6 +329,11 @@ fesom:
             init_to_exp: move
             run_to_work: move
             work_to_run: move
+        fesom_bin_restart_tar_out:
+            exp_to_run: move
+            init_to_exp: move
+            run_to_work: move
+            work_to_run: move
         fesom_raw_restart_in:
             exp_to_run: move
             init_to_exp: move
@@ -345,6 +350,11 @@ fesom:
             run_to_work: move
             work_to_run: move
         fesom_raw_restart_out:
+            exp_to_run: move
+            init_to_exp: move
+            run_to_work: move
+            work_to_run: move
+        fesom_raw_restart_tar_out:
             exp_to_run: move
             init_to_exp: move
             run_to_work: move
@@ -489,6 +499,8 @@ fesom:
     parent_restart_dir: <TEST_DIR>/run/awicm3//awicm3-v3.1-TCO95L91-CORE2_initial/restart/fesom/
     pool_dir: /work/ollie/jstreffi/input/fesom2/
     prev_date: '1999-12-31T23:20:00'
+    required_plugins:
+    - git+https://github.com/esm-tools-plugins/tar_binary_restarts
     resolution: CORE2
     restart_first: 1
     restart_flag: last
@@ -516,6 +528,7 @@ fesom:
     starttime: 0
     steps_per_day: 36
     surf_relax_s: 0
+    tar_binary_restarts: false
     thisrun_analysis_dir: <TEST_DIR>/run/awicm3//awicm3-v3.1-TCO95L91-CORE2_initial/run_20000101-20000101/analysis/fesom/
     thisrun_bin_dir: <TEST_DIR>/run/awicm3//awicm3-v3.1-TCO95L91-CORE2_initial/run_20000101-20000101/bin/fesom/
     thisrun_config_dir: <TEST_DIR>/run/awicm3//awicm3-v3.1-TCO95L91-CORE2_initial/run_20000101-20000101/config/fesom/
@@ -530,6 +543,16 @@ fesom:
     thisrun_restart_out_dir: <TEST_DIR>/run/awicm3//awicm3-v3.1-TCO95L91-CORE2_initial/run_20000101-20000101/restart/fesom/
     thisrun_viz_dir: <TEST_DIR>/run/awicm3//awicm3-v3.1-TCO95L91-CORE2_initial/run_20000101-20000101/viz/fesom/
     tide_forcing_dir: ''
+    tidy_recipe:
+    - tidy_coupler
+    - tar_binary_restarts
+    - assemble
+    - check_for_unknown_files
+    - log_used_files
+    - throw_away_some_infiles
+    - copy_stuff_back_from_work
+    - copy_all_results_to_exp
+    - clean_run_dir
     time_dimension: time
     time_step: 2400
     type: ocean
@@ -1076,7 +1099,7 @@ general:
     inspect: null
     isinteractive: false
     iterative_coupled_model: ''
-    jobid: 1439
+    jobid: 2004
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 19991231-19991231
@@ -1298,6 +1321,16 @@ general:
     thisrun_src_dir: <TEST_DIR>/run/awicm3//awicm3-v3.1-TCO95L91-CORE2_initial/run_20000101-20000101/src/
     thisrun_unknown_dir: <TEST_DIR>/run/awicm3//awicm3-v3.1-TCO95L91-CORE2_initial/run_20000101-20000101/unknown/
     thisrun_work_dir: <TEST_DIR>/run/awicm3//awicm3-v3.1-TCO95L91-CORE2_initial/run_20000101-20000101/work/
+    tidy_recipe:
+    - tidy_coupler
+    - tar_binary_restarts
+    - assemble
+    - check_for_unknown_files
+    - log_used_files
+    - throw_away_some_infiles
+    - copy_stuff_back_from_work
+    - copy_all_results_to_exp
+    - clean_run_dir
     total_runtime:
     - 0
     - 0

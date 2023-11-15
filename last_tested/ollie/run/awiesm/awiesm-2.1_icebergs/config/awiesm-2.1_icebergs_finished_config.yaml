@@ -1323,7 +1323,6 @@ fesom:
                 steps_per_ib_step: 8
     add_required_plugins:
     - git+https:/gitlab.awi.de/paleodyn/Projects/PalMod/gfw_creator.git
-    - git+https:/gitlab.awi.de/paleodyn/Projects/PalMod/gfw_creator.git
     all_filetypes:
     - analysis
     - bin
@@ -1487,6 +1486,11 @@ fesom:
             init_to_exp: move
             run_to_work: move
             work_to_run: move
+        fesom_bin_restart_tar_out:
+            exp_to_run: move
+            init_to_exp: move
+            run_to_work: move
+            work_to_run: move
         fesom_raw_restart_in:
             exp_to_run: move
             init_to_exp: move
@@ -1503,6 +1507,11 @@ fesom:
             run_to_work: move
             work_to_run: move
         fesom_raw_restart_out:
+            exp_to_run: move
+            init_to_exp: move
+            run_to_work: move
+            work_to_run: move
+        fesom_raw_restart_tar_out:
             exp_to_run: move
             init_to_exp: move
             run_to_work: move
@@ -1780,6 +1789,7 @@ fesom:
     qlw_prefix: rlds.
     qsr_prefix: rsds.
     required_plugins:
+    - git+https://github.com/esm-tools-plugins/tar_binary_restarts
     - git+https:/gitlab.awi.de/paleodyn/Projects/PalMod/gfw_creator.git
     resolution: CORE2
     restart_first: 1
@@ -1825,6 +1835,7 @@ fesom:
     starttime: 0
     steps_per_day: 48
     tair_prefix: tas.
+    tar_binary_restarts: false
     thisrun_analysis_dir: <TEST_DIR>/run/awiesm//awiesm-2.1_icebergs/run_20010101-20010101/analysis/fesom/
     thisrun_bin_dir: <TEST_DIR>/run/awiesm//awiesm-2.1_icebergs/run_20010101-20010101/bin/fesom/
     thisrun_config_dir: <TEST_DIR>/run/awiesm//awiesm-2.1_icebergs/run_20010101-20010101/config/fesom/
@@ -1839,6 +1850,16 @@ fesom:
     thisrun_restart_out_dir: <TEST_DIR>/run/awiesm//awiesm-2.1_icebergs/run_20010101-20010101/restart/fesom/
     thisrun_viz_dir: <TEST_DIR>/run/awiesm//awiesm-2.1_icebergs/run_20010101-20010101/viz/fesom/
     tide_forcing_dir: remove_from_namelist
+    tidy_recipe:
+    - tidy_coupler
+    - tar_binary_restarts
+    - assemble
+    - check_for_unknown_files
+    - log_used_files
+    - throw_away_some_infiles
+    - copy_stuff_back_from_work
+    - copy_all_results_to_exp
+    - clean_run_dir
     time_dimension: time
     time_step: 1800
     type: ocean
@@ -2046,10 +2067,11 @@ general:
     - restart_in
     initial_date: '2001-01-01T00:00:00'
     inspect: null
+    install_missing_plugins: false
     isinteractive: false
     iterative_coupled_model: ''
     iterative_coupling: false
-    jobid: 1215
+    jobid: 1568
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 20001231-20001231
