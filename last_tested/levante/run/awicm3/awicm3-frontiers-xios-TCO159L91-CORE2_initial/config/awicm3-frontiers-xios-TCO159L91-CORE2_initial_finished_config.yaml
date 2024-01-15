@@ -1122,7 +1122,7 @@ general:
     inspect: null
     isinteractive: false
     iterative_coupled_model: ''
-    jobid: 1464
+    jobid: 1466
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 19991231-19991231
@@ -1958,6 +1958,21 @@ oifs:
     - viz
     - ignore
     append_icmcl: ''
+    available_versions:
+    - 40r1
+    - 40r1-agcm
+    - 40r1-foci
+    - 43r3
+    - 43r3-master
+    - 43r3-awicm-3.0
+    - 43r3-awicm-3.1
+    - 43r3-awicm-3.1.1
+    - 43r3-awicm-3.1.2
+    - 43r3-awicm-3.2
+    - 43r3-awicm-frontiers-xios
+    - 43r3-foci
+    - 43r3-v1
+    - 48r1
     awicm3_fields:
     - A_Qns_oce
     - A_Qs_all
@@ -1984,7 +1999,9 @@ oifs:
         bin: <TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/bin/oifs
     bin_targets:
         bin: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work/oifs
+    branch: oifs-deck
     branchoff: false
+    clean_command: rm -rf make/esm
     clim_dir: /work/ab0246/a270092/input/oifs-43r3/../
     cloudfixer: 1
     cmip5_data_dir: /work/ab0246/a270092/input/oifs-43r3/../cmip5_data
@@ -1992,151 +2009,7 @@ oifs:
     cmip6_data_dir: /work/ab0246/a270092/input/oifs-43r3/../cmip6_data
     cmip6_data_dir_nml: /work/ab0246/a270092/input/oifs-43r3/cmip6-data
     cmip_fix_year: 0
-    compile_infos:
-        available_versions:
-        - 40r1
-        - 43r3-master
-        - 43r3-awicm-3.0
-        - 43r3-awicm-3.1
-        - 43r3-awicm-3.1.1
-        - 43r3-awicm-3.1.2
-        - 43r3-awicm-3.2
-        - 43r3-awicm-frontiers-xios
-        - 43r3
-        - 40r1-foci
-        - 43r3-foci
-        - 40r1-agcm
-        - 43r3-v1
-        choose_version:
-            40r1:
-                branch: foci_conserv
-            40r1-agcm:
-                compile_command: export OIFS_COMP=agcm; cd make; ../fcm/bin/fcm make -v -j8 -f oifs-agcm.cfg;  chmod -R 700 .
-            40r1-foci:
-                branch: foci_conserv
-                comp_command: cd make; ../fcm/bin/fcm make -v -j24 -f oifs.cfg ; chmod -R 700 .
-                contact: swahl(at)geomar.de
-                destination: 40r1
-            43r3:
-                branch: oifs-deck
-                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.cfg ; chmod -R 700 . ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
-                git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3.git
-                install_bins: make/esm/oifs/bin/oifs
-                with_xios: false
-            43r3-awicm-3.0:
-                branch: awicm3-frontiers-freeze-candidate-1
-                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.cfg ; chmod -R 700 . ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
-                destination: oifs-43r3
-                git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3.git
-                install_bins: make/esm/oifs/bin/oifs
-                requires:
-                - oasis3mct-4.0-awicm-3.0
-                with_xios: false
-            43r3-awicm-3.1:
-                branch: awicm-3.1
-                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3/../xios/inc/; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; chmod -R 700 .; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
-                destination: oifs-43r3
-                git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3.git
-                install_bins: make/esm/oifs/bin/oifs
-                requires:
-                - oasis3mct-4.0-awicm-3.1
-                with_xios: true
-            43r3-awicm-3.1.1:
-                branch: awicm-3.1.1
-                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3/../xios/inc/; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; chmod -R 700 .; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
-                destination: oifs-43r3
-                git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3.git
-                install_bins: make/esm/oifs/bin/oifs
-                requires:
-                - oasis3mct-4.0-awicm-3.1
-                with_xios: true
-            43r3-awicm-3.1.2:
-                branch: awicm-3.1.2
-                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3/../xios/inc/; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; chmod -R 700 .; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
-                destination: oifs-43r3
-                git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3.git
-                install_bins: make/esm/oifs/bin/oifs
-                requires:
-                - oasis3mct-4.0-awicm-3.1
-                with_xios: true
-            43r3-awicm-3.2:
-                branch: awicm-3.2
-                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3/../xios/inc/; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; chmod -R 700 .; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
-                destination: oifs-43r3
-                git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3.git
-                install_bins: make/esm/oifs/bin/oifs
-                requires:
-                - oasis3mct-4.0-awicm-3.1
-                with_xios: true
-            43r3-awicm-frontiers-xios:
-                branch: awicm-3-frontiers-xios
-                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3/../xios/inc/; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; chmod -R 700 . ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
-                destination: oifs-43r3
-                git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3.git
-                install_bins: make/esm/oifs/bin/oifs
-                requires:
-                - oasis3mct-4.0-awicm-frontiers
-                with_xios: true
-            43r3-foci:
-                branch: 43r3v1-foci
-                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3/../xios/inc/ ; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; chmod -R 700 . ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
-                contact: swahl(at)geomar.de
-                git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3.git
-                install_bins: make/esm/oifs/bin/oifs
-                requires:
-                - oasis3mct-4.0
-                - xios-2.5_r1910
-            43r3-foci21:
-                branch: master
-                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3/../xios/inc/ ; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; chmod -R 700 . ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
-                contact: swahl(at)geomar.de
-                git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3.git
-                install_bins: make/esm/oifs/bin/oifs
-                requires:
-                - oasis3mct-EM21
-                - xios-2.5_r1910
-            43r3-foci211:
-                branch: foci211
-                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3/../xios/inc/ ; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; chmod -R 700 . ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
-                contact: swahl(at)geomar.de
-                git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3.git
-                install_bins: make/esm/oifs/bin/oifs
-                requires:
-                - oasis3mct-EM21
-                - xios-2.5_r1910
-            43r3-master:
-                branch: main_dkrz
-                comp_command: export OIFS_CPLNG_LIB=$OIFS_OASIS_LIB; export OIFS_CPLNG_INCLUDE=$OIFS_OASIS_INCLUDE ;export OIFS_COMP=esm; export OIFS_BUILD=opt; export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3; export OIFS_XIOS=enable; export OIFS_CPLNG=enable; export OIFS_XIOS_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3/../xios/inc/; cd make; ../fcm/bin/fcm make -v -j10 -f oifs_esm.fcm ; chmod -R 700 . ; mv esm/oifs/bin/master.exe esm/oifs/bin/OpenIFS
-                destination: oifs-43r3
-                executable: OpenIFS
-                git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3-ece
-                install_bins: make/esm/oifs/bin/OpenIFS
-                requires:
-                - oasis3mct-5.0-smhi
-                with_xios: true
-            43r3-v1:
-                branch: 43r3v1-foci
-                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3/../xios/inc/ ; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; chmod -R 700 .; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
-                git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3.git
-                install_bins: make/esm/oifs/bin/oifs
-                requires:
-                - oasis3mct-4.0
-                - xios-2.5_r1910_oifs
-            43r3-v2:
-                branch: master
-                comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3/../xios/inc/ ; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; chmod -R 700 .; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
-                git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3.git
-                install_bins: make/esm/oifs/bin/oifs
-                requires:
-                - oasis3mct-4.0
-                - xios-2.5_r1910_oifs
-        clean_command: rm -rf make/esm
-        comp_command: cd make; ../fcm/bin/fcm make -v -j8 -f oifs.cfg
-        contact: jan.streffing(at)awi.de, miguel.andres-martinez(at)awi.de
-        git-repository: https://gitlab.dkrz.de/modular_esm/oifs-40r1.git
-        install_bins: make/esm/oifs/bin/master.exe
-        requires:
-        - oasis3mct-4.0
+    comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.cfg ; chmod -R 700 . ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
     compiletime_environment_changes:
         choose_computer.name:
             albedo:
@@ -2445,6 +2318,7 @@ oifs:
     config_targets:
         fort.4: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work/fort.4
         wam_namelist: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work/wam_namelist
+    contact: jan.streffing(at)awi.de, miguel.andres-martinez(at)awi.de
     copy_forcing: false
     coupling_fields:
         A_Calving:
@@ -2635,7 +2509,10 @@ oifs:
     forcing_intermediate: {}
     forcing_sources: {}
     forcing_targets: {}
+    further_reading:
+    - oifs/oifs.env.yaml
     generate_namelist: 1
+    git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3.git
     grids:
         atma:
             name: A160
@@ -2709,6 +2586,7 @@ oifs:
         wam_subgrid_0: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work/wam_subgrid_0
         wam_subgrid_1: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work/wam_subgrid_1
         wam_subgrid_2: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work/wam_subgrid_2
+    install_bins: make/esm/oifs/bin/oifs
     lassi: false
     last_parent_date: '1999-12-31T22:00:00'
     leapyear: true
@@ -2730,6 +2608,7 @@ oifs:
         ifsstat: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/log/oifs/ifs.stat
     lresume: false
     lsmssig: false
+    major_version: 43r3
     massfixer: 2
     metadata:
         Authors: Glenn Carver (openifs-support@ecmwf.int)
