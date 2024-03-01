@@ -1,7 +1,7 @@
 computer:
     account: None
     accounting: true
-    accounting_flag: --account=None
+    accounting_flag: --account=ab0246
     actual_script_dir: <--methods.script_dir--
     add_choose_heterogeneous_parallelization: &id001
         false:
@@ -103,7 +103,7 @@ computer:
     hostname_list: DUMMY_HOST1 DUMMY_HOST2
     hyperthreading_flag: --ntasks-per-core=1
     iolibraries: system_libs
-    jobtype: unknown
+    jobtype: prepcompute
     launcher: srun
     launcher_flags: -l
     logical_cpus_per_core: 2
@@ -155,7 +155,7 @@ computer:
         pool: /pool/data
     runtime_environment_changes:
         add_export_vars:
-            ACCOUNT: None
+            ACCOUNT: ab0246
             ESM_TESTING_DIR: <TEST_DIR>/run/awiesm/
             MODEL_DIR: <TEST_DIR>/comp/awiesm/awiesm-2.1-recom
     script_name: <--methods.scriptname--
@@ -1898,7 +1898,7 @@ fesom:
 general:
     CDP: /pf/a/a270108/fesom2_recom_config/input-for-awiesm/
     RDP: /pf/a/a270108/fesom2_recom_config/input-for-awiesm/
-    account: None
+    account: ab0246
     additional_files: []
     all_filetypes:
     - analysis
@@ -1932,10 +1932,10 @@ general:
     base_dir: <TEST_DIR>/run/awiesm/
     batch: slurm
     calendar: esm_calendar object with allowed leap years
-    check: true
+    check: false
     chunk_number: 1
     command_line_config:
-        check: true
+        check: false
         current_date: null
         expid: all_awiesm-2.1-recom
         ignore_config_warnings: false
@@ -1944,7 +1944,7 @@ general:
         last_jobtype: prepcompute
         launcher_pid: -666
         no_motd: true
-        original_command: all_awiesm-2.1-recom.yaml -e all_awiesm-2.1-recom --open-run -c --no-motd --last-jobtype prepcompute
+        original_command: all_awiesm-2.1-recom.yaml -e all_awiesm-2.1-recom --open-run --no-motd --last-jobtype prepcompute -t prepcompute
         profile: false
         run_number: null
         runscript_abspath: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/scripts/all_awiesm-2.1-recom.yaml
@@ -1966,6 +1966,11 @@ general:
     defaults.yaml:
         debug_info:
             loaded_from_file: <HOME_DIR>/esm_tools/configs//esm_software/esm_runscripts/defaults.yaml
+        general:
+            additional_files: []
+            iterative_coupled_model: ''
+            reset_calendar_to_last: false
+            verbose: false
         per_model_defaults: {}
     delta_date:
     - 0
@@ -2084,9 +2089,10 @@ general:
     initial_date: '2001-01-01T00:00:00'
     inspect: null
     isinteractive: false
+    isresubmitted: true
     iterative_coupled_model: ''
     jP: /pf/a/a270064/bb1029/AWIESM2.1-EXP/mesh_core2/tarfilesT63/input/jsbach/jsbach_T63CORE2_11tiles_5layers_1850.nc
-    jobid: 1553
+    jobid: 1059639
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 20001231-20001231
@@ -2111,7 +2117,7 @@ general:
     no_motd: true
     nsecond: 0
     nyear: 0
-    original_command: all_awiesm-2.1-recom.yaml -e all_awiesm-2.1-recom --open-run -c --no-motd --last-jobtype prepcompute
+    original_command: all_awiesm-2.1-recom.yaml -e all_awiesm-2.1-recom --open-run --no-motd --last-jobtype prepcompute -t prepcompute
     out_filetypes:
     - analysis
     - log
