@@ -86,7 +86,7 @@ computer:
     hostname_list: DUMMY_HOST1 DUMMY_HOST2
     hyperthreading_flag: ''
     iolibraries: awi_libs
-    jobtype: unknown
+    jobtype: prepcompute
     launcher: srun
     launcher_flags: -l
     logical_cpus_per_core: 2
@@ -726,7 +726,7 @@ general:
         last_jobtype: prepcompute
         launcher_pid: -666
         no_motd: true
-        original_command: awicm3-v3.2-TCO95L91-CORE2_initial.yaml -e awicm3-v3.2-TCO95L91-CORE2_initial --open-run -c --no-motd --last-jobtype prepcompute
+        original_command: awicm3-v3.2-TCO95L91-CORE2_initial.yaml -e awicm3-v3.2-TCO95L91-CORE2_initial --open-run -c --no-motd --last-jobtype prepcompute -t prepcompute
         profile: false
         run_number: null
         runscript_abspath: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml
@@ -1047,6 +1047,11 @@ general:
     defaults.yaml:
         debug_info:
             loaded_from_file: <HOME_DIR>/esm_tools/configs//esm_software/esm_runscripts/defaults.yaml
+        general:
+            additional_files: []
+            iterative_coupled_model: ''
+            reset_calendar_to_last: false
+            verbose: false
         per_model_defaults: {}
     delta_date:
     - 0
@@ -1196,8 +1201,9 @@ general:
     initial_date: '2000-01-01T00:00:00'
     inspect: null
     isinteractive: false
+    isresubmitted: true
     iterative_coupled_model: ''
-    jobid: 1098
+    jobid: 1143
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 19991231-19991231
@@ -1225,7 +1231,7 @@ general:
     no_motd: true
     nsecond: 0
     nyear: 0
-    original_command: awicm3-v3.2-TCO95L91-CORE2_initial.yaml -e awicm3-v3.2-TCO95L91-CORE2_initial --open-run -c --no-motd --last-jobtype prepcompute
+    original_command: awicm3-v3.2-TCO95L91-CORE2_initial.yaml -e awicm3-v3.2-TCO95L91-CORE2_initial --open-run -c --no-motd --last-jobtype prepcompute -t prepcompute
     out_filetypes:
     - analysis
     - log
