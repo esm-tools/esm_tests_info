@@ -75,7 +75,7 @@ computer:
     hetjob_flag: packjob
     hostname_list: DUMMY_HOST1 DUMMY_HOST2
     hyper_flag: ''
-    jobtype: unknown
+    jobtype: prepcompute
     launcher: srun
     launcher_flags: -l --kill-on-bad-exit=1 --cpu_bind=cores
     logical_cpus_per_core: 2
@@ -1320,7 +1320,7 @@ general:
         last_jobtype: prepcompute
         launcher_pid: -666
         no_motd: true
-        original_command: fesom-recom1.4-initial-daily.yaml -e fesom-recom1.4-initial-daily --open-run -c --no-motd --last-jobtype prepcompute
+        original_command: fesom-recom1.4-initial-daily.yaml -e fesom-recom1.4-initial-daily --open-run -c --no-motd --last-jobtype prepcompute -t prepcompute
         profile: false
         run_number: null
         runscript_abspath: <TEST_DIR>run/fesom-recom/fesom-recom1.4-initial-daily/scripts/fesom-recom1.4-initial-daily.yaml
@@ -1340,6 +1340,11 @@ general:
     defaults.yaml:
         debug_info:
             loaded_from_file: <HOME_DIR>/esm_tools/configs//esm_software/esm_runscripts/defaults.yaml
+        general:
+            additional_files: []
+            iterative_coupled_model: ''
+            reset_calendar_to_last: false
+            verbose: false
         per_model_defaults: {}
     delta_date:
     - 0
@@ -1453,8 +1458,9 @@ general:
     initial_date: '1958-01-01T00:00:00'
     inspect: null
     isinteractive: false
+    isresubmitted: true
     iterative_coupled_model: ''
-    jobid: 1515
+    jobid: 1663
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 19571231-19571231
@@ -1478,7 +1484,7 @@ general:
     no_motd: true
     nsecond: 0
     nyear: 0
-    original_command: fesom-recom1.4-initial-daily.yaml -e fesom-recom1.4-initial-daily --open-run -c --no-motd --last-jobtype prepcompute
+    original_command: fesom-recom1.4-initial-daily.yaml -e fesom-recom1.4-initial-daily --open-run -c --no-motd --last-jobtype prepcompute -t prepcompute
     out_filetypes:
     - analysis
     - log
