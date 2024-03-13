@@ -66,8 +66,8 @@ mkdir -p build; cd build; export PISM_INSTALL_PREFIX=$(readlink -f $(pwd)/..); c
         -DMPI_C_DIR="$I_MPI_ROOT" \
         -DPism_USE_JANSSON:BOOL=NO \
         -DPism_USE_PARALLEL_NETCDF4:BOOL=OFF \
-        -DPism_USE_PARALLEL_HDF5:BOOL=OFF \
-        -DPism_USE_PROJ4:BOOL=YES \
+        -DPism_USE_PARALLEL_HDF5:BOOL=ON \
+        -DPism_USE_PROJ:BOOL=YES \
         -DPism_BUILD_EXTRA_EXECS:BOOL=ON \
         ..; make -j4; make install;
 cd ..

@@ -232,7 +232,7 @@ echam:
                 branch: 6.3.05p2
                 destination: echam-6.3.05p2
             6.3.05p2-awiesm-2.1:
-                branch: 6.3.05p2-awiesm-2.1
+                branch: 6.3.05p2-awiesm-2.1-paleodyn-2.5
                 clean_command: rm -rf src/echam/bin; rm -rf bin; make clean
                 comp_command: ./config/createMakefiles.pl; autoreconf -i --force; mkdir -p src/.deps yaxt/src/.deps yaxt/tests/.deps; ./configure $configure_opts --with-fortran=intel INSTALL='/usr/bin/install -p'; make -j `nproc --all`; make install -j `nproc --all`; mkdir -p src/echam/bin; cp  bin/echam6 src/echam/bin/echam6
                 destination: echam-6.3.05p2
@@ -540,6 +540,8 @@ echam:
             nx: 192
             ny: 96
             oasis_grid_type: D
+    hosing_correction: false
+    icb_code: true
     ignore_intermediate:
         accw: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_accw
         accw_codes: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_accw.codes
@@ -571,6 +573,9 @@ echam:
         glim: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_glim
         glim_codes: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_glim.codes
         glim_restart: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/restart_bootstrap_glim.nc
+        ism: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_ism
+        ism_codes: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_ism.codes
+        ism_restart: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/restart_bootstrap_ism.nc
         rad: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_rad
         rad_codes: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/bootstrap_185101.01_rad.codes
         rad_restart: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/ignore/echam/restart_bootstrap_rad.nc
@@ -611,6 +616,9 @@ echam:
         glim: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_glim
         glim_codes: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_glim.codes
         glim_restart: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_glim.nc
+        ism: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_ism
+        ism_codes: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_ism.codes
+        ism_restart: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_ism.nc
         rad: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_rad
         rad_codes: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//bootstrap_185101.01_rad.codes
         rad_restart: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_rad.nc
@@ -651,6 +659,9 @@ echam:
         glim: <TEST_DIR>run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_glim
         glim_codes: <TEST_DIR>run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_glim.codes
         glim_restart: <TEST_DIR>run/awiesm/bootstrap/ignore/echam/restart_bootstrap_glim.nc
+        ism: <TEST_DIR>run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_ism
+        ism_codes: <TEST_DIR>run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_ism.codes
+        ism_restart: <TEST_DIR>run/awiesm/bootstrap/ignore/echam/restart_bootstrap_ism.nc
         rad: <TEST_DIR>run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_rad
         rad_codes: <TEST_DIR>run/awiesm/bootstrap/ignore/echam/bootstrap_185101.01_rad.codes
         rad_restart: <TEST_DIR>run/awiesm/bootstrap/ignore/echam/restart_bootstrap_rad.nc
@@ -697,6 +708,8 @@ echam:
     last_parent_date: '1849-12-31T23:45:00'
     leapyear: true
     levels: L47
+    lgfw: false
+    licb: false
     log_intermediate:
         atmout: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/log/echam/atmout
         stderr: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/log/echam/echam.stderr
@@ -712,6 +725,7 @@ echam:
     lrad_async: false
     lrestart_from_old: false
     lresume: false
+    lupdate_orography: false
     lwiso: false
     lwiso_rerun: false
     metadata:
@@ -758,6 +772,7 @@ echam:
                 - first
                 - 0
             submodelctl:
+                licb: false
                 lupdate_orog: true
             wisoctl:
                 lwiso: false
@@ -840,6 +855,8 @@ echam:
         glday_codes: bootstrap_1850*.01_glday.codes
         glim: bootstrap_1850*.01_glim
         glim_codes: bootstrap_1850*.01_glim.codes
+        ism: bootstrap_1850*.01_ism
+        ism_codes: bootstrap_1850*.01_ism.codes
         rad: bootstrap_1850*.01_rad
         rad_codes: bootstrap_1850*.01_rad.codes
         sp6h: bootstrap_1850*.01_sp6h
@@ -976,6 +993,12 @@ echam:
             flags:
             - t echam6
             post_process: mm
+        bootstrap_echam_ism_18500101-18510101_mm.nc:
+            args:
+                infile: bootstrap_185001.01_ism
+            flags:
+            - t echam6
+            post_process: mm
         bootstrap_echam_rad_18500101-18510101_mm.nc:
             args:
                 infile: bootstrap_185001.01_rad
@@ -1018,7 +1041,9 @@ echam:
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
         aclcim:
+        - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
@@ -1046,7 +1071,9 @@ echam:
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
         echam:
+        - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
@@ -1074,7 +1101,9 @@ echam:
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
         g3bday:
+        - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
@@ -1102,7 +1131,9 @@ echam:
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
         g3bim:
+        - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
@@ -1130,7 +1161,24 @@ echam:
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
         glim:
+        - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
+        ism:
+        - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
@@ -1158,7 +1206,9 @@ echam:
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
         sp6h:
+        - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
@@ -1186,6 +1236,7 @@ echam:
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
     restart_out_intermediate:
         accw: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/restart/echam/restart_bootstrap_accw_18501231.nc
         aclcim: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/restart/echam/restart_bootstrap_aclcim_18501231.nc
@@ -1197,6 +1248,7 @@ echam:
         g3bim: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/restart/echam/restart_bootstrap_g3bim_18501231.nc
         glday: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/restart/echam/restart_bootstrap_glday_18501231.nc
         glim: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/restart/echam/restart_bootstrap_glim_18501231.nc
+        ism: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/restart/echam/restart_bootstrap_ism_18501231.nc
         rad: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/restart/echam/restart_bootstrap_rad_18501231.nc
         sp6h: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/restart/echam/restart_bootstrap_sp6h_18501231.nc
         spim: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/restart/echam/restart_bootstrap_spim_18501231.nc
@@ -1211,6 +1263,7 @@ echam:
         g3bim: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_18501231235230_g3bim.nc
         glday: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_18501231235230_glday.nc
         glim: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_18501231235230_glim.nc
+        ism: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_18501231235230_ism.nc
         rad: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_18501231235230_rad.nc
         sp6h: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_18501231235230_sp6h.nc
         spim: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/work//restart_bootstrap_18501231235230_spim.nc
@@ -1225,6 +1278,7 @@ echam:
         g3bim: <TEST_DIR>run/awiesm/bootstrap/restart/echam/restart_bootstrap_g3bim_18501231.nc
         glday: <TEST_DIR>run/awiesm/bootstrap/restart/echam/restart_bootstrap_glday_18501231.nc
         glim: <TEST_DIR>run/awiesm/bootstrap/restart/echam/restart_bootstrap_glim_18501231.nc
+        ism: <TEST_DIR>run/awiesm/bootstrap/restart/echam/restart_bootstrap_ism_18501231.nc
         rad: <TEST_DIR>run/awiesm/bootstrap/restart/echam/restart_bootstrap_rad_18501231.nc
         sp6h: <TEST_DIR>run/awiesm/bootstrap/restart/echam/restart_bootstrap_sp6h_18501231.nc
         spim: <TEST_DIR>run/awiesm/bootstrap/restart/echam/restart_bootstrap_spim_18501231.nc
@@ -1248,6 +1302,7 @@ echam:
     - sp6h
     - glim
     - spim
+    - ism
     - rad
     streamsnc:
     - aclcim
@@ -1303,6 +1358,7 @@ echam:
     - i1_atm
     - i2_atm
     - i3_atm
+    with_icb: false
     with_lco2_emis: false
     with_wiso: false
     yr_perp_off: false
@@ -1818,6 +1874,7 @@ fesom:
     type: ocean
     use_icebergs: false
     use_icesheet_coupling: false
+    use_landice_water: false
     version: 2.1-awiesm-2.1
     wiso_code: true
     wiso_fields:
@@ -1833,6 +1890,7 @@ fesom:
     - i1_oce
     - i2_oce
     - i3_oce
+    with_icb: false
     with_part_format: false
     with_pico: false
     with_recom: false
@@ -1872,11 +1930,11 @@ general:
     - 2.1
     - 2.1-wiso
     - 2.1-recom
+    - 2.1-paleodyn-2.5
     base_dir: <TEST_DIR>/run/awiesm/
     batch: slurm
     calendar: esm_calendar object with allowed leap years
     check: true
-    chunk_number: 1
     command_line_config:
         check: true
         current_date: null
@@ -1924,6 +1982,7 @@ general:
     - 0
     description: Basic AWIESM Test for PI
     end_date: '1850-12-31T00:00:00'
+    esm_couplings_dir: <HOME_DIR>/esm_tools/couplings/
     esm_function_dir: <HOME_DIR>/esm_tools/configs/
     esm_namelist_dir: <HOME_DIR>/esm_tools/namelists/
     esm_runscript_dir: <HOME_DIR>/esm_tools/runscripts/
@@ -2018,7 +2077,6 @@ general:
             run_to_work: copy
             work_to_run: copy
     final_date: '1850-12-31T00:00:00'
-    first_run_in_chunk: true
     ignore_config_warnings: false
     in_filetypes:
     - scripts
@@ -2032,11 +2090,11 @@ general:
     isinteractive: false
     isresubmitted: true
     iterative_coupled_model: ''
-    jobid: 2068
+    iterative_coupling: false
+    jobid: 1748
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 18490101-18491231
-    last_run_in_chunk: true
     last_start_date: '1849-01-01T00:00:00'
     launcher_pid: -666
     leapyear: true
@@ -2093,6 +2151,7 @@ general:
     - prepare_coupler_files
     - assemble
     - log_used_files
+    - wait_for_iterative_coupling
     - copy_files_to_thisrun
     - modify_namelists
     - modify_files
@@ -2171,7 +2230,7 @@ general:
     verbose: false
     version: 2.1
     with_bootstrap: true
-    with_icebergs: false
+    with_icb: false
     with_pico: false
     with_recom: false
     with_wiso: false
@@ -2344,6 +2403,7 @@ hdmodel:
             init_to_exp: copy
             run_to_work: copy
             work_to_run: copy
+    from_general_with_wiso_choose: <NOT_SPECIFIED>
     ini_parent_dir: <TEST_DIR>/run/awiesm//bootstrap/restart/echam//../hdmodel/
     ini_parent_exp_id: bootstrap
     ini_restart_dir: <TEST_DIR>/run/awiesm//bootstrap/restart/echam//../hdmodel/
@@ -2436,7 +2496,7 @@ jsbach:
     domain: vegetation
     dynamic_vegetations: true
     dynveg: _dynveg
-    dynveg_file_ending: ''
+    dynveg_file_ending: _dynveg
     experiment_analysis_dir: <TEST_DIR>/run/awiesm//bootstrap/analysis/jsbach/
     experiment_bin_dir: <TEST_DIR>/run/awiesm//bootstrap/bin/jsbach/
     experiment_config_dir: <TEST_DIR>/run/awiesm//bootstrap/config/jsbach/
@@ -2577,6 +2637,7 @@ jsbach:
         a_nd_file: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/work/a_nd_file.nc
         lightning: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/work/lightning.nc
         popdens: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/work/population_density.nc
+    from_iterative_coupling_choose: <NOT_SPECIFIED>
     hist_extend_scenario: ssp370
     hist_fold: hist_harvest
     ignore_intermediate:
@@ -2659,7 +2720,7 @@ jsbach:
     input_targets:
         jsbach: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/work/jsbach.nc
         lctlib: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/work/lctlib.def
-    jsbachnc_file_ending: ''
+    jsbachnc_file_ending: _dynveg
     last_parent_date: '1849-12-31T23:45:00'
     leapyear: true
     license_text: 'Please make sure you have a licence to use echam.In case you are
@@ -2670,7 +2731,8 @@ jsbach:
     model_dir: <TEST_DIR>/comp/awiesm/awiesm-2.1/echam-6.3.05p2
     namelist_changes:
         namelist.jsbach:
-            hydrology_ctl: {}
+            hydrology_ctl:
+                lgfw: false
             jsbach_ctl:
                 use_dynveg: true
     namelist_dir: <HOME_DIR>/esm_tools/namelists//jsbach/3.20/PI-CTRL/dynveg
