@@ -959,6 +959,7 @@ general:
                             DR_HOOK_PROFILE_LIMIT: 0.5
                             HDF5_DISABLE_VERSION_CHECK: 1
                             OIFS_DUMMY_ACTION: ABORT
+    esm_couplings_dir: <HOME_DIR>/esm_tools/couplings/
     esm_function_dir: <HOME_DIR>/esm_tools/configs/
     esm_namelist_dir: <HOME_DIR>/esm_tools/namelists/
     esm_runscript_dir: <HOME_DIR>/esm_tools/runscripts/
@@ -1069,7 +1070,7 @@ general:
     isinteractive: false
     isresubmitted: true
     iterative_coupled_model: ''
-    jobid: 1050
+    jobid: 1049
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 19991231-19991231
@@ -1135,6 +1136,7 @@ general:
     - assemble
     - log_used_files
     - _write_finalized_config
+    - wait_for_iterative_coupling
     - copy_files_to_thisrun
     - write_env
     - preprocess
@@ -2722,6 +2724,7 @@ oifs:
     - assemble
     - log_used_files
     - _write_finalized_config
+    - wait_for_iterative_coupling
     - copy_files_to_thisrun
     - write_env
     - preprocess
