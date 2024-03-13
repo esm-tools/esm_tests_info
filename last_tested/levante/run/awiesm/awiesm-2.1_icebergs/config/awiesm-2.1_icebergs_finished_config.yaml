@@ -252,7 +252,7 @@ echam:
                 branch: 6.3.05p2
                 destination: echam-6.3.05p2
             6.3.05p2-awiesm-2.1:
-                branch: 6.3.05p2-awiesm-2.1
+                branch: 6.3.05p2-awiesm-2.1-paleodyn-2.5
                 clean_command: rm -rf src/echam/bin; rm -rf bin; make clean
                 comp_command: ./config/createMakefiles.pl; autoreconf -i --force; mkdir -p src/.deps yaxt/src/.deps yaxt/tests/.deps; ./configure $configure_opts --with-fortran=intel INSTALL='/usr/bin/install -p'; make -j `nproc --all`; make install -j `nproc --all`; mkdir -p src/echam/bin; cp  bin/echam6 src/echam/bin/echam6
                 destination: echam-6.3.05p2
@@ -561,6 +561,7 @@ echam:
             ny: 96
             oasis_grid_type: D
     hosing_correction: false
+    icb_code: true
     ignore_intermediate:
         accw: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20010101/ignore/echam/awiesm-2.1_icebergs_200101.02_accw
         accw_codes: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20010101/ignore/echam/awiesm-2.1_icebergs_200101.02_accw.codes
@@ -592,6 +593,9 @@ echam:
         glim: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20010101/ignore/echam/awiesm-2.1_icebergs_200101.02_glim
         glim_codes: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20010101/ignore/echam/awiesm-2.1_icebergs_200101.02_glim.codes
         glim_restart: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20010101/ignore/echam/restart_awiesm-2.1_icebergs_glim.nc
+        ism: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20010101/ignore/echam/awiesm-2.1_icebergs_200101.02_ism
+        ism_codes: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20010101/ignore/echam/awiesm-2.1_icebergs_200101.02_ism.codes
+        ism_restart: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20010101/ignore/echam/restart_awiesm-2.1_icebergs_ism.nc
         rad: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20010101/ignore/echam/awiesm-2.1_icebergs_200101.02_rad
         rad_codes: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20010101/ignore/echam/awiesm-2.1_icebergs_200101.02_rad.codes
         rad_restart: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20010101/ignore/echam/restart_awiesm-2.1_icebergs_rad.nc
@@ -632,6 +636,9 @@ echam:
         glim: <TEST_DIR>/run/awiesm//awiesm-2.1_icebergs/run_20010101-20010101/work//awiesm-2.1_icebergs_200101.02_glim
         glim_codes: <TEST_DIR>/run/awiesm//awiesm-2.1_icebergs/run_20010101-20010101/work//awiesm-2.1_icebergs_200101.02_glim.codes
         glim_restart: <TEST_DIR>/run/awiesm//awiesm-2.1_icebergs/run_20010101-20010101/work//restart_awiesm-2.1_icebergs_glim.nc
+        ism: <TEST_DIR>/run/awiesm//awiesm-2.1_icebergs/run_20010101-20010101/work//awiesm-2.1_icebergs_200101.02_ism
+        ism_codes: <TEST_DIR>/run/awiesm//awiesm-2.1_icebergs/run_20010101-20010101/work//awiesm-2.1_icebergs_200101.02_ism.codes
+        ism_restart: <TEST_DIR>/run/awiesm//awiesm-2.1_icebergs/run_20010101-20010101/work//restart_awiesm-2.1_icebergs_ism.nc
         rad: <TEST_DIR>/run/awiesm//awiesm-2.1_icebergs/run_20010101-20010101/work//awiesm-2.1_icebergs_200101.02_rad
         rad_codes: <TEST_DIR>/run/awiesm//awiesm-2.1_icebergs/run_20010101-20010101/work//awiesm-2.1_icebergs_200101.02_rad.codes
         rad_restart: <TEST_DIR>/run/awiesm//awiesm-2.1_icebergs/run_20010101-20010101/work//restart_awiesm-2.1_icebergs_rad.nc
@@ -672,6 +679,9 @@ echam:
         glim: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/ignore/echam/awiesm-2.1_icebergs_200101.02_glim
         glim_codes: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/ignore/echam/awiesm-2.1_icebergs_200101.02_glim.codes
         glim_restart: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/ignore/echam/restart_awiesm-2.1_icebergs_glim.nc
+        ism: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/ignore/echam/awiesm-2.1_icebergs_200101.02_ism
+        ism_codes: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/ignore/echam/awiesm-2.1_icebergs_200101.02_ism.codes
+        ism_restart: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/ignore/echam/restart_awiesm-2.1_icebergs_ism.nc
         rad: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/ignore/echam/awiesm-2.1_icebergs_200101.02_rad
         rad_codes: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/ignore/echam/awiesm-2.1_icebergs_200101.02_rad.codes
         rad_restart: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/ignore/echam/restart_awiesm-2.1_icebergs_rad.nc
@@ -715,6 +725,8 @@ echam:
     last_parent_date: '2000-12-31T23:45:00'
     leapyear: true
     levels: L47
+    lgfw: false
+    licb: false
     log_intermediate:
         atmout: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20010101/log/echam/atmout
         stderr: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20010101/log/echam/echam.stderr
@@ -730,6 +742,7 @@ echam:
     lrad_async: false
     lrestart_from_old: false
     lresume: false
+    lupdate_orography: false
     lwiso: false
     lwiso_rerun: false
     metadata:
@@ -778,6 +791,8 @@ echam:
                 - days
                 - first
                 - 0
+            submodelctl:
+                licb: false
             wisoctl:
                 lwiso: false
                 lwiso_rerun: false
@@ -860,6 +875,8 @@ echam:
         glday_codes: awiesm-2.1_icebergs_2001*.01_glday.codes
         glim: awiesm-2.1_icebergs_2001*.01_glim
         glim_codes: awiesm-2.1_icebergs_2001*.01_glim.codes
+        ism: awiesm-2.1_icebergs_2001*.01_ism
+        ism_codes: awiesm-2.1_icebergs_2001*.01_ism.codes
         rad: awiesm-2.1_icebergs_2001*.01_rad
         rad_codes: awiesm-2.1_icebergs_2001*.01_rad.codes
         sp6h: awiesm-2.1_icebergs_2001*.01_sp6h
@@ -996,6 +1013,12 @@ echam:
             flags:
             - t echam6
             post_process: mm
+        awiesm-2.1_icebergs_echam_ism_20010101-20010102_mm.nc:
+            args:
+                infile: awiesm-2.1_icebergs_200101.01_ism
+            flags:
+            - t echam6
+            post_process: mm
         awiesm-2.1_icebergs_echam_rad_20010101-20010102_mm.nc:
             args:
                 infile: awiesm-2.1_icebergs_200101.01_rad
@@ -1038,7 +1061,9 @@ echam:
         - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
+        - vdate <--set_global_attr-- 20010101
         aclcim:
+        - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
@@ -1066,7 +1091,9 @@ echam:
         - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
+        - vdate <--set_global_attr-- 20010101
         echam:
+        - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
@@ -1094,7 +1121,9 @@ echam:
         - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
+        - vdate <--set_global_attr-- 20010101
         g3bday:
+        - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
@@ -1122,7 +1151,9 @@ echam:
         - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
+        - vdate <--set_global_attr-- 20010101
         g3bim:
+        - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
@@ -1150,7 +1181,24 @@ echam:
         - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
+        - vdate <--set_global_attr-- 20010101
         glim:
+        - vdate <--set_global_attr-- 20010101
+        - vdate <--set_global_attr-- 20010101
+        - vdate <--set_global_attr-- 20010101
+        - vdate <--set_global_attr-- 20010101
+        - vdate <--set_global_attr-- 20010101
+        - vdate <--set_global_attr-- 20010101
+        - vdate <--set_global_attr-- 20010101
+        - vdate <--set_global_attr-- 20010101
+        - vdate <--set_global_attr-- 20010101
+        - vdate <--set_global_attr-- 20010101
+        - vdate <--set_global_attr-- 20010101
+        - vdate <--set_global_attr-- 20010101
+        - vdate <--set_global_attr-- 20010101
+        - vdate <--set_global_attr-- 20010101
+        ism:
+        - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
@@ -1178,7 +1226,9 @@ echam:
         - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
+        - vdate <--set_global_attr-- 20010101
         sp6h:
+        - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
@@ -1206,6 +1256,7 @@ echam:
         - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
+        - vdate <--set_global_attr-- 20010101
     restart_out_intermediate:
         accw: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20010101/restart/echam/restart_awiesm-2.1_icebergs_accw_20010101.nc
         aclcim: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20010101/restart/echam/restart_awiesm-2.1_icebergs_aclcim_20010101.nc
@@ -1217,6 +1268,7 @@ echam:
         g3bim: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20010101/restart/echam/restart_awiesm-2.1_icebergs_g3bim_20010101.nc
         glday: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20010101/restart/echam/restart_awiesm-2.1_icebergs_glday_20010101.nc
         glim: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20010101/restart/echam/restart_awiesm-2.1_icebergs_glim_20010101.nc
+        ism: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20010101/restart/echam/restart_awiesm-2.1_icebergs_ism_20010101.nc
         rad: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20010101/restart/echam/restart_awiesm-2.1_icebergs_rad_20010101.nc
         sp6h: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20010101/restart/echam/restart_awiesm-2.1_icebergs_sp6h_20010101.nc
         spim: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20010101/restart/echam/restart_awiesm-2.1_icebergs_spim_20010101.nc
@@ -1231,6 +1283,7 @@ echam:
         g3bim: <TEST_DIR>/run/awiesm//awiesm-2.1_icebergs/run_20010101-20010101/work//restart_awiesm-2.1_icebergs_20010101235230_g3bim.nc
         glday: <TEST_DIR>/run/awiesm//awiesm-2.1_icebergs/run_20010101-20010101/work//restart_awiesm-2.1_icebergs_20010101235230_glday.nc
         glim: <TEST_DIR>/run/awiesm//awiesm-2.1_icebergs/run_20010101-20010101/work//restart_awiesm-2.1_icebergs_20010101235230_glim.nc
+        ism: <TEST_DIR>/run/awiesm//awiesm-2.1_icebergs/run_20010101-20010101/work//restart_awiesm-2.1_icebergs_20010101235230_ism.nc
         rad: <TEST_DIR>/run/awiesm//awiesm-2.1_icebergs/run_20010101-20010101/work//restart_awiesm-2.1_icebergs_20010101235230_rad.nc
         sp6h: <TEST_DIR>/run/awiesm//awiesm-2.1_icebergs/run_20010101-20010101/work//restart_awiesm-2.1_icebergs_20010101235230_sp6h.nc
         spim: <TEST_DIR>/run/awiesm//awiesm-2.1_icebergs/run_20010101-20010101/work//restart_awiesm-2.1_icebergs_20010101235230_spim.nc
@@ -1245,6 +1298,7 @@ echam:
         g3bim: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/restart/echam/restart_awiesm-2.1_icebergs_g3bim_20010101.nc
         glday: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/restart/echam/restart_awiesm-2.1_icebergs_glday_20010101.nc
         glim: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/restart/echam/restart_awiesm-2.1_icebergs_glim_20010101.nc
+        ism: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/restart/echam/restart_awiesm-2.1_icebergs_ism_20010101.nc
         rad: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/restart/echam/restart_awiesm-2.1_icebergs_rad_20010101.nc
         sp6h: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/restart/echam/restart_awiesm-2.1_icebergs_sp6h_20010101.nc
         spim: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/restart/echam/restart_awiesm-2.1_icebergs_spim_20010101.nc
@@ -1268,6 +1322,7 @@ echam:
     - sp6h
     - glim
     - spim
+    - ism
     - rad
     streamsnc:
     - aclcim
@@ -1323,6 +1378,7 @@ echam:
     - i1_atm
     - i2_atm
     - i3_atm
+    with_icb: false
     with_lco2_emis: false
     with_wiso: false
     yr_perp_off: false
@@ -1608,10 +1664,18 @@ fesom:
             oasis_grid_type: U
     humi_prefix: huss.
     icb_code: true
-    iceberg_dir: <HOME_DIR>/esm_tools/configs//../src/esm_tests/resources/runscripts/awiesm/run_files4check_runs/awiesm-2.1_icebergs/
+    icb_inputs:
+    - longitude
+    - latitude
+    - length
+    - height
+    - scaling
+    - felem
+    iceberg_dir: /home/ollie/lackerma/ICEBERGS/ib_10000/
     ini_data_dir: /work/ollie/pool/FESOM//pool-data/
     ini_iceberg_dir: /home/ollie/lackerma/ICEBERGS/ib_10000/
     input_intermediate:
+        felem: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20010101/input/fesom/icb_felem.dat
         height: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20010101/input/fesom/icb_height.dat
         latitude: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20010101/input/fesom/icb_latitude.dat
         length: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20010101/input/fesom/icb_length.dat
@@ -1619,13 +1683,15 @@ fesom:
         num_non_melted_icb_file: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20010101/input/fesom/num_non_melted_icb_file
         scaling: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20010101/input/fesom/icb_scaling.dat
     input_sources:
-        height: <HOME_DIR>/esm_tools/configs//../src/esm_tests/resources/runscripts/awiesm/run_files4check_runs/awiesm-2.1_icebergs//HEIGHT.dat
-        latitude: <HOME_DIR>/esm_tools/configs//../src/esm_tests/resources/runscripts/awiesm/run_files4check_runs/awiesm-2.1_icebergs//LAT.dat
-        length: <HOME_DIR>/esm_tools/configs//../src/esm_tests/resources/runscripts/awiesm/run_files4check_runs/awiesm-2.1_icebergs//LENGTH.dat
-        longitude: <HOME_DIR>/esm_tools/configs//../src/esm_tests/resources/runscripts/awiesm/run_files4check_runs/awiesm-2.1_icebergs//LON.dat
+        felem: /home/ollie/lackerma/ICEBERGS/ib_10000//icb_felem.dat
+        height: /home/ollie/lackerma/ICEBERGS/ib_10000//icb_height.dat
+        latitude: /home/ollie/lackerma/ICEBERGS/ib_10000//icb_latitude.dat
+        length: /home/ollie/lackerma/ICEBERGS/ib_10000//icb_length.dat
+        longitude: /home/ollie/lackerma/ICEBERGS/ib_10000//icb_longitude.dat
         num_non_melted_icb_file: /home/ollie/lackerma/ICEBERGS/ib_10000//num_non_melted_icb_file
-        scaling: <HOME_DIR>/esm_tools/configs//../src/esm_tests/resources/runscripts/awiesm/run_files4check_runs/awiesm-2.1_icebergs//SCALING.dat
+        scaling: /home/ollie/lackerma/ICEBERGS/ib_10000//icb_scaling.dat
     input_targets:
+        felem: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20010101/work/icb_felem.dat
         height: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20010101/work/icb_height.dat
         latitude: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20010101/work/icb_latitude.dat
         length: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20010101/work/icb_length.dat
@@ -1742,13 +1808,6 @@ fesom:
                 sss_data_source: CORE2
             pico:
                 use_pico: false
-        namelist.io:
-            nml_list:
-                io_list(:):
-                - icb
-                - 1
-                - m
-                - 4
         namelist.oce:
             boundary:
                 restore_s_surf: 0
@@ -1819,8 +1878,8 @@ fesom:
     restart_first: 1
     restart_flag: last
     restart_out_intermediate:
-        icb_restart: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20010101/restart/fesom/iceberg.restart
-        icb_restart_ISM: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20010101/restart/fesom/iceberg.restart.ISM
+        icb_restart: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20010101/restart/fesom/iceberg.restart.2001
+        icb_restart_ISM: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20010101/restart/fesom/iceberg.restart.ISM.2001
         ice_restart: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20010101/restart/fesom/fesom.2001.ice.restart.nc
         oce_restart: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20010101/restart/fesom/fesom.2001.oce.restart.nc
     restart_out_sources:
@@ -1836,8 +1895,8 @@ fesom:
         par_ice_restart: '*.nc'
         par_oce_restart: '*.nc'
     restart_out_targets:
-        icb_restart: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/restart/fesom/iceberg.restart
-        icb_restart_ISM: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/restart/fesom/iceberg.restart.ISM
+        icb_restart: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/restart/fesom/iceberg.restart.2001
+        icb_restart_ISM: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/restart/fesom/iceberg.restart.ISM.2001
         ice_restart: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/restart/fesom/fesom.2001.ice.restart.nc
         oce_restart: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/restart/fesom/fesom.2001.oce.restart.nc
     restart_rate: 1
@@ -1887,8 +1946,10 @@ fesom:
     time_dimension: time
     time_step: 1800
     type: ocean
+    update_icebergs: true
     use_icebergs: true
     use_icesheet_coupling: true
+    use_landice_water: false
     version: 2.1-awiesm-2.1
     wiso_code: true
     wiso_fields:
@@ -1904,6 +1965,7 @@ fesom:
     - i1_oce
     - i2_oce
     - i3_oce
+    with_icb: false
     with_part_format: false
     with_pico: false
     with_recom: false
@@ -1943,6 +2005,7 @@ general:
     - 2.1
     - 2.1-wiso
     - 2.1-recom
+    - 2.1-paleodyn-2.5
     base_dir: <TEST_DIR>/run/awiesm/
     batch: slurm
     calendar: esm_calendar object with allowed leap years
@@ -1993,6 +2056,7 @@ general:
     - 0
     - 0
     end_date: '2001-01-01T00:00:00'
+    esm_couplings_dir: <HOME_DIR>/esm_tools/couplings/
     esm_function_dir: <HOME_DIR>/esm_tools/configs/
     esm_namelist_dir: <HOME_DIR>/esm_tools/namelists/
     esm_runscript_dir: <HOME_DIR>/esm_tools/runscripts/
@@ -2101,7 +2165,7 @@ general:
     isresubmitted: true
     iterative_coupled_model: ''
     iterative_coupling: false
-    jobid: 1509
+    jobid: 1507
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 20001231-20001231
@@ -2161,6 +2225,7 @@ general:
     - prepare_coupler_files
     - assemble
     - log_used_files
+    - wait_for_iterative_coupling
     - copy_files_to_thisrun
     - modify_namelists
     - modify_files
@@ -2239,7 +2304,7 @@ general:
     verbose: false
     version: 2.1
     with_bootstrap: false
-    with_icebergs: false
+    with_icb: false
     with_pico: false
     with_recom: false
     with_wiso: false
@@ -2412,6 +2477,7 @@ hdmodel:
             init_to_exp: copy
             run_to_work: copy
             work_to_run: copy
+    from_general_with_wiso_choose: <NOT_SPECIFIED>
     ini_parent_dir: <TEST_DIR>/run/awiesm//awiesm-2.1_icebergs/restart/echam//../hdmodel/
     ini_parent_exp_id: awiesm-2.1_icebergs
     ini_restart_dir: <TEST_DIR>/run/awiesm//awiesm-2.1_icebergs/restart/echam//../hdmodel/
@@ -2636,6 +2702,7 @@ jsbach:
         a_nd_file: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20010101/work/a_nd_file.nc
         lightning: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20010101/work/lightning.nc
         popdens: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/run_20010101-20010101/work/population_density.nc
+    from_iterative_coupling_choose: <NOT_SPECIFIED>
     hist_extend_scenario: ssp370
     hist_fold: hist_harvest
     ignore_intermediate:
@@ -2729,7 +2796,8 @@ jsbach:
     model_dir: <TEST_DIR>/comp/awiesm/awiesm-2.1/echam-6.3.05p2
     namelist_changes:
         namelist.jsbach:
-            hydrology_ctl: {}
+            hydrology_ctl:
+                lgfw: false
             jsbach_ctl:
                 use_dynveg: true
     namelist_dir: <HOME_DIR>/esm_tools/namelists//jsbach/3.20/PI-CTRL/dynveg

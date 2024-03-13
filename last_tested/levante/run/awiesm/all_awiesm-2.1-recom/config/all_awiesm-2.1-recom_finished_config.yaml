@@ -252,7 +252,7 @@ echam:
                 branch: 6.3.05p2
                 destination: echam-6.3.05p2
             6.3.05p2-awiesm-2.1:
-                branch: 6.3.05p2-awiesm-2.1
+                branch: 6.3.05p2-awiesm-2.1-paleodyn-2.5
                 clean_command: rm -rf src/echam/bin; rm -rf bin; make clean
                 comp_command: ./config/createMakefiles.pl; autoreconf -i --force; mkdir -p src/.deps yaxt/src/.deps yaxt/tests/.deps; ./configure $configure_opts --with-fortran=intel INSTALL='/usr/bin/install -p'; make -j `nproc --all`; make install -j `nproc --all`; mkdir -p src/echam/bin; cp  bin/echam6 src/echam/bin/echam6
                 destination: echam-6.3.05p2
@@ -579,6 +579,8 @@ echam:
             nx: 192
             ny: 96
             oasis_grid_type: D
+    hosing_correction: false
+    icb_code: false
     ignore_intermediate:
         accw: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010101/ignore/echam/all_awiesm-2.1-recom_200101.02_accw
         accw_codes: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010101/ignore/echam/all_awiesm-2.1-recom_200101.02_accw.codes
@@ -610,6 +612,9 @@ echam:
         glim: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010101/ignore/echam/all_awiesm-2.1-recom_200101.02_glim
         glim_codes: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010101/ignore/echam/all_awiesm-2.1-recom_200101.02_glim.codes
         glim_restart: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010101/ignore/echam/restart_all_awiesm-2.1-recom_glim.nc
+        ism: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010101/ignore/echam/all_awiesm-2.1-recom_200101.02_ism
+        ism_codes: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010101/ignore/echam/all_awiesm-2.1-recom_200101.02_ism.codes
+        ism_restart: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010101/ignore/echam/restart_all_awiesm-2.1-recom_ism.nc
         rad: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010101/ignore/echam/all_awiesm-2.1-recom_200101.02_rad
         rad_codes: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010101/ignore/echam/all_awiesm-2.1-recom_200101.02_rad.codes
         rad_restart: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010101/ignore/echam/restart_all_awiesm-2.1-recom_rad.nc
@@ -650,6 +655,9 @@ echam:
         glim: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010101/work//all_awiesm-2.1-recom_200101.02_glim
         glim_codes: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010101/work//all_awiesm-2.1-recom_200101.02_glim.codes
         glim_restart: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010101/work//restart_all_awiesm-2.1-recom_glim.nc
+        ism: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010101/work//all_awiesm-2.1-recom_200101.02_ism
+        ism_codes: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010101/work//all_awiesm-2.1-recom_200101.02_ism.codes
+        ism_restart: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010101/work//restart_all_awiesm-2.1-recom_ism.nc
         rad: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010101/work//all_awiesm-2.1-recom_200101.02_rad
         rad_codes: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010101/work//all_awiesm-2.1-recom_200101.02_rad.codes
         rad_restart: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010101/work//restart_all_awiesm-2.1-recom_rad.nc
@@ -690,6 +698,9 @@ echam:
         glim: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/ignore/echam/all_awiesm-2.1-recom_200101.02_glim
         glim_codes: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/ignore/echam/all_awiesm-2.1-recom_200101.02_glim.codes
         glim_restart: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/ignore/echam/restart_all_awiesm-2.1-recom_glim.nc
+        ism: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/ignore/echam/all_awiesm-2.1-recom_200101.02_ism
+        ism_codes: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/ignore/echam/all_awiesm-2.1-recom_200101.02_ism.codes
+        ism_restart: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/ignore/echam/restart_all_awiesm-2.1-recom_ism.nc
         rad: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/ignore/echam/all_awiesm-2.1-recom_200101.02_rad
         rad_codes: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/ignore/echam/all_awiesm-2.1-recom_200101.02_rad.codes
         rad_restart: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/ignore/echam/restart_all_awiesm-2.1-recom_rad.nc
@@ -733,6 +744,7 @@ echam:
     last_parent_date: '2000-12-31T23:45:00'
     leapyear: true
     levels: L47
+    lgfw: false
     log_intermediate:
         atmout: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010101/log/echam/atmout
         stderr: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010101/log/echam/echam.stderr
@@ -748,6 +760,7 @@ echam:
     lrad_async: false
     lrestart_from_old: false
     lresume: false
+    lupdate_orography: false
     lwiso: false
     lwiso_rerun: false
     metadata:
@@ -875,6 +888,8 @@ echam:
         glday_codes: all_awiesm-2.1-recom_2001*.01_glday.codes
         glim: all_awiesm-2.1-recom_2001*.01_glim
         glim_codes: all_awiesm-2.1-recom_2001*.01_glim.codes
+        ism: all_awiesm-2.1-recom_2001*.01_ism
+        ism_codes: all_awiesm-2.1-recom_2001*.01_ism.codes
         rad: all_awiesm-2.1-recom_2001*.01_rad
         rad_codes: all_awiesm-2.1-recom_2001*.01_rad.codes
         sp6h: all_awiesm-2.1-recom_2001*.01_sp6h
@@ -1011,6 +1026,12 @@ echam:
             flags:
             - t echam6
             post_process: mm
+        all_awiesm-2.1-recom_echam_ism_20010101-20010102_mm.nc:
+            args:
+                infile: all_awiesm-2.1-recom_200101.01_ism
+            flags:
+            - t echam6
+            post_process: mm
         all_awiesm-2.1-recom_echam_rad_20010101-20010102_mm.nc:
             args:
                 infile: all_awiesm-2.1-recom_200101.01_rad
@@ -1052,7 +1073,9 @@ echam:
         - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
+        - vdate <--set_global_attr-- 20010101
         aclcim:
+        - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
@@ -1080,7 +1103,9 @@ echam:
         - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
+        - vdate <--set_global_attr-- 20010101
         echam:
+        - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
@@ -1108,7 +1133,9 @@ echam:
         - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
+        - vdate <--set_global_attr-- 20010101
         g3bday:
+        - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
@@ -1136,7 +1163,9 @@ echam:
         - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
+        - vdate <--set_global_attr-- 20010101
         g3bim:
+        - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
@@ -1164,7 +1193,24 @@ echam:
         - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
+        - vdate <--set_global_attr-- 20010101
         glim:
+        - vdate <--set_global_attr-- 20010101
+        - vdate <--set_global_attr-- 20010101
+        - vdate <--set_global_attr-- 20010101
+        - vdate <--set_global_attr-- 20010101
+        - vdate <--set_global_attr-- 20010101
+        - vdate <--set_global_attr-- 20010101
+        - vdate <--set_global_attr-- 20010101
+        - vdate <--set_global_attr-- 20010101
+        - vdate <--set_global_attr-- 20010101
+        - vdate <--set_global_attr-- 20010101
+        - vdate <--set_global_attr-- 20010101
+        - vdate <--set_global_attr-- 20010101
+        - vdate <--set_global_attr-- 20010101
+        - vdate <--set_global_attr-- 20010101
+        ism:
+        - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
@@ -1192,7 +1238,9 @@ echam:
         - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
+        - vdate <--set_global_attr-- 20010101
         sp6h:
+        - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
@@ -1220,6 +1268,7 @@ echam:
         - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
         - vdate <--set_global_attr-- 20010101
+        - vdate <--set_global_attr-- 20010101
     restart_out_intermediate:
         accw: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010101/restart/echam/restart_all_awiesm-2.1-recom_accw_20010101.nc
         aclcim: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010101/restart/echam/restart_all_awiesm-2.1-recom_aclcim_20010101.nc
@@ -1231,6 +1280,7 @@ echam:
         g3bim: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010101/restart/echam/restart_all_awiesm-2.1-recom_g3bim_20010101.nc
         glday: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010101/restart/echam/restart_all_awiesm-2.1-recom_glday_20010101.nc
         glim: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010101/restart/echam/restart_all_awiesm-2.1-recom_glim_20010101.nc
+        ism: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010101/restart/echam/restart_all_awiesm-2.1-recom_ism_20010101.nc
         rad: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010101/restart/echam/restart_all_awiesm-2.1-recom_rad_20010101.nc
         sp6h: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010101/restart/echam/restart_all_awiesm-2.1-recom_sp6h_20010101.nc
         spim: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010101/restart/echam/restart_all_awiesm-2.1-recom_spim_20010101.nc
@@ -1245,6 +1295,7 @@ echam:
         g3bim: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010101/work//restart_all_awiesm-2.1-recom_20010101235230_g3bim.nc
         glday: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010101/work//restart_all_awiesm-2.1-recom_20010101235230_glday.nc
         glim: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010101/work//restart_all_awiesm-2.1-recom_20010101235230_glim.nc
+        ism: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010101/work//restart_all_awiesm-2.1-recom_20010101235230_ism.nc
         rad: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010101/work//restart_all_awiesm-2.1-recom_20010101235230_rad.nc
         sp6h: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010101/work//restart_all_awiesm-2.1-recom_20010101235230_sp6h.nc
         spim: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010101/work//restart_all_awiesm-2.1-recom_20010101235230_spim.nc
@@ -1259,6 +1310,7 @@ echam:
         g3bim: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/restart/echam/restart_all_awiesm-2.1-recom_g3bim_20010101.nc
         glday: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/restart/echam/restart_all_awiesm-2.1-recom_glday_20010101.nc
         glim: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/restart/echam/restart_all_awiesm-2.1-recom_glim_20010101.nc
+        ism: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/restart/echam/restart_all_awiesm-2.1-recom_ism_20010101.nc
         rad: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/restart/echam/restart_all_awiesm-2.1-recom_rad_20010101.nc
         sp6h: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/restart/echam/restart_all_awiesm-2.1-recom_sp6h_20010101.nc
         spim: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/restart/echam/restart_all_awiesm-2.1-recom_spim_20010101.nc
@@ -1282,6 +1334,7 @@ echam:
     - sp6h
     - glim
     - spim
+    - ism
     - rad
     streamsnc:
     - aclcim
@@ -1334,6 +1387,7 @@ echam:
     - i1_atm
     - i2_atm
     - i3_atm
+    with_icb: false
     with_lco2_emis: false
     with_wiso: false
     yr_perp_off: false
@@ -1876,6 +1930,7 @@ fesom:
     type: ocean
     use_icebergs: false
     use_icesheet_coupling: false
+    use_landice_water: false
     version: 2.1-recom
     wiso_code: true
     wiso_fields:
@@ -1888,6 +1943,7 @@ fesom:
     - i1_oce
     - i2_oce
     - i3_oce
+    with_icb: false
     with_part_format: false
     with_pico: false
     with_recom: true
@@ -1929,11 +1985,11 @@ general:
     - 2.1
     - 2.1-wiso
     - 2.1-recom
+    - 2.1-paleodyn-2.5
     base_dir: <TEST_DIR>/run/awiesm/
     batch: slurm
     calendar: esm_calendar object with allowed leap years
     check: true
-    chunk_number: 1
     command_line_config:
         check: true
         current_date: null
@@ -1980,6 +2036,7 @@ general:
     - 0
     - 0
     end_date: '2001-01-01T00:00:00'
+    esm_couplings_dir: <HOME_DIR>/esm_tools/couplings/
     esm_function_dir: <HOME_DIR>/esm_tools/configs/
     esm_namelist_dir: <HOME_DIR>/esm_tools/namelists/
     esm_runscript_dir: <HOME_DIR>/esm_tools/runscripts/
@@ -2074,7 +2131,6 @@ general:
             run_to_work: copy
             work_to_run: copy
     final_date: '2001-01-03T00:00:00'
-    first_run_in_chunk: true
     fr: true
     ignore_config_warnings: false
     in_filetypes:
@@ -2091,12 +2147,12 @@ general:
     isinteractive: false
     isresubmitted: true
     iterative_coupled_model: ''
+    iterative_coupling: false
     jP: /pf/a/a270064/bb1029/AWIESM2.1-EXP/mesh_core2/tarfilesT63/input/jsbach/jsbach_T63CORE2_11tiles_5layers_1850.nc
-    jobid: 1494
+    jobid: 1492
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 20001231-20001231
-    last_run_in_chunk: false
     last_start_date: '2000-12-31T00:00:00'
     launcher_pid: -666
     leapyear: true
@@ -2154,6 +2210,7 @@ general:
     - prepare_coupler_files
     - assemble
     - log_used_files
+    - wait_for_iterative_coupling
     - copy_files_to_thisrun
     - modify_namelists
     - modify_files
@@ -2233,7 +2290,7 @@ general:
     verbose: false
     version: 2.1-recom
     with_bootstrap: false
-    with_icebergs: false
+    with_icb: false
     with_pico: false
     with_recom: true
     with_wiso: false
@@ -2406,6 +2463,7 @@ hdmodel:
             init_to_exp: copy
             run_to_work: copy
             work_to_run: copy
+    from_general_with_wiso_choose: <NOT_SPECIFIED>
     ini_parent_dir: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/restart/echam//../hdmodel/
     ini_parent_exp_id: all_awiesm-2.1-recom
     ini_restart_dir: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/restart/echam//../hdmodel/
@@ -2633,6 +2691,7 @@ jsbach:
         a_nd_file: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010101/work/a_nd_file.nc
         lightning: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010101/work/lightning.nc
         popdens: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/run_20010101-20010101/work/population_density.nc
+    from_iterative_coupling_choose: <NOT_SPECIFIED>
     hist_extend_scenario: ssp370
     hist_fold: hist_harvest
     ignore_intermediate:
@@ -2726,7 +2785,8 @@ jsbach:
     model_dir: <TEST_DIR>/comp/awiesm/awiesm-2.1-recom/echam-6.3.05p2-wiso
     namelist_changes:
         namelist.jsbach:
-            hydrology_ctl: {}
+            hydrology_ctl:
+                lgfw: false
             jsbach_ctl:
                 use_dynveg: true
     namelist_dir: <HOME_DIR>/esm_tools/namelists//jsbach/3.20/PI-CTRL/dynveg

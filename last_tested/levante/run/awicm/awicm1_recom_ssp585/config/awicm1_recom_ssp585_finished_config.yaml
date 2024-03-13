@@ -246,7 +246,7 @@ echam:
                 branch: 6.3.05p2
                 destination: echam-6.3.05p2
             6.3.05p2-awiesm-2.1:
-                branch: 6.3.05p2-awiesm-2.1
+                branch: 6.3.05p2-awiesm-2.1-paleodyn-2.5
                 clean_command: rm -rf src/echam/bin; rm -rf bin; make clean
                 comp_command: ./config/createMakefiles.pl; autoreconf -i --force; mkdir -p src/.deps yaxt/src/.deps yaxt/tests/.deps; ./configure $configure_opts --with-fortran=intel INSTALL='/usr/bin/install -p'; make -j `nproc --all`; make install -j `nproc --all`; mkdir -p src/echam/bin; cp  bin/echam6 src/echam/bin/echam6
                 destination: echam-6.3.05p2
@@ -585,6 +585,7 @@ echam:
             ny: 96
             oasis_grid_type: D
     iaero: 9
+    icb_code: false
     ignore_intermediate:
         accw: <TEST_DIR>run/awicm/awicm1_recom_ssp585/run_20150101-20150131/ignore/echam/awicm1_recom_ssp585_201502.01_accw
         accw_codes: <TEST_DIR>run/awicm/awicm1_recom_ssp585/run_20150101-20150131/ignore/echam/awicm1_recom_ssp585_201502.01_accw.codes
@@ -616,6 +617,9 @@ echam:
         glim: <TEST_DIR>run/awicm/awicm1_recom_ssp585/run_20150101-20150131/ignore/echam/awicm1_recom_ssp585_201502.01_glim
         glim_codes: <TEST_DIR>run/awicm/awicm1_recom_ssp585/run_20150101-20150131/ignore/echam/awicm1_recom_ssp585_201502.01_glim.codes
         glim_restart: <TEST_DIR>run/awicm/awicm1_recom_ssp585/run_20150101-20150131/ignore/echam/restart_awicm1_recom_ssp585_glim.nc
+        ism: <TEST_DIR>run/awicm/awicm1_recom_ssp585/run_20150101-20150131/ignore/echam/awicm1_recom_ssp585_201502.01_ism
+        ism_codes: <TEST_DIR>run/awicm/awicm1_recom_ssp585/run_20150101-20150131/ignore/echam/awicm1_recom_ssp585_201502.01_ism.codes
+        ism_restart: <TEST_DIR>run/awicm/awicm1_recom_ssp585/run_20150101-20150131/ignore/echam/restart_awicm1_recom_ssp585_ism.nc
         sp6h: <TEST_DIR>run/awicm/awicm1_recom_ssp585/run_20150101-20150131/ignore/echam/awicm1_recom_ssp585_201502.01_sp6h
         sp6h_codes: <TEST_DIR>run/awicm/awicm1_recom_ssp585/run_20150101-20150131/ignore/echam/awicm1_recom_ssp585_201502.01_sp6h.codes
         sp6h_restart: <TEST_DIR>run/awicm/awicm1_recom_ssp585/run_20150101-20150131/ignore/echam/restart_awicm1_recom_ssp585_sp6h.nc
@@ -653,6 +657,9 @@ echam:
         glim: <TEST_DIR>/run/awicm//awicm1_recom_ssp585/run_20150101-20150131/work//awicm1_recom_ssp585_201502.01_glim
         glim_codes: <TEST_DIR>/run/awicm//awicm1_recom_ssp585/run_20150101-20150131/work//awicm1_recom_ssp585_201502.01_glim.codes
         glim_restart: <TEST_DIR>/run/awicm//awicm1_recom_ssp585/run_20150101-20150131/work//restart_awicm1_recom_ssp585_glim.nc
+        ism: <TEST_DIR>/run/awicm//awicm1_recom_ssp585/run_20150101-20150131/work//awicm1_recom_ssp585_201502.01_ism
+        ism_codes: <TEST_DIR>/run/awicm//awicm1_recom_ssp585/run_20150101-20150131/work//awicm1_recom_ssp585_201502.01_ism.codes
+        ism_restart: <TEST_DIR>/run/awicm//awicm1_recom_ssp585/run_20150101-20150131/work//restart_awicm1_recom_ssp585_ism.nc
         sp6h: <TEST_DIR>/run/awicm//awicm1_recom_ssp585/run_20150101-20150131/work//awicm1_recom_ssp585_201502.01_sp6h
         sp6h_codes: <TEST_DIR>/run/awicm//awicm1_recom_ssp585/run_20150101-20150131/work//awicm1_recom_ssp585_201502.01_sp6h.codes
         sp6h_restart: <TEST_DIR>/run/awicm//awicm1_recom_ssp585/run_20150101-20150131/work//restart_awicm1_recom_ssp585_sp6h.nc
@@ -690,6 +697,9 @@ echam:
         glim: <TEST_DIR>run/awicm/awicm1_recom_ssp585/ignore/echam/awicm1_recom_ssp585_201502.01_glim
         glim_codes: <TEST_DIR>run/awicm/awicm1_recom_ssp585/ignore/echam/awicm1_recom_ssp585_201502.01_glim.codes
         glim_restart: <TEST_DIR>run/awicm/awicm1_recom_ssp585/ignore/echam/restart_awicm1_recom_ssp585_glim.nc
+        ism: <TEST_DIR>run/awicm/awicm1_recom_ssp585/ignore/echam/awicm1_recom_ssp585_201502.01_ism
+        ism_codes: <TEST_DIR>run/awicm/awicm1_recom_ssp585/ignore/echam/awicm1_recom_ssp585_201502.01_ism.codes
+        ism_restart: <TEST_DIR>run/awicm/awicm1_recom_ssp585/ignore/echam/restart_awicm1_recom_ssp585_ism.nc
         sp6h: <TEST_DIR>run/awicm/awicm1_recom_ssp585/ignore/echam/awicm1_recom_ssp585_201502.01_sp6h
         sp6h_codes: <TEST_DIR>run/awicm/awicm1_recom_ssp585/ignore/echam/awicm1_recom_ssp585_201502.01_sp6h.codes
         sp6h_restart: <TEST_DIR>run/awicm/awicm1_recom_ssp585/ignore/echam/restart_awicm1_recom_ssp585_sp6h.nc
@@ -731,6 +741,7 @@ echam:
     last_parent_date: '2014-12-31T23:45:00'
     leapyear: true
     levels: L47
+    lgfw: false
     log_intermediate:
         atmout: <TEST_DIR>run/awicm/awicm1_recom_ssp585/run_20150101-20150131/log/echam/atmout
         stderr: <TEST_DIR>run/awicm/awicm1_recom_ssp585/run_20150101-20150131/log/echam/echam.stderr
@@ -746,6 +757,7 @@ echam:
     lrad_async: false
     lrestart_from_old: false
     lresume: true
+    lupdate_orography: false
     metadata:
         Authors: Bjorn Stevens (bjorn.stevens@mpimet.mpg.de) among others at MPI-Met
         Description: The ECHAM atmosphere model, major version 6
@@ -858,6 +870,8 @@ echam:
         glday_codes: awicm1_recom_ssp585_2015*.01_glday.codes
         glim: awicm1_recom_ssp585_2015*.01_glim
         glim_codes: awicm1_recom_ssp585_2015*.01_glim.codes
+        ism: awicm1_recom_ssp585_2015*.01_ism
+        ism_codes: awicm1_recom_ssp585_2015*.01_ism.codes
         sp6h: awicm1_recom_ssp585_2015*.01_sp6h
         sp6h_codes: awicm1_recom_ssp585_2015*.01_sp6h.codes
         spim: awicm1_recom_ssp585_2015*.01_spim
@@ -992,6 +1006,12 @@ echam:
             flags:
             - t echam6
             post_process: mm
+        awicm1_recom_ssp585_echam_ism_20150101-20150201_mm.nc:
+            args:
+                infile: awicm1_recom_ssp585_201501.01_ism
+            flags:
+            - t echam6
+            post_process: mm
         awicm1_recom_ssp585_echam_sp6h_20150101-20150201_mm.nc:
             args:
                 infile: awicm1_recom_ssp585_201501.01_sp6h
@@ -1024,6 +1044,7 @@ echam:
         g3bim: <TEST_DIR>run/awicm/awicm1_recom_ssp585/run_20150101-20150131/restart/echam/restart_awicm1_recom_ssp585_g3bim.nc
         glday: <TEST_DIR>run/awicm/awicm1_recom_ssp585/run_20150101-20150131/restart/echam/restart_awicm1_recom_ssp585_glday.nc
         glim: <TEST_DIR>run/awicm/awicm1_recom_ssp585/run_20150101-20150131/restart/echam/restart_awicm1_recom_ssp585_glim.nc
+        ism: <TEST_DIR>run/awicm/awicm1_recom_ssp585/run_20150101-20150131/restart/echam/restart_awicm1_recom_ssp585_ism.nc
         sp6h: <TEST_DIR>run/awicm/awicm1_recom_ssp585/run_20150101-20150131/restart/echam/restart_awicm1_recom_ssp585_sp6h.nc
         spim: <TEST_DIR>run/awicm/awicm1_recom_ssp585/run_20150101-20150131/restart/echam/restart_awicm1_recom_ssp585_spim.nc
     restart_in_sources:
@@ -1037,6 +1058,7 @@ echam:
         g3bim: /work/ba1103/a270073/out/awicm-1.0-recom/awi-esm-1-1-lr_kh800/historical2/restart//echam/restart_historical2_20141231_g3bim.nc
         glday: /work/ba1103/a270073/out/awicm-1.0-recom/awi-esm-1-1-lr_kh800/historical2/restart//echam/restart_historical2_20141231_glday.nc
         glim: /work/ba1103/a270073/out/awicm-1.0-recom/awi-esm-1-1-lr_kh800/historical2/restart//echam/restart_historical2_20141231_glim.nc
+        ism: /work/ba1103/a270073/out/awicm-1.0-recom/awi-esm-1-1-lr_kh800/historical2/restart//echam/restart_historical2_20141231_ism.nc
         sp6h: /work/ba1103/a270073/out/awicm-1.0-recom/awi-esm-1-1-lr_kh800/historical2/restart//echam/restart_historical2_20141231_sp6h.nc
         spim: /work/ba1103/a270073/out/awicm-1.0-recom/awi-esm-1-1-lr_kh800/historical2/restart//echam/restart_historical2_20141231_spim.nc
     restart_in_targets:
@@ -1050,6 +1072,7 @@ echam:
         g3bim: <TEST_DIR>run/awicm/awicm1_recom_ssp585/run_20150101-20150131/work/restart_awicm1_recom_ssp585_g3bim.nc
         glday: <TEST_DIR>run/awicm/awicm1_recom_ssp585/run_20150101-20150131/work/restart_awicm1_recom_ssp585_glday.nc
         glim: <TEST_DIR>run/awicm/awicm1_recom_ssp585/run_20150101-20150131/work/restart_awicm1_recom_ssp585_glim.nc
+        ism: <TEST_DIR>run/awicm/awicm1_recom_ssp585/run_20150101-20150131/work/restart_awicm1_recom_ssp585_ism.nc
         sp6h: <TEST_DIR>run/awicm/awicm1_recom_ssp585/run_20150101-20150131/work/restart_awicm1_recom_ssp585_sp6h.nc
         spim: <TEST_DIR>run/awicm/awicm1_recom_ssp585/run_20150101-20150131/work/restart_awicm1_recom_ssp585_spim.nc
     restart_out_intermediate:
@@ -1063,6 +1086,7 @@ echam:
         g3bim: <TEST_DIR>run/awicm/awicm1_recom_ssp585/run_20150101-20150131/restart/echam/restart_awicm1_recom_ssp585_g3bim_20150131.nc
         glday: <TEST_DIR>run/awicm/awicm1_recom_ssp585/run_20150101-20150131/restart/echam/restart_awicm1_recom_ssp585_glday_20150131.nc
         glim: <TEST_DIR>run/awicm/awicm1_recom_ssp585/run_20150101-20150131/restart/echam/restart_awicm1_recom_ssp585_glim_20150131.nc
+        ism: <TEST_DIR>run/awicm/awicm1_recom_ssp585/run_20150101-20150131/restart/echam/restart_awicm1_recom_ssp585_ism_20150131.nc
         sp6h: <TEST_DIR>run/awicm/awicm1_recom_ssp585/run_20150101-20150131/restart/echam/restart_awicm1_recom_ssp585_sp6h_20150131.nc
         spim: <TEST_DIR>run/awicm/awicm1_recom_ssp585/run_20150101-20150131/restart/echam/restart_awicm1_recom_ssp585_spim_20150131.nc
     restart_out_sources:
@@ -1076,6 +1100,7 @@ echam:
         g3bim: <TEST_DIR>/run/awicm//awicm1_recom_ssp585/run_20150101-20150131/work//restart_awicm1_recom_ssp585_20150131235230_g3bim.nc
         glday: <TEST_DIR>/run/awicm//awicm1_recom_ssp585/run_20150101-20150131/work//restart_awicm1_recom_ssp585_20150131235230_glday.nc
         glim: <TEST_DIR>/run/awicm//awicm1_recom_ssp585/run_20150101-20150131/work//restart_awicm1_recom_ssp585_20150131235230_glim.nc
+        ism: <TEST_DIR>/run/awicm//awicm1_recom_ssp585/run_20150101-20150131/work//restart_awicm1_recom_ssp585_20150131235230_ism.nc
         sp6h: <TEST_DIR>/run/awicm//awicm1_recom_ssp585/run_20150101-20150131/work//restart_awicm1_recom_ssp585_20150131235230_sp6h.nc
         spim: <TEST_DIR>/run/awicm//awicm1_recom_ssp585/run_20150101-20150131/work//restart_awicm1_recom_ssp585_20150131235230_spim.nc
     restart_out_targets:
@@ -1089,6 +1114,7 @@ echam:
         g3bim: <TEST_DIR>run/awicm/awicm1_recom_ssp585/restart/echam/restart_awicm1_recom_ssp585_g3bim_20150131.nc
         glday: <TEST_DIR>run/awicm/awicm1_recom_ssp585/restart/echam/restart_awicm1_recom_ssp585_glday_20150131.nc
         glim: <TEST_DIR>run/awicm/awicm1_recom_ssp585/restart/echam/restart_awicm1_recom_ssp585_glim_20150131.nc
+        ism: <TEST_DIR>run/awicm/awicm1_recom_ssp585/restart/echam/restart_awicm1_recom_ssp585_ism_20150131.nc
         sp6h: <TEST_DIR>run/awicm/awicm1_recom_ssp585/restart/echam/restart_awicm1_recom_ssp585_sp6h_20150131.nc
         spim: <TEST_DIR>run/awicm/awicm1_recom_ssp585/restart/echam/restart_awicm1_recom_ssp585_spim_20150131.nc
     restart_rate: 1
@@ -1111,6 +1137,7 @@ echam:
     - sp6h
     - glim
     - spim
+    - ism
     streamsnc:
     - aclcim
     - g3b1hi
@@ -1165,6 +1192,7 @@ echam:
     - i1_atm
     - i2_atm
     - i3_atm
+    with_icb: false
     with_lco2_emis: false
     with_wiso: false
     yr_perp_off: false
@@ -2288,6 +2316,7 @@ general:
     - 0
     - 0
     end_date: '2015-01-31T00:00:00'
+    esm_couplings_dir: <HOME_DIR>/esm_tools/couplings/
     esm_function_dir: <HOME_DIR>/esm_tools/configs/
     esm_namelist_dir: <HOME_DIR>/esm_tools/namelists/
     esm_runscript_dir: <HOME_DIR>/esm_tools/runscripts/
@@ -2401,7 +2430,7 @@ general:
     isinteractive: false
     isresubmitted: true
     iterative_coupled_model: ''
-    jobid: 1389
+    jobid: 1387
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 20141201-20141231

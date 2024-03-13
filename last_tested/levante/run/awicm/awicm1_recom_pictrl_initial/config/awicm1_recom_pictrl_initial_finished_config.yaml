@@ -245,7 +245,7 @@ echam:
                 branch: 6.3.05p2
                 destination: echam-6.3.05p2
             6.3.05p2-awiesm-2.1:
-                branch: 6.3.05p2-awiesm-2.1
+                branch: 6.3.05p2-awiesm-2.1-paleodyn-2.5
                 clean_command: rm -rf src/echam/bin; rm -rf bin; make clean
                 comp_command: ./config/createMakefiles.pl; autoreconf -i --force; mkdir -p src/.deps yaxt/src/.deps yaxt/tests/.deps; ./configure $configure_opts --with-fortran=intel INSTALL='/usr/bin/install -p'; make -j `nproc --all`; make install -j `nproc --all`; mkdir -p src/echam/bin; cp  bin/echam6 src/echam/bin/echam6
                 destination: echam-6.3.05p2
@@ -550,6 +550,7 @@ echam:
             nx: 192
             ny: 96
             oasis_grid_type: D
+    icb_code: false
     ignore_intermediate:
         accw: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/run_18500101-18500131/ignore/echam/awicm1_recom_pictrl_initial_185002.01_accw
         accw_codes: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/run_18500101-18500131/ignore/echam/awicm1_recom_pictrl_initial_185002.01_accw.codes
@@ -581,6 +582,9 @@ echam:
         glim: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/run_18500101-18500131/ignore/echam/awicm1_recom_pictrl_initial_185002.01_glim
         glim_codes: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/run_18500101-18500131/ignore/echam/awicm1_recom_pictrl_initial_185002.01_glim.codes
         glim_restart: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/run_18500101-18500131/ignore/echam/restart_awicm1_recom_pictrl_initial_glim.nc
+        ism: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/run_18500101-18500131/ignore/echam/awicm1_recom_pictrl_initial_185002.01_ism
+        ism_codes: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/run_18500101-18500131/ignore/echam/awicm1_recom_pictrl_initial_185002.01_ism.codes
+        ism_restart: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/run_18500101-18500131/ignore/echam/restart_awicm1_recom_pictrl_initial_ism.nc
         sp6h: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/run_18500101-18500131/ignore/echam/awicm1_recom_pictrl_initial_185002.01_sp6h
         sp6h_codes: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/run_18500101-18500131/ignore/echam/awicm1_recom_pictrl_initial_185002.01_sp6h.codes
         sp6h_restart: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/run_18500101-18500131/ignore/echam/restart_awicm1_recom_pictrl_initial_sp6h.nc
@@ -618,6 +622,9 @@ echam:
         glim: <TEST_DIR>/run/awicm//awicm1_recom_pictrl_initial/run_18500101-18500131/work//awicm1_recom_pictrl_initial_185002.01_glim
         glim_codes: <TEST_DIR>/run/awicm//awicm1_recom_pictrl_initial/run_18500101-18500131/work//awicm1_recom_pictrl_initial_185002.01_glim.codes
         glim_restart: <TEST_DIR>/run/awicm//awicm1_recom_pictrl_initial/run_18500101-18500131/work//restart_awicm1_recom_pictrl_initial_glim.nc
+        ism: <TEST_DIR>/run/awicm//awicm1_recom_pictrl_initial/run_18500101-18500131/work//awicm1_recom_pictrl_initial_185002.01_ism
+        ism_codes: <TEST_DIR>/run/awicm//awicm1_recom_pictrl_initial/run_18500101-18500131/work//awicm1_recom_pictrl_initial_185002.01_ism.codes
+        ism_restart: <TEST_DIR>/run/awicm//awicm1_recom_pictrl_initial/run_18500101-18500131/work//restart_awicm1_recom_pictrl_initial_ism.nc
         sp6h: <TEST_DIR>/run/awicm//awicm1_recom_pictrl_initial/run_18500101-18500131/work//awicm1_recom_pictrl_initial_185002.01_sp6h
         sp6h_codes: <TEST_DIR>/run/awicm//awicm1_recom_pictrl_initial/run_18500101-18500131/work//awicm1_recom_pictrl_initial_185002.01_sp6h.codes
         sp6h_restart: <TEST_DIR>/run/awicm//awicm1_recom_pictrl_initial/run_18500101-18500131/work//restart_awicm1_recom_pictrl_initial_sp6h.nc
@@ -655,6 +662,9 @@ echam:
         glim: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/ignore/echam/awicm1_recom_pictrl_initial_185002.01_glim
         glim_codes: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/ignore/echam/awicm1_recom_pictrl_initial_185002.01_glim.codes
         glim_restart: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/ignore/echam/restart_awicm1_recom_pictrl_initial_glim.nc
+        ism: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/ignore/echam/awicm1_recom_pictrl_initial_185002.01_ism
+        ism_codes: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/ignore/echam/awicm1_recom_pictrl_initial_185002.01_ism.codes
+        ism_restart: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/ignore/echam/restart_awicm1_recom_pictrl_initial_ism.nc
         sp6h: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/ignore/echam/awicm1_recom_pictrl_initial_185002.01_sp6h
         sp6h_codes: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/ignore/echam/awicm1_recom_pictrl_initial_185002.01_sp6h.codes
         sp6h_restart: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/ignore/echam/restart_awicm1_recom_pictrl_initial_sp6h.nc
@@ -695,6 +705,7 @@ echam:
     last_parent_date: '1849-12-31T23:45:00'
     leapyear: true
     levels: L47
+    lgfw: false
     log_intermediate:
         atmout: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/run_18500101-18500131/log/echam/atmout
         stderr: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/run_18500101-18500131/log/echam/echam.stderr
@@ -710,6 +721,7 @@ echam:
     lrad_async: false
     lrestart_from_old: false
     lresume: false
+    lupdate_orography: false
     metadata:
         Authors: Bjorn Stevens (bjorn.stevens@mpimet.mpg.de) among others at MPI-Met
         Description: The ECHAM atmosphere model, major version 6
@@ -824,6 +836,8 @@ echam:
         glday_codes: awicm1_recom_pictrl_initial_1850*.01_glday.codes
         glim: awicm1_recom_pictrl_initial_1850*.01_glim
         glim_codes: awicm1_recom_pictrl_initial_1850*.01_glim.codes
+        ism: awicm1_recom_pictrl_initial_1850*.01_ism
+        ism_codes: awicm1_recom_pictrl_initial_1850*.01_ism.codes
         sp6h: awicm1_recom_pictrl_initial_1850*.01_sp6h
         sp6h_codes: awicm1_recom_pictrl_initial_1850*.01_sp6h.codes
         spim: awicm1_recom_pictrl_initial_1850*.01_spim
@@ -958,6 +972,12 @@ echam:
             flags:
             - t echam6
             post_process: mm
+        awicm1_recom_pictrl_initial_echam_ism_18500101-18500201_mm.nc:
+            args:
+                infile: awicm1_recom_pictrl_initial_185001.01_ism
+            flags:
+            - t echam6
+            post_process: mm
         awicm1_recom_pictrl_initial_echam_sp6h_18500101-18500201_mm.nc:
             args:
                 infile: awicm1_recom_pictrl_initial_185001.01_sp6h
@@ -993,7 +1013,9 @@ echam:
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
         aclcim:
+        - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
@@ -1019,7 +1041,9 @@ echam:
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
         echam:
+        - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
@@ -1045,7 +1069,9 @@ echam:
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
         g3bday:
+        - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
@@ -1071,7 +1097,9 @@ echam:
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
         g3bim:
+        - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
@@ -1097,7 +1125,23 @@ echam:
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
         glim:
+        - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
+        ism:
+        - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
@@ -1123,7 +1167,9 @@ echam:
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
+        - vdate <--set_global_attr-- 18500101
         spim:
+        - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
         - vdate <--set_global_attr-- 18500101
@@ -1147,6 +1193,7 @@ echam:
         g3bim: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/run_18500101-18500131/restart/echam/restart_awicm1_recom_pictrl_initial_g3bim_18500131.nc
         glday: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/run_18500101-18500131/restart/echam/restart_awicm1_recom_pictrl_initial_glday_18500131.nc
         glim: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/run_18500101-18500131/restart/echam/restart_awicm1_recom_pictrl_initial_glim_18500131.nc
+        ism: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/run_18500101-18500131/restart/echam/restart_awicm1_recom_pictrl_initial_ism_18500131.nc
         sp6h: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/run_18500101-18500131/restart/echam/restart_awicm1_recom_pictrl_initial_sp6h_18500131.nc
         spim: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/run_18500101-18500131/restart/echam/restart_awicm1_recom_pictrl_initial_spim_18500131.nc
     restart_out_sources:
@@ -1160,6 +1207,7 @@ echam:
         g3bim: <TEST_DIR>/run/awicm//awicm1_recom_pictrl_initial/run_18500101-18500131/work//restart_awicm1_recom_pictrl_initial_18500131235230_g3bim.nc
         glday: <TEST_DIR>/run/awicm//awicm1_recom_pictrl_initial/run_18500101-18500131/work//restart_awicm1_recom_pictrl_initial_18500131235230_glday.nc
         glim: <TEST_DIR>/run/awicm//awicm1_recom_pictrl_initial/run_18500101-18500131/work//restart_awicm1_recom_pictrl_initial_18500131235230_glim.nc
+        ism: <TEST_DIR>/run/awicm//awicm1_recom_pictrl_initial/run_18500101-18500131/work//restart_awicm1_recom_pictrl_initial_18500131235230_ism.nc
         sp6h: <TEST_DIR>/run/awicm//awicm1_recom_pictrl_initial/run_18500101-18500131/work//restart_awicm1_recom_pictrl_initial_18500131235230_sp6h.nc
         spim: <TEST_DIR>/run/awicm//awicm1_recom_pictrl_initial/run_18500101-18500131/work//restart_awicm1_recom_pictrl_initial_18500131235230_spim.nc
     restart_out_targets:
@@ -1173,6 +1221,7 @@ echam:
         g3bim: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/restart/echam/restart_awicm1_recom_pictrl_initial_g3bim_18500131.nc
         glday: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/restart/echam/restart_awicm1_recom_pictrl_initial_glday_18500131.nc
         glim: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/restart/echam/restart_awicm1_recom_pictrl_initial_glim_18500131.nc
+        ism: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/restart/echam/restart_awicm1_recom_pictrl_initial_ism_18500131.nc
         sp6h: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/restart/echam/restart_awicm1_recom_pictrl_initial_sp6h_18500131.nc
         spim: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/restart/echam/restart_awicm1_recom_pictrl_initial_spim_18500131.nc
     restart_rate: 1
@@ -1195,6 +1244,7 @@ echam:
     - sp6h
     - glim
     - spim
+    - ism
     streamsnc:
     - aclcim
     - g3b1hi
@@ -1249,6 +1299,7 @@ echam:
     - i1_atm
     - i2_atm
     - i3_atm
+    with_icb: false
     with_lco2_emis: false
     with_wiso: false
     yr_perp_off: false
@@ -2357,6 +2408,7 @@ general:
     - 0
     - 0
     end_date: '1850-01-31T00:00:00'
+    esm_couplings_dir: <HOME_DIR>/esm_tools/couplings/
     esm_function_dir: <HOME_DIR>/esm_tools/configs/
     esm_namelist_dir: <HOME_DIR>/esm_tools/namelists/
     esm_runscript_dir: <HOME_DIR>/esm_tools/runscripts/
@@ -2466,7 +2518,7 @@ general:
     isinteractive: false
     isresubmitted: true
     iterative_coupled_model: ''
-    jobid: 1434
+    jobid: 1432
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 18491201-18491231
