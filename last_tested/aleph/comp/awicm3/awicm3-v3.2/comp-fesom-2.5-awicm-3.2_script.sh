@@ -68,5 +68,5 @@ export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 
 
 cd fesom-2.5
-mkdir -p build; cd build; cmake -DOIFS_COUPLED=ON -DFESOM_COUPLED=ON ..;   make install -j `nproc --all`
+mkdir -p build; cd build; cmake -DOIFS_COUPLED=ON -DFESOM_COUPLED=ON -DCMAKE_INSTALL_PREFIX=../ ..;   make install -j `nproc --all`
 cd ..
