@@ -19,7 +19,7 @@ export TMPDIR=/tmp
 export FC=mpifort
 export F77=mpifort
 export MPIFC=mpifort
-export FCFLAGS=-free
+export FCFLAGS="-fPIC"
 export CC=mpicc
 export CXX=mpic++
 export MPIROOT="$($FC -show | perl -lne 'm{ -I(.*?)/include } and print $1')"
@@ -39,30 +39,35 @@ export NETCDF_C_INCLUDE_DIRECTORIES=$NETCDFROOT/include
 export NETCDF_CXX_INCLUDE_DIRECTORIES=$NETCDFROOT/include
 export OASIS3MCT_FC_LIB="-L$NETCDFFROOT/lib -lnetcdff"
 export PATH=$IO_LIB_ROOT/bin:$PATH
-export ESM_NETCDF_C_DIR=$NETCDFROOT
-export ESM_NETCDF_F_DIR=$NETCDFFROOT
+export ESM_NETCDF_C_DIR="$NETCDFROOT"
+export ESM_NETCDF_F_DIR="$NETCDFFROOT"
 export OIFS_GRIB_API_INCLUDE="-I$ECCODESROOT/include"
 export OIFS_GRIB_API_LIB="-L$ECCODESROOT/lib -leccodes_f90 -leccodes"
 export OIFS_GRIB_INCLUDE="$OIFS_GRIB_API_INCLUDE"
 export OIFS_GRIB_LIB="$OIFS_GRIB_API_LIB"
 export OIFS_GRIB_API_BIN="$ECCODESROOT/bin"
 export LAPACK_LIB_DEFAULT="-L$MKLROOT/lib/intel64 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential"
-export OIFS_OASIS_BASE=$(pwd)/oasis
-export OIFS_OASIS_INCLUDE="-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu"
-export OIFS_OASIS_LIB="-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu -lpsmile -lmct -lmpeu -lscrip"
+export OIFS_OASIS_BASE="$(pwd)/oasis"
+export OIFS_OASIS_INCLUDE="-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu "
+export OIFS_OASIS_LIB="-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu  -lpsmile -lmct -lmpeu -lscrip  -qmkl"
 export OIFS_NETCDF_INCLUDE="-I$NETCDFROOT/include"
 export OIFS_NETCDF_LIB="-L$NETCDFROOT/lib -lnetcdf"
 export OIFS_NETCDFF_INCLUDE="-I$NETCDFFROOT/include"
-export OIFS_NETCDFF_LIB="-L$NETCDFFROOT/lib -lnetcdff"
-export OIFS_FC=$FC
+export OIFS_NETCDFF_LIB="-L$NETCDFFROOT/lib -lnetcdff -lnetcdf"
+export OIFS_FC="$FC"
 export OIFS_FFLAGS="-r8 -fp-model precise -align array32byte -O1 -qopenmp -xCORE_AVX2 -g -traceback -convert big_endian -fpe0"
 export OIFS_FFIXED=""
 export OIFS_FCDEFS="BLAS LITTLE LINUX INTEGER_IS_INT"
 export OIFS_LFLAGS="$OIFS_MPI_LIB -qopenmp"
-export OIFS_CC=$CC
+export OIFS_CC="$CC"
 export OIFS_CFLAGS="-fp-model precise -O3 -xCORE_AVX2 -g -traceback -qopt-report=0 -fpe0 -qopenmp"
 export OIFS_CCDEFS="LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS _OPENMP"
-export MAIN_LDFLAGS=-openmp
+export MAIN_LDFLAGS="-openmp"
+export OASIS_FFLAGS="-fPIC"
+export OASIS_CFLAGS="-fPIC"
+export CFLAGS="-fPIC"
+export CCFLAGS="-fPIC"
+export FFLAGS="-fPIC"
 export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 
 unset SLURM_DISTRIBUTION
@@ -71,5 +76,5 @@ unset SLURM_NPROCS
 unset SLURM_ARBITRARY_NODELIST
 
 cd fesom-2.0
-mkdir -p build; cd build; cmake -DOIFS_COUPLED=ON -DFESOM_COUPLED=ON ..;   make install -j `nproc --all`
+mkdir -p build; cd build; cmake -DOIFS_COUPLED=ON -DFESOM_COUPLED=ON -DCMAKE_INSTALL_PREFIX=../ ..;   make install -j `nproc --all`
 cd ..
