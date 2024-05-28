@@ -204,7 +204,7 @@ fesom:
     branchoff: false
     clean_command: rm -rf build CMakeCache.txt
     climate_data_dir: /work/ollie/jstreffi/input/fesom2//hydrography/
-    comp_command: mkdir -p build; cd build; cmake -DOIFS_COUPLED=ON -DFESOM_COUPLED=ON ..;   make install -j `nproc --all`
+    comp_command: mkdir -p build; cd build; cmake -DOIFS_COUPLED=ON -DFESOM_COUPLED=ON -DCMAKE_INSTALL_PREFIX=../ ..;   make install -j `nproc --all`
     comp_executable: fesom.x
     compiletime_environment_changes:
         add_export_vars:
@@ -448,6 +448,8 @@ fesom:
             nx: 126858
             ny: 1
             oasis_grid_type: U
+            oyac_grid_type: GC
+            oyac_io_per_node: 4
     humi_prefix: huss.
     icb_code: false
     ini_data_dir: /work/ollie/jstreffi/input/fesom2//pool-data/
@@ -478,6 +480,7 @@ fesom:
     mesh_base_dir: /work/ollie/jstreffi/input/fesom2//FESOM2/meshes/
     mesh_dir: /work/ollie/jstreffi/input/fesom2//core2/
     mesh_rotated: false
+    missing_owy: false
     model: fesom
     model_dir: <TEST_DIR>/comp/awicm3/awicm3-v3.2/fesom-2.5
     mslp_prefix: psl.
@@ -677,9 +680,22 @@ general:
                     intel-oneapi:
                         add_export_vars:
                             OASIS_FFLAGS: '"-march=core-avx2"'
+            juwels:
+                add_export_vars:
+                    CCFLAGS: '"-fPIC"'
+                    CFLAGS: '"-fPIC"'
+                    FCFLAGS: '"-fPIC"'
+                    FFLAGS: '"-fPIC"'
+                    OASIS_CFLAGS: '"-fPIC"'
+                    OASIS_FFLAGS: '"-fPIC"'
             levante:
                 add_export_vars:
-                    OASIS_FFLAGS: '"-march=core-avx2 -mtune=core-avx2"'
+                    CCFLAGS: '"-fPIC"'
+                    CFLAGS: '"-fPIC"'
+                    FCFLAGS: '"-fPIC"'
+                    FFLAGS: '"-fPIC"'
+                    OASIS_CFLAGS: '"-fPIC"'
+                    OASIS_FFLAGS: '"-fPIC"'
     additional_files: []
     all_filetypes:
     - analysis
@@ -713,6 +729,7 @@ general:
     - v3.1.2
     - v3.1.3
     - v3.2
+    - v3.2.1
     - master
     - frontiers-xios
     base_dir: <TEST_DIR>/run/awicm3/
@@ -863,35 +880,45 @@ general:
                 - OIFS_CCDEFS="LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS"
             juwels:
                 add_export_vars:
-                - ESM_NETCDF_C_DIR=$NETCDFROOT
-                - ESM_NETCDF_F_DIR=$NETCDFFROOT
-                - OIFS_GRIB_API_INCLUDE="-I$ECCODESROOT/include"
-                - OIFS_GRIB_API_LIB="-L$ECCODESROOT/lib -leccodes_f90 -leccodes"
-                - OIFS_GRIB_INCLUDE="$OIFS_GRIB_API_INCLUDE"
-                - OIFS_GRIB_LIB="$OIFS_GRIB_API_LIB"
-                - OIFS_GRIB_API_BIN="$ECCODESROOT/bin"
-                - LAPACK_LIB_DEFAULT="-L$MKLROOT/lib/intel64 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential"
-                - OIFS_OASIS_BASE=$(pwd)/oasis
-                - OIFS_OASIS_INCLUDE="-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu"
-                - OIFS_OASIS_LIB="-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu -lpsmile -lmct -lmpeu -lscrip"
-                - OIFS_NETCDF_INCLUDE="-I$NETCDFROOT/include"
-                - OIFS_NETCDF_LIB="-L$NETCDFROOT/lib -lnetcdf"
-                - OIFS_NETCDFF_INCLUDE="-I$NETCDFFROOT/include"
-                - OIFS_NETCDFF_LIB="-L$NETCDFFROOT/lib -lnetcdff"
-                - OIFS_FC=$FC
-                - OIFS_FFLAGS="-r8 -fp-model precise -align array32byte -O1 -qopenmp -xCORE_AVX2 -g -traceback -convert big_endian -fpe0"
-                - OIFS_FFIXED=""
-                - OIFS_FCDEFS="BLAS LITTLE LINUX INTEGER_IS_INT"
-                - OIFS_LFLAGS="$OIFS_MPI_LIB -qopenmp"
-                - OIFS_CC=$CC
-                - OIFS_CFLAGS="-fp-model precise -O3 -xCORE_AVX2 -g -traceback -qopt-report=0 -fpe0 -qopenmp"
-                - OIFS_CCDEFS="LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS _OPENMP"
-                - MAIN_LDFLAGS=-openmp
+                    CCFLAGS: '"-fPIC"'
+                    CFLAGS: '"-fPIC"'
+                    ESM_NETCDF_C_DIR: '"$NETCDFROOT"'
+                    ESM_NETCDF_F_DIR: '"$NETCDFFROOT"'
+                    FCFLAGS: '"-fPIC"'
+                    FFLAGS: '"-fPIC"'
+                    LAPACK_LIB_DEFAULT: '"-L$MKLROOT/lib/intel64 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential"'
+                    MAIN_LDFLAGS: '"-openmp"'
+                    OASIS_CFLAGS: '"-fPIC"'
+                    OASIS_FFLAGS: '"-fPIC"'
+                    OIFS_CC: '"$CC"'
+                    OIFS_CCDEFS: '"LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS _OPENMP"'
+                    OIFS_CFLAGS: '"-fp-model precise -O3 -xCORE_AVX2 -g -traceback -qopt-report=0 -fpe0 -qopenmp"'
+                    OIFS_FC: '"$FC"'
+                    OIFS_FCDEFS: '"BLAS LITTLE LINUX INTEGER_IS_INT"'
+                    OIFS_FFIXED: '""'
+                    OIFS_FFLAGS: '"-r8 -fp-model precise -align array32byte -O1 -qopenmp -xCORE_AVX2 -g -traceback -convert big_endian -fpe0"'
+                    OIFS_GRIB_API_BIN: '"$ECCODESROOT/bin"'
+                    OIFS_GRIB_API_INCLUDE: '"-I$ECCODESROOT/include"'
+                    OIFS_GRIB_API_LIB: '"-L$ECCODESROOT/lib -leccodes_f90 -leccodes"'
+                    OIFS_GRIB_INCLUDE: '"$OIFS_GRIB_API_INCLUDE"'
+                    OIFS_GRIB_LIB: '"$OIFS_GRIB_API_LIB"'
+                    OIFS_LFLAGS: '"$OIFS_MPI_LIB -qopenmp"'
+                    OIFS_NETCDFF_INCLUDE: '"-I$NETCDFFROOT/include"'
+                    OIFS_NETCDFF_LIB: '"-L$NETCDFFROOT/lib -lnetcdff -lnetcdf"'
+                    OIFS_NETCDF_INCLUDE: '"-I$NETCDFROOT/include"'
+                    OIFS_NETCDF_LIB: '"-L$NETCDFROOT/lib -lnetcdf"'
+                    OIFS_OASIS_BASE: '"$(pwd)/oasis"'
+                    OIFS_OASIS_INCLUDE: '"-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu -I$OIFS_OASIS_BASE/lib/include/yac -I$OIFS_OASIS_BASE/lib/yaxt/include"'
+                    OIFS_OASIS_LIB: '"-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu -L$OIFS_OASIS_BASE/lib/yac/lib -L$OIFS_OASIS_BASE/lib/yaxt/lib -lpsmile -lmct -lmpeu -lscrip  -lyac_utils -lyac_core -lyaxt -lyaxt_c  -qmkl"'
             levante:
                 add_export_vars:
+                    CCFLAGS: '"-fPIC"'
+                    CFLAGS: '"-fPIC"'
                     ECCODESROOT: /work/ab0246/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0
                     ESM_NETCDF_C_DIR: $NETCDFROOT
                     ESM_NETCDF_F_DIR: $NETCDFFROOT
+                    FCFLAGS: '"-fPIC"'
+                    FFLAGS: '"-fPIC"'
                     HDF5ROOT: /sw/spack-levante/hdf5-1.12.1-tvymb5
                     HDF5_C_INCLUDE_DIRECTORIES: $HDF5_ROOT/include
                     HDF5_ROOT: $HDF5ROOT
@@ -901,7 +928,8 @@ general:
                     NETCDF_C_INCLUDE_DIRECTORIES: $NETCDFROOT/include
                     NETCDF_Fortran_INCLUDE_DIRECTORIES: $NETCDFFROOT/include
                     OASIS3MCT_FC_LIB: '"-L$NETCDFFROOT/lib -lnetcdff"'
-                    OASIS_FFLAGS: '"-march=core-avx2 -mtune=core-avx2"'
+                    OASIS_CFLAGS: '"-fPIC"'
+                    OASIS_FFLAGS: '"-fPIC"'
                     OIFS_CC: $CC
                     OIFS_CCDEFS: '"LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS _OPENMP"'
                     OIFS_CFLAGS: '"-fp-model precise -O3 -g -traceback -qopt-report=0 -fpe0 -qopenmp -march=core-avx2 -mtune=core-avx2"'
@@ -921,8 +949,8 @@ general:
                     OIFS_NETCDF_INCLUDE: '"-I$NETCDFROOT/include"'
                     OIFS_NETCDF_LIB: '"-L$NETCDFROOT/lib -lnetcdf"'
                     OIFS_OASIS_BASE: $(pwd)/oasis
-                    OIFS_OASIS_INCLUDE: '"-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu"'
-                    OIFS_OASIS_LIB: '"-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu -lpsmile -lmct -lmpeu -lscrip"'
+                    OIFS_OASIS_INCLUDE: '"-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu -I$OIFS_OASIS_BASE/lib/include/yac -I$OIFS_OASIS_BASE/lib/yaxt/include"'
+                    OIFS_OASIS_LIB: '"-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu -L$OIFS_OASIS_BASE/lib/yac/lib -L$OIFS_OASIS_BASE/lib/yaxt/lib -lpsmile -lmct -lmpeu -lscrip  -lyac_utils -lyac_core -lyaxt -lyaxt_c -qmkl"'
                     SZIPROOT: /sw/spack-levante/libaec-1.0.5-gij7yv
                 add_module_actions:
                 - load libaec/1.0.5-intel-2021.5.0
@@ -1041,7 +1069,7 @@ general:
     coupler: oasis3mct
     coupler_config_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/config/oasis3mct/
     couplings:
-    - fesom-2.5+oifs-43r3-awicm-3.2+xios-2.5
+    - fesom-2.5-awicm-3.2+oifs-43r3-awicm-3.2+xios-2.5
     current_date: '2000-01-01T00:00:00'
     debug_info:
         loaded_from_file:
@@ -1211,7 +1239,7 @@ general:
     isinteractive: false
     isresubmitted: true
     iterative_coupled_model: ''
-    jobid: 1406
+    jobid: 1655
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 19991231-19991231
@@ -1239,6 +1267,7 @@ general:
     no_motd: true
     nsecond: 0
     nyear: 0
+    oasis_with_yac: false
     original_command: awicm3-v3.2-TCO95L91-CORE2_initial.yaml -e awicm3-v3.2-TCO95L91-CORE2_initial --open-run -c --no-motd --last-jobtype prepcompute -t prepcompute
     out_filetypes:
     - analysis
@@ -1313,6 +1342,8 @@ general:
     - 1440
     - 86400
     runtime_environment_changes:
+        add_export_vars:
+        - LD_LIBRARY_PATH=<TEST_DIR>/comp/awicm3/awicm3-v3.2/oasis/lib/yaxt/lib/:<TEST_DIR>/comp/awicm3/awicm3-v3.2/oasis/lib/yac/lib/:$LD_LIBRARY_PATH
         choose_computer.name:
             albedo:
                 add_export_vars:
@@ -1344,12 +1375,12 @@ general:
                 - source $I_MPI_ROOT/intel64/bin/mpivars.sh release_mt
             juwels:
                 add_export_vars:
-                - OIFS_FFIXED=""
-                - GRIB_SAMPLES_PATH="$ECCODESROOT/share/eccodes/ifs_samples/grib1_mlgrib2/"
-                - DR_HOOK_IGNORE_SIGNALS=-1
-                - OMP_SCHEDULE=STATIC
-                - OMP_STACKSIZE=128M
-                - MAIN_LDFLAGS=-openmp
+                    DR_HOOK_IGNORE_SIGNALS: -1
+                    GRIB_SAMPLES_PATH: '"$ECCODESROOT/share/eccodes/ifs_samples/grib1_mlgrib2/"'
+                    MAIN_LDFLAGS: -openmp
+                    OIFS_FFIXED: '""'
+                    OMP_SCHEDULE: STATIC
+                    OMP_STACKSIZE: 128M
             levante:
                 add_export_vars:
                     DR_HOOK_IGNORE_SIGNALS: -1
@@ -1527,6 +1558,9 @@ general:
                 nproc: 1
                 run_after: compute
                 subjob_cluster: tidy
+    yac_inc_path: -I$OIFS_OASIS_BASE/lib/include/yac -I$OIFS_OASIS_BASE/lib/yaxt/include
+    yac_lib_path: -L$OIFS_OASIS_BASE/lib/yac/lib -L$OIFS_OASIS_BASE/lib/yaxt/lib
+    yac_libs: -lyac_utils -lyac_core -lyaxt -lyaxt_c
 oasis3mct:
     a2o_lag: 0
     a2o_seq: 2
@@ -1546,9 +1580,22 @@ oasis3mct:
                     intel-oneapi:
                         add_export_vars:
                             OASIS_FFLAGS: '"-march=core-avx2"'
+            juwels:
+                add_export_vars:
+                    CCFLAGS: '"-fPIC"'
+                    CFLAGS: '"-fPIC"'
+                    FCFLAGS: '"-fPIC"'
+                    FFLAGS: '"-fPIC"'
+                    OASIS_CFLAGS: '"-fPIC"'
+                    OASIS_FFLAGS: '"-fPIC"'
             levante:
                 add_export_vars:
-                    OASIS_FFLAGS: '"-march=core-avx2 -mtune=core-avx2"'
+                    CCFLAGS: '"-fPIC"'
+                    CFLAGS: '"-fPIC"'
+                    FCFLAGS: '"-fPIC"'
+                    FFLAGS: '"-fPIC"'
+                    OASIS_CFLAGS: '"-fPIC"'
+                    OASIS_FFLAGS: '"-fPIC"'
     all_filetypes:
     - analysis
     - bin
@@ -1577,10 +1624,11 @@ oasis3mct:
     - 4.0-awicm-3.0
     - 4.0-awicm-3.1
     - 5.0-smhi
-    branch: v2.8
+    - 6.0-YAC
+    branch: awi-cm3.2.1
     cf_name_dir: <TEST_DIR>/comp/awicm3/awicm3-v3.2/oasis
-    clean_command: rm -rf build CMakeCache.txt include lib/libpsmile.a lib/libscrip.a lib/libmct.a lib/libmpeu.a
-    comp_command: mkdir -p build; cd build; cmake ..;   make -j 1; mkdir -p ../include/; cp lib/psmile/libpsmile.a lib/psmile/mct/libmct.a lib/psmile/mct/mpeu/libmpeu.a lib/psmile/scrip/libscrip.a ../lib; cp lib/psmile/mod_oasis*mod ../include
+    clean_command: rm -rf lib/yaxt/build lib/yac/build include lib/libpsmile.a lib/libscrip.a lib/libmct.a lib/libmpeu.a INSTALL_OASIS.ESMTOOLS build
+    comp_command: export ESM_OASIS_DIR=<TEST_DIR>/comp/awicm3/awicm3-v3.2/oasis; cd lib; [ -d "yaxt" ] || rm -f yaxt-0.10.0.tar.gz && wget https://swprojects.dkrz.de/redmine/attachments/download/529/yaxt-0.10.0.tar.gz ; [ -d "yaxt" ] || mkdir yaxt && tar -xzvf yaxt-0.10.0.tar.gz -C yaxt --strip-components=1 ; rm yaxt-0.10.0.tar.gz ; cd yaxt; export YAXT_ROOT=$(pwd) ; mkdir -p build; cd build; ../configure --cache-file=configyax.cache --prefix=<TEST_DIR>/comp/awicm3/awicm3-v3.2/oasis/lib/yaxt --without-regard-for-quality ; make -j 6 install ; cd ../../ ; [ -d "yac" ] || git clone --branch=release-3.1.0 https://gitlab.dkrz.de/dkrz-sw/yac.git ; cd yac ; export YAC_ROOT=$(pwd) ; mkdir -p build ; cd build ; ../configure --cache-file=configyac.cache --enable-lib-core-only --disable-mpi-checks --with-yaxt-root=<TEST_DIR>/comp/awicm3/awicm3-v3.2/oasis/lib/yaxt --with-netcdf-root=$NETCDFROOT --prefix=<TEST_DIR>/comp/awicm3/awicm3-v3.2/oasis/lib/yac ; make -j 6 install ; export YAC_INCLUDE="-I<TEST_DIR>/comp/awicm3/awicm3-v3.2/oasis/lib/yac/include -I<TEST_DIR>/comp/awicm3/awicm3-v3.2/oasis/lib/yaxt/include"; cd ../../../util/make_dir/ ; cp make.ESMTOOLS make.inc ; make -f TopMakefileOasis3 ; cd ../../ ; mv INSTALL_OASIS.ESMTOOLS/lib/libpsmile.MPI1.a INSTALL_OASIS.ESMTOOLS/lib/libpsmile.a ; mkdir -p build/lib/psmile/scrip ; mkdir -p build/lib/psmile/mct/mpeu ; cp INSTALL_OASIS.ESMTOOLS/build-static/lib/psmile.MPI1/*.mod build/lib/psmile/. ; cp INSTALL_OASIS.ESMTOOLS/build-static/lib/scrip/*mod build/lib/psmile/scrip/. ; cp INSTALL_OASIS.ESMTOOLS/build-static/lib/mct/*mod build/lib/psmile/mct/. ; cp INSTALL_OASIS.ESMTOOLS/lib/libmct.a build/lib/psmile/mct/. ; cp INSTALL_OASIS.ESMTOOLS/lib/libmpeu.a build/lib/psmile/mct/. ; cp INSTALL_OASIS.ESMTOOLS/lib/libpsmile.a build/lib/psmile/. ; cp INSTALL_OASIS.ESMTOOLS/lib/libscrip.a build/lib/psmile/scrip/.
     compiletime_environment_changes: *id004
     config_intermediate:
         namcouple: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/config/oasis3mct/namcouple
@@ -1672,6 +1720,66 @@ oasis3mct:
                     nb_of_search_bins: 1
                     search_bin: latitude
                     weight: 0.1
+            time_transformation: instant
+        oyac_1stcon_nnn_i:
+            oyac: true
+            remapping:
+                conserv:
+                    intersect_norm: fracarea
+                    order: first
+                nnn:
+                    nb_of_neighbours: 1
+                    weighting: avg
+            time_transformation: instant
+        oyac_1stcon_nnn_stocha:
+            oyac: true
+            remapping:
+                conserv:
+                    intersect_norm: fracarea
+                    order: first
+                nnn:
+                    nb_of_neighbours: 1
+                    weighting: avg
+            time_transformation: stocha
+        oyac_avg_c:
+            oyac: true
+            remapping:
+                nnn:
+                    nb_of_neighbours: 9
+                    weighting: avg
+            time_transformation: conserv
+        oyac_gauswgt_c:
+            oyac: true
+            remapping:
+                nnn:
+                    nb_of_neighbours: 9
+                    weighting: gauss
+            time_transformation: conserv
+        oyac_gauswgt_i:
+            oyac: true
+            remapping:
+                nnn:
+                    nb_of_neighbours: 9
+                    weighting: gauss
+            time_transformation: instant
+        oyac_hcsbb_nnn_i:
+            oyac: true
+            remapping:
+                hcsbb:
+                    lorem: ipsum
+                nnn:
+                    nb_of_neighbours: 1
+                    weighting: avg
+            time_transformation: instant
+        oyac_spmap_nnn_i:
+            oyac: true
+            remapping:
+                nnn:
+                    nb_of_neighbours: 1
+                    weighting: avg
+                spmap:
+                    spread_dist: 3
+                    weighting: dist
             time_transformation: instant
     coupling_target_fields:
         rstas.nc:
@@ -1778,7 +1886,7 @@ oasis3mct:
             init_to_exp: copy
             run_to_work: copy
             work_to_run: copy
-    git-repository: https://gitlab.dkrz.de/modular_esm/oasis3-mct.git
+    git-repository: https://gitlab.dkrz.de/ec-earth/oasis3mct6.git
     ignore_intermediate:
         nout: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/ignore/oasis3mct/nout.000000
     ignore_sources:
@@ -1809,10 +1917,10 @@ oasis3mct:
         grids: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work/grids.nc
         masks: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work/masks.nc
     install_libs:
-    - build/lib/psmile/libpsmile.a
-    - build/lib/psmile/mct/libmct.a
-    - build/lib/psmile/mct/mpeu/libmpeu.a
-    - build/lib/psmile/scrip/libscrip.a
+    - INSTALL_OASIS.ESMTOOLS/lib/libpsmile.a
+    - INSTALL_OASIS.ESMTOOLS/lib/libmct.a
+    - INSTALL_OASIS.ESMTOOLS/lib/libmpeu.a
+    - INSTALL_OASIS.ESMTOOLS/lib/libscrip.a
     lag: 0
     last_parent_date: '1999-12-31T20:00:00'
     leapyear: true
@@ -2023,6 +2131,9 @@ oasis3mct:
         rstos.nc_recv: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/restart/oasis3mct/rstos.nc_recv
     rstas_file_name: rstas_uv
     rstos_file_name: rstos_uv
+    runtime_environment_changes:
+        add_export_vars:
+        - LD_LIBRARY_PATH=<TEST_DIR>/comp/awicm3/awicm3-v3.2/oasis/oasis/lib/yaxt/lib/:<TEST_DIR>/comp/awicm3/awicm3-v3.2/oasis/oasis/lib/yac/lib/:$LD_LIBRARY_PATH
     thisrun_analysis_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/analysis/oasis3mct/
     thisrun_bin_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/bin/oasis3mct/
     thisrun_config_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/config/oasis3mct/
@@ -2038,8 +2149,12 @@ oasis3mct:
     thisrun_viz_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/viz/oasis3mct/
     time_step: 7200
     use_lucia: false
-    version: 2.8
+    version: 6.0-YAC
     weight_a2o: 2
+    with_yac: true
+    yac_inc_path: -I$OIFS_OASIS_BASE/lib/include/yac -I$OIFS_OASIS_BASE/lib/yaxt/include
+    yac_lib_path: -L$OIFS_OASIS_BASE/lib/yac/lib -L$OIFS_OASIS_BASE/lib/yaxt/lib
+    yac_libs: -lyac_utils -lyac_core -lyaxt -lyaxt_c
 oifs:
     ICMGG_INIT_name: _CORE2
     ICMSH_INIT_name: ''
@@ -2073,6 +2188,7 @@ oifs:
     - 43r3-awicm-3.1.2
     - 43r3-awicm-3.1.3
     - 43r3-awicm-3.2
+    - 43r3-awicm-3.2.1
     - 43r3-awicm-frontiers-xios
     - 43r3-foci
     - 43r3-v1
@@ -2238,30 +2354,30 @@ oifs:
                 iolibraries: geomar_libs
             juwels:
                 add_export_vars:
-                - ESM_NETCDF_C_DIR=$NETCDFROOT
-                - ESM_NETCDF_F_DIR=$NETCDFFROOT
-                - OIFS_GRIB_API_INCLUDE="-I$ECCODESROOT/include"
-                - OIFS_GRIB_API_LIB="-L$ECCODESROOT/lib -leccodes_f90 -leccodes"
-                - OIFS_GRIB_INCLUDE="$OIFS_GRIB_API_INCLUDE"
-                - OIFS_GRIB_LIB="$OIFS_GRIB_API_LIB"
-                - OIFS_GRIB_API_BIN="$ECCODESROOT/bin"
-                - LAPACK_LIB_DEFAULT="-L$MKLROOT/lib/intel64 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential"
-                - OIFS_OASIS_BASE=$(pwd)/oasis
-                - OIFS_OASIS_INCLUDE="-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu"
-                - OIFS_OASIS_LIB="-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu -lpsmile -lmct -lmpeu -lscrip"
-                - OIFS_NETCDF_INCLUDE="-I$NETCDFROOT/include"
-                - OIFS_NETCDF_LIB="-L$NETCDFROOT/lib -lnetcdf"
-                - OIFS_NETCDFF_INCLUDE="-I$NETCDFFROOT/include"
-                - OIFS_NETCDFF_LIB="-L$NETCDFFROOT/lib -lnetcdff"
-                - OIFS_FC=$FC
-                - OIFS_FFLAGS="-r8 -fp-model precise -align array32byte -O1 -qopenmp -xCORE_AVX2 -g -traceback -convert big_endian -fpe0"
-                - OIFS_FFIXED=""
-                - OIFS_FCDEFS="BLAS LITTLE LINUX INTEGER_IS_INT"
-                - OIFS_LFLAGS="$OIFS_MPI_LIB -qopenmp"
-                - OIFS_CC=$CC
-                - OIFS_CFLAGS="-fp-model precise -O3 -xCORE_AVX2 -g -traceback -qopt-report=0 -fpe0 -qopenmp"
-                - OIFS_CCDEFS="LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS _OPENMP"
-                - MAIN_LDFLAGS=-openmp
+                    ESM_NETCDF_C_DIR: '"$NETCDFROOT"'
+                    ESM_NETCDF_F_DIR: '"$NETCDFFROOT"'
+                    LAPACK_LIB_DEFAULT: '"-L$MKLROOT/lib/intel64 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential"'
+                    MAIN_LDFLAGS: '"-openmp"'
+                    OIFS_CC: '"$CC"'
+                    OIFS_CCDEFS: '"LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS _OPENMP"'
+                    OIFS_CFLAGS: '"-fp-model precise -O3 -xCORE_AVX2 -g -traceback -qopt-report=0 -fpe0 -qopenmp"'
+                    OIFS_FC: '"$FC"'
+                    OIFS_FCDEFS: '"BLAS LITTLE LINUX INTEGER_IS_INT"'
+                    OIFS_FFIXED: '""'
+                    OIFS_FFLAGS: '"-r8 -fp-model precise -align array32byte -O1 -qopenmp -xCORE_AVX2 -g -traceback -convert big_endian -fpe0"'
+                    OIFS_GRIB_API_BIN: '"$ECCODESROOT/bin"'
+                    OIFS_GRIB_API_INCLUDE: '"-I$ECCODESROOT/include"'
+                    OIFS_GRIB_API_LIB: '"-L$ECCODESROOT/lib -leccodes_f90 -leccodes"'
+                    OIFS_GRIB_INCLUDE: '"$OIFS_GRIB_API_INCLUDE"'
+                    OIFS_GRIB_LIB: '"$OIFS_GRIB_API_LIB"'
+                    OIFS_LFLAGS: '"$OIFS_MPI_LIB -qopenmp"'
+                    OIFS_NETCDFF_INCLUDE: '"-I$NETCDFFROOT/include"'
+                    OIFS_NETCDFF_LIB: '"-L$NETCDFFROOT/lib -lnetcdff -lnetcdf"'
+                    OIFS_NETCDF_INCLUDE: '"-I$NETCDFROOT/include"'
+                    OIFS_NETCDF_LIB: '"-L$NETCDFROOT/lib -lnetcdf"'
+                    OIFS_OASIS_BASE: '"$(pwd)/oasis"'
+                    OIFS_OASIS_INCLUDE: '"-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu -I$OIFS_OASIS_BASE/lib/include/yac -I$OIFS_OASIS_BASE/lib/yaxt/include"'
+                    OIFS_OASIS_LIB: '"-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu -L$OIFS_OASIS_BASE/lib/yac/lib -L$OIFS_OASIS_BASE/lib/yaxt/lib -lpsmile -lmct -lmpeu -lscrip  -lyac_utils -lyac_core -lyaxt -lyaxt_c  -qmkl"'
                 compiler_mpi: intel2022_ompi2022
             levante:
                 add_export_vars:
@@ -2296,8 +2412,8 @@ oifs:
                     OIFS_NETCDF_INCLUDE: '"-I$NETCDFROOT/include"'
                     OIFS_NETCDF_LIB: '"-L$NETCDFROOT/lib -lnetcdf"'
                     OIFS_OASIS_BASE: $(pwd)/oasis
-                    OIFS_OASIS_INCLUDE: '"-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu"'
-                    OIFS_OASIS_LIB: '"-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu -lpsmile -lmct -lmpeu -lscrip"'
+                    OIFS_OASIS_INCLUDE: '"-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu -I$OIFS_OASIS_BASE/lib/include/yac -I$OIFS_OASIS_BASE/lib/yaxt/include"'
+                    OIFS_OASIS_LIB: '"-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu -L$OIFS_OASIS_BASE/lib/yac/lib -L$OIFS_OASIS_BASE/lib/yaxt/lib -lpsmile -lmct -lmpeu -lscrip  -lyac_utils -lyac_core -lyaxt -lyaxt_c -qmkl"'
                     SZIPROOT: /sw/spack-levante/libaec-1.0.5-gij7yv
                 add_module_actions:
                 - load libaec/1.0.5-intel-2021.5.0
@@ -2623,16 +2739,22 @@ oifs:
             nx: 40320
             ny: 1
             oasis_grid_type: D
+            oyac_grid_type: LL
+            oyac_io_per_node: 4
         atml:
             name: L096
             nx: 40320
             ny: 1
             oasis_grid_type: D
+            oyac_grid_type: LL
+            oyac_io_per_node: 4
         atmr:
             name: R096
             nx: 40320
             ny: 1
             oasis_grid_type: D
+            oyac_grid_type: LL
+            oyac_io_per_node: 4
     hours: 0
     icmcl_dir: /work/ollie/jstreffi/input/oifs-43r3
     icmcl_end_date: '2000-01-03T00:00:00'
@@ -2959,12 +3081,12 @@ oifs:
                 iolibraries: geomar_libs
             juwels:
                 add_export_vars:
-                - OIFS_FFIXED=""
-                - GRIB_SAMPLES_PATH="$ECCODESROOT/share/eccodes/ifs_samples/grib1_mlgrib2/"
-                - DR_HOOK_IGNORE_SIGNALS=-1
-                - OMP_SCHEDULE=STATIC
-                - OMP_STACKSIZE=128M
-                - MAIN_LDFLAGS=-openmp
+                    DR_HOOK_IGNORE_SIGNALS: -1
+                    GRIB_SAMPLES_PATH: '"$ECCODESROOT/share/eccodes/ifs_samples/grib1_mlgrib2/"'
+                    MAIN_LDFLAGS: -openmp
+                    OIFS_FFIXED: '""'
+                    OMP_SCHEDULE: STATIC
+                    OMP_STACKSIZE: 128M
                 compiler_mpi: intel2022_ompi2022
             levante:
                 add_export_vars:
@@ -3258,11 +3380,15 @@ rnfmap:
             nx: 512
             ny: 256
             oasis_grid_type: LR
+            oyac_grid_type: LL
+            oyac_io_per_node: 4
         rnfo:
             name: RnfO
             nx: 512
             ny: 256
             oasis_grid_type: LR
+            oyac_grid_type: LL
+            oyac_io_per_node: 4
     input_dir: /work/ollie/jstreffi/input/runoff-mapper
     input_intermediate:
         runoff_maps: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/input/rnfmap/runoff_maps.nc

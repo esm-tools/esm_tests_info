@@ -2369,7 +2369,7 @@ general:
     isinteractive: false
     isresubmitted: true
     iterative_coupled_model: ''
-    jobid: 1780
+    jobid: 1390
     jobtype: prepcompute
     last_jobtype: prepcompute
     last_run_datestamp: 18491201-18491231
@@ -3038,9 +3038,22 @@ oasis3mct:
                     intel-oneapi:
                         add_export_vars:
                             OASIS_FFLAGS: '"-march=core-avx2"'
+            juwels:
+                add_export_vars:
+                    CCFLAGS: '"-fPIC"'
+                    CFLAGS: '"-fPIC"'
+                    FCFLAGS: '"-fPIC"'
+                    FFLAGS: '"-fPIC"'
+                    OASIS_CFLAGS: '"-fPIC"'
+                    OASIS_FFLAGS: '"-fPIC"'
             levante:
                 add_export_vars:
-                    OASIS_FFLAGS: '"-march=core-avx2 -mtune=core-avx2"'
+                    CCFLAGS: '"-fPIC"'
+                    CFLAGS: '"-fPIC"'
+                    FCFLAGS: '"-fPIC"'
+                    FFLAGS: '"-fPIC"'
+                    OASIS_CFLAGS: '"-fPIC"'
+                    OASIS_FFLAGS: '"-fPIC"'
     add_restart_in_files:
         rmp_a2f_B: rmp_a2f_B
         rmp_a2f_D: rmp_a2f_D
@@ -3093,6 +3106,7 @@ oasis3mct:
     - 4.0-awicm-3.0
     - 4.0-awicm-3.1
     - 5.0-smhi
+    - 6.0-YAC
     branch: v2.8
     cf_name_dir: <TEST_DIR>/comp/awicm/awicm-CMIP6/oasis
     clean_command: rm -rf build CMakeCache.txt include lib/libpsmile.a lib/libscrip.a lib/libmct.a lib/libmpeu.a
@@ -3439,5 +3453,9 @@ oasis3mct:
     use_lucia: false
     version: 2.8
     weight_a2o: 2
+    with_yac: false
+    yac_inc_path: ''
+    yac_lib_path: ''
+    yac_libs: ''
 recom:
     not_used: ''
