@@ -1,917 +1,1646 @@
 computer:
-    account: None
-    accounting: true
-    accounting_flag: --account=None
-    actual_script_dir: <--methods.script_dir--
-    add_choose_heterogeneous_parallelization: &id001
-        false:
-            cpu_bind: cores
-            srun_execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=cores --hint=nomultithread --multi-prog hostfile_srun
+  name: levante  # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:3,col:7
+  account: None # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:10,col:10
+  use_hyperthreading: false # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:8,col:21
+  accounting: true # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:43,col:13
+  batch_system: slurm # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:45,col:15
+  hetjob_flag: hetjob # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:46,col:14
+  jobtype: prepcompute # no provenance info
+  sh_interpreter: /bin/bash # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:48,col:17
+  partition: compute # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:49,col:12
+  partitions:
+    compute:
+      name: compute  # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:58,col:23
+      cores_per_node: 128 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:59,col:33
+    pp:
+      name: compute  # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:61,col:23
+      cores_per_node: 128 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:62,col:33
+  logical_cpus_per_core: 2  # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:64,col:24
+  threads_per_core: 1 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:65,col:19
+  pool_directories:
+    pool: /pool/data  # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:68,col:15
+    focipool: /work/bb0519/foci_input2 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:69,col:19
+  pool_dir: /pool/data # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:71,col:12
+  compiler_mpi: intel2022_openmpi # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:74,col:15
+  iolibraries: system_libs # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:77,col:14
+  module_actions:
+  - purge  # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:80,col:11
+  - load git/2.31.1-gcc-11.2.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:81,col:11
+  - load cdo/2.0.5-gcc-11.2.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:82,col:11
+  - load nco/5.0.6-gcc-11.2.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:83,col:11
+  - load intel-oneapi-compilers/2022.0.1-gcc-11.2.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:177,col:27
+  - load intel-oneapi-mkl/2022.0.1-gcc-11.2.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:178,col:27
+  - load openmpi/4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:179,col:27
+  - load netcdf-c/4.8.1-openmpi-4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:225,col:15
+  - load netcdf-fortran/4.5.3-openmpi-4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:226,col:15
+  - load hdf5/1.12.1-openmpi-4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:227,col:15
+  export_vars:
+    LC_ALL: en_US.UTF-8  # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:92,col:17
+    CPU_MODEL: AMD_EPYC_ZEN3 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:95,col:20
+    FESOM_PLATFORM_STRATEGY: levante.dkrz.de # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:96,col:34
+    I_MPI_PMI_LIBRARY: /usr/lib64/libpmi2.so # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:99,col:28
+    I_MPI_PMI: pmi2 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:100,col:20
+    FI_PROVIDER: mlx # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:101,col:22
+    I_MPI_OFI_PROVIDER: mlx # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:102,col:29
+    I_MPI_FABRICS: shm:ofi # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:103,col:24
+    HCOLL_ENABLE_MCAST_ALL: 1 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:109,col:33
+    HCOLL_MAIN_IB: mlx5_0:1 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:110,col:24
+    UCX_IB_ADDR_TYPE: ib_global # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:111,col:27
+    UCX_NET_DEVICES: mlx5_0:1 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:112,col:26
+    UCX_TLS: mm,knem,cma,dc_mlx5,dc_x,self # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:113,col:18
+    UCX_UNIFIED_MODE: y # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:114,col:27
+    KMP_LIBRARY: turnaround # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:117,col:22
+    KMP_AFFINITY: granularity=fine,scatter # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:118,col:23
+    OMPI_MCA_btl: self # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:126,col:27
+    OMPI_MCA_coll: ^ml # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:127,col:28
+    OMPI_MCA_coll_hcoll_enable: 1 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:128,col:41
+    OMPI_MCA_io: romio321 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:129,col:26
+    OMPI_MCA_osc: pt2pt # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:130,col:27
+    OMPI_MCA_pml: ucx # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:131,col:27
+    FC: mpif90 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:182,col:29
+    F77: mpif90 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:183,col:30
+    MPICC: mpicc # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:184,col:32
+    MPIFC: mpif90 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:185,col:32
+    CC: mpicc # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:186,col:29
+    CXX: mpicxx # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:187,col:30
+    MPIROOT: "\"$(mpif90 -show | perl -lne 'm{ -I(.*?)/include } and print $1')\"" # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:189,col:34
+    MPI_LIB: "\"$(mpif90 -show |sed -e 's/^[^ ]*//' -e 's/-[I][^ ]*//g')\"" # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:190,col:34
+    IO_LIB_ROOT: /work/ab0246/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:230,col:26
+    HDF5ROOT: /sw/spack-levante/hdf5-1.12.1-tvymb5 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:232,col:23
+    HDF5_C_INCLUDE_DIRECTORIES: $HDF5ROOT/include # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:233,col:41
+    HDF5_ROOT: $HDF5ROOT # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:234,col:24
+    NETCDFFROOT: /sw/spack-levante/netcdf-fortran-4.5.3-k6xq5g # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:235,col:26
+    NETCDFROOT: /sw/spack-levante/netcdf-c-4.8.1-2k3cmu # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:236,col:25
+    NETCDF_Fortran_INCLUDE_DIRECTORIES: $NETCDFFROOT/include # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:237,col:49
+    NETCDF_C_INCLUDE_DIRECTORIES: $NETCDFROOT/include # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:238,col:43
+    NETCDF_CXX_INCLUDE_DIRECTORIES: $NETCDFROOT/include # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:239,col:45
+    NETCDF_CXX_LIBRARIES: $NETCDFROOT/lib # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:240,col:35
+    PSMPIFLAGS: '"-lrt -lm -ldl"' # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:244,col:25
+    LAPACK_LIB: "'-mkl=sequential'" # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:247,col:25
+    ZLIBROOT: /usr # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:250,col:23
+    OASIS3MCT_FC_LIB: '"-L$NETCDFFROOT/lib -lnetcdff"' # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:254,col:31
+    PERL5LIB: /usr/lib64/perl5 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:257,col:23
+    LD_LIBRARY_PATH[(0)]: $HDF5ROOT/lib:$NETCDFROOT/lib:$NETCDFFROOT/lib:$LD_LIBRARY_PATH # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:259,col:35
+    LD_LIBRARY_PATH[(1)]: /sw/spack-levante/intel-oneapi-mkl-2022.0.1-ttdktf/mkl/2022.0.1/lib/intel64:$LD_LIBRARY_PATH # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:276,col:35
+    LD_LIBRARY_PATH[(2)]: /sw/spack-levante/intel-oneapi-mpi-2021.5.0-mrcss7/mpi/2021.5.0/libfabric/lib:$LD_LIBRARY_PATH # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:279,col:35
+  fc: $FC  # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:332,col:5
+  cc: $CC # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:333,col:5
+  mpifc: $MPIFC # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:334,col:8
+  mpicc: $MPICC # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:335,col:8
+  cxx: $CXX # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:336,col:6
+  launcher_flags: -l --kill-on-bad-exit=1 --cpu_bind=cores # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:79,col:33
+  header_start: '#SBATCH' # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:5,col:15
+  submit: sbatch # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:6,col:9
+  launcher: srun # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:7,col:11
+  debugger: None # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:8,col:11
+  mail_type: NONE # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:9,col:12
+  mail1: --mail-type=NONE # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:27,col:25
+  mail2: '' # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:17,col:8
+  exclusive_flag: --exclusive # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:19,col:17
+  notification_flag: --mail-type=NONE # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:38,col:20
+  single_proc_submit_flag: --ntasks-per-node=1 # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:39,col:26
+  tasks_flag: --ntasks=@tasks@ # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:40,col:13
+  partition_flag: --partition=@partition@ # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:41,col:17
+  nodes_flag: --nodes=@nodes@ # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:42,col:13
+  time_flag: --time=00:08:00 # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:43,col:12
+  additional_flags: []
+  output_path: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/log/ # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:45,col:14
+  thisrun_logfile: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/log/fesom2.0-initial-monthly_fesom_@jobtype@_20010101-20010131_%j.log # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:46,col:18
+  output_flags: --output=<TEST_DIR>/run/fesom//fesom2.0-initial-monthly/log/fesom2.0-initial-monthly_fesom_@jobtype@_20010101-20010131_%j.log
+    --error=<TEST_DIR>/run/fesom//fesom2.0-initial-monthly/log/fesom2.0-initial-monthly_fesom_@jobtype@_20010101-20010131_%j.log # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:47,col:15
+  name_flag: --job-name=fesom2.0-initial-monthly # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:48,col:12
+  taskset: false # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:50,col:10
+  mt_launcher_flag: --hint=nomultithread # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:33,col:51
+  add_choose_heterogeneous_parallelization:
+    true:
+      cpu_bind: none  # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:55,col:19
+      choose_taskset:
         true:
-            choose_taskset:
-                false:
-                    launcher_comp_sep: '\
-
-                        :'
-                    launcher_flags_per_component: --hint=nomultithread  --nodes=@nnodes@ --ntasks=@nproc@ --ntasks-per-node=@nproc_per_node@ --cpus-per-task=@cpus_per_proc@ --export=ALL,OMP_NUM_THREADS=@omp_num_threads@
-                    srun_execution_command: 'srun -l --kill-on-bad-exit=1 --cpu_bind=cores \
-
-                        @components@'
-                true:
-                    srun_execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=cores --hint=nomultithread --multi-prog hostfile_srun
-            cpu_bind: none
-    additional_flags: []
-    batch_system: slurm
-    cc: $CC
-    check_error:
-        'slurmstepd: error: execve():':
-            file: stdout
-            frequency: 600
-            message: 'SLURM ERROR: slurm probably didn''t find executable'
-            method: kill
-        'srun: error:':
-            file: stdout
-            frequency: 30
-            message: 'SLURM ERROR: slurm ended with an error, exiting.'
-            method: kill
-    choose_heterogeneous_parallelization: *id001
-    compiler_mpi: intel2022_openmpi
-    config_files:
-        hostfile: hostfile_srun
-    cpu_bind: cores
-    cxx: $CXX
-    debug_info:
-        loaded_from_file:
-        - <HOME_DIR>/esm_tools/configs//machines/levante.yaml
-    debugger: None
-    debugger_flags_prelauncher: ''
-    exclusive_flag: --exclusive
-    execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=cores --hint=nomultithread --multi-prog hostfile_srun
-    export_vars:
-        CC: mpicc
-        CPU_MODEL: AMD_EPYC_ZEN3
-        CXX: mpicxx
-        F77: mpif90
-        FC: mpif90
-        FESOM_PLATFORM_STRATEGY: levante.dkrz.de
-        FI_PROVIDER: mlx
-        HCOLL_ENABLE_MCAST_ALL: 1
-        HCOLL_MAIN_IB: mlx5_0:1
-        HDF5ROOT: /sw/spack-levante/hdf5-1.12.1-tvymb5
-        HDF5_C_INCLUDE_DIRECTORIES: $HDF5ROOT/include
-        HDF5_ROOT: $HDF5ROOT
-        IO_LIB_ROOT: /work/ab0246/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0
-        I_MPI_FABRICS: shm:ofi
-        I_MPI_OFI_PROVIDER: mlx
-        I_MPI_PMI: pmi2
-        I_MPI_PMI_LIBRARY: /usr/lib64/libpmi2.so
-        KMP_AFFINITY: granularity=fine,scatter
-        KMP_LIBRARY: turnaround
-        LAPACK_LIB: '''-mkl=sequential'''
-        LC_ALL: en_US.UTF-8
-        LD_LIBRARY_PATH[(0)]: $HDF5ROOT/lib:$NETCDFROOT/lib:$NETCDFFROOT/lib:$LD_LIBRARY_PATH
-        LD_LIBRARY_PATH[(1)]: /sw/spack-levante/intel-oneapi-mkl-2022.0.1-ttdktf/mkl/2022.0.1/lib/intel64:$LD_LIBRARY_PATH
-        LD_LIBRARY_PATH[(2)]: /sw/spack-levante/intel-oneapi-mpi-2021.5.0-mrcss7/mpi/2021.5.0/libfabric/lib:$LD_LIBRARY_PATH
-        MPICC: mpicc
-        MPIFC: mpif90
-        MPIROOT: '"$(mpif90 -show | perl -lne ''m{ -I(.*?)/include } and print $1'')"'
-        MPI_LIB: '"$(mpif90 -show |sed -e ''s/^[^ ]*//'' -e ''s/-[I][^ ]*//g'')"'
-        NETCDFFROOT: /sw/spack-levante/netcdf-fortran-4.5.3-k6xq5g
-        NETCDFROOT: /sw/spack-levante/netcdf-c-4.8.1-2k3cmu
-        NETCDF_CXX_INCLUDE_DIRECTORIES: $NETCDFROOT/include
-        NETCDF_CXX_LIBRARIES: $NETCDFROOT/lib
-        NETCDF_C_INCLUDE_DIRECTORIES: $NETCDFROOT/include
-        NETCDF_Fortran_INCLUDE_DIRECTORIES: $NETCDFFROOT/include
-        OASIS3MCT_FC_LIB: '"-L$NETCDFFROOT/lib -lnetcdff"'
-        OMPI_MCA_btl: self
-        OMPI_MCA_coll: ^ml
-        OMPI_MCA_coll_hcoll_enable: 1
-        OMPI_MCA_io: romio321
-        OMPI_MCA_osc: pt2pt
-        OMPI_MCA_pml: ucx
-        PERL5LIB: /usr/lib64/perl5
-        PSMPIFLAGS: '"-lrt -lm -ldl"'
-        UCX_IB_ADDR_TYPE: ib_global
-        UCX_NET_DEVICES: mlx5_0:1
-        UCX_TLS: mm,knem,cma,dc_mlx5,dc_x,self
-        UCX_UNIFIED_MODE: y
-        ZLIBROOT: /usr
-    fc: $FC
-    header_start: '#SBATCH'
-    heterogeneous_parallelization: false
-    hetjob_flag: hetjob
-    hostname_list: DUMMY_HOST1 DUMMY_HOST2
-    hyperthreading_flag: --ntasks-per-core=1
-    iolibraries: system_libs
-    jobtype: prepcompute
-    launcher: srun
-    launcher_flags: -l --kill-on-bad-exit=1 --cpu_bind=cores
-    logical_cpus_per_core: 2
-    mail1: --mail-type=NONE
-    mail2: ''
-    mail_type: NONE
-    mod_hdf5: hdf5/1.12.1-openmpi-4.1.2-intel-2021.5.0
-    mod_netcdf_c: netcdf-c/4.8.1-openmpi-4.1.2-intel-2021.5.0
-    mod_netcdf_f: netcdf-fortran/4.5.3-openmpi-4.1.2-intel-2021.5.0
-    model: computer
-    module_actions:
-    - purge
-    - load git/2.31.1-gcc-11.2.0
-    - load cdo/2.0.5-gcc-11.2.0
-    - load nco/5.0.6-gcc-11.2.0
-    - load intel-oneapi-compilers/2022.0.1-gcc-11.2.0
-    - load intel-oneapi-mkl/2022.0.1-gcc-11.2.0
-    - load openmpi/4.1.2-intel-2021.5.0
-    - load netcdf-c/4.8.1-openmpi-4.1.2-intel-2021.5.0
-    - load netcdf-fortran/4.5.3-openmpi-4.1.2-intel-2021.5.0
-    - load hdf5/1.12.1-openmpi-4.1.2-intel-2021.5.0
-    mpicc: $MPICC
-    mpifc: $MPIFC
-    mt_launcher_flag: --hint=nomultithread
-    name: levante
-    name_flag: --job-name=fesom2.0-initial-monthly
-    netcdf_cxx_root: /work/ab0995/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0
-    nodes_flag: --nodes=@nodes@
-    notification_flag: --mail-type=NONE
-    output_flags: --output=<TEST_DIR>/run/fesom//fesom2.0-initial-monthly/log/fesom2.0-initial-monthly_fesom_@jobtype@_20010101-20010131_%j.log --error=<TEST_DIR>/run/fesom//fesom2.0-initial-monthly/log/fesom2.0-initial-monthly_fesom_@jobtype@_20010101-20010131_%j.log
-    output_path: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/log/
-    overcommit_flag: ''
-    overcommit_nodes: None
-    overcommit_rule: ''
-    partition: compute
-    partition_cpn: 128
-    partition_flag: --partition=@partition@
-    partition_name: compute
-    partitions:
-        compute:
-            cores_per_node: 128
-            name: compute
-        pp:
-            cores_per_node: 128
-            name: compute
-    pool_dir: /pool/data
-    pool_directories:
-        focipool: /work/bb0519/foci_input2
-        pool: /pool/data
-    runtime_environment_changes:
-        add_export_vars:
-            ACCOUNT: None
-            ESM_TESTING_DIR: <TEST_DIR>/run/fesom/
-            MODEL_DIR: <TEST_DIR>/comp/fesom/fesom-2.0
-    script_name: <--methods.scriptname--
-    sh_interpreter: /bin/bash
-    single_proc_submit_flag: --ntasks-per-node=1
-    srun_execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=cores --hint=nomultithread --multi-prog hostfile_srun
-    submit: sbatch
-    submitted: false
-    tasks_flag: --ntasks=@tasks@
-    taskset: false
-    thisrun_logfile: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/log/fesom2.0-initial-monthly_fesom_@jobtype@_20010101-20010131_%j.log
-    threads_per_core: 1
-    time_flag: --time=00:08:00
-    use_hyperthreading: false
-debug_info:
-    loaded_from_file: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/scripts/fesom2.0-initial-monthly.yaml
-defaults:
-    clean_command: rm -rf build CMakeCache.txt
-    comp_command: mkdir -p build; cd build; cmake ..;   make install -j `nproc --all`
-    debug_info:
-        loaded_from_file: <HOME_DIR>/esm_tools/configs//defaults/download_and_compile.yaml
-fesom:
-    all_filetypes:
-    - analysis
-    - bin
-    - config
-    - forcing
-    - input
-    - couple
-    - log
-    - mon
-    - outdata
-    - restart_in
-    - restart_out
-    - viz
-    - ignore
-    asforcing: CORE2
-    bin_dir: <TEST_DIR>/comp/fesom/fesom-2.0/bin
-    bin_intermediate:
-        fesom: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/bin/fesom/fesom
-    bin_sources:
-        fesom: <TEST_DIR>/comp/fesom/fesom-2.0/bin/fesom.x
-    bin_targets:
-        fesom: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/work/fesom
-    branch: 2.0.2
-    branchoff: false
-    clean_command: rm -rf build CMakeCache.txt
-    climate_data_dir: /pool/data/AWICM/FESOM2/INITIAL/phc3.0/
-    comp_command: mkdir -p build; cd build; cmake ..;   make install -j `nproc --all`
-    comp_executable: fesom.x
-    config_intermediate:
-        config: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/config/fesom/namelist.config
-        fesom.clock: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/config/fesom/fesom.clock
-        forcing: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/config/fesom/namelist.forcing
-        ice: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/config/fesom/namelist.ice
-        io: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/config/fesom/namelist.io
-        oce: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/config/fesom/namelist.oce
-    config_sources:
-        config: <HOME_DIR>/esm_tools/namelists//fesom2/2.0//namelist.config
-        fesom.clock: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/config/fesom//fesom.clock
-        forcing: <HOME_DIR>/esm_tools/namelists//fesom2/2.0//namelist.forcing
-        ice: <HOME_DIR>/esm_tools/namelists//fesom2/2.0//namelist.ice
-        io: <HOME_DIR>/esm_tools/namelists//fesom2/2.0//namelist.io
-        oce: <HOME_DIR>/esm_tools/namelists//fesom2/2.0//namelist.oce
-    config_targets:
-        config: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/work/namelist.config
-        fesom.clock: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/work/fesom.clock
-        forcing: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/work/namelist.forcing
-        ice: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/work/namelist.ice
-        io: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/work/namelist.io
-        oce: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/work/namelist.oce
-    contact: dmitry.sidorenko(at)awi.de, nikolay.koldunov(at)awi.de, miguel.andres-martinez(at)awi.de, paul.gierz(at)awi.de
-    coupling_fields:
-        enth_oce:
-            grid: feom
-        evap_oce:
-            grid: feom
-        heat_ico:
-            grid: feom
-        heat_oce:
-            grid: feom
-        heat_swo:
-            grid: feom
-        hydr_oce:
-            grid: feom
-        prec_oce:
-            grid: feom
-        sie_feom:
-            grid: feom
-        sit_feom:
-            grid: feom
-        snow_oce:
-            grid: feom
-        snt_feom:
-            grid: feom
-        sst_feom:
-            grid: feom
-        subl_oce:
-            grid: feom
-        taux_ico:
-            grid: feom
-        taux_oce:
-            grid: feom
-        tauy_ico:
-            grid: feom
-        tauy_oce:
-            grid: feom
-        u_feom:
-            grid: feom
-        v_feom:
-            grid: feom
-    create_config:
-        fesom.clock:
-        - <--append-- 0.0000000000000 1 2001
-        - <--append-- 0.0000000000000 1 2001
-    currentday: 1
-    daynew: 1
-    debug_info:
-        loaded_from_file: <HOME_DIR>/esm_tools/configs//components/fesom/fesom-2.0.yaml
-    destination: fesom-2.0
-    executable: fesom
-    experiment_analysis_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/analysis/fesom/
-    experiment_bin_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/bin/fesom/
-    experiment_config_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/config/fesom/
-    experiment_couple_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/couple/fesom/
-    experiment_forcing_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/forcing/fesom/
-    experiment_ignore_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/ignore/fesom/
-    experiment_input_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/input/fesom/
-    experiment_log_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/log/fesom/
-    experiment_mon_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/mon/fesom/
-    experiment_outdata_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/outdata/fesom/
-    experiment_restart_in_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/restart/fesom/
-    experiment_restart_out_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/restart/fesom/
-    experiment_viz_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/viz/fesom/
-    file_movements:
-        analysis:
-            exp_to_run: copy
-            init_to_exp: copy
-            run_to_work: copy
-            work_to_run: copy
-        bin:
-            exp_to_run: copy
-            init_to_exp: copy
-            run_to_work: copy
-            work_to_run: copy
-        config:
-            exp_to_run: copy
-            init_to_exp: copy
-            run_to_work: copy
-            work_to_run: copy
-        couple:
-            exp_to_run: copy
-            init_to_exp: copy
-            run_to_work: copy
-            work_to_run: copy
-        fesom_bin_restart_in:
-            exp_to_run: move
-            init_to_exp: move
-            run_to_work: move
-            work_to_run: move
-        fesom_bin_restart_info_in:
-            exp_to_run: move
-            init_to_exp: move
-            run_to_work: move
-            work_to_run: move
-        fesom_bin_restart_info_out:
-            exp_to_run: move
-            init_to_exp: move
-            run_to_work: move
-            work_to_run: move
-        fesom_bin_restart_out:
-            exp_to_run: move
-            init_to_exp: move
-            run_to_work: move
-            work_to_run: move
-        fesom_bin_restart_tar_out:
-            exp_to_run: move
-            init_to_exp: move
-            run_to_work: move
-            work_to_run: move
-        fesom_raw_restart_in:
-            exp_to_run: move
-            init_to_exp: move
-            run_to_work: move
-            work_to_run: move
-        fesom_raw_restart_info_in:
-            exp_to_run: move
-            init_to_exp: move
-            run_to_work: move
-            work_to_run: move
-        fesom_raw_restart_info_out:
-            exp_to_run: move
-            init_to_exp: move
-            run_to_work: move
-            work_to_run: move
-        fesom_raw_restart_out:
-            exp_to_run: move
-            init_to_exp: move
-            run_to_work: move
-            work_to_run: move
-        fesom_raw_restart_tar_out:
-            exp_to_run: move
-            init_to_exp: move
-            run_to_work: move
-            work_to_run: move
-        forcing:
-            exp_to_run: copy
-            init_to_exp: copy
-            run_to_work: copy
-            work_to_run: copy
-        ignore:
-            exp_to_run: copy
-            init_to_exp: copy
-            run_to_work: copy
-            work_to_run: copy
-        input:
-            exp_to_run: copy
-            init_to_exp: copy
-            run_to_work: copy
-            work_to_run: copy
-        log:
-            exp_to_run: copy
-            init_to_exp: copy
-            run_to_work: copy
-            work_to_run: copy
-        mon:
-            exp_to_run: copy
-            init_to_exp: copy
-            run_to_work: copy
-            work_to_run: copy
-        outdata:
-            exp_to_run: copy
-            init_to_exp: copy
-            run_to_work: copy
-            work_to_run: copy
-        restart_in:
-            exp_to_run: copy
-            init_to_exp: copy
-            run_to_work: copy
-            work_to_run: copy
-        restart_out:
-            exp_to_run: copy
-            init_to_exp: copy
-            run_to_work: copy
-            work_to_run: copy
-        scripts:
-            exp_to_run: copy
-            init_to_exp: copy
-            run_to_work: copy
-            work_to_run: copy
-        unknown:
-            exp_to_run: copy
-            init_to_exp: copy
-            run_to_work: copy
-            work_to_run: copy
-        viz:
-            exp_to_run: copy
-            init_to_exp: copy
-            run_to_work: copy
-            work_to_run: copy
-    forcing_data_dir: /pool/data/AWICM/FESOM2//FORCING/
-    git-repository:
-    - https://github.com/FESOM/fesom2.git
-    - https://gitlab.dkrz.de/FESOM/fesom2.git
-    grids:
-        feom:
-            name: feom
-            number_of_overlapping_points: 0
-            nx: 126858
-            ny: 1
-            oasis_grid_type: U
-            oyac_grid_type: GC
-            oyac_io_per_node: 4
-    ini_data_dir: /pool/data/AWICM/FESOM2//pool-data/
-    install_bins: bin/fesom.x
-    last_parent_date: '2000-12-31T23:00:00'
-    lasttime: 84600
-    leapyear: false
-    log_intermediate:
-        clock: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/log/fesom/fesom.clock
-        mesh_diag: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/log/fesom/fesom.mesh.diag.nc
-    log_sources:
-        clock: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/work//fesom.clock
-        mesh_diag: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/work//fesom.mesh.diag.nc
-    log_targets:
-        clock: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/log/fesom/fesom.clock
-        mesh_diag: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/log/fesom/fesom.mesh.diag.nc
-    lresume: false
-    mesh_dir: /pool/data/AWICM/FESOM2/MESHES/CORE2/
-    mesh_rotated: false
-    model: fesom
-    model_dir: <TEST_DIR>/comp/fesom/fesom-2.0
-    namelist_changes:
-        namelist.config:
-            calendar:
-                include_fleapyear: false
-            clockinit:
-                daynew: 1
-                yearnew: 2001
-            inout:
-                output_length: 1
-                output_length_unit: m
-                restart_length: 1
-                restart_length_unit: m
-                restartflag: last
-            paths:
-                ClimateDataPath: /pool/data/AWICM/FESOM2/INITIAL/phc3.0/
-                ForcingDataPath: /pool/data/AWICM/FESOM2//FORCING/
-                MeshPath: /pool/data/AWICM/FESOM2/MESHES/CORE2/
-                ResultPath: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/work/
-            timestep:
-                run_length: 1
-                run_length_unit: m
-                step_per_day: 48
-        namelist.forcing:
-            namsbc:
-                nm_humi_file: /pool/data/AWICM/FESOM2//FORCING//q_10.
-                nm_mslp_file: /pool/data/AWICM/FESOM2//FORCING//slp.
-                nm_prec_file: /pool/data/AWICM/FESOM2//FORCING//ncar_precip.
-                nm_qlw_file: /pool/data/AWICM/FESOM2//FORCING//ncar_rad.
-                nm_qsr_file: /pool/data/AWICM/FESOM2//FORCING//ncar_rad.
-                nm_runoff_file: /pool/data/AWICM/FESOM2//FORCING//runoff.nc
-                nm_snow_file: /pool/data/AWICM/FESOM2//FORCING//ncar_precip.
-                nm_sss_data_file: /pool/data/AWICM/FESOM2//FORCING//PHC2_salx.nc
-                nm_tair_file: /pool/data/AWICM/FESOM2//FORCING//t_10.
-                nm_xwind_file: /pool/data/AWICM/FESOM2//FORCING//u_10.
-                nm_ywind_file: /pool/data/AWICM/FESOM2//FORCING//v_10.
-    namelist_dir: <HOME_DIR>/esm_tools/namelists//fesom2/2.0/
-    namelist_objs:
-        namelist.config: &id002 f90nml.name
-        namelist.cvmix: &id003 f90nml.name
-        namelist.forcing: &id004 f90nml.name
-        namelist.ice: &id005 f90nml.name
-        namelist.io: &id006 f90nml.name
-        namelist.oce: &id007 f90nml.name
-    namelists:
-        namelist.config: *id002
-        namelist.cvmix: *id003
-        namelist.forcing: *id004
-        namelist.ice: *id005
-        namelist.io: *id006
-        namelist.oce: *id007
-    nproc: 288
-    nx: 126858
-    old_mesh_format: false
-    opbnd_dir: remove_from_namelist
-    outdata_intermediate: {}
-    outdata_sources: {}
-    outdata_sources_wild_card:
-        fesom: '*.fesom.*.nc'
-    outdata_targets: {}
-    parent_date: '2000-12-31T23:30:00'
-    parent_expid: fesom2.0-initial-monthly
-    parent_restart_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/restart/fesom/
-    pool_dir: /pool/data/AWICM/FESOM2/
-    post_processing: 0
-    prev_date: '2000-12-31T23:30:00'
-    required_plugins:
-    - git+https://github.com/esm-tools-plugins/tar_binary_restarts
-    res: CORE2
-    resolution: CORE2
-    restart_first: 1
-    restart_flag: last
-    restart_out_intermediate:
-        ice_restart: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/restart/fesom/fesom.2001.ice.restart.nc
-        oce_restart: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/restart/fesom/fesom.2001.oce.restart.nc
-    restart_out_sources:
-        ice_restart: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/work//fesom.2001.ice.restart.nc
-        oce_restart: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/work//fesom.2001.oce.restart.nc
-    restart_out_sources_wild_card:
-        fesom_bin_restart: '*'
-        fesom_bin_restart_info: '*.info'
-        fesom_raw_restart: '*.dump'
-        fesom_raw_restart_info: '*.info'
-        par_ice_restart: '*.nc'
-        par_oce_restart: '*.nc'
-    restart_out_targets:
-        ice_restart: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/restart/fesom/fesom.2001.ice.restart.nc
-        oce_restart: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/restart/fesom/fesom.2001.oce.restart.nc
-    restart_rate: 1
-    restart_unit: m
-    setup_dir: <TEST_DIR>/comp/fesom/fesom-2.0
-    startday: 1
-    starttime: 0
-    steps_per_day: 48
-    tar_binary_restarts: false
-    thisrun_analysis_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/analysis/fesom/
-    thisrun_bin_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/bin/fesom/
-    thisrun_config_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/config/fesom/
-    thisrun_couple_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/couple/fesom/
-    thisrun_forcing_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/forcing/fesom/
-    thisrun_ignore_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/ignore/fesom/
-    thisrun_input_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/input/fesom/
-    thisrun_log_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/log/fesom/
-    thisrun_mon_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/mon/fesom/
-    thisrun_outdata_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/outdata/fesom/
-    thisrun_restart_in_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/restart/fesom/
-    thisrun_restart_out_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/restart/fesom/
-    thisrun_viz_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/viz/fesom/
-    tide_forcing_dir: remove_from_namelist
-    tidy_recipe:
-    - tidy_coupler
-    - tar_binary_restarts
-    - assemble
-    - check_for_unknown_files
-    - log_used_files
-    - throw_away_some_infiles
-    - copy_stuff_back_from_work
-    - copy_all_results_to_exp
-    - clean_run_dir
-    time_dimension: time
-    time_step: 1800
-    type: ocean
-    version: 2
-    with_part_format: false
-    yearnew: 2001
+          srun_execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=cores --hint=nomultithread
+            --multi-prog hostfile_srun  # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:59,col:41
+        false:
+          launcher_flags_per_component: --hint=nomultithread  --nodes=@nnodes@ --ntasks=@nproc@
+            --ntasks-per-node=@nproc_per_node@ --cpus-per-task=@cpus_per_proc@ --export=ALL,OMP_NUM_THREADS=@omp_num_threads@  # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:64,col:47
+          srun_execution_command: "srun -l --kill-on-bad-exit=1 --cpu_bind=cores \\\
+            \n@components@" # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:71,col:41
+          launcher_comp_sep: "\\\n:" # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:72,col:36
+    false:
+      cpu_bind: cores  # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:74,col:19
+      srun_execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=cores --hint=nomultithread
+        --multi-prog hostfile_srun # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:75,col:33
+  submitted: false # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:97,col:12
+  script_name: <--methods.scriptname-- # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:98,col:14
+  actual_script_dir: <--methods.script_dir-- # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:99,col:20
+  hostname_list: DUMMY_HOST1 DUMMY_HOST2 # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:100,col:16
+  config_files:
+    hostfile: hostfile_srun  # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:119,col:19
+  check_error:
+    'srun: error:':
+      frequency: 30  # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:123,col:28
+      method: kill # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:124,col:25
+      message: 'SLURM ERROR: slurm ended with an error, exiting.' # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:125,col:26
+      file: stdout # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:126,col:23
+    'slurmstepd: error: execve():':
+      frequency: 600  # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:129,col:28
+      method: kill # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:130,col:25
+      message: "SLURM ERROR: slurm probably didn't find executable" # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:131,col:26
+      file: stdout # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:132,col:23
+  overcommit_nodes: None # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:136,col:19
+  overcommit_rule: '' # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:141,col:26
+  overcommit_flag: '' # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:145,col:18
+  model: computer # no provenance info
+  runtime_environment_changes:
+    add_export_vars:
+      ACCOUNT: ab0995  # no provenance info
+      ESM_TESTING_DIR: <TEST_DIR>/run/fesom/ # no provenance info
+      MODEL_DIR: <TEST_DIR>/comp/fesom/fesom-2.0 # no provenance info
+  heterogeneous_parallelization: false  # no provenance info
+  partition_name: compute # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:53,col:33
+  partition_cpn: 128 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:54,col:32
+  mod_netcdf_c: netcdf-c/4.8.1-openmpi-4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:172,col:31
+  mod_netcdf_f: netcdf-fortran/4.5.3-openmpi-4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:173,col:31
+  mod_hdf5: hdf5/1.12.1-openmpi-4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:174,col:27
+  netcdf_cxx_root: /work/ab0995/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:175,col:34
+  accounting_flag: --account=ab0995 # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:23,col:34
+  execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=cores --hint=nomultithread
+    --multi-prog hostfile_srun # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:80,col:36
+  debugger_flags_prelauncher: '' # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:90,col:41
+  hyperthreading_flag: --ntasks-per-core=1 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:32,col:54
+  cpu_bind: cores # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:74,col:19
+  srun_execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=cores --hint=nomultithread
+    --multi-prog hostfile_srun # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:75,col:33
+  choose_heterogeneous_parallelization:
+    true:
+      cpu_bind: none  # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:55,col:19
+      choose_taskset:
+        true:
+          srun_execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=cores --hint=nomultithread
+            --multi-prog hostfile_srun  # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:59,col:41
+        false:
+          launcher_flags_per_component: --hint=nomultithread  --nodes=@nnodes@ --ntasks=@nproc@
+            --ntasks-per-node=@nproc_per_node@ --cpus-per-task=@cpus_per_proc@ --export=ALL,OMP_NUM_THREADS=@omp_num_threads@  # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:64,col:47
+          srun_execution_command: "srun -l --kill-on-bad-exit=1 --cpu_bind=cores \\\
+            \n@components@" # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:71,col:41
+          launcher_comp_sep: "\\\n:" # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:72,col:36
+    false:
+      cpu_bind: cores  # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:74,col:19
+      srun_execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=cores --hint=nomultithread
+        --multi-prog hostfile_srun # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:75,col:33
 general:
-    account: None
-    additional_files: []
-    all_filetypes:
-    - analysis
-    - config
-    - log
-    - mon
-    - couple
-    - scripts
-    - ignore
-    - unknown
-    - src
-    - work
-    all_model_filetypes:
-    - analysis
-    - bin
-    - config
-    - forcing
-    - input
-    - couple
-    - log
-    - mon
-    - outdata
-    - restart_in
-    - restart_out
-    - viz
-    - ignore
-    base_dir: <TEST_DIR>/run/fesom/
-    batch: slurm
-    calendar: esm_calender object with no leap years allowed
-    check: true
-    chunk_number: 1
-    command_line_config:
-        check: true
-        current_date: null
-        expid: fesom2.0-initial-monthly
-        ignore_config_warnings: false
-        inspect: null
-        jobtype: prepcompute
-        last_jobtype: prepcompute
-        launcher_pid: -666
-        no_motd: true
-        original_command: fesom2.0-initial-monthly.yaml -e fesom2.0-initial-monthly --open-run -c --no-motd --last-jobtype prepcompute -t prepcompute
-        run_number: null
-        runscript_abspath: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/scripts/fesom2.0-initial-monthly.yaml
-        scriptname: fesom2.0-initial-monthly.yaml
-        started_from: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/scripts/
-        update: false
-        update_filetypes: []
-        use_venv: false
-        verbose: false
-    compute_time: 00:08:00
-    current_date: '2001-01-01T00:00:00'
-    debug_info:
-        loaded_from_file: <HOME_DIR>/esm_tools/configs//defaults/general.yaml
-    defaults.yaml:
-        debug_info:
-            loaded_from_file: <HOME_DIR>/esm_tools/configs//esm_software/esm_runscripts/defaults.yaml
-        general:
-            additional_files: []
-            iterative_coupled_model: ''
-            reset_calendar_to_last: false
-            verbose: false
-        per_model_defaults: {}
-    delta_date:
-    - 0
-    - 1
-    - 0
-    - 0
-    - 0
-    - 0
-    end_date: '2001-01-31T00:00:00'
-    esm_couplings_dir: <HOME_DIR>/esm_tools/couplings/
-    esm_function_dir: <HOME_DIR>/esm_tools/configs/
-    esm_namelist_dir: <HOME_DIR>/esm_tools/namelists/
-    esm_runscript_dir: <HOME_DIR>/esm_tools/runscripts/
-    experiment_analysis_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/analysis/
-    experiment_config_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/config/
-    experiment_couple_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/couple/
-    experiment_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly
-    experiment_ignore_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/ignore/
-    experiment_log_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/log/
-    experiment_log_file: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/log//fesom2.0-initial-monthly_fesom.log
-    experiment_mon_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/mon/
-    experiment_scripts_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/scripts/
-    experiment_src_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/src/
-    experiment_unknown_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/unknown/
-    expid: fesom2.0-initial-monthly
-    file_movements:
-        analysis:
-            exp_to_run: copy
-            init_to_exp: copy
-            run_to_work: copy
-            work_to_run: copy
-        bin:
-            exp_to_run: copy
-            init_to_exp: copy
-            run_to_work: copy
-            work_to_run: copy
-        config:
-            exp_to_run: copy
-            init_to_exp: copy
-            run_to_work: copy
-            work_to_run: copy
-        couple:
-            exp_to_run: copy
-            init_to_exp: copy
-            run_to_work: copy
-            work_to_run: copy
-        forcing:
-            exp_to_run: copy
-            init_to_exp: copy
-            run_to_work: copy
-            work_to_run: copy
-        ignore:
-            exp_to_run: copy
-            init_to_exp: copy
-            run_to_work: copy
-            work_to_run: copy
-        input:
-            exp_to_run: copy
-            init_to_exp: copy
-            run_to_work: copy
-            work_to_run: copy
-        log:
-            exp_to_run: copy
-            init_to_exp: copy
-            run_to_work: copy
-            work_to_run: copy
-        mon:
-            exp_to_run: copy
-            init_to_exp: copy
-            run_to_work: copy
-            work_to_run: copy
-        outdata:
-            exp_to_run: copy
-            init_to_exp: copy
-            run_to_work: copy
-            work_to_run: copy
-        restart_in:
-            exp_to_run: copy
-            init_to_exp: copy
-            run_to_work: copy
-            work_to_run: copy
-        restart_out:
-            exp_to_run: copy
-            init_to_exp: copy
-            run_to_work: copy
-            work_to_run: copy
-        scripts:
-            exp_to_run: copy
-            init_to_exp: copy
-            run_to_work: copy
-            work_to_run: copy
-        unknown:
-            exp_to_run: copy
-            init_to_exp: copy
-            run_to_work: copy
-            work_to_run: copy
-        viz:
-            exp_to_run: copy
-            init_to_exp: copy
-            run_to_work: copy
-            work_to_run: copy
-    final_date: '2001-03-31T00:00:00'
-    first_run_in_chunk: true
-    ignore_config_warnings: false
-    in_filetypes:
-    - scripts
-    - input
-    - forcing
-    - bin
-    - config
-    - restart_in
-    initial_date: '2001-01-01T00:00:00'
-    inspect: null
-    intermediate_movements:
-    - config
-    - bin
-    - input
-    isinteractive: false
-    isresubmitted: true
-    iterative_coupled_model: ''
-    jobid: 1321
-    jobtype: prepcompute
-    last_jobtype: prepcompute
-    last_run_datestamp: 20001201-20001231
-    last_run_in_chunk: false
-    last_start_date: '2000-12-01T00:00:00'
-    launcher_pid: -666
-    leapyear: false
-    logfile_path: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/log//fesom2.0-initial-monthly_fesom_prepcompute_20010101-20010131.log
-    logfile_path_in_run: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/log//fesom2.0-initial-monthly_fesom_prepcompute_20010101-20010131.log
-    models:
-    - fesom
-    nday: 0
-    next_date: '2001-02-01T00:00:00'
-    nhour: 0
-    nminute: 0
-    nmonth: 1
-    no_motd: true
-    nsecond: 0
-    nyear: 0
-    original_command: fesom2.0-initial-monthly.yaml -e fesom2.0-initial-monthly --open-run -c --no-motd --last-jobtype prepcompute -t prepcompute
-    out_filetypes:
-    - analysis
-    - log
-    - mon
-    - scripts
-    - ignore
-    - unknown
-    - outdata
-    - restart_out
-    potentially_reusable_filetypes:
-    - analysis
-    - config
-    - log
-    - mon
-    - couple
-    - scripts
-    - ignore
-    - unknown
-    - src
-    - scripts
-    - input
-    - forcing
-    - bin
-    - config
-    - restart_in
-    prev_date: '2000-12-31T00:00:00'
-    profile: false
-    relevant_filetypes:
-    - bin
-    - config
-    - forcing
-    - input
-    - restart_in
-    reset_calendar_to_last: false
-    reusable_filetypes:
-    - bin
-    - src
-    run_datestamp: 20010101-20010131
-    run_number: 1
-    run_or_compile: runtime
-    runscript_abspath: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/scripts/fesom2.0-initial-monthly.yaml
-    runtime:
-    - 0
-    - 1
-    - 31
-    - 744
-    - 44640
-    - 2678400
-    scriptname: fesom2.0-initial-monthly.yaml
-    setup_name: fesom
-    standalone: true
-    start_date: '2001-01-01T00:00:00'
-    started_from: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/scripts/
-    submitted: false
-    thisrun_analysis_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/analysis/
-    thisrun_config_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/config/
-    thisrun_couple_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/couple/
-    thisrun_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131
-    thisrun_ignore_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/ignore/
-    thisrun_log_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/log/
-    thisrun_mon_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/mon/
-    thisrun_scripts_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/scripts/
-    thisrun_src_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/src/
-    thisrun_unknown_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/unknown/
-    thisrun_work_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/work/
-    total_runtime:
-    - 0
-    - 1
-    - 31
-    - 744
-    - 44640
-    - 2678400
-    update: false
+  use_database: false  # <HOME_DIR>/esm_tools/configs/defaults/general.yaml,line:1,col:15
+  profile: false # <HOME_DIR>/esm_tools/configs/defaults/general.yaml,line:2,col:10
+  intermediate_movements:
+  - config  # <HOME_DIR>/esm_tools/configs/defaults/general.yaml,line:4,col:3
+  - bin # <HOME_DIR>/esm_tools/configs/defaults/general.yaml,line:5,col:3
+  - input # <HOME_DIR>/esm_tools/configs/defaults/general.yaml,line:6,col:3
+  standalone: true  # no provenance info
+  models:
+  - fesom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:4,col:8
+  valid_setup_names:
+  - computer  # no provenance info
+  - general # no provenance info
+  valid_model_names:
+  - fesom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:4,col:8
+  esm_function_dir: <HOME_DIR>/esm_tools/configs/  # no provenance info
+  esm_namelist_dir: <HOME_DIR>/esm_tools/namelists/ # no provenance info
+  esm_runscript_dir: <HOME_DIR>/esm_tools/runscripts/ # no provenance info
+  esm_couplings_dir: <HOME_DIR>/esm_tools/couplings/ # no provenance info
+  expid: fesom2.0-initial-monthly # no provenance info
+  account: ab0995 # <TEST_DIR>run/fesom/fesom2.0-initial-monthly/scripts/fesom2.0-initial-monthly.yaml,line:2,col:18
+  setup_name: fesom # <TEST_DIR>run/fesom/fesom2.0-initial-monthly/scripts/fesom2.0-initial-monthly.yaml,line:3,col:21
+  version: 2 # <TEST_DIR>run/fesom/fesom2.0-initial-monthly/scripts/fesom2.0-initial-monthly.yaml,line:4,col:18
+  compute_time: 00:08:00 # <TEST_DIR>run/fesom/fesom2.0-initial-monthly/scripts/fesom2.0-initial-monthly.yaml,line:5,col:23
+  initial_date: '2001-01-01T00:00:00' # no provenance info
+  final_date: '2001-03-31T00:00:00' # no provenance info
+  base_dir: <TEST_DIR>/run/fesom/ # <TEST_DIR>run/fesom/fesom2.0-initial-monthly/scripts/fesom2.0-initial-monthly.yaml,line:8,col:19
+  nyear: 0 # no provenance info
+  nmonth: 1 # no provenance info
+  use_venv: false # no provenance info
+  runscript_abspath: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/scripts/fesom2.0-initial-monthly.yaml # no provenance info
+  additional_files: []
+  check: false  # no provenance info
+  update: false # no provenance info
+  update_filetypes: []
+  launcher_pid: -666  # no provenance info
+  current_date: '2001-01-01T00:00:00' # no provenance info
+  run_number: 1 # no provenance info
+  jobtype: prepcompute # no provenance info
+  last_jobtype: prepcompute # no provenance info
+  verbose: false # no provenance info
+  inspect: # no provenance info
+  no_motd: true # no provenance info
+  ignore_config_warnings: false # no provenance info
+  original_command: fesom2.0-initial-monthly.yaml -e fesom2.0-initial-monthly --open-run
+    --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
+  started_from: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/scripts/ # no provenance info
+  scriptname: fesom2.0-initial-monthly.yaml # no provenance info
+  isinteractive: false # no provenance info
+  isresubmitted: true # no provenance info
+  experiment_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly # no provenance info
+  defaults.yaml:
+    general:
+      additional_files: []
+      iterative_coupled_model: ''  # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:6,col:30
+      reset_calendar_to_last: false # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:7,col:29
+      verbose: false # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:8,col:14
+    per_model_defaults: {}
+  iterative_coupled_model: ''  # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:6,col:30
+  reset_calendar_to_last: false # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:7,col:29
+  command_line_config:
+    check: false  # no provenance info
+    update: false # no provenance info
     update_filetypes: []
-    use_database: false
-    use_venv: false
-    valid_model_names:
-    - fesom
-    valid_setup_names:
-    - computer
-    - general
-    verbose: false
-    version: 2
-    work_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/work/
-    workflow:
-        first_task_in_queue: prepcompute
-        last_task_in_queue: tidy
-        next_run_triggered_by: tidy
-        subjob_clusters:
-            compute:
-                batch_or_shell: batch
-                called_from: prepcompute
-                next_submit:
-                - tidy
-                nproc: 288
-                order_in_cluster: sequential
-                run_before: tidy
-                run_on_queue: compute
-                subjobs:
-                - compute_general
-                submit_to_batch_system: true
-            prepcompute:
-                batch_or_shell: SimulationSetup
-                called_from: tidy
-                next_submit:
-                - compute
-                nproc: 1
-                order_in_cluster: sequential
-                run_before: compute
-                subjobs:
-                - prepcompute_general
-                submit_to_batch_system: false
-            tidy:
-                batch_or_shell: SimulationSetup
-                called_from: compute
-                next_submit:
-                - prepcompute
-                nproc: 1
-                order_in_cluster: sequential
-                run_after: compute
-                subjobs:
-                - tidy_general
-                submit_to_batch_system: false
+    expid: fesom2.0-initial-monthly # no provenance info
+    launcher_pid: -666 # no provenance info
+    current_date: # no provenance info
+    run_number: # no provenance info
+    jobtype: prepcompute # no provenance info
+    last_jobtype: prepcompute # no provenance info
+    verbose: false # no provenance info
+    inspect: # no provenance info
+    use_venv: false # no provenance info
+    no_motd: true # no provenance info
+    ignore_config_warnings: false # no provenance info
+    original_command: fesom2.0-initial-monthly.yaml -e fesom2.0-initial-monthly --open-run
+      --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
+    started_from: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/scripts/ # no provenance info
+    scriptname: fesom2.0-initial-monthly.yaml # no provenance info
+    runscript_abspath: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/scripts/fesom2.0-initial-monthly.yaml # no provenance info
+  run_or_compile: runtime  # no provenance info
+  nday: 0 # no provenance info
+  nhour: 0 # no provenance info
+  nminute: 0 # no provenance info
+  nsecond: 0 # no provenance info
+  leapyear: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:129,col:27
+  calendar: esm_calender object with no leap years allowed # no provenance info
+  delta_date:
+  - 0  # no provenance info
+  - 1 # no provenance info
+  - 0 # no provenance info
+  - 0 # no provenance info
+  - 0 # no provenance info
+  - 0 # no provenance info
+  start_date: '2001-01-01T00:00:00'  # no provenance info
+  prev_date: '2000-12-31T00:00:00' # no provenance info
+  next_date: '2001-02-01T00:00:00' # no provenance info
+  last_start_date: '2000-12-01T00:00:00' # no provenance info
+  end_date: '2001-01-31T00:00:00' # no provenance info
+  runtime:
+  - 0  # no provenance info
+  - 1 # no provenance info
+  - 31 # no provenance info
+  - 744 # no provenance info
+  - 44640 # no provenance info
+  - 2678400 # no provenance info
+  total_runtime:
+  - 0  # no provenance info
+  - 1 # no provenance info
+  - 31 # no provenance info
+  - 744 # no provenance info
+  - 44640 # no provenance info
+  - 2678400 # no provenance info
+  run_datestamp: 20010101-20010131  # no provenance info
+  last_run_datestamp: 20001201-20001231 # no provenance info
+  chunk_number: 1 # no provenance info
+  first_run_in_chunk: true # no provenance info
+  last_run_in_chunk: false # no provenance info
+  out_filetypes:
+  - analysis  # no provenance info
+  - log # no provenance info
+  - mon # no provenance info
+  - scripts # no provenance info
+  - ignore # no provenance info
+  - unknown # no provenance info
+  - outdata # no provenance info
+  - restart_out # no provenance info
+  in_filetypes:
+  - scripts  # no provenance info
+  - input # no provenance info
+  - forcing # no provenance info
+  - bin # no provenance info
+  - config # no provenance info
+  - restart_in # no provenance info
+  reusable_filetypes:
+  - bin  # no provenance info
+  - src # no provenance info
+  potentially_reusable_filetypes:
+  - analysis  # no provenance info
+  - config # no provenance info
+  - log # no provenance info
+  - mon # no provenance info
+  - couple # no provenance info
+  - scripts # no provenance info
+  - ignore # no provenance info
+  - unknown # no provenance info
+  - src # no provenance info
+  - scripts # no provenance info
+  - input # no provenance info
+  - forcing # no provenance info
+  - bin # no provenance info
+  - config # no provenance info
+  - restart_in # no provenance info
+  thisrun_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131  # no provenance info
+  experiment_analysis_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/analysis/ # no provenance info
+  experiment_config_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/config/ # no provenance info
+  experiment_log_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/log/ # no provenance info
+  experiment_mon_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/mon/ # no provenance info
+  experiment_couple_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/couple/ # no provenance info
+  experiment_scripts_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/scripts/ # no provenance info
+  experiment_ignore_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/ignore/ # no provenance info
+  experiment_unknown_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/unknown/ # no provenance info
+  experiment_src_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/src/ # no provenance info
+  all_filetypes:
+  - analysis  # no provenance info
+  - config # no provenance info
+  - log # no provenance info
+  - mon # no provenance info
+  - couple # no provenance info
+  - scripts # no provenance info
+  - ignore # no provenance info
+  - unknown # no provenance info
+  - src # no provenance info
+  - work # no provenance info
+  thisrun_analysis_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/analysis/  # no provenance info
+  thisrun_config_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/config/ # no provenance info
+  thisrun_log_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/log/ # no provenance info
+  thisrun_mon_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/mon/ # no provenance info
+  thisrun_couple_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/couple/ # no provenance info
+  thisrun_scripts_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/scripts/ # no provenance info
+  thisrun_ignore_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/ignore/ # no provenance info
+  thisrun_unknown_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/unknown/ # no provenance info
+  thisrun_src_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/src/ # no provenance info
+  thisrun_work_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/work/ # no provenance info
+  work_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/work/ # no provenance info
+  all_model_filetypes:
+  - analysis  # no provenance info
+  - bin # no provenance info
+  - config # no provenance info
+  - forcing # no provenance info
+  - input # no provenance info
+  - couple # no provenance info
+  - log # no provenance info
+  - mon # no provenance info
+  - outdata # no provenance info
+  - restart_in # no provenance info
+  - restart_out # no provenance info
+  - viz # no provenance info
+  - ignore # no provenance info
+  workflow:
+    subjob_clusters:
+      prepcompute:
         subjobs:
-            compute_general:
-                nproc: 288
-                run_before: tidy
-                run_on_queue: compute
-                subjob_cluster: compute
-                submit_to_batch_system: true
-            prepcompute_general:
-                nproc: 1
-                run_before: compute
-                subjob_cluster: prepcompute
-            tidy_general:
-                nproc: 1
-                run_after: compute
-                subjob_cluster: tidy
+        - prepcompute_general  # no provenance info
+        run_before: compute  # no provenance info
+        submit_to_batch_system: false # no provenance info
+        batch_or_shell: SimulationSetup # no provenance info
+        order_in_cluster: sequential # no provenance info
+        nproc: 1 # no provenance info
+        next_submit:
+        - compute  # no provenance info
+        called_from: tidy  # no provenance info
+      compute:
+        subjobs:
+        - compute_general  # no provenance info
+        submit_to_batch_system: true  # no provenance info
+        batch_or_shell: batch # no provenance info
+        run_on_queue: compute # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:58,col:23
+        run_before: tidy # no provenance info
+        order_in_cluster: sequential # no provenance info
+        nproc: 288 # no provenance info
+        next_submit:
+        - tidy  # no provenance info
+        called_from: prepcompute  # no provenance info
+      tidy:
+        subjobs:
+        - tidy_general  # no provenance info
+        run_after: compute  # no provenance info
+        submit_to_batch_system: false # no provenance info
+        batch_or_shell: SimulationSetup # no provenance info
+        order_in_cluster: sequential # no provenance info
+        nproc: 1 # no provenance info
+        next_submit:
+        - prepcompute  # no provenance info
+        called_from: compute  # no provenance info
+    subjobs:
+      prepcompute_general:
+        nproc: 1  # no provenance info
+        run_before: compute # no provenance info
+        subjob_cluster: prepcompute # no provenance info
+      compute_general:
+        nproc: 288  # no provenance info
+        run_before: tidy # no provenance info
+        submit_to_batch_system: true # no provenance info
+        run_on_queue: compute # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:58,col:23
+        subjob_cluster: compute # no provenance info
+      tidy_general:
+        nproc: 1  # no provenance info
+        run_after: compute # no provenance info
+        subjob_cluster: tidy # no provenance info
+    last_task_in_queue: tidy  # no provenance info
+    first_task_in_queue: prepcompute # no provenance info
+    next_run_triggered_by: tidy # no provenance info
+  submitted: false  # no provenance info
+  jobid: 3286655 # no provenance info
+  batch: slurm # no provenance info
+  experiment_log_file: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/log//fesom2.0-initial-monthly_fesom.log # no provenance info
+  logfile_path: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/log//fesom2.0-initial-monthly_fesom_prepcompute_20010101-20010131.log # no provenance info
+  logfile_path_in_run: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/log//fesom2.0-initial-monthly_fesom_prepcompute_20010101-20010131.log # no provenance info
+  relevant_filetypes:
+  - bin  # no provenance info
+  - config # no provenance info
+  - forcing # no provenance info
+  - input # no provenance info
+  - restart_in # no provenance info
+  file_movements:
+    bin:
+      init_to_exp: copy  # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:16,col:41
+      exp_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:17,col:41
+      run_to_work: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:18,col:41
+      work_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:19,col:41
+    analysis:
+      init_to_exp: copy  # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      exp_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      run_to_work: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      work_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+    config:
+      init_to_exp: copy  # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      exp_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      run_to_work: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      work_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+    forcing:
+      init_to_exp: copy  # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      exp_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      run_to_work: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      work_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+    input:
+      init_to_exp: copy  # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      exp_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      run_to_work: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      work_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+    couple:
+      init_to_exp: copy  # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      exp_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      run_to_work: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      work_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+    log:
+      init_to_exp: copy  # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      exp_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      run_to_work: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      work_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+    mon:
+      init_to_exp: copy  # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      exp_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      run_to_work: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      work_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+    outdata:
+      init_to_exp: copy  # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      exp_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      run_to_work: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      work_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+    restart_in:
+      init_to_exp: copy  # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      exp_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      run_to_work: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      work_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+    restart_out:
+      init_to_exp: copy  # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      exp_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      run_to_work: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      work_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+    viz:
+      init_to_exp: copy  # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      exp_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      run_to_work: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      work_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+    ignore:
+      init_to_exp: copy  # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      exp_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      run_to_work: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      work_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+    scripts:
+      init_to_exp: copy  # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      exp_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      run_to_work: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      work_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+    unknown:
+      init_to_exp: copy  # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      exp_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      run_to_work: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      work_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+fesom:
+  model: fesom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:4,col:8
+  branch: 2.0.2 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:17,col:13
+  version: 2 # <TEST_DIR>run/fesom/fesom2.0-initial-monthly/scripts/fesom2.0-initial-monthly.yaml,line:4,col:18
+  type: ocean # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:7,col:7
+  comp_command: mkdir -p build; cd build; cmake ..;   make install -j `nproc --all` # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:9,col:15
+  clean_command: rm -rf build CMakeCache.txt # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:10,col:16
+  required_plugins:
+  - git+https://github.com/esm-tools-plugins/tar_binary_restarts  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:13,col:3
+  install_bins: bin/fesom.x  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:22,col:19
+  git-repository:
+  - https://github.com/FESOM/fesom2.git  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:20,col:7
+  - https://gitlab.dkrz.de/FESOM/fesom2.git # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:21,col:7
+  contact: dmitry.sidorenko(at)awi.de, nikolay.koldunov(at)awi.de, miguel.andres-martinez(at)awi.de,
+    paul.gierz(at)awi.de  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:73,col:10
+  restart_rate: 1 # <TEST_DIR>run/fesom/fesom2.0-initial-monthly/scripts/fesom2.0-initial-monthly.yaml,line:40,col:23
+  restart_unit: m # <TEST_DIR>run/fesom/fesom2.0-initial-monthly/scripts/fesom2.0-initial-monthly.yaml,line:42,col:23
+  restart_first: 1 # <TEST_DIR>run/fesom/fesom2.0-initial-monthly/scripts/fesom2.0-initial-monthly.yaml,line:41,col:24
+  restart_flag: last # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:78,col:15
+  tar_binary_restarts: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:80,col:22
+  time_step: 1800 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:82,col:12
+  resolution: CORE2 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:83,col:13
+  comp_executable: fesom.x # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:85,col:18
+  executable: fesom # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:86,col:13
+  mesh_rotated: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:88,col:15
+  old_mesh_format: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:89,col:18
+  with_part_format: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:90,col:19
+  time_dimension: time # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:91,col:17
+  pool_dir: /pool/data/AWICM/FESOM2/ # <TEST_DIR>run/fesom/fesom2.0-initial-monthly/scripts/fesom2.0-initial-monthly.yaml,line:22,col:35
+  setup_dir: <TEST_DIR>/comp/fesom/fesom-2.0 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:95,col:12
+  bin_dir: <TEST_DIR>/comp/fesom/fesom-2.0/bin # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:96,col:10
+  climate_data_dir: /pool/data/AWICM/FESOM2/INITIAL/phc3.0/ # <TEST_DIR>run/fesom/fesom2.0-initial-monthly/scripts/fesom2.0-initial-monthly.yaml,line:24,col:43
+  forcing_data_dir: /pool/data/AWICM/FESOM2//FORCING/ # <TEST_DIR>run/fesom/fesom2.0-initial-monthly/scripts/fesom2.0-initial-monthly.yaml,line:25,col:43
+  ini_data_dir: /pool/data/AWICM/FESOM2//pool-data/ # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:99,col:15
+  namelist_dir: <HOME_DIR>/esm_tools/namelists//fesom2/2.0/ # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:100,col:15
+  opbnd_dir: remove_from_namelist # <TEST_DIR>run/fesom/fesom2.0-initial-monthly/scripts/fesom2.0-initial-monthly.yaml,line:45,col:20
+  tide_forcing_dir: remove_from_namelist # <TEST_DIR>run/fesom/fesom2.0-initial-monthly/scripts/fesom2.0-initial-monthly.yaml,line:46,col:27
+  steps_per_day: 48 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:105,col:16
+  asforcing: CORE2 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:107,col:12
+  namelists:
+    namelist.config:
+      modelname:
+        runid: fesom  # no provenance info
+      timestep:
+        step_per_day: 48  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:304,col:39
+        run_length: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:305,col:37
+        run_length_unit: m # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:306,col:42
+      clockinit:
+        timenew: 0.0  # no provenance info
+        daynew: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:292,col:33
+        yearnew: 2001 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:293,col:34
+      paths:
+        meshpath: /pool/data/AWICM/FESOM2/MESHES/CORE2/  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:298,col:35
+        climatedatapath: /pool/data/AWICM/FESOM2/INITIAL/phc3.0/ # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:300,col:42
+        resultpath: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/work/ # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:302,col:37
+        forcingdatapath: /pool/data/AWICM/FESOM2//FORCING/ # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:297,col:42
+      initialization:
+        oceclimadataname: Winter_PHC3_ts.out  # no provenance info
+        use_prepared_init_ice: false # no provenance info
+      inout:
+        restartflag: last  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:308,col:38
+        output_length: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:309,col:40
+        output_length_unit: m # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:310,col:45
+        output_offset: 64 # no provenance info
+        restart_length: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:311,col:41
+        restart_length_unit: m # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:312,col:46
+        restart_offset: 64 # no provenance info
+        logfile_outfreq: 100 # no provenance info
+        use_means: false # no provenance info
+      mesh_def:
+        grid_type: 1  # no provenance info
+        use_ale: true # no provenance info
+        which_ale: linfs # no provenance info
+        use_partial_cell: false # no provenance info
+        min_hnode: 0.25 # no provenance info
+        lzstar_lev: 3 # no provenance info
+      geometry:
+        cartesian: false  # no provenance info
+        fplane: false # no provenance info
+        betaplane: false # no provenance info
+        f_fplane: -0.00014 # no provenance info
+        beta_betaplane: 2e-11 # no provenance info
+        cyclic_length: 360.0 # no provenance info
+        rotated_grid: true # no provenance info
+        alphaeuler: 50.0 # no provenance info
+        betaeuler: 15.0 # no provenance info
+        gammaeuler: -90.0 # no provenance info
+        force_rotation: false # no provenance info
+      calendar:
+        include_fleapyear: false  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:295,col:44
+      run_config:
+        use_ice: true  # no provenance info
+        use_floatice: false # no provenance info
+        use_sw_pene: true # no provenance info
+        toy_ocean: false # no provenance info
+      machine:
+        n_levels: 3  # no provenance info
+        n_part:
+        - 2  # no provenance info
+        - 4 # no provenance info
+        - 36 # no provenance info
+    namelist.forcing:
+      forcing_exchange_coeff:
+        ce_atm_oce: 0.00175  # no provenance info
+        ch_atm_oce: 0.00175 # no provenance info
+        cd_atm_oce: 0.001 # no provenance info
+        ce_atm_ice: 0.00175 # no provenance info
+        ch_atm_ice: 0.00175 # no provenance info
+        cd_atm_ice: 0.0012 # no provenance info
+      forcing_source:
+        wind_data_source: CORE2  # no provenance info
+        rad_data_source: CORE2 # no provenance info
+        precip_data_source: CORE2 # no provenance info
+        runoff_data_source: CORE2 # no provenance info
+        sss_data_source: CORE2 # no provenance info
+        wind_ttp_ind: 1 # no provenance info
+        rad_ttp_ind: 2 # no provenance info
+        precip_ttp_ind: 3 # no provenance info
+        runoff_ttp_ind: 4 # no provenance info
+        sss_ttp_ind: 4 # no provenance info
+      forcing_bulk:
+        aomip_drag_coeff: false  # no provenance info
+        ncar_bulk_formulae: true # no provenance info
+      land_ice:
+        use_landice_water: false  # no provenance info
+        landice_start_mon: 5 # no provenance info
+        landice_end_mon: 10 # no provenance info
+      namsbc:
+        nm_xwind_file: /pool/data/AWICM/FESOM2//FORCING//u_10.  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:315,col:40
+        nm_ywind_file: /pool/data/AWICM/FESOM2//FORCING//v_10. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:316,col:40
+        nm_humi_file: /pool/data/AWICM/FESOM2//FORCING//q_10. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:317,col:39
+        nm_qsr_file: /pool/data/AWICM/FESOM2//FORCING//ncar_rad. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:318,col:38
+        nm_qlw_file: /pool/data/AWICM/FESOM2//FORCING//ncar_rad. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:319,col:38
+        nm_tair_file: /pool/data/AWICM/FESOM2//FORCING//t_10. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:320,col:39
+        nm_prec_file: /pool/data/AWICM/FESOM2//FORCING//ncar_precip. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:321,col:39
+        nm_snow_file: /pool/data/AWICM/FESOM2//FORCING//ncar_precip. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:322,col:39
+        nm_mslp_file: /pool/data/AWICM/FESOM2//FORCING//slp. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:323,col:39
+        nm_runoff_file: /pool/data/AWICM/FESOM2//FORCING//runoff.nc # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:324,col:41
+        nm_sss_data_file: /pool/data/AWICM/FESOM2//FORCING//PHC2_salx.nc # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:325,col:43
+    namelist.oce:
+      oce_dyn:
+        c_d: 0.0025  # no provenance info
+        a_ver: 0.0001 # no provenance info
+        laplacian: false # no provenance info
+        a_hor: 0.0 # no provenance info
+        a_hor_max: 0.0 # no provenance info
+        div_c: 0.5 # no provenance info
+        leith_c: 0.05 # no provenance info
+        tau_c: 0.0 # no provenance info
+        smag_c: 0.0 # no provenance info
+        biharmonic: false # no provenance info
+        abh0: 0.0 # no provenance info
+        scale_area: 5800000000.0 # no provenance info
+        mom_adv: 2 # no provenance info
+        free_slip: false # no provenance info
+        i_vert_visc: true # no provenance info
+        w_split: false # no provenance info
+        w_exp_max: 0.001 # no provenance info
+        spp: false # no provenance info
+        fer_gm: true # no provenance info
+        k_gm: 3000.0 # no provenance info
+        scaling_ferreira: true # no provenance info
+        scaling_rossby: false # no provenance info
+        scaling_resolution: true # no provenance info
+        scaling_fesom14: true # no provenance info
+        redi: true # no provenance info
+        visc_sh_limit: 0.005 # no provenance info
+        mix_scheme: KPP # no provenance info
+        ricr: 0.3 # no provenance info
+        concv: 1.6 # no provenance info
+      oce_tra:
+        diff_sh_limit: 0.05  # no provenance info
+        kv0_const: false # no provenance info
+        double_diffusion: false # no provenance info
+        k_ver: 1e-05 # no provenance info
+        k_hor: 3000.0 # no provenance info
+        surf_relax_t: 0.0 # no provenance info
+        surf_relax_s: 0.0 # no provenance info
+        balance_salt_water: true # no provenance info
+        clim_relax: 0.0 # no provenance info
+        ref_sss_local: true # no provenance info
+        ref_sss: 34.0 # no provenance info
+        i_vert_diff: true # no provenance info
+        tracer_adv: 2 # no provenance info
+        num_tracers: 2 # no provenance info
+        tracer_id:
+        - 0  # no provenance info
+        - 1 # no provenance info
+      oce_init3d:
+        n_ic3d: 2  # no provenance info
+        idlist:
+        - 1  # no provenance info
+        - 0 # no provenance info
+        filelist:
+        - phc3.0_winter.nc  # no provenance info
+        - phc3.0_winter.nc # no provenance info
+        varlist:
+        - salt  # no provenance info
+        - temp # no provenance info
+    namelist.ice:
+      ice_dyn:
+        whichevp: 0  # no provenance info
+        pstar: 30000.0 # no provenance info
+        delta_min: 1e-11 # no provenance info
+        evp_rheol_steps: 150 # no provenance info
+        cd_oce_ice: 0.0055 # no provenance info
+        ice_gamma_fct: 0.5 # no provenance info
+        ice_diff: 0.0 # no provenance info
+        theta_io: 0.0 # no provenance info
+        ice_ave_steps: 1 # no provenance info
+      ice_therm:
+        sice: 4.0  # no provenance info
+        h0: 0.5 # no provenance info
+        emiss_ice: 0.97 # no provenance info
+        emiss_wat: 0.97 # no provenance info
+        albsn: 0.81 # no provenance info
+        albsnm: 0.77 # no provenance info
+        albi: 0.7 # no provenance info
+        albim: 0.68 # no provenance info
+        albw: 0.1 # no provenance info
+    namelist.io:
+      nml_listsize:
+        io_listsize: 100  # no provenance info
+      nml_list:
+        io_list:
+        - 'sst       '  # no provenance info
+        - 1 # no provenance info
+        - m # no provenance info
+        - 4 # no provenance info
+        - 'sss       ' # no provenance info
+        - 1 # no provenance info
+        - m # no provenance info
+        - 4 # no provenance info
+        - 'vve_5     ' # no provenance info
+        - 1 # no provenance info
+        - m # no provenance info
+        - 4 # no provenance info
+        - 'uice      ' # no provenance info
+        - 1 # no provenance info
+        - m # no provenance info
+        - 4 # no provenance info
+        - 'vice      ' # no provenance info
+        - 1 # no provenance info
+        - m # no provenance info
+        - 4 # no provenance info
+        - 'a_ice     ' # no provenance info
+        - 1 # no provenance info
+        - m # no provenance info
+        - 4 # no provenance info
+        - 'm_ice     ' # no provenance info
+        - 1 # no provenance info
+        - m # no provenance info
+        - 4 # no provenance info
+        - 'thdgr     ' # no provenance info
+        - 1 # no provenance info
+        - m # no provenance info
+        - 4 # no provenance info
+        - 'thdgrsn   ' # no provenance info
+        - 1 # no provenance info
+        - m # no provenance info
+        - 4 # no provenance info
+        - 'm_snow    ' # no provenance info
+        - 1 # no provenance info
+        - m # no provenance info
+        - 4 # no provenance info
+        - 'MLD1      ' # no provenance info
+        - 1 # no provenance info
+        - m # no provenance info
+        - 4 # no provenance info
+        - 'MLD2      ' # no provenance info
+        - 1 # no provenance info
+        - m # no provenance info
+        - 4 # no provenance info
+        - 'fh        ' # no provenance info
+        - 1 # no provenance info
+        - m # no provenance info
+        - 4 # no provenance info
+        - 'fw        ' # no provenance info
+        - 1 # no provenance info
+        - m # no provenance info
+        - 4 # no provenance info
+        - 'atmice_x  ' # no provenance info
+        - 1 # no provenance info
+        - m # no provenance info
+        - 4 # no provenance info
+        - 'atmice_y  ' # no provenance info
+        - 1 # no provenance info
+        - m # no provenance info
+        - 4 # no provenance info
+        - 'atmoce_x  ' # no provenance info
+        - 1 # no provenance info
+        - m # no provenance info
+        - 4 # no provenance info
+        - 'atmoce_y  ' # no provenance info
+        - 1 # no provenance info
+        - m # no provenance info
+        - 4 # no provenance info
+        - 'alpha     ' # no provenance info
+        - 1 # no provenance info
+        - m # no provenance info
+        - 4 # no provenance info
+        - 'beta      ' # no provenance info
+        - 1 # no provenance info
+        - m # no provenance info
+        - 4 # no provenance info
+        - 'runoff    ' # no provenance info
+        - 1 # no provenance info
+        - m # no provenance info
+        - 4 # no provenance info
+        - 'evap      ' # no provenance info
+        - 1 # no provenance info
+        - m # no provenance info
+        - 4 # no provenance info
+        - 'prec      ' # no provenance info
+        - 1 # no provenance info
+        - m # no provenance info
+        - 4 # no provenance info
+        - 'hbl       ' # no provenance info
+        - 1 # no provenance info
+        - m # no provenance info
+        - 4 # no provenance info
+        - 'Bo        ' # no provenance info
+        - 1 # no provenance info
+        - m # no provenance info
+        - 4 # no provenance info
+        - 'tx_sur    ' # no provenance info
+        - 1 # no provenance info
+        - m # no provenance info
+        - 4 # no provenance info
+        - 'ty_sur    ' # no provenance info
+        - 1 # no provenance info
+        - m # no provenance info
+        - 4 # no provenance info
+        - 'curl_surf ' # no provenance info
+        - 1 # no provenance info
+        - m # no provenance info
+        - 4 # no provenance info
+        - 'fer_C     ' # no provenance info
+        - 1 # no provenance info
+        - m # no provenance info
+        - 4 # no provenance info
+        - 'temp      ' # no provenance info
+        - 1 # no provenance info
+        - y # no provenance info
+        - 4 # no provenance info
+        - 'salt      ' # no provenance info
+        - 1 # no provenance info
+        - y # no provenance info
+        - 4 # no provenance info
+        - 'otracers  ' # no provenance info
+        - 1 # no provenance info
+        - y # no provenance info
+        - 4 # no provenance info
+        - 'slope_x   ' # no provenance info
+        - 1 # no provenance info
+        - y # no provenance info
+        - 4 # no provenance info
+        - 'slope_y   ' # no provenance info
+        - 1 # no provenance info
+        - y # no provenance info
+        - 4 # no provenance info
+        - 'slope_z   ' # no provenance info
+        - 1 # no provenance info
+        - y # no provenance info
+        - 4 # no provenance info
+        - 'N2        ' # no provenance info
+        - 1 # no provenance info
+        - y # no provenance info
+        - 4 # no provenance info
+        - 'Kv        ' # no provenance info
+        - 1 # no provenance info
+        - y # no provenance info
+        - 4 # no provenance info
+        - 'u         ' # no provenance info
+        - 1 # no provenance info
+        - y # no provenance info
+        - 4 # no provenance info
+        - 'v         ' # no provenance info
+        - 1 # no provenance info
+        - y # no provenance info
+        - 4 # no provenance info
+        - 'w         ' # no provenance info
+        - 1 # no provenance info
+        - y # no provenance info
+        - 4 # no provenance info
+        - 'Av        ' # no provenance info
+        - 1 # no provenance info
+        - y # no provenance info
+        - 4 # no provenance info
+        - 'bolus_u   ' # no provenance info
+        - 1 # no provenance info
+        - y # no provenance info
+        - 4 # no provenance info
+        - 'bolus_v   ' # no provenance info
+        - 1 # no provenance info
+        - y # no provenance info
+        - 4 # no provenance info
+        - 'bolus_w   ' # no provenance info
+        - 1 # no provenance info
+        - y # no provenance info
+        - 4 # no provenance info
+        - 'fer_K     ' # no provenance info
+        - 1 # no provenance info
+        - y # no provenance info
+        - 4 # no provenance info
+    namelist.cvmix: {}
+  mesh_dir: /pool/data/AWICM/FESOM2/MESHES/CORE2/  # <TEST_DIR>run/fesom/fesom2.0-initial-monthly/scripts/fesom2.0-initial-monthly.yaml,line:23,col:35
+  restart_out_sources:
+    oce_restart: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/work//fesom.2001.oce.restart.nc  # no provenance info
+    ice_restart: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/work//fesom.2001.ice.restart.nc # no provenance info
+  outdata_sources: {}
+  outdata_targets: {}
+  log_sources:
+    clock: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/work//fesom.clock  # no provenance info
+    mesh_diag: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/work//fesom.mesh.diag.nc # no provenance info
+  file_movements:
+    fesom_raw_restart_in:
+      init_to_exp: move  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:245,col:33
+      exp_to_run: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:245,col:33
+      run_to_work: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:245,col:33
+      work_to_run: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:245,col:33
+    fesom_raw_restart_out:
+      init_to_exp: move  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:247,col:33
+      exp_to_run: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:247,col:33
+      run_to_work: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:247,col:33
+      work_to_run: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:247,col:33
+    fesom_raw_restart_info_in:
+      init_to_exp: move  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:249,col:33
+      exp_to_run: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:249,col:33
+      run_to_work: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:249,col:33
+      work_to_run: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:249,col:33
+    fesom_raw_restart_info_out:
+      init_to_exp: move  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:251,col:33
+      exp_to_run: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:251,col:33
+      run_to_work: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:251,col:33
+      work_to_run: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:251,col:33
+    fesom_raw_restart_tar_out:
+      init_to_exp: move  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:253,col:33
+      exp_to_run: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:253,col:33
+      run_to_work: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:253,col:33
+      work_to_run: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:253,col:33
+    fesom_bin_restart_in:
+      init_to_exp: move  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:255,col:33
+      exp_to_run: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:255,col:33
+      run_to_work: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:255,col:33
+      work_to_run: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:255,col:33
+    fesom_bin_restart_out:
+      init_to_exp: move  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:257,col:33
+      exp_to_run: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:257,col:33
+      run_to_work: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:257,col:33
+      work_to_run: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:257,col:33
+    fesom_bin_restart_info_in:
+      init_to_exp: move  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:259,col:33
+      exp_to_run: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:259,col:33
+      run_to_work: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:259,col:33
+      work_to_run: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:259,col:33
+    fesom_bin_restart_info_out:
+      init_to_exp: move  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:261,col:33
+      exp_to_run: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:261,col:33
+      run_to_work: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:261,col:33
+      work_to_run: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:261,col:33
+    fesom_bin_restart_tar_out:
+      init_to_exp: move  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:263,col:33
+      exp_to_run: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:263,col:33
+      run_to_work: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:263,col:33
+      work_to_run: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:263,col:33
+    analysis:
+      init_to_exp: copy  # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      exp_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      run_to_work: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      work_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+    bin:
+      init_to_exp: copy  # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:16,col:41
+      exp_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:17,col:41
+      run_to_work: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:18,col:41
+      work_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:19,col:41
+    config:
+      init_to_exp: copy  # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      exp_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      run_to_work: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      work_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+    forcing:
+      init_to_exp: copy  # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      exp_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      run_to_work: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      work_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+    input:
+      init_to_exp: copy  # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      exp_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      run_to_work: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      work_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+    couple:
+      init_to_exp: copy  # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      exp_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      run_to_work: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      work_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+    log:
+      init_to_exp: copy  # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      exp_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      run_to_work: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      work_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+    mon:
+      init_to_exp: copy  # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      exp_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      run_to_work: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      work_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+    outdata:
+      init_to_exp: copy  # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      exp_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      run_to_work: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      work_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+    restart_in:
+      init_to_exp: copy  # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      exp_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      run_to_work: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      work_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+    restart_out:
+      init_to_exp: copy  # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      exp_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      run_to_work: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      work_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+    viz:
+      init_to_exp: copy  # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      exp_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      run_to_work: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      work_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+    ignore:
+      init_to_exp: copy  # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      exp_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      run_to_work: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      work_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+    scripts:
+      init_to_exp: copy  # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      exp_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      run_to_work: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      work_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+    unknown:
+      init_to_exp: copy  # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      exp_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      run_to_work: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+      work_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+  branchoff: false  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:271,col:12
+  namelist_changes:
+    namelist.config:
+      clockinit:
+        daynew: 1  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:292,col:33
+        yearnew: 2001 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:293,col:34
+      calendar:
+        include_fleapyear: false  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:295,col:44
+      paths:
+        ForcingDataPath: /pool/data/AWICM/FESOM2//FORCING/  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:297,col:42
+        MeshPath: /pool/data/AWICM/FESOM2/MESHES/CORE2/ # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:298,col:35
+        ClimateDataPath: /pool/data/AWICM/FESOM2/INITIAL/phc3.0/ # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:300,col:42
+        ResultPath: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/work/ # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:302,col:37
+      timestep:
+        step_per_day: 48  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:304,col:39
+        run_length: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:305,col:37
+        run_length_unit: m # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:306,col:42
+      inout:
+        restartflag: last  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:308,col:38
+        output_length: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:309,col:40
+        output_length_unit: m # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:310,col:45
+        restart_length: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:311,col:41
+        restart_length_unit: m # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:312,col:46
+    namelist.forcing:
+      namsbc:
+        nm_xwind_file: /pool/data/AWICM/FESOM2//FORCING//u_10.  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:315,col:40
+        nm_ywind_file: /pool/data/AWICM/FESOM2//FORCING//v_10. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:316,col:40
+        nm_humi_file: /pool/data/AWICM/FESOM2//FORCING//q_10. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:317,col:39
+        nm_qsr_file: /pool/data/AWICM/FESOM2//FORCING//ncar_rad. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:318,col:38
+        nm_qlw_file: /pool/data/AWICM/FESOM2//FORCING//ncar_rad. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:319,col:38
+        nm_tair_file: /pool/data/AWICM/FESOM2//FORCING//t_10. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:320,col:39
+        nm_prec_file: /pool/data/AWICM/FESOM2//FORCING//ncar_precip. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:321,col:39
+        nm_snow_file: /pool/data/AWICM/FESOM2//FORCING//ncar_precip. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:322,col:39
+        nm_mslp_file: /pool/data/AWICM/FESOM2//FORCING//slp. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:323,col:39
+        nm_runoff_file: /pool/data/AWICM/FESOM2//FORCING//runoff.nc # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:324,col:41
+        nm_sss_data_file: /pool/data/AWICM/FESOM2//FORCING//PHC2_salx.nc # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:325,col:43
+  lasttime: 84600  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:327,col:11
+  currentday: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:328,col:13
+  bin_sources:
+    fesom: <TEST_DIR>/comp/fesom/fesom-2.0/bin/fesom.x  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:353,col:16
+  config_sources:
+    config: <HOME_DIR>/esm_tools/namelists//fesom2/2.0//namelist.config  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:365,col:18
+    forcing: <HOME_DIR>/esm_tools/namelists//fesom2/2.0//namelist.forcing # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:366,col:18
+    ice: <HOME_DIR>/esm_tools/namelists//fesom2/2.0//namelist.ice # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:367,col:18
+    oce: <HOME_DIR>/esm_tools/namelists//fesom2/2.0//namelist.oce # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:368,col:18
+    io: <HOME_DIR>/esm_tools/namelists//fesom2/2.0//namelist.io # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:369,col:18
+    fesom.clock: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/config/fesom//fesom.clock # no provenance info
+  coupling_fields:
+    sst_feom:
+      grid: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:382,col:23
+    sit_feom:
+      grid: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:384,col:23
+    sie_feom:
+      grid: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:386,col:23
+    snt_feom:
+      grid: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:388,col:23
+    u_feom:
+      grid: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:390,col:23
+    v_feom:
+      grid: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:392,col:23
+    taux_oce:
+      grid: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:394,col:23
+    tauy_oce:
+      grid: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:396,col:23
+    taux_ico:
+      grid: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:398,col:23
+    tauy_ico:
+      grid: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:400,col:23
+    prec_oce:
+      grid: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:402,col:23
+    snow_oce:
+      grid: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:404,col:23
+    evap_oce:
+      grid: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:406,col:23
+    subl_oce:
+      grid: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:408,col:23
+    heat_oce:
+      grid: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:410,col:23
+    heat_ico:
+      grid: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:412,col:23
+    heat_swo:
+      grid: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:414,col:23
+    hydr_oce:
+      grid: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:416,col:23
+    enth_oce:
+      grid: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:418,col:23
+  grids:
+    feom:
+      name: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:422,col:23
+      nx: 126858 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:423,col:21
+      ny: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:424,col:21
+      oasis_grid_type: U # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:425,col:34
+      oyac_grid_type: GC # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:426,col:33
+      oyac_io_per_node: 4 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:427,col:35
+      number_of_overlapping_points: 0 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:428,col:47
+  tidy_recipe:
+  - tidy_coupler  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:434,col:7
+  - tar_binary_restarts # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:435,col:7
+  - assemble # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:436,col:7
+  - check_for_unknown_files # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:437,col:7
+  - log_used_files # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:438,col:7
+  - throw_away_some_infiles # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:439,col:7
+  - copy_stuff_back_from_work # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:440,col:7
+  - copy_all_results_to_exp # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:441,col:7
+  - clean_run_dir # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:442,col:7
+  model_dir: <TEST_DIR>/comp/fesom/fesom-2.0 # <TEST_DIR>run/fesom/fesom2.0-initial-monthly/scripts/fesom2.0-initial-monthly.yaml,line:14,col:20
+  res: CORE2 # <TEST_DIR>run/fesom/fesom2.0-initial-monthly/scripts/fesom2.0-initial-monthly.yaml,line:38,col:14
+  lresume: false # no provenance info
+  post_processing: 0 # <TEST_DIR>run/fesom/fesom2.0-initial-monthly/scripts/fesom2.0-initial-monthly.yaml,line:43,col:26
+  destination: fesom-2.0 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:18,col:18
+  leapyear: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:129,col:27
+  nx: 126858 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:137,col:21
+  nproc: 288 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:138,col:24
+  daynew: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:279,col:25
+  yearnew: 2001 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:280,col:26
+  create_config:
+    fesom.clock:
+    - <--append-- 0.0000000000000 1 2001  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:341,col:35
+    - <--append-- 0.0000000000000 1 2001 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:342,col:35
+  starttime: 0 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:331,col:28
+  startday: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:332,col:27
+  experiment_analysis_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/analysis/fesom/ # no provenance info
+  thisrun_analysis_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/analysis/fesom/ # no provenance info
+  all_filetypes:
+  - analysis  # no provenance info
+  - bin # no provenance info
+  - config # no provenance info
+  - forcing # no provenance info
+  - input # no provenance info
+  - couple # no provenance info
+  - log # no provenance info
+  - mon # no provenance info
+  - outdata # no provenance info
+  - restart_in # no provenance info
+  - restart_out # no provenance info
+  - viz # no provenance info
+  - ignore # no provenance info
+  experiment_bin_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/bin/fesom/  # no provenance info
+  thisrun_bin_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/bin/fesom/ # no provenance info
+  experiment_config_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/config/fesom/ # no provenance info
+  thisrun_config_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/config/fesom/ # no provenance info
+  experiment_forcing_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/forcing/fesom/ # no provenance info
+  thisrun_forcing_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/forcing/fesom/ # no provenance info
+  experiment_input_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/input/fesom/ # no provenance info
+  thisrun_input_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/input/fesom/ # no provenance info
+  experiment_couple_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/couple/fesom/ # no provenance info
+  thisrun_couple_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/couple/fesom/ # no provenance info
+  experiment_log_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/log/fesom/ # no provenance info
+  thisrun_log_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/log/fesom/ # no provenance info
+  experiment_mon_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/mon/fesom/ # no provenance info
+  thisrun_mon_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/mon/fesom/ # no provenance info
+  experiment_outdata_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/outdata/fesom/ # no provenance info
+  thisrun_outdata_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/outdata/fesom/ # no provenance info
+  experiment_restart_in_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/restart/fesom/ # no provenance info
+  thisrun_restart_in_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/restart/fesom/ # no provenance info
+  experiment_restart_out_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/restart/fesom/ # no provenance info
+  thisrun_restart_out_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/restart/fesom/ # no provenance info
+  experiment_viz_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/viz/fesom/ # no provenance info
+  thisrun_viz_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/viz/fesom/ # no provenance info
+  experiment_ignore_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/ignore/fesom/ # no provenance info
+  thisrun_ignore_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/ignore/fesom/ # no provenance info
+  prev_date: '2000-12-31T23:30:00' # no provenance info
+  last_parent_date: '2000-12-31T23:00:00' # no provenance info
+  parent_expid: fesom2.0-initial-monthly # no provenance info
+  parent_date: '2000-12-31T23:30:00' # no provenance info
+  parent_restart_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/restart/fesom/ # no provenance info
+  config_intermediate:
+    fesom.clock: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/config/fesom/fesom.clock  # no provenance info
+    config: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/config/fesom/namelist.config # no provenance info
+    forcing: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/config/fesom/namelist.forcing # no provenance info
+    ice: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/config/fesom/namelist.ice # no provenance info
+    oce: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/config/fesom/namelist.oce # no provenance info
+    io: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/config/fesom/namelist.io # no provenance info
+  bin_targets:
+    fesom: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/work/fesom  # no provenance info
+  config_targets:
+    config: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/work/namelist.config  # no provenance info
+    forcing: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/work/namelist.forcing # no provenance info
+    ice: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/work/namelist.ice # no provenance info
+    oce: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/work/namelist.oce # no provenance info
+    io: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/work/namelist.io # no provenance info
+    fesom.clock: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/work/fesom.clock # no provenance info
+  log_targets:
+    clock: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/log/fesom/fesom.clock  # no provenance info
+    mesh_diag: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/log/fesom/fesom.mesh.diag.nc # no provenance info
+  restart_out_targets:
+    oce_restart: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/restart/fesom/fesom.2001.oce.restart.nc  # no provenance info
+    ice_restart: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/restart/fesom/fesom.2001.ice.restart.nc # no provenance info
+  outdata_sources_wild_card:
+    fesom: '*.fesom.*.nc'  # no provenance info
+  restart_out_sources_wild_card:
+    par_oce_restart: '*.nc'  # no provenance info
+    par_ice_restart: '*.nc' # no provenance info
+    fesom_raw_restart_info: '*.info' # no provenance info
+    fesom_raw_restart: '*.dump' # no provenance info
+    fesom_bin_restart_info: '*.info' # no provenance info
+    fesom_bin_restart: '*' # no provenance info
+  bin_intermediate:
+    fesom: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/bin/fesom/fesom  # no provenance info
+  log_intermediate:
+    clock: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/log/fesom/fesom.clock  # no provenance info
+    mesh_diag: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/log/fesom/fesom.mesh.diag.nc # no provenance info
+  outdata_intermediate: {}
+  restart_out_intermediate:
+    oce_restart: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/restart/fesom/fesom.2001.oce.restart.nc  # no provenance info
+    ice_restart: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/restart/fesom/fesom.2001.ice.restart.nc # no provenance info
+  namelist_objs:
+    namelist.config:
+      modelname:
+        runid: fesom  # no provenance info
+      timestep:
+        step_per_day: 48  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:304,col:39
+        run_length: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:305,col:37
+        run_length_unit: m # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:306,col:42
+      clockinit:
+        timenew: 0.0  # no provenance info
+        daynew: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:292,col:33
+        yearnew: 2001 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:293,col:34
+      paths:
+        meshpath: /pool/data/AWICM/FESOM2/MESHES/CORE2/  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:298,col:35
+        climatedatapath: /pool/data/AWICM/FESOM2/INITIAL/phc3.0/ # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:300,col:42
+        resultpath: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/work/ # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:302,col:37
+        forcingdatapath: /pool/data/AWICM/FESOM2//FORCING/ # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:297,col:42
+      initialization:
+        oceclimadataname: Winter_PHC3_ts.out  # no provenance info
+        use_prepared_init_ice: false # no provenance info
+      inout:
+        restartflag: last  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:308,col:38
+        output_length: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:309,col:40
+        output_length_unit: m # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:310,col:45
+        output_offset: 64 # no provenance info
+        restart_length: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:311,col:41
+        restart_length_unit: m # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:312,col:46
+        restart_offset: 64 # no provenance info
+        logfile_outfreq: 100 # no provenance info
+        use_means: false # no provenance info
+      mesh_def:
+        grid_type: 1  # no provenance info
+        use_ale: true # no provenance info
+        which_ale: linfs # no provenance info
+        use_partial_cell: false # no provenance info
+        min_hnode: 0.25 # no provenance info
+        lzstar_lev: 3 # no provenance info
+      geometry:
+        cartesian: false  # no provenance info
+        fplane: false # no provenance info
+        betaplane: false # no provenance info
+        f_fplane: -0.00014 # no provenance info
+        beta_betaplane: 2e-11 # no provenance info
+        cyclic_length: 360.0 # no provenance info
+        rotated_grid: true # no provenance info
+        alphaeuler: 50.0 # no provenance info
+        betaeuler: 15.0 # no provenance info
+        gammaeuler: -90.0 # no provenance info
+        force_rotation: false # no provenance info
+      calendar:
+        include_fleapyear: false  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:295,col:44
+      run_config:
+        use_ice: true  # no provenance info
+        use_floatice: false # no provenance info
+        use_sw_pene: true # no provenance info
+        toy_ocean: false # no provenance info
+      machine:
+        n_levels: 3  # no provenance info
+        n_part:
+        - 2  # no provenance info
+        - 4 # no provenance info
+        - 36 # no provenance info
+    namelist.forcing:
+      forcing_exchange_coeff:
+        ce_atm_oce: 0.00175  # no provenance info
+        ch_atm_oce: 0.00175 # no provenance info
+        cd_atm_oce: 0.001 # no provenance info
+        ce_atm_ice: 0.00175 # no provenance info
+        ch_atm_ice: 0.00175 # no provenance info
+        cd_atm_ice: 0.0012 # no provenance info
+      forcing_source:
+        wind_data_source: CORE2  # no provenance info
+        rad_data_source: CORE2 # no provenance info
+        precip_data_source: CORE2 # no provenance info
+        runoff_data_source: CORE2 # no provenance info
+        sss_data_source: CORE2 # no provenance info
+        wind_ttp_ind: 1 # no provenance info
+        rad_ttp_ind: 2 # no provenance info
+        precip_ttp_ind: 3 # no provenance info
+        runoff_ttp_ind: 4 # no provenance info
+        sss_ttp_ind: 4 # no provenance info
+      forcing_bulk:
+        aomip_drag_coeff: false  # no provenance info
+        ncar_bulk_formulae: true # no provenance info
+      land_ice:
+        use_landice_water: false  # no provenance info
+        landice_start_mon: 5 # no provenance info
+        landice_end_mon: 10 # no provenance info
+      namsbc:
+        nm_xwind_file: /pool/data/AWICM/FESOM2//FORCING//u_10.  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:315,col:40
+        nm_ywind_file: /pool/data/AWICM/FESOM2//FORCING//v_10. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:316,col:40
+        nm_humi_file: /pool/data/AWICM/FESOM2//FORCING//q_10. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:317,col:39
+        nm_qsr_file: /pool/data/AWICM/FESOM2//FORCING//ncar_rad. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:318,col:38
+        nm_qlw_file: /pool/data/AWICM/FESOM2//FORCING//ncar_rad. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:319,col:38
+        nm_tair_file: /pool/data/AWICM/FESOM2//FORCING//t_10. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:320,col:39
+        nm_prec_file: /pool/data/AWICM/FESOM2//FORCING//ncar_precip. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:321,col:39
+        nm_snow_file: /pool/data/AWICM/FESOM2//FORCING//ncar_precip. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:322,col:39
+        nm_mslp_file: /pool/data/AWICM/FESOM2//FORCING//slp. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:323,col:39
+        nm_runoff_file: /pool/data/AWICM/FESOM2//FORCING//runoff.nc # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:324,col:41
+        nm_sss_data_file: /pool/data/AWICM/FESOM2//FORCING//PHC2_salx.nc # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:325,col:43
+    namelist.oce:
+      oce_dyn:
+        c_d: 0.0025  # no provenance info
+        a_ver: 0.0001 # no provenance info
+        laplacian: false # no provenance info
+        a_hor: 0.0 # no provenance info
+        a_hor_max: 0.0 # no provenance info
+        div_c: 0.5 # no provenance info
+        leith_c: 0.05 # no provenance info
+        tau_c: 0.0 # no provenance info
+        smag_c: 0.0 # no provenance info
+        biharmonic: false # no provenance info
+        abh0: 0.0 # no provenance info
+        scale_area: 5800000000.0 # no provenance info
+        mom_adv: 2 # no provenance info
+        free_slip: false # no provenance info
+        i_vert_visc: true # no provenance info
+        w_split: false # no provenance info
+        w_exp_max: 0.001 # no provenance info
+        spp: false # no provenance info
+        fer_gm: true # no provenance info
+        k_gm: 3000.0 # no provenance info
+        scaling_ferreira: true # no provenance info
+        scaling_rossby: false # no provenance info
+        scaling_resolution: true # no provenance info
+        scaling_fesom14: true # no provenance info
+        redi: true # no provenance info
+        visc_sh_limit: 0.005 # no provenance info
+        mix_scheme: KPP # no provenance info
+        ricr: 0.3 # no provenance info
+        concv: 1.6 # no provenance info
+      oce_tra:
+        diff_sh_limit: 0.05  # no provenance info
+        kv0_const: false # no provenance info
+        double_diffusion: false # no provenance info
+        k_ver: 1e-05 # no provenance info
+        k_hor: 3000.0 # no provenance info
+        surf_relax_t: 0.0 # no provenance info
+        surf_relax_s: 0.0 # no provenance info
+        balance_salt_water: true # no provenance info
+        clim_relax: 0.0 # no provenance info
+        ref_sss_local: true # no provenance info
+        ref_sss: 34.0 # no provenance info
+        i_vert_diff: true # no provenance info
+        tracer_adv: 2 # no provenance info
+        num_tracers: 2 # no provenance info
+        tracer_id:
+        - 0  # no provenance info
+        - 1 # no provenance info
+      oce_init3d:
+        n_ic3d: 2  # no provenance info
+        idlist:
+        - 1  # no provenance info
+        - 0 # no provenance info
+        filelist:
+        - phc3.0_winter.nc  # no provenance info
+        - phc3.0_winter.nc # no provenance info
+        varlist:
+        - salt  # no provenance info
+        - temp # no provenance info
+    namelist.ice:
+      ice_dyn:
+        whichevp: 0  # no provenance info
+        pstar: 30000.0 # no provenance info
+        delta_min: 1e-11 # no provenance info
+        evp_rheol_steps: 150 # no provenance info
+        cd_oce_ice: 0.0055 # no provenance info
+        ice_gamma_fct: 0.5 # no provenance info
+        ice_diff: 0.0 # no provenance info
+        theta_io: 0.0 # no provenance info
+        ice_ave_steps: 1 # no provenance info
+      ice_therm:
+        sice: 4.0  # no provenance info
+        h0: 0.5 # no provenance info
+        emiss_ice: 0.97 # no provenance info
+        emiss_wat: 0.97 # no provenance info
+        albsn: 0.81 # no provenance info
+        albsnm: 0.77 # no provenance info
+        albi: 0.7 # no provenance info
+        albim: 0.68 # no provenance info
+        albw: 0.1 # no provenance info
+    namelist.io:
+      nml_listsize:
+        io_listsize: 100  # no provenance info
+      nml_list:
+        io_list:
+        - 'sst       '  # no provenance info
+        - 1 # no provenance info
+        - m # no provenance info
+        - 4 # no provenance info
+        - 'sss       ' # no provenance info
+        - 1 # no provenance info
+        - m # no provenance info
+        - 4 # no provenance info
+        - 'vve_5     ' # no provenance info
+        - 1 # no provenance info
+        - m # no provenance info
+        - 4 # no provenance info
+        - 'uice      ' # no provenance info
+        - 1 # no provenance info
+        - m # no provenance info
+        - 4 # no provenance info
+        - 'vice      ' # no provenance info
+        - 1 # no provenance info
+        - m # no provenance info
+        - 4 # no provenance info
+        - 'a_ice     ' # no provenance info
+        - 1 # no provenance info
+        - m # no provenance info
+        - 4 # no provenance info
+        - 'm_ice     ' # no provenance info
+        - 1 # no provenance info
+        - m # no provenance info
+        - 4 # no provenance info
+        - 'thdgr     ' # no provenance info
+        - 1 # no provenance info
+        - m # no provenance info
+        - 4 # no provenance info
+        - 'thdgrsn   ' # no provenance info
+        - 1 # no provenance info
+        - m # no provenance info
+        - 4 # no provenance info
+        - 'm_snow    ' # no provenance info
+        - 1 # no provenance info
+        - m # no provenance info
+        - 4 # no provenance info
+        - 'MLD1      ' # no provenance info
+        - 1 # no provenance info
+        - m # no provenance info
+        - 4 # no provenance info
+        - 'MLD2      ' # no provenance info
+        - 1 # no provenance info
+        - m # no provenance info
+        - 4 # no provenance info
+        - 'fh        ' # no provenance info
+        - 1 # no provenance info
+        - m # no provenance info
+        - 4 # no provenance info
+        - 'fw        ' # no provenance info
+        - 1 # no provenance info
+        - m # no provenance info
+        - 4 # no provenance info
+        - 'atmice_x  ' # no provenance info
+        - 1 # no provenance info
+        - m # no provenance info
+        - 4 # no provenance info
+        - 'atmice_y  ' # no provenance info
+        - 1 # no provenance info
+        - m # no provenance info
+        - 4 # no provenance info
+        - 'atmoce_x  ' # no provenance info
+        - 1 # no provenance info
+        - m # no provenance info
+        - 4 # no provenance info
+        - 'atmoce_y  ' # no provenance info
+        - 1 # no provenance info
+        - m # no provenance info
+        - 4 # no provenance info
+        - 'alpha     ' # no provenance info
+        - 1 # no provenance info
+        - m # no provenance info
+        - 4 # no provenance info
+        - 'beta      ' # no provenance info
+        - 1 # no provenance info
+        - m # no provenance info
+        - 4 # no provenance info
+        - 'runoff    ' # no provenance info
+        - 1 # no provenance info
+        - m # no provenance info
+        - 4 # no provenance info
+        - 'evap      ' # no provenance info
+        - 1 # no provenance info
+        - m # no provenance info
+        - 4 # no provenance info
+        - 'prec      ' # no provenance info
+        - 1 # no provenance info
+        - m # no provenance info
+        - 4 # no provenance info
+        - 'hbl       ' # no provenance info
+        - 1 # no provenance info
+        - m # no provenance info
+        - 4 # no provenance info
+        - 'Bo        ' # no provenance info
+        - 1 # no provenance info
+        - m # no provenance info
+        - 4 # no provenance info
+        - 'tx_sur    ' # no provenance info
+        - 1 # no provenance info
+        - m # no provenance info
+        - 4 # no provenance info
+        - 'ty_sur    ' # no provenance info
+        - 1 # no provenance info
+        - m # no provenance info
+        - 4 # no provenance info
+        - 'curl_surf ' # no provenance info
+        - 1 # no provenance info
+        - m # no provenance info
+        - 4 # no provenance info
+        - 'fer_C     ' # no provenance info
+        - 1 # no provenance info
+        - m # no provenance info
+        - 4 # no provenance info
+        - 'temp      ' # no provenance info
+        - 1 # no provenance info
+        - y # no provenance info
+        - 4 # no provenance info
+        - 'salt      ' # no provenance info
+        - 1 # no provenance info
+        - y # no provenance info
+        - 4 # no provenance info
+        - 'otracers  ' # no provenance info
+        - 1 # no provenance info
+        - y # no provenance info
+        - 4 # no provenance info
+        - 'slope_x   ' # no provenance info
+        - 1 # no provenance info
+        - y # no provenance info
+        - 4 # no provenance info
+        - 'slope_y   ' # no provenance info
+        - 1 # no provenance info
+        - y # no provenance info
+        - 4 # no provenance info
+        - 'slope_z   ' # no provenance info
+        - 1 # no provenance info
+        - y # no provenance info
+        - 4 # no provenance info
+        - 'N2        ' # no provenance info
+        - 1 # no provenance info
+        - y # no provenance info
+        - 4 # no provenance info
+        - 'Kv        ' # no provenance info
+        - 1 # no provenance info
+        - y # no provenance info
+        - 4 # no provenance info
+        - 'u         ' # no provenance info
+        - 1 # no provenance info
+        - y # no provenance info
+        - 4 # no provenance info
+        - 'v         ' # no provenance info
+        - 1 # no provenance info
+        - y # no provenance info
+        - 4 # no provenance info
+        - 'w         ' # no provenance info
+        - 1 # no provenance info
+        - y # no provenance info
+        - 4 # no provenance info
+        - 'Av        ' # no provenance info
+        - 1 # no provenance info
+        - y # no provenance info
+        - 4 # no provenance info
+        - 'bolus_u   ' # no provenance info
+        - 1 # no provenance info
+        - y # no provenance info
+        - 4 # no provenance info
+        - 'bolus_v   ' # no provenance info
+        - 1 # no provenance info
+        - y # no provenance info
+        - 4 # no provenance info
+        - 'bolus_w   ' # no provenance info
+        - 1 # no provenance info
+        - y # no provenance info
+        - 4 # no provenance info
+        - 'fer_K     ' # no provenance info
+        - 1 # no provenance info
+        - y # no provenance info
+        - 4 # no provenance info
+    namelist.cvmix: {}
+defaults:
+  clean_command: rm -rf build CMakeCache.txt  # <HOME_DIR>/esm_tools/configs/defaults/download_and_compile.yaml,line:1,col:16
+  comp_command: mkdir -p build; cd build; cmake ..;   make install -j `nproc --all` # <HOME_DIR>/esm_tools/configs/defaults/download_and_compile.yaml,line:2,col:15
