@@ -21,10 +21,7 @@ echam:
       6.3.05p2-awiesm-2.1:
         branch: 6.3.05p2-awiesm-2.1  # <HOME_DIR>/esm_tools/configs/components/echam/echam.yaml,line:25,col:21
         clean_command: rm -rf src/echam/bin; rm -rf bin; make clean # <HOME_DIR>/esm_tools/configs/components/echam/echam.yaml,line:26,col:28
-        comp_command: ./config/createMakefiles.pl; autoreconf -i --force; mkdir -p
-          src/.deps yaxt/src/.deps yaxt/tests/.deps; ./configure $configure_opts --with-fortran=intel
-          INSTALL='/usr/bin/install -p'; make -j `nproc --all`; make install -j `nproc
-          --all`; mkdir -p src/echam/bin; cp  bin/echam6 src/echam/bin/echam6 # <HOME_DIR>/esm_tools/configs/components/echam/echam.yaml,line:27,col:27
+        comp_command: ./config/createMakefiles.pl; autoreconf -i --force; mkdir -p src/.deps yaxt/src/.deps yaxt/tests/.deps; ./configure $configure_opts --with-fortran=intel INSTALL='/usr/bin/install -p'; make -j `nproc --all`; make install -j `nproc --all`; mkdir -p src/echam/bin; cp  bin/echam6 src/echam/bin/echam6 # <HOME_DIR>/esm_tools/configs/components/echam/echam.yaml,line:27,col:27
         git-repository: https://gitlab.awi.de/paleodyn/Models/echam6.git # <HOME_DIR>/esm_tools/configs/components/echam/echam.yaml,line:28,col:29
         destination: echam-6.3.05p2 # <HOME_DIR>/esm_tools/configs/components/echam/echam.yaml,line:30,col:26
       6.3.02p4:
@@ -47,43 +44,26 @@ echam:
       6.3.05p2-concurrent_radiation:
         branch: concurrent_radiation  # <HOME_DIR>/esm_tools/configs/components/echam/echam.yaml,line:49,col:21
         clean_command: rm -rf src/echam/bin; rm -rf bin; make clean # <HOME_DIR>/esm_tools/configs/components/echam/echam.yaml,line:50,col:28
-        conf_command: ./config/createMakefiles.pl; autoreconf -i --force; mkdir -p
-          src/.deps yaxt/src/.deps yaxt/tests/.deps; ./configure --with-fortran=intel
-          INSTALL='/usr/bin/install -p' # <HOME_DIR>/esm_tools/configs/components/echam/echam.yaml,line:54,col:27
-        comp_command: make -j `nproc --all`; make install -j `nproc --all`; mkdir
-          -p src/echam/bin; cp  bin/echam6 src/echam/bin/echam6 # <HOME_DIR>/esm_tools/configs/components/echam/echam.yaml,line:55,col:27
+        conf_command: ./config/createMakefiles.pl; autoreconf -i --force; mkdir -p src/.deps yaxt/src/.deps yaxt/tests/.deps; ./configure --with-fortran=intel INSTALL='/usr/bin/install -p' # <HOME_DIR>/esm_tools/configs/components/echam/echam.yaml,line:54,col:27
+        comp_command: make -j `nproc --all`; make install -j `nproc --all`; mkdir -p src/echam/bin; cp  bin/echam6 src/echam/bin/echam6 # <HOME_DIR>/esm_tools/configs/components/echam/echam.yaml,line:55,col:27
         git-repository: https://gitlab.dkrz.de/PalMod/echam6-PalMod.git # <HOME_DIR>/esm_tools/configs/components/echam/echam.yaml,line:56,col:29
       6.3.05p2-concurrent_radiation-paleodyn:
         branch: ice  # <HOME_DIR>/esm_tools/configs/components/echam/echam.yaml,line:58,col:21
         clean_command: rm -rf src/echam/bin; rm -rf bin; make clean # <HOME_DIR>/esm_tools/configs/components/echam/echam.yaml,line:59,col:28
-        comp_command: ./config/createMakefiles.pl; autoreconf -i --force; mkdir -p
-          src/.deps yaxt/src/.deps yaxt/tests/.deps; ./configure $configure_opts --with-fortran=intel
-          INSTALL='/usr/bin/install -p'; make -j `nproc --all`; make install -j `nproc
-          --all`; mkdir -p src/echam/bin; cp  bin/echam6 src/echam/bin/echam6 # <HOME_DIR>/esm_tools/configs/components/echam/echam.yaml,line:60,col:27
+        comp_command: ./config/createMakefiles.pl; autoreconf -i --force; mkdir -p src/.deps yaxt/src/.deps yaxt/tests/.deps; ./configure $configure_opts --with-fortran=intel INSTALL='/usr/bin/install -p'; make -j `nproc --all`; make install -j `nproc --all`; mkdir -p src/echam/bin; cp  bin/echam6 src/echam/bin/echam6 # <HOME_DIR>/esm_tools/configs/components/echam/echam.yaml,line:60,col:27
         git-repository: https://gitlab.awi.de/paleodyn/Models/echam6.git # <HOME_DIR>/esm_tools/configs/components/echam/echam.yaml,line:61,col:29
       6.3.05p2-concurrent_radiation-paleodyn-hammoz:
         branch: hammoz  # <HOME_DIR>/esm_tools/configs/components/echam/echam.yaml,line:63,col:21
         clean_command: rm -rf src/echam/bin; make clean # <HOME_DIR>/esm_tools/configs/components/echam/echam.yaml,line:64,col:28
-        comp_command: make -j `nproc --all`; make install -j `nproc --all`; mkdir
-          -p src/echam/bin; cp  bin/echam6 src/echam/bin/echam6 # <HOME_DIR>/esm_tools/configs/components/echam/echam.yaml,line:65,col:27
-        conf_command: export OASIS3MCT_FC_LIB=$(pwd)/../lib/; export OASIS3MCTROOT=$(pwd)/../oasis/;
-          ./config/createMakefiles.pl; autoreconf -i --force; mkdir -p src/.deps yaxt/src/.deps
-          yaxt/tests/.deps; ./configure --with-coupler=oasis3-mct --with-fortran=intel
-          FCFLAGS="-cpp -DHAMMOZ" INSTALL='/usr/bin/install -p' # <HOME_DIR>/esm_tools/configs/components/echam/echam.yaml,line:67,col:27
+        comp_command: make -j `nproc --all`; make install -j `nproc --all`; mkdir -p src/echam/bin; cp  bin/echam6 src/echam/bin/echam6 # <HOME_DIR>/esm_tools/configs/components/echam/echam.yaml,line:65,col:27
+        conf_command: export OASIS3MCT_FC_LIB=$(pwd)/../lib/; export OASIS3MCTROOT=$(pwd)/../oasis/; ./config/createMakefiles.pl; autoreconf -i --force; mkdir -p src/.deps yaxt/src/.deps yaxt/tests/.deps; ./configure --with-coupler=oasis3-mct --with-fortran=intel FCFLAGS="-cpp -DHAMMOZ" INSTALL='/usr/bin/install -p' # <HOME_DIR>/esm_tools/configs/components/echam/echam.yaml,line:67,col:27
         git-repository: https://gitlab.awi.de/paleodyn/Models/echam6.git # <HOME_DIR>/esm_tools/configs/components/echam/echam.yaml,line:71,col:29
       6.3.05p2-foci:
         branch: esm-tools  # <HOME_DIR>/esm_tools/configs/components/echam/echam.yaml,line:73,col:21
         git-repository: https://git.geomar.de/foci/src/echam.git # <HOME_DIR>/esm_tools/configs/components/echam/echam.yaml,line:74,col:29
       6.3.05p2-foci_autotools:
         clean_command: rm -rf src/echam/bin; rm -rf bin; make clean; make distclean  # <HOME_DIR>/esm_tools/configs/components/echam/echam.yaml,line:76,col:28
-        comp_command: mkdir -p src/.deps yaxt/src/.deps yaxt/tests/.deps; ./configure
-          --prefix=$(pwd)/../ --with-coupler=oasis3-mct-nemo --disable-mh-file --enable-cdi-pio
-          --disable-shared CFLAGS="-O2 -DgFortran -std=gnu99" FCFLAGS="-DQBO -I. -O3
-          -traceback -fp-model source -fast-transcendentals -no-prec-sqrt -no-prec-div
-          -xHost" FFLAGS="-I. -traceback -O3 -xHost -DTREAT_OVERLAY -Duse_netCDF -Duse_comm_MPI1"
-          LAPACK_LIB='-mkl=sequential' OASIS3MCTROOT=$(pwd)/../ SUPPORTROOT=$(pwd)/../
-          SUPPORT_LIB='-L$(SUPPORTROOT)/lib -lsupport' SRCDIRS="support" ; make -j
-          `nproc --all`; make install -j `nproc --all`; # <HOME_DIR>/esm_tools/configs/components/echam/echam.yaml,line:77,col:27
+        comp_command: mkdir -p src/.deps yaxt/src/.deps yaxt/tests/.deps; ./configure --prefix=$(pwd)/../ --with-coupler=oasis3-mct-nemo --disable-mh-file --enable-cdi-pio --disable-shared CFLAGS="-O2 -DgFortran -std=gnu99" FCFLAGS="-DQBO -I. -O3 -traceback -fp-model source -fast-transcendentals -no-prec-sqrt -no-prec-div -xHost" FFLAGS="-I. -traceback -O3 -xHost -DTREAT_OVERLAY -Duse_netCDF -Duse_comm_MPI1" LAPACK_LIB='-mkl=sequential' OASIS3MCTROOT=$(pwd)/../ SUPPORTROOT=$(pwd)/../ SUPPORT_LIB='-L$(SUPPORTROOT)/lib -lsupport' SRCDIRS="support" ; make -j `nproc --all`; make install -j `nproc --all`; # <HOME_DIR>/esm_tools/configs/components/echam/echam.yaml,line:77,col:27
         install_bins: '' # <HOME_DIR>/esm_tools/configs/components/echam/echam.yaml,line:80,col:27
         branch: esm-tools # <HOME_DIR>/esm_tools/configs/components/echam/echam.yaml,line:81,col:21
         git-repository: https://git.geomar.de/foci/src/echam.git # <HOME_DIR>/esm_tools/configs/components/echam/echam.yaml,line:82,col:29
@@ -93,10 +73,7 @@ echam:
       6.3.05p2-wiso:
         branch: wiso  # <HOME_DIR>/esm_tools/configs/components/echam/echam.yaml,line:87,col:21
         clean_command: rm -rf src/echam/bin; rm -rf bin; make clean # <HOME_DIR>/esm_tools/configs/components/echam/echam.yaml,line:88,col:28
-        comp_command: ./config/createMakefiles.pl; autoreconf -i --force; mkdir -p
-          src/.deps yaxt/src/.deps yaxt/tests/.deps; ./configure $configure_opts --with-fortran=intel
-          INSTALL='/usr/bin/install -p'; make -j `nproc --all`; make install -j `nproc
-          --all`; mkdir -p src/echam/bin; cp  bin/echam6 src/echam/bin/echam6 # <HOME_DIR>/esm_tools/configs/components/echam/echam.yaml,line:89,col:27
+        comp_command: ./config/createMakefiles.pl; autoreconf -i --force; mkdir -p src/.deps yaxt/src/.deps yaxt/tests/.deps; ./configure $configure_opts --with-fortran=intel INSTALL='/usr/bin/install -p'; make -j `nproc --all`; make install -j `nproc --all`; mkdir -p src/echam/bin; cp  bin/echam6 src/echam/bin/echam6 # <HOME_DIR>/esm_tools/configs/components/echam/echam.yaml,line:89,col:27
         git-repository: https://gitlab.awi.de/paleodyn/Models/echam6.git # <HOME_DIR>/esm_tools/configs/components/echam/echam.yaml,line:90,col:29
         destination: echam-6.3.05p2-wiso # <HOME_DIR>/esm_tools/configs/components/echam/echam.yaml,line:91,col:26
     clean_command: rm -rf build CMakeCache.txt # <HOME_DIR>/esm_tools/configs/components/echam/echam.yaml,line:92,col:24
@@ -109,14 +86,7 @@ echam:
     Description: The ECHAM atmosphere model, major version 6 # <HOME_DIR>/esm_tools/configs/components/echam/echam.yaml,line:101,col:17
     Authors: Bjorn Stevens (bjorn.stevens@mpimet.mpg.de) among others at MPI-Met # <HOME_DIR>/esm_tools/configs/components/echam/echam.yaml,line:102,col:18
     Publications: 'Atmosphericcomponent of the MPI-M earth system model: ECHAM6 <https://doi.org/10.1002/jame.20015>' # <HOME_DIR>/esm_tools/configs/components/echam/echam.yaml,line:104,col:17
-    License: Please make sure you have a license to use ECHAM. Otherwise downloading
-      ECHAM will already fail. To use the repository on either gitlab.dkrz.de/modular_esm/echam6.git
-      or gitlab.awi.de/paleodyn/models/echam6.git, please register for the MPI-ESM
-      user forum at https://code.mpimet.mpg.de/projects/mpi-esm-license and send a
-      screenshot of yourself logged in to the forum to either paul.gierz@awi.de, miguel.andres-martinez@awi.de,
-      or nadine.wieters@awi.de. Note also that you can otherwise ignore the instructions
-      on that page, just the registration and login screen shot is the relevant part
-      for obtaining the license. # <HOME_DIR>/esm_tools/configs/components/echam/echam.yaml,line:106,col:17
+    License: Please make sure you have a license to use ECHAM. Otherwise downloading ECHAM will already fail. To use the repository on either gitlab.dkrz.de/modular_esm/echam6.git or gitlab.awi.de/paleodyn/models/echam6.git, please register for the MPI-ESM user forum at https://code.mpimet.mpg.de/projects/mpi-esm-license and send a screenshot of yourself logged in to the forum to either paul.gierz@awi.de, miguel.andres-martinez@awi.de, or nadine.wieters@awi.de. Note also that you can otherwise ignore the instructions on that page, just the registration and login screen shot is the relevant part for obtaining the license. # <HOME_DIR>/esm_tools/configs/components/echam/echam.yaml,line:106,col:17
   standalone_model: true # <HOME_DIR>/esm_tools/configs/components/echam/echam.yaml,line:113,col:19
   executable: echam6 # <HOME_DIR>/esm_tools/configs/components/echam/echam.yaml,line:119,col:13
   version: 6.3.05p2-awiesm-2.1 # <HOME_DIR>/esm_tools/configs/setups/awiesm/awiesm.yaml,line:177,col:34
@@ -174,8 +144,7 @@ echam:
         - FCFLAGS # <HOME_DIR>/esm_tools/configs/components/echam/echam.yaml,line:332,col:17
     add_export_vars:
       OIFS_OASIS_BASE: $(pwd)/oasis  # <HOME_DIR>/esm_tools/configs/setups/awiesm/awiesm.yaml,line:238,col:34
-      OIFS_OASIS_INCLUDE: '"-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip
-        -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu"' # <HOME_DIR>/esm_tools/configs/setups/awiesm/awiesm.yaml,line:239,col:37
+      OIFS_OASIS_INCLUDE: '"-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu"' # <HOME_DIR>/esm_tools/configs/setups/awiesm/awiesm.yaml,line:239,col:37
       OASIS3MCT_FC_LIB: $(pwd)/lib/ # <HOME_DIR>/esm_tools/configs/setups/awiesm/awiesm.yaml,line:240,col:35
       OASIS3MCTROOT: $(pwd)/oasis/ # <HOME_DIR>/esm_tools/configs/setups/awiesm/awiesm.yaml,line:241,col:32
       configure_opts: --with-coupler=oasis3-mct # <HOME_DIR>/esm_tools/configs/setups/awiesm/awiesm.yaml,line:242,col:33
@@ -522,8 +491,7 @@ echam:
   check_error:
     mo_exception.f90:
       method: kill  # <HOME_DIR>/esm_tools/configs/components/echam/echam.yaml,line:953,col:25
-      message: Problem with echam >> mo_exception.f90 << has occured. Killing your
-        job, sorry. # <HOME_DIR>/esm_tools/configs/components/echam/echam.yaml,line:954,col:26
+      message: Problem with echam >> mo_exception.f90 << has occured. Killing your job, sorry. # <HOME_DIR>/esm_tools/configs/components/echam/echam.yaml,line:954,col:26
       file: <TEST_DIR>/run/awiesm//awiesm-2.1_icebergs/run_20010101-20010101/work//atmout # <HOME_DIR>/esm_tools/configs/components/echam/echam.yaml,line:955,col:23
       frequency: 90 # <HOME_DIR>/esm_tools/configs/components/echam/echam.yaml,line:956,col:28
   input_sources:
@@ -693,8 +661,7 @@ echam:
   add_compiletime_environment_changes:
     add_export_vars:
       OIFS_OASIS_BASE: $(pwd)/oasis  # <HOME_DIR>/esm_tools/configs/setups/awiesm/awiesm.yaml,line:238,col:34
-      OIFS_OASIS_INCLUDE: '"-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip
-        -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu"' # <HOME_DIR>/esm_tools/configs/setups/awiesm/awiesm.yaml,line:239,col:37
+      OIFS_OASIS_INCLUDE: '"-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu"' # <HOME_DIR>/esm_tools/configs/setups/awiesm/awiesm.yaml,line:239,col:37
       OASIS3MCT_FC_LIB: $(pwd)/lib/ # <HOME_DIR>/esm_tools/configs/setups/awiesm/awiesm.yaml,line:240,col:35
       OASIS3MCTROOT: $(pwd)/oasis/ # <HOME_DIR>/esm_tools/configs/setups/awiesm/awiesm.yaml,line:241,col:32
       configure_opts: --with-coupler=oasis3-mct # <HOME_DIR>/esm_tools/configs/setups/awiesm/awiesm.yaml,line:242,col:33
@@ -1393,8 +1360,7 @@ fesom:
   branch: 2.1-awiesm-2.1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.1.yaml,line:33,col:13
   version: 2.1-awiesm-2.1 # <HOME_DIR>/esm_tools/configs/setups/awiesm/awiesm.yaml,line:331,col:34
   type: ocean # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.1.yaml,line:7,col:7
-  comp_command: mkdir -p build; cd build; cmake -DFESOM_COUPLED=ON ..; make install
-    -j `nproc --all` # <HOME_DIR>/esm_tools/configs/setups/awiesm/awiesm.yaml,line:303,col:23
+  comp_command: mkdir -p build; cd build; cmake -DFESOM_COUPLED=ON ..; make install -j `nproc --all` # <HOME_DIR>/esm_tools/configs/setups/awiesm/awiesm.yaml,line:303,col:23
   clean_command: rm -rf build CMakeCache.txt # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.1.yaml,line:10,col:16
   required_plugins:
   - git+https://github.com/esm-tools-plugins/tar_binary_restarts  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.1.yaml,line:13,col:3
@@ -1409,8 +1375,7 @@ fesom:
   install_bins: bin/fesom.x # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.1.yaml,line:58,col:15
   git-repository:
   - https://github.com/FESOM/fesom2.git  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.1.yaml,line:60,col:3
-  contact: dmitry.sidorenko(at)awi.de, nikolay.koldunov(at)awi.de, miguel.andres-martinez(at)awi.de,
-    paul.gierz(at)awi.de  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.1.yaml,line:61,col:10
+  contact: dmitry.sidorenko(at)awi.de, nikolay.koldunov(at)awi.de, miguel.andres-martinez(at)awi.de, paul.gierz(at)awi.de  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.1.yaml,line:61,col:10
   restart_rate: 1 # <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/scripts/awiesm-2.1_icebergs.yaml,line:67,col:19
   restart_unit: d # <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/scripts/awiesm-2.1_icebergs.yaml,line:68,col:19
   restart_first: 1 # <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/scripts/awiesm-2.1_icebergs.yaml,line:69,col:20
@@ -2969,11 +2934,8 @@ oasis3mct:
   - 4.0-awicm-3.1 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:34,col:3
   - 5.0-smhi # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:35,col:3
   - 6.0-YAC # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:36,col:3
-  clean_command: rm -rf build CMakeCache.txt include lib/libpsmile.a lib/libscrip.a
-    lib/libmct.a lib/libmpeu.a  # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:102,col:16
-  comp_command: mkdir -p build; cd build; cmake ..;   make -j 1; mkdir -p ../include/;
-    cp lib/psmile/libpsmile.a lib/psmile/mct/libmct.a lib/psmile/mct/mpeu/libmpeu.a
-    lib/psmile/scrip/libscrip.a ../lib; cp lib/psmile/mod_oasis*mod ../include # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:103,col:15
+  clean_command: rm -rf build CMakeCache.txt include lib/libpsmile.a lib/libscrip.a lib/libmct.a lib/libmpeu.a  # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:102,col:16
+  comp_command: mkdir -p build; cd build; cmake ..;   make -j 1; mkdir -p ../include/; cp lib/psmile/libpsmile.a lib/psmile/mct/libmct.a lib/psmile/mct/mpeu/libmpeu.a lib/psmile/scrip/libscrip.a ../lib; cp lib/psmile/mod_oasis*mod ../include # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:103,col:15
   with_yac: false # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:104,col:11
   destination: oasis # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:106,col:14
   install_libs:
@@ -3412,10 +3374,8 @@ jsbach:
   model: jsbach  # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:3,col:8
   repository: https://gitlab.dkrz.de/modular_esm/echam6 # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:4,col:13
   domain: vegetation # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:5,col:9
-  description: "The JSBACH vegetation model, major version 3\n(someone from Hamburg)\n\
-    paper citation" # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:7,col:14
-  license_text: "Please make sure you have a licence to use echam.In case you are\n\
-    unsure, please contact redmine...." # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:12,col:15
+  description: "The JSBACH vegetation model, major version 3\n(someone from Hamburg)\npaper citation" # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:7,col:14
+  license_text: "Please make sure you have a licence to use echam.In case you are\nunsure, please contact redmine...." # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:12,col:15
   pool_dir: /pool/data/JSBACH # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:16,col:11
   input_dir: /pool/data/JSBACH/input/r0010 # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:17,col:12
   adj_input_dir: /work/ollie/sxu/AWICM-2.0/meshes/core2_dkrz//tarfilesT63/input/jsbach # <HOME_DIR>/esm_tools/configs/setups/awiesm/awiesm.yaml,line:277,col:24
@@ -3825,10 +3785,8 @@ hdmodel:
   model: hdmodel  # <HOME_DIR>/esm_tools/configs/components/hdmodel/hdmodel.yaml,line:3,col:8
   repository: https://gitlab.dkrz.de/modular_esm/echam6 # <HOME_DIR>/esm_tools/configs/components/hdmodel/hdmodel.yaml,line:4,col:13
   domain: hydrology # <HOME_DIR>/esm_tools/configs/components/hdmodel/hdmodel.yaml,line:5,col:9
-  description: "The Hagemann/Duemenil hydrology model,\n(someone from Hamburg)\npaper\
-    \ citation" # <HOME_DIR>/esm_tools/configs/components/hdmodel/hdmodel.yaml,line:7,col:14
-  license_text: "Please make sure you have a licence to use echam. In case you are\n\
-    unsure, please contact redmine...." # <HOME_DIR>/esm_tools/configs/components/hdmodel/hdmodel.yaml,line:12,col:15
+  description: "The Hagemann/Duemenil hydrology model,\n(someone from Hamburg)\npaper citation" # <HOME_DIR>/esm_tools/configs/components/hdmodel/hdmodel.yaml,line:7,col:14
+  license_text: "Please make sure you have a licence to use echam. In case you are\nunsure, please contact redmine...." # <HOME_DIR>/esm_tools/configs/components/hdmodel/hdmodel.yaml,line:12,col:15
   pool_dir: /pool/data/JSBACH/input/r0010/HD # <HOME_DIR>/esm_tools/configs/components/hdmodel/hdmodel.yaml,line:16,col:11
   input_dir: /pool/data/JSBACH/input/r0010/HD # <HOME_DIR>/esm_tools/configs/components/hdmodel/hdmodel.yaml,line:17,col:12
   executable: # <HOME_DIR>/esm_tools/configs/components/hdmodel/hdmodel.yaml,line:19,col:13
@@ -4089,8 +4047,7 @@ computer:
   additional_flags: []
   output_path: <TEST_DIR>/run/awiesm//awiesm-2.1_icebergs/log/ # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:45,col:14
   thisrun_logfile: <TEST_DIR>/run/awiesm//awiesm-2.1_icebergs/log/awiesm-2.1_icebergs_awiesm_@jobtype@_20010101-20010101_%j.log # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:46,col:18
-  output_flags: --output=<TEST_DIR>/run/awiesm//awiesm-2.1_icebergs/log/awiesm-2.1_icebergs_awiesm_@jobtype@_20010101-20010101_%j.log
-    --error=<TEST_DIR>/run/awiesm//awiesm-2.1_icebergs/log/awiesm-2.1_icebergs_awiesm_@jobtype@_20010101-20010101_%j.log # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:47,col:15
+  output_flags: --output=<TEST_DIR>/run/awiesm//awiesm-2.1_icebergs/log/awiesm-2.1_icebergs_awiesm_@jobtype@_20010101-20010101_%j.log --error=<TEST_DIR>/run/awiesm//awiesm-2.1_icebergs/log/awiesm-2.1_icebergs_awiesm_@jobtype@_20010101-20010101_%j.log # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:47,col:15
   name_flag: --job-name=awiesm-2.1_icebergs # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:48,col:12
   taskset: false # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:50,col:10
   mt_launcher_flag: --hint=nomultithread # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:33,col:51
@@ -4101,8 +4058,7 @@ computer:
         true:
           srun_execution_command: srun -l --hint=nomultithread --multi-prog hostfile_srun  # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:59,col:41
         false:
-          launcher_flags_per_component: --hint=nomultithread  --nodes=@nnodes@ --ntasks=@nproc@
-            --ntasks-per-node=@nproc_per_node@ --cpus-per-task=@cpus_per_proc@ --export=ALL,OMP_NUM_THREADS=@omp_num_threads@  # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:64,col:47
+          launcher_flags_per_component: --hint=nomultithread  --nodes=@nnodes@ --ntasks=@nproc@ --ntasks-per-node=@nproc_per_node@ --cpus-per-task=@cpus_per_proc@ --export=ALL,OMP_NUM_THREADS=@omp_num_threads@  # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:64,col:47
           srun_execution_command: "srun -l \\\n@components@" # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:71,col:41
           launcher_comp_sep: "\\\n:" # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:72,col:36
     false:
@@ -4154,8 +4110,7 @@ computer:
         true:
           srun_execution_command: srun -l --hint=nomultithread --multi-prog hostfile_srun  # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:59,col:41
         false:
-          launcher_flags_per_component: --hint=nomultithread  --nodes=@nnodes@ --ntasks=@nproc@
-            --ntasks-per-node=@nproc_per_node@ --cpus-per-task=@cpus_per_proc@ --export=ALL,OMP_NUM_THREADS=@omp_num_threads@  # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:64,col:47
+          launcher_flags_per_component: --hint=nomultithread  --nodes=@nnodes@ --ntasks=@nproc@ --ntasks-per-node=@nproc_per_node@ --cpus-per-task=@cpus_per_proc@ --export=ALL,OMP_NUM_THREADS=@omp_num_threads@  # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:64,col:47
           srun_execution_command: "srun -l \\\n@components@" # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:71,col:41
           launcher_comp_sep: "\\\n:" # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:72,col:36
     false:
@@ -4234,8 +4189,7 @@ general:
   inspect: # no provenance info
   no_motd: true # no provenance info
   ignore_config_warnings: false # no provenance info
-  original_command: awiesm-2.1_icebergs.yaml -e awiesm-2.1_icebergs --open-run --no-motd
-    --last-jobtype prepcompute -t prepcompute # no provenance info
+  original_command: awiesm-2.1_icebergs.yaml -e awiesm-2.1_icebergs --open-run --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
   started_from: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/scripts/ # no provenance info
   scriptname: awiesm-2.1_icebergs.yaml # no provenance info
   isinteractive: false # no provenance info
@@ -4266,8 +4220,7 @@ general:
     use_venv: false # no provenance info
     no_motd: true # no provenance info
     ignore_config_warnings: false # no provenance info
-    original_command: awiesm-2.1_icebergs.yaml -e awiesm-2.1_icebergs --open-run --no-motd
-      --last-jobtype prepcompute -t prepcompute # no provenance info
+    original_command: awiesm-2.1_icebergs.yaml -e awiesm-2.1_icebergs --open-run --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
     started_from: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/scripts/ # no provenance info
     scriptname: awiesm-2.1_icebergs.yaml # no provenance info
     runscript_abspath: <TEST_DIR>run/awiesm/awiesm-2.1_icebergs/scripts/awiesm-2.1_icebergs.yaml # no provenance info
@@ -4462,7 +4415,7 @@ general:
     first_task_in_queue: prepcompute # no provenance info
     next_run_triggered_by: tidy # no provenance info
   submitted: false  # no provenance info
-  jobid: 3287563 # no provenance info
+  jobid: 3715611 # no provenance info
   batch: slurm # no provenance info
   coupler_config_dir: <TEST_DIR>/run/awiesm//awiesm-2.1_icebergs/run_20010101-20010101/config/oasis3mct/ # no provenance info
   coupler: oasis3mct # no provenance info

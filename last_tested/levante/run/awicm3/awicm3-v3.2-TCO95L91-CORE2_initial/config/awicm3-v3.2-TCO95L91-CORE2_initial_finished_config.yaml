@@ -3,8 +3,7 @@ fesom:
   branch: '2.5' # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.5.yaml,line:27,col:13
   version: 2.5 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:464,col:34
   type: ocean # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.5.yaml,line:7,col:7
-  comp_command: mkdir -p build; cd build; cmake -DOIFS_COUPLED=ON -DFESOM_COUPLED=ON
-    -DCMAKE_INSTALL_PREFIX=../ ..;   make install -j `nproc --all` # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:414,col:31
+  comp_command: mkdir -p build; cd build; cmake -DOIFS_COUPLED=ON -DFESOM_COUPLED=ON -DCMAKE_INSTALL_PREFIX=../ ..;   make install -j `nproc --all` # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:414,col:31
   clean_command: rm -rf build CMakeCache.txt # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.5.yaml,line:10,col:16
   icb_code: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.5.yaml,line:14,col:11
   with_icb: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.5.yaml,line:15,col:11
@@ -17,8 +16,7 @@ fesom:
   install_bins: bin/fesom.x # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.5.yaml,line:45,col:15
   git-repository:
   - https://github.com/FESOM/fesom2.git  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.5.yaml,line:47,col:3
-  contact: jan.streffing(at)awi.de, dmitry.sidorenko(at)awi.de, nikolay.koldunov(at)awi.de,
-    miguel.andres-martinez(at)awi.de, paul.gierz(at)awi.de  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.5.yaml,line:48,col:10
+  contact: jan.streffing(at)awi.de, dmitry.sidorenko(at)awi.de, nikolay.koldunov(at)awi.de, miguel.andres-martinez(at)awi.de, paul.gierz(at)awi.de  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.5.yaml,line:48,col:10
   restart_rate: 1 # <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml,line:40,col:19
   restart_unit: d # <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml,line:41,col:19
   restart_first: 1 # <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml,line:42,col:20
@@ -507,8 +505,7 @@ oifs:
   required_plugins:
   - git+https://github.com/esm-tools-plugins/postprocess  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:17,col:11
   - git+https://github.com/esm-tools-plugins/preprocess # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:18,col:11
-  description: "The OpenIFS atmosphere model based on ECMWF IFS\nCarver et al., in\
-    \ prep."  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:20,col:14
+  description: "The OpenIFS atmosphere model based on ECMWF IFS\nCarver et al., in prep."  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:20,col:14
   license_text: ECMWF license. AWI and GEOMAR have licenses. # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:24,col:15
   namelist_case: uppercase # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:28,col:16
   reusable_filetypes:
@@ -540,12 +537,10 @@ oifs:
   metadata:
     Name: OpenIFS  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:75,col:15
     Institute: ECMWF # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:76,col:20
-    Description: OpenIFS provides research institutions with an easy-to-use version
-      of the ECMWF IFS (Integrated Forecasting System). # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:78,col:17
+    Description: OpenIFS provides research institutions with an easy-to-use version of the ECMWF IFS (Integrated Forecasting System). # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:78,col:17
     Authors: Glenn Carver (openifs-support@ecmwf.int) # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:80,col:18
     Website: https://www.ecmwf.int/en/research/projects/openifs # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:81,col:18
-    License: Please make sure you have a licence to use OpenIFS. In case you are unsure,
-      please contact redmine... # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:83,col:17
+    License: Please make sure you have a licence to use OpenIFS. In case you are unsure, please contact redmine... # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:83,col:17
   contact: jan.streffing(at)awi.de, miguel.andres-martinez(at)awi.de  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:86,col:10
   available_versions:
   - 40r1  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:90,col:3
@@ -565,9 +560,7 @@ oifs:
   - 43r3-v1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:104,col:3
   - 48r1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:105,col:3
   clean_command: rm -rf make/esm  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:283,col:16
-  comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-v3.2/oifs-43r3;
-    cd make; ../fcm/bin/fcm make -v -j8 -f oifs.cfg ; chmod -R 700 . ; mv esm/oifs/bin/master.exe
-    esm/oifs/bin/oifs # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:220,col:19
+  comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-v3.2/oifs-43r3; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.cfg ; chmod -R 700 . ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:220,col:19
   git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3.git # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:222,col:21
   install_bins: make/esm/oifs/bin/oifs # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:223,col:19
   input_expid: awi3 # <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml,line:57,col:18
@@ -966,16 +959,11 @@ oifs:
   eternal_run_number: 1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1300,col:21
   preprocess:
     preprocess_shell:
-      method: "<HOME_DIR>/esm_tools/configs//components/oifs/change_icm_date.sh\
-        \ <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs//\
-        \ awi3 awi3 20000101 20000101 1 0 40320 1;   echo 'Run number for internal\
-        \ OpenIFS timekeeping: 1'"  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1381,col:25
+      method: "<HOME_DIR>/esm_tools/configs//components/oifs/change_icm_date.sh <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs// awi3 awi3 20000101 20000101 1 0 40320 1;   echo 'Run number for internal OpenIFS timekeeping: 1'"  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1381,col:25
       type: shell # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1382,col:23
   postprocess:
     postprocess_shell:
-      method: <HOME_DIR>/esm_tools/configs//components/oifs/oifs-43r3-postprocess.sh
-        <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work/
-        ECE3 20000101 20000101  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1393,col:25
+      method: <HOME_DIR>/esm_tools/configs//components/oifs/oifs-43r3-postprocess.sh <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work/ ECE3 20000101 20000101  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1393,col:25
       type: shell # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1394,col:23
   prepcompute_recipe:
   - compile_model  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1402,col:6
@@ -1130,24 +1118,19 @@ oifs:
         - OIFS_GRIB_API_BIN="$ECCODESROOT/bin" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:156,col:11
         - LAPACK_LIB_DEFAULT="-L$MKLROOT/lib/intel64 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:157,col:11
         - OIFS_OASIS_BASE=$(pwd)/oasis # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:159,col:11
-        - OIFS_OASIS_INCLUDE="-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip
-          -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:160,col:11
-        - OIFS_OASIS_LIB="-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip
-          -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu
-          -lpsmile -lmct -lmpeu -lscrip" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:161,col:11
+        - OIFS_OASIS_INCLUDE="-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:160,col:11
+        - OIFS_OASIS_LIB="-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu -lpsmile -lmct -lmpeu -lscrip" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:161,col:11
         - OIFS_NETCDF_INCLUDE="-I$NETCDFROOT/include" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:163,col:11
         - OIFS_NETCDF_LIB="-L$NETCDFROOT/lib -lnetcdf" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:164,col:11
         - OIFS_NETCDFF_INCLUDE="-I$NETCDFFROOT/include" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:165,col:11
         - OIFS_NETCDFF_LIB="-L$NETCDFFROOT/lib -lnetcdff" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:166,col:11
         - OIFS_FC=$FC # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:168,col:11
-        - OIFS_FFLAGS="-qopenmp -r8 -fp-model precise -align array32byte -O1 -xCORE_AVX2
-          -g -traceback -convert big_endian -fpe0" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:169,col:11
+        - OIFS_FFLAGS="-qopenmp -r8 -fp-model precise -align array32byte -O1 -xCORE_AVX2 -g -traceback -convert big_endian -fpe0" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:169,col:11
         - OIFS_FFIXED="" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:170,col:11
         - OIFS_FCDEFS="BLAS LITTLE LINUX INTEGER_IS_INT" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:171,col:11
         - OIFS_LFLAGS="$OIFS_MPI_LIB -qopenmp" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:172,col:11
         - OIFS_CC=$CC # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:173,col:11
-        - OIFS_CFLAGS="-qopenmp -fp-model precise -O1 -xCORE_AVX2 -g -traceback -qopt-report=0
-          -fpe0" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:174,col:11
+        - OIFS_CFLAGS="-qopenmp -fp-model precise -O1 -xCORE_AVX2 -g -traceback -qopt-report=0 -fpe0" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:174,col:11
         - OIFS_CCDEFS="LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:175,col:11
         iolibraries: geomar_libs  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:351,col:46
       glogin:
@@ -1166,24 +1149,19 @@ oifs:
         - OIFS_GRIB_API_BIN="$ECCODESROOT/bin" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:194,col:11
         - LAPACK_LIB_DEFAULT="-L$MKLROOT/lib/intel64 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:195,col:11
         - OIFS_OASIS_BASE=$(pwd)/oasis # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:197,col:11
-        - OIFS_OASIS_INCLUDE="-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip
-          -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:198,col:11
-        - OIFS_OASIS_LIB="-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip
-          -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu
-          -lpsmile -lmct -lmpeu -lscrip" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:199,col:11
+        - OIFS_OASIS_INCLUDE="-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:198,col:11
+        - OIFS_OASIS_LIB="-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu -lpsmile -lmct -lmpeu -lscrip" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:199,col:11
         - OIFS_NETCDF_INCLUDE="-I$NETCDFROOT/include" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:201,col:11
         - OIFS_NETCDF_LIB="-L$NETCDFROOT/lib -lnetcdf -lnetcdff" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:202,col:11
         - OIFS_NETCDFF_INCLUDE="-I$NETCDFFROOT/include" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:203,col:11
         - OIFS_NETCDFF_LIB="-L$NETCDFFROOT/lib -lnetcdff" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:204,col:11
         - OIFS_FC=$FC # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:206,col:11
-        - OIFS_FFLAGS="-qopenmp -r8 -fp-model precise -align array32byte -O1 -xCORE_AVX2
-          -g -traceback -convert big_endian -fpe0" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:207,col:11
+        - OIFS_FFLAGS="-qopenmp -r8 -fp-model precise -align array32byte -O1 -xCORE_AVX2 -g -traceback -convert big_endian -fpe0" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:207,col:11
         - OIFS_FFIXED="" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:208,col:11
         - OIFS_FCDEFS="BLAS LITTLE LINUX INTEGER_IS_INT" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:209,col:11
         - OIFS_LFLAGS="$OIFS_MPI_LIB -qopenmp" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:210,col:11
         - OIFS_CC=$CC # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:211,col:11
-        - OIFS_CFLAGS="-qopenmp -fp-model precise -O1 -xCORE_AVX2 -g -traceback -qopt-report=0
-          -fpe0" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:212,col:11
+        - OIFS_CFLAGS="-qopenmp -fp-model precise -O1 -xCORE_AVX2 -g -traceback -qopt-report=0 -fpe0" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:212,col:11
         - OIFS_CCDEFS="LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:213,col:11
         iolibraries: geomar_libs  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:353,col:46
       juwels:
@@ -1195,29 +1173,21 @@ oifs:
           OIFS_GRIB_INCLUDE: '"$OIFS_GRIB_API_INCLUDE"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:221,col:28
           OIFS_GRIB_LIB: '"$OIFS_GRIB_API_LIB"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:222,col:24
           OIFS_GRIB_API_BIN: '"$ECCODESROOT/bin"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:223,col:28
-          LAPACK_LIB_DEFAULT: '"-L$MKLROOT/lib/intel64 -lmkl_intel_lp64 -lmkl_core
-            -lmkl_sequential"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:224,col:29
+          LAPACK_LIB_DEFAULT: '"-L$MKLROOT/lib/intel64 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:224,col:29
           OIFS_OASIS_BASE: '"$(pwd)/oasis"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:225,col:26
-          OIFS_OASIS_INCLUDE: '"-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip
-            -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu
-            -I$OIFS_OASIS_BASE/lib/include/yac -I$OIFS_OASIS_BASE/lib/yaxt/include"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:226,col:29
-          OIFS_OASIS_LIB: '"-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip
-            -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu
-            -L$OIFS_OASIS_BASE/lib/yac/lib -L$OIFS_OASIS_BASE/lib/yaxt/lib -lpsmile
-            -lmct -lmpeu -lscrip  -lyac_utils -lyac_core -lyaxt -lyaxt_c  -qmkl"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:227,col:25
+          OIFS_OASIS_INCLUDE: '"-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu -I$OIFS_OASIS_BASE/lib/include/yac -I$OIFS_OASIS_BASE/lib/yaxt/include"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:226,col:29
+          OIFS_OASIS_LIB: '"-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu -L$OIFS_OASIS_BASE/lib/yac/lib -L$OIFS_OASIS_BASE/lib/yaxt/lib -lpsmile -lmct -lmpeu -lscrip  -lyac_utils -lyac_core -lyaxt -lyaxt_c  -qmkl"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:227,col:25
           OIFS_NETCDF_INCLUDE: '"-I$NETCDFROOT/include"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:228,col:30
           OIFS_NETCDF_LIB: '"-L$NETCDFROOT/lib -lnetcdf"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:229,col:26
           OIFS_NETCDFF_INCLUDE: '"-I$NETCDFFROOT/include"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:230,col:31
           OIFS_NETCDFF_LIB: '"-L$NETCDFFROOT/lib -lnetcdff -lnetcdf"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:231,col:27
           OIFS_FC: '"$FC"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:232,col:18
-          OIFS_FFLAGS: '"-r8 -fp-model precise -align array32byte -O1 -qopenmp -xCORE_AVX2
-            -g -traceback -convert big_endian -fpe0"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:233,col:22
+          OIFS_FFLAGS: '"-r8 -fp-model precise -align array32byte -O1 -qopenmp -xCORE_AVX2 -g -traceback -convert big_endian -fpe0"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:233,col:22
           OIFS_FFIXED: '""' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:234,col:22
           OIFS_FCDEFS: '"BLAS LITTLE LINUX INTEGER_IS_INT"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:235,col:22
           OIFS_LFLAGS: '"$OIFS_MPI_LIB -qopenmp"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:236,col:22
           OIFS_CC: '"$CC"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:237,col:18
-          OIFS_CFLAGS: '"-fp-model precise -O3 -xCORE_AVX2 -g -traceback -qopt-report=0
-            -fpe0 -qopenmp"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:238,col:22
+          OIFS_CFLAGS: '"-fp-model precise -O3 -xCORE_AVX2 -g -traceback -qopt-report=0 -fpe0 -qopenmp"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:238,col:22
           OIFS_CCDEFS: '"LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS _OPENMP"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:239,col:22
           MAIN_LDFLAGS: '"-openmp"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:240,col:23
         compiler_mpi: intel2022_ompi2022  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:349,col:47
@@ -1242,24 +1212,19 @@ oifs:
           OIFS_GRIB_LIB: '"$OIFS_GRIB_API_LIB"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:265,col:24
           OIFS_GRIB_API_BIN: '"$GRIBAPIROOT/bin"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:266,col:28
           OIFS_OASIS_BASE: $(pwd)/oasis # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:267,col:26
-          OIFS_OASIS_INCLUDE: '"-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip
-            -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:268,col:29
-          OIFS_OASIS_LIB: '"-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip
-            -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu
-            -lpsmile -lmct -lmpeu -lscrip"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:269,col:25
+          OIFS_OASIS_INCLUDE: '"-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:268,col:29
+          OIFS_OASIS_LIB: '"-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu -lpsmile -lmct -lmpeu -lscrip"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:269,col:25
           OIFS_NETCDF_INCLUDE: '"-I$NETCDFROOT/include"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:270,col:30
           OIFS_NETCDF_LIB: '"-L$NETCDFROOT/lib -lnetcdf"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:271,col:26
           OIFS_NETCDFF_INCLUDE: '"-I$NETCDFFROOT/include"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:272,col:31
           OIFS_NETCDFF_LIB: '"-L$NETCDFFROOT/lib -lnetcdff"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:273,col:27
           OIFS_FC: $FC # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:274,col:18
-          OIFS_FFLAGS: '"-r8 -fp-model precise -align array32byte -O3 -qopenmp -xCORE_AVX2
-            -g -traceback -convert big_endian -fpe0"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:275,col:22
+          OIFS_FFLAGS: '"-r8 -fp-model precise -align array32byte -O3 -qopenmp -xCORE_AVX2 -g -traceback -convert big_endian -fpe0"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:275,col:22
           OIFS_FFIXED: '""' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:277,col:22
           OIFS_FCDEFS: '"BLAS LITTLE LINUX INTEGER_IS_INT"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:278,col:22
           OIFS_LFLAGS: '"$OIFS_MPI_LIB -qopenmp"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:279,col:22
           OIFS_CC: $CC # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:280,col:18
-          OIFS_CFLAGS: '"-fp-model precise -O3 -qopenmp -xCORE_AVX2 -g -traceback
-            -qopt-report=0 -fpe0"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:281,col:22
+          OIFS_CFLAGS: '"-fp-model precise -O3 -qopenmp -xCORE_AVX2 -g -traceback -qopt-report=0 -fpe0"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:281,col:22
           OIFS_CCDEFS: '"LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:282,col:22
           OIFS_FFTW_DIR: '"$FFTW_ROOT"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:286,col:24
           OIFS_FFTW_INCLUDE: '"-I$OIFS_FFTW_DIR/include/"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:287,col:28
@@ -1286,30 +1251,22 @@ oifs:
           OIFS_GRIB_INCLUDE: '"$OIFS_GRIB_API_INCLUDE"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:313,col:28
           OIFS_GRIB_LIB: '"$OIFS_GRIB_API_LIB"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:314,col:24
           OIFS_GRIB_API_BIN: '"$ECCODESROOT/bin"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:315,col:28
-          LAPACK_LIB_DEFAULT: '"-L$MKLROOT/lib/intel64 -lmkl_intel_lp64 -lmkl_core
-            -lmkl_sequential"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:316,col:29
+          LAPACK_LIB_DEFAULT: '"-L$MKLROOT/lib/intel64 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:316,col:29
           OIFS_OASIS_BASE: $(pwd)/oasis # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:318,col:26
-          OIFS_OASIS_INCLUDE: '"-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip
-            -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu
-            -I$OIFS_OASIS_BASE/lib/include/yac -I$OIFS_OASIS_BASE/lib/yaxt/include"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:319,col:29
-          OIFS_OASIS_LIB: '"-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip
-            -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu
-            -L$OIFS_OASIS_BASE/lib/yac/lib -L$OIFS_OASIS_BASE/lib/yaxt/lib -lpsmile
-            -lmct -lmpeu -lscrip  -lyac_utils -lyac_core -lyaxt -lyaxt_c -qmkl"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:320,col:25
+          OIFS_OASIS_INCLUDE: '"-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu -I$OIFS_OASIS_BASE/lib/include/yac -I$OIFS_OASIS_BASE/lib/yaxt/include"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:319,col:29
+          OIFS_OASIS_LIB: '"-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu -L$OIFS_OASIS_BASE/lib/yac/lib -L$OIFS_OASIS_BASE/lib/yaxt/lib -lpsmile -lmct -lmpeu -lscrip  -lyac_utils -lyac_core -lyaxt -lyaxt_c -qmkl"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:320,col:25
           OIFS_NETCDF_INCLUDE: '"-I$NETCDFROOT/include"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:322,col:30
           OIFS_NETCDF_LIB: '"-L$NETCDFROOT/lib -lnetcdf"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:323,col:26
           OIFS_NETCDFF_INCLUDE: '"-I$NETCDFFROOT/include"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:324,col:31
           OIFS_NETCDFF_LIB: '"-L$NETCDFFROOT/lib -lnetcdff"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:325,col:27
           OIFS_FC: $FC # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:327,col:18
-          OIFS_FFLAGS: '"-r8 -fp-model precise -align array32byte -O3 -qopenmp -g
-            -traceback -convert big_endian -march=core-avx2 -mtune=core-avx2"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:328,col:22
+          OIFS_FFLAGS: '"-r8 -fp-model precise -align array32byte -O3 -qopenmp -g -traceback -convert big_endian -march=core-avx2 -mtune=core-avx2"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:328,col:22
           OIFS_FFIXED: '""' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:330,col:22
           OIFS_FCDEFS: '"BLAS LITTLE LINUX INTEGER_IS_INT"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:331,col:22
           OIFS_MPI_LIB: '"$MPI_LIB"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:332,col:23
           OIFS_LFLAGS: '"$OIFS_MPI_LIB -qopenmp"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:333,col:22
           OIFS_CC: $CC # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:334,col:18
-          OIFS_CFLAGS: '"-fp-model precise -O3 -g -traceback -qopt-report=0 -fpe0
-            -qopenmp -march=core-avx2 -mtune=core-avx2"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:335,col:22
+          OIFS_CFLAGS: '"-fp-model precise -O3 -g -traceback -qopt-report=0 -fpe0 -qopenmp -march=core-avx2 -mtune=core-avx2"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:335,col:22
           OIFS_CCDEFS: '"LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS _OPENMP"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:336,col:22
         iolibraries: system_libs  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:355,col:46
       albedo:
@@ -1326,28 +1283,22 @@ oifs:
           OIFS_GRIB_INCLUDE: '"$OIFS_GRIB_API_INCLUDE"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:353,col:28
           OIFS_GRIB_LIB: '"$OIFS_GRIB_API_LIB"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:354,col:24
           OIFS_GRIB_API_BIN: '"$ECCODESROOT/bin"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:355,col:28
-          LAPACK_LIB_DEFAULT: '"-L$MKLROOT/lib/intel64 -lmkl_intel_lp64 -lmkl_core
-            -lmkl_sequential"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:356,col:29
+          LAPACK_LIB_DEFAULT: '"-L$MKLROOT/lib/intel64 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:356,col:29
           OIFS_OASIS_BASE: $(pwd)/oasis # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:358,col:26
-          OIFS_OASIS_INCLUDE: '"-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip
-            -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:359,col:29
-          OIFS_OASIS_LIB: '"-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip
-            -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu
-            -lpsmile -lmct -lmpeu -lscrip"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:360,col:25
+          OIFS_OASIS_INCLUDE: '"-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:359,col:29
+          OIFS_OASIS_LIB: '"-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu -lpsmile -lmct -lmpeu -lscrip"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:360,col:25
           OIFS_NETCDF_INCLUDE: '"-I$NETCDFROOT/include"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:362,col:30
           OIFS_NETCDF_LIB: '"-L$NETCDFROOT/lib -lnetcdf"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:363,col:26
           OIFS_NETCDFF_INCLUDE: '"-I$NETCDFFROOT/include"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:364,col:31
           OIFS_NETCDFF_LIB: '"-L$NETCDFFROOT/lib -lnetcdff"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:365,col:27
           OIFS_FC: $FC # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:367,col:18
-          OIFS_FFLAGS: '"-r8 -fp-model precise -align array32byte -O3 -qopenmp -g
-            -traceback -convert big_endian -march=core-avx2 -mtune=core-avx2"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:368,col:22
+          OIFS_FFLAGS: '"-r8 -fp-model precise -align array32byte -O3 -qopenmp -g -traceback -convert big_endian -march=core-avx2 -mtune=core-avx2"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:368,col:22
           OIFS_FFIXED: '""' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:370,col:22
           OIFS_FCDEFS: '"BLAS LITTLE LINUX INTEGER_IS_INT"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:371,col:22
           OIFS_MPI_LIB: '"$MPI_LIB"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:372,col:23
           OIFS_LFLAGS: '"$OIFS_MPI_LIB -qopenmp"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:373,col:22
           OIFS_CC: $CC # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:374,col:18
-          OIFS_CFLAGS: '"-fp-model precise -O3 -g -traceback -qopt-report=0 -fpe0
-            -qopenmp -march=core-avx2 -mtune=core-avx2"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:375,col:22
+          OIFS_CFLAGS: '"-fp-model precise -O3 -g -traceback -qopt-report=0 -fpe0 -qopenmp -march=core-avx2 -mtune=core-avx2"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:375,col:22
           OIFS_CCDEFS: '"LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS _OPENMP"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:376,col:22
       ollie:
         add_module_actions:
@@ -1373,27 +1324,21 @@ oifs:
           OIFS_GRIB_INCLUDE: '"$OIFS_GRIB_API_INCLUDE"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:403,col:28
           OIFS_GRIB_LIB: '"$OIFS_GRIB_API_LIB"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:404,col:24
           OIFS_GRIB_API_BIN: '"$ECCODESROOT/bin"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:405,col:28
-          LAPACK_LIB_DEFAULT: '"-L$MKLROOT/lib/intel64 -lmkl_intel_lp64 -lmkl_core
-            -lmkl_sequential"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:406,col:29
+          LAPACK_LIB_DEFAULT: '"-L$MKLROOT/lib/intel64 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:406,col:29
           OIFS_OASIS_BASE: $(pwd)/oasis # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:408,col:26
-          OIFS_OASIS_INCLUDE: '"-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip
-            -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:409,col:29
-          OIFS_OASIS_LIB: '"-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip
-            -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu
-            -lpsmile -lmct -lmpeu -lscrip"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:410,col:25
+          OIFS_OASIS_INCLUDE: '"-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:409,col:29
+          OIFS_OASIS_LIB: '"-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu -lpsmile -lmct -lmpeu -lscrip"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:410,col:25
           OIFS_NETCDF_INCLUDE: '"-I$NETCDFROOT/include"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:412,col:30
           OIFS_NETCDF_LIB: '"-L$NETCDFROOT/lib -lnetcdf"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:413,col:26
           OIFS_NETCDFF_INCLUDE: '"-I$NETCDFFROOT/include"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:414,col:31
           OIFS_NETCDFF_LIB: '"-L$NETCDFFROOT/lib -lnetcdff"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:415,col:27
           OIFS_FC: $FC # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:417,col:18
-          OIFS_FFLAGS: '"-r8 -fp-model precise -align array32byte -O3 -qopenmp -xCORE_AVX2
-            -g -traceback -convert big_endian"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:418,col:22
+          OIFS_FFLAGS: '"-r8 -fp-model precise -align array32byte -O3 -qopenmp -xCORE_AVX2 -g -traceback -convert big_endian"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:418,col:22
           OIFS_FFIXED: '""' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:419,col:22
           OIFS_FCDEFS: '"BLAS LITTLE LINUX INTEGER_IS_INT"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:420,col:22
           OIFS_LFLAGS: '"$OIFS_MPI_LIB -qopenmp"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:421,col:22
           OIFS_CC: $CC # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:422,col:18
-          OIFS_CFLAGS: '"-fp-model precise -O3 -xCORE_AVX2 -g -traceback -qopt-report=0
-            -fpe0 -qopenmp"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:423,col:22
+          OIFS_CFLAGS: '"-fp-model precise -O3 -xCORE_AVX2 -g -traceback -qopt-report=0 -fpe0 -qopenmp"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:423,col:22
           OIFS_CCDEFS: '"LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS _OPENMP"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:424,col:22
       aleph:
         add_export_vars:
@@ -1407,18 +1352,14 @@ oifs:
           OIFS_FFTW_INCLUDE: "'-I$FFTW_INC'" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:437,col:28
           OIFS_FFTW_LIB: "'-L$FFTW_DIR -ldfftw -ldrfftw'" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:438,col:24
           OIFS_OASIS_BASE: $(pwd)/oasis # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:440,col:26
-          OIFS_OASIS_INCLUDE: '"-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip
-            -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:441,col:29
-          OIFS_OASIS_LIB: '"-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip
-            -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu
-            -lpsmile -lmct -lmpeu -lscrip"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:442,col:25
+          OIFS_OASIS_INCLUDE: '"-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:441,col:29
+          OIFS_OASIS_LIB: '"-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu -lpsmile -lmct -lmpeu -lscrip"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:442,col:25
           OIFS_NETCDF_INCLUDE: -I$NETCDF_DIR/include # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:443,col:30
           OIFS_NETCDF_LIB: '"-L$NETCDF_DIR/lib -lnetcdf"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:444,col:26
           OIFS_NETCDFF_INCLUDE: -I$NETCDF_DIR/include # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:445,col:31
           OIFS_NETCDFF_LIB: '"-L$NETCDF_DIR/lib -lnetcdff"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:446,col:27
           OIFS_FC: $FC # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:447,col:18
-          OIFS_FFLAGS: '"-O2 -emf -hthread1 -hflex_mp=conservative -hfp1 -hadd_paren
-            -hbyteswapio -J./ -hcpu=x86-skylake -U_CRAYFTN"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:448,col:22
+          OIFS_FFLAGS: '"-O2 -emf -hthread1 -hflex_mp=conservative -hfp1 -hadd_paren -hbyteswapio -J./ -hcpu=x86-skylake -U_CRAYFTN"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:448,col:22
           OIFS_FFIXED: '"-s real64"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:450,col:22
           OIFS_FCDEFS: '"BLAS LITTLE LINUX INTEGER_IS_INT"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:451,col:22
           OIFS_LFLAGS: '"-dynamic -hbyteswapio"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:452,col:22
@@ -1443,24 +1384,19 @@ oifs:
         - OIFS_GRIB_API_BIN="$ECCODESROOT/bin" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:476,col:11
         - LAPACK_LIB_DEFAULT="-L$MKLROOT/lib/intel64 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:477,col:11
         - OIFS_OASIS_BASE=$(pwd)/oasis # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:479,col:11
-        - OIFS_OASIS_INCLUDE="-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip
-          -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:480,col:11
-        - OIFS_OASIS_LIB="-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip
-          -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu
-          -lpsmile -lmct -lmpeu -lscrip" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:481,col:11
+        - OIFS_OASIS_INCLUDE="-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:480,col:11
+        - OIFS_OASIS_LIB="-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu -lpsmile -lmct -lmpeu -lscrip" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:481,col:11
         - OIFS_NETCDF_INCLUDE="-I$NETCDFROOT/include" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:483,col:11
         - OIFS_NETCDF_LIB="-L$NETCDFROOT/lib -lnetcdf" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:484,col:11
         - OIFS_NETCDFF_INCLUDE="-I$NETCDFFROOT/include" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:485,col:11
         - OIFS_NETCDFF_LIB="-L$NETCDFFROOT/lib -lnetcdff" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:486,col:11
         - OIFS_FC=$FC # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:488,col:11
-        - OIFS_FFLAGS="-r8 -fp-model precise -align array32byte -O1 -xCORE_AVX2 -g
-          -traceback -convert big_endian -fpe0" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:489,col:11
+        - OIFS_FFLAGS="-r8 -fp-model precise -align array32byte -O1 -xCORE_AVX2 -g -traceback -convert big_endian -fpe0" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:489,col:11
         - OIFS_FFIXED="" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:490,col:11
         - OIFS_FCDEFS="BLAS LITTLE LINUX INTEGER_IS_INT" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:491,col:11
         - OIFS_LFLAGS=$OIFS_MPI_LIB # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:492,col:11
         - OIFS_CC=$CC # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:493,col:11
-        - OIFS_CFLAGS="-fp-model precise -O1 -xCORE_AVX2 -g -traceback -qopt-report=0
-          -fpe0" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:494,col:11
+        - OIFS_CFLAGS="-fp-model precise -O1 -xCORE_AVX2 -g -traceback -qopt-report=0 -fpe0" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:494,col:11
         - OIFS_CCDEFS="LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:495,col:11
     iolibraries: awi_libs  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:346,col:30
   environment_changes:
@@ -1589,10 +1525,7 @@ oifs:
   nrest_ind: '' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1103,col:28
   pseudo_initial_date: '2000-01-01T00:00:00' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1312,col:38
   start_ndays_source: 0 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1313,col:37
-  preprocess_method: "<HOME_DIR>/esm_tools/configs//components/oifs/change_icm_date.sh\
-    \ <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs//\
-    \ awi3 awi3 20000101 20000101 1 0 40320 1;   echo 'Run number for internal OpenIFS\
-    \ timekeeping: 1'" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1314,col:36
+  preprocess_method: "<HOME_DIR>/esm_tools/configs//components/oifs/change_icm_date.sh <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs// awi3 awi3 20000101 20000101 1 0 40320 1;   echo 'Run number for internal OpenIFS timekeeping: 1'" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1314,col:36
   leapyear: true # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:436,col:19
   experiment_analysis_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/analysis/oifs/ # no provenance info
   thisrun_analysis_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/analysis/oifs/ # no provenance info
@@ -1982,32 +1915,25 @@ rnfmap:
   compiletime_environment_changes:
     add_export_vars:
     - OIFS_OASIS_BASE=$(pwd)/oasis  # <HOME_DIR>/esm_tools/configs/components/rnfmap/rnfmap.yaml,line:203,col:9
-    - OIFS_OASIS_INCLUDE="-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip
-      -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu" # <HOME_DIR>/esm_tools/configs/components/rnfmap/rnfmap.yaml,line:204,col:9
-    - OIFS_OASIS_LIB="-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip
-      -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu
-      -lpsmile -lmct -lmpeu -lscrip" # <HOME_DIR>/esm_tools/configs/components/rnfmap/rnfmap.yaml,line:205,col:9
+    - OIFS_OASIS_INCLUDE="-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu" # <HOME_DIR>/esm_tools/configs/components/rnfmap/rnfmap.yaml,line:204,col:9
+    - OIFS_OASIS_LIB="-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu -lpsmile -lmct -lmpeu -lscrip" # <HOME_DIR>/esm_tools/configs/components/rnfmap/rnfmap.yaml,line:205,col:9
     - OIFS_NETCDF_INCLUDE="-I$NETCDFROOT/include" # <HOME_DIR>/esm_tools/configs/components/rnfmap/rnfmap.yaml,line:207,col:9
     - OIFS_NETCDF_LIB="-L$NETCDFROOT/lib -lnetcdf" # <HOME_DIR>/esm_tools/configs/components/rnfmap/rnfmap.yaml,line:208,col:9
     - OIFS_NETCDFF_INCLUDE="-I$NETCDFFROOT/include" # <HOME_DIR>/esm_tools/configs/components/rnfmap/rnfmap.yaml,line:209,col:9
     - OIFS_NETCDFF_LIB="-L$NETCDFFROOT/lib -lnetcdff" # <HOME_DIR>/esm_tools/configs/components/rnfmap/rnfmap.yaml,line:210,col:9
     - OIFS_FC=$FC # <HOME_DIR>/esm_tools/configs/components/rnfmap/rnfmap.yaml,line:212,col:9
-    - OIFS_FFLAGS="-r8 -fp-model precise -align array32byte -O3 -march=core-avx2 -mtune=core-avx2
-      -g -traceback -convert big_endian -fpe0" # <HOME_DIR>/esm_tools/configs/components/rnfmap/rnfmap.yaml,line:213,col:9
+    - OIFS_FFLAGS="-r8 -fp-model precise -align array32byte -O3 -march=core-avx2 -mtune=core-avx2 -g -traceback -convert big_endian -fpe0" # <HOME_DIR>/esm_tools/configs/components/rnfmap/rnfmap.yaml,line:213,col:9
     - OIFS_FFIXED="" # <HOME_DIR>/esm_tools/configs/components/rnfmap/rnfmap.yaml,line:214,col:9
     - OIFS_FCDEFS="BLAS LITTLE LINUX INTEGER_IS_INT" # <HOME_DIR>/esm_tools/configs/components/rnfmap/rnfmap.yaml,line:215,col:9
     - OIFS_LFLAGS=$OIFS_MPI_LIB # <HOME_DIR>/esm_tools/configs/components/rnfmap/rnfmap.yaml,line:216,col:9
     - OIFS_CC=$CC # <HOME_DIR>/esm_tools/configs/components/rnfmap/rnfmap.yaml,line:217,col:9
-    - OIFS_CFLAGS="-fp-model precise -O3 -march=core-avx2 -mtune=core-avx2 -g -traceback
-      -qopt-report=0 -fpe0" # <HOME_DIR>/esm_tools/configs/components/rnfmap/rnfmap.yaml,line:218,col:9
+    - OIFS_CFLAGS="-fp-model precise -O3 -march=core-avx2 -mtune=core-avx2 -g -traceback -qopt-report=0 -fpe0" # <HOME_DIR>/esm_tools/configs/components/rnfmap/rnfmap.yaml,line:218,col:9
     - OIFS_CCDEFS="LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS" # <HOME_DIR>/esm_tools/configs/components/rnfmap/rnfmap.yaml,line:219,col:9
   nproc: 1 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:613,col:16
   omp_num_threads: 128 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:614,col:26
   time_step: 7200 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:615,col:20
-  fflags: -r8 -fp-model precise -align array32byte -O3 -march=core-avx2 -mtune=core-avx2
-    -g -traceback -convert big_endian -fpe0 # <HOME_DIR>/esm_tools/configs/components/rnfmap/rnfmap.yaml,line:223,col:17
-  cflags: -fp-model precise -O3 -march=core-avx2 -mtune=core-avx2 -g -traceback -qopt-report=0
-    -fpe0 # <HOME_DIR>/esm_tools/configs/components/rnfmap/rnfmap.yaml,line:224,col:17
+  fflags: -r8 -fp-model precise -align array32byte -O3 -march=core-avx2 -mtune=core-avx2 -g -traceback -convert big_endian -fpe0 # <HOME_DIR>/esm_tools/configs/components/rnfmap/rnfmap.yaml,line:223,col:17
+  cflags: -fp-model precise -O3 -march=core-avx2 -mtune=core-avx2 -g -traceback -qopt-report=0 -fpe0 # <HOME_DIR>/esm_tools/configs/components/rnfmap/rnfmap.yaml,line:224,col:17
   branch: esm-tools-focioifs # <HOME_DIR>/esm_tools/configs/components/rnfmap/rnfmap.yaml,line:47,col:13
   nx: 512 # <HOME_DIR>/esm_tools/configs/components/rnfmap/rnfmap.yaml,line:86,col:21
   ny: 256 # <HOME_DIR>/esm_tools/configs/components/rnfmap/rnfmap.yaml,line:87,col:21
@@ -2177,28 +2103,8 @@ oasis3mct:
   - 4.0-awicm-3.1 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:34,col:3
   - 5.0-smhi # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:35,col:3
   - 6.0-YAC # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:36,col:3
-  clean_command: rm -rf lib/yaxt/build lib/yac/build include lib/libpsmile.a lib/libscrip.a
-    lib/libmct.a lib/libmpeu.a INSTALL_OASIS.ESMTOOLS build  # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:100,col:20
-  comp_command: export ESM_OASIS_DIR=<TEST_DIR>/comp/awicm3/awicm3-v3.2/oasis;
-    cd lib; [ -d "yaxt" ] || rm -f yaxt-0.10.0.tar.gz && wget https://swprojects.dkrz.de/redmine/attachments/download/529/yaxt-0.10.0.tar.gz
-    ; [ -d "yaxt" ] || mkdir yaxt && tar -xzvf yaxt-0.10.0.tar.gz -C yaxt --strip-components=1
-    ; rm yaxt-0.10.0.tar.gz ; cd yaxt; export YAXT_ROOT=$(pwd) ; mkdir -p build; cd
-    build; ../configure --cache-file=configyax.cache --prefix=<TEST_DIR>/comp/awicm3/awicm3-v3.2/oasis/lib/yaxt
-    --without-regard-for-quality ; make -j 6 install ; cd ../../ ; [ -d "yac" ] ||
-    git clone --branch=release-3.1.0 https://gitlab.dkrz.de/dkrz-sw/yac.git ; cd yac
-    ; export YAC_ROOT=$(pwd) ; mkdir -p build ; cd build ; ../configure --cache-file=configyac.cache
-    --enable-lib-core-only --disable-mpi-checks --with-yaxt-root=<TEST_DIR>/comp/awicm3/awicm3-v3.2/oasis/lib/yaxt
-    --with-netcdf-root=$NETCDFROOT --prefix=<TEST_DIR>/comp/awicm3/awicm3-v3.2/oasis/lib/yac
-    ; make -j 6 install ; export YAC_INCLUDE="-I<TEST_DIR>/comp/awicm3/awicm3-v3.2/oasis/lib/yac/include
-    -I<TEST_DIR>/comp/awicm3/awicm3-v3.2/oasis/lib/yaxt/include";
-    cd ../../../util/make_dir/ ; cp make.ESMTOOLS make.inc ; make -f TopMakefileOasis3
-    ; cd ../../ ; mv INSTALL_OASIS.ESMTOOLS/lib/libpsmile.MPI1.a INSTALL_OASIS.ESMTOOLS/lib/libpsmile.a
-    ; mkdir -p build/lib/psmile/scrip ; mkdir -p build/lib/psmile/mct/mpeu ; cp INSTALL_OASIS.ESMTOOLS/build-static/lib/psmile.MPI1/*.mod
-    build/lib/psmile/. ; cp INSTALL_OASIS.ESMTOOLS/build-static/lib/scrip/*mod build/lib/psmile/scrip/.
-    ; cp INSTALL_OASIS.ESMTOOLS/build-static/lib/mct/*mod build/lib/psmile/mct/. ;
-    cp INSTALL_OASIS.ESMTOOLS/lib/libmct.a build/lib/psmile/mct/. ; cp INSTALL_OASIS.ESMTOOLS/lib/libmpeu.a
-    build/lib/psmile/mct/. ; cp INSTALL_OASIS.ESMTOOLS/lib/libpsmile.a build/lib/psmile/.
-    ; cp INSTALL_OASIS.ESMTOOLS/lib/libscrip.a build/lib/psmile/scrip/. # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:92,col:19
+  clean_command: rm -rf lib/yaxt/build lib/yac/build include lib/libpsmile.a lib/libscrip.a lib/libmct.a lib/libmpeu.a INSTALL_OASIS.ESMTOOLS build  # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:100,col:20
+  comp_command: export ESM_OASIS_DIR=<TEST_DIR>/comp/awicm3/awicm3-v3.2/oasis; cd lib; [ -d "yaxt" ] || rm -f yaxt-0.10.0.tar.gz && wget https://swprojects.dkrz.de/redmine/attachments/download/529/yaxt-0.10.0.tar.gz ; [ -d "yaxt" ] || mkdir yaxt && tar -xzvf yaxt-0.10.0.tar.gz -C yaxt --strip-components=1 ; rm yaxt-0.10.0.tar.gz ; cd yaxt; export YAXT_ROOT=$(pwd) ; mkdir -p build; cd build; ../configure --cache-file=configyax.cache --prefix=<TEST_DIR>/comp/awicm3/awicm3-v3.2/oasis/lib/yaxt --without-regard-for-quality ; make -j 6 install ; cd ../../ ; [ -d "yac" ] || git clone --branch=release-3.1.0 https://gitlab.dkrz.de/dkrz-sw/yac.git ; cd yac ; export YAC_ROOT=$(pwd) ; mkdir -p build ; cd build ; ../configure --cache-file=configyac.cache --enable-lib-core-only --disable-mpi-checks --with-yaxt-root=<TEST_DIR>/comp/awicm3/awicm3-v3.2/oasis/lib/yaxt --with-netcdf-root=$NETCDFROOT --prefix=<TEST_DIR>/comp/awicm3/awicm3-v3.2/oasis/lib/yac ; make -j 6 install ; export YAC_INCLUDE="-I<TEST_DIR>/comp/awicm3/awicm3-v3.2/oasis/lib/yac/include -I<TEST_DIR>/comp/awicm3/awicm3-v3.2/oasis/lib/yaxt/include"; cd ../../../util/make_dir/ ; cp make.ESMTOOLS make.inc ; make -f TopMakefileOasis3 ; cd ../../ ; mv INSTALL_OASIS.ESMTOOLS/lib/libpsmile.MPI1.a INSTALL_OASIS.ESMTOOLS/lib/libpsmile.a ; mkdir -p build/lib/psmile/scrip ; mkdir -p build/lib/psmile/mct/mpeu ; cp INSTALL_OASIS.ESMTOOLS/build-static/lib/psmile.MPI1/*.mod build/lib/psmile/. ; cp INSTALL_OASIS.ESMTOOLS/build-static/lib/scrip/*mod build/lib/psmile/scrip/. ; cp INSTALL_OASIS.ESMTOOLS/build-static/lib/mct/*mod build/lib/psmile/mct/. ; cp INSTALL_OASIS.ESMTOOLS/lib/libmct.a build/lib/psmile/mct/. ; cp INSTALL_OASIS.ESMTOOLS/lib/libmpeu.a build/lib/psmile/mct/. ; cp INSTALL_OASIS.ESMTOOLS/lib/libpsmile.a build/lib/psmile/. ; cp INSTALL_OASIS.ESMTOOLS/lib/libscrip.a build/lib/psmile/scrip/. # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:92,col:19
   with_yac: true # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:87,col:15
   destination: oasis # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:106,col:14
   install_libs:
@@ -2830,8 +2736,7 @@ xios:
     Description: A library dedicated to I/O management in climate codes. # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:12,col:17
     Authors: Yann Meurdesoif (yann.meurdesoif@cea.fr) # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:13,col:18
     Website: https://portal.enes.org/models/software-tools/xios # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:14,col:18
-    License: Please make sure you have a licence to use XIOS. In case you are unsure,
-      please contact redmine... # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:16,col:17
+    License: Please make sure you have a licence to use XIOS. In case you are unsure, please contact redmine... # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:16,col:17
   archfile: ESMTOOLS_generic_intel  # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:21,col:11
   available_versions:
   - 2.0_r982_ogcm  # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:23,col:3
@@ -2846,9 +2751,7 @@ xios:
   - 2.5_smhi # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:32,col:3
   branch: esm-tools  # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:34,col:9
   clean_command: rm -rf bin lib obj ppsrc cfg done etc flags inc tmp # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:150,col:16
-  comp_command: export XIOS_TOPLEVEL=<TEST_DIR>/comp/awicm3/awicm3-v3.2;
-    ./make_xios --arch ESMTOOLS_generic_intel --netcdf_lib netcdf4_par --full  --job
-    24; cp bin/xios_server.exe bin/xios.x # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:151,col:15
+  comp_command: export XIOS_TOPLEVEL=<TEST_DIR>/comp/awicm3/awicm3-v3.2; ./make_xios --arch ESMTOOLS_generic_intel --netcdf_lib netcdf4_par --full  --job 24; cp bin/xios_server.exe bin/xios.x # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:151,col:15
   destination: xios # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:153,col:14
   git-repository: https://git.geomar.de/foci/src/xios.git # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:154,col:17
   contact: jan.streffing(at)awi.de, miguel.andres-martinez(at)awi.de # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:155,col:10
@@ -3137,8 +3040,7 @@ computer:
   additional_flags: []
   output_path: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/log/ # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:45,col:14
   thisrun_logfile: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/log/awicm3-v3.2-TCO95L91-CORE2_initial_awicm3_@jobtype@_20000101-20000101_%j.log # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:46,col:18
-  output_flags: --output=<TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/log/awicm3-v3.2-TCO95L91-CORE2_initial_awicm3_@jobtype@_20000101-20000101_%j.log
-    --error=<TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/log/awicm3-v3.2-TCO95L91-CORE2_initial_awicm3_@jobtype@_20000101-20000101_%j.log # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:47,col:15
+  output_flags: --output=<TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/log/awicm3-v3.2-TCO95L91-CORE2_initial_awicm3_@jobtype@_20000101-20000101_%j.log --error=<TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/log/awicm3-v3.2-TCO95L91-CORE2_initial_awicm3_@jobtype@_20000101-20000101_%j.log # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:47,col:15
   name_flag: --job-name=awicm3-v3.2-TCO95L91-CORE2_initial # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:48,col:12
   taskset: true # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1007,col:18
   mt_launcher_flag: --hint=nomultithread # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:36,col:51
@@ -3149,8 +3051,7 @@ computer:
         true:
           srun_execution_command: srun -l --hint=nomultithread --multi-prog hostfile_srun  # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:59,col:41
         false:
-          launcher_flags_per_component: --hint=nomultithread  --nodes=@nnodes@ --ntasks=@nproc@
-            --ntasks-per-node=@nproc_per_node@ --cpus-per-task=@cpus_per_proc@ --export=ALL,OMP_NUM_THREADS=@omp_num_threads@  # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:64,col:47
+          launcher_flags_per_component: --hint=nomultithread  --nodes=@nnodes@ --ntasks=@nproc@ --ntasks-per-node=@nproc_per_node@ --cpus-per-task=@cpus_per_proc@ --export=ALL,OMP_NUM_THREADS=@omp_num_threads@  # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:64,col:47
           srun_execution_command: "srun -l \\\n@components@" # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:71,col:41
           launcher_comp_sep: "\\\n:" # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:72,col:36
     false:
@@ -3213,8 +3114,7 @@ computer:
         true:
           srun_execution_command: srun -l --hint=nomultithread --multi-prog hostfile_srun  # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:59,col:41
         false:
-          launcher_flags_per_component: --hint=nomultithread  --nodes=@nnodes@ --ntasks=@nproc@
-            --ntasks-per-node=@nproc_per_node@ --cpus-per-task=@cpus_per_proc@ --export=ALL,OMP_NUM_THREADS=@omp_num_threads@  # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:64,col:47
+          launcher_flags_per_component: --hint=nomultithread  --nodes=@nnodes@ --ntasks=@nproc@ --ntasks-per-node=@nproc_per_node@ --cpus-per-task=@cpus_per_proc@ --export=ALL,OMP_NUM_THREADS=@omp_num_threads@  # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:64,col:47
           srun_execution_command: "srun -l \\\n@components@" # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:71,col:41
           launcher_comp_sep: "\\\n:" # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:72,col:36
     false:
@@ -3433,24 +3333,19 @@ general:
         - OIFS_GRIB_API_BIN="$ECCODESROOT/bin" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:156,col:11
         - LAPACK_LIB_DEFAULT="-L$MKLROOT/lib/intel64 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:157,col:11
         - OIFS_OASIS_BASE=$(pwd)/oasis # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:159,col:11
-        - OIFS_OASIS_INCLUDE="-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip
-          -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:160,col:11
-        - OIFS_OASIS_LIB="-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip
-          -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu
-          -lpsmile -lmct -lmpeu -lscrip" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:161,col:11
+        - OIFS_OASIS_INCLUDE="-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:160,col:11
+        - OIFS_OASIS_LIB="-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu -lpsmile -lmct -lmpeu -lscrip" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:161,col:11
         - OIFS_NETCDF_INCLUDE="-I$NETCDFROOT/include" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:163,col:11
         - OIFS_NETCDF_LIB="-L$NETCDFROOT/lib -lnetcdf" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:164,col:11
         - OIFS_NETCDFF_INCLUDE="-I$NETCDFFROOT/include" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:165,col:11
         - OIFS_NETCDFF_LIB="-L$NETCDFFROOT/lib -lnetcdff" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:166,col:11
         - OIFS_FC=$FC # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:168,col:11
-        - OIFS_FFLAGS="-qopenmp -r8 -fp-model precise -align array32byte -O1 -xCORE_AVX2
-          -g -traceback -convert big_endian -fpe0" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:169,col:11
+        - OIFS_FFLAGS="-qopenmp -r8 -fp-model precise -align array32byte -O1 -xCORE_AVX2 -g -traceback -convert big_endian -fpe0" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:169,col:11
         - OIFS_FFIXED="" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:170,col:11
         - OIFS_FCDEFS="BLAS LITTLE LINUX INTEGER_IS_INT" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:171,col:11
         - OIFS_LFLAGS="$OIFS_MPI_LIB -qopenmp" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:172,col:11
         - OIFS_CC=$CC # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:173,col:11
-        - OIFS_CFLAGS="-qopenmp -fp-model precise -O1 -xCORE_AVX2 -g -traceback -qopt-report=0
-          -fpe0" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:174,col:11
+        - OIFS_CFLAGS="-qopenmp -fp-model precise -O1 -xCORE_AVX2 -g -traceback -qopt-report=0 -fpe0" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:174,col:11
         - OIFS_CCDEFS="LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:175,col:11
       glogin:
         add_export_vars:
@@ -3468,24 +3363,19 @@ general:
         - OIFS_GRIB_API_BIN="$ECCODESROOT/bin" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:194,col:11
         - LAPACK_LIB_DEFAULT="-L$MKLROOT/lib/intel64 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:195,col:11
         - OIFS_OASIS_BASE=$(pwd)/oasis # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:197,col:11
-        - OIFS_OASIS_INCLUDE="-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip
-          -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:198,col:11
-        - OIFS_OASIS_LIB="-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip
-          -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu
-          -lpsmile -lmct -lmpeu -lscrip" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:199,col:11
+        - OIFS_OASIS_INCLUDE="-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:198,col:11
+        - OIFS_OASIS_LIB="-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu -lpsmile -lmct -lmpeu -lscrip" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:199,col:11
         - OIFS_NETCDF_INCLUDE="-I$NETCDFROOT/include" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:201,col:11
         - OIFS_NETCDF_LIB="-L$NETCDFROOT/lib -lnetcdf -lnetcdff" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:202,col:11
         - OIFS_NETCDFF_INCLUDE="-I$NETCDFFROOT/include" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:203,col:11
         - OIFS_NETCDFF_LIB="-L$NETCDFFROOT/lib -lnetcdff" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:204,col:11
         - OIFS_FC=$FC # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:206,col:11
-        - OIFS_FFLAGS="-qopenmp -r8 -fp-model precise -align array32byte -O1 -xCORE_AVX2
-          -g -traceback -convert big_endian -fpe0" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:207,col:11
+        - OIFS_FFLAGS="-qopenmp -r8 -fp-model precise -align array32byte -O1 -xCORE_AVX2 -g -traceback -convert big_endian -fpe0" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:207,col:11
         - OIFS_FFIXED="" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:208,col:11
         - OIFS_FCDEFS="BLAS LITTLE LINUX INTEGER_IS_INT" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:209,col:11
         - OIFS_LFLAGS="$OIFS_MPI_LIB -qopenmp" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:210,col:11
         - OIFS_CC=$CC # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:211,col:11
-        - OIFS_CFLAGS="-qopenmp -fp-model precise -O1 -xCORE_AVX2 -g -traceback -qopt-report=0
-          -fpe0" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:212,col:11
+        - OIFS_CFLAGS="-qopenmp -fp-model precise -O1 -xCORE_AVX2 -g -traceback -qopt-report=0 -fpe0" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:212,col:11
         - OIFS_CCDEFS="LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:213,col:11
       juwels:
         add_export_vars:
@@ -3496,29 +3386,21 @@ general:
           OIFS_GRIB_INCLUDE: '"$OIFS_GRIB_API_INCLUDE"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:221,col:28
           OIFS_GRIB_LIB: '"$OIFS_GRIB_API_LIB"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:222,col:24
           OIFS_GRIB_API_BIN: '"$ECCODESROOT/bin"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:223,col:28
-          LAPACK_LIB_DEFAULT: '"-L$MKLROOT/lib/intel64 -lmkl_intel_lp64 -lmkl_core
-            -lmkl_sequential"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:224,col:29
+          LAPACK_LIB_DEFAULT: '"-L$MKLROOT/lib/intel64 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:224,col:29
           OIFS_OASIS_BASE: '"$(pwd)/oasis"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:225,col:26
-          OIFS_OASIS_INCLUDE: '"-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip
-            -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu
-            -I$OIFS_OASIS_BASE/lib/include/yac -I$OIFS_OASIS_BASE/lib/yaxt/include"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:226,col:29
-          OIFS_OASIS_LIB: '"-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip
-            -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu
-            -L$OIFS_OASIS_BASE/lib/yac/lib -L$OIFS_OASIS_BASE/lib/yaxt/lib -lpsmile
-            -lmct -lmpeu -lscrip  -lyac_utils -lyac_core -lyaxt -lyaxt_c  -qmkl"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:227,col:25
+          OIFS_OASIS_INCLUDE: '"-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu -I$OIFS_OASIS_BASE/lib/include/yac -I$OIFS_OASIS_BASE/lib/yaxt/include"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:226,col:29
+          OIFS_OASIS_LIB: '"-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu -L$OIFS_OASIS_BASE/lib/yac/lib -L$OIFS_OASIS_BASE/lib/yaxt/lib -lpsmile -lmct -lmpeu -lscrip  -lyac_utils -lyac_core -lyaxt -lyaxt_c  -qmkl"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:227,col:25
           OIFS_NETCDF_INCLUDE: '"-I$NETCDFROOT/include"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:228,col:30
           OIFS_NETCDF_LIB: '"-L$NETCDFROOT/lib -lnetcdf"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:229,col:26
           OIFS_NETCDFF_INCLUDE: '"-I$NETCDFFROOT/include"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:230,col:31
           OIFS_NETCDFF_LIB: '"-L$NETCDFFROOT/lib -lnetcdff -lnetcdf"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:231,col:27
           OIFS_FC: '"$FC"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:232,col:18
-          OIFS_FFLAGS: '"-r8 -fp-model precise -align array32byte -O1 -qopenmp -xCORE_AVX2
-            -g -traceback -convert big_endian -fpe0"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:233,col:22
+          OIFS_FFLAGS: '"-r8 -fp-model precise -align array32byte -O1 -qopenmp -xCORE_AVX2 -g -traceback -convert big_endian -fpe0"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:233,col:22
           OIFS_FFIXED: '""' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:234,col:22
           OIFS_FCDEFS: '"BLAS LITTLE LINUX INTEGER_IS_INT"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:235,col:22
           OIFS_LFLAGS: '"$OIFS_MPI_LIB -qopenmp"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:236,col:22
           OIFS_CC: '"$CC"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:237,col:18
-          OIFS_CFLAGS: '"-fp-model precise -O3 -xCORE_AVX2 -g -traceback -qopt-report=0
-            -fpe0 -qopenmp"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:238,col:22
+          OIFS_CFLAGS: '"-fp-model precise -O3 -xCORE_AVX2 -g -traceback -qopt-report=0 -fpe0 -qopenmp"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:238,col:22
           OIFS_CCDEFS: '"LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS _OPENMP"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:239,col:22
           MAIN_LDFLAGS: '"-openmp"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:240,col:23
           OASIS_FFLAGS: '"-fPIC"' # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.env.yaml,line:9,col:47
@@ -3548,24 +3430,19 @@ general:
           OIFS_GRIB_LIB: '"$OIFS_GRIB_API_LIB"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:265,col:24
           OIFS_GRIB_API_BIN: '"$GRIBAPIROOT/bin"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:266,col:28
           OIFS_OASIS_BASE: $(pwd)/oasis # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:267,col:26
-          OIFS_OASIS_INCLUDE: '"-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip
-            -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:268,col:29
-          OIFS_OASIS_LIB: '"-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip
-            -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu
-            -lpsmile -lmct -lmpeu -lscrip"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:269,col:25
+          OIFS_OASIS_INCLUDE: '"-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:268,col:29
+          OIFS_OASIS_LIB: '"-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu -lpsmile -lmct -lmpeu -lscrip"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:269,col:25
           OIFS_NETCDF_INCLUDE: '"-I$NETCDFROOT/include"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:270,col:30
           OIFS_NETCDF_LIB: '"-L$NETCDFROOT/lib -lnetcdf"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:271,col:26
           OIFS_NETCDFF_INCLUDE: '"-I$NETCDFFROOT/include"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:272,col:31
           OIFS_NETCDFF_LIB: '"-L$NETCDFFROOT/lib -lnetcdff"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:273,col:27
           OIFS_FC: $FC # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:274,col:18
-          OIFS_FFLAGS: '"-r8 -fp-model precise -align array32byte -O3 -qopenmp -xCORE_AVX2
-            -g -traceback -convert big_endian -fpe0"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:275,col:22
+          OIFS_FFLAGS: '"-r8 -fp-model precise -align array32byte -O3 -qopenmp -xCORE_AVX2 -g -traceback -convert big_endian -fpe0"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:275,col:22
           OIFS_FFIXED: '""' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:277,col:22
           OIFS_FCDEFS: '"BLAS LITTLE LINUX INTEGER_IS_INT"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:278,col:22
           OIFS_LFLAGS: '"$OIFS_MPI_LIB -qopenmp"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:279,col:22
           OIFS_CC: $CC # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:280,col:18
-          OIFS_CFLAGS: '"-fp-model precise -O3 -qopenmp -xCORE_AVX2 -g -traceback
-            -qopt-report=0 -fpe0"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:281,col:22
+          OIFS_CFLAGS: '"-fp-model precise -O3 -qopenmp -xCORE_AVX2 -g -traceback -qopt-report=0 -fpe0"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:281,col:22
           OIFS_CCDEFS: '"LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:282,col:22
           OIFS_FFTW_DIR: '"$FFTW_ROOT"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:286,col:24
           OIFS_FFTW_INCLUDE: '"-I$OIFS_FFTW_DIR/include/"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:287,col:28
@@ -3592,30 +3469,22 @@ general:
           OIFS_GRIB_INCLUDE: '"$OIFS_GRIB_API_INCLUDE"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:313,col:28
           OIFS_GRIB_LIB: '"$OIFS_GRIB_API_LIB"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:314,col:24
           OIFS_GRIB_API_BIN: '"$ECCODESROOT/bin"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:315,col:28
-          LAPACK_LIB_DEFAULT: '"-L$MKLROOT/lib/intel64 -lmkl_intel_lp64 -lmkl_core
-            -lmkl_sequential"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:316,col:29
+          LAPACK_LIB_DEFAULT: '"-L$MKLROOT/lib/intel64 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:316,col:29
           OIFS_OASIS_BASE: $(pwd)/oasis # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:318,col:26
-          OIFS_OASIS_INCLUDE: '"-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip
-            -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu
-            -I$OIFS_OASIS_BASE/lib/include/yac -I$OIFS_OASIS_BASE/lib/yaxt/include"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:319,col:29
-          OIFS_OASIS_LIB: '"-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip
-            -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu
-            -L$OIFS_OASIS_BASE/lib/yac/lib -L$OIFS_OASIS_BASE/lib/yaxt/lib -lpsmile
-            -lmct -lmpeu -lscrip  -lyac_utils -lyac_core -lyaxt -lyaxt_c -qmkl"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:320,col:25
+          OIFS_OASIS_INCLUDE: '"-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu -I$OIFS_OASIS_BASE/lib/include/yac -I$OIFS_OASIS_BASE/lib/yaxt/include"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:319,col:29
+          OIFS_OASIS_LIB: '"-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu -L$OIFS_OASIS_BASE/lib/yac/lib -L$OIFS_OASIS_BASE/lib/yaxt/lib -lpsmile -lmct -lmpeu -lscrip  -lyac_utils -lyac_core -lyaxt -lyaxt_c -qmkl"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:320,col:25
           OIFS_NETCDF_INCLUDE: '"-I$NETCDFROOT/include"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:322,col:30
           OIFS_NETCDF_LIB: '"-L$NETCDFROOT/lib -lnetcdf"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:323,col:26
           OIFS_NETCDFF_INCLUDE: '"-I$NETCDFFROOT/include"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:324,col:31
           OIFS_NETCDFF_LIB: '"-L$NETCDFFROOT/lib -lnetcdff"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:325,col:27
           OIFS_FC: $FC # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:327,col:18
-          OIFS_FFLAGS: '"-r8 -fp-model precise -align array32byte -O3 -qopenmp -g
-            -traceback -convert big_endian -march=core-avx2 -mtune=core-avx2"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:328,col:22
+          OIFS_FFLAGS: '"-r8 -fp-model precise -align array32byte -O3 -qopenmp -g -traceback -convert big_endian -march=core-avx2 -mtune=core-avx2"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:328,col:22
           OIFS_FFIXED: '""' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:330,col:22
           OIFS_FCDEFS: '"BLAS LITTLE LINUX INTEGER_IS_INT"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:331,col:22
           OIFS_MPI_LIB: '"$MPI_LIB"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:332,col:23
           OIFS_LFLAGS: '"$OIFS_MPI_LIB -qopenmp"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:333,col:22
           OIFS_CC: $CC # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:334,col:18
-          OIFS_CFLAGS: '"-fp-model precise -O3 -g -traceback -qopt-report=0 -fpe0
-            -qopenmp -march=core-avx2 -mtune=core-avx2"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:335,col:22
+          OIFS_CFLAGS: '"-fp-model precise -O3 -g -traceback -qopt-report=0 -fpe0 -qopenmp -march=core-avx2 -mtune=core-avx2"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:335,col:22
           OIFS_CCDEFS: '"LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS _OPENMP"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:336,col:22
           OASIS_FFLAGS: '"-fPIC"' # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.env.yaml,line:17,col:47
           OASIS_CFLAGS: '"-fPIC"' # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.env.yaml,line:18,col:47
@@ -3637,28 +3506,22 @@ general:
           OIFS_GRIB_INCLUDE: '"$OIFS_GRIB_API_INCLUDE"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:353,col:28
           OIFS_GRIB_LIB: '"$OIFS_GRIB_API_LIB"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:354,col:24
           OIFS_GRIB_API_BIN: '"$ECCODESROOT/bin"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:355,col:28
-          LAPACK_LIB_DEFAULT: '"-L$MKLROOT/lib/intel64 -lmkl_intel_lp64 -lmkl_core
-            -lmkl_sequential"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:356,col:29
+          LAPACK_LIB_DEFAULT: '"-L$MKLROOT/lib/intel64 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:356,col:29
           OIFS_OASIS_BASE: $(pwd)/oasis # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:358,col:26
-          OIFS_OASIS_INCLUDE: '"-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip
-            -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:359,col:29
-          OIFS_OASIS_LIB: '"-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip
-            -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu
-            -lpsmile -lmct -lmpeu -lscrip"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:360,col:25
+          OIFS_OASIS_INCLUDE: '"-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:359,col:29
+          OIFS_OASIS_LIB: '"-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu -lpsmile -lmct -lmpeu -lscrip"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:360,col:25
           OIFS_NETCDF_INCLUDE: '"-I$NETCDFROOT/include"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:362,col:30
           OIFS_NETCDF_LIB: '"-L$NETCDFROOT/lib -lnetcdf"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:363,col:26
           OIFS_NETCDFF_INCLUDE: '"-I$NETCDFFROOT/include"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:364,col:31
           OIFS_NETCDFF_LIB: '"-L$NETCDFFROOT/lib -lnetcdff"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:365,col:27
           OIFS_FC: $FC # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:367,col:18
-          OIFS_FFLAGS: '"-r8 -fp-model precise -align array32byte -O3 -qopenmp -g
-            -traceback -convert big_endian -march=core-avx2 -mtune=core-avx2"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:368,col:22
+          OIFS_FFLAGS: '"-r8 -fp-model precise -align array32byte -O3 -qopenmp -g -traceback -convert big_endian -march=core-avx2 -mtune=core-avx2"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:368,col:22
           OIFS_FFIXED: '""' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:370,col:22
           OIFS_FCDEFS: '"BLAS LITTLE LINUX INTEGER_IS_INT"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:371,col:22
           OIFS_MPI_LIB: '"$MPI_LIB"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:372,col:23
           OIFS_LFLAGS: '"$OIFS_MPI_LIB -qopenmp"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:373,col:22
           OIFS_CC: $CC # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:374,col:18
-          OIFS_CFLAGS: '"-fp-model precise -O3 -g -traceback -qopt-report=0 -fpe0
-            -qopenmp -march=core-avx2 -mtune=core-avx2"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:375,col:22
+          OIFS_CFLAGS: '"-fp-model precise -O3 -g -traceback -qopt-report=0 -fpe0 -qopenmp -march=core-avx2 -mtune=core-avx2"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:375,col:22
           OIFS_CCDEFS: '"LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS _OPENMP"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:376,col:22
         choose_computer.compiler_suite:
           gcc:
@@ -3692,27 +3555,21 @@ general:
           OIFS_GRIB_INCLUDE: '"$OIFS_GRIB_API_INCLUDE"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:403,col:28
           OIFS_GRIB_LIB: '"$OIFS_GRIB_API_LIB"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:404,col:24
           OIFS_GRIB_API_BIN: '"$ECCODESROOT/bin"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:405,col:28
-          LAPACK_LIB_DEFAULT: '"-L$MKLROOT/lib/intel64 -lmkl_intel_lp64 -lmkl_core
-            -lmkl_sequential"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:406,col:29
+          LAPACK_LIB_DEFAULT: '"-L$MKLROOT/lib/intel64 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:406,col:29
           OIFS_OASIS_BASE: $(pwd)/oasis # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:408,col:26
-          OIFS_OASIS_INCLUDE: '"-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip
-            -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:409,col:29
-          OIFS_OASIS_LIB: '"-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip
-            -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu
-            -lpsmile -lmct -lmpeu -lscrip"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:410,col:25
+          OIFS_OASIS_INCLUDE: '"-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:409,col:29
+          OIFS_OASIS_LIB: '"-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu -lpsmile -lmct -lmpeu -lscrip"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:410,col:25
           OIFS_NETCDF_INCLUDE: '"-I$NETCDFROOT/include"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:412,col:30
           OIFS_NETCDF_LIB: '"-L$NETCDFROOT/lib -lnetcdf"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:413,col:26
           OIFS_NETCDFF_INCLUDE: '"-I$NETCDFFROOT/include"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:414,col:31
           OIFS_NETCDFF_LIB: '"-L$NETCDFFROOT/lib -lnetcdff"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:415,col:27
           OIFS_FC: $FC # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:417,col:18
-          OIFS_FFLAGS: '"-r8 -fp-model precise -align array32byte -O3 -qopenmp -xCORE_AVX2
-            -g -traceback -convert big_endian"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:418,col:22
+          OIFS_FFLAGS: '"-r8 -fp-model precise -align array32byte -O3 -qopenmp -xCORE_AVX2 -g -traceback -convert big_endian"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:418,col:22
           OIFS_FFIXED: '""' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:419,col:22
           OIFS_FCDEFS: '"BLAS LITTLE LINUX INTEGER_IS_INT"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:420,col:22
           OIFS_LFLAGS: '"$OIFS_MPI_LIB -qopenmp"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:421,col:22
           OIFS_CC: $CC # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:422,col:18
-          OIFS_CFLAGS: '"-fp-model precise -O3 -xCORE_AVX2 -g -traceback -qopt-report=0
-            -fpe0 -qopenmp"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:423,col:22
+          OIFS_CFLAGS: '"-fp-model precise -O3 -xCORE_AVX2 -g -traceback -qopt-report=0 -fpe0 -qopenmp"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:423,col:22
           OIFS_CCDEFS: '"LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS _OPENMP"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:424,col:22
       aleph:
         add_export_vars:
@@ -3726,18 +3583,14 @@ general:
           OIFS_FFTW_INCLUDE: "'-I$FFTW_INC'" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:437,col:28
           OIFS_FFTW_LIB: "'-L$FFTW_DIR -ldfftw -ldrfftw'" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:438,col:24
           OIFS_OASIS_BASE: $(pwd)/oasis # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:440,col:26
-          OIFS_OASIS_INCLUDE: '"-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip
-            -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:441,col:29
-          OIFS_OASIS_LIB: '"-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip
-            -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu
-            -lpsmile -lmct -lmpeu -lscrip"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:442,col:25
+          OIFS_OASIS_INCLUDE: '"-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:441,col:29
+          OIFS_OASIS_LIB: '"-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu -lpsmile -lmct -lmpeu -lscrip"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:442,col:25
           OIFS_NETCDF_INCLUDE: -I$NETCDF_DIR/include # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:443,col:30
           OIFS_NETCDF_LIB: '"-L$NETCDF_DIR/lib -lnetcdf"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:444,col:26
           OIFS_NETCDFF_INCLUDE: -I$NETCDF_DIR/include # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:445,col:31
           OIFS_NETCDFF_LIB: '"-L$NETCDF_DIR/lib -lnetcdff"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:446,col:27
           OIFS_FC: $FC # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:447,col:18
-          OIFS_FFLAGS: '"-O2 -emf -hthread1 -hflex_mp=conservative -hfp1 -hadd_paren
-            -hbyteswapio -J./ -hcpu=x86-skylake -U_CRAYFTN"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:448,col:22
+          OIFS_FFLAGS: '"-O2 -emf -hthread1 -hflex_mp=conservative -hfp1 -hadd_paren -hbyteswapio -J./ -hcpu=x86-skylake -U_CRAYFTN"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:448,col:22
           OIFS_FFIXED: '"-s real64"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:450,col:22
           OIFS_FCDEFS: '"BLAS LITTLE LINUX INTEGER_IS_INT"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:451,col:22
           OIFS_LFLAGS: '"-dynamic -hbyteswapio"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:452,col:22
@@ -3762,24 +3615,19 @@ general:
         - OIFS_GRIB_API_BIN="$ECCODESROOT/bin" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:476,col:11
         - LAPACK_LIB_DEFAULT="-L$MKLROOT/lib/intel64 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:477,col:11
         - OIFS_OASIS_BASE=$(pwd)/oasis # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:479,col:11
-        - OIFS_OASIS_INCLUDE="-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip
-          -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:480,col:11
-        - OIFS_OASIS_LIB="-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip
-          -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu
-          -lpsmile -lmct -lmpeu -lscrip" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:481,col:11
+        - OIFS_OASIS_INCLUDE="-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:480,col:11
+        - OIFS_OASIS_LIB="-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu -lpsmile -lmct -lmpeu -lscrip" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:481,col:11
         - OIFS_NETCDF_INCLUDE="-I$NETCDFROOT/include" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:483,col:11
         - OIFS_NETCDF_LIB="-L$NETCDFROOT/lib -lnetcdf" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:484,col:11
         - OIFS_NETCDFF_INCLUDE="-I$NETCDFFROOT/include" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:485,col:11
         - OIFS_NETCDFF_LIB="-L$NETCDFFROOT/lib -lnetcdff" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:486,col:11
         - OIFS_FC=$FC # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:488,col:11
-        - OIFS_FFLAGS="-r8 -fp-model precise -align array32byte -O1 -xCORE_AVX2 -g
-          -traceback -convert big_endian -fpe0" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:489,col:11
+        - OIFS_FFLAGS="-r8 -fp-model precise -align array32byte -O1 -xCORE_AVX2 -g -traceback -convert big_endian -fpe0" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:489,col:11
         - OIFS_FFIXED="" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:490,col:11
         - OIFS_FCDEFS="BLAS LITTLE LINUX INTEGER_IS_INT" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:491,col:11
         - OIFS_LFLAGS=$OIFS_MPI_LIB # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:492,col:11
         - OIFS_CC=$CC # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:493,col:11
-        - OIFS_CFLAGS="-fp-model precise -O1 -xCORE_AVX2 -g -traceback -qopt-report=0
-          -fpe0" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:494,col:11
+        - OIFS_CFLAGS="-fp-model precise -O1 -xCORE_AVX2 -g -traceback -qopt-report=0 -fpe0" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:494,col:11
         - OIFS_CCDEFS="LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.env.yaml,line:495,col:11
     choose_computer.fc:
       ftn:
@@ -3870,8 +3718,7 @@ general:
   use_venv: false # no provenance info
   no_motd: true # no provenance info
   ignore_config_warnings: false # no provenance info
-  original_command: awicm3-v3.2-TCO95L91-CORE2_initial.yaml -e awicm3-v3.2-TCO95L91-CORE2_initial
-    --open-run --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
+  original_command: awicm3-v3.2-TCO95L91-CORE2_initial.yaml -e awicm3-v3.2-TCO95L91-CORE2_initial --open-run --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
   started_from: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/ # no provenance info
   scriptname: awicm3-v3.2-TCO95L91-CORE2_initial.yaml # no provenance info
   isinteractive: false # no provenance info
@@ -3901,8 +3748,7 @@ general:
     use_venv: false # no provenance info
     no_motd: true # no provenance info
     ignore_config_warnings: false # no provenance info
-    original_command: awicm3-v3.2-TCO95L91-CORE2_initial.yaml -e awicm3-v3.2-TCO95L91-CORE2_initial
-      --open-run --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
+    original_command: awicm3-v3.2-TCO95L91-CORE2_initial.yaml -e awicm3-v3.2-TCO95L91-CORE2_initial --open-run --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
     started_from: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/ # no provenance info
     scriptname: awicm3-v3.2-TCO95L91-CORE2_initial.yaml # no provenance info
     runscript_abspath: <TEST_DIR>run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml # no provenance info
@@ -4088,7 +3934,7 @@ general:
     first_task_in_queue: prepcompute # no provenance info
     next_run_triggered_by: tidy # no provenance info
   submitted: false  # no provenance info
-  jobid: 3287225 # no provenance info
+  jobid: 3715420 # no provenance info
   batch: slurm # no provenance info
   coupler_config_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/config/oasis3mct/ # no provenance info
   coupler: oasis3mct # no provenance info

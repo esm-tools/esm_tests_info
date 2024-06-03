@@ -106,8 +106,7 @@ computer:
   additional_flags: []
   output_path: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/log/ # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:45,col:14
   thisrun_logfile: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/log/fesom1.4-initial-monthly_fesom_@jobtype@_19500101-19500101_%j.log # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:46,col:18
-  output_flags: --output=<TEST_DIR>/run/fesom//fesom1.4-initial-monthly/log/fesom1.4-initial-monthly_fesom_@jobtype@_19500101-19500101_%j.log
-    --error=<TEST_DIR>/run/fesom//fesom1.4-initial-monthly/log/fesom1.4-initial-monthly_fesom_@jobtype@_19500101-19500101_%j.log # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:47,col:15
+  output_flags: --output=<TEST_DIR>/run/fesom//fesom1.4-initial-monthly/log/fesom1.4-initial-monthly_fesom_@jobtype@_19500101-19500101_%j.log --error=<TEST_DIR>/run/fesom//fesom1.4-initial-monthly/log/fesom1.4-initial-monthly_fesom_@jobtype@_19500101-19500101_%j.log # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:47,col:15
   name_flag: --job-name=fesom1.4-initial-monthly # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:48,col:12
   taskset: false # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:50,col:10
   mt_launcher_flag: --hint=nomultithread # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:33,col:51
@@ -116,18 +115,14 @@ computer:
       cpu_bind: none  # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:55,col:19
       choose_taskset:
         true:
-          srun_execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=cores --hint=nomultithread
-            --multi-prog hostfile_srun  # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:59,col:41
+          srun_execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=cores --hint=nomultithread --multi-prog hostfile_srun  # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:59,col:41
         false:
-          launcher_flags_per_component: --hint=nomultithread  --nodes=@nnodes@ --ntasks=@nproc@
-            --ntasks-per-node=@nproc_per_node@ --cpus-per-task=@cpus_per_proc@ --export=ALL,OMP_NUM_THREADS=@omp_num_threads@  # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:64,col:47
-          srun_execution_command: "srun -l --kill-on-bad-exit=1 --cpu_bind=cores \\\
-            \n@components@" # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:71,col:41
+          launcher_flags_per_component: --hint=nomultithread  --nodes=@nnodes@ --ntasks=@nproc@ --ntasks-per-node=@nproc_per_node@ --cpus-per-task=@cpus_per_proc@ --export=ALL,OMP_NUM_THREADS=@omp_num_threads@  # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:64,col:47
+          srun_execution_command: "srun -l --kill-on-bad-exit=1 --cpu_bind=cores \\\n@components@" # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:71,col:41
           launcher_comp_sep: "\\\n:" # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:72,col:36
     false:
       cpu_bind: cores  # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:74,col:19
-      srun_execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=cores --hint=nomultithread
-        --multi-prog hostfile_srun # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:75,col:33
+      srun_execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=cores --hint=nomultithread --multi-prog hostfile_srun # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:75,col:33
   submitted: false # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:97,col:12
   script_name: <--methods.scriptname-- # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:98,col:14
   actual_script_dir: <--methods.script_dir-- # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:99,col:20
@@ -162,30 +157,24 @@ computer:
   mod_hdf5: hdf5/1.12.1-openmpi-4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:174,col:27
   netcdf_cxx_root: /work/ab0995/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:175,col:34
   accounting_flag: --account=ab0995 # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:23,col:34
-  execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=cores --hint=nomultithread
-    --multi-prog hostfile_srun # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:80,col:36
+  execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=cores --hint=nomultithread --multi-prog hostfile_srun # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:80,col:36
   debugger_flags_prelauncher: '' # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:90,col:41
   hyperthreading_flag: --ntasks-per-core=1 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:32,col:54
   cpu_bind: cores # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:74,col:19
-  srun_execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=cores --hint=nomultithread
-    --multi-prog hostfile_srun # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:75,col:33
+  srun_execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=cores --hint=nomultithread --multi-prog hostfile_srun # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:75,col:33
   choose_heterogeneous_parallelization:
     true:
       cpu_bind: none  # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:55,col:19
       choose_taskset:
         true:
-          srun_execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=cores --hint=nomultithread
-            --multi-prog hostfile_srun  # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:59,col:41
+          srun_execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=cores --hint=nomultithread --multi-prog hostfile_srun  # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:59,col:41
         false:
-          launcher_flags_per_component: --hint=nomultithread  --nodes=@nnodes@ --ntasks=@nproc@
-            --ntasks-per-node=@nproc_per_node@ --cpus-per-task=@cpus_per_proc@ --export=ALL,OMP_NUM_THREADS=@omp_num_threads@  # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:64,col:47
-          srun_execution_command: "srun -l --kill-on-bad-exit=1 --cpu_bind=cores \\\
-            \n@components@" # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:71,col:41
+          launcher_flags_per_component: --hint=nomultithread  --nodes=@nnodes@ --ntasks=@nproc@ --ntasks-per-node=@nproc_per_node@ --cpus-per-task=@cpus_per_proc@ --export=ALL,OMP_NUM_THREADS=@omp_num_threads@  # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:64,col:47
+          srun_execution_command: "srun -l --kill-on-bad-exit=1 --cpu_bind=cores \\\n@components@" # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:71,col:41
           launcher_comp_sep: "\\\n:" # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:72,col:36
     false:
       cpu_bind: cores  # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:74,col:19
-      srun_execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=cores --hint=nomultithread
-        --multi-prog hostfile_srun # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:75,col:33
+      srun_execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=cores --hint=nomultithread --multi-prog hostfile_srun # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:75,col:33
 general:
   use_database: false  # <HOME_DIR>/esm_tools/configs/defaults/general.yaml,line:1,col:15
   profile: false # <HOME_DIR>/esm_tools/configs/defaults/general.yaml,line:2,col:10
@@ -231,8 +220,7 @@ general:
   use_venv: false # no provenance info
   no_motd: true # no provenance info
   ignore_config_warnings: false # no provenance info
-  original_command: fesom1.4-initial-monthly.yaml -e fesom1.4-initial-monthly --open-run
-    --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
+  original_command: fesom1.4-initial-monthly.yaml -e fesom1.4-initial-monthly --open-run --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
   started_from: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/scripts/ # no provenance info
   scriptname: fesom1.4-initial-monthly.yaml # no provenance info
   isinteractive: false # no provenance info
@@ -262,8 +250,7 @@ general:
     use_venv: false # no provenance info
     no_motd: true # no provenance info
     ignore_config_warnings: false # no provenance info
-    original_command: fesom1.4-initial-monthly.yaml -e fesom1.4-initial-monthly --open-run
-      --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
+    original_command: fesom1.4-initial-monthly.yaml -e fesom1.4-initial-monthly --open-run --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
     started_from: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/scripts/ # no provenance info
     scriptname: fesom1.4-initial-monthly.yaml # no provenance info
     runscript_abspath: <TEST_DIR>run/fesom/fesom1.4-initial-monthly/scripts/fesom1.4-initial-monthly.yaml # no provenance info
@@ -440,7 +427,7 @@ general:
     first_task_in_queue: prepcompute # no provenance info
     next_run_triggered_by: tidy # no provenance info
   submitted: false  # no provenance info
-  jobid: 3286613 # no provenance info
+  jobid: 3714923 # no provenance info
   batch: slurm # no provenance info
   experiment_log_file: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/log//fesom1.4-initial-monthly_fesom.log # no provenance info
   logfile_path: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/log//fesom1.4-initial-monthly_fesom_prepcompute_19500101-19500101.log # no provenance info
@@ -549,18 +536,14 @@ fesom:
   install_bins: bin/fesom # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.yaml,line:61,col:15
   clean_command: rm -rf build CMakeCache.txt # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.yaml,line:62,col:16
   comp_command: mkdir -p build; cd build; cmake ..;   make install # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.yaml,line:63,col:15
-  contact: dmitry.sidorenko(at)awi.de, nikolay.koldunov(at)awi.de, miguel.andres-martinez(at)awi.de,
-    paul.gierz(at)awi.de # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.yaml,line:64,col:10
+  contact: dmitry.sidorenko(at)awi.de, nikolay.koldunov(at)awi.de, miguel.andres-martinez(at)awi.de, paul.gierz(at)awi.de # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.yaml,line:64,col:10
   metadata:
     Institute: Alfred Wegener Institute for Polar and Marine Research (AWI)  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.yaml,line:67,col:20
-    Description: Multiresolution sea ice-ocean model that solves the equations of
-      motion on unestructured meshes # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.yaml,line:69,col:17
+    Description: Multiresolution sea ice-ocean model that solves the equations of motion on unestructured meshes # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.yaml,line:69,col:17
     Authors: Dmitry Sidorenko (Dmitry.Sidorenko@awi.de), Nikolay V. Koldunov (nikolay.koldunov@awi.de) # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.yaml,line:71,col:18
     Publications:
-    - 'Danilov et al. 2004: A finite-element ocean model: principles and evaluation
-      <https://doi.org/10.1016/s1463-5003(02)00063-x>'  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.yaml,line:73,col:19
-    - 'Wang et al. 2014: The Finite Element Sea Ice-Ocean Model (FESOM) v.1.4: formulation
-      of an ocean general circulation model. <https://doi.org/10.5194/gmd-7-663-2014>' # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.yaml,line:74,col:19
+    - 'Danilov et al. 2004: A finite-element ocean model: principles and evaluation <https://doi.org/10.1016/s1463-5003(02)00063-x>'  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.yaml,line:73,col:19
+    - 'Wang et al. 2014: The Finite Element Sea Ice-Ocean Model (FESOM) v.1.4: formulation of an ocean general circulation model. <https://doi.org/10.5194/gmd-7-663-2014>' # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.yaml,line:74,col:19
     License: www.fesom.de # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.yaml,line:76,col:17
   restart_rate: 1 # <TEST_DIR>run/fesom/fesom1.4-initial-monthly/scripts/fesom1.4-initial-monthly.yaml,line:15,col:19
   restart_unit: d # <TEST_DIR>run/fesom/fesom1.4-initial-monthly/scripts/fesom1.4-initial-monthly.yaml,line:17,col:19
