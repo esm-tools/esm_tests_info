@@ -4043,7 +4043,7 @@ computer:
   model: computer # no provenance info
   runtime_environment_changes:
     add_export_vars:
-      ACCOUNT: ab0995  # no provenance info
+      ACCOUNT: None  # no provenance info
       ESM_TESTING_DIR: <TEST_DIR>/run/awiesm/ # no provenance info
       MODEL_DIR: <TEST_DIR>/comp/awiesm/awiesm-2.1 # no provenance info
   heterogeneous_parallelization: false  # no provenance info
@@ -4053,7 +4053,7 @@ computer:
   mod_netcdf_f: netcdf-fortran/4.5.3-openmpi-4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:173,col:31
   mod_hdf5: hdf5/1.12.1-openmpi-4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:174,col:27
   netcdf_cxx_root: /work/ab0995/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:175,col:34
-  accounting_flag: --account=ab0995 # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:23,col:34
+  accounting_flag: --account=None # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:23,col:34
   execution_command: srun -l --hint=nomultithread --multi-prog hostfile_srun # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:80,col:36
   debugger_flags_prelauncher: '' # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:90,col:41
   hyperthreading_flag: --ntasks-per-core=1 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:32,col:54
@@ -4120,7 +4120,7 @@ general:
   - echam  # <HOME_DIR>/esm_tools/configs/setups/awiesm/awiesm.yaml,line:83,col:19
   - fesom # <HOME_DIR>/esm_tools/configs/setups/awiesm/awiesm.yaml,line:84,col:19
   - oasis3mct # <HOME_DIR>/esm_tools/configs/setups/awiesm/awiesm.yaml,line:85,col:19
-  account: ab0995  # <TEST_DIR>run/awiesm/bootstrap/scripts/bootstrap.yaml,line:4,col:14
+  account: None  # <TEST_DIR>run/awiesm/bootstrap/scripts/bootstrap.yaml,line:4,col:14
   setup_name: awiesm # <TEST_DIR>run/awiesm/bootstrap/scripts/bootstrap.yaml,line:5,col:17
   compute_time: 02:00:00 # <TEST_DIR>run/awiesm/bootstrap/scripts/bootstrap.yaml,line:6,col:19
   initial_date: '1850-01-01T00:00:00' # no provenance info
@@ -4133,7 +4133,7 @@ general:
   description: Basic AWIESM Test for PI # <TEST_DIR>run/awiesm/bootstrap/scripts/bootstrap.yaml,line:17,col:18
   runscript_abspath: <TEST_DIR>run/awiesm/bootstrap/scripts/bootstrap.yaml # no provenance info
   additional_files: []
-  check: false  # no provenance info
+  check: true  # no provenance info
   update: false # no provenance info
   update_filetypes: []
   launcher_pid: -666  # no provenance info
@@ -4145,7 +4145,7 @@ general:
   inspect: # no provenance info
   no_motd: true # no provenance info
   ignore_config_warnings: false # no provenance info
-  original_command: bootstrap.yaml -e bootstrap --open-run --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
+  original_command: bootstrap.yaml -e bootstrap --open-run -c --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
   started_from: <TEST_DIR>run/awiesm/bootstrap/scripts/ # no provenance info
   scriptname: bootstrap.yaml # no provenance info
   isinteractive: false # no provenance info
@@ -4162,7 +4162,7 @@ general:
   iterative_coupled_model: ''  # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:6,col:30
   reset_calendar_to_last: false # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:7,col:29
   command_line_config:
-    check: false  # no provenance info
+    check: true  # no provenance info
     update: false # no provenance info
     update_filetypes: []
     expid: bootstrap # no provenance info
@@ -4176,7 +4176,7 @@ general:
     use_venv: false # no provenance info
     no_motd: true # no provenance info
     ignore_config_warnings: false # no provenance info
-    original_command: bootstrap.yaml -e bootstrap --open-run --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
+    original_command: bootstrap.yaml -e bootstrap --open-run -c --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
     started_from: <TEST_DIR>run/awiesm/bootstrap/scripts/ # no provenance info
     scriptname: bootstrap.yaml # no provenance info
     runscript_abspath: <TEST_DIR>run/awiesm/bootstrap/scripts/bootstrap.yaml # no provenance info
@@ -4372,7 +4372,7 @@ general:
     first_task_in_queue: prepcompute # no provenance info
     next_run_triggered_by: tidy # no provenance info
   submitted: false  # no provenance info
-  jobid: 3715637 # no provenance info
+  jobid: 1537 # no provenance info
   batch: slurm # no provenance info
   coupler_config_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/config/oasis3mct/ # no provenance info
   coupler: oasis3mct # no provenance info

@@ -4,7 +4,7 @@
 #SBATCH --ntasks=128
 #SBATCH --output=<TEST_DIR>/run/fesom//fesom1.4-initial-monthly/log/fesom1.4-initial-monthly_fesom_compute_19500101-19500101_%j.log --error=<TEST_DIR>/run/fesom//fesom1.4-initial-monthly/log/fesom1.4-initial-monthly_fesom_compute_19500101-19500101_%j.log
 #SBATCH --job-name=fesom1.4-initial-monthly
-#SBATCH --account=ab0995
+#SBATCH --account=None
 #SBATCH --mail-type=NONE
 #SBATCH --ntasks-per-core=1
 #SBATCH --exclusive
@@ -68,7 +68,7 @@ export PERL5LIB=/usr/lib64/perl5
 export LD_LIBRARY_PATH=$HDF5ROOT/lib:$NETCDFROOT/lib:$NETCDFFROOT/lib:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/sw/spack-levante/intel-oneapi-mkl-2022.0.1-ttdktf/mkl/2022.0.1/lib/intel64:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/sw/spack-levante/intel-oneapi-mpi-2021.5.0-mrcss7/mpi/2021.5.0/libfabric/lib:$LD_LIBRARY_PATH
-export ACCOUNT=ab0995
+export ACCOUNT=None
 export ESM_TESTING_DIR=<TEST_DIR>/run/fesom/
 export MODEL_DIR=<TEST_DIR>/comp/fesom/fesom-1.4
 export AWI_FESOM_YAML='{'output_schedules': [{'vars': ['restart'], 'unit': 'd', 'first': 1, 'rate': 1}, {'vars': ['flice', 'fsitherm', 'opottemptend', 'pbo', 'relax_salt', 'rho', 'sidmassevapsubl', 'sidmasssi', 'sidmassth', 'sidmasstranx', 'sidmasstrany', 'sifllatstop', 'sisnconc', 'sisnmass', 'sisnthick', 'sispeed', 'sistrxdtop', 'sistrxubot', 'sistrydtop', 'sistryubot', 'thdgr', 'thdgrsn', 'u2o', 'uhice', 'uhsnow', 'urho', 'uso', 'uto', 'uv', 'v2o', 'vhice', 'vhsnow', 'virtual_salt', 'volo', 'vrho', 'vso', 'vto', 'w2o', 'wfo', 'wso', 'wto', 'zossq'], 'unit': 'y', 'first': 1, 'rate': 1}, {'vars': ['evap', 'evs', 'hfds', 'lwrd', 'mlotst', 'olat', 'olwout', 'omldamax', 'osen', 'prlq', 'prsn', 'rsdo', 'runoff', 'shum', 'siarean', 'siareas', 'sic', 'siextentn', 'siextents', 'sithick', 'sitimefrac', 'siu', 'siv', 'sivol', 'sivoln', 'sivols', 'so', 'soga', 'sos', 'tair', 'tauuo', 'tauvo', 'thetao', 'thetaoga', 'tos', 'tso', 'uo', 'uwind', 'vo', 'vwind', 'wnet', 'wo', 'zos'], 'unit': 'm', 'rate': 1}, {'vars': [], 'unit': 'd', 'rate': 1}, {'vars': [], 'unit': 's', 'rate': 12}]}'
@@ -79,7 +79,7 @@ export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 1950-01-01T00:00:00 3714923 - start >> <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/log//fesom1.4-initial-monthly_fesom.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 1950-01-01T00:00:00 1306 - start >> <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/log//fesom1.4-initial-monthly_fesom.log
 
 cd <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work/
 time srun -l --kill-on-bad-exit=1 --cpu_bind=cores --hint=nomultithread --multi-prog hostfile_srun 2>&1 &
@@ -91,6 +91,6 @@ process=$!
 cd <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/scripts/
 esm_runscripts fesom1.4-initial-monthly.yaml -e fesom1.4-initial-monthly -t observe_compute -p ${process} -s 19500101 -r 1 -v  --last-jobtype prepcompute --open-run
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 1950-01-01T00:00:00 3714923 - done >> <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/log//fesom1.4-initial-monthly_fesom.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 1950-01-01T00:00:00 1306 - done >> <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/log//fesom1.4-initial-monthly_fesom.log
 
 wait
