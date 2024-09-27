@@ -2660,7 +2660,9 @@ general:
   - config  # <HOME_DIR>/esm_tools/configs/defaults/general.yaml,line:4,col:3
   - bin # <HOME_DIR>/esm_tools/configs/defaults/general.yaml,line:5,col:3
   - input # <HOME_DIR>/esm_tools/configs/defaults/general.yaml,line:6,col:3
-  standalone: true  # <HOME_DIR>/esm_tools/configs/setups/fesom-recom/fesom-recom.yaml,line:12,col:21
+  compute_file_checksums: false  # <HOME_DIR>/esm_tools/configs/defaults/general.yaml,line:7,col:25
+  parallel_file_movements: false # <HOME_DIR>/esm_tools/configs/defaults/general.yaml,line:8,col:26
+  standalone: true # <HOME_DIR>/esm_tools/configs/setups/fesom-recom/fesom-recom.yaml,line:12,col:21
   model: fesom-recom # <HOME_DIR>/esm_tools/configs/setups/fesom-recom/fesom-recom.yaml,line:6,col:16
   version: 1.4 # <TEST_DIR>run/fesom-recom/fesom-recom1.4-initial-daily/scripts/fesom-recom1.4-initial-daily.yaml,line:14,col:18
   coupled_setup: false # <HOME_DIR>/esm_tools/configs/setups/fesom-recom/fesom-recom.yaml,line:11,col:24
@@ -2918,10 +2920,10 @@ general:
     first_task_in_queue: prepcompute # no provenance info
     next_run_triggered_by: tidy # no provenance info
   submitted: false  # no provenance info
-  jobid: 1601 # no provenance info
+  jobid: 1385 # no provenance info
   batch: slurm # no provenance info
   experiment_log_file: <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily/log//fesom-recom1.4-initial-daily_fesom-recom.log # no provenance info
-  esm_tools_version: 6.37.0 # no provenance info
+  esm_tools_version: 6.37.3 # no provenance info
   logfile_path: <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily/log//fesom-recom1.4-initial-daily_fesom-recom_prepcompute_19580101-19580101.log # no provenance info
   logfile_path_in_run: <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily/run_19580101-19580101/log//fesom-recom1.4-initial-daily_fesom-recom_prepcompute_19580101-19580101.log # no provenance info
   relevant_filetypes:
@@ -3006,6 +3008,8 @@ general:
       exp_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
       run_to_work: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
       work_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+  files_source: thisrun  # no provenance info
+  files_target: work # no provenance info
 defaults:
   clean_command: rm -rf build CMakeCache.txt  # <HOME_DIR>/esm_tools/configs/defaults/download_and_compile.yaml,line:1,col:16
   comp_command: mkdir -p build; cd build; cmake ..;   make install -j `nproc --all` # <HOME_DIR>/esm_tools/configs/defaults/download_and_compile.yaml,line:2,col:15

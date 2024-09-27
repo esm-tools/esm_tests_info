@@ -781,7 +781,8 @@ oifs:
   - modify_files # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1415,col:6
   - copy_files_to_work # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1416,col:6
   - report_missing_files # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1417,col:6
-  - database_entry # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1421,col:6
+  - compute_and_log_file_checksums # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1418,col:6
+  - database_entry # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1422,col:6
   - oasis_rmp_rst_to_input # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:174,col:34
   models:
   - xios  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:780,col:27
@@ -2660,7 +2661,9 @@ general:
   - config  # <HOME_DIR>/esm_tools/configs/defaults/general.yaml,line:4,col:3
   - bin # <HOME_DIR>/esm_tools/configs/defaults/general.yaml,line:5,col:3
   - input # <HOME_DIR>/esm_tools/configs/defaults/general.yaml,line:6,col:3
-  standalone: false  # no provenance info
+  compute_file_checksums: false  # <HOME_DIR>/esm_tools/configs/defaults/general.yaml,line:7,col:25
+  parallel_file_movements: false # <HOME_DIR>/esm_tools/configs/defaults/general.yaml,line:8,col:26
+  standalone: false # no provenance info
   model: awicm3 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:6,col:16
   model_dir: <TEST_DIR>/comp/awicm3/awicm3-frontiers-xios # <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/scripts/awicm3-frontiers-xios-TCO159L91-CORE2_initial.yaml,line:15,col:16
   lresume: false # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:10,col:18
@@ -2703,7 +2706,8 @@ general:
   - modify_files # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1415,col:6
   - copy_files_to_work # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1416,col:6
   - report_missing_files # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1417,col:6
-  - database_entry # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1421,col:6
+  - compute_and_log_file_checksums # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1418,col:6
+  - database_entry # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1422,col:6
   - oasis_rmp_rst_to_input # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:174,col:34
   tidy_recipe:
   - tidy_coupler  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:434,col:7
@@ -3465,12 +3469,12 @@ general:
     first_task_in_queue: prepcompute # no provenance info
     next_run_triggered_by: tidy # no provenance info
   submitted: false  # no provenance info
-  jobid: 1507 # no provenance info
+  jobid: 1415 # no provenance info
   batch: slurm # no provenance info
   coupler_config_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/config/oasis3mct/ # no provenance info
   coupler: oasis3mct # no provenance info
   experiment_log_file: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/log//awicm3-frontiers-xios-TCO159L91-CORE2_initial_awicm3.log # no provenance info
-  esm_tools_version: 6.37.0 # no provenance info
+  esm_tools_version: 6.37.3 # no provenance info
   logfile_path: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/log//awicm3-frontiers-xios-TCO159L91-CORE2_initial_awicm3_prepcompute_20000101-20000101.log # no provenance info
   logfile_path_in_run: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/log//awicm3-frontiers-xios-TCO159L91-CORE2_initial_awicm3_prepcompute_20000101-20000101.log # no provenance info
   relevant_filetypes:
