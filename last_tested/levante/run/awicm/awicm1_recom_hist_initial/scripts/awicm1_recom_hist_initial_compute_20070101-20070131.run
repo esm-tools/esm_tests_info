@@ -79,7 +79,7 @@ export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 2007-01-01T00:00:00 4139039 - start >> <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/log//awicm1_recom_hist_initial_awicm.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 2007-01-01T00:00:00 1693941 - start >> <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/log//awicm1_recom_hist_initial_awicm.log
 
 cd <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/run_20070101-20070131/work/
 time srun -l --hint=nomultithread --multi-prog hostfile_srun 2>&1 &
@@ -91,6 +91,6 @@ process=$!
 cd <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/scripts/
 esm_runscripts awicm1_recom_hist_initial.yaml -e awicm1_recom_hist_initial -t observe_compute -p ${process} -s 20070101 -r 1 -v  --last-jobtype prepcompute --open-run
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 2007-01-01T00:00:00 4139039 - done >> <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/log//awicm1_recom_hist_initial_awicm.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 2007-01-01T00:00:00 1693941 - done >> <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/log//awicm1_recom_hist_initial_awicm.log
 
 wait
