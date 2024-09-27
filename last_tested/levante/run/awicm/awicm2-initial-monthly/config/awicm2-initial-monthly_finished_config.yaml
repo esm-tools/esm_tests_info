@@ -3600,7 +3600,9 @@ general:
   - config  # <HOME_DIR>/esm_tools/configs/defaults/general.yaml,line:4,col:3
   - bin # <HOME_DIR>/esm_tools/configs/defaults/general.yaml,line:5,col:3
   - input # <HOME_DIR>/esm_tools/configs/defaults/general.yaml,line:6,col:3
-  standalone: false  # no provenance info
+  compute_file_checksums: false  # <HOME_DIR>/esm_tools/configs/defaults/general.yaml,line:7,col:25
+  parallel_file_movements: false # <HOME_DIR>/esm_tools/configs/defaults/general.yaml,line:8,col:26
+  standalone: false # no provenance info
   model: awicm2 # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm-2.0.yaml,line:6,col:16
   coupled_setup: true # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm-2.0.yaml,line:9,col:24
   version: 2 # <TEST_DIR>run/awicm/awicm2-initial-monthly/scripts/awicm2-initial-monthly.yaml,line:4,col:14
@@ -3866,12 +3868,12 @@ general:
     first_task_in_queue: prepcompute # no provenance info
     next_run_triggered_by: tidy # no provenance info
   submitted: false  # no provenance info
-  jobid: 1403 # no provenance info
+  jobid: 1212 # no provenance info
   batch: slurm # no provenance info
   coupler_config_dir: <TEST_DIR>/run/awicm//awicm2-initial-monthly/run_20000101-20000131/config/oasis3mct/ # no provenance info
   coupler: oasis3mct # no provenance info
   experiment_log_file: <TEST_DIR>/run/awicm//awicm2-initial-monthly/log//awicm2-initial-monthly_awicm.log # no provenance info
-  esm_tools_version: 6.37.0 # no provenance info
+  esm_tools_version: 6.37.3 # no provenance info
   logfile_path: <TEST_DIR>/run/awicm//awicm2-initial-monthly/log//awicm2-initial-monthly_awicm_prepcompute_20000101-20000131.log # no provenance info
   logfile_path_in_run: <TEST_DIR>/run/awicm//awicm2-initial-monthly/run_20000101-20000131/log//awicm2-initial-monthly_awicm_prepcompute_20000101-20000131.log # no provenance info
   relevant_filetypes:
@@ -3956,6 +3958,8 @@ general:
       exp_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
       run_to_work: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
       work_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+  files_source: thisrun  # no provenance info
+  files_target: work # no provenance info
 defaults:
   clean_command: rm -rf build CMakeCache.txt  # <HOME_DIR>/esm_tools/configs/defaults/download_and_compile.yaml,line:1,col:16
   comp_command: mkdir -p build; cd build; cmake ..;   make install -j `nproc --all` # <HOME_DIR>/esm_tools/configs/defaults/download_and_compile.yaml,line:2,col:15
