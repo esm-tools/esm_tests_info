@@ -59,6 +59,6 @@ export LD_LIBRARY_PATH=$NETCDF_DIR/lib/:$LD_LIBRARY_PATH
 export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 
 
-cd fesom-1.4
+pushd fesom-1.4
 mkdir -p build; cd build; cmake ..;   make install
-cd ..
+popd
