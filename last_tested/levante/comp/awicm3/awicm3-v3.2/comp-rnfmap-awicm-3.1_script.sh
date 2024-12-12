@@ -96,6 +96,6 @@ unset SLURM_NTASKS
 unset SLURM_NPROCS
 unset SLURM_ARBITRARY_NODELIST
 
-pushd rnfmap
+cd rnfmap
 rm -rf bin; mkdir bin; cd src; make ; cd .. ; cp bin/rnfmap.exe ./bin/rnfma
-popd
+cd -

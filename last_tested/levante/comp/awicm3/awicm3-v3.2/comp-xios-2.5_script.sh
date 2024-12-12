@@ -96,6 +96,6 @@ unset SLURM_NTASKS
 unset SLURM_NPROCS
 unset SLURM_ARBITRARY_NODELIST
 
-pushd xios
+cd xios
 export XIOS_TOPLEVEL=<TEST_DIR>comp/awicm3/awicm3-v3.2/xios; ./make_xios --arch ESMTOOLS_levante_oasis_intel --netcdf_lib netcdf4_par --use_oasis oasis3_mct --job 24 --prod; cp bin/xios_server.exe bin/xios.x
-popd
+cd -

@@ -61,6 +61,6 @@ export configure_opts=--with-coupler=oasis3-mct
 export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 
 
-pushd echam-6.3.05p2-wiso
+cd echam-6.3.05p2-wiso
 ./config/createMakefiles.pl; autoreconf -i --force; mkdir -p src/.deps yaxt/src/.deps yaxt/tests/.deps; ./configure $configure_opts --with-fortran=intel INSTALL='/usr/bin/install -p'; make -j `nproc --all`; make install -j `nproc --all`; mkdir -p src/echam/bin; cp  bin/echam6 src/echam/bin/echam6
-popd
+cd -

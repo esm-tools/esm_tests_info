@@ -57,6 +57,6 @@ export LD_LIBRARY_PATH=/sw/spack-levante/intel-oneapi-mpi-2021.5.0-mrcss7/mpi/20
 export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 
 
-pushd echam-6.3.04p1
+cd echam-6.3.04p1
 mkdir -p build; cd build; cmake ..;   make install -j `nproc --all`
-popd
+cd -

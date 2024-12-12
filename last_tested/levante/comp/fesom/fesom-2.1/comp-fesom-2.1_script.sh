@@ -58,6 +58,6 @@ export taken2from=fesom2_compile
 export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 
 
-pushd fesom-2.1
+cd fesom-2.1
 mkdir -p build; cd build; cmake ..;   make install -j `nproc --all`
-popd
+cd -

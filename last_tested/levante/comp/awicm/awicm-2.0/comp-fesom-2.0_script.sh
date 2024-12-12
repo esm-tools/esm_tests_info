@@ -57,6 +57,6 @@ export LD_LIBRARY_PATH=/sw/spack-levante/intel-oneapi-mpi-2021.5.0-mrcss7/mpi/20
 export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 
 
-pushd fesom-2.0
+cd fesom-2.0
 mkdir -p build; cd build; cmake ..;   make install -j `nproc --all`
-popd
+cd -
