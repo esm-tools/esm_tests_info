@@ -69,4 +69,4 @@ export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 
 cd rnfmap
 rm -rf bin; mkdir bin; cd src; make ; cd .. ; cp bin/rnfmap.exe ./bin/rnfma
-cd ..
+cd -

@@ -71,4 +71,4 @@ export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 
 cd xios
 export XIOS_TOPLEVEL=<TEST_DIR>comp/awicm3/awicm3-v3.2/xios; ./make_xios --arch ESMTOOLS_generic_oasis_cray --netcdf_lib netcdf4_par --use_oasis oasis3_mct --job 24 --prod; cp bin/xios_server.exe bin/xios.x
-cd ..
+cd -
