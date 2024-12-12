@@ -82,4 +82,4 @@ unset SLURM_ARBITRARY_NODELIST
 
 cd oasis
 mkdir -p build; cd build; cmake ..;   make -j 1; mkdir -p ../include/; cp lib/psmile/libpsmile.a lib/psmile/mct/libmct.a lib/psmile/mct/mpeu/libmpeu.a lib/psmile/scrip/libscrip.a ../lib; cp lib/psmile/mod_oasis*mod ../include
-cd ..
+cd -

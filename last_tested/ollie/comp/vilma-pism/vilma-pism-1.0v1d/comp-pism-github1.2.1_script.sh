@@ -70,4 +70,4 @@ mkdir -p build; cd build; export PISM_INSTALL_PREFIX=$(readlink -f $(pwd)/..); c
         -DPism_USE_PROJ:BOOL=YES \
         -DPism_BUILD_EXTRA_EXECS:BOOL=ON \
         ..; make -j4; make install;
-cd ..
+cd -

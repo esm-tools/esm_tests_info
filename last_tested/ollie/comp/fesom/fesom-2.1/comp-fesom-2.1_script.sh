@@ -48,4 +48,4 @@ unset SLURM_MEM_PER_CPU
 
 cd fesom-2.1
 mkdir -p build; cd build; cmake ..;   make install -j `nproc --all`
-cd ..
+cd -

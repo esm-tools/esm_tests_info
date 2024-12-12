@@ -47,4 +47,4 @@ unset SLURM_MEM_PER_CPU
 
 cd fesom-1.4
 mkdir -p build; cd build; cmake ..;   make install
-cd ..
+cd -

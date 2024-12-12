@@ -47,4 +47,4 @@ unset SLURM_MEM_PER_CPU
 
 cd recom
 mkdir -p build; cd build; cmake ..;  make -j `nproc --all`
-cd ..
+cd -

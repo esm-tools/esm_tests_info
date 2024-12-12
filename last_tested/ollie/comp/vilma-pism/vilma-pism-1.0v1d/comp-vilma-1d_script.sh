@@ -47,4 +47,4 @@ unset SLURM_MEM_PER_CPU
 
 cd vilma-1d
 mkdir -p build; cd build; cmake ..;   make install -j `nproc --all`
-cd ..
+cd -

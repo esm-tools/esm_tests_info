@@ -47,4 +47,4 @@ unset SLURM_MEM_PER_CPU
 
 cd echam-6.3.04p1
 mkdir -p build; cd build; cmake ..;   make install -j `nproc --all`
-cd ..
+cd -
