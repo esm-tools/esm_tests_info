@@ -67,6 +67,6 @@ export OASIS_FFLAGS=-emf
 export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 
 
-cd oasis
+pushd oasis
 mkdir -p build; cd build; cmake ..;   make -j 1; mkdir -p ../include/; cp lib/psmile/libpsmile.a lib/psmile/mct/libmct.a lib/psmile/mct/mpeu/libmpeu.a lib/psmile/scrip/libscrip.a ../lib; cp lib/psmile/mod_oasis*mod ../include
-cd -
+popd
