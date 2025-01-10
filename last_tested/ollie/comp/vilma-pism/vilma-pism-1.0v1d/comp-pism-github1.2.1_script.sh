@@ -53,7 +53,7 @@ export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 unset SLURM_MEM_PER_NODE
 unset SLURM_MEM_PER_CPU
 
-cd pism-github1.2.1
+pushd pism-github1.2.1
 mkdir -p build; cd build; export PISM_INSTALL_PREFIX=$(readlink -f $(pwd)/..); cmake \
         -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON \
         -DCMAKE_BUILD_TYPE=RelWithDebInfo \
@@ -70,4 +70,4 @@ mkdir -p build; cd build; export PISM_INSTALL_PREFIX=$(readlink -f $(pwd)/..); c
         -DPism_USE_PROJ:BOOL=YES \
         -DPism_BUILD_EXTRA_EXECS:BOOL=ON \
         ..; make -j4; make install;
-cd -
+popd

@@ -45,6 +45,6 @@ export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 unset SLURM_MEM_PER_NODE
 unset SLURM_MEM_PER_CPU
 
-cd recom
+pushd recom
 mkdir -p build; cd build; cmake ..;  make -j `nproc --all`
-cd -
+popd

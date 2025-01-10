@@ -46,6 +46,6 @@ export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 unset SLURM_MEM_PER_NODE
 unset SLURM_MEM_PER_CPU
 
-cd fesom-2.1
+pushd fesom-2.1
 mkdir -p build; cd build; cmake -DFESOM_COUPLED=ON ..; make install -j `nproc --all`
-cd -
+popd

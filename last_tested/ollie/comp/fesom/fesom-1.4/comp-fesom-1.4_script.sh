@@ -45,6 +45,6 @@ export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 unset SLURM_MEM_PER_NODE
 unset SLURM_MEM_PER_CPU
 
-cd fesom-1.4
+pushd fesom-1.4
 mkdir -p build; cd build; cmake ..;   make install
-cd -
+popd
