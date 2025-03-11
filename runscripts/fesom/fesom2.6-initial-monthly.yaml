@@ -1,0 +1,28 @@
+# Base script provided by Lars Ackermann, copied from:
+# /work/ab0246/a270124/esm-experiments/awiesm-2.6/LIG/test05/scripts/fesom2.6-levante-reference.yaml
+general:
+        account: !ENV ${ACCOUNT}
+        setup_name: fesom
+        comp_version: 2.6 # for esm_tests to find the correct comp directory
+        version: 2.6.7
+        compute_time: "00:08:00"
+        initial_date: '1958-01-01'
+        final_date: '1958-03-31'
+        base_dir: !ENV ${ESM_TESTING_DIR}
+        nyear: 0
+        nmonth: 1
+        use_venv: False
+
+fesom:
+        model_dir: !ENV ${MODEL_DIR}
+        resolution: "CORE2"
+        pool_dir: "/work/ab0246/a270092/input/"
+        mesh_dir: "/work/ba0989/a270124/PalModII/experiments/ICEBERGS/mesh_core2/" #"/home/a/a270064/bb1029/inputs/mesh_core2/"
+        namelist_dir: "/work/ab0246/a270124/model_codes/testing04/awiesm-2.6.1/fesom-2.6/config/"
+        restart_rate: 1
+        restart_first: 1
+        restart_unit: 'm'
+        time_step: 1800
+        choose_computer.name:
+            levante:
+                nproc: 384
