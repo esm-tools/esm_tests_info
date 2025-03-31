@@ -41,8 +41,8 @@ computer:
   - load python3/3.7.7_intel2020u2 # <HOME_DIR>/esm_tools/configs/machines/ollie.yaml,line:84,col:11
   - load git # <HOME_DIR>/esm_tools/configs/machines/ollie.yaml,line:85,col:11
   - list # <HOME_DIR>/esm_tools/configs/machines/ollie.yaml,line:87,col:11
-  - unload intel.mpi # <HOME_DIR>/esm_tools/configs/machines/ollie.yaml,line:122,col:27
-  - load intel.mpi # <HOME_DIR>/esm_tools/configs/machines/ollie.yaml,line:123,col:27
+  - unload intel.mpi # <HOME_DIR>/esm_tools/configs/machines/ollie.yaml,line:126,col:27
+  - load intel.mpi # <HOME_DIR>/esm_tools/configs/machines/ollie.yaml,line:127,col:27
   export_vars:
     LC_ALL: en_US.UTF-8  # <HOME_DIR>/esm_tools/configs/machines/ollie.yaml,line:90,col:17
     FC: '"mpiifort -mkl"' # <HOME_DIR>/esm_tools/configs/machines/ollie.yaml,line:92,col:13
@@ -58,14 +58,16 @@ computer:
     NETCDF_Fortran_INCLUDE_DIRECTORIES: $NETCDFROOT/include # <HOME_DIR>/esm_tools/configs/machines/ollie.yaml,line:104,col:45
     NETCDF_CXX_INCLUDE_DIRECTORIES: $NETCDFROOT/include # <HOME_DIR>/esm_tools/configs/machines/ollie.yaml,line:105,col:41
     NETCDF_CXX_LIBRARIES: $NETCDFROOT/lib # <HOME_DIR>/esm_tools/configs/machines/ollie.yaml,line:106,col:31
-    PERL5LIB: /usr/lib64/perl5 # <HOME_DIR>/esm_tools/configs/machines/ollie.yaml,line:108,col:19
-    LAPACK_LIB: '"-lmkl_intel_lp64 -lmkl_core -mkl=sequential -lpthread -lm -ldl"' # <HOME_DIR>/esm_tools/configs/machines/ollie.yaml,line:109,col:21
-    LAPACK_LIB_DEFAULT: '"-L/global/AWIsoft/intel/2018/compilers_and_libraries_2018.5.274/linux/mkl/lib/intel64 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential"' # <HOME_DIR>/esm_tools/configs/machines/ollie.yaml,line:110,col:29
-    XML2ROOT: /usr # <HOME_DIR>/esm_tools/configs/machines/ollie.yaml,line:111,col:19
-    ZLIBROOT: /usr # <HOME_DIR>/esm_tools/configs/machines/ollie.yaml,line:112,col:19
-    MPIROOT: ${I_MPI_ROOT}/intel64 # <HOME_DIR>/esm_tools/configs/machines/ollie.yaml,line:132,col:34
-    MPI_LIB: $(mpiifort -show |sed -e 's/^[^ ]*//' -e 's/-[I][^ ]*//g') # <HOME_DIR>/esm_tools/configs/machines/ollie.yaml,line:115,col:18
-    PATH: /work/ollie/jhegewal/sw/cmake/bin:$PATH # <HOME_DIR>/esm_tools/configs/machines/ollie.yaml,line:117,col:15
+    OASIS_NETCDF: $NETCDF_DIR # <HOME_DIR>/esm_tools/configs/machines/ollie.yaml,line:109,col:23
+    OASIS_NETCDFF: $NETCDF_DIR # <HOME_DIR>/esm_tools/configs/machines/ollie.yaml,line:110,col:24
+    PERL5LIB: /usr/lib64/perl5 # <HOME_DIR>/esm_tools/configs/machines/ollie.yaml,line:112,col:19
+    LAPACK_LIB: '"-lmkl_intel_lp64 -lmkl_core -mkl=sequential -lpthread -lm -ldl"' # <HOME_DIR>/esm_tools/configs/machines/ollie.yaml,line:113,col:21
+    LAPACK_LIB_DEFAULT: '"-L/global/AWIsoft/intel/2018/compilers_and_libraries_2018.5.274/linux/mkl/lib/intel64 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential"' # <HOME_DIR>/esm_tools/configs/machines/ollie.yaml,line:114,col:29
+    XML2ROOT: /usr # <HOME_DIR>/esm_tools/configs/machines/ollie.yaml,line:115,col:19
+    ZLIBROOT: /usr # <HOME_DIR>/esm_tools/configs/machines/ollie.yaml,line:116,col:19
+    MPIROOT: ${I_MPI_ROOT}/intel64 # <HOME_DIR>/esm_tools/configs/machines/ollie.yaml,line:136,col:34
+    MPI_LIB: $(mpiifort -show |sed -e 's/^[^ ]*//' -e 's/-[I][^ ]*//g') # <HOME_DIR>/esm_tools/configs/machines/ollie.yaml,line:119,col:18
+    PATH: /work/ollie/jhegewal/sw/cmake/bin:$PATH # <HOME_DIR>/esm_tools/configs/machines/ollie.yaml,line:121,col:15
   header_start: '#SBATCH'  # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:5,col:15
   submit: sbatch # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:6,col:9
   launcher: srun # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:7,col:11
@@ -128,12 +130,12 @@ computer:
       MODEL_DIR: <TEST_DIR>/comp/fesom/fesom-2.1 # no provenance info
   heterogeneous_parallelization: false  # no provenance info
   nothing: much # <HOME_DIR>/esm_tools/configs/machines/ollie.yaml,line:40,col:26
-  fc: '"mpiifort -mkl"' # <HOME_DIR>/esm_tools/configs/machines/ollie.yaml,line:124,col:21
-  f77: '"mpiifort -mkl"' # <HOME_DIR>/esm_tools/configs/machines/ollie.yaml,line:125,col:22
-  mpifc: mpiifort # <HOME_DIR>/esm_tools/configs/machines/ollie.yaml,line:126,col:24
-  mpicc: mpiicc # <HOME_DIR>/esm_tools/configs/machines/ollie.yaml,line:127,col:24
-  cc: mpiicc # <HOME_DIR>/esm_tools/configs/machines/ollie.yaml,line:128,col:21
-  cxx: mpiicpc # <HOME_DIR>/esm_tools/configs/machines/ollie.yaml,line:129,col:22
+  fc: '"mpiifort -mkl"' # <HOME_DIR>/esm_tools/configs/machines/ollie.yaml,line:128,col:21
+  f77: '"mpiifort -mkl"' # <HOME_DIR>/esm_tools/configs/machines/ollie.yaml,line:129,col:22
+  mpifc: mpiifort # <HOME_DIR>/esm_tools/configs/machines/ollie.yaml,line:130,col:24
+  mpicc: mpiicc # <HOME_DIR>/esm_tools/configs/machines/ollie.yaml,line:131,col:24
+  cc: mpiicc # <HOME_DIR>/esm_tools/configs/machines/ollie.yaml,line:132,col:21
+  cxx: mpiicpc # <HOME_DIR>/esm_tools/configs/machines/ollie.yaml,line:133,col:22
   launcher_flags: -l --kill-on-bad-exit=1 --cpu_bind=cores # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:79,col:33
   execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=cores --multi-prog hostfile_srun # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:80,col:36
   debugger_flags_prelauncher: '' # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:90,col:41
@@ -407,10 +409,10 @@ general:
     first_task_in_queue: prepcompute # no provenance info
     next_run_triggered_by: tidy # no provenance info
   submitted: false  # no provenance info
-  jobid: 1139 # no provenance info
+  jobid: 1140 # no provenance info
   batch: slurm # no provenance info
   experiment_log_file: <TEST_DIR>/run/fesom//fesom2.1-initial-monthly/log//fesom2.1-initial-monthly_fesom.log # no provenance info
-  esm_tools_version: 6.52.0 # no provenance info
+  esm_tools_version: 6.53.0 # no provenance info
   logfile_path: <TEST_DIR>/run/fesom//fesom2.1-initial-monthly/log//fesom2.1-initial-monthly_fesom_prepcompute_20010101-20010131.log # no provenance info
   logfile_path_in_run: <TEST_DIR>/run/fesom//fesom2.1-initial-monthly/run_20010101-20010131/log//fesom2.1-initial-monthly_fesom_prepcompute_20010101-20010131.log # no provenance info
   relevant_filetypes:
