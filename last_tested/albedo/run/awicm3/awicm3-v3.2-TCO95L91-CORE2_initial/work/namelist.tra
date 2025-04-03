@@ -1,0 +1,54 @@
+&tracer_listsize
+    num_tracers = 100
+/
+
+&tracer_list
+    nml_tracer_list = 1, 'MFCT', 'QR4C', 'FCT ', 1.0, 1.0, 2, 'MFCT', 'QR4C',
+                      'FCT ', 1.0, 1.0
+/
+
+&tracer_init3d
+    n_ic3d = 2
+    idlist = 2, 1
+    filelist = 'phc3.0_winter.nc', 'phc3.0_winter.nc'
+    varlist = 'salt', 'temp'
+    t_insitu = .true.
+/
+
+&tracer_init2d
+    n_ic2d = 3
+    idlist = 1, 2, 3
+    filelist = 'a_ice.nc', 'm_ice.nc', 'm_snow.nc'
+    varlist = 'a_ice', 'm_ice', 'm_snow'
+    ini_ice_from_file = .false.
+/
+
+&tracer_general
+    smooth_bh_tra = .false.
+    gamma0_tra = 0.0005
+    gamma1_tra = 0.0125
+    gamma2_tra = 0.0
+    i_vert_diff = .true.
+/
+
+&tracer_phys
+    use_momix = .false.
+    momix_lat = -50.0
+    momix_kv = 0.01
+    use_instabmix = .true.
+    instabmix_kv = 0.1
+    use_windmix = .false.
+    windmix_kv = 0.001
+    windmix_nl = 2
+    diff_sh_limit = 0.005
+    kv0_const = .false.
+    double_diffusion = .false.
+    k_ver = 1e-05
+    k_hor = 3000.0
+    surf_relax_t = 0.0
+    surf_relax_s = 0
+    balance_salt_water = .true.
+    clim_relax = 0.0
+    ref_sss_local = .true.
+    ref_sss = 34.0
+/
