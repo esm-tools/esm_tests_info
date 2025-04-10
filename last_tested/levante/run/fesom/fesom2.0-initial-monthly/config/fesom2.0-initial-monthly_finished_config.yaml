@@ -254,10 +254,10 @@ general:
     first_task_in_queue: prepcompute # no provenance info
     next_run_triggered_by: tidy # no provenance info
   submitted: false  # no provenance info
-  jobid: 3041324 # no provenance info
+  jobid: 1174463 # no provenance info
   batch: slurm # no provenance info
   experiment_log_file: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/log//fesom2.0-initial-monthly_fesom.log # no provenance info
-  esm_tools_version: 6.50.2 # no provenance info
+  esm_tools_version: 6.53.2 # no provenance info
   logfile_path: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/log//fesom2.0-initial-monthly_fesom_prepcompute_20010101-20010131.log # no provenance info
   logfile_path_in_run: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/log//fesom2.0-initial-monthly_fesom_prepcompute_20010101-20010131.log # no provenance info
   relevant_filetypes:
@@ -377,9 +377,9 @@ computer:
   - load intel-oneapi-compilers/2022.0.1-gcc-11.2.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:177,col:31
   - load intel-oneapi-mkl/2022.0.1-gcc-11.2.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:178,col:31
   - load openmpi/4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:179,col:31
-  - load netcdf-c/4.8.1-openmpi-4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:225,col:19
-  - load netcdf-fortran/4.5.3-openmpi-4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:226,col:19
-  - load hdf5/1.12.1-openmpi-4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:227,col:19
+  - load netcdf-c/4.8.1-openmpi-4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:228,col:19
+  - load netcdf-fortran/4.5.3-openmpi-4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:229,col:19
+  - load hdf5/1.12.1-openmpi-4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:230,col:19
   export_vars:
     LC_ALL: en_US.UTF-8  # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:93,col:21
     CPU_MODEL: AMD_EPYC_ZEN3 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:96,col:24
@@ -411,33 +411,35 @@ computer:
     CXX: mpicxx # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:187,col:34
     MPIROOT: "\"$(mpif90 -show | perl -lne 'm{ -I(.*?)/include } and print $1')\"" # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:189,col:38
     MPI_LIB: "\"$(mpif90 -show |sed -e 's/^[^ ]*//' -e 's/-[I][^ ]*//g')\"" # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:190,col:38
-    IO_LIB_ROOT: /work/ab0246/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:230,col:30
-    HDF5ROOT: /sw/spack-levante/hdf5-1.12.1-tvymb5 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:232,col:27
-    HDF5_C_INCLUDE_DIRECTORIES: $HDF5ROOT/include # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:233,col:45
-    HDF5_ROOT: $HDF5ROOT # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:234,col:28
-    NETCDFFROOT: /sw/spack-levante/netcdf-fortran-4.5.3-k6xq5g # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:235,col:30
-    NETCDFROOT: /sw/spack-levante/netcdf-c-4.8.1-2k3cmu # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:236,col:29
-    NETCDF_Fortran_INCLUDE_DIRECTORIES: $NETCDFFROOT/include # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:237,col:53
-    NETCDF_C_INCLUDE_DIRECTORIES: $NETCDFROOT/include # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:238,col:47
-    NETCDF_CXX_INCLUDE_DIRECTORIES: $NETCDFROOT/include # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:239,col:49
-    NETCDF_CXX_LIBRARIES: $NETCDFROOT/lib # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:240,col:39
-    PSMPIFLAGS: '"-lrt -lm -ldl"' # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:244,col:29
-    LAPACK_LIB: "'-mkl=sequential'" # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:247,col:29
-    ZLIBROOT: /usr # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:250,col:27
-    OASIS3MCT_FC_LIB: '"-L$NETCDFFROOT/lib -lnetcdff"' # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:254,col:35
-    PERL5LIB: /usr/lib64/perl5 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:257,col:27
-    LD_LIBRARY_PATH[(0)]: $HDF5ROOT/lib:$NETCDFROOT/lib:$NETCDFFROOT/lib:$LD_LIBRARY_PATH # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:259,col:39
-    LD_LIBRARY_PATH[(1)]: /sw/spack-levante/intel-oneapi-mkl-2022.0.1-ttdktf/mkl/2022.0.1/lib/intel64:$LD_LIBRARY_PATH # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:276,col:39
-    LD_LIBRARY_PATH[(2)]: /sw/spack-levante/intel-oneapi-mpi-2021.5.0-mrcss7/mpi/2021.5.0/libfabric/lib:$LD_LIBRARY_PATH # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:279,col:39
+    IO_LIB_ROOT: /work/ab0246/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:233,col:30
+    HDF5ROOT: /sw/spack-levante/hdf5-1.12.1-tvymb5 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:235,col:27
+    HDF5_C_INCLUDE_DIRECTORIES: $HDF5ROOT/include # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:236,col:45
+    HDF5_ROOT: $HDF5ROOT # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:237,col:28
+    NETCDFFROOT: /sw/spack-levante/netcdf-fortran-4.5.3-k6xq5g # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:238,col:30
+    NETCDFROOT: /sw/spack-levante/netcdf-c-4.8.1-2k3cmu # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:239,col:29
+    NETCDF_Fortran_INCLUDE_DIRECTORIES: $NETCDFFROOT/include # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:240,col:53
+    NETCDF_C_INCLUDE_DIRECTORIES: $NETCDFROOT/include # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:241,col:47
+    NETCDF_CXX_INCLUDE_DIRECTORIES: $NETCDFROOT/include # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:242,col:49
+    NETCDF_CXX_LIBRARIES: $NETCDFROOT/lib # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:243,col:39
+    OASIS_NETCDF: $NETCDFROOT # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:245,col:31
+    OASIS_NETCDFF: $NETCDFFROOT # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:246,col:32
+    PSMPIFLAGS: '"-lrt -lm -ldl"' # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:250,col:29
+    LAPACK_LIB: "'-mkl=sequential'" # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:253,col:29
+    ZLIBROOT: /usr # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:256,col:27
+    OASIS3MCT_FC_LIB: '"-L$NETCDFFROOT/lib -lnetcdff"' # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:260,col:35
+    PERL5LIB: /usr/lib64/perl5 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:263,col:27
+    LD_LIBRARY_PATH[(0)]: $HDF5ROOT/lib:$NETCDFROOT/lib:$NETCDFFROOT/lib:$LD_LIBRARY_PATH # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:265,col:39
+    LD_LIBRARY_PATH[(1)]: /sw/spack-levante/intel-oneapi-mkl-2022.0.1-ttdktf/mkl/2022.0.1/lib/intel64:$LD_LIBRARY_PATH # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:282,col:39
+    LD_LIBRARY_PATH[(2)]: /sw/spack-levante/intel-oneapi-mpi-2021.5.0-mrcss7/mpi/2021.5.0/libfabric/lib:$LD_LIBRARY_PATH # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:285,col:39
     ACCOUNT: ab0246 # no provenance info
     ESM_TESTING_DIR: <TEST_DIR>/run/fesom/ # no provenance info
     MODEL_DIR: <TEST_DIR>/comp/fesom/fesom-2.0 # no provenance info
-  fc: $FC  # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:332,col:9
-  cc: $CC # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:333,col:9
-  mpifc: $MPIFC # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:334,col:12
-  mpicc: $MPICC # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:335,col:12
-  cxx: $CXX # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:336,col:10
-  launcher_flags: -l # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:343,col:21
+  fc: $FC  # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:347,col:9
+  cc: $CC # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:348,col:9
+  mpifc: $MPIFC # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:349,col:12
+  mpicc: $MPICC # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:350,col:12
+  cxx: $CXX # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:351,col:10
+  launcher_flags: -l # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:358,col:21
   header_start: '#SBATCH' # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:6,col:19
   submit: sbatch # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:7,col:13
   launcher: srun # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:8,col:15
@@ -477,7 +479,7 @@ computer:
       message: "SLURM ERROR: slurm probably didn't find executable" # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:131,col:30
       file: stdout # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:132,col:27
   overcommit_nodes: None # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:136,col:23
-  overcommit_rule: '' # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:141,col:30
+  overcommit_rule: '' # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:137,col:22
   overcommit_flag: '' # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:145,col:22
   model: computer # no provenance info
   add_export_vars:
@@ -507,7 +509,7 @@ fesom:
   clean_command: rm -rf build CMakeCache.txt # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:11,col:20
   required_plugins:
   - git+https://github.com/esm-tools-plugins/tar_binary_restarts  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:14,col:7
-  install_bins: bin/fesom.x  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:23,col:23
+  install_bins: bin/fesom.x  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:70,col:19
   git-repository:
   - https://github.com/FESOM/fesom2.git  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:21,col:11
   - https://gitlab.dkrz.de/FESOM/fesom2.git # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:22,col:11

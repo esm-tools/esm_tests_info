@@ -1349,9 +1349,9 @@ computer:
   - load intel-oneapi-compilers/2022.0.1-gcc-11.2.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:177,col:31
   - load intel-oneapi-mkl/2022.0.1-gcc-11.2.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:178,col:31
   - load openmpi/4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:179,col:31
-  - load netcdf-c/4.8.1-openmpi-4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:225,col:19
-  - load netcdf-fortran/4.5.3-openmpi-4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:226,col:19
-  - load hdf5/1.12.1-openmpi-4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:227,col:19
+  - load netcdf-c/4.8.1-openmpi-4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:228,col:19
+  - load netcdf-fortran/4.5.3-openmpi-4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:229,col:19
+  - load hdf5/1.12.1-openmpi-4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:230,col:19
   export_vars:
     LC_ALL: en_US.UTF-8  # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:93,col:21
     CPU_MODEL: AMD_EPYC_ZEN3 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:96,col:24
@@ -1549,33 +1549,35 @@ computer:
     CXX: mpicxx # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:187,col:34
     MPIROOT: "\"$(mpif90 -show | perl -lne 'm{ -I(.*?)/include } and print $1')\"" # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:189,col:38
     MPI_LIB: "\"$(mpif90 -show |sed -e 's/^[^ ]*//' -e 's/-[I][^ ]*//g')\"" # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:190,col:38
-    IO_LIB_ROOT: /work/ab0246/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:230,col:30
-    HDF5ROOT: /sw/spack-levante/hdf5-1.12.1-tvymb5 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:232,col:27
-    HDF5_C_INCLUDE_DIRECTORIES: $HDF5ROOT/include # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:233,col:45
-    HDF5_ROOT: $HDF5ROOT # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:234,col:28
-    NETCDFFROOT: /sw/spack-levante/netcdf-fortran-4.5.3-k6xq5g # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:235,col:30
-    NETCDFROOT: /sw/spack-levante/netcdf-c-4.8.1-2k3cmu # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:236,col:29
-    NETCDF_Fortran_INCLUDE_DIRECTORIES: $NETCDFFROOT/include # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:237,col:53
-    NETCDF_C_INCLUDE_DIRECTORIES: $NETCDFROOT/include # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:238,col:47
-    NETCDF_CXX_INCLUDE_DIRECTORIES: $NETCDFROOT/include # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:239,col:49
-    NETCDF_CXX_LIBRARIES: $NETCDFROOT/lib # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:240,col:39
-    PSMPIFLAGS: '"-lrt -lm -ldl"' # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:244,col:29
-    LAPACK_LIB: "'-mkl=sequential'" # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:247,col:29
-    ZLIBROOT: /usr # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:250,col:27
-    OASIS3MCT_FC_LIB: '"-L$NETCDFFROOT/lib -lnetcdff"' # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:254,col:35
-    PERL5LIB: /usr/lib64/perl5 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:257,col:27
-    LD_LIBRARY_PATH[(0)]: $HDF5ROOT/lib:$NETCDFROOT/lib:$NETCDFFROOT/lib:$LD_LIBRARY_PATH # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:259,col:39
-    LD_LIBRARY_PATH[(1)]: /sw/spack-levante/intel-oneapi-mkl-2022.0.1-ttdktf/mkl/2022.0.1/lib/intel64:$LD_LIBRARY_PATH # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:276,col:39
-    LD_LIBRARY_PATH[(2)]: /sw/spack-levante/intel-oneapi-mpi-2021.5.0-mrcss7/mpi/2021.5.0/libfabric/lib:$LD_LIBRARY_PATH # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:279,col:39
+    IO_LIB_ROOT: /work/ab0246/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:233,col:30
+    HDF5ROOT: /sw/spack-levante/hdf5-1.12.1-tvymb5 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:235,col:27
+    HDF5_C_INCLUDE_DIRECTORIES: $HDF5ROOT/include # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:236,col:45
+    HDF5_ROOT: $HDF5ROOT # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:237,col:28
+    NETCDFFROOT: /sw/spack-levante/netcdf-fortran-4.5.3-k6xq5g # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:238,col:30
+    NETCDFROOT: /sw/spack-levante/netcdf-c-4.8.1-2k3cmu # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:239,col:29
+    NETCDF_Fortran_INCLUDE_DIRECTORIES: $NETCDFFROOT/include # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:240,col:53
+    NETCDF_C_INCLUDE_DIRECTORIES: $NETCDFROOT/include # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:241,col:47
+    NETCDF_CXX_INCLUDE_DIRECTORIES: $NETCDFROOT/include # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:242,col:49
+    NETCDF_CXX_LIBRARIES: $NETCDFROOT/lib # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:243,col:39
+    OASIS_NETCDF: $NETCDFROOT # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:245,col:31
+    OASIS_NETCDFF: $NETCDFFROOT # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:246,col:32
+    PSMPIFLAGS: '"-lrt -lm -ldl"' # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:250,col:29
+    LAPACK_LIB: "'-mkl=sequential'" # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:253,col:29
+    ZLIBROOT: /usr # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:256,col:27
+    OASIS3MCT_FC_LIB: '"-L$NETCDFFROOT/lib -lnetcdff"' # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:260,col:35
+    PERL5LIB: /usr/lib64/perl5 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:263,col:27
+    LD_LIBRARY_PATH[(0)]: $HDF5ROOT/lib:$NETCDFROOT/lib:$NETCDFFROOT/lib:$LD_LIBRARY_PATH # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:265,col:39
+    LD_LIBRARY_PATH[(1)]: /sw/spack-levante/intel-oneapi-mkl-2022.0.1-ttdktf/mkl/2022.0.1/lib/intel64:$LD_LIBRARY_PATH # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:282,col:39
+    LD_LIBRARY_PATH[(2)]: /sw/spack-levante/intel-oneapi-mpi-2021.5.0-mrcss7/mpi/2021.5.0/libfabric/lib:$LD_LIBRARY_PATH # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:285,col:39
     ACCOUNT: ab0246 # no provenance info
     ESM_TESTING_DIR: <TEST_DIR>/run/awicm/ # no provenance info
     MODEL_DIR: <TEST_DIR>/comp/awicm/awicm-1.0-recom # no provenance info
-  fc: $FC  # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:332,col:9
-  cc: $CC # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:333,col:9
-  mpifc: $MPIFC # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:334,col:12
-  mpicc: $MPICC # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:335,col:12
-  cxx: $CXX # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:336,col:10
-  launcher_flags: -l # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:343,col:21
+  fc: $FC  # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:347,col:9
+  cc: $CC # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:348,col:9
+  mpifc: $MPIFC # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:349,col:12
+  mpicc: $MPICC # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:350,col:12
+  cxx: $CXX # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:351,col:10
+  launcher_flags: -l # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:358,col:21
   header_start: '#SBATCH' # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:6,col:19
   submit: sbatch # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:7,col:13
   launcher: srun # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:8,col:15
@@ -3034,7 +3036,7 @@ oasis3mct:
   time_step: 10800 # <TEST_DIR>run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:97,col:16
   norestart: F # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:6,col:16
   use_lucia: false # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:7,col:16
-  mct_version: 2.8 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:8,col:18
+  mct_version: 2.8 # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:169,col:22
   git-repository: https://gitlab.dkrz.de/modular_esm/oasis3-mct.git # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:9,col:21
   contact: miguel.andres-martinez(at)awi.de, paul.gierz(at)awi.de # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:10,col:14
   config_sources:
@@ -3055,19 +3057,20 @@ oasis3mct:
   - 4.0-awicm-3.0 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:34,col:7
   - 4.0-awicm-3.1 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:35,col:7
   - 5.0-smhi # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:36,col:7
-  - 6.0-YAC # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:37,col:7
-  clean_command: rm -rf build CMakeCache.txt include lib/libpsmile.a lib/libscrip.a lib/libmct.a lib/libmpeu.a  # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:103,col:20
-  comp_command: mkdir -p build; cd build; cmake ..;   make -j 1; mkdir -p ../include/; cp lib/psmile/libpsmile.a lib/psmile/mct/libmct.a lib/psmile/mct/mpeu/libmpeu.a lib/psmile/scrip/libscrip.a ../lib; cp lib/psmile/mod_oasis*mod ../include # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:104,col:19
-  with_yac: false # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:105,col:15
-  destination: oasis # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:107,col:18
+  - 5.0-geomar # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:37,col:7
+  - 6.0-YAC # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:38,col:7
+  clean_command: rm -rf build CMakeCache.txt include lib/libpsmile.a lib/libscrip.a lib/libmct.a lib/libmpeu.a  # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:121,col:20
+  comp_command: mkdir -p build; cd build; cmake ..;   make -j 1; mkdir -p ../include/; cp lib/psmile/libpsmile.a lib/psmile/mct/libmct.a lib/psmile/mct/mpeu/libmpeu.a lib/psmile/scrip/libscrip.a ../lib; cp lib/psmile/mod_oasis*mod ../include # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:122,col:19
+  with_yac: false # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:123,col:15
+  destination: oasis # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:125,col:18
   install_libs:
-  - build/lib/psmile/libpsmile.a  # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:109,col:7
-  - build/lib/psmile/mct/libmct.a # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:110,col:7
-  - build/lib/psmile/mct/mpeu/libmpeu.a # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:111,col:7
-  - build/lib/psmile/scrip/libscrip.a # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:112,col:7
-  oasis_date_stamp: '' # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:117,col:23
-  nb_of_neighbours_a2o: 9 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:124,col:27
-  weight_a2o: 2 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:125,col:17
+  - build/lib/psmile/libpsmile.a  # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:127,col:7
+  - build/lib/psmile/mct/libmct.a # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:128,col:7
+  - build/lib/psmile/mct/mpeu/libmpeu.a # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:129,col:7
+  - build/lib/psmile/scrip/libscrip.a # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:130,col:7
+  oasis_date_stamp: '' # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:135,col:23
+  nb_of_neighbours_a2o: 9 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:142,col:27
+  weight_a2o: 2 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:143,col:17
   log_sources:
     nout: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/run_20070101-20070131/work//nout.000000  # no provenance info
     debug_r1: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/run_20070101-20070131/work//debug.root.01 # no provenance info
@@ -3089,77 +3092,77 @@ oasis3mct:
     nout: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/run_20070101-20070131/work//nout.000000  # no provenance info
   model_dir: <TEST_DIR>/comp/awicm/awicm-1.0-recom/oasis # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:168,col:20
   process_ordering:
-  - fesom  # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:171,col:19
-  - echam # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:172,col:19
-  a2o_lag: 450  # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:174,col:18
-  o2a_lag: 1800 # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:175,col:18
-  a2o_seq: 2 # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:176,col:18
-  coupling_time_step: 3600 # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:178,col:29
+  - fesom  # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:172,col:19
+  - echam # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:173,col:19
+  a2o_lag: 450  # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:175,col:18
+  o2a_lag: 1800 # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:176,col:18
+  a2o_seq: 2 # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:177,col:18
+  coupling_time_step: 3600 # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:179,col:29
   coupling_target_fields:
     o2a_flux:
-    - sst_atmo:sit_atmo:sie_atmo <--distwgt-- sst_feom:sit_feom:sie_feom  # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:181,col:27
-    - snt_atmo <--distwgt-- snt_feom # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:182,col:27
-    - co2_atmo <--distwgt-- co2_feom # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:198,col:27
+    - sst_atmo:sit_atmo:sie_atmo <--distwgt-- sst_feom:sit_feom:sie_feom  # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:182,col:27
+    - snt_atmo <--distwgt-- snt_feom # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:183,col:27
+    - co2_atmo <--distwgt-- co2_feom # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:199,col:27
     a2o_flux:
-    - taux_oce:tauy_oce:taux_ico:tauy_ico <--bicubic-- taux_atm:tauy_atm:taux_ica:tauy_ica  # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:185,col:27
-    - prec_oce <--distwgt-- prec_atm # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:186,col:27
-    - snow_oce <--distwgt-- snow_atm # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:187,col:27
-    - evap_oce <--distwgt-- evap_atm # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:188,col:27
-    - subl_oce <--distwgt-- subl_atm # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:189,col:27
-    - heat_oce <--distwgt-- heat_atm # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:190,col:27
-    - heat_ico <--distwgt-- heat_ica # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:191,col:27
-    - heat_swo <--distwgt-- heat_swa # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:192,col:27
-    - hydr_oce <--distwgt-- hydr_atm # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:193,col:27
-    - co2c_oce <--distwgt-- co2c_atm # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:200,col:27
-    - w10w_oce <--distwgt-- w10w_atm # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:201,col:27
+    - taux_oce:tauy_oce:taux_ico:tauy_ico <--bicubic-- taux_atm:tauy_atm:taux_ica:tauy_ica  # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:186,col:27
+    - prec_oce <--distwgt-- prec_atm # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:187,col:27
+    - snow_oce <--distwgt-- snow_atm # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:188,col:27
+    - evap_oce <--distwgt-- evap_atm # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:189,col:27
+    - subl_oce <--distwgt-- subl_atm # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:190,col:27
+    - heat_oce <--distwgt-- heat_atm # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:191,col:27
+    - heat_ico <--distwgt-- heat_ica # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:192,col:27
+    - heat_swo <--distwgt-- heat_swa # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:193,col:27
+    - hydr_oce <--distwgt-- hydr_atm # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:194,col:27
+    - co2c_oce <--distwgt-- co2c_atm # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:201,col:27
+    - w10w_oce <--distwgt-- w10w_atm # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:202,col:27
   coupling_directions:
     feom->atmo:
-      lag: 1800  # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:205,col:30
-      seq: 2 # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:206,col:30
+      lag: 1800  # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:206,col:30
+      seq: 2 # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:207,col:30
     atmo->feom:
-      lag: 450  # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:208,col:30
-      seq: 2 # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:209,col:30
+      lag: 450  # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:209,col:30
+      seq: 2 # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:210,col:30
   coupling_methods:
     distwgt:
-      time_transformation: instant  # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:214,col:46
+      time_transformation: instant  # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:215,col:46
       remapping:
         distwgt:
-          search_bin: latitude  # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:217,col:53
-          nb_of_search_bins: 15 # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:218,col:60
-          nb_of_neighbours: 6 # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:219,col:59
+          search_bin: latitude  # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:218,col:53
+          nb_of_search_bins: 15 # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:219,col:60
+          nb_of_neighbours: 6 # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:220,col:59
     bicubic:
-      time_transformation: instant  # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:221,col:46
+      time_transformation: instant  # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:222,col:46
       remapping:
         bicubic:
-          search_bin: latitude  # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:224,col:53
-          nb_of_search_bins: 15 # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:225,col:60
+          search_bin: latitude  # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:225,col:53
+          nb_of_search_bins: 15 # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:226,col:60
   add_restart_out_files:
-    rmp_a2f_B: rmp_a2f_B  # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:228,col:28
-    rmp_a2f_D: rmp_a2f_D # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:229,col:28
-    rmp_f2a_D: rmp_f2a_D # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:230,col:28
+    rmp_a2f_B: rmp_a2f_B  # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:229,col:28
+    rmp_a2f_D: rmp_a2f_D # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:230,col:28
+    rmp_f2a_D: rmp_f2a_D # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:231,col:28
   add_restart_out_in_work:
-    rmp_a2f_B: rmp_atmo_to_feom_BICUBIC.nc  # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:233,col:28
-    rmp_a2f_D: rmp_atmo_to_feom_DISTWGT.nc # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:234,col:28
-    rmp_f2a_D: rmp_feom_to_atmo_DISTWGT.nc # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:235,col:28
+    rmp_a2f_B: rmp_atmo_to_feom_BICUBIC.nc  # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:234,col:28
+    rmp_a2f_D: rmp_atmo_to_feom_DISTWGT.nc # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:235,col:28
+    rmp_f2a_D: rmp_feom_to_atmo_DISTWGT.nc # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:236,col:28
   add_restart_out_sources:
-    rmp_a2f_B: rmp_atmo_to_feom_BICUBIC.nc  # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:238,col:28
-    rmp_a2f_D: rmp_atmo_to_feom_DISTWGT.nc # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:239,col:28
-    rmp_f2a_D: rmp_feom_to_atmo_DISTWGT.nc # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:240,col:28
+    rmp_a2f_B: rmp_atmo_to_feom_BICUBIC.nc  # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:239,col:28
+    rmp_a2f_D: rmp_atmo_to_feom_DISTWGT.nc # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:240,col:28
+    rmp_f2a_D: rmp_feom_to_atmo_DISTWGT.nc # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:241,col:28
   add_restart_in_files:
-    rmp_a2f_B: rmp_a2f_B  # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:243,col:28
-    rmp_a2f_D: rmp_a2f_D # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:244,col:28
-    rmp_f2a_D: rmp_f2a_D # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:245,col:28
+    rmp_a2f_B: rmp_a2f_B  # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:244,col:28
+    rmp_a2f_D: rmp_a2f_D # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:245,col:28
+    rmp_f2a_D: rmp_f2a_D # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:246,col:28
   add_restart_in_in_work:
-    rmp_a2f_B: rmp_atmo_to_feom_BICUBIC.nc  # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:248,col:28
-    rmp_a2f_D: rmp_atmo_to_feom_DISTWGT.nc # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:249,col:28
-    rmp_f2a_D: rmp_feom_to_atmo_DISTWGT.nc # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:250,col:28
+    rmp_a2f_B: rmp_atmo_to_feom_BICUBIC.nc  # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:249,col:28
+    rmp_a2f_D: rmp_atmo_to_feom_DISTWGT.nc # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:250,col:28
+    rmp_f2a_D: rmp_feom_to_atmo_DISTWGT.nc # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:251,col:28
   add_restart_in_sources:
-    rmp_a2f_B: rmp_atmo_to_feom_BICUBIC.nc  # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:253,col:28
-    rmp_a2f_D: rmp_atmo_to_feom_DISTWGT.nc # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:254,col:28
-    rmp_f2a_D: rmp_feom_to_atmo_DISTWGT.nc # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:255,col:28
+    rmp_a2f_B: rmp_atmo_to_feom_BICUBIC.nc  # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:254,col:28
+    rmp_a2f_D: rmp_atmo_to_feom_DISTWGT.nc # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:255,col:28
+    rmp_f2a_D: rmp_feom_to_atmo_DISTWGT.nc # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:256,col:28
   cf: <TEST_DIR>/comp/awicm/awicm-1.0-recom/oasis/cf_name_table.txt  # <TEST_DIR>run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:99,col:9
   lresume: false # no provenance info
-  branch: v2.8 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:48,col:17
+  branch: v2.8 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:49,col:17
   yac_libs: '' # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.env.yaml,line:48,col:27
   yac_inc_path: '' # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.env.yaml,line:49,col:31
   yac_lib_path: '' # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.env.yaml,line:50,col:31
@@ -4282,44 +4285,44 @@ jsbach:
   input_dir: /pool/data/JSBACH/input/r0010 # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:18,col:16
   adj_input_dir: /pool/data/AWICM/FESOM1/MESHES/core//tarfilesT63/input/jsbach # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:90,col:24
   cover_fract_dir: /pool/data/JSBACH/input/r0010/T63/land_use_maps/ # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:20,col:22
-  pool_dir_couple: /pool/data/AWICM/JSBACH # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:22,col:22
-  input_dir_couple: /pool/data/AWICM/JSBACH/input/r0010 # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:23,col:23
+  pool_dir_couple: /pool/data/AWICM/JSBACH # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:23,col:22
+  input_dir_couple: /pool/data/AWICM/JSBACH/input/r0010 # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:27,col:23
   dynamic_vegetations: true # <TEST_DIR>run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:47,col:26
   version: 3.2 # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:101,col:18
   dataset: r0010 # <TEST_DIR>run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:49,col:14
-  scenario: HIST # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.inherit.yaml,line:7,col:15
-  scenario_type: HIST # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:30,col:20
+  scenario: HIST # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:33,col:15
+  scenario_type: HIST # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:34,col:20
   config_sources:
-    namelist.jsbach: <HOME_DIR>/esm_tools/namelists//jsbach/3.20/HIST/dynveg/namelist.jsbach  # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:33,col:32
-  no_dynveg_file_ending: _no-dynveg # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:36,col:28
+    namelist.jsbach: <HOME_DIR>/esm_tools/namelists//jsbach/3.20/HIST/dynveg/namelist.jsbach  # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:37,col:32
+  no_dynveg_file_ending: _no-dynveg # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:40,col:28
   dynveg_file_ending: _dynveg # <TEST_DIR>run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:48,col:25
-  Ndepo_cmip6: Ndepo_hist_scenario # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:316,col:18
-  Ndepo_path: '' # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:317,col:17
-  popdens_cmip6: popdens # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:318,col:20
-  cover_fract_cmip6: cover_fract.@YEAR@.nc # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:319,col:24
-  scenario_is_ssp: false # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:337,col:22
+  Ndepo_cmip6: Ndepo_hist_scenario # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:320,col:18
+  Ndepo_path: '' # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:321,col:17
+  popdens_cmip6: popdens # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:322,col:20
+  cover_fract_cmip6: cover_fract_hist_scenario # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:356,col:40
+  scenario_is_ssp: false # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:341,col:22
   forcing_modifications:
-    Ndepo: <--setyear-- @YEAR@  # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:385,col:21
+    Ndepo: <--setyear-- @YEAR@  # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:390,col:21
   forcing_additional_information:
     LU:
-    - need_timestep_before  # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:389,col:23
-    - need_timestep_after # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:390,col:23
+    - need_timestep_before  # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:394,col:23
+    - need_timestep_after # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:395,col:23
     LU_trans:
-    - need_timestep_before  # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:392,col:23
-    - need_timestep_after # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:393,col:23
+    - need_timestep_before  # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:397,col:23
+    - need_timestep_after # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:398,col:23
     Ndepo:
-    - need_timestep_before  # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:395,col:23
-    - need_timestep_after # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:396,col:23
+    - need_timestep_before  # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:400,col:23
+    - need_timestep_after # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:401,col:23
   streams:
-  - jsbach  # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:399,col:15
-  - jsbid # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:400,col:15
-  - yasso # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:401,col:15
-  - surf # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:402,col:15
-  - nitro # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:403,col:15
-  - veg # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:404,col:15
-  - land # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:405,col:15
-  other_date: '2007-01-31T23:52:30' # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:407,col:17
-  parent_date: '2006-12-31T23:52:30' # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.inherit.yaml,line:10,col:18
+  - jsbach  # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:404,col:15
+  - jsbid # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:405,col:15
+  - yasso # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:406,col:15
+  - surf # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:407,col:15
+  - nitro # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:408,col:15
+  - veg # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:409,col:15
+  - land # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:410,col:15
+  other_date: '2007-01-31T23:52:30' # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:412,col:17
+  parent_date: '2006-12-31T23:52:30' # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:414,col:18
   ignore_sources:
     jsbach: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/run_20070101-20070131/work//awicm1_recom_hist_initial_200702.01_jsbach  # no provenance info
     jsbid: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/run_20070101-20070131/work//awicm1_recom_hist_initial_200702.01_jsbid # no provenance info
@@ -4386,8 +4389,8 @@ jsbach:
         dt_update: 0 # no provenance info
         init_rec: 1 # no provenance info
   further_reading:
-  - jsbach/jsbach.inherit.yaml  # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:469,col:15
-  - jsbach/jsbach.datasets.yaml # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:470,col:15
+  - jsbach/jsbach.inherit.yaml  # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:474,col:15
+  - jsbach/jsbach.datasets.yaml # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:475,col:15
   model_dir: <TEST_DIR>/comp/awicm/awicm-1.0-recom/echam-6.3.04p1 # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.inherit.yaml,line:5,col:16
   resolution: T63 # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.inherit.yaml,line:6,col:17
   lresume: false # no provenance info
@@ -4402,25 +4405,25 @@ jsbach:
     jsbach: /work/ab0995/from_Mistral/ab0995/a270046/meshes_default/core/tarfilesT63/input/jsbach/jsbach_T63CORE2_11tiles_5layers_1850.nc # <TEST_DIR>run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:52,col:24
   forcing_sources:
     cover_fract: /pool/data/JSBACH/input/r0010/T63/land_use_maps//cover_fract_T63_11tiles_2007.nc  # no provenance info
-    a_nd_file: /pool/data/JSBACH/input/r0010/T63/spitfire/a_nd_T63.nc # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.datasets.yaml,line:83,col:42
-    lightning: /pool/data/JSBACH/input/r0010/T63/spitfire/LISOTD_HRMC_V2.2_T63.nc # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.datasets.yaml,line:84,col:42
-    popdens: /pool/data/JSBACH/input/r0010/T63/spitfire/population_density_HYDE_T63.nc # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.datasets.yaml,line:85,col:40
+    a_nd_file: /pool/data/JSBACH/input/r0010/T63/spitfire/a_nd_T63.nc # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.datasets.yaml,line:85,col:42
+    lightning: /pool/data/JSBACH/input/r0010/T63/spitfire/LISOTD_HRMC_V2.2_T63.nc # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.datasets.yaml,line:86,col:42
+    popdens: /pool/data/JSBACH/input/r0010/T63/spitfire/population_density_HYDE_T63.nc # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.datasets.yaml,line:87,col:40
     LU_year_2007: /pool/data/JSBACH/input/r0010/T63/New_Hampshire_LCC/hist_harvest/LUH_harvest_T63_2007.nc # no provenance info
     LU_year_2006: /pool/data/JSBACH/input/r0010/T63/New_Hampshire_LCC/hist_harvest/LUH_harvest_T63_2006.nc # no provenance info
     LU_trans_year_2007: /pool/data/JSBACH/input/r0010/T63/New_Hampshire_LCC/hist_dynveg/LUH_scaled_transitions_T63_2007.nc # no provenance info
     LU_trans_year_2006: /pool/data/JSBACH/input/r0010/T63/New_Hampshire_LCC/hist_dynveg/LUH_scaled_transitions_T63_2006.nc # no provenance info
-    Ndepo_year_2007: /pool/data/JSBACH/input/r0010/T63/T63_ndepo_CMIP_NCAR_CCMI-1-0_gr_185001-185012-clim.nc # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.datasets.yaml,line:81,col:43
-    Ndepo_year_2006: /pool/data/JSBACH/input/r0010/T63/T63_ndepo_CMIP_NCAR_CCMI-1-0_gr_185001-185012-clim.nc # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.datasets.yaml,line:81,col:43
+    Ndepo_year_2007: /pool/data/JSBACH/input/r0010/T63/T63_ndepo_CMIP_NCAR_CCMI-1-0_gr_185001-185012-clim.nc # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.datasets.yaml,line:83,col:43
+    Ndepo_year_2006: /pool/data/JSBACH/input/r0010/T63/T63_ndepo_CMIP_NCAR_CCMI-1-0_gr_185001-185012-clim.nc # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.datasets.yaml,line:83,col:43
   namelist_changes:
     namelist.jsbach:
       hydrology_ctl: {}
   add_input_sources:
     jsbach_1850: /work/ab0995/from_Mistral/ab0995/a270046/meshes_default/core/tarfilesT63/input/jsbach/jsbach_T63CORE2_11tiles_5layers_1850.nc  # <TEST_DIR>run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:52,col:24
-  ssp_num: # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:350,col:30
-  Ndepo_sufix: '' # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:351,col:34
-  namelist_dir: <HOME_DIR>/esm_tools/namelists//jsbach/3.20/HIST/dynveg # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:116,col:51
-  dynveg: _dynveg # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:117,col:45
-  jsbachnc_file_ending: _dynveg # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:118,col:59
+  ssp_num: # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:354,col:30
+  Ndepo_sufix: '' # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:355,col:34
+  namelist_dir: <HOME_DIR>/esm_tools/namelists//jsbach/3.20/HIST/dynveg # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:120,col:51
+  dynveg: _dynveg # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:121,col:45
+  jsbachnc_file_ending: _dynveg # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.yaml,line:122,col:59
   leapyear: true # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:144,col:19
   experiment_analysis_dir: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/analysis/jsbach/ # no provenance info
   thisrun_analysis_dir: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/run_20070101-20070131/analysis/jsbach/ # no provenance info
@@ -5130,12 +5133,12 @@ general:
     first_task_in_queue: prepcompute # no provenance info
     next_run_triggered_by: tidy # no provenance info
   submitted: false  # no provenance info
-  jobid: 3067352 # no provenance info
+  jobid: 1222392 # no provenance info
   batch: slurm # no provenance info
   coupler_config_dir: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/run_20070101-20070131/config/oasis3mct/ # no provenance info
   coupler: oasis3mct # no provenance info
   experiment_log_file: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/log//awicm1_recom_hist_initial_awicm.log # no provenance info
-  esm_tools_version: 6.50.2 # no provenance info
+  esm_tools_version: 6.53.2 # no provenance info
   logfile_path: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/log//awicm1_recom_hist_initial_awicm_prepcompute_20070101-20070131.log # no provenance info
   logfile_path_in_run: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/run_20070101-20070131/log//awicm1_recom_hist_initial_awicm_prepcompute_20070101-20070131.log # no provenance info
   relevant_filetypes:
