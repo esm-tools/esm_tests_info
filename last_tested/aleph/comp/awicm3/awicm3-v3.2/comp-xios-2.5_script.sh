@@ -67,7 +67,6 @@ export OIFS_CC=cc
 export OIFS_CFLAGS="-emf -O2 -hcpu=x86-skylake"
 export OIFS_CCDEFS="LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS"
 export OIFS_XIOS_LIB_NAME=cray-c++-rts
-export taken2from=fesom2_compile
 export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 
 
