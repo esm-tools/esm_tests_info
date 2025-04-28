@@ -1550,8 +1550,7 @@ computer:
     ACCOUNT: ab0246  # no provenance info
     ESM_TESTING_DIR: <TEST_DIR>/run/awiesm/ # no provenance info
     MODEL_DIR: <TEST_DIR>/comp/awiesm/awiesm-2.1-recom # no provenance info
-  execution_mode: run  # no provenance info
-  heterogeneous_parallelization: false # no provenance info
+  heterogeneous_parallelization: false  # no provenance info
   partition_name: compute # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:54,col:37
   partition_cpn: 128 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:55,col:36
   mod_netcdf_c: netcdf-c/4.8.1-openmpi-4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:172,col:35
@@ -3224,9 +3223,9 @@ oasis3mct:
     rmp_f2a_D: rmp_feom_to_atmo_DISTWGT.nc # <HOME_DIR>/esm_tools/configs/setups/awiesm/awiesm.yaml,line:632,col:28
   lresume: false  # no provenance info
   branch: v2.8 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:49,col:17
-  yac_libs: '' # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.env.yaml,line:48,col:27
-  yac_inc_path: '' # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.env.yaml,line:49,col:31
-  yac_lib_path: '' # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.env.yaml,line:50,col:31
+  yac_libs: '' # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.env.yaml,line:47,col:27
+  yac_inc_path: '' # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.env.yaml,line:48,col:31
+  yac_lib_path: '' # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.env.yaml,line:49,col:31
   leapyear: true # <HOME_DIR>/esm_tools/configs/setups/awiesm/awiesm.yaml,line:323,col:19
   experiment_analysis_dir: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/analysis/oasis3mct/ # no provenance info
   thisrun_analysis_dir: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010101/analysis/oasis3mct/ # no provenance info
@@ -5210,7 +5209,7 @@ general:
   use_venv: false # no provenance info
   runscript_abspath: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/scripts/all_awiesm-2.1-recom.yaml # no provenance info
   additional_files: []
-  check: false  # no provenance info
+  check: true  # no provenance info
   update: false # no provenance info
   update_filetypes: []
   launcher_pid: -666  # no provenance info
@@ -5222,7 +5221,7 @@ general:
   inspect: # no provenance info
   no_motd: true # no provenance info
   ignore_config_warnings: false # no provenance info
-  original_command: all_awiesm-2.1-recom.yaml -e all_awiesm-2.1-recom --open-run --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
+  original_command: all_awiesm-2.1-recom.yaml -e all_awiesm-2.1-recom --open-run -c --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
   started_from: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/scripts/ # no provenance info
   scriptname: all_awiesm-2.1-recom.yaml # no provenance info
   isinteractive: false # no provenance info
@@ -5240,7 +5239,7 @@ general:
   iterative_coupled_model: ''  # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:6,col:30
   reset_calendar_to_last: false # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:7,col:29
   command_line_config:
-    check: false  # no provenance info
+    check: true  # no provenance info
     update: false # no provenance info
     update_filetypes: []
     expid: all_awiesm-2.1-recom # no provenance info
@@ -5254,7 +5253,7 @@ general:
     use_venv: false # no provenance info
     no_motd: true # no provenance info
     ignore_config_warnings: false # no provenance info
-    original_command: all_awiesm-2.1-recom.yaml -e all_awiesm-2.1-recom --open-run --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
+    original_command: all_awiesm-2.1-recom.yaml -e all_awiesm-2.1-recom --open-run -c --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
     started_from: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/scripts/ # no provenance info
     scriptname: all_awiesm-2.1-recom.yaml # no provenance info
     runscript_abspath: <TEST_DIR>run/awiesm/all_awiesm-2.1-recom/scripts/all_awiesm-2.1-recom.yaml # no provenance info
@@ -5455,7 +5454,7 @@ general:
     first_task_in_queue: prepcompute # no provenance info
     next_run_triggered_by: tidy # no provenance info
   submitted: false  # no provenance info
-  jobid: 2302672 # no provenance info
+  jobid: 2562903 # no provenance info
   batch: slurm # no provenance info
   coupler_config_dir: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010101/config/oasis3mct/ # no provenance info
   coupler: oasis3mct # no provenance info

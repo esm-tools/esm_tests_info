@@ -1369,12 +1369,6 @@ computer:
     UCX_UNIFIED_MODE: y # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:115,col:31
     KMP_LIBRARY: turnaround # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:118,col:26
     KMP_AFFINITY: granularity=fine,scatter # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:119,col:27
-    OMPI_MCA_btl: self # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:126,col:31
-    OMPI_MCA_coll: ^ml # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:127,col:32
-    OMPI_MCA_coll_hcoll_enable: 1 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:128,col:45
-    OMPI_MCA_io: romio321 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:129,col:30
-    OMPI_MCA_osc: pt2pt # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:130,col:31
-    OMPI_MCA_pml: ucx # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:131,col:31
     AWI_FESOM_YAML:
       output_schedules:
       - vars:
@@ -1541,7 +1535,13 @@ computer:
       - vars: []
         unit: s  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.yaml,line:433,col:35
         rate: 12 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.yaml,line:434,col:35
-    FC: mpif90  # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:182,col:33
+    OMPI_MCA_btl: self # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:126,col:31
+    OMPI_MCA_coll: ^ml # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:127,col:32
+    OMPI_MCA_coll_hcoll_enable: 1 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:128,col:45
+    OMPI_MCA_io: romio321 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:129,col:30
+    OMPI_MCA_osc: pt2pt # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:130,col:31
+    OMPI_MCA_pml: ucx # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:131,col:31
+    FC: mpif90 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:182,col:33
     F77: mpif90 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:183,col:34
     MPICC: mpicc # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:184,col:36
     MPIFC: mpif90 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:185,col:36
@@ -1624,8 +1624,7 @@ computer:
     ACCOUNT: ab0246  # no provenance info
     ESM_TESTING_DIR: <TEST_DIR>/run/awicm/ # no provenance info
     MODEL_DIR: <TEST_DIR>/comp/awicm/awicm-1.0-recom # no provenance info
-  execution_mode: run  # no provenance info
-  heterogeneous_parallelization: false # no provenance info
+  heterogeneous_parallelization: false  # no provenance info
   partition_name: compute # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:54,col:37
   partition_cpn: 128 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:55,col:36
   mod_netcdf_c: netcdf-c/4.8.1-openmpi-4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:172,col:35
@@ -3163,9 +3162,9 @@ oasis3mct:
   cf: <TEST_DIR>/comp/awicm/awicm-1.0-recom/oasis/cf_name_table.txt  # <TEST_DIR>run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:99,col:9
   lresume: false # no provenance info
   branch: v2.8 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:49,col:17
-  yac_libs: '' # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.env.yaml,line:48,col:27
-  yac_inc_path: '' # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.env.yaml,line:49,col:31
-  yac_lib_path: '' # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.env.yaml,line:50,col:31
+  yac_libs: '' # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.env.yaml,line:47,col:27
+  yac_inc_path: '' # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.env.yaml,line:48,col:31
+  yac_lib_path: '' # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.env.yaml,line:49,col:31
   leapyear: true # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:144,col:19
   experiment_analysis_dir: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/analysis/oasis3mct/ # no provenance info
   thisrun_analysis_dir: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/run_20070101-20070131/analysis/oasis3mct/ # no provenance info
@@ -4908,7 +4907,7 @@ general:
   nmonth: 1 # no provenance info
   runscript_abspath: <TEST_DIR>run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml # no provenance info
   additional_files: []
-  check: false  # no provenance info
+  check: true  # no provenance info
   update: false # no provenance info
   update_filetypes: []
   launcher_pid: -666  # no provenance info
@@ -4920,7 +4919,7 @@ general:
   inspect: # no provenance info
   no_motd: true # no provenance info
   ignore_config_warnings: false # no provenance info
-  original_command: awicm1_recom_hist_initial.yaml -e awicm1_recom_hist_initial --open-run --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
+  original_command: awicm1_recom_hist_initial.yaml -e awicm1_recom_hist_initial --open-run -c --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
   started_from: <TEST_DIR>run/awicm/awicm1_recom_hist_initial/scripts/ # no provenance info
   scriptname: awicm1_recom_hist_initial.yaml # no provenance info
   isinteractive: false # no provenance info
@@ -4938,7 +4937,7 @@ general:
   iterative_coupled_model: ''  # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:6,col:30
   reset_calendar_to_last: false # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:7,col:29
   command_line_config:
-    check: false  # no provenance info
+    check: true  # no provenance info
     update: false # no provenance info
     update_filetypes: []
     expid: awicm1_recom_hist_initial # no provenance info
@@ -4952,7 +4951,7 @@ general:
     use_venv: false # no provenance info
     no_motd: true # no provenance info
     ignore_config_warnings: false # no provenance info
-    original_command: awicm1_recom_hist_initial.yaml -e awicm1_recom_hist_initial --open-run --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
+    original_command: awicm1_recom_hist_initial.yaml -e awicm1_recom_hist_initial --open-run -c --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
     started_from: <TEST_DIR>run/awicm/awicm1_recom_hist_initial/scripts/ # no provenance info
     scriptname: awicm1_recom_hist_initial.yaml # no provenance info
     runscript_abspath: <TEST_DIR>run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml # no provenance info
@@ -5133,7 +5132,7 @@ general:
     first_task_in_queue: prepcompute # no provenance info
     next_run_triggered_by: tidy # no provenance info
   submitted: false  # no provenance info
-  jobid: 3439680 # no provenance info
+  jobid: 2566798 # no provenance info
   batch: slurm # no provenance info
   coupler_config_dir: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/run_20070101-20070131/config/oasis3mct/ # no provenance info
   coupler: oasis3mct # no provenance info

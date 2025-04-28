@@ -36,7 +36,7 @@ general:
   use_venv: false # no provenance info
   runscript_abspath: <TEST_DIR>run/fesom/fesom2.6-initial-monthly/scripts/fesom2.6-initial-monthly.yaml # no provenance info
   additional_files: []
-  check: false  # no provenance info
+  check: true  # no provenance info
   update: false # no provenance info
   update_filetypes: []
   launcher_pid: -666  # no provenance info
@@ -48,7 +48,7 @@ general:
   inspect: # no provenance info
   no_motd: true # no provenance info
   ignore_config_warnings: false # no provenance info
-  original_command: fesom2.6-initial-monthly.yaml -e fesom2.6-initial-monthly --open-run --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
+  original_command: fesom2.6-initial-monthly.yaml -e fesom2.6-initial-monthly --open-run -c --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
   started_from: <TEST_DIR>run/fesom/fesom2.6-initial-monthly/scripts/ # no provenance info
   scriptname: fesom2.6-initial-monthly.yaml # no provenance info
   isinteractive: false # no provenance info
@@ -65,7 +65,7 @@ general:
   iterative_coupled_model: ''  # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:6,col:30
   reset_calendar_to_last: false # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:7,col:29
   command_line_config:
-    check: false  # no provenance info
+    check: true  # no provenance info
     update: false # no provenance info
     update_filetypes: []
     expid: fesom2.6-initial-monthly # no provenance info
@@ -79,7 +79,7 @@ general:
     use_venv: false # no provenance info
     no_motd: true # no provenance info
     ignore_config_warnings: false # no provenance info
-    original_command: fesom2.6-initial-monthly.yaml -e fesom2.6-initial-monthly --open-run --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
+    original_command: fesom2.6-initial-monthly.yaml -e fesom2.6-initial-monthly --open-run -c --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
     started_from: <TEST_DIR>run/fesom/fesom2.6-initial-monthly/scripts/ # no provenance info
     scriptname: fesom2.6-initial-monthly.yaml # no provenance info
     runscript_abspath: <TEST_DIR>run/fesom/fesom2.6-initial-monthly/scripts/fesom2.6-initial-monthly.yaml # no provenance info
@@ -255,7 +255,7 @@ general:
     first_task_in_queue: prepcompute # no provenance info
     next_run_triggered_by: tidy # no provenance info
   submitted: false  # no provenance info
-  jobid: 673097 # no provenance info
+  jobid: 2559147 # no provenance info
   batch: slurm # no provenance info
   experiment_log_file: <TEST_DIR>/run/fesom//fesom2.6-initial-monthly/log//fesom2.6-initial-monthly_fesom.log # no provenance info
   esm_tools_version: 6.53.2 # no provenance info
@@ -489,8 +489,7 @@ computer:
     ACCOUNT: ab0246 # no provenance info
     ESM_TESTING_DIR: <TEST_DIR>/run/fesom/ # no provenance info
     MODEL_DIR: <TEST_DIR>/comp/fesom/fesom-2.6 # no provenance info
-  execution_mode: run  # no provenance info
-  heterogeneous_parallelization: false # no provenance info
+  heterogeneous_parallelization: false  # no provenance info
   partition_name: compute # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:54,col:37
   partition_cpn: 128 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:55,col:36
   mod_netcdf_c: netcdf-c/4.8.1-openmpi-4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:172,col:35
@@ -1374,7 +1373,6 @@ fesom:
   currentday: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:472,col:17
   bin_sources:
     bin: <TEST_DIR>/comp/fesom/fesom-2.6/bin/fesom.x  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:498,col:18
-    lib_glob_0: <TEST_DIR>/comp/fesom/fesom-2.6/build/lib/libfesom.so # no provenance info
   config_sources:
     config: /work/ab0246/a270124/model_codes/testing04/awiesm-2.6.1/fesom-2.6/config//namelist.config  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:516,col:22
     cvmix: /work/ab0246/a270124/model_codes/testing04/awiesm-2.6.1/fesom-2.6/config//namelist.cvmix # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:517,col:22
@@ -1580,7 +1578,6 @@ fesom:
     transit: <TEST_DIR>run/fesom/fesom2.6-initial-monthly/run_19580101-19580101/config/fesom/namelist.transit # no provenance info
   bin_targets:
     bin: <TEST_DIR>run/fesom/fesom2.6-initial-monthly/run_19580101-19580101/work/fesom  # no provenance info
-    lib_glob_0: <TEST_DIR>run/fesom/fesom2.6-initial-monthly/run_19580101-19580101/work/lib/fesom/libfesom.so # no provenance info
   config_targets:
     config: <TEST_DIR>run/fesom/fesom2.6-initial-monthly/run_19580101-19580101/work/namelist.config  # no provenance info
     cvmix: <TEST_DIR>run/fesom/fesom2.6-initial-monthly/run_19580101-19580101/work/namelist.cvmix # no provenance info
@@ -1611,7 +1608,6 @@ fesom:
     fesom_raw_restart_tar: fesom_raw_restart.tar.* # no provenance info
   bin_intermediate:
     bin: <TEST_DIR>run/fesom/fesom2.6-initial-monthly/run_19580101-19580101/bin/fesom/fesom  # no provenance info
-    lib_glob_0: <TEST_DIR>run/fesom/fesom2.6-initial-monthly/run_19580101-19580101/bin/fesom/lib/fesom/libfesom.so # no provenance info
   log_intermediate:
     clock: <TEST_DIR>run/fesom/fesom2.6-initial-monthly/run_19580101-19580101/log/fesom/fesom.clock  # no provenance info
     mesh_diag: <TEST_DIR>run/fesom/fesom2.6-initial-monthly/run_19580101-19580101/log/fesom/fesom.mesh.diag.nc # no provenance info
