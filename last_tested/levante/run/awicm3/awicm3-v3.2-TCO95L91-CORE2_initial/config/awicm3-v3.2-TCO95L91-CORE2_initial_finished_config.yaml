@@ -1813,39 +1813,48 @@ oasis3mct:
   norestart: F # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:604,col:20
   use_lucia: false # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:7,col:16
   mct_version: 4 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:675,col:38
-  git-repository: https://gitlab.dkrz.de/ec-earth/oasis3mct6.git # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:108,col:25
+  git-repository: https://gitlab.dkrz.de/ec-earth/oasis3mct6.git # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:123,col:25
   contact: miguel.andres-martinez(at)awi.de, paul.gierz(at)awi.de # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:10,col:14
+  metadata:
+    Name: OASIS3-MCT  # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:13,col:15
+    Institute: CERFACS (Toulouse, France) and Centre National de la Recherche Scientifique (Paris, France) # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:15,col:13
+    Description: The OASIS coupler is a software allowing synchronized exchanges of coupling information between numerical codes representing different components of the climate system. # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:18,col:13
+    Author: OASIS team # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:21,col:17
+    Website: https://oasis.cerfacs.fr # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:22,col:18
+    Publications:
+    - 'Craig A., Valcke S., Coquart L., 2017: Development and performance of a new version of the OASIS coupler, OASIS3-MCT_3.0, Geoscientific Model Development, 10, pp. 3297-3308. <https://doi.org/10.5194/gmd-10-3297-2017>'  # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:24,col:15
+    License: https://oasis.cerfacs.fr/en/oasis3-mct-copyright  # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:25,col:18
   config_sources:
     namcouple: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/config/oasis3mct//namcouple  # no provenance info
   version: 6.0-YAC # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:674,col:34
   available_versions:
-  - foci  # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:24,col:7
-  - foci_autotools # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:25,col:7
-  - fociagrif # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:26,col:7
-  - ec-earth # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:27,col:7
-  - 2.8 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:28,col:7
-  - 3 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:29,col:7
-  - 4 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:30,col:7
-  - 4.0-geomar # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:31,col:7
-  - 4.0-oifsdeck # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:32,col:7
-  - 4.0-awicm-frontiers # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:33,col:7
-  - 4.0-awicm-3.0 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:34,col:7
-  - 4.0-awicm-3.1 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:35,col:7
-  - 5.0-smhi # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:36,col:7
-  - 5.0-geomar # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:37,col:7
-  - 6.0-YAC # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:38,col:7
-  clean_command: rm -rf lib/yaxt/build lib/yac/build include lib/libpsmile.a lib/libscrip.a lib/libmct.a lib/libmpeu.a INSTALL_OASIS.ESMTOOLS build  # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:119,col:24
-  comp_command: export ESM_OASIS_DIR=<TEST_DIR>/comp/awicm3/awicm3-v3.2/oasis; cd lib; [ -d "yaxt" ] || rm -f yaxt-0.10.0.tar.gz && wget https://swprojects.dkrz.de/redmine/attachments/download/529/yaxt-0.10.0.tar.gz ; [ -d "yaxt" ] || mkdir yaxt && tar -xzvf yaxt-0.10.0.tar.gz -C yaxt --strip-components=1 ; rm yaxt-0.10.0.tar.gz ; cd yaxt; export YAXT_ROOT=$(pwd) ; mkdir -p build; cd build; ../configure --cache-file=configyax.cache --prefix=<TEST_DIR>/comp/awicm3/awicm3-v3.2/oasis/lib/yaxt --without-regard-for-quality ; make -j 6 install ; cd ../../ ; [ -d "yac" ] || git clone --branch=release-3.1.0 https://gitlab.dkrz.de/dkrz-sw/yac.git ; cd yac ; export YAC_ROOT=$(pwd) ; mkdir -p build ; cd build ; ../configure --cache-file=configyac.cache --enable-lib-core-only --disable-mpi-checks --with-yaxt-root=<TEST_DIR>/comp/awicm3/awicm3-v3.2/oasis/lib/yaxt --with-netcdf-root=$NETCDFROOT --prefix=<TEST_DIR>/comp/awicm3/awicm3-v3.2/oasis/lib/yac ; make -j 6 install ; export YAC_INCLUDE="-I<TEST_DIR>/comp/awicm3/awicm3-v3.2/oasis/lib/yac/include -I<TEST_DIR>/comp/awicm3/awicm3-v3.2/oasis/lib/yaxt/include"; cd ../../../util/make_dir/ ; cp make.ESMTOOLS make.inc ; make -f TopMakefileOasis3 ; cd ../../ ; mv INSTALL_OASIS.ESMTOOLS/lib/libpsmile.MPI1.a INSTALL_OASIS.ESMTOOLS/lib/libpsmile.a ; mkdir -p build/lib/psmile/scrip ; mkdir -p build/lib/psmile/mct/mpeu ; cp INSTALL_OASIS.ESMTOOLS/build-static/lib/psmile.MPI1/*.mod build/lib/psmile/. ; cp INSTALL_OASIS.ESMTOOLS/build-static/lib/scrip/*mod build/lib/psmile/scrip/. ; cp INSTALL_OASIS.ESMTOOLS/build-static/lib/mct/*mod build/lib/psmile/mct/. ; cp INSTALL_OASIS.ESMTOOLS/lib/libmct.a build/lib/psmile/mct/. ; cp INSTALL_OASIS.ESMTOOLS/lib/libmpeu.a build/lib/psmile/mct/. ; cp INSTALL_OASIS.ESMTOOLS/lib/libpsmile.a build/lib/psmile/. ; cp INSTALL_OASIS.ESMTOOLS/lib/libscrip.a build/lib/psmile/scrip/. # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:111,col:23
-  with_yac: true # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:106,col:19
-  destination: oasis # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:125,col:18
+  - foci  # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:39,col:7
+  - foci_autotools # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:40,col:7
+  - fociagrif # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:41,col:7
+  - ec-earth # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:42,col:7
+  - 2.8 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:43,col:7
+  - 3 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:44,col:7
+  - 4 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:45,col:7
+  - 4.0-geomar # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:46,col:7
+  - 4.0-oifsdeck # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:47,col:7
+  - 4.0-awicm-frontiers # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:48,col:7
+  - 4.0-awicm-3.0 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:49,col:7
+  - 4.0-awicm-3.1 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:50,col:7
+  - 5.0-smhi # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:51,col:7
+  - 5.0-geomar # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:52,col:7
+  - 6.0-YAC # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:53,col:7
+  clean_command: rm -rf lib/yaxt/build lib/yac/build include lib/libpsmile.a lib/libscrip.a lib/libmct.a lib/libmpeu.a INSTALL_OASIS.ESMTOOLS build  # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:134,col:24
+  comp_command: export ESM_OASIS_DIR=<TEST_DIR>/comp/awicm3/awicm3-v3.2/oasis; cd lib; [ -d "yaxt" ] || rm -f yaxt-0.10.0.tar.gz && wget https://swprojects.dkrz.de/redmine/attachments/download/529/yaxt-0.10.0.tar.gz ; [ -d "yaxt" ] || mkdir yaxt && tar -xzvf yaxt-0.10.0.tar.gz -C yaxt --strip-components=1 ; rm yaxt-0.10.0.tar.gz ; cd yaxt; export YAXT_ROOT=$(pwd) ; mkdir -p build; cd build; ../configure --cache-file=configyax.cache --prefix=<TEST_DIR>/comp/awicm3/awicm3-v3.2/oasis/lib/yaxt --without-regard-for-quality ; make -j 6 install ; cd ../../ ; [ -d "yac" ] || git clone --branch=release-3.1.0 https://gitlab.dkrz.de/dkrz-sw/yac.git ; cd yac ; export YAC_ROOT=$(pwd) ; mkdir -p build ; cd build ; ../configure --cache-file=configyac.cache --enable-lib-core-only --disable-mpi-checks --with-yaxt-root=<TEST_DIR>/comp/awicm3/awicm3-v3.2/oasis/lib/yaxt --with-netcdf-root=$NETCDFROOT --prefix=<TEST_DIR>/comp/awicm3/awicm3-v3.2/oasis/lib/yac ; make -j 6 install ; export YAC_INCLUDE="-I<TEST_DIR>/comp/awicm3/awicm3-v3.2/oasis/lib/yac/include -I<TEST_DIR>/comp/awicm3/awicm3-v3.2/oasis/lib/yaxt/include"; cd ../../../util/make_dir/ ; cp make.ESMTOOLS make.inc ; make -f TopMakefileOasis3 ; cd ../../ ; mv INSTALL_OASIS.ESMTOOLS/lib/libpsmile.MPI1.a INSTALL_OASIS.ESMTOOLS/lib/libpsmile.a ; mkdir -p build/lib/psmile/scrip ; mkdir -p build/lib/psmile/mct/mpeu ; cp INSTALL_OASIS.ESMTOOLS/build-static/lib/psmile.MPI1/*.mod build/lib/psmile/. ; cp INSTALL_OASIS.ESMTOOLS/build-static/lib/scrip/*mod build/lib/psmile/scrip/. ; cp INSTALL_OASIS.ESMTOOLS/build-static/lib/mct/*mod build/lib/psmile/mct/. ; cp INSTALL_OASIS.ESMTOOLS/lib/libmct.a build/lib/psmile/mct/. ; cp INSTALL_OASIS.ESMTOOLS/lib/libmpeu.a build/lib/psmile/mct/. ; cp INSTALL_OASIS.ESMTOOLS/lib/libpsmile.a build/lib/psmile/. ; cp INSTALL_OASIS.ESMTOOLS/lib/libscrip.a build/lib/psmile/scrip/. # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:126,col:23
+  with_yac: true # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:121,col:19
+  destination: oasis # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:140,col:18
   install_libs:
-  - INSTALL_OASIS.ESMTOOLS/lib/libpsmile.a  # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:114,col:11
-  - INSTALL_OASIS.ESMTOOLS/lib/libmct.a # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:115,col:11
-  - INSTALL_OASIS.ESMTOOLS/lib/libmpeu.a # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:116,col:11
-  - INSTALL_OASIS.ESMTOOLS/lib/libscrip.a # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:117,col:11
-  oasis_date_stamp: '' # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:135,col:23
-  nb_of_neighbours_a2o: 9 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:142,col:27
-  weight_a2o: 2 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:143,col:17
+  - INSTALL_OASIS.ESMTOOLS/lib/libpsmile.a  # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:129,col:11
+  - INSTALL_OASIS.ESMTOOLS/lib/libmct.a # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:130,col:11
+  - INSTALL_OASIS.ESMTOOLS/lib/libmpeu.a # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:131,col:11
+  - INSTALL_OASIS.ESMTOOLS/lib/libscrip.a # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:132,col:11
+  oasis_date_stamp: '' # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:150,col:23
+  nb_of_neighbours_a2o: 9 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:157,col:27
+  weight_a2o: 2 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:158,col:17
   log_sources:
     nout: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//nout.000000  # no provenance info
     debug_r1: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//debug.root.01 # no provenance info
@@ -2058,7 +2067,7 @@ oasis3mct:
     rstos.nc:
     - A_SST:A_Ice_frac:A_Snow_thickness:A_Ice_temp:A_Ice_albedo <--gauswgt_i-- sst_feom:sie_feom:snt_feom:ist_feom:sia_feom  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:690,col:43
     - A_CurX:A_CurY <--gauswgt_i-- u_feom:v_feom # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:691,col:43
-  branch: awi-cm3.2.1  # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:107,col:17
+  branch: awi-cm3.2.1  # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:122,col:17
   yac_libs: -lyac_utils -lyac_core -lyaxt -lyaxt_c # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.env.yaml,line:43,col:27
   yac_inc_path: -I$OIFS_OASIS_BASE/lib/include/yac -I$OIFS_OASIS_BASE/lib/yaxt/include # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.env.yaml,line:44,col:31
   yac_lib_path: -L$OIFS_OASIS_BASE/lib/yac/lib -L$OIFS_OASIS_BASE/lib/yaxt/lib # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.env.yaml,line:45,col:31
@@ -2920,7 +2929,7 @@ general:
     first_task_in_queue: prepcompute # no provenance info
     next_run_triggered_by: tidy # no provenance info
   submitted: false  # no provenance info
-  jobid: 2562080 # no provenance info
+  jobid: 2276253 # no provenance info
   batch: slurm # no provenance info
   coupler_config_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/config/oasis3mct/ # no provenance info
   coupler: oasis3mct # no provenance info
