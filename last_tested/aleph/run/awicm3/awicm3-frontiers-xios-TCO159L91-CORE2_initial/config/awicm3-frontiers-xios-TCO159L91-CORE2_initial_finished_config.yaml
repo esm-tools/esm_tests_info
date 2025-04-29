@@ -1701,37 +1701,46 @@ oasis3mct:
   mct_version: 4 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:639,col:38
   git-repository: https://gitlab.dkrz.de/modular_esm/oasis3-mct.git # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:9,col:21
   contact: miguel.andres-martinez(at)awi.de, paul.gierz(at)awi.de # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:10,col:14
+  metadata:
+    Name: OASIS3-MCT  # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:13,col:15
+    Institute: CERFACS (Toulouse, France) and Centre National de la Recherche Scientifique (Paris, France) # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:15,col:13
+    Description: The OASIS coupler is a software allowing synchronized exchanges of coupling information between numerical codes representing different components of the climate system. # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:18,col:13
+    Author: OASIS team # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:21,col:17
+    Website: https://oasis.cerfacs.fr # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:22,col:18
+    Publications:
+    - 'Craig A., Valcke S., Coquart L., 2017: Development and performance of a new version of the OASIS coupler, OASIS3-MCT_3.0, Geoscientific Model Development, 10, pp. 3297-3308. <https://doi.org/10.5194/gmd-10-3297-2017>'  # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:24,col:15
+    License: https://oasis.cerfacs.fr/en/oasis3-mct-copyright  # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:25,col:18
   config_sources:
     namcouple: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/config/oasis3mct//namcouple  # no provenance info
-  version: 2.8 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:21,col:14
+  version: 2.8 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:36,col:14
   available_versions:
-  - foci  # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:24,col:7
-  - foci_autotools # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:25,col:7
-  - fociagrif # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:26,col:7
-  - ec-earth # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:27,col:7
-  - 2.8 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:28,col:7
-  - 3 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:29,col:7
-  - 4 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:30,col:7
-  - 4.0-geomar # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:31,col:7
-  - 4.0-oifsdeck # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:32,col:7
-  - 4.0-awicm-frontiers # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:33,col:7
-  - 4.0-awicm-3.0 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:34,col:7
-  - 4.0-awicm-3.1 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:35,col:7
-  - 5.0-smhi # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:36,col:7
-  - 5.0-geomar # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:37,col:7
-  - 6.0-YAC # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:38,col:7
-  clean_command: rm -rf build CMakeCache.txt include lib/libpsmile.a lib/libscrip.a lib/libmct.a lib/libmpeu.a  # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:121,col:20
-  comp_command: mkdir -p build; cd build; cmake ..;   make -j 1; mkdir -p ../include/; cp lib/psmile/libpsmile.a lib/psmile/mct/libmct.a lib/psmile/mct/mpeu/libmpeu.a lib/psmile/scrip/libscrip.a ../lib; cp lib/psmile/mod_oasis*mod ../include # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:122,col:19
-  with_yac: false # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:123,col:15
-  destination: oasis # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:125,col:18
+  - foci  # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:39,col:7
+  - foci_autotools # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:40,col:7
+  - fociagrif # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:41,col:7
+  - ec-earth # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:42,col:7
+  - 2.8 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:43,col:7
+  - 3 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:44,col:7
+  - 4 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:45,col:7
+  - 4.0-geomar # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:46,col:7
+  - 4.0-oifsdeck # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:47,col:7
+  - 4.0-awicm-frontiers # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:48,col:7
+  - 4.0-awicm-3.0 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:49,col:7
+  - 4.0-awicm-3.1 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:50,col:7
+  - 5.0-smhi # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:51,col:7
+  - 5.0-geomar # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:52,col:7
+  - 6.0-YAC # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:53,col:7
+  clean_command: rm -rf build CMakeCache.txt include lib/libpsmile.a lib/libscrip.a lib/libmct.a lib/libmpeu.a  # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:136,col:20
+  comp_command: mkdir -p build; cd build; cmake ..;   make -j 1; mkdir -p ../include/; cp lib/psmile/libpsmile.a lib/psmile/mct/libmct.a lib/psmile/mct/mpeu/libmpeu.a lib/psmile/scrip/libscrip.a ../lib; cp lib/psmile/mod_oasis*mod ../include # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:137,col:19
+  with_yac: false # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:138,col:15
+  destination: oasis # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:140,col:18
   install_libs:
-  - build/lib/psmile/libpsmile.a  # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:127,col:7
-  - build/lib/psmile/mct/libmct.a # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:128,col:7
-  - build/lib/psmile/mct/mpeu/libmpeu.a # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:129,col:7
-  - build/lib/psmile/scrip/libscrip.a # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:130,col:7
-  oasis_date_stamp: '' # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:135,col:23
-  nb_of_neighbours_a2o: 9 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:142,col:27
-  weight_a2o: 2 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:143,col:17
+  - build/lib/psmile/libpsmile.a  # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:142,col:7
+  - build/lib/psmile/mct/libmct.a # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:143,col:7
+  - build/lib/psmile/mct/mpeu/libmpeu.a # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:144,col:7
+  - build/lib/psmile/scrip/libscrip.a # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:145,col:7
+  oasis_date_stamp: '' # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:150,col:23
+  nb_of_neighbours_a2o: 9 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:157,col:27
+  weight_a2o: 2 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:158,col:17
   log_sources:
     nout: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//nout.000000  # no provenance info
     debug_r1: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//debug.root.01 # no provenance info
@@ -1942,7 +1951,7 @@ oasis3mct:
     - hydr_oce:enth_oce <--gauswgt_gss-- R_Runoff_oce:R_Calving_oce # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:652,col:43
     rstos.nc:
     - A_SST:A_Ice_frac:A_Snow_thickness:A_Ice_temp:A_Ice_albedo <--gauswgt_i-- sst_feom:sie_feom:snt_feom:ist_feom:sia_feom  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:654,col:43
-  branch: v2.8  # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:49,col:17
+  branch: v2.8  # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:64,col:17
   yac_libs: '' # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.env.yaml,line:47,col:27
   yac_inc_path: '' # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.env.yaml,line:48,col:31
   yac_lib_path: '' # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.env.yaml,line:49,col:31
@@ -2790,7 +2799,7 @@ general:
     first_task_in_queue: prepcompute # no provenance info
     next_run_triggered_by: tidy # no provenance info
   submitted: false  # no provenance info
-  jobid: 59363 # no provenance info
+  jobid: 205372 # no provenance info
   batch: pbs # no provenance info
   coupler_config_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/config/oasis3mct/ # no provenance info
   coupler: oasis3mct # no provenance info
