@@ -75,12 +75,12 @@ export OIFS_CFLAGS="-fp-model precise -O3 -xCORE_AVX2 -g -traceback -qopt-report
 export OIFS_CCDEFS="LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS _OPENMP"
 export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 
-unset SLURM_MEM_PER_NODE
-unset SLURM_MEM_PER_CPU
 unset SLURM_DISTRIBUTION
 unset SLURM_NTASKS
 unset SLURM_NPROCS
 unset SLURM_ARBITRARY_NODELIST
+unset SLURM_MEM_PER_NODE
+unset SLURM_MEM_PER_CPU
 
 pushd oifs-43r3
 export OIFS_TOPLEVEL_DIR=<TEST_DIR>comp/awicm3/awicm3-v3.0/oifs-43r3; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.cfg ; chmod -R 700 . ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs

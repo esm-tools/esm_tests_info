@@ -75,12 +75,12 @@ export OIFS_CFLAGS="-fp-model precise -O3 -xCORE_AVX2 -g -traceback -qopt-report
 export OIFS_CCDEFS="LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS _OPENMP"
 export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 
-unset SLURM_MEM_PER_NODE
-unset SLURM_MEM_PER_CPU
 unset SLURM_DISTRIBUTION
 unset SLURM_NTASKS
 unset SLURM_NPROCS
 unset SLURM_ARBITRARY_NODELIST
+unset SLURM_MEM_PER_NODE
+unset SLURM_MEM_PER_CPU
 
 pushd rnfmap
 rm -rf bin; mkdir bin; cd src; make ; cd .. ; cp bin/rnfmap.exe ./bin/rnfma

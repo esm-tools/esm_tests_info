@@ -45,7 +45,6 @@ export MPIROOT=${I_MPI_ROOT}/intel64
 export MPI_LIB=$(mpiifort -show |sed -e 's/^[^ ]*//' -e 's/-[I][^ ]*//g')
 export PATH=/work/ollie/jhegewal/sw/cmake/bin:$PATH
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/on/a/road/to/nowwhere/test/run_20000101-20001231/work//lib/fesom/
-export taken2from=fesom2_compile
 export LD_LIBRARY_PATH=$IO_LIB_ROOT/lib:$LD_LIBRARY_PATH
 export SZIPROOT=$IO_LIB_ROOT
 export HDF5_ROOT=$HDF5ROOT
@@ -77,12 +76,12 @@ export OIFS_CFLAGS="-fp-model precise -O3 -xCORE_AVX2 -g -traceback -qopt-report
 export OIFS_CCDEFS="LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS _OPENMP"
 export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 
-unset SLURM_MEM_PER_NODE
-unset SLURM_MEM_PER_CPU
 unset SLURM_DISTRIBUTION
 unset SLURM_NTASKS
 unset SLURM_NPROCS
 unset SLURM_ARBITRARY_NODELIST
+unset SLURM_MEM_PER_NODE
+unset SLURM_MEM_PER_CPU
 
 pushd xios
 export XIOS_TOPLEVEL=<TEST_DIR>comp/awicm3/awicm3-v3.2/xios; ./make_xios --arch ESMTOOLS_generic_oasis_intel --netcdf_lib netcdf4_par --use_oasis oasis3_mct --job 24 --prod; cp bin/xios_server.exe bin/xios.x

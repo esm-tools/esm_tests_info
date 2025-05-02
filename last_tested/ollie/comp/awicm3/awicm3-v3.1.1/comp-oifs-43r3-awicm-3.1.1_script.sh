@@ -75,12 +75,12 @@ export OIFS_CFLAGS="-fp-model precise -O3 -xCORE_AVX2 -g -traceback -qopt-report
 export OIFS_CCDEFS="LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS _OPENMP"
 export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 
-unset SLURM_MEM_PER_NODE
-unset SLURM_MEM_PER_CPU
 unset SLURM_DISTRIBUTION
 unset SLURM_NTASKS
 unset SLURM_NPROCS
 unset SLURM_ARBITRARY_NODELIST
+unset SLURM_MEM_PER_NODE
+unset SLURM_MEM_PER_CPU
 
 pushd oifs-43r3
 export OIFS_TOPLEVEL_DIR=<TEST_DIR>comp/awicm3/awicm3-v3.1.1/oifs-43r3; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>comp/awicm3/awicm3-v3.1.1/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>comp/awicm3/awicm3-v3.1.1/oifs-43r3/../xios/inc/; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; chmod -R 700 .; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
