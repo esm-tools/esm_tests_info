@@ -36,7 +36,7 @@ general:
   use_venv: false # no provenance info
   runscript_abspath: <TEST_DIR>run/fesom/fesom2.6-initial-monthly/scripts/fesom2.6-initial-monthly.yaml # no provenance info
   additional_files: []
-  check: true  # no provenance info
+  check: false  # no provenance info
   update: false # no provenance info
   update_filetypes: []
   launcher_pid: -666  # no provenance info
@@ -48,7 +48,7 @@ general:
   inspect: # no provenance info
   no_motd: true # no provenance info
   ignore_config_warnings: false # no provenance info
-  original_command: fesom2.6-initial-monthly.yaml -e fesom2.6-initial-monthly --open-run -c --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
+  original_command: fesom2.6-initial-monthly.yaml -e fesom2.6-initial-monthly --open-run --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
   started_from: <TEST_DIR>run/fesom/fesom2.6-initial-monthly/scripts/ # no provenance info
   scriptname: fesom2.6-initial-monthly.yaml # no provenance info
   isinteractive: false # no provenance info
@@ -65,7 +65,7 @@ general:
   iterative_coupled_model: ''  # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:6,col:30
   reset_calendar_to_last: false # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:7,col:29
   command_line_config:
-    check: true  # no provenance info
+    check: false  # no provenance info
     update: false # no provenance info
     update_filetypes: []
     expid: fesom2.6-initial-monthly # no provenance info
@@ -79,7 +79,7 @@ general:
     use_venv: false # no provenance info
     no_motd: true # no provenance info
     ignore_config_warnings: false # no provenance info
-    original_command: fesom2.6-initial-monthly.yaml -e fesom2.6-initial-monthly --open-run -c --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
+    original_command: fesom2.6-initial-monthly.yaml -e fesom2.6-initial-monthly --open-run --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
     started_from: <TEST_DIR>run/fesom/fesom2.6-initial-monthly/scripts/ # no provenance info
     scriptname: fesom2.6-initial-monthly.yaml # no provenance info
     runscript_abspath: <TEST_DIR>run/fesom/fesom2.6-initial-monthly/scripts/fesom2.6-initial-monthly.yaml # no provenance info
@@ -255,7 +255,7 @@ general:
     first_task_in_queue: prepcompute # no provenance info
     next_run_triggered_by: tidy # no provenance info
   submitted: false  # no provenance info
-  jobid: 2270299 # no provenance info
+  jobid: 657228 # no provenance info
   batch: slurm # no provenance info
   experiment_log_file: <TEST_DIR>/run/fesom//fesom2.6-initial-monthly/log//fesom2.6-initial-monthly_fesom.log # no provenance info
   esm_tools_version: 6.53.2 # no provenance info
@@ -542,7 +542,7 @@ fesom:
   forcing_data_dir: /work/ab0246/a270092/input//FESOM2/FORCING/ # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:64,col:31
   mesh_base_dir: /work/ab0246/a270092/input//FESOM2/MESHES_FESOM2.1/ # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:65,col:28
   ini_data_dir: /work/ab0246/a270092/input//pool-data/ # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:75,col:19
-  namelist_dir: /work/ab0246/a270124/model_codes/testing04/awiesm-2.6.1/fesom-2.6/config/ # <TEST_DIR>run/fesom/fesom2.6-initial-monthly/scripts/fesom2.6-initial-monthly.yaml,line:22,col:23
+  namelist_dir: <HOME_DIR>/esm_tools/namelists//fesom2/2.6.7/ # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:76,col:19
   opbnd_dir: somepath # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:78,col:16
   tide_forcing_dir: somepath # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:79,col:23
   steps_per_day: 48 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:81,col:20
@@ -1373,17 +1373,18 @@ fesom:
   currentday: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:472,col:17
   bin_sources:
     bin: <TEST_DIR>/comp/fesom/fesom-2.6/bin/fesom.x  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:498,col:18
+    lib_glob_0: <TEST_DIR>/comp/fesom/fesom-2.6/build/lib/libfesom.so # no provenance info
   config_sources:
-    config: /work/ab0246/a270124/model_codes/testing04/awiesm-2.6.1/fesom-2.6/config//namelist.config  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:516,col:22
-    cvmix: /work/ab0246/a270124/model_codes/testing04/awiesm-2.6.1/fesom-2.6/config//namelist.cvmix # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:517,col:22
-    dyn: /work/ab0246/a270124/model_codes/testing04/awiesm-2.6.1/fesom-2.6/config//namelist.dyn # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:518,col:22
-    forcing: /work/ab0246/a270124/model_codes/testing04/awiesm-2.6.1/fesom-2.6/config//namelist.forcing # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:519,col:22
-    ice: /work/ab0246/a270124/model_codes/testing04/awiesm-2.6.1/fesom-2.6/config//namelist.ice # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:520,col:22
-    icepack: /work/ab0246/a270124/model_codes/testing04/awiesm-2.6.1/fesom-2.6/config//namelist.icepack # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:521,col:22
-    io: /work/ab0246/a270124/model_codes/testing04/awiesm-2.6.1/fesom-2.6/config//namelist.io # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:522,col:22
-    oce: /work/ab0246/a270124/model_codes/testing04/awiesm-2.6.1/fesom-2.6/config//namelist.oce # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:523,col:22
-    tra: /work/ab0246/a270124/model_codes/testing04/awiesm-2.6.1/fesom-2.6/config//namelist.tra # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:524,col:22
-    transit: /work/ab0246/a270124/model_codes/testing04/awiesm-2.6.1/fesom-2.6/config//namelist.transit # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:525,col:22
+    config: <HOME_DIR>/esm_tools/namelists//fesom2/2.6.7//namelist.config  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:516,col:22
+    cvmix: <HOME_DIR>/esm_tools/namelists//fesom2/2.6.7//namelist.cvmix # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:517,col:22
+    dyn: <HOME_DIR>/esm_tools/namelists//fesom2/2.6.7//namelist.dyn # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:518,col:22
+    forcing: <HOME_DIR>/esm_tools/namelists//fesom2/2.6.7//namelist.forcing # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:519,col:22
+    ice: <HOME_DIR>/esm_tools/namelists//fesom2/2.6.7//namelist.ice # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:520,col:22
+    icepack: <HOME_DIR>/esm_tools/namelists//fesom2/2.6.7//namelist.icepack # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:521,col:22
+    io: <HOME_DIR>/esm_tools/namelists//fesom2/2.6.7//namelist.io # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:522,col:22
+    oce: <HOME_DIR>/esm_tools/namelists//fesom2/2.6.7//namelist.oce # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:523,col:22
+    tra: <HOME_DIR>/esm_tools/namelists//fesom2/2.6.7//namelist.tra # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:524,col:22
+    transit: <HOME_DIR>/esm_tools/namelists//fesom2/2.6.7//namelist.transit # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:525,col:22
     fesom.clock: <TEST_DIR>/run/fesom//fesom2.6-initial-monthly/run_19580101-19580101/config/fesom//fesom.clock # no provenance info
   coupling_fields:
     sst_feom:
@@ -1578,6 +1579,7 @@ fesom:
     transit: <TEST_DIR>run/fesom/fesom2.6-initial-monthly/run_19580101-19580101/config/fesom/namelist.transit # no provenance info
   bin_targets:
     bin: <TEST_DIR>run/fesom/fesom2.6-initial-monthly/run_19580101-19580101/work/fesom  # no provenance info
+    lib_glob_0: <TEST_DIR>run/fesom/fesom2.6-initial-monthly/run_19580101-19580101/work/lib/fesom/libfesom.so # no provenance info
   config_targets:
     config: <TEST_DIR>run/fesom/fesom2.6-initial-monthly/run_19580101-19580101/work/namelist.config  # no provenance info
     cvmix: <TEST_DIR>run/fesom/fesom2.6-initial-monthly/run_19580101-19580101/work/namelist.cvmix # no provenance info
@@ -1608,6 +1610,7 @@ fesom:
     fesom_raw_restart_tar: fesom_raw_restart.tar.* # no provenance info
   bin_intermediate:
     bin: <TEST_DIR>run/fesom/fesom2.6-initial-monthly/run_19580101-19580101/bin/fesom/fesom  # no provenance info
+    lib_glob_0: <TEST_DIR>run/fesom/fesom2.6-initial-monthly/run_19580101-19580101/bin/fesom/lib/fesom/libfesom.so # no provenance info
   log_intermediate:
     clock: <TEST_DIR>run/fesom/fesom2.6-initial-monthly/run_19580101-19580101/log/fesom/fesom.clock  # no provenance info
     mesh_diag: <TEST_DIR>run/fesom/fesom2.6-initial-monthly/run_19580101-19580101/log/fesom/fesom.mesh.diag.nc # no provenance info

@@ -81,7 +81,7 @@ export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 1958-01-01T00:00:00 2270299 - start >> <TEST_DIR>/run/fesom//fesom2.6-initial-monthly/log//fesom2.6-initial-monthly_fesom.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 1958-01-01T00:00:00 657228 - start >> <TEST_DIR>/run/fesom//fesom2.6-initial-monthly/log//fesom2.6-initial-monthly_fesom.log
 
 cd <TEST_DIR>/run/fesom//fesom2.6-initial-monthly/run_19580101-19580101/work/
 time srun -l --hint=nomultithread --multi-prog hostfile_srun 2>&1 &
@@ -93,6 +93,6 @@ process=$!
 cd <TEST_DIR>/run/fesom//fesom2.6-initial-monthly/scripts/
 esm_runscripts fesom2.6-initial-monthly.yaml -e fesom2.6-initial-monthly -t observe_compute -p ${process} -s 19580101 -r 1 -v  --last-jobtype prepcompute --open-run
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 1958-01-01T00:00:00 2270299 - done >> <TEST_DIR>/run/fesom//fesom2.6-initial-monthly/log//fesom2.6-initial-monthly_fesom.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 1958-01-01T00:00:00 657228 - done >> <TEST_DIR>/run/fesom//fesom2.6-initial-monthly/log//fesom2.6-initial-monthly_fesom.log
 
 wait
