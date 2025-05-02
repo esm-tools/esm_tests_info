@@ -41,7 +41,7 @@ export CC=cc
 export CXX=CC
 export CRAYPE_LINK_TYPE=dynamic
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/on/a/road/to/nowwhere/test/run_20000101-20001231/work//lib/fesom/
-export taken2from=fesom2_compile
+export OASIS_FFLAGS=-emf
 export OIFS_GRIB_API_INCLUDE="-I$ECCODESROOT/include"
 export OIFS_GRIB_API_LIB="-L$ECCODESROOT/lib -leccodes_f90 -leccodes"
 export OIFS_GRIB_INCLUDE="$OIFS_GRIB_API_INCLUDE"
@@ -67,7 +67,6 @@ export OIFS_CC=cc
 export OIFS_CFLAGS="-emf -O2 -hcpu=x86-skylake"
 export OIFS_CCDEFS="LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS"
 export OIFS_XIOS_LIB_NAME=cray-c++-rts
-export OASIS_FFLAGS=-emf
 export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 
 
