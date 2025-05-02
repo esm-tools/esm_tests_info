@@ -41,6 +41,11 @@ export OASIS3MCT_FC_LIB="-L$NETCDFFROOT/lib -lnetcdff"
 export PATH=$IO_LIB_ROOT/bin:$PATH
 export OASIS_NETCDF=$NETCDFROOT
 export OASIS_NETCDFF=$NETCDFFROOT
+export OASIS_FFLAGS="-fPIC"
+export OASIS_CFLAGS="-fPIC"
+export CFLAGS="-fPIC"
+export CCFLAGS="-fPIC"
+export FFLAGS="-fPIC"
 export ESM_NETCDF_C_DIR="$NETCDFROOT"
 export ESM_NETCDF_F_DIR="$NETCDFFROOT"
 export OIFS_GRIB_API_INCLUDE="-I$ECCODESROOT/include"
@@ -65,11 +70,6 @@ export OIFS_CC="$CC"
 export OIFS_CFLAGS="-fp-model precise -O3 -xCORE_AVX2 -g -traceback -qopt-report=0 -fpe0 -qopenmp"
 export OIFS_CCDEFS="LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS _OPENMP"
 export MAIN_LDFLAGS="-openmp"
-export OASIS_FFLAGS="-fPIC"
-export OASIS_CFLAGS="-fPIC"
-export CFLAGS="-fPIC"
-export CCFLAGS="-fPIC"
-export FFLAGS="-fPIC"
 export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 
 unset SLURM_DISTRIBUTION
