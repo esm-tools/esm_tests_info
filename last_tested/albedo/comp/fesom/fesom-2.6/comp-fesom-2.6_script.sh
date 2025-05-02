@@ -42,44 +42,11 @@ export LD_LIBRARY_PATH=/albedo/soft/sw/spack-sw/intel-oneapi-mkl/2022.1.0-akthm3
 export PATH=$PERL5LIB/../bin:$PATH
 export PATH=$PATH:$ECCODESROOT/bin
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/on/a/road/to/nowwhere/test/run_20000101-20001231/work//lib/fesom/
-export OASIS_FFLAGS="-march=core-avx2"
-export HDF5_ROOT=$HDF5ROOT
-export HDF5_C_INCLUDE_DIRECTORIES=$HDF5_ROOT/include
-export NETCDF_Fortran_INCLUDE_DIRECTORIES=$NETCDFFROOT/include
-export NETCDF_C_INCLUDE_DIRECTORIES=$NETCDFROOT/include
-export ESM_NETCDF_C_DIR=$NETCDFROOT
-export ESM_NETCDF_F_DIR=$NETCDFFROOT
-export OIFS_GRIB_API_INCLUDE="-I$ECCODESROOT/include"
-export OIFS_GRIB_API_LIB="-L$ECCODESROOT/lib64 -leccodes_f90 -leccodes"
-export OIFS_GRIB_INCLUDE="$OIFS_GRIB_API_INCLUDE"
-export OIFS_GRIB_LIB="$OIFS_GRIB_API_LIB"
-export OIFS_GRIB_API_BIN="$ECCODESROOT/bin"
-export LAPACK_LIB_DEFAULT="-L$MKLROOT/lib/intel64 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential"
-export OIFS_OASIS_BASE=$(pwd)/oasis
-export OIFS_OASIS_INCLUDE="-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu"
-export OIFS_OASIS_LIB="-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu -lpsmile -lmct -lmpeu -lscrip"
-export OIFS_NETCDF_INCLUDE="-I$NETCDFROOT/include"
-export OIFS_NETCDF_LIB="-L$NETCDFROOT/lib -lnetcdf"
-export OIFS_NETCDFF_INCLUDE="-I$NETCDFFROOT/include"
-export OIFS_NETCDFF_LIB="-L$NETCDFFROOT/lib -lnetcdff"
-export OIFS_FC=$FC
-export OIFS_FFLAGS="-r8 -fp-model precise -align array32byte -O3 -qopenmp -g -traceback -convert big_endian -march=core-avx2 -mtune=core-avx2"
-export OIFS_FFIXED=""
-export OIFS_FCDEFS="BLAS LITTLE LINUX INTEGER_IS_INT"
-export OIFS_MPI_LIB="$MPI_LIB"
-export OIFS_LFLAGS="$OIFS_MPI_LIB -qopenmp"
-export OIFS_CC=$CC
-export OIFS_CFLAGS="-fp-model precise -O3 -g -traceback -qopt-report=0 -fpe0 -qopenmp -march=core-avx2 -mtune=core-avx2"
-export OIFS_CCDEFS="LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS _OPENMP"
 export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 
-unset SLURM_DISTRIBUTION
-unset SLURM_NTASKS
-unset SLURM_NPROCS
-unset SLURM_ARBITRARY_NODELIST
 unset SLURM_MEM_PER_NODE
 unset SLURM_MEM_PER_CPU
 
-pushd fesom-2.5
-mkdir -p build; cd build; cmake -DOIFS_COUPLED=ON -DFESOM_COUPLED=ON -DCMAKE_INSTALL_PREFIX=../ ..;   make install -j `nproc --all`
+pushd fesom-2.6
+mkdir -p build; cd build; cmake -DCMAKE_INSTALL_PREFIX=../ ..;   make install -j `nproc --all`
 popd

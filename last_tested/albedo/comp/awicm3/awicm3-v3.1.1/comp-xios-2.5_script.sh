@@ -41,6 +41,7 @@ export LAPACK_LIB='-L/albedo/soft/sw/spack-sw/intel-oneapi-mkl/2022.1.0-akthm3n/
 export LD_LIBRARY_PATH=/albedo/soft/sw/spack-sw/intel-oneapi-mkl/2022.1.0-akthm3n/mkl/2022.1.0/lib/intel64:$LD_LIBRARY_PATH
 export PATH=$PERL5LIB/../bin:$PATH
 export PATH=$PATH:$ECCODESROOT/bin
+export OASIS_FFLAGS="-march=core-avx2"
 export HDF5_ROOT=$HDF5ROOT
 export HDF5_C_INCLUDE_DIRECTORIES=$HDF5_ROOT/include
 export NETCDF_Fortran_INCLUDE_DIRECTORIES=$NETCDFFROOT/include
@@ -69,15 +70,14 @@ export OIFS_LFLAGS="$OIFS_MPI_LIB -qopenmp"
 export OIFS_CC=$CC
 export OIFS_CFLAGS="-fp-model precise -O3 -g -traceback -qopt-report=0 -fpe0 -qopenmp -march=core-avx2 -mtune=core-avx2"
 export OIFS_CCDEFS="LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS _OPENMP"
-export OASIS_FFLAGS="-march=core-avx2"
 export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 
-unset SLURM_MEM_PER_NODE
-unset SLURM_MEM_PER_CPU
 unset SLURM_DISTRIBUTION
 unset SLURM_NTASKS
 unset SLURM_NPROCS
 unset SLURM_ARBITRARY_NODELIST
+unset SLURM_MEM_PER_NODE
+unset SLURM_MEM_PER_CPU
 
 pushd xios
 export XIOS_TOPLEVEL=<TEST_DIR>comp/awicm3/awicm3-v3.1.1/xios; ./make_xios --arch ESMTOOLS_levante_oasis_intel --netcdf_lib netcdf4_par --use_oasis oasis3_mct --job 24 --prod; cp bin/xios_server.exe bin/xios.x

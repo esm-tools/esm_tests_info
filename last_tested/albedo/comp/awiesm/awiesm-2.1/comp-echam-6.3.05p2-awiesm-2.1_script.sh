@@ -34,19 +34,19 @@ export NETCDFFROOT=/albedo/soft/sw/spack-sw/netcdf-fortran/4.5.4-uwfs3bu/
 export ECCODESROOT=/albedo/soft/sw/spack-sw/eccodes/2.25.0-vn2k575/
 export OASIS_NETCDF=$NETCDFROOT
 export OASIS_NETCDFF=$NETCDFFROOT
-export OASIS3MCT_FC_LIB=$(pwd)/lib/
 export MPIROOT=$(mpif90 -show | perl -lne 'm{ -I(.*?)/include } and print $1')
 export MPI_LIB=$(mpif90 -show |sed -e 's/^[^ ]*//' -e 's/-[I][^ ]*//g')
 export LAPACK_LIB='-L/albedo/soft/sw/spack-sw/intel-oneapi-mkl/2022.1.0-akthm3n/mkl/2022.1.0 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential -lm -ldl'
 export LD_LIBRARY_PATH=/albedo/soft/sw/spack-sw/intel-oneapi-mkl/2022.1.0-akthm3n/mkl/2022.1.0/lib/intel64:$LD_LIBRARY_PATH
 export PATH=$PERL5LIB/../bin:$PATH
 export PATH=$PATH:$ECCODESROOT/bin
-export configure_opts='--with-coupler=oasis3-mct --without-regard-for-quality'
 export FFLAGS='-fallow-argument-mismatch -w'
 export FCFLAGS='-fallow-argument-mismatch -w'
 export OIFS_OASIS_BASE=$(pwd)/oasis
 export OIFS_OASIS_INCLUDE="-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu"
+export OASIS3MCT_FC_LIB=$(pwd)/lib/
 export OASIS3MCTROOT=$(pwd)/oasis/
+export configure_opts='--with-coupler=oasis3-mct --without-regard-for-quality'
 export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 
 unset SLURM_MEM_PER_NODE
