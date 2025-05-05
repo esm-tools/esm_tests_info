@@ -38,6 +38,8 @@ export NETCDFROOT=$NETCDF_DIR
 export NETCDF_Fortran_INCLUDE_DIRECTORIES=$NETCDFROOT/include
 export NETCDF_CXX_INCLUDE_DIRECTORIES=$NETCDFROOT/include
 export NETCDF_CXX_LIBRARIES=$NETCDFROOT/lib
+export OASIS_NETCDF=$NETCDF_DIR
+export OASIS_NETCDFF=$NETCDF_DIR
 export PERL5LIB=/usr/lib64/perl5
 export LAPACK_LIB="-lmkl_intel_lp64 -lmkl_core -mkl=sequential -lpthread -lm -ldl"
 export LAPACK_LIB_DEFAULT="-L/global/AWIsoft/intel/2018/compilers_and_libraries_2018.5.274/linux/mkl/lib/intel64 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential"
@@ -59,7 +61,7 @@ unset SLURM_MEM_PER_CPU
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 1850-01-01T00:00:00 1596 - start >> <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/log//awicm1-CMIP6-initial-monthly_awicm.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 1850-01-01T00:00:00 1185 - start >> <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/log//awicm1-CMIP6-initial-monthly_awicm.log
 
 cd <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/work/
 time srun -l --kill-on-bad-exit=1 --cpu_bind=cores --multi-prog hostfile_srun 2>&1 &
@@ -71,6 +73,6 @@ process=$!
 cd <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/scripts/
 esm_runscripts awicm1-CMIP6-initial-monthly.yaml -e awicm1-CMIP6-initial-monthly -t observe_compute -p ${process} -s 18500101 -r 1 -v  --last-jobtype prepcompute --open-run
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 1850-01-01T00:00:00 1596 - done >> <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/log//awicm1-CMIP6-initial-monthly_awicm.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 1850-01-01T00:00:00 1185 - done >> <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/log//awicm1-CMIP6-initial-monthly_awicm.log
 
 wait

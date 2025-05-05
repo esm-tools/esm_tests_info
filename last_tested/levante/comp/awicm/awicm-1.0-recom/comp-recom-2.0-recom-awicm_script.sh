@@ -44,8 +44,8 @@ export NETCDFFROOT=/sw/spack-levante/netcdf-fortran-4.5.3-k6xq5g
 export NETCDFROOT=/sw/spack-levante/netcdf-c-4.8.1-2k3cmu
 export NETCDF_Fortran_INCLUDE_DIRECTORIES=$NETCDFFROOT/include
 export NETCDF_C_INCLUDE_DIRECTORIES=$NETCDFROOT/include
-export NETCDF_CXX_INCLUDE_DIRECTORIES=$NETCDFROOT/include
-export NETCDF_CXX_LIBRARIES=$NETCDFROOT/lib
+export OASIS_NETCDF=$NETCDFROOT
+export OASIS_NETCDFF=$NETCDFFROOT
 export PSMPIFLAGS="-lrt -lm -ldl"
 export LAPACK_LIB='-mkl=sequential'
 export ZLIBROOT=/usr
@@ -57,6 +57,6 @@ export LD_LIBRARY_PATH=/sw/spack-levante/intel-oneapi-mpi-2021.5.0-mrcss7/mpi/20
 export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 
 
-cd recom
+pushd recom
 mkdir -p build; cd build; cmake ..;  make -j `nproc --all`
-cd ..
+popd

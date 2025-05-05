@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --partition=compute
-#SBATCH --time=00:30:00
+#SBATCH --time=01:30:00
 #SBATCH --ntasks=864
 #SBATCH --output=<TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/log/all_awiesm-2.1-recom_awiesm_compute_20010101-20010101_%j.log --error=<TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/log/all_awiesm-2.1-recom_awiesm_compute_20010101-20010101_%j.log
 #SBATCH --job-name=all_awiesm-2.1-recom
@@ -60,6 +60,8 @@ export NETCDF_Fortran_INCLUDE_DIRECTORIES=$NETCDFFROOT/include
 export NETCDF_C_INCLUDE_DIRECTORIES=$NETCDFROOT/include
 export NETCDF_CXX_INCLUDE_DIRECTORIES=$NETCDFROOT/include
 export NETCDF_CXX_LIBRARIES=$NETCDFROOT/lib
+export OASIS_NETCDF=$NETCDFROOT
+export OASIS_NETCDFF=$NETCDFFROOT
 export PSMPIFLAGS="-lrt -lm -ldl"
 export LAPACK_LIB='-mkl=sequential'
 export ZLIBROOT=/usr
@@ -78,7 +80,7 @@ export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 2001-01-01T00:00:00 1506 - start >> <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/log//all_awiesm-2.1-recom_awiesm.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 2001-01-01T00:00:00 1080 - start >> <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/log//all_awiesm-2.1-recom_awiesm.log
 
 cd <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010101/work/
 time srun -l --hint=nomultithread --multi-prog hostfile_srun 2>&1 &
@@ -90,6 +92,6 @@ process=$!
 cd <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/scripts/
 esm_runscripts all_awiesm-2.1-recom.yaml -e all_awiesm-2.1-recom -t observe_compute -p ${process} -s 20010101 -r 1 -v  --last-jobtype prepcompute --open-run
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 2001-01-01T00:00:00 1506 - done >> <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/log//all_awiesm-2.1-recom_awiesm.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 2001-01-01T00:00:00 1080 - done >> <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/log//all_awiesm-2.1-recom_awiesm.log
 
 wait
