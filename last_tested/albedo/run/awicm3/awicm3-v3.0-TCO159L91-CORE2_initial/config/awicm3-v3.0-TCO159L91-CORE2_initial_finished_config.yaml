@@ -1247,7 +1247,8 @@ computer:
   - SLURM_ARBITRARY_NODELIST # <HOME_DIR>/esm_tools/configs/machines/albedo.yaml,line:49,col:19
   compute_time_minutes: 45 # <HOME_DIR>/esm_tools/configs/machines/albedo.yaml,line:59,col:27
   qos: 12h # <HOME_DIR>/esm_tools/configs/machines/albedo.yaml,line:63,col:10
-  additional_flags: []
+  additional_flags:
+  - --qos=12h  # <HOME_DIR>/esm_tools/configs/machines/albedo.yaml,line:67,col:24
   mpi_implementation: openmpi # <HOME_DIR>/esm_tools/configs/machines/albedo.yaml,line:69,col:25
   compiler_suite: intel-oneapi # <HOME_DIR>/esm_tools/configs/machines/albedo.yaml,line:78,col:21
   module_actions:
@@ -1315,32 +1316,32 @@ computer:
   partition_flag: --partition=@partition@ # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:42,col:21
   nodes_flag: --nodes=@nodes@ # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:43,col:17
   time_flag: --time=00:45:00 # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:44,col:16
-  output_path: <TEST_DIR>/run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/log/ # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:46,col:18
-  thisrun_logfile: <TEST_DIR>/run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/log/awicm3-v3.0-TCO159L91-CORE2_initial_awicm3_@jobtype@_20000101-20000101_%j.log # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:47,col:22
-  output_flags: --output=<TEST_DIR>/run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/log/awicm3-v3.0-TCO159L91-CORE2_initial_awicm3_@jobtype@_20000101-20000101_%j.log --error=<TEST_DIR>/run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/log/awicm3-v3.0-TCO159L91-CORE2_initial_awicm3_@jobtype@_20000101-20000101_%j.log # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:48,col:19
-  name_flag: --job-name=awicm3-v3.0-TCO159L91-CORE2_initial # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:49,col:16
+  output_path: <TEST_DIR>/run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/log/ # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:45,col:18
+  thisrun_logfile: <TEST_DIR>/run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/log/awicm3-v3.0-TCO159L91-CORE2_initial_awicm3_@jobtype@_20000101-20000101_%j.log # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:46,col:22
+  output_flags: --output=<TEST_DIR>/run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/log/awicm3-v3.0-TCO159L91-CORE2_initial_awicm3_@jobtype@_20000101-20000101_%j.log --error=<TEST_DIR>/run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/log/awicm3-v3.0-TCO159L91-CORE2_initial_awicm3_@jobtype@_20000101-20000101_%j.log # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:47,col:19
+  name_flag: --job-name=awicm3-v3.0-TCO159L91-CORE2_initial # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:48,col:16
   taskset: true # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:951,col:18
-  mt_launcher_flag: '' # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:52,col:23
-  submitted: false # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:97,col:16
-  script_name: <--methods.scriptname-- # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:98,col:18
-  actual_script_dir: <--methods.script_dir-- # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:99,col:24
-  hostname_list: DUMMY_HOST1 DUMMY_HOST2 # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:100,col:20
+  mt_launcher_flag: '' # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:51,col:23
+  submitted: false # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:96,col:16
+  script_name: <--methods.scriptname-- # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:97,col:18
+  actual_script_dir: <--methods.script_dir-- # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:98,col:24
+  hostname_list: DUMMY_HOST1 DUMMY_HOST2 # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:99,col:20
   config_files:
-    hostfile: hostfile_srun  # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:119,col:23
+    hostfile: hostfile_srun  # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:118,col:23
   check_error:
     'srun: error:':
-      frequency: 30  # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:123,col:32
-      method: kill # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:124,col:29
-      message: 'SLURM ERROR: slurm ended with an error, exiting.' # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:125,col:30
-      file: stdout # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:126,col:27
+      frequency: 30  # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:122,col:32
+      method: kill # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:123,col:29
+      message: 'SLURM ERROR: slurm ended with an error, exiting.' # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:124,col:30
+      file: stdout # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:125,col:27
     'slurmstepd: error: execve():':
-      frequency: 600  # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:129,col:32
-      method: kill # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:130,col:29
-      message: "SLURM ERROR: slurm probably didn't find executable" # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:131,col:30
-      file: stdout # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:132,col:27
-  overcommit_nodes: None # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:136,col:23
-  overcommit_rule: '' # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:137,col:22
-  overcommit_flag: '' # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:145,col:22
+      frequency: 600  # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:128,col:32
+      method: kill # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:129,col:29
+      message: "SLURM ERROR: slurm probably didn't find executable" # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:130,col:30
+      file: stdout # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:131,col:27
+  overcommit_nodes: None # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:135,col:23
+  overcommit_rule: '' # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:136,col:22
+  overcommit_flag: '' # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:144,col:22
   model: computer # no provenance info
   merge_component_envs:
     compile: true  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:953,col:22
@@ -1350,7 +1351,7 @@ computer:
     MODEL_DIR: <TEST_DIR>/comp/awicm3/awicm3-v3.0 # no provenance info
   jobtype: prepcompute # no provenance info
   heterogeneous_parallelization: true # no provenance info
-  cpu_bind: none # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:56,col:23
+  cpu_bind: none # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:55,col:23
   mpi_implementation_module: openmpi/4.1.3 # <HOME_DIR>/esm_tools/configs/machines/albedo.yaml,line:75,col:40
   mpi_implementation_suffix: openmpi4.1.3 # <HOME_DIR>/esm_tools/configs/machines/albedo.yaml,line:76,col:40
   compiler_module: intel-oneapi-compilers/2022.1.0 # <HOME_DIR>/esm_tools/configs/machines/albedo.yaml,line:105,col:30
@@ -1369,10 +1370,10 @@ computer:
   cc: mpicc # <HOME_DIR>/esm_tools/configs/machines/albedo.yaml,line:118,col:17
   cxx: mpic++ # <HOME_DIR>/esm_tools/configs/machines/albedo.yaml,line:119,col:18
   accounting_flag: --account=None # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:24,col:38
-  launcher_flags: -l --kill-on-bad-exit=1 --cpu_bind=none # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:80,col:37
-  execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=none --multi-prog hostfile_srun # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:81,col:40
-  debugger_flags_prelauncher: '' # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:91,col:45
-  srun_execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=none --multi-prog hostfile_srun # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:60,col:45
+  launcher_flags: -l --kill-on-bad-exit=1 --cpu_bind=none # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:79,col:37
+  execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=none --multi-prog hostfile_srun # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:80,col:40
+  debugger_flags_prelauncher: '' # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:90,col:45
+  srun_execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=none --multi-prog hostfile_srun # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:59,col:45
 oasis3mct:
   model: oasis3mct  # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:2,col:12
   cf_name_dir: <TEST_DIR>/comp/awicm3/awicm3-v3.0/oasis # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:4,col:18
