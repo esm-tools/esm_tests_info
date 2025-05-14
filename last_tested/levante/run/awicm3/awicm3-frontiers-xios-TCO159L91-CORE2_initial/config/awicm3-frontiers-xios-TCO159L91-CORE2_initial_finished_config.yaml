@@ -1,9 +1,9 @@
 fesom:
   model: fesom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:5,col:12
   branch: 2.0.2 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:18,col:17
-  version: 2 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:393,col:18
+  version: 2 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:348,col:18
   type: ocean # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:8,col:11
-  comp_command: mkdir -p build; cd build; cmake -DOIFS_COUPLED=ON -DFESOM_COUPLED=ON -DENABLE_OPENMP=ON -DDISABLE_MULTITHREADING=OFF -DCMAKE_INSTALL_PREFIX=../ ..;   make install -j `nproc --all` # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:408,col:31
+  comp_command: mkdir -p build; cd build; cmake -DOIFS_COUPLED=ON -DFESOM_COUPLED=ON -DENABLE_OPENMP=ON -DDISABLE_MULTITHREADING=OFF -DCMAKE_INSTALL_PREFIX=../ ..;   make install -j `nproc --all` # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:363,col:31
   clean_command: rm -rf build CMakeCache.txt # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:11,col:20
   required_plugins:
   - git+https://github.com/esm-tools-plugins/tar_binary_restarts  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:14,col:7
@@ -25,15 +25,15 @@ fesom:
   old_mesh_format: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:90,col:22
   with_part_format: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:91,col:23
   time_dimension: time # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:92,col:21
-  pool_dir: /work/ab0246/a270092/input/fesom2/ # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:426,col:19
-  setup_dir: <TEST_DIR>/comp/awicm3/awicm3-frontiers-xios # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:424,col:20
+  pool_dir: /work/ab0246/a270092/input/fesom2/ # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:381,col:19
+  setup_dir: <TEST_DIR>/comp/awicm3/awicm3-frontiers-xios # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:379,col:20
   bin_dir: <TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/bin # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:97,col:14
-  climate_data_dir: /work/ab0246/a270092/input/fesom2//hydrography/ # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:427,col:27
-  forcing_data_dir: '' # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:422,col:27
+  climate_data_dir: /work/ab0246/a270092/input/fesom2//hydrography/ # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:382,col:27
+  forcing_data_dir: '' # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:377,col:27
   ini_data_dir: /work/ab0246/a270092/input/fesom2//pool-data/ # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:100,col:19
-  namelist_dir: <HOME_DIR>/esm_tools/namelists//fesom2/2.0/awicm3/frontiers/ # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:564,col:39
-  opbnd_dir: '' # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:420,col:20
-  tide_forcing_dir: '' # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:421,col:27
+  namelist_dir: <HOME_DIR>/esm_tools/namelists//fesom2/2.0/awicm3/frontiers/ # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:490,col:39
+  opbnd_dir: '' # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:375,col:20
+  tide_forcing_dir: '' # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:376,col:27
   steps_per_day: 36 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:106,col:20
   asforcing: CORE2 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:108,col:16
   namelists:
@@ -43,7 +43,7 @@ fesom:
   - namelist.ice # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:114,col:15
   - namelist.io # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:115,col:15
   - namelist.cvmix # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:120,col:15
-  mesh_dir: /work/ab0246/a270092/input/fesom2//core2/  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:434,col:19
+  mesh_dir: /work/ab0246/a270092/input/fesom2//core2/  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:389,col:19
   restart_out_sources:
     oce_restart: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//fesom.2000.oce.restart.nc  # no provenance info
     ice_restart: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//fesom.2000.ice.restart.nc # no provenance info
@@ -199,8 +199,8 @@ fesom:
         output_length: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:310,col:44
         output_length_unit: d # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:311,col:49
       restart_log:
-        restart_length_unit: d  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:441,col:54
-        restart_length: 1 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:442,col:49
+        restart_length_unit: d  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:396,col:54
+        restart_length: 1 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:397,col:49
     namelist.io:
       nml_list:
         io_list:
@@ -210,7 +210,7 @@ fesom:
         - 4 # <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/scripts/awicm3-frontiers-xios-TCO159L91-CORE2_initial.yaml,line:49,col:44
     namelist.oce:
       oce_tra:
-        surf_relax_s: 0  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:568,col:63
+        surf_relax_s: 0  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:494,col:63
   lasttime: 84000  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:328,col:15
   currentday: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:329,col:17
   bin_sources:
@@ -286,16 +286,16 @@ fesom:
   - clean_run_dir # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:443,col:11
   lresume: false  # no provenance info
   nproc: 128 # <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/scripts/awicm3-frontiers-xios-TCO159L91-CORE2_initial.yaml,line:39,col:12
-  omp_num_threads: 1 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:398,col:26
-  missing_owy: false # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:412,col:22
-  model_dir: <TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/fesom-2.0 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:423,col:20
-  leapyear: true # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:430,col:19
-  surf_relax_s: 0 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:436,col:23
-  coupling_freq_in_steps: 3 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:586,col:33
+  omp_num_threads: 1 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:353,col:26
+  missing_owy: false # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:367,col:22
+  model_dir: <TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/fesom-2.0 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:378,col:20
+  leapyear: true # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:385,col:19
+  surf_relax_s: 0 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:391,col:23
+  coupling_freq_in_steps: 3 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:512,col:33
   awicm3_fields:
-  - ist_feom  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:597,col:25
-  - sia_feom # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:597,col:35
-  model_tag: frontiers # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:563,col:36
+  - ist_feom  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:523,col:25
+  - sia_feom # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:523,col:35
+  model_tag: frontiers # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:489,col:36
   rnproc: 128 # <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/scripts/awicm3-frontiers-xios-TCO159L91-CORE2_initial.yaml,line:36,col:21
   destination: fesom-2.0 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:19,col:22
   nx: 126858 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:138,col:25
@@ -395,12 +395,12 @@ fesom:
 oifs:
   model: oifs  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:6,col:12
   executable: oifs # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:7,col:17
-  execution_command: oifs -v ecmwf -e awi3 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:167,col:28
-  version: 43r3 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:164,col:18
+  execution_command: oifs -v ecmwf -e awi3 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:159,col:28
+  version: 43r3 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:156,col:18
   major_version: 43r3 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:10,col:20
   source_code_permissions: 700 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:11,col:30
   type: atmosphere # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:12,col:11
-  with_xios: true # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:266,col:36
+  with_xios: true # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:258,col:36
   with_nest1: false # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:14,col:17
   required_plugins:
   - git+https://github.com/esm-tools-plugins/postprocess  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:17,col:15
@@ -412,209 +412,211 @@ oifs:
   - input  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:30,col:26
   - bin # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:30,col:33
   - src # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:30,col:38
-  model_dir: <TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:170,col:20
-  setup_dir: <TEST_DIR>/comp/awicm3/awicm3-frontiers-xios # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:171,col:20
+  model_dir: <TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:162,col:20
+  setup_dir: <TEST_DIR>/comp/awicm3/awicm3-frontiers-xios # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:163,col:20
   bin_dir: <TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/bin # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:38,col:14
-  pool_dir: /work/ab0246/a270092/input # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:169,col:19
-  input_dir: /work/ab0246/a270092/input/oifs-43r3 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:180,col:20
-  rtables_dir: /work/ab0246/a270092/input/oifs-43r3/rtables/ # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:181,col:22
+  pool_dir: /work/ab0246/a270092/input # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:161,col:19
+  input_dir: /work/ab0246/a270092/input/oifs-43r3 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:172,col:20
+  rtables_dir: /work/ab0246/a270092/input/oifs-43r3/rtables/ # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:173,col:22
   vtables_dir: /work/ab0246/a270092/input/oifs-43r3/../vtables/ # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:46,col:18
   clim_dir: /work/ab0246/a270092/input/oifs-43r3/../ # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:47,col:15
   icmcl_dir: /work/ab0246/a270092/input/oifs-43r3/TCO159L91/ # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:48,col:16
   icmcl_file: ICMCLh9wuINIT # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:49,col:17
-  forcing_dir: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/ # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:182,col:22
-  ifsdata_dir: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/ # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:183,col:22
-  namelist_dir: <HOME_DIR>/esm_tools/namelists//oifs/43r3/awicm3/frontiers # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:267,col:39
-  cmip6_data_dir: /work/ab0246/a270092/input/oifs-43r3/../cmip6_data # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:53,col:21
-  cmip5_data_dir: /work/ab0246/a270092/input/oifs-43r3/../cmip5_data # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:54,col:21
-  cmip6_data_dir_nml: /work/ab0246/a270092/input/oifs-43r3/cmip6-data # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:319,col:29
-  cmip5_data_dir_nml: /work/ab0246/a270092/input/oifs-43r3/cmip5-data # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:320,col:29
-  restart_dir: '' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:57,col:18
-  in_date_folder: 19991231 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:58,col:21
-  out_date_folder: 20000101 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:59,col:22
-  buildtype_flag: '' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:60,col:21
-  xios_flag: '' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:61,col:16
-  cplng_flag: '' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:62,col:17
+  forcing_dir: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/ # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:174,col:22
+  ifsdata_dir: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/ # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:175,col:22
+  namelist_dir: <HOME_DIR>/esm_tools/namelists//oifs/43r3/awicm3/frontiers # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:259,col:39
+  cmip5_data_dir: /work/ab0246/a270092/input/oifs-43r3/../cmip5_data # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:53,col:21
+  cmip6_data_dir: /work/ab0246/a270092/input/oifs-43r3/../cmip6_data # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:54,col:21
+  cmip7_data_dir: /work/ab0246/a270092/input/oifs-43r3/../cmip7_data # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:55,col:21
+  cmip5_data_dir_nml: /work/ab0246/a270092/input/oifs-43r3/cmip5-data # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:275,col:29
+  cmip6_data_dir_nml: /work/ab0246/a270092/input/oifs-43r3/cmip6-data # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:274,col:29
+  cmip7_data_dir_nml: /work/ab0246/a270092/input/oifs-43r3/../cmip7_data # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:58,col:25
+  restart_dir: '' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:59,col:18
+  in_date_folder: 19991231 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:60,col:21
+  out_date_folder: 20000101 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:61,col:22
+  buildtype_flag: '' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:62,col:21
+  xios_flag: '' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:63,col:16
+  cplng_flag: '' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:64,col:17
   parent_expid: awicm3-frontiers-xios-TCO159L91-CORE2_initial # no provenance info
-  parent_dir: /work/ab0246/a270092/input/OPENIFS43R3-TCO95/restart/awicm3-frontiers-xios-TCO159L91-CORE2_initial # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:66,col:17
+  parent_dir: /work/ab0246/a270092/input/OPENIFS43R3-TCO95/restart/awicm3-frontiers-xios-TCO159L91-CORE2_initial # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:68,col:17
   metadata:
-    Name: OpenIFS  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:79,col:19
-    Institute: ECMWF # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:80,col:24
-    Description: OpenIFS provides research institutions with an easy-to-use version of the ECMWF IFS (Integrated Forecasting System). # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:82,col:21
-    Authors: Glenn Carver (openifs-support@ecmwf.int) # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:84,col:22
-    Website: https://www.ecmwf.int/en/research/projects/openifs # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:85,col:22
-    License: Please make sure you have a licence to use OpenIFS. In case you are unsure, please contact redmine... # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:87,col:21
-  contact: jan.streffing(at)awi.de, miguel.andres-martinez(at)awi.de  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:90,col:14
+    Name: OpenIFS  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:81,col:19
+    Institute: ECMWF # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:82,col:24
+    Description: OpenIFS provides research institutions with an easy-to-use version of the ECMWF IFS (Integrated Forecasting System). # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:84,col:21
+    Authors: Glenn Carver (openifs-support@ecmwf.int) # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:86,col:22
+    Website: https://www.ecmwf.int/en/research/projects/openifs # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:87,col:22
+    License: Please make sure you have a licence to use OpenIFS. In case you are unsure, please contact redmine... # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:89,col:21
+  contact: jan.streffing(at)awi.de, miguel.andres-martinez(at)awi.de  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:92,col:14
   available_versions:
-  - 40r1  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:94,col:7
-  - 40r1-agcm # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:95,col:7
-  - 40r1-foci # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:96,col:7
-  - 43r3 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:97,col:7
-  - 43r3-master # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:98,col:7
-  - 43r3-awicm-3.0 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:99,col:7
-  - 43r3-awicm-3.1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:100,col:7
-  - 43r3-awicm-3.1.1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:101,col:7
-  - 43r3-awicm-3.1.2 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:102,col:7
-  - 43r3-awicm-3.1.3 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:103,col:7
-  - 43r3-awicm-3.2 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:104,col:7
-  - 43r3-awicm-3.2.1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:105,col:7
-  - 43r3-awicm-frontiers-xios # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:106,col:7
-  - 43r3-foci # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:107,col:7
-  - 43r3-foci21 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:108,col:7
-  - 43r3-foci211 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:109,col:7
-  - 43r3-foci22 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:110,col:7
-  - 43r3-foci30 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:111,col:7
-  - 43r3-v1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:112,col:7
-  - 43r3-v2 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:113,col:7
-  - 48r1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:114,col:7
-  clean_command: rm -rf make/esm  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:332,col:20
-  comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.cfg ; chmod -R 700 .; git config core.fileMode false ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:230,col:23
-  git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3.git # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:232,col:25
-  install_bins: make/esm/oifs/bin/oifs # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:233,col:23
+  - 40r1  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:96,col:7
+  - 40r1-agcm # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:97,col:7
+  - 40r1-foci # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:98,col:7
+  - 43r3 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:99,col:7
+  - 43r3-master # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:100,col:7
+  - 43r3-awicm-3.0 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:101,col:7
+  - 43r3-awicm-3.1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:102,col:7
+  - 43r3-awicm-3.1.1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:103,col:7
+  - 43r3-awicm-3.1.2 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:104,col:7
+  - 43r3-awicm-3.1.3 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:105,col:7
+  - 43r3-awicm-3.2 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:106,col:7
+  - 43r3-awicm-3.2.1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:107,col:7
+  - 43r3-awicm-frontiers-xios # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:108,col:7
+  - 43r3-foci # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:109,col:7
+  - 43r3-foci21 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:110,col:7
+  - 43r3-foci211 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:111,col:7
+  - 43r3-foci22 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:112,col:7
+  - 43r3-foci30 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:113,col:7
+  - 43r3-v1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:114,col:7
+  - 43r3-v2 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:115,col:7
+  - 48r1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:116,col:7
+  clean_command: rm -rf make/esm  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:344,col:20
+  comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oifs-43r3; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.cfg ; chmod -R 700 .; git config core.fileMode false ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:242,col:23
+  git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3.git # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:244,col:25
+  install_bins: make/esm/oifs/bin/oifs # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:245,col:23
   input_expid: awi3 # <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/scripts/awicm3-frontiers-xios-TCO159L91-CORE2_initial.yaml,line:57,col:18
   resolution: TCO159 # <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/scripts/awicm3-frontiers-xios-TCO159L91-CORE2_initial.yaml,line:52,col:17
   levels: L91 # <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/scripts/awicm3-frontiers-xios-TCO159L91-CORE2_initial.yaml,line:53,col:13
-  nlev: 91 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:341,col:11
+  nlev: 91 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:353,col:11
   prepifs_expid: h9wu # <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/scripts/awicm3-frontiers-xios-TCO159L91-CORE2_initial.yaml,line:56,col:20
-  prepifs_startdate: '19820101' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:343,col:24
-  mip: cmip6 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:268,col:30
-  o3_scheme: default # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:345,col:16
-  scenario: historical # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:176,col:19
-  output: default # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:347,col:13
+  prepifs_startdate: '19820101' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:355,col:24
+  mip: cmip6 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:260,col:30
+  o3_scheme: default # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:357,col:16
+  scenario: historical # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:168,col:19
+  output: default # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:359,col:13
   nproc: 128 # <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/scripts/awicm3-frontiers-xios-TCO159L91-CORE2_initial.yaml,line:74,col:12
   wam: true # <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/scripts/awicm3-frontiers-xios-TCO159L91-CORE2_initial.yaml,line:58,col:10
-  wam_2w: true # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:357,col:13
-  wam_step: 1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:358,col:15
-  read_icmcl: 0 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:359,col:17
-  generate_namelist: 1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:360,col:24
-  ensemble: 0 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:361,col:15
-  post_processing: 0 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:362,col:22
-  solarspectrum: false # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:363,col:20
-  pextra: 0 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:364,col:13
-  dr_hook_ignore_signals: -1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:365,col:29
-  cmip_fix_year: 0 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:371,col:20
-  a4xco2: false # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:372,col:13
-  onepctco2: false # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:373,col:16
-  lhvolca: false # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:374,col:14
-  supercooled_liquid_could_fix: 0 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:376,col:35
-  perturb: 0 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:340,col:18
-  ensemble_id: 1 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:341,col:22
-  orb_switch: false # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:385,col:17
-  orb_mode: variable_year # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:386,col:15
-  orb_iyear: 2000 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:387,col:16
-  restart: 1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:389,col:14
-  threads: 1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:391,col:14
-  ny: 1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:392,col:9
-  hours: 0 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:394,col:12
+  wam_2w: true # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:369,col:13
+  wam_step: 1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:370,col:15
+  read_icmcl: 0 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:371,col:17
+  generate_namelist: 1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:372,col:24
+  ensemble: 0 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:373,col:15
+  post_processing: 0 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:374,col:22
+  solarspectrum: false # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:375,col:20
+  pextra: 0 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:376,col:13
+  dr_hook_ignore_signals: -1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:377,col:29
+  cmip_fix_year: 0 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:383,col:20
+  a4xco2: false # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:384,col:13
+  onepctco2: false # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:385,col:16
+  lhvolca: false # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:386,col:14
+  supercooled_liquid_could_fix: 0 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:388,col:35
+  perturb: 0 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:295,col:18
+  ensemble_id: 1 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:296,col:22
+  orb_switch: false # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:397,col:17
+  orb_mode: variable_year # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:398,col:15
+  orb_iyear: 2000 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:399,col:16
+  restart: 1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:401,col:14
+  threads: 1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:403,col:14
+  ny: 1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:404,col:9
+  hours: 0 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:406,col:12
   namelists:
-  - fort.4  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:397,col:15
-  - wam_namelist # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:398,col:15
-  sclct_switch: 2 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:344,col:23
-  nlon: 640 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:532,col:11
-  nspecresmin: 160 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:533,col:18
+  - fort.4  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:409,col:15
+  - wam_namelist # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:410,col:15
+  sclct_switch: 2 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:299,col:23
+  nlon: 640 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:544,col:11
+  nspecresmin: 160 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:545,col:18
   namelist_changes:
     fort.4:
       NAERAD:
-        CRTABLEDIR: /work/ab0246/a270092/input/oifs-43r3/rtables/  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:554,col:41
-        LECOMPGRID: true # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:555,col:41
-        NGHGRAD: 21 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1149,col:54
+        CRTABLEDIR: /work/ab0246/a270092/input/oifs-43r3/rtables/  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:566,col:41
+        LECOMPGRID: true # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:567,col:41
+        NGHGRAD: 21 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1161,col:54
         LCMIP6: true # <HOME_DIR>/esm_tools/configs/components/oifs/oifs43.cmip.yaml,line:12,col:33
         CMIP6DATADIR: /work/ab0246/a270092/input/oifs-43r3/cmip6-data # <HOME_DIR>/esm_tools/configs/components/oifs/oifs43.cmip.yaml,line:13,col:39
       NAMFPG:
-        NFPLEV: 91  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:557,col:37
-        NFPMAX: 159 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:558,col:37
+        NFPLEV: 91  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:569,col:37
+        NFPMAX: 159 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:570,col:37
       NAMFPD:
-        NLAT: 320  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:560,col:35
-        NLON: 640 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:561,col:35
+        NLAT: 320  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:572,col:35
+        NLON: 640 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:573,col:35
       NAMPAR0:
-        NSPECRESMIN: 160  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:563,col:42
-        NPROC: 128 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1064,col:52
+        NSPECRESMIN: 160  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:575,col:42
+        NPROC: 128 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1076,col:52
       NAMDYNA:
-        LGRADSP: false  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:565,col:38
+        LGRADSP: false  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:577,col:38
       NAMNMI:
-        LASSI: false  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:567,col:36
+        LASSI: false  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:579,col:36
       NAMCT0:
-        LFDBOP: false  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:569,col:37
-        LSMSSIG: false # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:570,col:38
-        LXIOS: true # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:273,col:56
-        NFRMASSCON: 1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:964,col:57
-        NFRPOS: 6 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1335,col:53
-        NFRHIS: 6 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1336,col:53
+        LFDBOP: false  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:581,col:37
+        LSMSSIG: false # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:582,col:38
+        LXIOS: true # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:265,col:56
+        NFRMASSCON: 1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:976,col:57
+        NFRPOS: 6 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1347,col:53
+        NFRHIS: 6 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1348,col:53
       NAMIO_SERV:
-        NPROC_IO: 2  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:275,col:59
-        NPROCESS_LEVEL: 5 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:276,col:65
-        NIO_SERV_METHOD: 2 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:277,col:66
-        NMSG_LEVEL_CLIENT: 0 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:278,col:68
-        NMSG_LEVEL_SERVER: 1 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:279,col:68
+        NPROC_IO: 2  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:267,col:59
+        NPROCESS_LEVEL: 5 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:268,col:65
+        NIO_SERV_METHOD: 2 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:269,col:66
+        NMSG_LEVEL_CLIENT: 0 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:270,col:68
+        NMSG_LEVEL_SERVER: 1 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:271,col:68
       NAEPHY:
-        LWCOU: true  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:896,col:52
-        LWCOU2W: true # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:897,col:54
+        LWCOU: true  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:908,col:52
+        LWCOU2W: true # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:909,col:54
       NAMRES:
-        NFRRES: 1  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1061,col:53
+        NFRRES: 1  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1073,col:53
         NRESTS:
-        - -1  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1184,col:31
-        - -24 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1185,col:31
+        - -1  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1196,col:31
+        - -24 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1197,col:31
       NAMARG:
-        UTSTEP: 3600  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1066,col:53
-        CNMEXP: awi3 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1067,col:53
-        CUSTOP: t24 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1068,col:53
+        UTSTEP: 3600  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1078,col:53
+        CNMEXP: awi3 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1079,col:53
+        CUSTOP: t24 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1080,col:53
       NAMPPC:
-        LRSACC: true  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1070,col:53
+        LRSACC: true  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1082,col:53
       NAMORB:
-        LCORBMD: false  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1072,col:55
-        ORBMODE: variable_year # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1073,col:54
-        ORBIY: 2000 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1074,col:52
+        LCORBMD: false  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1084,col:55
+        ORBMODE: variable_year # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1085,col:54
+        ORBIY: 2000 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1086,col:52
       NAMDYN:
-        LMASCOR: true  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:961,col:54
-        LMASDRY: false # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:962,col:54
+        LMASCOR: true  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:973,col:54
+        LMASDRY: false # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:974,col:54
       NAMGFL:
-        LTRCMFMG: true  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:967,col:55
-        YS_NL%LMASSFIX: true # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:968,col:61
-        YR_NL%LMASSFIX: true # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:969,col:61
-        YI_NL%LMASSFIX: true # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:970,col:61
-        YL_NL%LMASSFIX: true # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:971,col:61
-        YQ_NL%LMASSFIX: true # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:972,col:61
+        LTRCMFMG: true  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:979,col:55
+        YS_NL%LMASSFIX: true # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:980,col:61
+        YR_NL%LMASSFIX: true # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:981,col:61
+        YI_NL%LMASSFIX: true # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:982,col:61
+        YL_NL%LMASSFIX: true # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:983,col:61
+        YQ_NL%LMASSFIX: true # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:984,col:61
       NAMCLDP:
-        SCLCT_SWITCH: 2  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1004,col:59
+        SCLCT_SWITCH: 2  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1016,col:59
     wam_namelist:
       NALINE:
-        CBPLTDT: '20000101000000'  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:900,col:54
-        CDATECURA: '20000101000000' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:901,col:56
-        CDATEF: '20000101000000' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:902,col:53
+        CBPLTDT: '20000101000000'  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:912,col:54
+        CDATECURA: '20000101000000' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:913,col:56
+        CDATEF: '20000101000000' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:914,col:53
   lresume: false  # no provenance info
-  restart_rate: 12 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:173,col:23
-  restart_unit: months # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:575,col:19
+  restart_rate: 12 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:165,col:23
+  restart_unit: months # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:587,col:19
   file_movements:
     forcing:
-      init_to_exp: link  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:579,col:33
-      exp_to_run: link # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:579,col:33
-      run_to_work: link # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:579,col:33
-      work_to_run: link # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:579,col:33
+      init_to_exp: link  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:591,col:33
+      exp_to_run: link # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:591,col:33
+      run_to_work: link # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:591,col:33
+      work_to_run: link # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:591,col:33
     restart_in:
-      init_to_exp: link  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:581,col:33
-      exp_to_run: link # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:581,col:33
-      run_to_work: link # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:581,col:33
-      work_to_run: link # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:581,col:33
+      init_to_exp: link  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:593,col:33
+      exp_to_run: link # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:593,col:33
+      run_to_work: link # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:593,col:33
+      work_to_run: link # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:593,col:33
     restart_out:
-      init_to_exp: move  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:583,col:33
-      exp_to_run: move # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:583,col:33
-      run_to_work: move # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:583,col:33
-      work_to_run: move # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:583,col:33
+      init_to_exp: move  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:595,col:33
+      exp_to_run: move # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:595,col:33
+      run_to_work: move # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:595,col:33
+      work_to_run: move # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:595,col:33
     rcf_in:
-      init_to_exp: copy  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:585,col:33
-      exp_to_run: copy # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:585,col:33
-      run_to_work: copy # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:585,col:33
-      work_to_run: copy # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:585,col:33
+      init_to_exp: copy  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:597,col:33
+      exp_to_run: copy # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:597,col:33
+      run_to_work: copy # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:597,col:33
+      work_to_run: copy # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:597,col:33
     waminfo_in:
-      init_to_exp: copy  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:587,col:33
-      exp_to_run: copy # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:587,col:33
-      run_to_work: copy # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:587,col:33
-      work_to_run: copy # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:587,col:33
+      init_to_exp: copy  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:599,col:33
+      exp_to_run: copy # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:599,col:33
+      run_to_work: copy # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:599,col:33
+      work_to_run: copy # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:599,col:33
     outdata:
-      init_to_exp: move  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:589,col:33
-      exp_to_run: move # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:589,col:33
-      run_to_work: move # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:589,col:33
-      work_to_run: move # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:589,col:33
+      init_to_exp: move  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:601,col:33
+      exp_to_run: move # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:601,col:33
+      run_to_work: move # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:601,col:33
+      work_to_run: move # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:601,col:33
     analysis:
       init_to_exp: copy  # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
       exp_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
@@ -670,47 +672,47 @@ oifs:
       exp_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
       run_to_work: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
       work_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
-  massfixer: 2  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:592,col:16
-  cloudfixer: 1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:593,col:17
-  nfrmasscon: 1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:594,col:17
-  oasis_grid_name_a: A160 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:596,col:24
-  oasis_grid_name_r: R160 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:597,col:24
-  oasis_grid_name_l: L160 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:598,col:24
-  simulation_length_seconds: 86400 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:620,col:32
-  seconds_since_initial: 0 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:621,col:28
-  wam_start_date: '20000101000000' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:622,col:21
-  icmcl_end_date: '2000-01-03T00:00:00' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:625,col:21
-  icmcl_end_date_formatted: 20000103 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:626,col:31
-  runtime_seconds: 86400 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:629,col:22
-  timestep_per_run: 24 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:630,col:23
-  ndays_per_run: 1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:633,col:20
-  ndays_per_run_string: 1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:634,col:27
-  steps_since_initial: 0 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:637,col:26
-  next_step: 24 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:640,col:16
-  steps_per_day: 24 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:643,col:20
-  nfrres: 1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:646,col:13
+  massfixer: 2  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:604,col:16
+  cloudfixer: 1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:605,col:17
+  nfrmasscon: 1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:606,col:17
+  oasis_grid_name_a: A160 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:608,col:24
+  oasis_grid_name_r: R160 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:609,col:24
+  oasis_grid_name_l: L160 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:610,col:24
+  simulation_length_seconds: 86400 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:632,col:32
+  seconds_since_initial: 0 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:633,col:28
+  wam_start_date: '20000101000000' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:634,col:21
+  icmcl_end_date: '2000-01-03T00:00:00' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:637,col:21
+  icmcl_end_date_formatted: 20000103 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:638,col:31
+  runtime_seconds: 86400 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:641,col:22
+  timestep_per_run: 24 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:642,col:23
+  ndays_per_run: 1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:645,col:20
+  ndays_per_run_string: 1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:646,col:27
+  steps_since_initial: 0 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:649,col:26
+  next_step: 24 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:652,col:16
+  steps_per_day: 24 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:655,col:20
+  nfrres: 1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:658,col:13
   bin_sources:
-    bin: <TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/bin/oifs  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:653,col:18
-  copy_forcing: false  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:681,col:19
+    bin: <TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/bin/oifs  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:665,col:18
+  copy_forcing: false  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:693,col:19
   log_sources:
     NODE: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//NODE.001_01  # no provenance info
     ifsstat: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//ifs.stat # no provenance info
-  ndays_source_in: 0 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:731,col:22
-  start_ndays: 0 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:733,col:18
-  ndays_work_in: 0 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:734,col:20
-  next_ndays: 1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:736,col:17
-  ndays_out: 1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:737,col:16
-  filebase_wam_source: "{'NONE_YET': {}}" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:742,col:26
-  filebase_wam_work: '20000101000000_' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:743,col:24
-  source_ndays_wam: -1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:745,col:23
-  source_days_string: -1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:746,col:25
-  wam_source_in: -1230000 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:747,col:20
-  start_ndays_wam: -1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:749,col:22
-  start_days_string: -1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:750,col:24
-  wam_work_in: -1230000 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:751,col:18
-  next_ndays_wam: 0 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:753,col:21
-  next_days_string: 0 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:754,col:23
-  wam_out: 230000 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:755,col:14
+  ndays_source_in: 0 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:743,col:22
+  start_ndays: 0 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:745,col:18
+  ndays_work_in: 0 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:746,col:20
+  next_ndays: 1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:748,col:17
+  ndays_out: 1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:749,col:16
+  filebase_wam_source: "{'NONE_YET': {}}" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:754,col:26
+  filebase_wam_work: '20000101000000_' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:755,col:24
+  source_ndays_wam: -1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:757,col:23
+  source_days_string: -1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:758,col:25
+  wam_source_in: -1230000 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:759,col:20
+  start_ndays_wam: -1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:761,col:22
+  start_days_string: -1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:762,col:24
+  wam_work_in: -1230000 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:763,col:18
+  next_ndays_wam: 0 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:765,col:21
+  next_days_string: 0 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:766,col:23
+  wam_out: 230000 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:767,col:14
   restart_out_sources:
     rcf: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//rcf  # no provenance info
     waminfo: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//waminfo # no provenance info
@@ -718,23 +720,23 @@ oifs:
     rcf: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/restart/oifs/20000101/rcf  # no provenance info
     waminfo: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/restart/oifs/20000101/waminfo00000001 # no provenance info
   outdata_sources: {}
-  restart_type: eternal # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:346,col:23
-  prepifs_dir: /work/ab0246/a270092/input/oifs-43r3/TCO159L91/ # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:367,col:22
-  tl_o3_data_dir: /work/ab0246/a270092/input/oifs-43r3/43r3/climate/ # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:368,col:25
-  ICMGG_INIT_name: _CORE2 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:369,col:26
-  ICMSH_INIT_name: '' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1232,col:22
+  restart_type: eternal # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:301,col:23
+  prepifs_dir: /work/ab0246/a270092/input/oifs-43r3/TCO159L91/ # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:322,col:22
+  tl_o3_data_dir: /work/ab0246/a270092/input/oifs-43r3/43r3/climate/ # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:323,col:25
+  ICMGG_INIT_name: _CORE2 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:324,col:26
+  ICMSH_INIT_name: '' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1244,col:22
   input_sources:
-    ICMGG_INIT: /work/ab0246/a270092/input/oifs-43r3/TCO159L91//ICMGGh9wuINIT_CORE2  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1235,col:25
-    ICMGG_INIUA: /work/ab0246/a270092/input/oifs-43r3/TCO159L91//ICMGGh9wuINIUA # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1236,col:26
-    ICMSH_INIT: /work/ab0246/a270092/input/oifs-43r3/TCO159L91//ICMSHh9wuINIT # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1237,col:25
-    wam_grid_tables: /work/ab0246/a270092/input/oifs-43r3/TCO159L91//wam_grid_tables # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1238,col:30
-    wam_subgrid_0: /work/ab0246/a270092/input/oifs-43r3/TCO159L91//wam_subgrid_0 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1239,col:28
-    wam_subgrid_1: /work/ab0246/a270092/input/oifs-43r3/TCO159L91//wam_subgrid_1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1240,col:28
-    wam_subgrid_2: /work/ab0246/a270092/input/oifs-43r3/TCO159L91//wam_subgrid_2 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1241,col:28
-    uwavein: /work/ab0246/a270092/input/oifs-43r3/TCO159L91//uwavein # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1242,col:22
-    specwavein: /work/ab0246/a270092/input/oifs-43r3/TCO159L91//specwavein # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1243,col:25
-    sfcwindin: /work/ab0246/a270092/input/oifs-43r3/TCO159L91//sfcwindin # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1244,col:24
-    cdwavein: /work/ab0246/a270092/input/oifs-43r3/TCO159L91//cdwavein # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1245,col:23
+    ICMGG_INIT: /work/ab0246/a270092/input/oifs-43r3/TCO159L91//ICMGGh9wuINIT_CORE2  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1247,col:25
+    ICMGG_INIUA: /work/ab0246/a270092/input/oifs-43r3/TCO159L91//ICMGGh9wuINIUA # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1248,col:26
+    ICMSH_INIT: /work/ab0246/a270092/input/oifs-43r3/TCO159L91//ICMSHh9wuINIT # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1249,col:25
+    wam_grid_tables: /work/ab0246/a270092/input/oifs-43r3/TCO159L91//wam_grid_tables # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1250,col:30
+    wam_subgrid_0: /work/ab0246/a270092/input/oifs-43r3/TCO159L91//wam_subgrid_0 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1251,col:28
+    wam_subgrid_1: /work/ab0246/a270092/input/oifs-43r3/TCO159L91//wam_subgrid_1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1252,col:28
+    wam_subgrid_2: /work/ab0246/a270092/input/oifs-43r3/TCO159L91//wam_subgrid_2 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1253,col:28
+    uwavein: /work/ab0246/a270092/input/oifs-43r3/TCO159L91//uwavein # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1254,col:22
+    specwavein: /work/ab0246/a270092/input/oifs-43r3/TCO159L91//specwavein # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1255,col:25
+    sfcwindin: /work/ab0246/a270092/input/oifs-43r3/TCO159L91//sfcwindin # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1256,col:24
+    cdwavein: /work/ab0246/a270092/input/oifs-43r3/TCO159L91//cdwavein # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1257,col:23
     ifsdata_glob_0: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/aerosol_ifs_rrtm_tegen.nc # no provenance info
     ifsdata_glob_1: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/SO4_OBS1930 # no provenance info
     ifsdata_glob_2: /work/ab0246/a270092/input/oifs-43r3/43r3/ifsdata/C11CLIM # no provenance info
@@ -848,84 +850,84 @@ oifs:
     o3_data_glob_23: /work/ab0246/a270092/input/oifs-43r3/43r3/climate//159_4/o3chem_l91/O3CHEM01_V2.9 # no provenance info
   forcing_sources: {}
   config_sources:
-    fort.4: <HOME_DIR>/esm_tools/namelists//oifs/43r3/awicm3/frontiers/fort.4  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1269,col:23
-    wam_namelist: <HOME_DIR>/esm_tools/namelists//oifs/43r3/awicm3/frontiers/wam_namelist # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:917,col:45
+    fort.4: <HOME_DIR>/esm_tools/namelists//oifs/43r3/awicm3/frontiers/fort.4  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1281,col:23
+    wam_namelist: <HOME_DIR>/esm_tools/namelists//oifs/43r3/awicm3/frontiers/wam_namelist # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:929,col:45
   grids:
     atma:
-      name: A160  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1304,col:27
-      nx: 108160 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1305,col:25
-      ny: 1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1306,col:25
-      oasis_grid_type: D # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1307,col:38
-      oyac_grid_type: LL # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1308,col:37
-      oyac_io_per_node: 4 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1309,col:39
+      name: A160  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1316,col:27
+      nx: 108160 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1317,col:25
+      ny: 1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1318,col:25
+      oasis_grid_type: D # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1319,col:38
+      oyac_grid_type: LL # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1320,col:37
+      oyac_io_per_node: 4 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1321,col:39
     atml:
-      name: L160  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1311,col:27
-      nx: 108160 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1312,col:25
-      ny: 1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1313,col:25
-      oasis_grid_type: D # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1314,col:38
-      oyac_grid_type: LL # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1315,col:37
-      oyac_io_per_node: 4 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1316,col:39
+      name: L160  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1323,col:27
+      nx: 108160 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1324,col:25
+      ny: 1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1325,col:25
+      oasis_grid_type: D # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1326,col:38
+      oyac_grid_type: LL # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1327,col:37
+      oyac_io_per_node: 4 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1328,col:39
     atmr:
-      name: R160  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1318,col:27
-      nx: 108160 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1319,col:25
-      ny: 1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1320,col:25
-      oasis_grid_type: D # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1321,col:38
-      oyac_grid_type: LL # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1322,col:37
-      oyac_io_per_node: 4 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1323,col:39
-  branchoff: false  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1359,col:16
-  ini_pseudo_initial_date: '2000-01-01T00:00:00' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1360,col:30
-  eternal_run_number: 1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1361,col:25
+      name: R160  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1330,col:27
+      nx: 108160 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1331,col:25
+      ny: 1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1332,col:25
+      oasis_grid_type: D # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1333,col:38
+      oyac_grid_type: LL # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1334,col:37
+      oyac_io_per_node: 4 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1335,col:39
+  branchoff: false  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1371,col:16
+  ini_pseudo_initial_date: '2000-01-01T00:00:00' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1372,col:30
+  eternal_run_number: 1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1373,col:25
   preprocess:
     preprocess_shell:
-      method: "<HOME_DIR>/esm_tools/configs//components/oifs/change_icm_date.sh <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs// awi3 awi3 20000101 20000101 1 0 108160 1;   echo 'Run number for internal OpenIFS timekeeping: 1'"  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1485,col:29
-      type: shell # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1486,col:27
+      method: "<HOME_DIR>/esm_tools/configs//components/oifs/change_icm_date.sh <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs// awi3 awi3 20000101 20000101 1 0 108160 1;   echo 'Run number for internal OpenIFS timekeeping: 1'"  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1497,col:29
+      type: shell # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1498,col:27
   prepcompute_recipe:
-  - compile_model  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1521,col:10
-  - _show_simulation_info # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1522,col:10
-  - create_new_files # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1523,col:10
-  - create_empty_folders # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1524,col:10
-  - prepare_coupler_files # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1525,col:10
-  - assemble # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1526,col:10
-  - log_used_files # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1527,col:10
-  - _write_finalized_config # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1528,col:10
-  - wait_for_iterative_coupling # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1529,col:10
-  - copy_files_to_thisrun # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1530,col:10
-  - write_env # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1531,col:10
-  - preprocess # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1532,col:10
-  - modify_namelists # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1533,col:10
-  - modify_files # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1534,col:10
-  - copy_files_to_work # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1535,col:10
-  - report_missing_files # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1536,col:10
-  - compute_and_log_file_checksums # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1537,col:10
-  - database_entry # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1541,col:10
-  - oasis_rmp_rst_to_input # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:166,col:34
+  - compile_model  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1533,col:10
+  - _show_simulation_info # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1534,col:10
+  - create_new_files # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1535,col:10
+  - create_empty_folders # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1536,col:10
+  - prepare_coupler_files # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1537,col:10
+  - assemble # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1538,col:10
+  - log_used_files # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1539,col:10
+  - _write_finalized_config # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1540,col:10
+  - wait_for_iterative_coupling # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1541,col:10
+  - copy_files_to_thisrun # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1542,col:10
+  - write_env # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1543,col:10
+  - preprocess # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1544,col:10
+  - modify_namelists # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1545,col:10
+  - modify_files # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1546,col:10
+  - copy_files_to_work # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1547,col:10
+  - report_missing_files # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1548,col:10
+  - compute_and_log_file_checksums # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1549,col:10
+  - database_entry # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1553,col:10
+  - oasis_rmp_rst_to_input # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:158,col:34
   models:
-  - xios  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:841,col:31
+  - xios  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:853,col:31
   add_prepcompute_recipe:
-  - oasis_rmp_rst_to_input  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:166,col:34
-  restart_firstlast: last # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:172,col:28
-  ocean_resolution: CORE2 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:174,col:27
+  - oasis_rmp_rst_to_input  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:158,col:34
+  restart_firstlast: last # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:164,col:28
+  ocean_resolution: CORE2 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:166,col:27
   omp_num_threads: 2 # <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/scripts/awicm3-frontiers-xios-TCO159L91-CORE2_initial.yaml,line:75,col:22
-  res_level: TCO159L91 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:351,col:20
+  res_level: TCO159L91 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:306,col:20
   awicm3_fields:
-  - A_Qns_oce  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:352,col:25
-  - A_Qs_all # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:352,col:36
-  - A_Precip_liquid # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:352,col:46
-  - A_Precip_solid # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:352,col:63
-  - A_Evap # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:352,col:79
-  - A_Subl # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:352,col:87
-  - A_Q_ice # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:352,col:95
-  - A_TauX_oce # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:352,col:104
-  - A_TauY_oce # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:352,col:116
-  - A_TauX_ice # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:352,col:128
-  - A_TauY_ice # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:352,col:140
-  - A_SST # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:352,col:152
-  - A_Ice_frac # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:352,col:159
-  - A_Snow_thickness # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:352,col:171
-  - A_Ice_temp # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:352,col:189
-  - A_Ice_albedo # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:352,col:201
-  - A_CurX # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:352,col:214
-  - A_CurY # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:352,col:221
+  - A_Qns_oce  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:307,col:25
+  - A_Qs_all # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:307,col:36
+  - A_Precip_liquid # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:307,col:46
+  - A_Precip_solid # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:307,col:63
+  - A_Evap # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:307,col:79
+  - A_Subl # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:307,col:87
+  - A_Q_ice # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:307,col:95
+  - A_TauX_oce # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:307,col:104
+  - A_TauY_oce # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:307,col:116
+  - A_TauX_ice # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:307,col:128
+  - A_TauY_ice # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:307,col:140
+  - A_SST # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:307,col:152
+  - A_Ice_frac # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:307,col:159
+  - A_Snow_thickness # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:307,col:171
+  - A_Ice_temp # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:307,col:189
+  - A_Ice_albedo # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:307,col:201
+  - A_CurX # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:307,col:214
+  - A_CurY # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:307,col:221
   coupling_fields:
     A_Qns_oce:
       grid: atma  # no provenance info
@@ -964,42 +966,42 @@ oifs:
     A_CurY:
       grid: atma  # no provenance info
     A_Runoff:
-      grid: atmr  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:358,col:27
+      grid: atmr  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:313,col:27
     A_Calving:
-      grid: atmr  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:360,col:27
+      grid: atmr  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:315,col:27
   time_step: 3600 # <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/scripts/awicm3-frontiers-xios-TCO159L91-CORE2_initial.yaml,line:55,col:16
-  slice_icml: '' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1480,col:33
+  slice_icml: '' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1492,col:33
   rnproc: 128 # <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/scripts/awicm3-frontiers-xios-TCO159L91-CORE2_initial.yaml,line:71,col:21
-  branch: oifs-deck # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:229,col:17
-  nx: 108160 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:424,col:25
-  oasis_grid_name: 160 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:427,col:38
-  res_number: 159 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:428,col:33
-  res_number_tl: '159_4' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:429,col:36
-  truncation: TCO # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:430,col:33
-  nlat: 320 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:536,col:27
-  lecompgrid: true # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:537,col:33
-  lgradsp: false # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:538,col:30
-  lassi: false # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:539,col:28
-  lfdbop: false # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:540,col:29
-  lsmssig: false # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:541,col:30
-  levels_number: 91 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:606,col:36
+  branch: oifs-deck # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:241,col:17
+  nx: 108160 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:436,col:25
+  oasis_grid_name: 160 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:439,col:38
+  res_number: 159 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:440,col:33
+  res_number_tl: '159_4' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:441,col:36
+  truncation: TCO # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:442,col:33
+  nlat: 320 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:548,col:27
+  lecompgrid: true # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:549,col:33
+  lgradsp: false # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:550,col:30
+  lassi: false # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:551,col:28
+  lfdbop: false # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:552,col:29
+  lsmssig: false # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:553,col:30
+  levels_number: 91 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:618,col:36
   include_models:
-  - xios  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:841,col:31
-  wam_number: 1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:881,col:33
+  - xios  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:853,col:31
+  wam_number: 1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:893,col:33
   ignore_sources: {}
-  append_icmcl: ''  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1056,col:35
-  wam_namelist_dir: <HOME_DIR>/esm_tools/namelists//oifs/43r3/awicm3/frontiers # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1057,col:39
+  append_icmcl: ''  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1068,col:35
+  wam_namelist_dir: <HOME_DIR>/esm_tools/namelists//oifs/43r3/awicm3/frontiers # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1069,col:39
   further_reading:
-  - oifs/oifs43.env.yaml  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1085,col:31
-  - oifs/oifs43.cmip.yaml # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1086,col:31
+  - oifs/oifs43.env.yaml  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1097,col:31
+  - oifs/oifs43.cmip.yaml # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1098,col:31
   nfrests:
-  - -1  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1184,col:31
-  - -24 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1185,col:31
-  nrest_ind: '' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1186,col:32
-  pseudo_initial_date: '2000-01-01T00:00:00' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1417,col:42
-  start_ndays_source: 0 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1418,col:41
-  preprocess_method: "<HOME_DIR>/esm_tools/configs//components/oifs/change_icm_date.sh <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs// awi3 awi3 20000101 20000101 1 0 108160 1;   echo 'Run number for internal OpenIFS timekeeping: 1'" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1419,col:40
-  leapyear: true # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:430,col:19
+  - -1  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1196,col:31
+  - -24 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1197,col:31
+  nrest_ind: '' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1198,col:32
+  pseudo_initial_date: '2000-01-01T00:00:00' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1429,col:42
+  start_ndays_source: 0 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1430,col:41
+  preprocess_method: "<HOME_DIR>/esm_tools/configs//components/oifs/change_icm_date.sh <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs// awi3 awi3 20000101 20000101 1 0 108160 1;   echo 'Run number for internal OpenIFS timekeeping: 1'" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1431,col:40
+  leapyear: true # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:385,col:19
   experiment_analysis_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/analysis/oifs/ # no provenance info
   thisrun_analysis_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/analysis/oifs/ # no provenance info
   all_filetypes:
@@ -1363,10 +1365,10 @@ rnfmap:
   install_bins: bin/rnfma # <HOME_DIR>/esm_tools/configs/components/rnfmap/rnfmap.yaml,line:77,col:19
   model_dir: <TEST_DIR>/comp/awicm3/awicm3-frontiers-xios # <HOME_DIR>/esm_tools/configs/components/rnfmap/rnfmap.yaml,line:81,col:16
   bin_dir: <TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/bin # <HOME_DIR>/esm_tools/configs/components/rnfmap/rnfmap.yaml,line:82,col:14
-  pool_dir: /work/ab0246/a270092/input # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:670,col:19
+  pool_dir: /work/ab0246/a270092/input # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:564,col:19
   input_dir: /work/ab0246/a270092/input/runoff-mapper # <HOME_DIR>/esm_tools/configs/components/rnfmap/rnfmap.yaml,line:84,col:16
   namelist_dir: <HOME_DIR>/esm_tools/namelists//rnfmap/ # <HOME_DIR>/esm_tools/configs/components/rnfmap/rnfmap.yaml,line:85,col:19
-  runoff_maps_name: _CORE2 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:671,col:27
+  runoff_maps_name: _CORE2 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:565,col:27
   parent_expid: awicm3-frontiers-xios-TCO159L91-CORE2_initial # no provenance info
   parent_dir: /work/ab0246/a270092/input/RUNOFF_MAPPER/restart/awicm3-frontiers-xios-TCO159L91-CORE2_initial # <HOME_DIR>/esm_tools/configs/components/rnfmap/rnfmap.yaml,line:89,col:17
   resolution: 512x256 # <HOME_DIR>/esm_tools/configs/components/rnfmap/rnfmap.yaml,line:91,col:17
@@ -1378,7 +1380,7 @@ rnfmap:
   - namelist.runoffmapper  # <HOME_DIR>/esm_tools/configs/components/rnfmap/rnfmap.yaml,line:100,col:15
   nproca: 1 # <HOME_DIR>/esm_tools/configs/components/rnfmap/rnfmap.yaml,line:108,col:13
   nprocb: 1 # <HOME_DIR>/esm_tools/configs/components/rnfmap/rnfmap.yaml,line:109,col:13
-  runoff_method: awicm3-default # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:687,col:24
+  runoff_method: awicm3-default # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:581,col:24
   with_agrif: false # <HOME_DIR>/esm_tools/configs/components/rnfmap/rnfmap.yaml,line:112,col:17
   runtime_seconds: 86400 # <HOME_DIR>/esm_tools/configs/components/rnfmap/rnfmap.yaml,line:114,col:22
   lresume: false # no provenance info
@@ -1404,22 +1406,22 @@ rnfmap:
         TimeStepSec: 7200 # <HOME_DIR>/esm_tools/configs/components/rnfmap/rnfmap.yaml,line:188,col:42
   grids:
     rnfa:
-      name: RnfA  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:695,col:31
-      nx: 512 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:696,col:29
-      ny: 256 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:697,col:29
-      oasis_grid_type: LR # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:698,col:42
-      oyac_grid_type: LL # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:699,col:41
-      oyac_io_per_node: 4 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:700,col:43
+      name: RnfA  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:589,col:31
+      nx: 512 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:590,col:29
+      ny: 256 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:591,col:29
+      oasis_grid_type: LR # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:592,col:42
+      oyac_grid_type: LL # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:593,col:41
+      oyac_io_per_node: 4 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:594,col:43
     rnfo:
-      name: RnfO  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:702,col:31
-      nx: 512 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:703,col:29
-      ny: 256 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:704,col:29
-      oasis_grid_type: LR # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:705,col:42
-      oyac_grid_type: LL # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:706,col:41
-      oyac_io_per_node: 4 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:707,col:43
-  nproc: 1 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:683,col:16
-  omp_num_threads: 128 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:684,col:26
-  time_step: 7200 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:685,col:20
+      name: RnfO  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:596,col:31
+      nx: 512 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:597,col:29
+      ny: 256 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:598,col:29
+      oasis_grid_type: LR # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:599,col:42
+      oyac_grid_type: LL # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:600,col:41
+      oyac_io_per_node: 4 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:601,col:43
+  nproc: 1 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:577,col:16
+  omp_num_threads: 128 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:578,col:26
+  time_step: 7200 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:579,col:20
   branch: esm-tools-focioifs # <HOME_DIR>/esm_tools/configs/components/rnfmap/rnfmap.yaml,line:51,col:17
   nx: 512 # <HOME_DIR>/esm_tools/configs/components/rnfmap/rnfmap.yaml,line:104,col:25
   ny: 256 # <HOME_DIR>/esm_tools/configs/components/rnfmap/rnfmap.yaml,line:105,col:25
@@ -1429,7 +1431,7 @@ rnfmap:
   runoff_fields_send:
   - R_Runoff_oce  # <HOME_DIR>/esm_tools/configs/components/rnfmap/rnfmap.yaml,line:182,col:42
   - R_Calving_oce # <HOME_DIR>/esm_tools/configs/components/rnfmap/rnfmap.yaml,line:182,col:55
-  leapyear: true  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:430,col:19
+  leapyear: true  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:385,col:19
   experiment_analysis_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/analysis/rnfmap/ # no provenance info
   thisrun_analysis_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/analysis/rnfmap/ # no provenance info
   all_filetypes:
@@ -1591,47 +1593,47 @@ computer:
     pool: /pool/data  # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:69,col:19
     focipool: /work/bb0519/foci_input2 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:70,col:23
   pool_dir: /pool/data # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:72,col:16
-  compiler_mpi: intel2022_openmpi # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1143,col:39
-  iolibraries: system_libs # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1142,col:38
+  compiler_mpi: intel2022_openmpi # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1007,col:39
+  iolibraries: system_libs # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1006,col:38
   module_actions:
   - purge  # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:81,col:15
-  - load git/2.31.1-gcc-11.2.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:82,col:15
-  - load cdo/2.0.5-gcc-11.2.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:83,col:15
-  - load nco/5.0.6-gcc-11.2.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:84,col:15
-  - load intel-oneapi-compilers/2022.0.1-gcc-11.2.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:177,col:31
-  - load intel-oneapi-mkl/2022.0.1-gcc-11.2.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:178,col:31
-  - load openmpi/4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:179,col:31
-  - load netcdf-c/4.8.1-openmpi-4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:264,col:19
-  - load netcdf-fortran/4.5.3-openmpi-4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:265,col:19
-  - load hdf5/1.12.1-openmpi-4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:266,col:19
+  - load git/2.31.1-gcc-11.2.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:83,col:15
+  - load cdo/2.0.5-gcc-11.2.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:84,col:15
+  - load nco/5.0.6-gcc-11.2.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:85,col:15
+  - load intel-oneapi-compilers/2022.0.1-gcc-11.2.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:186,col:31
+  - load intel-oneapi-mkl/2022.0.1-gcc-11.2.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:187,col:31
+  - load openmpi/4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:188,col:31
+  - load netcdf-c/4.8.1-openmpi-4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:273,col:19
+  - load netcdf-fortran/4.5.3-openmpi-4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:274,col:19
+  - load hdf5/1.12.1-openmpi-4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:275,col:19
   export_vars:
-    LC_ALL: en_US.UTF-8  # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:93,col:21
-    CPU_MODEL: AMD_EPYC_ZEN3 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:96,col:24
-    FESOM_PLATFORM_STRATEGY: levante.dkrz.de # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:97,col:38
-    I_MPI_PMI_LIBRARY: /usr/lib64/libpmi2.so # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:100,col:32
-    I_MPI_PMI: pmi2 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:101,col:24
-    FI_PROVIDER: mlx # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:102,col:26
-    I_MPI_OFI_PROVIDER: mlx # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:103,col:33
-    I_MPI_FABRICS: shm:ofi # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:104,col:28
-    HCOLL_ENABLE_MCAST_ALL: 1 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:110,col:37
-    HCOLL_MAIN_IB: mlx5_0:1 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:111,col:28
-    UCX_IB_ADDR_TYPE: ib_global # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:112,col:31
-    UCX_NET_DEVICES: mlx5_0:1 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:113,col:30
-    UCX_TLS: mm,knem,cma,dc_mlx5,dc_x,self # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:114,col:22
-    UCX_UNIFIED_MODE: y # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:115,col:31
-    KMP_LIBRARY: turnaround # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:118,col:26
-    KMP_AFFINITY: granularity=fine,scatter # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:119,col:27
+    LC_ALL: en_US.UTF-8  # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:94,col:21
+    CPU_MODEL: AMD_EPYC_ZEN3 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:97,col:24
+    FESOM_PLATFORM_STRATEGY: levante.dkrz.de # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:98,col:38
+    I_MPI_PMI_LIBRARY: /usr/lib64/libpmi2.so # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:101,col:32
+    I_MPI_PMI: pmi2 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:102,col:24
+    FI_PROVIDER: mlx # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:103,col:26
+    I_MPI_OFI_PROVIDER: mlx # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:104,col:33
+    I_MPI_FABRICS: shm:ofi # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:105,col:28
+    HCOLL_ENABLE_MCAST_ALL: 1 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:111,col:37
+    HCOLL_MAIN_IB: mlx5_0:1 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:112,col:28
+    UCX_IB_ADDR_TYPE: ib_global # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:113,col:31
+    UCX_NET_DEVICES: mlx5_0:1 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:114,col:30
+    UCX_TLS: mm,knem,cma,dc_mlx5,dc_x,self # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:115,col:22
+    UCX_UNIFIED_MODE: y # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:116,col:31
+    KMP_LIBRARY: turnaround # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:119,col:26
+    KMP_AFFINITY: granularity=fine,scatter # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:120,col:27
     LD_LIBRARY_PATH[(100)]: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//lib/oasis/:$LD_LIBRARY_PATH # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.env.yaml,line:27,col:41
-    OMPI_MCA_btl: self # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:126,col:31
-    OMPI_MCA_coll: ^ml # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:127,col:32
-    OMPI_MCA_coll_hcoll_enable: 1 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:128,col:45
-    OMPI_MCA_io: romio321 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:129,col:30
-    OMPI_MCA_osc: pt2pt # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:130,col:31
-    OMPI_MCA_pml: ucx # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:131,col:31
-    FESOM_USE_CPLNG: '"active"' # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1149,col:38
-    ECE_CPL_NEMO_LIM: '"false"' # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1150,col:39
-    ECE_CPL_FESOM_FESIM: '"true"' # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1151,col:42
-    ECE_AWI_CPL_FESOM: '"true"' # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1152,col:40
+    OMPI_MCA_btl: self # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:127,col:31
+    OMPI_MCA_coll: ^ml # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:128,col:32
+    OMPI_MCA_coll_hcoll_enable: 1 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:129,col:45
+    OMPI_MCA_io: romio321 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:130,col:30
+    OMPI_MCA_osc: pt2pt # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:131,col:31
+    OMPI_MCA_pml: ucx # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:132,col:31
+    FESOM_USE_CPLNG: '"active"' # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1013,col:38
+    ECE_CPL_NEMO_LIM: '"false"' # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1014,col:39
+    ECE_CPL_FESOM_FESIM: '"true"' # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1015,col:42
+    ECE_AWI_CPL_FESOM: '"true"' # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1016,col:40
     PATH: $ECCODESROOT/bin:$PATH # <HOME_DIR>/esm_tools/configs/components/oifs/oifs43.env.yaml,line:62,col:19
     LD_LIBRARY_PATH[(3)]: $ECCODESROOT/lib:$LD_LIBRARY_PATH # <HOME_DIR>/esm_tools/configs/components/oifs/oifs43.env.yaml,line:63,col:35
     HDF5_C_INCLUDE_DIRECTORIES: $HDF5_ROOT/include # <HOME_DIR>/esm_tools/configs/components/oifs/oifs43.env.yaml,line:65,col:41
@@ -1642,41 +1644,42 @@ computer:
     DR_HOOK_IGNORE_SIGNALS: -1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs43.env.yaml,line:71,col:37
     OMP_SCHEDULE: STATIC # <HOME_DIR>/esm_tools/configs/components/oifs/oifs43.env.yaml,line:73,col:27
     OMP_STACKSIZE: 128M # <HOME_DIR>/esm_tools/configs/components/oifs/oifs43.env.yaml,line:74,col:28
-    FC: mpif90 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:182,col:33
-    F77: mpif90 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:183,col:34
-    MPICC: mpicc # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:184,col:36
-    MPIFC: mpif90 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:185,col:36
-    CC: mpicc # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:186,col:33
-    CXX: mpicxx # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:187,col:34
-    MPIROOT: "\"$(mpif90 -show | perl -lne 'm{ -I(.*?)/include } and print $1')\"" # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:189,col:38
-    MPI_LIB: "\"$(mpif90 -show |sed -e 's/^[^ ]*//' -e 's/-[I][^ ]*//g')\"" # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:190,col:38
-    IO_LIB_ROOT: /work/ab0246/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:269,col:30
-    HDF5ROOT: /sw/spack-levante/hdf5-1.12.1-tvymb5 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:271,col:27
-    HDF5_ROOT: $HDF5ROOT # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:273,col:28
-    NETCDFFROOT: /sw/spack-levante/netcdf-fortran-4.5.3-k6xq5g # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:274,col:30
-    NETCDFROOT: /sw/spack-levante/netcdf-c-4.8.1-2k3cmu # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:275,col:29
-    NETCDF_CXX_INCLUDE_DIRECTORIES: $NETCDFROOT/include # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:278,col:49
-    NETCDF_CXX_LIBRARIES: $NETCDFROOT/lib # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:279,col:39
-    ECCODESROOT: $IO_LIB_ROOT # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:280,col:30
-    OASIS_NETCDF: $NETCDFROOT # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:282,col:31
-    OASIS_NETCDFF: $NETCDFFROOT # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:283,col:32
-    PSMPIFLAGS: '"-lrt -lm -ldl"' # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:287,col:29
-    LAPACK_LIB: "'-mkl=sequential'" # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:290,col:29
-    ZLIBROOT: /usr # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:293,col:27
-    OASIS3MCT_FC_LIB: '"-L$NETCDFFROOT/lib -lnetcdff"' # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:297,col:35
-    PERL5LIB: /usr/lib64/perl5 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:300,col:27
-    LD_LIBRARY_PATH[(0)]: $HDF5ROOT/lib:$NETCDFROOT/lib:$NETCDFFROOT/lib:$LD_LIBRARY_PATH # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:302,col:39
-    LD_LIBRARY_PATH[(1)]: /sw/spack-levante/intel-oneapi-mkl-2022.0.1-ttdktf/mkl/2022.0.1/lib/intel64:$LD_LIBRARY_PATH # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:319,col:39
-    LD_LIBRARY_PATH[(2)]: /sw/spack-levante/intel-oneapi-mpi-2021.5.0-mrcss7/mpi/2021.5.0/libfabric/lib:$LD_LIBRARY_PATH # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:322,col:39
+    FC: mpif90 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:191,col:33
+    F77: mpif90 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:192,col:34
+    MPICC: mpicc # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:193,col:36
+    MPIFC: mpif90 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:194,col:36
+    CC: mpicc # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:195,col:33
+    CXX: mpicxx # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:196,col:34
+    MPIROOT: "\"$(mpif90 -show | perl -lne 'm{ -I(.*?)/include } and print $1')\"" # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:198,col:38
+    MPI_LIB: "\"$(mpif90 -show |sed -e 's/^[^ ]*//' -e 's/-[I][^ ]*//g')\"" # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:199,col:38
+    IO_LIB_ROOT: /work/ab0246/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:278,col:30
+    HDF5ROOT: /sw/spack-levante/hdf5-1.12.1-tvymb5 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:280,col:27
+    HDF5_ROOT: $HDF5ROOT # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:282,col:28
+    NETCDFFROOT: /sw/spack-levante/netcdf-fortran-4.5.3-k6xq5g # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:283,col:30
+    NETCDFROOT: /sw/spack-levante/netcdf-c-4.8.1-2k3cmu # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:284,col:29
+    NETCDF_CXX_INCLUDE_DIRECTORIES: $NETCDFROOT/include # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:287,col:49
+    NETCDF_CXX_LIBRARIES: $NETCDFROOT/lib # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:288,col:39
+    ECCODESROOT: $IO_LIB_ROOT # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:289,col:30
+    OASIS_NETCDF: $NETCDFROOT # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:291,col:31
+    OASIS_NETCDFF: $NETCDFFROOT # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:292,col:32
+    PSMPIFLAGS: '"-lrt -lm -ldl"' # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:296,col:29
+    LAPACK_LIB: "'-mkl=sequential'" # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:299,col:29
+    ZLIBROOT: /usr # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:302,col:27
+    OASIS3MCT_FC_LIB: '"-L$NETCDFFROOT/lib -lnetcdff"' # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:306,col:35
+    PERL5LIB: /usr/lib64/perl5 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:309,col:27
+    LD_LIBRARY_PATH[(0)]: $HDF5ROOT/lib:$NETCDFROOT/lib:$NETCDFFROOT/lib:$LD_LIBRARY_PATH # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:311,col:39
+    LD_LIBRARY_PATH[(1)]: /sw/spack-levante/intel-oneapi-mkl-2022.0.1-ttdktf/mkl/2022.0.1/lib/intel64:$LD_LIBRARY_PATH # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:328,col:39
+    LD_LIBRARY_PATH[(2)]: /sw/spack-levante/intel-oneapi-mpi-2021.5.0-mrcss7/mpi/2021.5.0/libfabric/lib:$LD_LIBRARY_PATH # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:331,col:39
     ACCOUNT: ab0246 # no provenance info
     ESM_TESTING_DIR: <TEST_DIR>/run/awicm3/ # no provenance info
     MODEL_DIR: <TEST_DIR>/comp/awicm3/awicm3-frontiers-xios # no provenance info
-  fc: $FC # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:450,col:9
-  cc: $CC # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:451,col:9
-  mpifc: $MPIFC # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:452,col:12
-  mpicc: $MPICC # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:453,col:12
-  cxx: $CXX # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:454,col:10
-  launcher_flags: -l # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:461,col:21
+  load_python: false # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:134,col:18
+  fc: $FC # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:459,col:9
+  cc: $CC # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:460,col:9
+  mpifc: $MPIFC # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:461,col:12
+  mpicc: $MPICC # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:462,col:12
+  cxx: $CXX # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:463,col:10
+  launcher_flags: -l # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:470,col:21
   header_start: '#SBATCH' # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:6,col:19
   submit: sbatch # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:7,col:13
   launcher: srun # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:8,col:15
@@ -1695,7 +1698,7 @@ computer:
   thisrun_logfile: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/log/awicm3-frontiers-xios-TCO159L91-CORE2_initial_awicm3_@jobtype@_20000101-20000101_%j.log # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:46,col:22
   output_flags: --output=<TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/log/awicm3-frontiers-xios-TCO159L91-CORE2_initial_awicm3_@jobtype@_20000101-20000101_%j.log --error=<TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/log/awicm3-frontiers-xios-TCO159L91-CORE2_initial_awicm3_@jobtype@_20000101-20000101_%j.log # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:47,col:19
   name_flag: --job-name=awicm3-frontiers-xios-TCO159L91-CORE2_initial # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:48,col:16
-  taskset: true # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1116,col:18
+  taskset: true # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:980,col:18
   mt_launcher_flag: --hint=nomultithread # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:37,col:55
   submitted: false # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:96,col:16
   script_name: <--methods.scriptname-- # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:97,col:18
@@ -1719,7 +1722,7 @@ computer:
   overcommit_flag: '' # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:144,col:22
   model: computer # no provenance info
   merge_component_envs:
-    compile: true  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1118,col:22
+    compile: true  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:982,col:22
   add_export_vars:
     ACCOUNT: ab0246  # no provenance info
     ESM_TESTING_DIR: <TEST_DIR>/run/awicm3/ # no provenance info
@@ -1727,12 +1730,13 @@ computer:
   heterogeneous_parallelization: true # no provenance info
   fflags: -r8 -fp-model precise -align array32byte -O3 -march=core-avx2 -mtune=core-avx2 -g -traceback -convert big_endian -fpe0 # <HOME_DIR>/esm_tools/configs/components/rnfmap/rnfmap.yaml,line:240,col:21
   cflags: -fp-model precise -O3 -march=core-avx2 -mtune=core-avx2 -g -traceback -qopt-report=0 -fpe0 # <HOME_DIR>/esm_tools/configs/components/rnfmap/rnfmap.yaml,line:241,col:21
+  load_python_command: []
   partition_name: compute # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:54,col:37
   partition_cpn: 128 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:55,col:36
-  mod_netcdf_c: netcdf-c/4.8.1-openmpi-4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:172,col:35
-  mod_netcdf_f: netcdf-fortran/4.5.3-openmpi-4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:173,col:35
-  mod_hdf5: hdf5/1.12.1-openmpi-4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:174,col:31
-  netcdf_cxx_root: /work/ab0995/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:175,col:38
+  mod_netcdf_c: netcdf-c/4.8.1-openmpi-4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:181,col:35
+  mod_netcdf_f: netcdf-fortran/4.5.3-openmpi-4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:182,col:35
+  mod_hdf5: hdf5/1.12.1-openmpi-4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:183,col:31
+  netcdf_cxx_root: /work/ab0995/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:184,col:38
   accounting_flag: --account=ab0246 # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:24,col:38
   cpu_bind: none # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:55,col:23
   hyperthreading_flag: '' # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:36,col:58
@@ -1748,9 +1752,9 @@ oasis3mct:
   model: oasis3mct  # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:2,col:12
   cf_name_dir: <TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oasis # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:4,col:18
   time_step: 7200 # <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/scripts/awicm3-frontiers-xios-TCO159L91-CORE2_initial.yaml,line:79,col:16
-  norestart: F # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:729,col:20
+  norestart: F # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:611,col:20
   use_lucia: false # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:7,col:16
-  mct_version: 4 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:763,col:38
+  mct_version: 4 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:645,col:38
   git-repository: https://gitlab.dkrz.de/modular_esm/oasis3-mct.git # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:9,col:21
   contact: miguel.andres-martinez(at)awi.de, paul.gierz(at)awi.de # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:10,col:14
   metadata:
@@ -1811,198 +1815,198 @@ oasis3mct:
     rstos.nc_recv: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//rstos.nc_recv # no provenance info
   ignore_sources:
     nout: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//nout.000000  # no provenance info
-  model_dir: <TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oasis # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:727,col:20
-  pool_dir: /work/ab0246/a270092/input/oasis/ # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:728,col:19
+  model_dir: <TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/oasis # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:609,col:20
+  pool_dir: /work/ab0246/a270092/input/oasis/ # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:610,col:19
   process_ordering:
-  - fesom  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:731,col:19
-  - oifs # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:732,col:19
-  - rnfmap # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:733,col:19
-  - xios # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:766,col:35
+  - fesom  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:613,col:19
+  - oifs # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:614,col:19
+  - rnfmap # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:615,col:19
+  - xios # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:648,col:35
   required_plugins:
-  - git+https://github.com/esm-tools-plugins/oasis_rmp_rst_to_input  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:736,col:19
+  - git+https://github.com/esm-tools-plugins/oasis_rmp_rst_to_input  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:618,col:19
   lresume: false  # no provenance info
-  ini_parent_date: '19500101' # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:742,col:26
-  ini_parent_exp_id: khw0030 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:743,col:28
-  ini_restart_dir: /work/ab0246/a270092/input/oasis//cy43r3/TCO159-CORE2/ # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:744,col:26
-  output_exchanged_vars: false # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:746,col:32
-  a2o_lag: 0 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:750,col:18
-  a2r_lag: 0 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:751,col:18
-  o2a_lag: 0 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:752,col:18
-  o2r_lag: 0 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:753,col:18
-  r2a_lag: 0 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:754,col:18
-  a2o_seq: 2 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:755,col:18
-  o2a_seq: 2 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:756,col:18
-  o2r_seq: 1 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:757,col:18
-  r2a_seq: 2 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:758,col:18
-  coupling_time_step: 7200 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:760,col:29
+  ini_parent_date: '19500101' # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:624,col:26
+  ini_parent_exp_id: khw0030 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:625,col:28
+  ini_restart_dir: /work/ab0246/a270092/input/oasis//cy43r3/TCO159-CORE2/ # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:626,col:26
+  output_exchanged_vars: false # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:628,col:32
+  a2o_lag: 0 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:632,col:18
+  a2r_lag: 0 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:633,col:18
+  o2a_lag: 0 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:634,col:18
+  o2r_lag: 0 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:635,col:18
+  r2a_lag: 0 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:636,col:18
+  a2o_seq: 2 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:637,col:18
+  o2a_seq: 2 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:638,col:18
+  o2r_seq: 1 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:639,col:18
+  r2a_seq: 2 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:640,col:18
+  coupling_time_step: 7200 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:642,col:29
   coupling_directions:
     atma->feom:
-      lag: 0  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:895,col:30
-      seq: 2 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:896,col:30
+      lag: 0  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:759,col:30
+      seq: 2 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:760,col:30
     atmr->rnfa:
-      lag: 0  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:898,col:30
-      seq: 2 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:899,col:30
+      lag: 0  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:762,col:30
+      seq: 2 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:763,col:30
     rnfo->feom:
-      lag: 0  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:901,col:30
-      seq: 1 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:902,col:30
+      lag: 0  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:765,col:30
+      seq: 1 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:766,col:30
     feom->atma:
-      lag: 0  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:904,col:30
-      seq: 2 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:905,col:30
+      lag: 0  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:768,col:30
+      seq: 2 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:769,col:30
   coupling_methods:
     bicubic:
-      time_transformation: average  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:910,col:46
+      time_transformation: average  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:774,col:46
       remapping:
         bicubic:
-          search_bin: latitude  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:913,col:53
-          nb_of_search_bins: 15 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:914,col:60
+          search_bin: latitude  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:777,col:53
+          nb_of_search_bins: 15 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:778,col:60
     bicubic_glb:
-      time_transformation: average  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:917,col:46
+      time_transformation: average  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:781,col:46
       remapping:
         bicubic:
-          search_bin: latitude  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:920,col:53
-          nb_of_search_bins: 15 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:921,col:60
+          search_bin: latitude  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:784,col:53
+          nb_of_search_bins: 15 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:785,col:60
       postprocessing:
         conserv:
-          method: glbpos  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:924,col:49
-          algorithm: opt # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:925,col:52
+          method: glbpos  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:788,col:49
+          algorithm: opt # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:789,col:52
     bicubic_gss:
-      time_transformation: average  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:927,col:46
+      time_transformation: average  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:791,col:46
       remapping:
         bicubic:
-          search_bin: latitude  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:930,col:53
-          nb_of_search_bins: 15 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:931,col:60
+          search_bin: latitude  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:794,col:53
+          nb_of_search_bins: 15 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:795,col:60
       postprocessing:
         conserv:
-          method: gsspos  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:934,col:49
-          algorithm: opt # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:935,col:52
+          method: gsspos  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:798,col:49
+          algorithm: opt # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:799,col:52
     gauswgt_c:
-      time_transformation: conserv  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:937,col:46
+      time_transformation: conserv  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:801,col:46
       remapping:
         gauswgt:
-          search_bin: latitude  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:940,col:53
-          nb_of_search_bins: 1 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:941,col:60
-          nb_of_neighbours: 25 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:942,col:59
-          weight: 0.1 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:943,col:49
+          search_bin: latitude  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:804,col:53
+          nb_of_search_bins: 1 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:805,col:60
+          nb_of_neighbours: 25 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:806,col:59
+          weight: 0.1 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:807,col:49
       postprocessing:
         conserv:
-          method: glbpos  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:946,col:49
-          algorithm: opt # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:947,col:52
+          method: glbpos  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:810,col:49
+          algorithm: opt # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:811,col:52
     gauswgt_gss:
-      time_transformation: conserv  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:949,col:46
+      time_transformation: conserv  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:813,col:46
       remapping:
         gauswgt:
-          search_bin: latitude  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:952,col:53
-          nb_of_search_bins: 1 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:953,col:60
-          nb_of_neighbours: 25 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:954,col:59
-          weight: 0.1 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:955,col:49
+          search_bin: latitude  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:816,col:53
+          nb_of_search_bins: 1 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:817,col:60
+          nb_of_neighbours: 25 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:818,col:59
+          weight: 0.1 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:819,col:49
       postprocessing:
         conserv:
-          method: gsspos  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:958,col:49
-          algorithm: opt # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:959,col:52
+          method: gsspos  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:822,col:49
+          algorithm: opt # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:823,col:52
     gauswgt_i:
-      time_transformation: instant  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:961,col:46
+      time_transformation: instant  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:825,col:46
       remapping:
         gauswgt:
-          search_bin: latitude  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:964,col:53
-          nb_of_search_bins: 1 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:965,col:60
-          nb_of_neighbours: 25 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:966,col:59
-          weight: 0.1 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:967,col:49
+          search_bin: latitude  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:828,col:53
+          nb_of_search_bins: 1 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:829,col:60
+          nb_of_neighbours: 25 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:830,col:59
+          weight: 0.1 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:831,col:49
     gauswgt_glo:
-      time_transformation: conserv  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:969,col:46
+      time_transformation: conserv  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:833,col:46
       remapping:
         gauswgt:
-          search_bin: latitude  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:972,col:53
-          nb_of_search_bins: 1 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:973,col:60
-          nb_of_neighbours: 25 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:974,col:59
-          weight: 0.1 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:975,col:49
+          search_bin: latitude  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:836,col:53
+          nb_of_search_bins: 1 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:837,col:60
+          nb_of_neighbours: 25 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:838,col:59
+          weight: 0.1 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:839,col:49
       postprocessing:
         conserv:
-          method: global  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:978,col:49
-          algorithm: opt # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:979,col:52
+          method: global  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:842,col:49
+          algorithm: opt # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:843,col:52
     oyac_1stcon_nnn_stocha:
-      oyac: true  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:981,col:31
-      time_transformation: stocha # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:982,col:46
+      oyac: true  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:845,col:31
+      time_transformation: stocha # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:846,col:46
       remapping:
         conserv:
-          order: first  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:985,col:48
-          intersect_norm: fracarea # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:986,col:57
+          order: first  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:849,col:48
+          intersect_norm: fracarea # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:850,col:57
         nnn:
-          weighting: avg  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:988,col:52
-          nb_of_neighbours: 1 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:989,col:59
+          weighting: avg  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:852,col:52
+          nb_of_neighbours: 1 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:853,col:59
     oyac_1stcon_nnn_i:
-      oyac: true  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:991,col:31
-      time_transformation: instant # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:992,col:46
+      oyac: true  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:855,col:31
+      time_transformation: instant # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:856,col:46
       remapping:
         conserv:
-          order: first  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:995,col:48
-          intersect_norm: fracarea # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:996,col:57
+          order: first  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:859,col:48
+          intersect_norm: fracarea # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:860,col:57
         nnn:
-          weighting: avg  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:998,col:52
-          nb_of_neighbours: 1 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:999,col:59
+          weighting: avg  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:862,col:52
+          nb_of_neighbours: 1 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:863,col:59
     oyac_gauswgt_c:
-      oyac: true  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1001,col:31
-      time_transformation: conserv # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1002,col:46
+      oyac: true  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:865,col:31
+      time_transformation: conserv # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:866,col:46
       remapping:
         nnn:
-          weighting: gauss  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1005,col:52
-          nb_of_neighbours: 9 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1006,col:59
+          weighting: gauss  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:869,col:52
+          nb_of_neighbours: 9 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:870,col:59
     oyac_avg_c:
-      oyac: true  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1008,col:31
-      time_transformation: conserv # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1009,col:46
+      oyac: true  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:872,col:31
+      time_transformation: conserv # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:873,col:46
       remapping:
         nnn:
-          weighting: avg  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1012,col:52
-          nb_of_neighbours: 9 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1013,col:59
+          weighting: avg  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:876,col:52
+          nb_of_neighbours: 9 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:877,col:59
     oyac_gauswgt_i:
-      oyac: true  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1015,col:31
-      time_transformation: instant # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1016,col:46
+      oyac: true  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:879,col:31
+      time_transformation: instant # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:880,col:46
       remapping:
         nnn:
-          weighting: gauss  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1019,col:52
-          nb_of_neighbours: 9 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1020,col:59
+          weighting: gauss  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:883,col:52
+          nb_of_neighbours: 9 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:884,col:59
     oyac_hcsbb_nnn_i:
-      oyac: true  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1022,col:31
-      time_transformation: instant # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1023,col:46
+      oyac: true  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:886,col:31
+      time_transformation: instant # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:887,col:46
       remapping:
         hcsbb:
-          lorem: ipsum  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1026,col:48
+          lorem: ipsum  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:890,col:48
         nnn:
-          weighting: avg  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1028,col:52
-          nb_of_neighbours: 1 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1029,col:59
+          weighting: avg  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:892,col:52
+          nb_of_neighbours: 1 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:893,col:59
     oyac_spmap_nnn_i:
-      oyac: true  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1031,col:31
-      time_transformation: instant # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1032,col:46
+      oyac: true  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:895,col:31
+      time_transformation: instant # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:896,col:46
       remapping:
         spmap:
-          weighting: dist  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1035,col:52
-          spread_dist: 3 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1036,col:54
+          weighting: dist  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:899,col:52
+          spread_dist: 3 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:900,col:54
         nnn:
-          weighting: avg  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1038,col:52
-          nb_of_neighbours: 1 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1039,col:59
+          weighting: avg  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:902,col:52
+          nb_of_neighbours: 1 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:903,col:59
   input_sources:
-    areas: /work/ab0246/a270092/input/oasis//cy43r3/TCO159-CORE2//areas.nc  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1052,col:24
-    masks: /work/ab0246/a270092/input/oasis//cy43r3/TCO159-CORE2//masks.nc # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1053,col:24
-    grids: /work/ab0246/a270092/input/oasis//cy43r3/TCO159-CORE2//grids.nc # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1054,col:24
+    areas: /work/ab0246/a270092/input/oasis//cy43r3/TCO159-CORE2//areas.nc  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:916,col:24
+    masks: /work/ab0246/a270092/input/oasis//cy43r3/TCO159-CORE2//masks.nc # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:917,col:24
+    grids: /work/ab0246/a270092/input/oasis//cy43r3/TCO159-CORE2//grids.nc # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:918,col:24
   branch: v2.8  # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:71,col:17
   yac_libs: '' # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.env.yaml,line:36,col:27
   yac_inc_path: '' # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.env.yaml,line:37,col:31
   yac_lib_path: '' # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.env.yaml,line:38,col:31
-  input_dir: /work/ab0246/a270092/input/oasis//cy43r3/TCO159-CORE2/ # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:764,col:36
-  rstos_file_name: rstos # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:767,col:42
-  rstas_file_name: rstas # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:768,col:42
+  input_dir: /work/ab0246/a270092/input/oasis//cy43r3/TCO159-CORE2/ # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:646,col:36
+  rstos_file_name: rstos # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:649,col:42
+  rstas_file_name: rstas # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:650,col:42
   coupling_target_fields:
     rstas.nc:
-    - heat_oce:heat_swo <--gauswgt_gss-- A_Qns_oce:A_Qs_all  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:771,col:43
-    - prec_oce:snow_oce:evap_oce:subl_oce <--gauswgt_gss-- A_Precip_liquid:A_Precip_solid:A_Evap:A_Subl # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:772,col:43
-    - heat_ico <--gauswgt_gss-- A_Q_ice # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:773,col:43
-    - taux_oce:tauy_oce:taux_ico:tauy_ico <--bicubic-- A_TauX_oce:A_TauY_oce:A_TauX_ice:A_TauY_ice # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:774,col:43
-    - R_Runoff_atm:R_Calving_atm <--gauswgt_gss-- A_Runoff:A_Calving # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:775,col:43
-    - hydr_oce:enth_oce <--gauswgt_gss-- R_Runoff_oce:R_Calving_oce # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:776,col:43
+    - heat_oce:heat_swo <--gauswgt_gss-- A_Qns_oce:A_Qs_all  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:653,col:43
+    - prec_oce:snow_oce:evap_oce:subl_oce <--gauswgt_gss-- A_Precip_liquid:A_Precip_solid:A_Evap:A_Subl # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:654,col:43
+    - heat_ico <--gauswgt_gss-- A_Q_ice # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:655,col:43
+    - taux_oce:tauy_oce:taux_ico:tauy_ico <--bicubic-- A_TauX_oce:A_TauY_oce:A_TauX_ice:A_TauY_ice # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:656,col:43
+    - R_Runoff_atm:R_Calving_atm <--gauswgt_gss-- A_Runoff:A_Calving # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:657,col:43
+    - hydr_oce:enth_oce <--gauswgt_gss-- R_Runoff_oce:R_Calving_oce # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:658,col:43
     rstos.nc:
-    - A_SST:A_Ice_frac:A_Snow_thickness:A_Ice_temp:A_Ice_albedo <--gauswgt_i-- sst_feom:sie_feom:snt_feom:ist_feom:sia_feom  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:778,col:43
-  calving_coupling_mode: hydr_oce:calv_oce <--gauswgt_c-- R_Runoff_oce:R_Calving_oce  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:891,col:48
-  lag: 0 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1068,col:30
-  leapyear: true # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:430,col:19
+    - A_SST:A_Ice_frac:A_Snow_thickness:A_Ice_temp:A_Ice_albedo <--gauswgt_i-- sst_feom:sie_feom:snt_feom:ist_feom:sia_feom  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:660,col:43
+  calving_coupling_mode: hydr_oce:calv_oce <--gauswgt_c-- R_Runoff_oce:R_Calving_oce  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:755,col:48
+  lag: 0 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:932,col:30
+  leapyear: true # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:385,col:19
   experiment_analysis_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/analysis/oasis3mct/ # no provenance info
   thisrun_analysis_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/analysis/oasis3mct/ # no provenance info
   all_filetypes:
@@ -2045,7 +2049,7 @@ oasis3mct:
   thisrun_ignore_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/ignore/oasis3mct/ # no provenance info
   prev_date: '1999-12-31T22:00:00' # no provenance info
   last_parent_date: '1999-12-31T20:00:00' # no provenance info
-  ini_parent_dir: /work/ab0246/a270092/input/oasis//cy43r3/TCO159-CORE2/ # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:744,col:26
+  ini_parent_dir: /work/ab0246/a270092/input/oasis//cy43r3/TCO159-CORE2/ # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:626,col:26
   parent_expid: awicm3-frontiers-xios-TCO159L91-CORE2_initial # no provenance info
   parent_date: '1999-12-31T22:00:00' # no provenance info
   parent_restart_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/restart/oasis3mct/ # no provenance info
@@ -2309,7 +2313,7 @@ xios:
   model: xios  # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:6,col:12
   version: 2.5_r1910 # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:7,col:14
   executable: xios.x # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:8,col:17
-  xml_dir: <HOME_DIR>/esm_tools/namelists//oifs/43r3/xios/ # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:610,col:18
+  xml_dir: <HOME_DIR>/esm_tools/namelists//oifs/43r3/xios/ # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:536,col:18
   metadata:
     Institute: IPSL and CEA  # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:12,col:24
     Description: A library dedicated to I/O management in climate codes. # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:14,col:21
@@ -2343,23 +2347,23 @@ xios:
   config_sources:
     io_def: <HOME_DIR>/esm_tools/namelists//oifs/43r3/xios//iodef.xml  # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:345,col:21
     context_ifs: <HOME_DIR>/esm_tools/namelists//oifs/43r3/xios//context_ifs.xml # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:349,col:26
-    domain_def: <HOME_DIR>/esm_tools/namelists//oifs/43r3/xios//domain_def.xml.j2 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:616,col:29
+    domain_def: <HOME_DIR>/esm_tools/namelists//oifs/43r3/xios//domain_def.xml.j2 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:542,col:29
     field_def: <HOME_DIR>/esm_tools/namelists//oifs/43r3/xios//field_def.xml # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:342,col:24
-    file_def: <HOME_DIR>/esm_tools/namelists//oifs/43r3/xios//file_def.xml.j2 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:617,col:27
+    file_def: <HOME_DIR>/esm_tools/namelists//oifs/43r3/xios//file_def.xml.j2 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:543,col:27
     axis_def: <HOME_DIR>/esm_tools/namelists//oifs/43r3/xios//axis_def.xml # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:346,col:23
     grid_def: <HOME_DIR>/esm_tools/namelists//oifs/43r3/xios//grid_def.xml # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:347,col:23
   ignore_sources:
     xios_registry: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//xios_registry.bin  # no provenance info
   bin_sources:
     server: <TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/bin/xios.x  # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:371,col:21
-  interpolation_order: 2  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:652,col:46
-  compression_level: 0 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:653,col:44
-  regular_res_lat: 192 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:613,col:26
-  regular_res_lon: 400 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:614,col:26
-  nproc: 1 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:666,col:16
-  omp_num_threads: 128 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:667,col:26
+  interpolation_order: 2  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:546,col:46
+  compression_level: 0 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:547,col:44
+  regular_res_lat: 192 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:539,col:26
+  regular_res_lon: 400 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:540,col:26
+  nproc: 1 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:560,col:16
+  omp_num_threads: 128 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:561,col:26
   lresume: false # no provenance info
-  leapyear: true # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:430,col:19
+  leapyear: true # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:385,col:19
   experiment_analysis_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/analysis/xios/ # no provenance info
   thisrun_analysis_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/analysis/xios/ # no provenance info
   all_filetypes:
@@ -2534,40 +2538,39 @@ general:
   - v3.2 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:25,col:11
   - v3.2.1 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:26,col:11
   - v3.2.2 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:27,col:11
-  - v3.3 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:28,col:11
-  - v3.4 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:29,col:11
-  - master # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:30,col:11
-  - frontiers-xios # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:31,col:11
+  - v3.3.0 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:28,col:11
+  - develop # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:29,col:11
+  - frontiers-xios # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:30,col:11
   version: frontiers-xios # <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/scripts/awicm3-frontiers-xios-TCO159L91-CORE2_initial.yaml,line:4,col:14
-  scenario: piControl # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:127,col:19
-  resolution: TCO159_CORE2 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:128,col:21
+  scenario: piControl # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:119,col:19
+  resolution: TCO159_CORE2 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:120,col:21
   postprocessing: false # <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/scripts/awicm3-frontiers-xios-TCO159L91-CORE2_initial.yaml,line:14,col:21
-  post_time: 00:05:00 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:130,col:20
+  post_time: 00:05:00 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:122,col:20
   compute_time: 01:00:00 # <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/scripts/awicm3-frontiers-xios-TCO159L91-CORE2_initial.yaml,line:5,col:19
   reusable_filetypes:
-  - input  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:133,col:30
-  - bin # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:133,col:37
-  - src # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:133,col:42
+  - input  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:125,col:30
+  - bin # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:125,col:37
+  - src # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:125,col:42
   prepcompute_recipe:
-  - compile_model  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1521,col:10
-  - _show_simulation_info # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1522,col:10
-  - create_new_files # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1523,col:10
-  - create_empty_folders # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1524,col:10
-  - prepare_coupler_files # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1525,col:10
-  - assemble # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1526,col:10
-  - log_used_files # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1527,col:10
-  - _write_finalized_config # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1528,col:10
-  - wait_for_iterative_coupling # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1529,col:10
-  - copy_files_to_thisrun # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1530,col:10
-  - write_env # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1531,col:10
-  - preprocess # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1532,col:10
-  - modify_namelists # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1533,col:10
-  - modify_files # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1534,col:10
-  - copy_files_to_work # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1535,col:10
-  - report_missing_files # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1536,col:10
-  - compute_and_log_file_checksums # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1537,col:10
-  - database_entry # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1541,col:10
-  - oasis_rmp_rst_to_input # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:166,col:34
+  - compile_model  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1533,col:10
+  - _show_simulation_info # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1534,col:10
+  - create_new_files # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1535,col:10
+  - create_empty_folders # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1536,col:10
+  - prepare_coupler_files # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1537,col:10
+  - assemble # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1538,col:10
+  - log_used_files # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1539,col:10
+  - _write_finalized_config # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1540,col:10
+  - wait_for_iterative_coupling # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1541,col:10
+  - copy_files_to_thisrun # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1542,col:10
+  - write_env # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1543,col:10
+  - preprocess # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1544,col:10
+  - modify_namelists # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1545,col:10
+  - modify_files # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1546,col:10
+  - copy_files_to_work # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1547,col:10
+  - report_missing_files # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1548,col:10
+  - compute_and_log_file_checksums # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1549,col:10
+  - database_entry # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1553,col:10
+  - oasis_rmp_rst_to_input # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:158,col:34
   tidy_recipe:
   - tidy_coupler  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:435,col:11
   - tar_binary_restarts # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:436,col:11
@@ -2578,7 +2581,7 @@ general:
   - copy_stuff_back_from_work # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:441,col:11
   - copy_all_results_to_exp # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:442,col:11
   - clean_run_dir # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:443,col:11
-  dr_hook_ignore_signals: -1  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:156,col:33
+  dr_hook_ignore_signals: -1  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:148,col:33
   valid_setup_names:
   - general  # no provenance info
   - computer # no provenance info
@@ -2593,7 +2596,7 @@ general:
   - rnfmap # no provenance info
   - oasis3mct # no provenance info
   - xios # no provenance info
-  major_version: frontiers-xios  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:119,col:28
+  major_version: frontiers-xios  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:111,col:28
   esm_function_dir: <HOME_DIR>/esm_tools/configs/ # no provenance info
   esm_namelist_dir: <HOME_DIR>/esm_tools/namelists/ # no provenance info
   esm_runscript_dir: <HOME_DIR>/esm_tools/runscripts/ # no provenance info
@@ -2604,7 +2607,7 @@ general:
   - oifs # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:15,col:19
   - rnfmap # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:16,col:19
   - oasis3mct # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:17,col:19
-  - xios # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:123,col:15
+  - xios # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:115,col:15
   account: ab0246  # <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/scripts/awicm3-frontiers-xios-TCO159L91-CORE2_initial.yaml,line:2,col:14
   setup_name: awicm3 # <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/scripts/awicm3-frontiers-xios-TCO159L91-CORE2_initial.yaml,line:3,col:17
   initial_date: '2000-01-01T00:00:00' # no provenance info
@@ -2664,15 +2667,15 @@ general:
     scriptname: awicm3-frontiers-xios-TCO159L91-CORE2_initial.yaml # no provenance info
     runscript_abspath: <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/scripts/awicm3-frontiers-xios-TCO159L91-CORE2_initial.yaml # no provenance info
   couplings:
-  - fesom-2.0-frontiers+oifs-43r3-awicm-frontiers-xios+xios-2.5  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:121,col:15
+  - fesom-2.0-frontiers+oifs-43r3-awicm-frontiers-xios+xios-2.5  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:113,col:15
   include_models:
-  - xios  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:123,col:15
-  oasis_with_yac: false  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:124,col:29
-  pool_dir: /work/ab0246/a270092/input # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:137,col:35
+  - xios  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:115,col:15
+  oasis_with_yac: false  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:116,col:29
+  pool_dir: /work/ab0246/a270092/input # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:129,col:35
   nhour: 0 # no provenance info
   nminute: 0 # no provenance info
   nsecond: 0 # no provenance info
-  leapyear: true # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:430,col:19
+  leapyear: true # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:385,col:19
   calendar: esm_calendar object with allowed leap years # no provenance info
   delta_date:
   - 0  # no provenance info
@@ -2838,7 +2841,7 @@ general:
     first_task_in_queue: prepcompute # no provenance info
     next_run_triggered_by: tidy # no provenance info
   submitted: false  # no provenance info
-  jobid: 3702570 # no provenance info
+  jobid: 2468184 # no provenance info
   batch: slurm # no provenance info
   coupler_config_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/config/oasis3mct/ # no provenance info
   coupler: oasis3mct # no provenance info
