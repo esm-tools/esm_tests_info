@@ -42,6 +42,11 @@ export LD_LIBRARY_PATH=/albedo/soft/sw/spack-sw/intel-oneapi-mkl/2022.1.0-akthm3
 export PATH=$PERL5LIB/../bin:$PATH
 export PATH=$PATH:$ECCODESROOT/bin
 export OASIS_FFLAGS="-march=core-avx2"
+export OASIS_CFLAGS="-fPIC"
+export CFLAGS="-fPIC"
+export CCFLAGS="-fPIC"
+export FFLAGS="-fPIC"
+export FCFLAGS="-fPIC"
 export HDF5_ROOT=$HDF5ROOT
 export HDF5_C_INCLUDE_DIRECTORIES=$HDF5_ROOT/include
 export NETCDF_Fortran_INCLUDE_DIRECTORIES=$NETCDFFROOT/include

@@ -49,7 +49,8 @@ export LAPACK_LIB='-L/albedo/soft/sw/spack-sw/intel-oneapi-mkl/2022.1.0-akthm3n/
 export LD_LIBRARY_PATH=/albedo/soft/sw/spack-sw/intel-oneapi-mkl/2022.1.0-akthm3n/mkl/2022.1.0/lib/intel64:$LD_LIBRARY_PATH
 export PATH=$PERL5LIB/../bin:$PATH
 export PATH=$PATH:$ECCODESROOT/bin
-export GRIB_SAMPLES_PATH="$ECCODESROOT/share/eccodes/ifs_samples/grib1_mlgrib2/"
+export LD_LIBRARY_PATH=<TEST_DIR>/run/awicm3//awicm3-v3.1-TCO95L91-CORE2_initial/run_20000101-20000101/work//lib/oasis/:$LD_LIBRARY_PATH
+export GRIB_SAMPLES_PATH=$ECCODESROOT/share/eccodes/ifs_samples/grib1_mlgrib2/
 export DR_HOOK_IGNORE_SIGNALS=-1
 export FESOM_USE_CPLNG="active"
 export ECE_CPL_NEMO_LIM="false"
@@ -71,7 +72,7 @@ unset SLURM_MEM_PER_CPU
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 1169 - start >> <TEST_DIR>/run/awicm3//awicm3-v3.1-TCO95L91-CORE2_initial/log//awicm3-v3.1-TCO95L91-CORE2_initial_awicm3.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 1313 - start >> <TEST_DIR>/run/awicm3//awicm3-v3.1-TCO95L91-CORE2_initial/log//awicm3-v3.1-TCO95L91-CORE2_initial_awicm3.log
 
 cd <TEST_DIR>/run/awicm3//awicm3-v3.1-TCO95L91-CORE2_initial/run_20000101-20000101/work/
 
@@ -113,6 +114,6 @@ process=$!
 cd <TEST_DIR>/run/awicm3//awicm3-v3.1-TCO95L91-CORE2_initial/scripts/
 esm_runscripts awicm3-v3.1-TCO95L91-CORE2_initial.yaml -e awicm3-v3.1-TCO95L91-CORE2_initial -t observe_compute -p ${process} -s 20000101 -r 1 -v  --last-jobtype prepcompute --open-run
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 1169 - done >> <TEST_DIR>/run/awicm3//awicm3-v3.1-TCO95L91-CORE2_initial/log//awicm3-v3.1-TCO95L91-CORE2_initial_awicm3.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 1313 - done >> <TEST_DIR>/run/awicm3//awicm3-v3.1-TCO95L91-CORE2_initial/log//awicm3-v3.1-TCO95L91-CORE2_initial_awicm3.log
 
 wait

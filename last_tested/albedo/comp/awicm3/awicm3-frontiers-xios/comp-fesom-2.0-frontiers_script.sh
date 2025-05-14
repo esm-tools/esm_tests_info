@@ -42,6 +42,11 @@ export LD_LIBRARY_PATH=/albedo/soft/sw/spack-sw/intel-oneapi-mkl/2022.1.0-akthm3
 export PATH=$PERL5LIB/../bin:$PATH
 export PATH=$PATH:$ECCODESROOT/bin
 export OASIS_FFLAGS="-march=core-avx2"
+export OASIS_CFLAGS="-fPIC"
+export CFLAGS="-fPIC"
+export CCFLAGS="-fPIC"
+export FFLAGS="-fPIC"
+export FCFLAGS="-fPIC"
 export HDF5_ROOT=$HDF5ROOT
 export HDF5_C_INCLUDE_DIRECTORIES=$HDF5_ROOT/include
 export NETCDF_Fortran_INCLUDE_DIRECTORIES=$NETCDFFROOT/include
@@ -80,5 +85,5 @@ unset SLURM_MEM_PER_NODE
 unset SLURM_MEM_PER_CPU
 
 pushd fesom-2.0
-mkdir -p build; cd build; cmake -DOIFS_COUPLED=ON -DFESOM_COUPLED=ON -DCMAKE_INSTALL_PREFIX=../ ..;   make install -j `nproc --all`
+mkdir -p build; cd build; cmake -DOIFS_COUPLED=ON -DFESOM_COUPLED=ON -DENABLE_OPENMP=ON -DDISABLE_MULTITHREADING=OFF -DCMAKE_INSTALL_PREFIX=../ ..;   make install -j `nproc --all`
 popd

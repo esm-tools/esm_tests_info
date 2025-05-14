@@ -43,6 +43,11 @@ export PATH=$PERL5LIB/../bin:$PATH
 export PATH=$PATH:$ECCODESROOT/bin
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/on/a/road/to/nowwhere/test/run_20000101-20001231/work//lib/fesom/
 export OASIS_FFLAGS="-march=core-avx2"
+export OASIS_CFLAGS="-fPIC"
+export CFLAGS="-fPIC"
+export CCFLAGS="-fPIC"
+export FFLAGS="-fPIC"
+export FCFLAGS="-fPIC"
 export HDF5_ROOT=$HDF5ROOT
 export HDF5_C_INCLUDE_DIRECTORIES=$HDF5_ROOT/include
 export NETCDF_Fortran_INCLUDE_DIRECTORIES=$NETCDFFROOT/include
