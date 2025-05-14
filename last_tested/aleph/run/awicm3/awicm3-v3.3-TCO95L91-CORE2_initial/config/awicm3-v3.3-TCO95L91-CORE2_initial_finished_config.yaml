@@ -18,12 +18,12 @@ fesom:
   git-repository:
   - https://github.com/FESOM/fesom2.git  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:52,col:7
   contact: jan.streffing(at)awi.de, patrick.scholz(at)awi.de miguel.andres-martinez(at)awi.de, paul.gierz(at)awi.de  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:53,col:14
-  restart_rate: 1 # <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/scripts/awicm3-v3.3-TCO95L91-CORE2_initial.yaml,line:35,col:19
-  restart_unit: d # <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/scripts/awicm3-v3.3-TCO95L91-CORE2_initial.yaml,line:36,col:19
-  restart_first: 1 # <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/scripts/awicm3-v3.3-TCO95L91-CORE2_initial.yaml,line:37,col:20
+  restart_rate: 1 # <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/scripts/awicm3-v3.3-TCO95L91-CORE2_initial.yaml,line:37,col:19
+  restart_unit: d # <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/scripts/awicm3-v3.3-TCO95L91-CORE2_initial.yaml,line:38,col:19
+  restart_first: 1 # <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/scripts/awicm3-v3.3-TCO95L91-CORE2_initial.yaml,line:39,col:20
   restart_flag: last # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:58,col:19
-  tar_binary_restarts: true # <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/scripts/awicm3-v3.3-TCO95L91-CORE2_initial.yaml,line:40,col:26
-  time_step: 1800 # <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/scripts/awicm3-v3.3-TCO95L91-CORE2_initial.yaml,line:39,col:16
+  tar_binary_restarts: true # <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/scripts/awicm3-v3.3-TCO95L91-CORE2_initial.yaml,line:42,col:26
+  time_step: 1800 # <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/scripts/awicm3-v3.3-TCO95L91-CORE2_initial.yaml,line:41,col:16
   resolution: CORE2 # <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/scripts/awicm3-v3.3-TCO95L91-CORE2_initial.yaml,line:21,col:17
   comp_executable: fesom.x # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:65,col:22
   executable: fesom # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:66,col:17
@@ -332,7 +332,7 @@ fesom:
   - copy_all_results_to_exp # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:649,col:7
   - clean_run_dir # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:650,col:7
   lresume: false  # no provenance info
-  nproc: 40 # <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/scripts/awicm3-v3.3-TCO95L91-CORE2_initial.yaml,line:34,col:12
+  nproc: 40 # <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/scripts/awicm3-v3.3-TCO95L91-CORE2_initial.yaml,line:36,col:12
   omp_num_threads: 1 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:353,col:26
   missing_owy: false # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:367,col:22
   model_dir: <TEST_DIR>/comp/awicm3/awicm3-v3.3.0/fesom-2.6 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:378,col:20
@@ -343,7 +343,7 @@ fesom:
   awicm3_fields:
   - ist_feom  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:523,col:25
   - sia_feom # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:523,col:35
-  rnproc: 40 # <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/scripts/awicm3-v3.3-TCO95L91-CORE2_initial.yaml,line:27,col:21
+  rnproc: 40 # <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/scripts/awicm3-v3.3-TCO95L91-CORE2_initial.yaml,line:29,col:21
   nx: 126858 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:114,col:25
   daynew: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:361,col:29
   yearnew: 2000 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:362,col:30
@@ -499,7 +499,7 @@ fesom:
 computer:
   add_export_vars:
     LD_LIBRARY_PATH[(4)]: $LD_LIBRARY_PATH:<TEST_DIR>/run/awicm3//awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work//lib/fesom/  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.env.yaml,line:3,col:31
-    ACCOUNT: iccp # no provenance info
+    ACCOUNT: None # no provenance info
     ESM_TESTING_DIR: <TEST_DIR>/run/awicm3/ # no provenance info
     MODEL_DIR: <TEST_DIR>/comp/awicm3/awicm3-v3.3.0 # no provenance info
   c++_lib: cray-c++-rts  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs43.env.yaml,line:617,col:16
@@ -587,7 +587,7 @@ computer:
     LD_LIBRARY_PATH: $LD_LIBRARY_PATH:$ECCODESROOT/lib:$PROJ4_DIR/lib # <HOME_DIR>/esm_tools/configs/components/oifs/oifs43.env.yaml,line:17,col:30
     PATH: $ECCODESROOT/bin:${PATH} # <HOME_DIR>/esm_tools/configs/components/oifs/oifs43.env.yaml,line:18,col:19
     LD_LIBRARY_PATH[(4)]: $LD_LIBRARY_PATH:<TEST_DIR>/run/awicm3//awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work//lib/fesom/ # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.env.yaml,line:3,col:31
-    ACCOUNT: iccp # no provenance info
+    ACCOUNT: None # no provenance info
     ESM_TESTING_DIR: <TEST_DIR>/run/awicm3/ # no provenance info
     MODEL_DIR: <TEST_DIR>/comp/awicm3/awicm3-v3.3.0 # no provenance info
   label_format: '"[@MODEL@]%l:"' # <HOME_DIR>/esm_tools/configs/machines/aleph.yaml,line:116,col:19
@@ -633,7 +633,7 @@ computer:
   cflags: -fp-model precise -O3 -xCORE_AVX2 -g -traceback -qopt-report=0 -fpe0 # <HOME_DIR>/esm_tools/configs/components/rnfmap/rnfmap.yaml,line:252,col:20
   partition_name: iccp # <HOME_DIR>/esm_tools/configs/machines/aleph.yaml,line:27,col:37
   partition_cpn: 40 # <HOME_DIR>/esm_tools/configs/machines/aleph.yaml,line:28,col:36
-  accounting_flag: -A iccp # <HOME_DIR>/esm_tools/configs/other_software/batch_system/pbs.yaml,line:22,col:38
+  accounting_flag: -A None # <HOME_DIR>/esm_tools/configs/other_software/batch_system/pbs.yaml,line:22,col:38
   launcher_comp_sep: "\\\n         :" # <HOME_DIR>/esm_tools/configs/other_software/batch_system/pbs.yaml,line:55,col:40
   debugger_flags_prelauncher: '' # <HOME_DIR>/esm_tools/configs/other_software/batch_system/pbs.yaml,line:59,col:49
 oifs:
@@ -717,18 +717,18 @@ oifs:
   comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-v3.3.0/oifs-43r3; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.cfg ; chmod -R 700 .; git config core.fileMode false ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:242,col:23
   git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3.git # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:244,col:25
   install_bins: make/esm/oifs/bin/oifs # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:245,col:23
-  input_expid: awi3 # <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/scripts/awicm3-v3.3-TCO95L91-CORE2_initial.yaml,line:48,col:18
-  resolution: TCO95 # <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/scripts/awicm3-v3.3-TCO95L91-CORE2_initial.yaml,line:43,col:17
-  levels: L91 # <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/scripts/awicm3-v3.3-TCO95L91-CORE2_initial.yaml,line:44,col:13
+  input_expid: awi3 # <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/scripts/awicm3-v3.3-TCO95L91-CORE2_initial.yaml,line:50,col:18
+  resolution: TCO95 # <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/scripts/awicm3-v3.3-TCO95L91-CORE2_initial.yaml,line:45,col:17
+  levels: L91 # <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/scripts/awicm3-v3.3-TCO95L91-CORE2_initial.yaml,line:46,col:13
   nlev: 91 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:353,col:11
-  prepifs_expid: aack # <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/scripts/awicm3-v3.3-TCO95L91-CORE2_initial.yaml,line:47,col:20
+  prepifs_expid: aack # <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/scripts/awicm3-v3.3-TCO95L91-CORE2_initial.yaml,line:49,col:20
   prepifs_startdate: '19820101' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:355,col:24
   mip: cmip6 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:224,col:30
   o3_scheme: default # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:357,col:16
   scenario: historical # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:168,col:19
   output: default # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:359,col:13
-  nproc: 80 # <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/scripts/awicm3-v3.3-TCO95L91-CORE2_initial.yaml,line:61,col:12
-  wam: true # <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/scripts/awicm3-v3.3-TCO95L91-CORE2_initial.yaml,line:49,col:10
+  nproc: 80 # <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/scripts/awicm3-v3.3-TCO95L91-CORE2_initial.yaml,line:65,col:12
+  wam: true # <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/scripts/awicm3-v3.3-TCO95L91-CORE2_initial.yaml,line:51,col:10
   wam_2w: true # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:369,col:13
   wam_step: 1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:370,col:15
   read_icmcl: 0 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:371,col:17
@@ -984,105 +984,6 @@ oifs:
     specwavein: /proj/awi/input/oifs-43r3/TCO95L91//specwavein # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1255,col:25
     sfcwindin: /proj/awi/input/oifs-43r3/TCO95L91//sfcwindin # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1256,col:24
     cdwavein: /proj/awi/input/oifs-43r3/TCO95L91//cdwavein # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1257,col:23
-    ifsdata_glob_0: /proj/awi/input/oifs-43r3/43r3/ifsdata/CH4CLIM # no provenance info
-    ifsdata_glob_1: /proj/awi/input/oifs-43r3/43r3/ifsdata/GOZOCLIM # no provenance info
-    ifsdata_glob_2: /proj/awi/input/oifs-43r3/43r3/ifsdata/SO4_A1B2090 # no provenance info
-    ifsdata_glob_3: /proj/awi/input/oifs-43r3/43r3/ifsdata/SO4_A1B2070 # no provenance info
-    ifsdata_glob_4: /proj/awi/input/oifs-43r3/43r3/ifsdata/N2OCLIM # no provenance info
-    ifsdata_glob_5: /proj/awi/input/oifs-43r3/43r3/ifsdata/SO4_A1B2080 # no provenance info
-    ifsdata_glob_6: /proj/awi/input/oifs-43r3/43r3/ifsdata/GCO2CLIM # no provenance info
-    ifsdata_glob_7: /proj/awi/input/oifs-43r3/43r3/ifsdata/slingo_droplet_scattering_rrtm.nc # no provenance info
-    ifsdata_glob_8: /proj/awi/input/oifs-43r3/43r3/ifsdata/NO2CLIM # no provenance info
-    ifsdata_glob_9: /proj/awi/input/oifs-43r3/43r3/ifsdata/SO4_OBS1930 # no provenance info
-    ifsdata_glob_10: /proj/awi/input/oifs-43r3/43r3/ifsdata/SO4_OBS1990 # no provenance info
-    ifsdata_glob_11: /proj/awi/input/oifs-43r3/43r3/ifsdata/socrates_droplet_scattering_rrtm.nc # no provenance info
-    ifsdata_glob_12: /proj/awi/input/oifs-43r3/43r3/ifsdata/RADRRTM # no provenance info
-    ifsdata_glob_13: /proj/awi/input/oifs-43r3/43r3/ifsdata/SO4_A1B2040 # no provenance info
-    ifsdata_glob_14: /proj/awi/input/oifs-43r3/43r3/ifsdata/CO2CLIM # no provenance info
-    ifsdata_glob_15: /proj/awi/input/oifs-43r3/43r3/ifsdata/aerosol_ifs_rrtm_43R1a.nc # no provenance info
-    ifsdata_glob_16: /proj/awi/input/oifs-43r3/43r3/ifsdata/SO4_OBS1920 # no provenance info
-    ifsdata_glob_17: /proj/awi/input/oifs-43r3/43r3/ifsdata/SO4_A1B2000 # no provenance info
-    ifsdata_glob_18: /proj/awi/input/oifs-43r3/43r3/ifsdata/aerosol_ifs_rrtm.nc # no provenance info
-    ifsdata_glob_19: /proj/awi/input/oifs-43r3/43r3/ifsdata/aerosol_ifs_rrtm_tegen.nc # no provenance info
-    ifsdata_glob_20: /proj/awi/input/oifs-43r3/43r3/ifsdata/ECOZC # no provenance info
-    ifsdata_glob_21: /proj/awi/input/oifs-43r3/43r3/ifsdata/SO4_A1B2050 # no provenance info
-    ifsdata_glob_22: /proj/awi/input/oifs-43r3/43r3/ifsdata/mcica_gamma.nc # no provenance info
-    ifsdata_glob_23: /proj/awi/input/oifs-43r3/43r3/ifsdata/aerosol_cams_climatology_43R3.nc # no provenance info
-    ifsdata_glob_24: /proj/awi/input/oifs-43r3/43r3/ifsdata/SO4_A1B2100 # no provenance info
-    ifsdata_glob_25: /proj/awi/input/oifs-43r3/43r3/ifsdata/SO4_A1B2010 # no provenance info
-    ifsdata_glob_26: /proj/awi/input/oifs-43r3/43r3/ifsdata/GCH4CLIM # no provenance info
-    ifsdata_glob_27: /proj/awi/input/oifs-43r3/43r3/ifsdata/SO4_OBS1970 # no provenance info
-    ifsdata_glob_28: /proj/awi/input/oifs-43r3/43r3/ifsdata/RADSRTM # no provenance info
-    ifsdata_glob_29: /proj/awi/input/oifs-43r3/43r3/ifsdata/SO4_OBS1960 # no provenance info
-    ifsdata_glob_30: /proj/awi/input/oifs-43r3/43r3/ifsdata/aerosol_ifs_rrtm_AB.nc # no provenance info
-    ifsdata_glob_31: /proj/awi/input/oifs-43r3/43r3/ifsdata/aerosol_scale_1850_2085_r2005.nc # no provenance info
-    ifsdata_glob_32: /proj/awi/input/oifs-43r3/43r3/ifsdata/OZOCLIM # no provenance info
-    ifsdata_glob_33: /proj/awi/input/oifs-43r3/43r3/ifsdata/C12CLIM # no provenance info
-    ifsdata_glob_34: /proj/awi/input/oifs-43r3/43r3/ifsdata/aerosol_ifs_rrtm_42R1.nc # no provenance info
-    ifsdata_glob_35: /proj/awi/input/oifs-43r3/43r3/ifsdata/SO4_OBS1940 # no provenance info
-    ifsdata_glob_36: /proj/awi/input/oifs-43r3/43r3/ifsdata/SO4_A1B2030 # no provenance info
-    ifsdata_glob_37: /proj/awi/input/oifs-43r3/43r3/ifsdata/MCO2CLIM # no provenance info
-    ifsdata_glob_38: /proj/awi/input/oifs-43r3/43r3/ifsdata/fu_ice_scattering_rrtm.nc # no provenance info
-    ifsdata_glob_39: /proj/awi/input/oifs-43r3/43r3/ifsdata/SO4_A1B2020 # no provenance info
-    ifsdata_glob_40: /proj/awi/input/oifs-43r3/43r3/ifsdata/aerosol_ifs_rrtm_43R3.nc # no provenance info
-    ifsdata_glob_41: /proj/awi/input/oifs-43r3/43r3/ifsdata/MOZOCLIM # no provenance info
-    ifsdata_glob_42: /proj/awi/input/oifs-43r3/43r3/ifsdata/SO4_OBS1950 # no provenance info
-    ifsdata_glob_43: /proj/awi/input/oifs-43r3/43r3/ifsdata/aerosol_cams_climatology_43R3a.nc # no provenance info
-    ifsdata_glob_44: /proj/awi/input/oifs-43r3/43r3/ifsdata/SO4_A1B2060 # no provenance info
-    ifsdata_glob_45: /proj/awi/input/oifs-43r3/43r3/ifsdata/es_droplet_scattering_rrtm.nc # no provenance info
-    ifsdata_glob_46: /proj/awi/input/oifs-43r3/43r3/ifsdata/C22CLIM # no provenance info
-    ifsdata_glob_47: /proj/awi/input/oifs-43r3/43r3/ifsdata/baran_ice_scattering_rrtm.nc # no provenance info
-    ifsdata_glob_48: /proj/awi/input/oifs-43r3/43r3/ifsdata/aerosol_ifs_rrtm_43R1.nc # no provenance info
-    ifsdata_glob_49: /proj/awi/input/oifs-43r3/43r3/ifsdata/MCH4CLIM # no provenance info
-    ifsdata_glob_50: /proj/awi/input/oifs-43r3/43r3/ifsdata/C11CLIM # no provenance info
-    ifsdata_glob_51: /proj/awi/input/oifs-43r3/43r3/ifsdata/aerosol_scale_1865_2085_r2005.nc # no provenance info
-    ifsdata_glob_52: /proj/awi/input/oifs-43r3/43r3/ifsdata/mcica_lognormal.nc # no provenance info
-    ifsdata_glob_53: /proj/awi/input/oifs-43r3/43r3/ifsdata/SO4_OBS1980 # no provenance info
-    ifsdata_glob_54: /proj/awi/input/oifs-43r3/43r3/ifsdata/MCICA # no provenance info
-    ifsdata_glob_55: /proj/awi/input/oifs-43r3/43r3/ifsdata/CCL4CLIM # no provenance info
-    tl_data_glob_0: /proj/awi/input/oifs-43r3/43r3/climate//95_4/sstgrib.clim.06 # no provenance info
-    tl_data_glob_1: /proj/awi/input/oifs-43r3/43r3/climate//95_4/sstgrib.clim.02 # no provenance info
-    tl_data_glob_2: /proj/awi/input/oifs-43r3/43r3/climate//95_4/lsmoro # no provenance info
-    tl_data_glob_3: /proj/awi/input/oifs-43r3/43r3/climate//95_4/sstgrib.clim.04 # no provenance info
-    tl_data_glob_4: /proj/awi/input/oifs-43r3/43r3/climate//95_4/sstgrib.clim.08 # no provenance info
-    tl_data_glob_5: /proj/awi/input/oifs-43r3/43r3/climate//95_4/month_alnip # no provenance info
-    tl_data_glob_6: /proj/awi/input/oifs-43r3/43r3/climate//95_4/sfc # no provenance info
-    tl_data_glob_7: /proj/awi/input/oifs-43r3/43r3/climate//95_4/sstgrib.clim.01 # no provenance info
-    tl_data_glob_8: /proj/awi/input/oifs-43r3/43r3/climate//95_4/cicecap # no provenance info
-    tl_data_glob_9: /proj/awi/input/oifs-43r3/43r3/climate//95_4/sporog # no provenance info
-    tl_data_glob_10: /proj/awi/input/oifs-43r3/43r3/climate//95_4/month_aluvg # no provenance info
-    tl_data_glob_11: /proj/awi/input/oifs-43r3/43r3/climate//95_4/month_alniv # no provenance info
-    tl_data_glob_12: /proj/awi/input/oifs-43r3/43r3/climate//95_4/sstgrib.clim.11 # no provenance info
-    tl_data_glob_13: /proj/awi/input/oifs-43r3/43r3/climate//95_4/sstgrib.clim.07 # no provenance info
-    tl_data_glob_14: /proj/awi/input/oifs-43r3/43r3/climate//95_4/sdfor # no provenance info
-    tl_data_glob_15: /proj/awi/input/oifs-43r3/43r3/climate//95_4/month_alnid # no provenance info
-    tl_data_glob_16: /proj/awi/input/oifs-43r3/43r3/climate//95_4/month_aluvd # no provenance info
-    tl_data_glob_17: /proj/awi/input/oifs-43r3/43r3/climate//95_4/month_aluvi # no provenance info
-    tl_data_glob_18: /proj/awi/input/oifs-43r3/43r3/climate//95_4/month_laih # no provenance info
-    tl_data_glob_19: /proj/awi/input/oifs-43r3/43r3/climate//95_4/month_alnii # no provenance info
-    tl_data_glob_20: /proj/awi/input/oifs-43r3/43r3/climate//95_4/sstgrib.clim.10 # no provenance info
-    tl_data_glob_21: /proj/awi/input/oifs-43r3/43r3/climate//95_4/month_alb # no provenance info
-    tl_data_glob_22: /proj/awi/input/oifs-43r3/43r3/climate//95_4/month_aluvv # no provenance info
-    tl_data_glob_23: /proj/awi/input/oifs-43r3/43r3/climate//95_4/sstgrib.clim.03 # no provenance info
-    tl_data_glob_24: /proj/awi/input/oifs-43r3/43r3/climate//95_4/sstgrib.clim.12 # no provenance info
-    tl_data_glob_25: /proj/awi/input/oifs-43r3/43r3/climate//95_4/month_alnig # no provenance info
-    tl_data_glob_26: /proj/awi/input/oifs-43r3/43r3/climate//95_4/slt # no provenance info
-    tl_data_glob_27: /proj/awi/input/oifs-43r3/43r3/climate//95_4/month_aluvp # no provenance info
-    tl_data_glob_28: /proj/awi/input/oifs-43r3/43r3/climate//95_4/month_lail # no provenance info
-    tl_data_glob_29: /proj/awi/input/oifs-43r3/43r3/climate//95_4/sstgrib.clim.09 # no provenance info
-    tl_data_glob_30: /proj/awi/input/oifs-43r3/43r3/climate//95_4/sstgrib.clim.05 # no provenance info
-    o3_data_glob_0: /proj/awi/input/oifs-43r3/43r3/climate//95_4/o3chem_l91/O3CHEM03_V2.9 # no provenance info
-    o3_data_glob_1: /proj/awi/input/oifs-43r3/43r3/climate//95_4/o3chem_l91/O3CHEM01_V2.9 # no provenance info
-    o3_data_glob_2: /proj/awi/input/oifs-43r3/43r3/climate//95_4/o3chem_l91/O3CHEM12_V2.9 # no provenance info
-    o3_data_glob_3: /proj/awi/input/oifs-43r3/43r3/climate//95_4/o3chem_l91/O3CHEM05_V2.9 # no provenance info
-    o3_data_glob_4: /proj/awi/input/oifs-43r3/43r3/climate//95_4/o3chem_l91/O3CHEM09_V2.9 # no provenance info
-    o3_data_glob_5: /proj/awi/input/oifs-43r3/43r3/climate//95_4/o3chem_l91/O3CHEM08_V2.9 # no provenance info
-    o3_data_glob_6: /proj/awi/input/oifs-43r3/43r3/climate//95_4/o3chem_l91/O3CHEM11_V2.9 # no provenance info
-    o3_data_glob_7: /proj/awi/input/oifs-43r3/43r3/climate//95_4/o3chem_l91/O3CHEM02_V2.9 # no provenance info
-    o3_data_glob_8: /proj/awi/input/oifs-43r3/43r3/climate//95_4/o3chem_l91/O3CHEM04_V2.9 # no provenance info
-    o3_data_glob_9: /proj/awi/input/oifs-43r3/43r3/climate//95_4/o3chem_l91/O3CHEM06_V2.9 # no provenance info
-    o3_data_glob_10: /proj/awi/input/oifs-43r3/43r3/climate//95_4/o3chem_l91/O3CHEM10_V2.9 # no provenance info
-    o3_data_glob_11: /proj/awi/input/oifs-43r3/43r3/climate//95_4/o3chem_l91/O3CHEM07_V2.9 # no provenance info
   forcing_sources: {}
   config_sources:
     fort.4: <HOME_DIR>/esm_tools/namelists//oifs/43r3/awicm3/v3.3/fort.4  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1281,col:23
@@ -1142,7 +1043,7 @@ oifs:
   - oasis_rmp_rst_to_input  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:158,col:34
   restart_firstlast: last # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:164,col:28
   ocean_resolution: CORE2 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:166,col:27
-  omp_num_threads: 2 # <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/scripts/awicm3-v3.3-TCO95L91-CORE2_initial.yaml,line:62,col:22
+  omp_num_threads: 2 # <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/scripts/awicm3-v3.3-TCO95L91-CORE2_initial.yaml,line:66,col:22
   res_level: TCO95L91 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:306,col:20
   awicm3_fields:
   - A_Qns_oce  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:307,col:25
@@ -1204,9 +1105,9 @@ oifs:
       grid: atmr  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:313,col:27
     A_Calving:
       grid: atmr  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:315,col:27
-  time_step: 3600 # <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/scripts/awicm3-v3.3-TCO95L91-CORE2_initial.yaml,line:46,col:16
+  time_step: 3600 # <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/scripts/awicm3-v3.3-TCO95L91-CORE2_initial.yaml,line:48,col:16
   slice_icml: '' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1492,col:33
-  rnproc: 80 # <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/scripts/awicm3-v3.3-TCO95L91-CORE2_initial.yaml,line:54,col:21
+  rnproc: 80 # <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/scripts/awicm3-v3.3-TCO95L91-CORE2_initial.yaml,line:58,col:21
   branch: oifs-deck # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:241,col:17
   nx: 40320 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:416,col:25
   oasis_grid_name: 96 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:423,col:38
@@ -1299,105 +1200,6 @@ oifs:
     specwavein: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/specwavein # no provenance info
     sfcwindin: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/sfcwindin # no provenance info
     cdwavein: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/cdwavein # no provenance info
-    ifsdata_glob_0: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/ifsdata/CH4CLIM # no provenance info
-    ifsdata_glob_1: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/ifsdata/GOZOCLIM # no provenance info
-    ifsdata_glob_2: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/ifsdata/SO4_A1B2090 # no provenance info
-    ifsdata_glob_3: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/ifsdata/SO4_A1B2070 # no provenance info
-    ifsdata_glob_4: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/ifsdata/N2OCLIM # no provenance info
-    ifsdata_glob_5: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/ifsdata/SO4_A1B2080 # no provenance info
-    ifsdata_glob_6: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/ifsdata/GCO2CLIM # no provenance info
-    ifsdata_glob_7: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/ifsdata/slingo_droplet_scattering_rrtm.nc # no provenance info
-    ifsdata_glob_8: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/ifsdata/NO2CLIM # no provenance info
-    ifsdata_glob_9: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/ifsdata/SO4_OBS1930 # no provenance info
-    ifsdata_glob_10: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/ifsdata/SO4_OBS1990 # no provenance info
-    ifsdata_glob_11: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/ifsdata/socrates_droplet_scattering_rrtm.nc # no provenance info
-    ifsdata_glob_12: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/ifsdata/RADRRTM # no provenance info
-    ifsdata_glob_13: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/ifsdata/SO4_A1B2040 # no provenance info
-    ifsdata_glob_14: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/ifsdata/CO2CLIM # no provenance info
-    ifsdata_glob_15: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/ifsdata/aerosol_ifs_rrtm_43R1a.nc # no provenance info
-    ifsdata_glob_16: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/ifsdata/SO4_OBS1920 # no provenance info
-    ifsdata_glob_17: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/ifsdata/SO4_A1B2000 # no provenance info
-    ifsdata_glob_18: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/ifsdata/aerosol_ifs_rrtm.nc # no provenance info
-    ifsdata_glob_19: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/ifsdata/aerosol_ifs_rrtm_tegen.nc # no provenance info
-    ifsdata_glob_20: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/ifsdata/ECOZC # no provenance info
-    ifsdata_glob_21: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/ifsdata/SO4_A1B2050 # no provenance info
-    ifsdata_glob_22: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/ifsdata/mcica_gamma.nc # no provenance info
-    ifsdata_glob_23: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/ifsdata/aerosol_cams_climatology_43R3.nc # no provenance info
-    ifsdata_glob_24: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/ifsdata/SO4_A1B2100 # no provenance info
-    ifsdata_glob_25: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/ifsdata/SO4_A1B2010 # no provenance info
-    ifsdata_glob_26: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/ifsdata/GCH4CLIM # no provenance info
-    ifsdata_glob_27: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/ifsdata/SO4_OBS1970 # no provenance info
-    ifsdata_glob_28: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/ifsdata/RADSRTM # no provenance info
-    ifsdata_glob_29: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/ifsdata/SO4_OBS1960 # no provenance info
-    ifsdata_glob_30: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/ifsdata/aerosol_ifs_rrtm_AB.nc # no provenance info
-    ifsdata_glob_31: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/ifsdata/aerosol_scale_1850_2085_r2005.nc # no provenance info
-    ifsdata_glob_32: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/ifsdata/OZOCLIM # no provenance info
-    ifsdata_glob_33: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/ifsdata/C12CLIM # no provenance info
-    ifsdata_glob_34: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/ifsdata/aerosol_ifs_rrtm_42R1.nc # no provenance info
-    ifsdata_glob_35: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/ifsdata/SO4_OBS1940 # no provenance info
-    ifsdata_glob_36: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/ifsdata/SO4_A1B2030 # no provenance info
-    ifsdata_glob_37: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/ifsdata/MCO2CLIM # no provenance info
-    ifsdata_glob_38: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/ifsdata/fu_ice_scattering_rrtm.nc # no provenance info
-    ifsdata_glob_39: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/ifsdata/SO4_A1B2020 # no provenance info
-    ifsdata_glob_40: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/ifsdata/aerosol_ifs_rrtm_43R3.nc # no provenance info
-    ifsdata_glob_41: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/ifsdata/MOZOCLIM # no provenance info
-    ifsdata_glob_42: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/ifsdata/SO4_OBS1950 # no provenance info
-    ifsdata_glob_43: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/ifsdata/aerosol_cams_climatology_43R3a.nc # no provenance info
-    ifsdata_glob_44: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/ifsdata/SO4_A1B2060 # no provenance info
-    ifsdata_glob_45: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/ifsdata/es_droplet_scattering_rrtm.nc # no provenance info
-    ifsdata_glob_46: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/ifsdata/C22CLIM # no provenance info
-    ifsdata_glob_47: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/ifsdata/baran_ice_scattering_rrtm.nc # no provenance info
-    ifsdata_glob_48: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/ifsdata/aerosol_ifs_rrtm_43R1.nc # no provenance info
-    ifsdata_glob_49: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/ifsdata/MCH4CLIM # no provenance info
-    ifsdata_glob_50: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/ifsdata/C11CLIM # no provenance info
-    ifsdata_glob_51: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/ifsdata/aerosol_scale_1865_2085_r2005.nc # no provenance info
-    ifsdata_glob_52: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/ifsdata/mcica_lognormal.nc # no provenance info
-    ifsdata_glob_53: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/ifsdata/SO4_OBS1980 # no provenance info
-    ifsdata_glob_54: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/ifsdata/MCICA # no provenance info
-    ifsdata_glob_55: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/ifsdata/CCL4CLIM # no provenance info
-    tl_data_glob_0: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/95_4/sstgrib.clim.06 # no provenance info
-    tl_data_glob_1: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/95_4/sstgrib.clim.02 # no provenance info
-    tl_data_glob_2: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/95_4/lsmoro # no provenance info
-    tl_data_glob_3: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/95_4/sstgrib.clim.04 # no provenance info
-    tl_data_glob_4: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/95_4/sstgrib.clim.08 # no provenance info
-    tl_data_glob_5: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/95_4/month_alnip # no provenance info
-    tl_data_glob_6: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/95_4/sfc # no provenance info
-    tl_data_glob_7: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/95_4/sstgrib.clim.01 # no provenance info
-    tl_data_glob_8: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/95_4/cicecap # no provenance info
-    tl_data_glob_9: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/95_4/sporog # no provenance info
-    tl_data_glob_10: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/95_4/month_aluvg # no provenance info
-    tl_data_glob_11: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/95_4/month_alniv # no provenance info
-    tl_data_glob_12: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/95_4/sstgrib.clim.11 # no provenance info
-    tl_data_glob_13: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/95_4/sstgrib.clim.07 # no provenance info
-    tl_data_glob_14: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/95_4/sdfor # no provenance info
-    tl_data_glob_15: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/95_4/month_alnid # no provenance info
-    tl_data_glob_16: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/95_4/month_aluvd # no provenance info
-    tl_data_glob_17: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/95_4/month_aluvi # no provenance info
-    tl_data_glob_18: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/95_4/month_laih # no provenance info
-    tl_data_glob_19: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/95_4/month_alnii # no provenance info
-    tl_data_glob_20: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/95_4/sstgrib.clim.10 # no provenance info
-    tl_data_glob_21: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/95_4/month_alb # no provenance info
-    tl_data_glob_22: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/95_4/month_aluvv # no provenance info
-    tl_data_glob_23: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/95_4/sstgrib.clim.03 # no provenance info
-    tl_data_glob_24: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/95_4/sstgrib.clim.12 # no provenance info
-    tl_data_glob_25: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/95_4/month_alnig # no provenance info
-    tl_data_glob_26: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/95_4/slt # no provenance info
-    tl_data_glob_27: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/95_4/month_aluvp # no provenance info
-    tl_data_glob_28: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/95_4/month_lail # no provenance info
-    tl_data_glob_29: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/95_4/sstgrib.clim.09 # no provenance info
-    tl_data_glob_30: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/95_4/sstgrib.clim.05 # no provenance info
-    o3_data_glob_0: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/95_4/o3chem_l91/O3CHEM03_V2.9 # no provenance info
-    o3_data_glob_1: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/95_4/o3chem_l91/O3CHEM01_V2.9 # no provenance info
-    o3_data_glob_2: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/95_4/o3chem_l91/O3CHEM12_V2.9 # no provenance info
-    o3_data_glob_3: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/95_4/o3chem_l91/O3CHEM05_V2.9 # no provenance info
-    o3_data_glob_4: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/95_4/o3chem_l91/O3CHEM09_V2.9 # no provenance info
-    o3_data_glob_5: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/95_4/o3chem_l91/O3CHEM08_V2.9 # no provenance info
-    o3_data_glob_6: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/95_4/o3chem_l91/O3CHEM11_V2.9 # no provenance info
-    o3_data_glob_7: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/95_4/o3chem_l91/O3CHEM02_V2.9 # no provenance info
-    o3_data_glob_8: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/95_4/o3chem_l91/O3CHEM04_V2.9 # no provenance info
-    o3_data_glob_9: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/95_4/o3chem_l91/O3CHEM06_V2.9 # no provenance info
-    o3_data_glob_10: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/95_4/o3chem_l91/O3CHEM10_V2.9 # no provenance info
-    o3_data_glob_11: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/95_4/o3chem_l91/O3CHEM07_V2.9 # no provenance info
   log_targets:
     NODE: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/log/oifs/NODE.001_01  # no provenance info
     ifsstat: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/log/oifs/ifs.stat # no provenance info
@@ -1441,105 +1243,6 @@ oifs:
     specwavein: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/specwavein # no provenance info
     sfcwindin: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/sfcwindin # no provenance info
     cdwavein: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/cdwavein # no provenance info
-    ifsdata_glob_0: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/CH4CLIM # no provenance info
-    ifsdata_glob_1: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/GOZOCLIM # no provenance info
-    ifsdata_glob_2: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/SO4_A1B2090 # no provenance info
-    ifsdata_glob_3: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/SO4_A1B2070 # no provenance info
-    ifsdata_glob_4: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/N2OCLIM # no provenance info
-    ifsdata_glob_5: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/SO4_A1B2080 # no provenance info
-    ifsdata_glob_6: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/GCO2CLIM # no provenance info
-    ifsdata_glob_7: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/slingo_droplet_scattering_rrtm.nc # no provenance info
-    ifsdata_glob_8: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/NO2CLIM # no provenance info
-    ifsdata_glob_9: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/SO4_OBS1930 # no provenance info
-    ifsdata_glob_10: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/SO4_OBS1990 # no provenance info
-    ifsdata_glob_11: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/socrates_droplet_scattering_rrtm.nc # no provenance info
-    ifsdata_glob_12: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/RADRRTM # no provenance info
-    ifsdata_glob_13: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/SO4_A1B2040 # no provenance info
-    ifsdata_glob_14: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/CO2CLIM # no provenance info
-    ifsdata_glob_15: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/aerosol_ifs_rrtm_43R1a.nc # no provenance info
-    ifsdata_glob_16: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/SO4_OBS1920 # no provenance info
-    ifsdata_glob_17: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/SO4_A1B2000 # no provenance info
-    ifsdata_glob_18: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/aerosol_ifs_rrtm.nc # no provenance info
-    ifsdata_glob_19: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/aerosol_ifs_rrtm_tegen.nc # no provenance info
-    ifsdata_glob_20: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/ECOZC # no provenance info
-    ifsdata_glob_21: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/SO4_A1B2050 # no provenance info
-    ifsdata_glob_22: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/mcica_gamma.nc # no provenance info
-    ifsdata_glob_23: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/aerosol_cams_climatology_43R3.nc # no provenance info
-    ifsdata_glob_24: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/SO4_A1B2100 # no provenance info
-    ifsdata_glob_25: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/SO4_A1B2010 # no provenance info
-    ifsdata_glob_26: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/GCH4CLIM # no provenance info
-    ifsdata_glob_27: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/SO4_OBS1970 # no provenance info
-    ifsdata_glob_28: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/RADSRTM # no provenance info
-    ifsdata_glob_29: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/SO4_OBS1960 # no provenance info
-    ifsdata_glob_30: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/aerosol_ifs_rrtm_AB.nc # no provenance info
-    ifsdata_glob_31: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/aerosol_scale_1850_2085_r2005.nc # no provenance info
-    ifsdata_glob_32: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/OZOCLIM # no provenance info
-    ifsdata_glob_33: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/C12CLIM # no provenance info
-    ifsdata_glob_34: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/aerosol_ifs_rrtm_42R1.nc # no provenance info
-    ifsdata_glob_35: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/SO4_OBS1940 # no provenance info
-    ifsdata_glob_36: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/SO4_A1B2030 # no provenance info
-    ifsdata_glob_37: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/MCO2CLIM # no provenance info
-    ifsdata_glob_38: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/fu_ice_scattering_rrtm.nc # no provenance info
-    ifsdata_glob_39: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/SO4_A1B2020 # no provenance info
-    ifsdata_glob_40: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/aerosol_ifs_rrtm_43R3.nc # no provenance info
-    ifsdata_glob_41: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/MOZOCLIM # no provenance info
-    ifsdata_glob_42: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/SO4_OBS1950 # no provenance info
-    ifsdata_glob_43: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/aerosol_cams_climatology_43R3a.nc # no provenance info
-    ifsdata_glob_44: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/SO4_A1B2060 # no provenance info
-    ifsdata_glob_45: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/es_droplet_scattering_rrtm.nc # no provenance info
-    ifsdata_glob_46: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/C22CLIM # no provenance info
-    ifsdata_glob_47: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/baran_ice_scattering_rrtm.nc # no provenance info
-    ifsdata_glob_48: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/aerosol_ifs_rrtm_43R1.nc # no provenance info
-    ifsdata_glob_49: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/MCH4CLIM # no provenance info
-    ifsdata_glob_50: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/C11CLIM # no provenance info
-    ifsdata_glob_51: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/aerosol_scale_1865_2085_r2005.nc # no provenance info
-    ifsdata_glob_52: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/mcica_lognormal.nc # no provenance info
-    ifsdata_glob_53: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/SO4_OBS1980 # no provenance info
-    ifsdata_glob_54: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/MCICA # no provenance info
-    ifsdata_glob_55: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/ifsdata/CCL4CLIM # no provenance info
-    tl_data_glob_0: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/95_4/sstgrib.clim.06 # no provenance info
-    tl_data_glob_1: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/95_4/sstgrib.clim.02 # no provenance info
-    tl_data_glob_2: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/95_4/lsmoro # no provenance info
-    tl_data_glob_3: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/95_4/sstgrib.clim.04 # no provenance info
-    tl_data_glob_4: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/95_4/sstgrib.clim.08 # no provenance info
-    tl_data_glob_5: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/95_4/month_alnip # no provenance info
-    tl_data_glob_6: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/95_4/sfc # no provenance info
-    tl_data_glob_7: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/95_4/sstgrib.clim.01 # no provenance info
-    tl_data_glob_8: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/95_4/cicecap # no provenance info
-    tl_data_glob_9: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/95_4/sporog # no provenance info
-    tl_data_glob_10: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/95_4/month_aluvg # no provenance info
-    tl_data_glob_11: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/95_4/month_alniv # no provenance info
-    tl_data_glob_12: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/95_4/sstgrib.clim.11 # no provenance info
-    tl_data_glob_13: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/95_4/sstgrib.clim.07 # no provenance info
-    tl_data_glob_14: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/95_4/sdfor # no provenance info
-    tl_data_glob_15: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/95_4/month_alnid # no provenance info
-    tl_data_glob_16: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/95_4/month_aluvd # no provenance info
-    tl_data_glob_17: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/95_4/month_aluvi # no provenance info
-    tl_data_glob_18: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/95_4/month_laih # no provenance info
-    tl_data_glob_19: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/95_4/month_alnii # no provenance info
-    tl_data_glob_20: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/95_4/sstgrib.clim.10 # no provenance info
-    tl_data_glob_21: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/95_4/month_alb # no provenance info
-    tl_data_glob_22: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/95_4/month_aluvv # no provenance info
-    tl_data_glob_23: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/95_4/sstgrib.clim.03 # no provenance info
-    tl_data_glob_24: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/95_4/sstgrib.clim.12 # no provenance info
-    tl_data_glob_25: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/95_4/month_alnig # no provenance info
-    tl_data_glob_26: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/95_4/slt # no provenance info
-    tl_data_glob_27: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/95_4/month_aluvp # no provenance info
-    tl_data_glob_28: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/95_4/month_lail # no provenance info
-    tl_data_glob_29: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/95_4/sstgrib.clim.09 # no provenance info
-    tl_data_glob_30: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/95_4/sstgrib.clim.05 # no provenance info
-    o3_data_glob_0: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/95_4/o3chem_l91/O3CHEM03_V2.9 # no provenance info
-    o3_data_glob_1: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/95_4/o3chem_l91/O3CHEM01_V2.9 # no provenance info
-    o3_data_glob_2: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/95_4/o3chem_l91/O3CHEM12_V2.9 # no provenance info
-    o3_data_glob_3: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/95_4/o3chem_l91/O3CHEM05_V2.9 # no provenance info
-    o3_data_glob_4: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/95_4/o3chem_l91/O3CHEM09_V2.9 # no provenance info
-    o3_data_glob_5: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/95_4/o3chem_l91/O3CHEM08_V2.9 # no provenance info
-    o3_data_glob_6: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/95_4/o3chem_l91/O3CHEM11_V2.9 # no provenance info
-    o3_data_glob_7: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/95_4/o3chem_l91/O3CHEM02_V2.9 # no provenance info
-    o3_data_glob_8: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/95_4/o3chem_l91/O3CHEM04_V2.9 # no provenance info
-    o3_data_glob_9: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/95_4/o3chem_l91/O3CHEM06_V2.9 # no provenance info
-    o3_data_glob_10: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/95_4/o3chem_l91/O3CHEM10_V2.9 # no provenance info
-    o3_data_glob_11: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oifs/95_4/o3chem_l91/O3CHEM07_V2.9 # no provenance info
   log_intermediate:
     NODE: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/log/oifs/NODE.001_01  # no provenance info
     ifsstat: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/log/oifs/ifs.stat # no provenance info
@@ -1779,7 +1482,7 @@ rnfmap:
 oasis3mct:
   model: oasis3mct  # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:2,col:12
   cf_name_dir: <TEST_DIR>/comp/awicm3/awicm3-v3.3.0/oasis # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:4,col:18
-  time_step: 7200 # <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/scripts/awicm3-v3.3-TCO95L91-CORE2_initial.yaml,line:66,col:16
+  time_step: 7200 # <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/scripts/awicm3-v3.3-TCO95L91-CORE2_initial.yaml,line:70,col:16
   norestart: F # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:610,col:20
   use_lucia: false # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:7,col:16
   mct_version: 4 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:697,col:38
@@ -2015,11 +1718,6 @@ oasis3mct:
     areas: /proj/awi/input/oasis//cy43r3/TCO95-CORE2//areas.nc  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:915,col:24
     masks: /proj/awi/input/oasis//cy43r3/TCO95-CORE2//masks.nc # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:916,col:24
     grids: /proj/awi/input/oasis//cy43r3/TCO95-CORE2//grids.nc # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:917,col:24
-    rmp_glob_0: /proj/awi/input/oasis//cy43r3/TCO95-CORE2//40/rmp_A096_to_feom_GAUSWGT.nc # no provenance info
-    rmp_glob_1: /proj/awi/input/oasis//cy43r3/TCO95-CORE2//40/rmp_R096_to_RnfA_GAUSWGT.nc # no provenance info
-    rmp_glob_2: /proj/awi/input/oasis//cy43r3/TCO95-CORE2//40/rmp_A096_to_feom_BICUBIC.nc # no provenance info
-    rmp_glob_3: /proj/awi/input/oasis//cy43r3/TCO95-CORE2//40/rmp_feom_to_A096_GAUSWGT.nc # no provenance info
-    rmp_glob_4: /proj/awi/input/oasis//cy43r3/TCO95-CORE2//40/rmp_RnfO_to_feom_GAUSWGT.nc # no provenance info
   branch: v2.8  # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:71,col:17
   yac_libs: '' # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.env.yaml,line:36,col:27
   yac_inc_path: '' # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.env.yaml,line:37,col:31
@@ -2215,11 +1913,6 @@ oasis3mct:
     areas: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/areas.nc  # no provenance info
     masks: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/masks.nc # no provenance info
     grids: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/grids.nc # no provenance info
-    rmp_glob_0: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/rmp_A096_to_feom_GAUSWGT.nc # no provenance info
-    rmp_glob_1: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/rmp_R096_to_RnfA_GAUSWGT.nc # no provenance info
-    rmp_glob_2: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/rmp_A096_to_feom_BICUBIC.nc # no provenance info
-    rmp_glob_3: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/rmp_feom_to_A096_GAUSWGT.nc # no provenance info
-    rmp_glob_4: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/rmp_RnfO_to_feom_GAUSWGT.nc # no provenance info
   log_targets:
     nout: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/log/oasis3mct/nout.000000  # no provenance info
     debug_r1: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/log/oasis3mct/debug.root.01 # no provenance info
@@ -2299,11 +1992,6 @@ oasis3mct:
     areas: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oasis3mct/areas.nc  # no provenance info
     masks: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oasis3mct/masks.nc # no provenance info
     grids: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oasis3mct/grids.nc # no provenance info
-    rmp_glob_0: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oasis3mct/rmp_A096_to_feom_GAUSWGT.nc # no provenance info
-    rmp_glob_1: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oasis3mct/rmp_R096_to_RnfA_GAUSWGT.nc # no provenance info
-    rmp_glob_2: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oasis3mct/rmp_A096_to_feom_BICUBIC.nc # no provenance info
-    rmp_glob_3: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oasis3mct/rmp_feom_to_A096_GAUSWGT.nc # no provenance info
-    rmp_glob_4: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/input/oasis3mct/rmp_RnfO_to_feom_GAUSWGT.nc # no provenance info
   log_intermediate:
     nout: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/log/oasis3mct/nout.000000  # no provenance info
     debug_r1: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/log/oasis3mct/debug.root.01 # no provenance info
@@ -2416,9 +2104,9 @@ xios:
   compression_level: 1 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:538,col:28
   regular_res_lat: 192 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:539,col:26
   regular_res_lon: 400 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:540,col:26
-  nproc: 4 # <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/scripts/awicm3-v3.3-TCO95L91-CORE2_initial.yaml,line:70,col:12
+  nproc: 4 # <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/scripts/awicm3-v3.3-TCO95L91-CORE2_initial.yaml,line:74,col:12
   omp_num_threads: 40 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:561,col:26
-  with_model: oifs # <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/scripts/awicm3-v3.3-TCO95L91-CORE2_initial.yaml,line:69,col:17
+  with_model: oifs # <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/scripts/awicm3-v3.3-TCO95L91-CORE2_initial.yaml,line:73,col:17
   lresume: false # no provenance info
   leapyear: true # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:385,col:19
   experiment_analysis_dir: <TEST_DIR>/run/awicm3//awicm3-v3.3-TCO95L91-CORE2_initial/analysis/xios/ # no provenance info
@@ -2665,7 +2353,7 @@ general:
   - rnfmap # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:16,col:19
   - oasis3mct # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:17,col:19
   - xios # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:100,col:15
-  account: iccp  # <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/scripts/awicm3-v3.3-TCO95L91-CORE2_initial.yaml,line:2,col:14
+  account: None  # <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/scripts/awicm3-v3.3-TCO95L91-CORE2_initial.yaml,line:2,col:14
   setup_name: awicm3 # <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/scripts/awicm3-v3.3-TCO95L91-CORE2_initial.yaml,line:3,col:17
   initial_date: '2000-01-01T00:00:00' # no provenance info
   final_date: '2000-01-03T00:00:00' # no provenance info
@@ -2675,7 +2363,7 @@ general:
   nyear: 0 # no provenance info
   runscript_abspath: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/scripts/awicm3-v3.3-TCO95L91-CORE2_initial.yaml # no provenance info
   additional_files: []
-  check: false  # no provenance info
+  check: true  # no provenance info
   update: false # no provenance info
   update_filetypes: []
   launcher_pid: -666  # no provenance info
@@ -2688,7 +2376,7 @@ general:
   use_venv: false # no provenance info
   no_motd: true # no provenance info
   ignore_config_warnings: false # no provenance info
-  original_command: awicm3-v3.3-TCO95L91-CORE2_initial.yaml -e awicm3-v3.3-TCO95L91-CORE2_initial --open-run --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
+  original_command: awicm3-v3.3-TCO95L91-CORE2_initial.yaml -e awicm3-v3.3-TCO95L91-CORE2_initial --open-run -c --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
   started_from: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/scripts/ # no provenance info
   scriptname: awicm3-v3.3-TCO95L91-CORE2_initial.yaml # no provenance info
   isinteractive: false # no provenance info
@@ -2705,7 +2393,7 @@ general:
   iterative_coupled_model: ''  # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:6,col:30
   reset_calendar_to_last: false # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:7,col:29
   command_line_config:
-    check: false  # no provenance info
+    check: true  # no provenance info
     update: false # no provenance info
     update_filetypes: []
     expid: awicm3-v3.3-TCO95L91-CORE2_initial # no provenance info
@@ -2719,7 +2407,7 @@ general:
     use_venv: false # no provenance info
     no_motd: true # no provenance info
     ignore_config_warnings: false # no provenance info
-    original_command: awicm3-v3.3-TCO95L91-CORE2_initial.yaml -e awicm3-v3.3-TCO95L91-CORE2_initial --open-run --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
+    original_command: awicm3-v3.3-TCO95L91-CORE2_initial.yaml -e awicm3-v3.3-TCO95L91-CORE2_initial --open-run -c --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
     started_from: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/scripts/ # no provenance info
     scriptname: awicm3-v3.3-TCO95L91-CORE2_initial.yaml # no provenance info
     runscript_abspath: <TEST_DIR>run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/scripts/awicm3-v3.3-TCO95L91-CORE2_initial.yaml # no provenance info
@@ -2899,7 +2587,7 @@ general:
     first_task_in_queue: prepcompute # no provenance info
     next_run_triggered_by: tidy # no provenance info
   submitted: false  # no provenance info
-  jobid: 7854 # no provenance info
+  jobid: 1047 # no provenance info
   batch: pbs # no provenance info
   coupler_config_dir: <TEST_DIR>/run/awicm3//awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/config/oasis3mct/ # no provenance info
   coupler: oasis3mct # no provenance info
