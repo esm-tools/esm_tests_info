@@ -46,6 +46,7 @@ export NETCDF_Fortran_INCLUDE_DIRECTORIES=$NETCDFFROOT/include
 export NETCDF_C_INCLUDE_DIRECTORIES=$NETCDFROOT/include
 export NETCDF_CXX_INCLUDE_DIRECTORIES=/work/ab0995/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0/include
 export NETCDF_CXX_LIBRARIES=/work/ab0995/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0/lib
+export ECCODESROOT=$IO_LIB_ROOT
 export OASIS_NETCDF=$NETCDFROOT
 export OASIS_NETCDFF=$NETCDFFROOT
 export PSMPIFLAGS="-lrt -lm -ldl"

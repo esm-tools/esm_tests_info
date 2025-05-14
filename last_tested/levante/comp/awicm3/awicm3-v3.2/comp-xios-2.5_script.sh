@@ -11,7 +11,6 @@ module load openmpi/4.1.2-intel-2021.5.0
 module load netcdf-c/4.8.1-openmpi-4.1.2-intel-2021.5.0
 module load netcdf-fortran/4.5.3-openmpi-4.1.2-intel-2021.5.0
 module load hdf5/1.12.1-openmpi-4.1.2-intel-2021.5.0
-module load libaec/1.0.5-intel-2021.5.0
 
 export LC_ALL=en_US.UTF-8
 export CPU_MODEL=AMD_EPYC_ZEN3
@@ -47,6 +46,7 @@ export NETCDF_Fortran_INCLUDE_DIRECTORIES=$NETCDFFROOT/include
 export NETCDF_C_INCLUDE_DIRECTORIES=$NETCDFROOT/include
 export NETCDF_CXX_INCLUDE_DIRECTORIES=$NETCDFROOT/include
 export NETCDF_CXX_LIBRARIES=$NETCDFROOT/lib
+export ECCODESROOT=$IO_LIB_ROOT
 export OASIS_NETCDF=$NETCDFROOT
 export OASIS_NETCDFF=$NETCDFFROOT
 export PSMPIFLAGS="-lrt -lm -ldl"
@@ -64,8 +64,6 @@ export CFLAGS="-fPIC"
 export CCFLAGS="-fPIC"
 export FFLAGS="-fPIC"
 export FCFLAGS="-fPIC"
-export SZIPROOT=/sw/spack-levante/libaec-1.0.5-gij7yv
-export ECCODESROOT=/work/ab0246/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0
 export ESM_NETCDF_C_DIR=$NETCDFROOT
 export ESM_NETCDF_F_DIR=$NETCDFFROOT
 export OIFS_GRIB_API_INCLUDE="-I$ECCODESROOT/include"

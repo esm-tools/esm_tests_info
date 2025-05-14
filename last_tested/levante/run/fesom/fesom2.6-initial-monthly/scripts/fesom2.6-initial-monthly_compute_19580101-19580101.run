@@ -4,7 +4,7 @@
 #SBATCH --ntasks=384
 #SBATCH --output=<TEST_DIR>/run/fesom//fesom2.6-initial-monthly/log/fesom2.6-initial-monthly_fesom_compute_19580101-19580101_%j.log --error=<TEST_DIR>/run/fesom//fesom2.6-initial-monthly/log/fesom2.6-initial-monthly_fesom_compute_19580101-19580101_%j.log
 #SBATCH --job-name=fesom2.6-initial-monthly
-#SBATCH --account=None
+#SBATCH --account=ab0246
 #SBATCH --mail-type=NONE
 #SBATCH --ntasks-per-core=1
 #SBATCH --exclusive
@@ -60,6 +60,7 @@ export NETCDF_Fortran_INCLUDE_DIRECTORIES=$NETCDFFROOT/include
 export NETCDF_C_INCLUDE_DIRECTORIES=$NETCDFROOT/include
 export NETCDF_CXX_INCLUDE_DIRECTORIES=$NETCDFROOT/include
 export NETCDF_CXX_LIBRARIES=$NETCDFROOT/lib
+export ECCODESROOT=$IO_LIB_ROOT
 export OASIS_NETCDF=$NETCDFROOT
 export OASIS_NETCDFF=$NETCDFFROOT
 export PSMPIFLAGS="-lrt -lm -ldl"
@@ -71,7 +72,7 @@ export LD_LIBRARY_PATH=$HDF5ROOT/lib:$NETCDFROOT/lib:$NETCDFFROOT/lib:$LD_LIBRAR
 export LD_LIBRARY_PATH=/sw/spack-levante/intel-oneapi-mkl-2022.0.1-ttdktf/mkl/2022.0.1/lib/intel64:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/sw/spack-levante/intel-oneapi-mpi-2021.5.0-mrcss7/mpi/2021.5.0/libfabric/lib:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:<TEST_DIR>/run/fesom//fesom2.6-initial-monthly/run_19580101-19580101/work//lib/fesom/
-export ACCOUNT=None
+export ACCOUNT=ab0246
 export ESM_TESTING_DIR=<TEST_DIR>/run/fesom/
 export MODEL_DIR=<TEST_DIR>/comp/fesom/fesom-2.6
 export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
@@ -81,7 +82,7 @@ export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 1958-01-01T00:00:00 1319 - start >> <TEST_DIR>/run/fesom//fesom2.6-initial-monthly/log//fesom2.6-initial-monthly_fesom.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 1958-01-01T00:00:00 2726349 - start >> <TEST_DIR>/run/fesom//fesom2.6-initial-monthly/log//fesom2.6-initial-monthly_fesom.log
 
 cd <TEST_DIR>/run/fesom//fesom2.6-initial-monthly/run_19580101-19580101/work/
 time srun -l --hint=nomultithread --multi-prog hostfile_srun 2>&1 &
@@ -93,6 +94,6 @@ process=$!
 cd <TEST_DIR>/run/fesom//fesom2.6-initial-monthly/scripts/
 esm_runscripts fesom2.6-initial-monthly.yaml -e fesom2.6-initial-monthly -t observe_compute -p ${process} -s 19580101 -r 1 -v  --last-jobtype prepcompute --open-run
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 1958-01-01T00:00:00 1319 - done >> <TEST_DIR>/run/fesom//fesom2.6-initial-monthly/log//fesom2.6-initial-monthly_fesom.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 1958-01-01T00:00:00 2726349 - done >> <TEST_DIR>/run/fesom//fesom2.6-initial-monthly/log//fesom2.6-initial-monthly_fesom.log
 
 wait

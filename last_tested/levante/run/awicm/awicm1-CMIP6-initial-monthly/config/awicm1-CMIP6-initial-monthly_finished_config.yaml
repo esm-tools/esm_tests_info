@@ -1303,9 +1303,9 @@ computer:
   - load intel-oneapi-compilers/2022.0.1-gcc-11.2.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:177,col:31
   - load intel-oneapi-mkl/2022.0.1-gcc-11.2.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:178,col:31
   - load openmpi/4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:179,col:31
-  - load netcdf-c/4.8.1-openmpi-4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:228,col:19
-  - load netcdf-fortran/4.5.3-openmpi-4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:229,col:19
-  - load hdf5/1.12.1-openmpi-4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:230,col:19
+  - load netcdf-c/4.8.1-openmpi-4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:264,col:19
+  - load netcdf-fortran/4.5.3-openmpi-4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:265,col:19
+  - load hdf5/1.12.1-openmpi-4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:266,col:19
   export_vars:
     LC_ALL: en_US.UTF-8  # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:93,col:21
     CPU_MODEL: AMD_EPYC_ZEN3 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:96,col:24
@@ -1428,6 +1428,7 @@ computer:
       - vars: []
         unit: s  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.yaml,line:433,col:35
         rate: 12 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.yaml,line:434,col:35
+    LD_LIBRARY_PATH[(100)]: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/work//lib/oasis/:$LD_LIBRARY_PATH # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.env.yaml,line:27,col:41
     OMPI_MCA_btl: self # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:126,col:31
     OMPI_MCA_coll: ^ml # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:127,col:32
     OMPI_MCA_coll_hcoll_enable: 1 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:128,col:45
@@ -1442,35 +1443,36 @@ computer:
     CXX: mpicxx # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:187,col:34
     MPIROOT: "\"$(mpif90 -show | perl -lne 'm{ -I(.*?)/include } and print $1')\"" # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:189,col:38
     MPI_LIB: "\"$(mpif90 -show |sed -e 's/^[^ ]*//' -e 's/-[I][^ ]*//g')\"" # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:190,col:38
-    IO_LIB_ROOT: /work/ab0246/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:233,col:30
-    HDF5ROOT: /sw/spack-levante/hdf5-1.12.1-tvymb5 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:235,col:27
-    HDF5_C_INCLUDE_DIRECTORIES: $HDF5ROOT/include # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:236,col:45
-    HDF5_ROOT: $HDF5ROOT # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:237,col:28
-    NETCDFFROOT: /sw/spack-levante/netcdf-fortran-4.5.3-k6xq5g # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:238,col:30
-    NETCDFROOT: /sw/spack-levante/netcdf-c-4.8.1-2k3cmu # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:239,col:29
-    NETCDF_Fortran_INCLUDE_DIRECTORIES: $NETCDFFROOT/include # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:240,col:53
-    NETCDF_C_INCLUDE_DIRECTORIES: $NETCDFROOT/include # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:241,col:47
-    NETCDF_CXX_INCLUDE_DIRECTORIES: $NETCDFROOT/include # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:242,col:49
-    NETCDF_CXX_LIBRARIES: $NETCDFROOT/lib # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:243,col:39
-    OASIS_NETCDF: $NETCDFROOT # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:245,col:31
-    OASIS_NETCDFF: $NETCDFFROOT # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:246,col:32
-    PSMPIFLAGS: '"-lrt -lm -ldl"' # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:250,col:29
-    LAPACK_LIB: "'-mkl=sequential'" # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:253,col:29
-    ZLIBROOT: /usr # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:256,col:27
-    OASIS3MCT_FC_LIB: '"-L$NETCDFFROOT/lib -lnetcdff"' # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:260,col:35
-    PERL5LIB: /usr/lib64/perl5 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:263,col:27
-    LD_LIBRARY_PATH[(0)]: $HDF5ROOT/lib:$NETCDFROOT/lib:$NETCDFFROOT/lib:$LD_LIBRARY_PATH # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:265,col:39
-    LD_LIBRARY_PATH[(1)]: /sw/spack-levante/intel-oneapi-mkl-2022.0.1-ttdktf/mkl/2022.0.1/lib/intel64:$LD_LIBRARY_PATH # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:282,col:39
-    LD_LIBRARY_PATH[(2)]: /sw/spack-levante/intel-oneapi-mpi-2021.5.0-mrcss7/mpi/2021.5.0/libfabric/lib:$LD_LIBRARY_PATH # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:285,col:39
-    ACCOUNT: None # no provenance info
+    IO_LIB_ROOT: /work/ab0246/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:269,col:30
+    HDF5ROOT: /sw/spack-levante/hdf5-1.12.1-tvymb5 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:271,col:27
+    HDF5_C_INCLUDE_DIRECTORIES: $HDF5ROOT/include # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:272,col:45
+    HDF5_ROOT: $HDF5ROOT # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:273,col:28
+    NETCDFFROOT: /sw/spack-levante/netcdf-fortran-4.5.3-k6xq5g # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:274,col:30
+    NETCDFROOT: /sw/spack-levante/netcdf-c-4.8.1-2k3cmu # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:275,col:29
+    NETCDF_Fortran_INCLUDE_DIRECTORIES: $NETCDFFROOT/include # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:276,col:53
+    NETCDF_C_INCLUDE_DIRECTORIES: $NETCDFROOT/include # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:277,col:47
+    NETCDF_CXX_INCLUDE_DIRECTORIES: $NETCDFROOT/include # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:278,col:49
+    NETCDF_CXX_LIBRARIES: $NETCDFROOT/lib # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:279,col:39
+    ECCODESROOT: $IO_LIB_ROOT # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:280,col:30
+    OASIS_NETCDF: $NETCDFROOT # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:282,col:31
+    OASIS_NETCDFF: $NETCDFFROOT # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:283,col:32
+    PSMPIFLAGS: '"-lrt -lm -ldl"' # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:287,col:29
+    LAPACK_LIB: "'-mkl=sequential'" # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:290,col:29
+    ZLIBROOT: /usr # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:293,col:27
+    OASIS3MCT_FC_LIB: '"-L$NETCDFFROOT/lib -lnetcdff"' # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:297,col:35
+    PERL5LIB: /usr/lib64/perl5 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:300,col:27
+    LD_LIBRARY_PATH[(0)]: $HDF5ROOT/lib:$NETCDFROOT/lib:$NETCDFFROOT/lib:$LD_LIBRARY_PATH # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:302,col:39
+    LD_LIBRARY_PATH[(1)]: /sw/spack-levante/intel-oneapi-mkl-2022.0.1-ttdktf/mkl/2022.0.1/lib/intel64:$LD_LIBRARY_PATH # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:319,col:39
+    LD_LIBRARY_PATH[(2)]: /sw/spack-levante/intel-oneapi-mpi-2021.5.0-mrcss7/mpi/2021.5.0/libfabric/lib:$LD_LIBRARY_PATH # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:322,col:39
+    ACCOUNT: ab0246 # no provenance info
     ESM_TESTING_DIR: <TEST_DIR>/run/awicm/ # no provenance info
     MODEL_DIR: <TEST_DIR>/comp/awicm/awicm-CMIP6 # no provenance info
-  fc: $FC  # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:347,col:9
-  cc: $CC # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:348,col:9
-  mpifc: $MPIFC # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:349,col:12
-  mpicc: $MPICC # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:350,col:12
-  cxx: $CXX # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:351,col:10
-  launcher_flags: -l # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:358,col:21
+  fc: $FC  # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:450,col:9
+  cc: $CC # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:451,col:9
+  mpifc: $MPIFC # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:452,col:12
+  mpicc: $MPICC # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:453,col:12
+  cxx: $CXX # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:454,col:10
+  launcher_flags: -l # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:461,col:21
   header_start: '#SBATCH' # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:6,col:19
   submit: sbatch # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:7,col:13
   launcher: srun # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:8,col:15
@@ -1513,7 +1515,7 @@ computer:
   overcommit_flag: '' # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:144,col:22
   model: computer # no provenance info
   add_export_vars:
-    ACCOUNT: None  # no provenance info
+    ACCOUNT: ab0246  # no provenance info
     ESM_TESTING_DIR: <TEST_DIR>/run/awicm/ # no provenance info
     MODEL_DIR: <TEST_DIR>/comp/awicm/awicm-CMIP6 # no provenance info
   heterogeneous_parallelization: false  # no provenance info
@@ -1523,7 +1525,7 @@ computer:
   mod_netcdf_f: netcdf-fortran/4.5.3-openmpi-4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:173,col:35
   mod_hdf5: hdf5/1.12.1-openmpi-4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:174,col:31
   netcdf_cxx_root: /work/ab0995/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:175,col:38
-  accounting_flag: --account=None # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:24,col:38
+  accounting_flag: --account=ab0246 # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:24,col:38
   cpu_bind: cores # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:74,col:23
   srun_execution_command: srun -l --hint=nomultithread --multi-prog hostfile_srun # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:75,col:37
   hyperthreading_flag: --ntasks-per-core=1 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:33,col:58
@@ -2818,38 +2820,40 @@ oasis3mct:
     Publications:
     - 'Craig A., Valcke S., Coquart L., 2017: Development and performance of a new version of the OASIS coupler, OASIS3-MCT_3.0, Geoscientific Model Development, 10, pp. 3297-3308. <https://doi.org/10.5194/gmd-10-3297-2017>'  # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:24,col:15
     License: https://oasis.cerfacs.fr/en/oasis3-mct-copyright  # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:25,col:18
+  bin_sources: {}
   config_sources:
-    cf: <TEST_DIR>/comp/awicm/awicm-CMIP6/oasis/cf_name_table.txt  # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:34,col:17
-    namcouple: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/config/oasis3mct//namcouple # no provenance info
-  version: 2.8 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:36,col:14
+    namcouple: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/config/oasis3mct//namcouple  # no provenance info
+    cf_glob_0: <TEST_DIR>/comp/awicm/awicm-CMIP6/oasis/cf_name_table.txt # no provenance info
+  version: 2.8 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:44,col:14
   available_versions:
-  - foci  # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:39,col:7
-  - foci_autotools # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:40,col:7
-  - fociagrif # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:41,col:7
-  - ec-earth # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:42,col:7
-  - 2.8 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:43,col:7
-  - 3 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:44,col:7
-  - 4 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:45,col:7
-  - 4.0-geomar # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:46,col:7
-  - 4.0-oifsdeck # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:47,col:7
-  - 4.0-awicm-frontiers # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:48,col:7
-  - 4.0-awicm-3.0 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:49,col:7
-  - 4.0-awicm-3.1 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:50,col:7
-  - 5.0-smhi # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:51,col:7
-  - 5.0-geomar # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:52,col:7
-  - 6.0-YAC # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:53,col:7
-  clean_command: rm -rf build CMakeCache.txt include lib/libpsmile.a lib/libscrip.a lib/libmct.a lib/libmpeu.a  # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:136,col:20
-  comp_command: mkdir -p build; cd build; cmake ..;   make -j 1; mkdir -p ../include/; cp lib/psmile/libpsmile.a lib/psmile/mct/libmct.a lib/psmile/mct/mpeu/libmpeu.a lib/psmile/scrip/libscrip.a ../lib; cp lib/psmile/mod_oasis*mod ../include # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:137,col:19
-  with_yac: false # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:138,col:15
-  destination: oasis # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:140,col:18
+  - foci  # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:47,col:7
+  - foci_autotools # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:48,col:7
+  - fociagrif # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:49,col:7
+  - ec-earth # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:50,col:7
+  - 2.8 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:51,col:7
+  - 3 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:52,col:7
+  - 4 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:53,col:7
+  - 4.0-geomar # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:54,col:7
+  - 4.0-oifsdeck # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:55,col:7
+  - 4.0-awicm-frontiers # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:56,col:7
+  - 4.0-awicm-3.0 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:57,col:7
+  - 4.0-awicm-3.1 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:58,col:7
+  - 4.0-awicm-3.2 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:59,col:7
+  - 5.0-smhi # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:60,col:7
+  - 5.0-geomar # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:61,col:7
+  - 6.0-YAC # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:62,col:7
+  clean_command: rm -rf build CMakeCache.txt include lib/libpsmile.a lib/libscrip.a lib/libmct.a lib/libmpeu.a  # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:185,col:20
+  comp_command: mkdir -p build; cd build; cmake ..;   make -j 1; mkdir -p ../include/; cp lib/psmile/libpsmile.a lib/psmile/mct/libmct.a lib/psmile/mct/mpeu/libmpeu.a lib/psmile/scrip/libscrip.a ../lib; cp lib/psmile/mod_oasis*mod ../include # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:186,col:19
+  with_yac: false # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:187,col:15
+  destination: oasis # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:189,col:18
   install_libs:
-  - build/lib/psmile/libpsmile.a  # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:142,col:7
-  - build/lib/psmile/mct/libmct.a # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:143,col:7
-  - build/lib/psmile/mct/mpeu/libmpeu.a # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:144,col:7
-  - build/lib/psmile/scrip/libscrip.a # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:145,col:7
-  oasis_date_stamp: '' # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:150,col:23
-  nb_of_neighbours_a2o: 9 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:157,col:27
-  weight_a2o: 2 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:158,col:17
+  - build/lib/psmile/libpsmile.a  # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:191,col:7
+  - build/lib/psmile/mct/libmct.a # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:192,col:7
+  - build/lib/psmile/mct/mpeu/libmpeu.a # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:193,col:7
+  - build/lib/psmile/scrip/libscrip.a # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:194,col:7
+  oasis_date_stamp: '' # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:199,col:23
+  nb_of_neighbours_a2o: 9 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:206,col:27
+  weight_a2o: 2 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:207,col:17
   log_sources:
     nout: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/work//nout.000000  # no provenance info
     debug_r1: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/work//debug.root.01 # no provenance info
@@ -2937,10 +2941,10 @@ oasis3mct:
     rmp_a2f_D: rmp_atmo_to_feom_DISTWGT.nc # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:255,col:28
     rmp_f2a_D: rmp_feom_to_atmo_DISTWGT.nc # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:256,col:28
   lresume: false  # no provenance info
-  branch: v2.8 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:64,col:17
-  yac_libs: '' # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.env.yaml,line:47,col:27
-  yac_inc_path: '' # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.env.yaml,line:48,col:31
-  yac_lib_path: '' # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.env.yaml,line:49,col:31
+  branch: v2.8 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:71,col:17
+  yac_libs: '' # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.env.yaml,line:36,col:27
+  yac_inc_path: '' # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.env.yaml,line:37,col:31
+  yac_lib_path: '' # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.env.yaml,line:38,col:31
   leapyear: true # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:144,col:19
   experiment_analysis_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/analysis/oasis3mct/ # no provenance info
   thisrun_analysis_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/analysis/oasis3mct/ # no provenance info
@@ -3096,9 +3100,10 @@ oasis3mct:
       exp_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
       run_to_work: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
       work_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
+  bin_targets: {}
   config_targets:
-    cf: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/work/cf_name_table.txt  # no provenance info
-    namcouple: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/work/namcouple # no provenance info
+    namcouple: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/work/namcouple  # no provenance info
+    cf_glob_0: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/work/cf_name_table.txt # no provenance info
   log_targets:
     nout: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/log/oasis3mct/nout.000000  # no provenance info
     debug_r1: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/log/oasis3mct/debug.root.01 # no provenance info
@@ -3151,13 +3156,19 @@ oasis3mct:
     a2o_flux_recv: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/restart/oasis3mct/a2o_flux_recv # no provenance info
   ignore_targets:
     nout: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/ignore/oasis3mct/nout.000000  # no provenance info
+  bin_sources_wild_card:
+    yaclib: '*'  # no provenance info
+    yaxtlib: '*' # no provenance info
+  config_sources_wild_card:
+    cf: cf_name_table.txt*  # no provenance info
   ignore_sources_wild_card:
     debug.root: debug.root*  # no provenance info
     debug.notroot: debug.notroot* # no provenance info
     lucia: lucia.* # no provenance info
+  bin_intermediate: {}
   config_intermediate:
-    cf: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/config/oasis3mct/cf_name_table.txt  # no provenance info
-    namcouple: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/config/oasis3mct/namcouple # no provenance info
+    namcouple: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/config/oasis3mct/namcouple  # no provenance info
+    cf_glob_0: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/config/oasis3mct/cf_name_table.txt # no provenance info
   log_intermediate:
     nout: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/log/oasis3mct/nout.000000  # no provenance info
     debug_r1: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/log/oasis3mct/debug.root.01 # no provenance info
@@ -3756,7 +3767,7 @@ general:
   - fesom # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:18,col:19
   - oasis3mct # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:19,col:19
   setup_name: awicm  # <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:2,col:17
-  account: None # <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:4,col:14
+  account: ab0246 # <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:4,col:14
   compute_time: 01:00:00 # <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:5,col:19
   initial_date: '1850-01-01T00:00:00' # no provenance info
   final_date: '1850-03-01T00:00:00' # no provenance info
@@ -3766,7 +3777,7 @@ general:
   nday: 0 # no provenance info
   runscript_abspath: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml # no provenance info
   additional_files: []
-  check: true  # no provenance info
+  check: false  # no provenance info
   update: false # no provenance info
   update_filetypes: []
   launcher_pid: -666  # no provenance info
@@ -3779,7 +3790,7 @@ general:
   use_venv: false # no provenance info
   no_motd: true # no provenance info
   ignore_config_warnings: false # no provenance info
-  original_command: awicm1-CMIP6-initial-monthly.yaml -e awicm1-CMIP6-initial-monthly --open-run -c --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
+  original_command: awicm1-CMIP6-initial-monthly.yaml -e awicm1-CMIP6-initial-monthly --open-run --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
   started_from: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/scripts/ # no provenance info
   scriptname: awicm1-CMIP6-initial-monthly.yaml # no provenance info
   isinteractive: false # no provenance info
@@ -3799,7 +3810,7 @@ general:
   iterative_coupled_model: ''  # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:6,col:30
   reset_calendar_to_last: false # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:7,col:29
   command_line_config:
-    check: true  # no provenance info
+    check: false  # no provenance info
     update: false # no provenance info
     update_filetypes: []
     expid: awicm1-CMIP6-initial-monthly # no provenance info
@@ -3813,7 +3824,7 @@ general:
     use_venv: false # no provenance info
     no_motd: true # no provenance info
     ignore_config_warnings: false # no provenance info
-    original_command: awicm1-CMIP6-initial-monthly.yaml -e awicm1-CMIP6-initial-monthly --open-run -c --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
+    original_command: awicm1-CMIP6-initial-monthly.yaml -e awicm1-CMIP6-initial-monthly --open-run --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
     started_from: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/scripts/ # no provenance info
     scriptname: awicm1-CMIP6-initial-monthly.yaml # no provenance info
     runscript_abspath: <TEST_DIR>run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml # no provenance info
@@ -3991,12 +4002,12 @@ general:
     first_task_in_queue: prepcompute # no provenance info
     next_run_triggered_by: tidy # no provenance info
   submitted: false  # no provenance info
-  jobid: 1371 # no provenance info
+  jobid: 3725114 # no provenance info
   batch: slurm # no provenance info
   coupler_config_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/config/oasis3mct/ # no provenance info
   coupler: oasis3mct # no provenance info
   experiment_log_file: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/log//awicm1-CMIP6-initial-monthly_awicm.log # no provenance info
-  esm_tools_version: 6.54.4 # no provenance info
+  esm_tools_version: 6.54.5 # no provenance info
   logfile_path: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/log//awicm1-CMIP6-initial-monthly_awicm_prepcompute_18500101-18500131.log # no provenance info
   logfile_path_in_run: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/log//awicm1-CMIP6-initial-monthly_awicm_prepcompute_18500101-18500131.log # no provenance info
   relevant_filetypes:

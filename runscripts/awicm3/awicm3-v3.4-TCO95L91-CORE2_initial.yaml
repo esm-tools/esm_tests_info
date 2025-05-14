@@ -1,6 +1,6 @@
 general:
     setup_name: "awicm3"
-    version: "v3.4.0"
+    version: "develop"
     account: !ENV ${ACCOUNT}
     compute_time: "00:20:00"
     initial_date: "2000-01-01"
@@ -26,7 +26,7 @@ fesom:
     time_step: 1800
     nproc: 128
     tar_binary_restarts: true
-    namelist_dir: "/work/ab0246/a270092/model_codes/${general.version}/fesom-2.6/config/"
+    #namelist_dir: "${model_dir}/config/"
 
 oifs:
     resolution: "TCO95"

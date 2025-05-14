@@ -44,6 +44,7 @@ export NETCDFFROOT=/sw/spack-levante/netcdf-fortran-4.5.3-k6xq5g
 export NETCDFROOT=/sw/spack-levante/netcdf-c-4.8.1-2k3cmu
 export NETCDF_Fortran_INCLUDE_DIRECTORIES=$NETCDFFROOT/include
 export NETCDF_C_INCLUDE_DIRECTORIES=$NETCDFROOT/include
+export ECCODESROOT=$IO_LIB_ROOT
 export OASIS_NETCDF=$NETCDFROOT
 export OASIS_NETCDFF=$NETCDFFROOT
 export PSMPIFLAGS="-lrt -lm -ldl"
