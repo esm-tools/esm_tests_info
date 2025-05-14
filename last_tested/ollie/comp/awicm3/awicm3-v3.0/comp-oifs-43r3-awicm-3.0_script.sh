@@ -44,6 +44,12 @@ export ZLIBROOT=/usr
 export MPIROOT=${I_MPI_ROOT}/intel64
 export MPI_LIB=$(mpiifort -show |sed -e 's/^[^ ]*//' -e 's/-[I][^ ]*//g')
 export PATH=/work/ollie/jhegewal/sw/cmake/bin:$PATH
+export OASIS_FFLAGS="-fPIC"
+export OASIS_CFLAGS="-fPIC"
+export CFLAGS="-fPIC"
+export CCFLAGS="-fPIC"
+export FFLAGS="-fPIC"
+export FCFLAGS="-fPIC"
 export LD_LIBRARY_PATH=$IO_LIB_ROOT/lib:$LD_LIBRARY_PATH
 export SZIPROOT=$IO_LIB_ROOT
 export HDF5_ROOT=$HDF5ROOT
@@ -83,5 +89,5 @@ unset SLURM_MEM_PER_NODE
 unset SLURM_MEM_PER_CPU
 
 pushd oifs-43r3
-export OIFS_TOPLEVEL_DIR=<TEST_DIR>comp/awicm3/awicm3-v3.0/oifs-43r3; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.cfg ; chmod -R 700 . ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
+export OIFS_TOPLEVEL_DIR=<TEST_DIR>comp/awicm3/awicm3-v3.0/oifs-43r3; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.cfg ; chmod -R 700 .; git config core.fileMode false ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
 popd

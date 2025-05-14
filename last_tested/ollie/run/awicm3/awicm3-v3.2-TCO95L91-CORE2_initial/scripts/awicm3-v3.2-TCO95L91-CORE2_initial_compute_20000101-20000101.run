@@ -23,6 +23,8 @@ module load git
 module list
 module unload intel.mpi
 module load intel.mpi
+module unload netcdf
+module load netcdf/4.4.1.1_intel_mpi
 module unload gribapi
 module unload hdf5
 module unload intel.mpi
@@ -53,7 +55,7 @@ export MPIROOT=${I_MPI_ROOT}/intel64
 export MPI_LIB=$(mpiifort -show |sed -e 's/^[^ ]*//' -e 's/-[I][^ ]*//g')
 export PATH=/work/ollie/jhegewal/sw/cmake/bin:$PATH
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:<TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//lib/fesom/
-export LD_LIBRARY_PATH=<TEST_DIR>/comp/awicm3/awicm3-v3.2/oasis/lib/yaxt/lib/:<TEST_DIR>/comp/awicm3/awicm3-v3.2/oasis/lib/yac/lib/:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=<TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//lib/oasis/:$LD_LIBRARY_PATH
 export PATH=$PATH:$IO_LIB_ROOT/bin
 export LD_LIBRARY_PATH=$IO_LIB_ROOT/lib:$LD_LIBRARY_PATH
 export SZIPROOT=$IO_LIB_ROOT
@@ -87,7 +89,7 @@ unset SLURM_MEM_PER_CPU
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 1223 - start >> <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/log//awicm3-v3.2-TCO95L91-CORE2_initial_awicm3.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 1539 - start >> <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/log//awicm3-v3.2-TCO95L91-CORE2_initial_awicm3.log
 
 cd <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work/
 
@@ -129,6 +131,6 @@ process=$!
 cd <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/scripts/
 esm_runscripts awicm3-v3.2-TCO95L91-CORE2_initial.yaml -e awicm3-v3.2-TCO95L91-CORE2_initial -t observe_compute -p ${process} -s 20000101 -r 1 -v  --last-jobtype prepcompute --open-run
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 1223 - done >> <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/log//awicm3-v3.2-TCO95L91-CORE2_initial_awicm3.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 1539 - done >> <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/log//awicm3-v3.2-TCO95L91-CORE2_initial_awicm3.log
 
 wait

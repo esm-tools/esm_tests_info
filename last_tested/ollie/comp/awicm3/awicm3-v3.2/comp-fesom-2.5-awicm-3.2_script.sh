@@ -17,6 +17,8 @@ module load git
 module list
 module unload intel.mpi
 module load intel.mpi
+module unload netcdf
+module load netcdf/4.4.1.1_intel_mpi
 module purge
 module load intel.mpi/2021.3.0 intel.compiler cmake
 
@@ -45,6 +47,12 @@ export MPIROOT=${I_MPI_ROOT}/intel64
 export MPI_LIB=$(mpiifort -show |sed -e 's/^[^ ]*//' -e 's/-[I][^ ]*//g')
 export PATH=/work/ollie/jhegewal/sw/cmake/bin:$PATH
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/on/a/road/to/nowwhere/test/run_20000101-20001231/work//lib/fesom/
+export OASIS_FFLAGS="-fPIC"
+export OASIS_CFLAGS="-fPIC"
+export CFLAGS="-fPIC"
+export CCFLAGS="-fPIC"
+export FFLAGS="-fPIC"
+export FCFLAGS="-fPIC"
 export LD_LIBRARY_PATH=$IO_LIB_ROOT/lib:$LD_LIBRARY_PATH
 export SZIPROOT=$IO_LIB_ROOT
 export HDF5_ROOT=$HDF5ROOT
@@ -84,5 +92,5 @@ unset SLURM_MEM_PER_NODE
 unset SLURM_MEM_PER_CPU
 
 pushd fesom-2.5
-mkdir -p build; cd build; cmake -DOIFS_COUPLED=ON -DFESOM_COUPLED=ON -DCMAKE_INSTALL_PREFIX=../ ..;   make install -j `nproc --all`
+mkdir -p build; cd build; cmake -DOIFS_COUPLED=ON -DFESOM_COUPLED=ON -DENABLE_OPENMP=ON -DDISABLE_MULTITHREADING=OFF -DCMAKE_INSTALL_PREFIX=../ ..;   make install -j `nproc --all`
 popd

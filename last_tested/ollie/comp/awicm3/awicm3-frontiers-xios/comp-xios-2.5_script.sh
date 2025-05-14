@@ -17,6 +17,8 @@ module load git
 module list
 module unload intel.mpi
 module load intel.mpi
+module unload netcdf
+module load netcdf/4.4.1.1_intel_mpi
 module purge
 module load intel.mpi/2021.3.0 intel.compiler cmake
 
@@ -44,6 +46,12 @@ export ZLIBROOT=/usr
 export MPIROOT=${I_MPI_ROOT}/intel64
 export MPI_LIB=$(mpiifort -show |sed -e 's/^[^ ]*//' -e 's/-[I][^ ]*//g')
 export PATH=/work/ollie/jhegewal/sw/cmake/bin:$PATH
+export OASIS_FFLAGS="-fPIC"
+export OASIS_CFLAGS="-fPIC"
+export CFLAGS="-fPIC"
+export CCFLAGS="-fPIC"
+export FFLAGS="-fPIC"
+export FCFLAGS="-fPIC"
 export LD_LIBRARY_PATH=$IO_LIB_ROOT/lib:$LD_LIBRARY_PATH
 export SZIPROOT=$IO_LIB_ROOT
 export HDF5_ROOT=$HDF5ROOT
