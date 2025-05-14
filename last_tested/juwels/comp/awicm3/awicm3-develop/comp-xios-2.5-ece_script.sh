@@ -55,10 +55,10 @@ export RNF_NETCDFF_INCLUDE="-I$NETCDFFROOT/include"
 export RNF_NETCDFF_LIB="-L$NETCDFFROOT/lib -lnetcdff"
 export DATA=/on/a/road/to/nowwhere/test/run_20000101-20001231/work/
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/on/a/road/to/nowwhere/test/run_20000101-20001231/work//lib/oifs/
+export GRIB_SAMPLES_PATH=<TEST_DIR>comp/awicm3/awicm3-develop/oifs-48r1/build/share/eccodes/ifs_samples/grib1_mlgrib2
 export RNF_FFLAGS="-fdefault-real-8 -march=core-avx2 -mtune=core-avx2 -O3 -fopenmp -g -fbacktrace -fconvert=big-endian"
-export GRIB_SAMPLES_PATH=<TEST_DIR>comp/awicm3/awicm3-v3.4.0/oifs-48r1/build/share/eccodes/ifs_samples/grib1_mlgrib2
+export OIFS_LOGFILE=<TEST_DIR>comp/awicm3/awicm3-develop/oifs-48r1/build/oifs_test_log.txt
 export RNF_CFLAG="-march=core-avx2 -mtune=core-avx2 -O3 -fopenmp -g -fbacktrace -fno-opt-report -fpe0"
-export OIFS_LOGFILE=<TEST_DIR>comp/awicm3/awicm3-v3.4.0/oifs-48r1/build/oifs_test_log.txt
 export DR_HOOK_IGNORE_SIGNALS=-1
 export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 
@@ -68,5 +68,5 @@ unset SLURM_NPROCS
 unset SLURM_ARBITRARY_NODELIST
 
 pushd xios
-export XIOS_TOPLEVEL=<TEST_DIR>comp/awicm3/awicm3-v3.4.0/xios; ./make_xios --arch ESMTOOLS_generic_oasis_gcc --netcdf_lib netcdf4_par --use_oasis oasis3_mct --job 24 --prod; cp bin/xios_server.exe bin/xios.x
+export XIOS_TOPLEVEL=<TEST_DIR>comp/awicm3/awicm3-develop/xios; ./make_xios --arch ESMTOOLS_generic_oasis_gcc --netcdf_lib netcdf4_par --use_oasis oasis3_mct --job 24 --prod; cp bin/xios_server.exe bin/xios.x
 popd
