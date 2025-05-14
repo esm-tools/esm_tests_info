@@ -40,7 +40,12 @@ export FC=ftn
 export CC=cc
 export CXX=CC
 export CRAYPE_LINK_TYPE=dynamic
-export OASIS_FFLAGS=-emf
+export OASIS_FFLAGS='-emf'
+export OASIS_CFLAGS="-fPIC"
+export CFLAGS="-fPIC"
+export CCFLAGS="-fPIC"
+export FFLAGS="-fPIC"
+export FCFLAGS="-fPIC"
 export OIFS_GRIB_API_INCLUDE="-I$ECCODESROOT/include"
 export OIFS_GRIB_API_LIB="-L$ECCODESROOT/lib -leccodes_f90 -leccodes"
 export OIFS_GRIB_INCLUDE="$OIFS_GRIB_API_INCLUDE"
@@ -70,5 +75,5 @@ export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 
 
 pushd oifs-43r3
-export OIFS_TOPLEVEL_DIR=<TEST_DIR>comp/awicm3/awicm3-v3.0/oifs-43r3; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.cfg ; chmod -R 700 . ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
+export OIFS_TOPLEVEL_DIR=<TEST_DIR>comp/awicm3/awicm3-v3.0/oifs-43r3; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.cfg ; chmod -R 700 .; git config core.fileMode false ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
 popd

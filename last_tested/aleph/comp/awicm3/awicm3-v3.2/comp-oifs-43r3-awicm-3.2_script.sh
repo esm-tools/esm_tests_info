@@ -41,7 +41,12 @@ export CC=cc
 export CXX=CC
 export CRAYPE_LINK_TYPE=dynamic
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/on/a/road/to/nowwhere/test/run_20000101-20001231/work//lib/fesom/
-export OASIS_FFLAGS=-emf
+export OASIS_FFLAGS='-emf'
+export OASIS_CFLAGS="-fPIC"
+export CFLAGS="-fPIC"
+export CCFLAGS="-fPIC"
+export FFLAGS="-fPIC"
+export FCFLAGS="-fPIC"
 export OIFS_GRIB_API_INCLUDE="-I$ECCODESROOT/include"
 export OIFS_GRIB_API_LIB="-L$ECCODESROOT/lib -leccodes_f90 -leccodes"
 export OIFS_GRIB_INCLUDE="$OIFS_GRIB_API_INCLUDE"
@@ -71,5 +76,5 @@ export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 
 
 pushd oifs-43r3
-export OIFS_TOPLEVEL_DIR=<TEST_DIR>comp/awicm3/awicm3-v3.2/oifs-43r3; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>comp/awicm3/awicm3-v3.2/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>comp/awicm3/awicm3-v3.2/oifs-43r3/../xios/inc/; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; chmod -R 700 .; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
+export OIFS_TOPLEVEL_DIR=<TEST_DIR>comp/awicm3/awicm3-v3.2/oifs-43r3; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>comp/awicm3/awicm3-v3.2/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>comp/awicm3/awicm3-v3.2/oifs-43r3/../xios/inc/; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; chmod -R 700 .; git config core.fileMode false; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
 popd
