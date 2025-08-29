@@ -2,13 +2,13 @@ general:
     account: !ENV ${ACCOUNT}
     setup_name: "awiesm3"
     version: "develop"
-    compute_time: "00:30:00"
+    compute_time: "02:00:00"
     initial_date: "1900-01-01"
-    final_date: "1900-01-04"
+    final_date: "1902-01-01"
     base_dir: !ENV ${ESM_TESTING_DIR}
-    nday: 1
+    nday: 0
     nmonth: 0
-    nyear: 0
+    nyear: 1
 
 computer:
     taskset: true
@@ -20,7 +20,7 @@ awiesm3:
 fesom:
     resolution: "CORE2"
     restart_rate: 1
-    restart_unit: "d"
+    restart_unit: "y"
     restart_first: 1
     lresume: false
     time_step: 1800
