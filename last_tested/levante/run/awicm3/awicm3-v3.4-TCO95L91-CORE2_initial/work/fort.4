@@ -7,6 +7,8 @@
 /
 
 &NAMECECMIP
+    LCMIP6 = .true.
+    CMIP6DATADIR = '/work/ab0246/a270092/input/oifs-48r1/cmip6-data'
 /
 
 &NAMIOS
@@ -52,7 +54,7 @@
 
 &NAMRES
     NFRRES = 1
-    NRESTS(:) = -1, -24
+    NRESTS(:) = 1, 24
 /
 
 &NAERAD
@@ -60,6 +62,7 @@
     NRPROMA = 0
     CSOLARIRRADIANCEFILE = './ifsdata/total_solar_irradiance_CMIP6_49r1.nc'
     LECOMPGRID = .true.
+    CO3DATADIR = '/work/ab0246/a270092/input/oifs-48r1/cmip6-data/'
 /
 
 &NAEPHY

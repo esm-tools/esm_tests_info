@@ -15,16 +15,27 @@ fesom:
     restart_rate: 1
     restart_first: 1
     restart_unit: "d"
+
+    choose_computer.name:
+        levante:
+            rpool_dir: /work/ab0995/a270152/testing_pool/AWICM/FESOM1/
+            rmesh_dir: /work/ab0995/a270152/testing_pool/AWICM/FESOM1/MESHES/core/
+            rproc: 384
+        mistral:
+            rpool_dir: /work/bm0944/input/
+            rmesh_dir: /pool/data/AWICM/FESOM1/MESHES/core/
+            rproc: 288
+        ollie:
+            rpool_dir: "${computer.pool_directories.pool}/FESOM/"
+            rmesh_dir: "${computer.pool_directories.pool}/FESOM/meshes_default/core/"
+            rproc: 288
+        albedo:
+            rpool_dir: "${computer.pool_directories.pool}/FESOM/"
+            rmesh_dir: "${computer.pool_directories.pool}/FESOM/meshes_default/core/"
+            rproc: 384
+    pool_dir: ${fesom.rpool_dir}
+    mesh_dir: ${fesom.rmesh_dir}
+
     opbnd_dir: "remove_from_namelist"
     tide_forcing_dir: "remove_from_namelist"
-    choose_computer.name:
-        blogin:
-            pool_dir: "/scratch/usr/hbkawi/"
-            rnproc: 384
-        levante:
-            rnproc: 128
-        ollie:
-            rnproc: 288
-        albedo:
-            rnproc: 128
-    nproc: ${rnproc}
+    nproc: ${rproc}
