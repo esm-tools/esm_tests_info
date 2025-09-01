@@ -22,7 +22,7 @@ general:
   esm_runscript_dir: <HOME_DIR>/esm_tools/runscripts/ # no provenance info
   esm_couplings_dir: <HOME_DIR>/esm_tools/couplings/ # no provenance info
   expid: fesom2.1-initial-monthly # no provenance info
-  account: ab0246 # <TEST_DIR>run/fesom/fesom2.1-initial-monthly/scripts/fesom2.1-initial-monthly.yaml,line:2,col:18
+  account: None # <TEST_DIR>run/fesom/fesom2.1-initial-monthly/scripts/fesom2.1-initial-monthly.yaml,line:2,col:18
   setup_name: fesom # <TEST_DIR>run/fesom/fesom2.1-initial-monthly/scripts/fesom2.1-initial-monthly.yaml,line:3,col:21
   version: 2.1 # <TEST_DIR>run/fesom/fesom2.1-initial-monthly/scripts/fesom2.1-initial-monthly.yaml,line:4,col:18
   compute_time: 00:08:00 # <TEST_DIR>run/fesom/fesom2.1-initial-monthly/scripts/fesom2.1-initial-monthly.yaml,line:5,col:23
@@ -34,7 +34,7 @@ general:
   use_venv: false # no provenance info
   runscript_abspath: <TEST_DIR>run/fesom/fesom2.1-initial-monthly/scripts/fesom2.1-initial-monthly.yaml # no provenance info
   additional_files: []
-  check: false  # no provenance info
+  check: true  # no provenance info
   update: false # no provenance info
   update_filetypes: []
   launcher_pid: -666  # no provenance info
@@ -46,7 +46,7 @@ general:
   inspect: # no provenance info
   no_motd: true # no provenance info
   ignore_config_warnings: false # no provenance info
-  original_command: fesom2.1-initial-monthly.yaml -e fesom2.1-initial-monthly --open-run --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
+  original_command: fesom2.1-initial-monthly.yaml -e fesom2.1-initial-monthly --open-run -c --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
   started_from: <TEST_DIR>run/fesom/fesom2.1-initial-monthly/scripts/ # no provenance info
   scriptname: fesom2.1-initial-monthly.yaml # no provenance info
   isinteractive: false # no provenance info
@@ -63,7 +63,7 @@ general:
   iterative_coupled_model: ''  # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:6,col:30
   reset_calendar_to_last: false # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:7,col:29
   command_line_config:
-    check: false  # no provenance info
+    check: true  # no provenance info
     update: false # no provenance info
     update_filetypes: []
     expid: fesom2.1-initial-monthly # no provenance info
@@ -77,7 +77,7 @@ general:
     use_venv: false # no provenance info
     no_motd: true # no provenance info
     ignore_config_warnings: false # no provenance info
-    original_command: fesom2.1-initial-monthly.yaml -e fesom2.1-initial-monthly --open-run --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
+    original_command: fesom2.1-initial-monthly.yaml -e fesom2.1-initial-monthly --open-run -c --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
     started_from: <TEST_DIR>run/fesom/fesom2.1-initial-monthly/scripts/ # no provenance info
     scriptname: fesom2.1-initial-monthly.yaml # no provenance info
     runscript_abspath: <TEST_DIR>run/fesom/fesom2.1-initial-monthly/scripts/fesom2.1-initial-monthly.yaml # no provenance info
@@ -254,7 +254,7 @@ general:
     first_task_in_queue: prepcompute # no provenance info
     next_run_triggered_by: tidy # no provenance info
   submitted: false  # no provenance info
-  jobid: 119945 # no provenance info
+  jobid: 1470 # no provenance info
   batch: slurm # no provenance info
   experiment_log_file: <TEST_DIR>/run/fesom//fesom2.1-initial-monthly/log//fesom2.1-initial-monthly_fesom.log # no provenance info
   esm_tools_version: 6.56.1 # no provenance info
@@ -432,7 +432,7 @@ computer:
     LD_LIBRARY_PATH[(0)]: $HDF5ROOT/lib:$NETCDFROOT/lib:$NETCDFFROOT/lib:$LD_LIBRARY_PATH # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:311,col:39
     LD_LIBRARY_PATH[(1)]: /sw/spack-levante/intel-oneapi-mkl-2022.0.1-ttdktf/mkl/2022.0.1/lib/intel64:$LD_LIBRARY_PATH # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:328,col:39
     LD_LIBRARY_PATH[(2)]: /sw/spack-levante/intel-oneapi-mpi-2021.5.0-mrcss7/mpi/2021.5.0/libfabric/lib:$LD_LIBRARY_PATH # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:331,col:39
-    ACCOUNT: ab0246 # no provenance info
+    ACCOUNT: None # no provenance info
     ESM_TESTING_DIR: <TEST_DIR>/run/fesom/ # no provenance info
     MODEL_DIR: <TEST_DIR>/comp/fesom/fesom-2.1 # no provenance info
   load_python: false  # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:134,col:18
@@ -484,7 +484,7 @@ computer:
   overcommit_flag: '' # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:144,col:22
   model: computer # no provenance info
   add_export_vars:
-    ACCOUNT: ab0246  # no provenance info
+    ACCOUNT: None  # no provenance info
     ESM_TESTING_DIR: <TEST_DIR>/run/fesom/ # no provenance info
     MODEL_DIR: <TEST_DIR>/comp/fesom/fesom-2.1 # no provenance info
   heterogeneous_parallelization: false  # no provenance info
@@ -495,7 +495,7 @@ computer:
   mod_netcdf_f: netcdf-fortran/4.5.3-openmpi-4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:182,col:35
   mod_hdf5: hdf5/1.12.1-openmpi-4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:183,col:31
   netcdf_cxx_root: /work/ab0995/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:184,col:38
-  accounting_flag: --account=ab0246 # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:24,col:38
+  accounting_flag: --account=None # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:24,col:38
   cpu_bind: cores # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:74,col:23
   srun_execution_command: srun -l --hint=nomultithread --multi-prog hostfile_srun # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:75,col:37
   hyperthreading_flag: --ntasks-per-core=1 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:33,col:58
