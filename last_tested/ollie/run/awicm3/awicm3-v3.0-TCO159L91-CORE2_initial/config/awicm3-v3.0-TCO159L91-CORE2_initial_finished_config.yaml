@@ -1302,10 +1302,10 @@ computer:
     MPI_LIB: $(mpiifort -show |sed -e 's/^[^ ]*//' -e 's/-[I][^ ]*//g') # <HOME_DIR>/esm_tools/configs/machines/ollie.yaml,line:120,col:22
     PATH: /work/ollie/jhegewal/sw/cmake/bin:$PATH # <HOME_DIR>/esm_tools/configs/machines/ollie.yaml,line:122,col:19
     LD_LIBRARY_PATH[(100)]: <TEST_DIR>/run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/run_20000101-20000101/work//lib/oasis/:$LD_LIBRARY_PATH # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.env.yaml,line:27,col:41
-    FESOM_USE_CPLNG: '"active"' # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1012,col:38
-    ECE_CPL_NEMO_LIM: '"false"' # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1013,col:39
-    ECE_CPL_FESOM_FESIM: '"true"' # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1014,col:42
-    ECE_AWI_CPL_FESOM: '"true"' # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1015,col:40
+    FESOM_USE_CPLNG: '"active"' # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1010,col:38
+    ECE_CPL_NEMO_LIM: '"false"' # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1011,col:39
+    ECE_CPL_FESOM_FESIM: '"true"' # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1012,col:42
+    ECE_AWI_CPL_FESOM: '"true"' # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1013,col:40
     PATH[(2)]: $PATH:$IO_LIB_ROOT/bin # <HOME_DIR>/esm_tools/configs/components/oifs/oifs43.env.yaml,line:84,col:24
     LD_LIBRARY_PATH: $IO_LIB_ROOT/lib:$LD_LIBRARY_PATH # <HOME_DIR>/esm_tools/configs/components/oifs/oifs43.env.yaml,line:85,col:30
     SZIPROOT: $IO_LIB_ROOT # <HOME_DIR>/esm_tools/configs/components/oifs/oifs43.env.yaml,line:87,col:23
@@ -1341,7 +1341,7 @@ computer:
   thisrun_logfile: <TEST_DIR>/run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/log/awicm3-v3.0-TCO159L91-CORE2_initial_awicm3_@jobtype@_20000101-20000101_%j.log # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:46,col:22
   output_flags: --output=<TEST_DIR>/run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/log/awicm3-v3.0-TCO159L91-CORE2_initial_awicm3_@jobtype@_20000101-20000101_%j.log --error=<TEST_DIR>/run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/log/awicm3-v3.0-TCO159L91-CORE2_initial_awicm3_@jobtype@_20000101-20000101_%j.log # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:47,col:19
   name_flag: --job-name=awicm3-v3.0-TCO159L91-CORE2_initial # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:48,col:16
-  taskset: true # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:979,col:18
+  taskset: true # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:976,col:18
   mt_launcher_flag: '' # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:51,col:23
   script_name: <--methods.scriptname-- # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:97,col:18
   actual_script_dir: <--methods.script_dir-- # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:98,col:24
@@ -1364,7 +1364,7 @@ computer:
   overcommit_flag: '' # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:144,col:22
   model: computer # no provenance info
   merge_component_envs:
-    compile: true  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:981,col:22
+    compile: true  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:978,col:22
   add_export_vars:
     ACCOUNT: None  # no provenance info
     ESM_TESTING_DIR: <TEST_DIR>/run/awicm3/ # no provenance info
@@ -2268,12 +2268,12 @@ general:
     first_task_in_queue: prepcompute # no provenance info
     next_run_triggered_by: tidy # no provenance info
   submitted: false  # no provenance info
-  jobid: 1410 # no provenance info
+  jobid: 1224 # no provenance info
   batch: slurm # no provenance info
   coupler_config_dir: <TEST_DIR>/run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/run_20000101-20000101/config/oasis3mct/ # no provenance info
   coupler: oasis3mct # no provenance info
   experiment_log_file: <TEST_DIR>/run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/log//awicm3-v3.0-TCO159L91-CORE2_initial_awicm3.log # no provenance info
-  esm_tools_version: 6.54.5 # no provenance info
+  esm_tools_version: 6.57.0 # no provenance info
   logfile_path: <TEST_DIR>/run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/log//awicm3-v3.0-TCO159L91-CORE2_initial_awicm3_prepcompute_20000101-20000101.log # no provenance info
   logfile_path_in_run: <TEST_DIR>/run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/run_20000101-20000101/log//awicm3-v3.0-TCO159L91-CORE2_initial_awicm3_prepcompute_20000101-20000101.log # no provenance info
   relevant_filetypes:

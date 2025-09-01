@@ -254,10 +254,10 @@ general:
     first_task_in_queue: prepcompute # no provenance info
     next_run_triggered_by: tidy # no provenance info
   submitted: false  # no provenance info
-  jobid: 1255 # no provenance info
+  jobid: 1424 # no provenance info
   batch: slurm # no provenance info
   experiment_log_file: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/log//fesom1.4-initial-monthly_fesom.log # no provenance info
-  esm_tools_version: 6.54.5 # no provenance info
+  esm_tools_version: 6.57.0 # no provenance info
   logfile_path: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/log//fesom1.4-initial-monthly_fesom_prepcompute_19500101-19500101.log # no provenance info
   logfile_path_in_run: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/log//fesom1.4-initial-monthly_fesom_prepcompute_19500101-19500101.log # no provenance info
   relevant_filetypes:
@@ -622,15 +622,15 @@ fesom:
   old_mesh_format: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.yaml,line:89,col:22
   with_part_format: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.yaml,line:90,col:23
   time_dimension: time # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.yaml,line:91,col:21
-  pool_dir: /work/ollie/pool/FESOM/ # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.yaml,line:450,col:31
+  pool_dir: /work/ollie/pool/FESOM/ # <TEST_DIR>run/fesom/fesom1.4-initial-monthly/scripts/fesom1.4-initial-monthly.yaml,line:36,col:15
   setup_dir: <TEST_DIR>/comp/fesom/fesom-1.4 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.yaml,line:95,col:16
   bin_dir: <TEST_DIR>/comp/fesom/fesom-1.4/bin # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.yaml,line:96,col:14
   climate_data_dir: /work/ollie/pool/FESOM//hydrography/ # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.yaml,line:97,col:23
   forcing_data_dir: /work/ollie/pool/FESOM//forcing/ # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.yaml,line:98,col:23
   ini_data_dir: /work/ollie/pool/FESOM//pool-data/ # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.yaml,line:99,col:19
   namelist_dir: <HOME_DIR>/esm_tools/namelists//fesom # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.yaml,line:100,col:19
-  opbnd_dir: remove_from_namelist # <TEST_DIR>run/fesom/fesom1.4-initial-monthly/scripts/fesom1.4-initial-monthly.yaml,line:18,col:16
-  tide_forcing_dir: remove_from_namelist # <TEST_DIR>run/fesom/fesom1.4-initial-monthly/scripts/fesom1.4-initial-monthly.yaml,line:19,col:23
+  opbnd_dir: remove_from_namelist # <TEST_DIR>run/fesom/fesom1.4-initial-monthly/scripts/fesom1.4-initial-monthly.yaml,line:39,col:16
+  tide_forcing_dir: remove_from_namelist # <TEST_DIR>run/fesom/fesom1.4-initial-monthly/scripts/fesom1.4-initial-monthly.yaml,line:40,col:23
   steps_per_day: 48 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.yaml,line:105,col:20
   asforcing: CORE2 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.yaml,line:107,col:16
   namelists:
@@ -646,7 +646,7 @@ fesom:
         daynew: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.yaml,line:203,col:37
         yearnew: 1950 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.yaml,line:204,col:38
       paths:
-        meshpath: /work/ollie/pool/FESOM//meshes_default//core/  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.yaml,line:209,col:39
+        meshpath: /work/ollie/pool/FESOM/meshes_default/core/  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.yaml,line:209,col:39
         climatedatapath: /work/ollie/pool/FESOM//hydrography/ # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.yaml,line:211,col:46
         forcingdatapath: /work/ollie/pool/FESOM//forcing/ # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.yaml,line:208,col:46
         resultpath: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work/ # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.yaml,line:213,col:41
@@ -847,7 +847,7 @@ fesom:
         include_fleapyear: false  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.yaml,line:206,col:48
       paths:
         ForcingDataPath: /work/ollie/pool/FESOM//forcing/  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.yaml,line:208,col:46
-        MeshPath: /work/ollie/pool/FESOM//meshes_default//core/ # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.yaml,line:209,col:39
+        MeshPath: /work/ollie/pool/FESOM/meshes_default/core/ # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.yaml,line:209,col:39
         ClimateDataPath: /work/ollie/pool/FESOM//hydrography/ # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.yaml,line:211,col:46
         ResultPath: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work/ # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.yaml,line:213,col:41
       timestep:
@@ -1297,13 +1297,15 @@ fesom:
       oasis_grid_type: U # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.yaml,line:508,col:38
       number_of_overlapping_points: 0 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.yaml,line:509,col:51
   model_dir: <TEST_DIR>/comp/fesom/fesom-1.4 # <TEST_DIR>run/fesom/fesom1.4-initial-monthly/scripts/fesom1.4-initial-monthly.yaml,line:14,col:16
-  nproc: 288 # <TEST_DIR>run/fesom/fesom1.4-initial-monthly/scripts/fesom1.4-initial-monthly.yaml,line:30,col:12
+  mesh_dir: /work/ollie/pool/FESOM/meshes_default/core/ # <TEST_DIR>run/fesom/fesom1.4-initial-monthly/scripts/fesom1.4-initial-monthly.yaml,line:37,col:15
+  nproc: 288 # <TEST_DIR>run/fesom/fesom1.4-initial-monthly/scripts/fesom1.4-initial-monthly.yaml,line:41,col:12
   lresume: false # no provenance info
   mesh_base_dir: /work/ollie/pool/FESOM//meshes_default/ # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.yaml,line:451,col:36
-  rnproc: 288 # <TEST_DIR>run/fesom/fesom1.4-initial-monthly/scripts/fesom1.4-initial-monthly.yaml,line:27,col:21
+  rpool_dir: /work/ollie/pool/FESOM/ # <TEST_DIR>run/fesom/fesom1.4-initial-monthly/scripts/fesom1.4-initial-monthly.yaml,line:29,col:24
+  rmesh_dir: /work/ollie/pool/FESOM/meshes_default/core/ # <TEST_DIR>run/fesom/fesom1.4-initial-monthly/scripts/fesom1.4-initial-monthly.yaml,line:30,col:24
+  rproc: 288 # <TEST_DIR>run/fesom/fesom1.4-initial-monthly/scripts/fesom1.4-initial-monthly.yaml,line:31,col:20
   leapyear: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.yaml,line:118,col:31
   nx: 126859 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.yaml,line:130,col:25
-  mesh_dir: /work/ollie/pool/FESOM//meshes_default//core/ # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.yaml,line:131,col:31
   create_config:
     fesom.clock:
     - <--append-- 0.0000000000000 1 1950  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.yaml,line:249,col:39
@@ -1656,7 +1658,7 @@ fesom:
         daynew: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.yaml,line:203,col:37
         yearnew: 1950 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.yaml,line:204,col:38
       paths:
-        meshpath: /work/ollie/pool/FESOM//meshes_default//core/  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.yaml,line:209,col:39
+        meshpath: /work/ollie/pool/FESOM/meshes_default/core/  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.yaml,line:209,col:39
         climatedatapath: /work/ollie/pool/FESOM//hydrography/ # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.yaml,line:211,col:46
         forcingdatapath: /work/ollie/pool/FESOM//forcing/ # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.yaml,line:208,col:46
         resultpath: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work/ # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.yaml,line:213,col:41
