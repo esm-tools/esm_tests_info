@@ -41,40 +41,28 @@ export LAPACK_LIB='-L/albedo/soft/sw/spack-sw/intel-oneapi-mkl/2022.1.0-akthm3n/
 export LD_LIBRARY_PATH=/albedo/soft/sw/spack-sw/intel-oneapi-mkl/2022.1.0-akthm3n/mkl/2022.1.0/lib/intel64:$LD_LIBRARY_PATH
 export PATH=$PERL5LIB/../bin:$PATH
 export PATH=$PATH:$ECCODESROOT/bin
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/on/a/road/to/nowwhere/test/run_20000101-20001231/work//lib/fesom/
 export OASIS_FFLAGS="-march=core-avx2"
 export OASIS_CFLAGS="-fPIC"
 export CFLAGS="-fPIC"
 export CCFLAGS="-fPIC"
 export FFLAGS="-fPIC"
 export FCFLAGS="-fPIC"
-export HDF5_ROOT=$HDF5ROOT
-export HDF5_C_INCLUDE_DIRECTORIES=$HDF5_ROOT/include
-export NETCDF_Fortran_INCLUDE_DIRECTORIES=$NETCDFFROOT/include
-export NETCDF_C_INCLUDE_DIRECTORIES=$NETCDFROOT/include
-export ESM_NETCDF_C_DIR=$NETCDFROOT
-export ESM_NETCDF_F_DIR=$NETCDFFROOT
-export OIFS_GRIB_API_INCLUDE="-I$ECCODESROOT/include"
-export OIFS_GRIB_API_LIB="-L$ECCODESROOT/lib64 -leccodes_f90 -leccodes"
-export OIFS_GRIB_INCLUDE="$OIFS_GRIB_API_INCLUDE"
-export OIFS_GRIB_LIB="$OIFS_GRIB_API_LIB"
-export OIFS_GRIB_API_BIN="$ECCODESROOT/bin"
-export LAPACK_LIB_DEFAULT="-L$MKLROOT/lib/intel64 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential"
-export OIFS_OASIS_BASE=$(pwd)/oasis
-export OIFS_OASIS_INCLUDE="-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu"
-export OIFS_OASIS_LIB="-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu -lpsmile -lmct -lmpeu -lscrip"
-export OIFS_NETCDF_INCLUDE="-I$NETCDFROOT/include"
-export OIFS_NETCDF_LIB="-L$NETCDFROOT/lib -lnetcdf"
-export OIFS_NETCDFF_INCLUDE="-I$NETCDFFROOT/include"
-export OIFS_NETCDFF_LIB="-L$NETCDFFROOT/lib -lnetcdff"
-export OIFS_FC=$FC
-export OIFS_FFLAGS="-r8 -fp-model precise -align array32byte -O3 -qopenmp -g -traceback -convert big_endian -march=core-avx2 -mtune=core-avx2"
-export OIFS_FFIXED=""
-export OIFS_FCDEFS="BLAS LITTLE LINUX INTEGER_IS_INT"
-export OIFS_MPI_LIB="$MPI_LIB"
-export OIFS_LFLAGS="$OIFS_MPI_LIB -qopenmp"
-export OIFS_CC=$CC
-export OIFS_CFLAGS="-fp-model precise -O3 -g -traceback -qopt-report=0 -fpe0 -qopenmp -march=core-avx2 -mtune=core-avx2"
-export OIFS_CCDEFS="LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS _OPENMP"
+export MKL_CBWR=AUTO,STRICT
+export DATA=/on/a/road/to/nowwhere/test/run_20000101-20001231/work/
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/on/a/road/to/nowwhere/test/run_20000101-20001231/work//lib/oifs/
+export GRIB_SAMPLES_PATH=<TEST_DIR>comp/awicm3/awicm3-develop/oifs-48r1/build/share/eccodes/ifs_samples/grib1_mlgrib2
+export OIFS_LOGFILE=<TEST_DIR>comp/awicm3/awicm3-develop/oifs-48r1/build/oifs_test_log.txt
+export DR_HOOK_IGNORE_SIGNALS=-1
+export RNF_OASIS_BASE=$(pwd)/oasis
+export RNF_OASIS_INCLUDE="-I$RNF_OASIS_BASE/build/lib/psmile -I$RNF_OASIS_BASE/build/lib/psmile/scrip -I$RNF_OASIS_BASE/build/lib/psmile/mct -I$RNF_OASIS_BASE/build/lib/psmile/mct/mpeu"
+export RNF_OASIS_LIB="-L$RNF_OASIS_BASE/build/lib/psmile -L$RNF_OASIS_BASE/build/lib/psmile/scrip -L$RNF_OASIS_BASE/build/lib/psmile/mct -L$RNF_OASIS_BASE/build/lib/psmile/mct/mpeu -lpsmile -lmct -lmpeu -lscrip"
+export RNF_NETCDF_INCLUDE="-I$NETCDFROOT/include"
+export RNF_NETCDF_LIB="-L$NETCDFROOT/lib -lnetcdf"
+export RNF_NETCDFF_INCLUDE="-I$NETCDFFROOT/include"
+export RNF_NETCDFF_LIB="-L$NETCDFFROOT/lib -lnetcdff"
+export RNF_FFLAGS="-r8 -fp-model precise -align array32byte -O3 -qopenmp -g -traceback -convert big_endian -march=core-avx2 -mtune=core-avx2"
+export RNF_CFLAGS="-fp-model precise -O3 -g -traceback -qopt-report=0 -fpe0 -qopenmp -march=core-avx2 -mtune=core-avx2"
 export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 
 unset SLURM_DISTRIBUTION
@@ -84,6 +72,6 @@ unset SLURM_ARBITRARY_NODELIST
 unset SLURM_MEM_PER_NODE
 unset SLURM_MEM_PER_CPU
 
-pushd fesom-2.0
-mkdir -p build; cd build; cmake -DOIFS_COUPLED=ON -DFESOM_COUPLED=ON -DENABLE_OPENMP=ON -DOPENMP_REPRODUCIBLE=OFF -DDISABLE_MULTITHREADING=OFF -DCMAKE_INSTALL_PREFIX=../ ..;   make install -j `nproc --all`
+pushd oasis
+mkdir -p build; cd build; cmake ..;   make -j 1; mkdir -p ../include/; cp lib/psmile/libpsmile.a lib/psmile/mct/libmct.a lib/psmile/mct/mpeu/libmpeu.a lib/psmile/scrip/libscrip.a ../lib; cd ..; find . -type f \( -name "*.o" -o -name "*.mod" \) ! -path "./include/*" -exec cp -t include/ {} +; mkdir -p arch_ecearth; ln -fs ../lib ../include arch_ecearth/
 popd

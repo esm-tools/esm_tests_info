@@ -48,5 +48,5 @@ unset SLURM_MEM_PER_NODE
 unset SLURM_MEM_PER_CPU
 
 pushd fesom-2.6
-mkdir -p build; cd build; cmake -DCMAKE_INSTALL_PREFIX=../ ..;   make install -j `nproc --all`
+mkdir -p build; cd build; cmake -DENABLE_OPENMP=ON -DCMAKE_INSTALL_PREFIX=../ ..;   make install -j `nproc --all`
 popd
