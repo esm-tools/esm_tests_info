@@ -47,31 +47,22 @@ export CFLAGS="-fPIC"
 export CCFLAGS="-fPIC"
 export FFLAGS="-fPIC"
 export FCFLAGS="-fPIC"
-export OIFS_GRIB_API_INCLUDE="-I$ECCODESROOT/include"
-export OIFS_GRIB_API_LIB="-L$ECCODESROOT/lib -leccodes_f90 -leccodes"
-export OIFS_GRIB_INCLUDE="$OIFS_GRIB_API_INCLUDE"
-export OIFS_GRIB_LIB="$OIFS_GRIB_API_LIB"
-export OIFS_GRIB_API_BIN="$ECCODESROOT/bin"
-export GRIB_SAMPLES_PATH="$GRIBAPIROOT/share/grib_api/ifs_samples/grib1_mlgrib2/"
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$ECCODESROOT/lib:$PROJ4_DIR/lib
-export OIFS_FFTW_INCLUDE='-I$FFTW_INC'
-export OIFS_FFTW_LIB='-L$FFTW_DIR -ldfftw -ldrfftw'
-export OIFS_OASIS_BASE=$(pwd)/oasis
-export OIFS_OASIS_INCLUDE="-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu"
-export OIFS_OASIS_LIB="-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu -lpsmile -lmct -lmpeu -lscrip"
-export OIFS_NETCDF_INCLUDE=-I$NETCDF_DIR/include
-export OIFS_NETCDF_LIB="-L$NETCDF_DIR/lib -lnetcdf"
-export OIFS_NETCDFF_INCLUDE=-I$NETCDF_DIR/include
-export OIFS_NETCDFF_LIB="-L$NETCDF_DIR/lib -lnetcdff"
-export OIFS_FC=ftn
-export OIFS_FFLAGS="-O2 -emf -hthread1 -hflex_mp=conservative -hfp1 -hadd_paren -hbyteswapio -J./ -hcpu=x86-skylake -U_CRAYFTN"
-export OIFS_FFIXED="-s real64"
-export OIFS_FCDEFS="BLAS LITTLE LINUX INTEGER_IS_INT"
-export OIFS_LFLAGS="-dynamic -hbyteswapio"
-export OIFS_CC=cc
-export OIFS_CFLAGS="-emf -O2 -hcpu=x86-skylake"
-export OIFS_CCDEFS="LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS"
-export OIFS_XIOS_LIB_NAME=cray-c++-rts
+export MKL_CBWR=AUTO,STRICT
+export DATA=/on/a/road/to/nowwhere/test/run_20000101-20001231/work/
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/on/a/road/to/nowwhere/test/run_20000101-20001231/work//lib/oifs/
+export GRIB_SAMPLES_PATH=<TEST_DIR>comp/awicm3/awicm3-develop/oifs-48r1/build/share/eccodes/ifs_samples/grib1_mlgrib2
+export OIFS_LOGFILE=<TEST_DIR>comp/awicm3/awicm3-develop/oifs-48r1/build/oifs_test_log.txt
+export DR_HOOK_IGNORE_SIGNALS=-1
+export RNF_OASIS_BASE=$(pwd)/oasis
+export RNF_OASIS_INCLUDE="-I$RNF_OASIS_BASE/build/lib/psmile -I$RNF_OASIS_BASE/build/lib/psmile/scrip -I$RNF_OASIS_BASE/build/lib/psmile/mct -I$RNF_OASIS_BASE/build/lib/psmile/mct/mpeu"
+export RNF_OASIS_LIB="-L$RNF_OASIS_BASE/build/lib/psmile -L$RNF_OASIS_BASE/build/lib/psmile/scrip -L$RNF_OASIS_BASE/build/lib/psmile/mct -L$RNF_OASIS_BASE/build/lib/psmile/mct/mpeu -lpsmile -lmct -lmpeu -lscrip"
+export RNF_NETCDF_INCLUDE=-I$NETCDF_DIR/include
+export RNF_NETCDF_LIB="-L$NETCDF_DIR/lib -lnetcdf"
+export RNF_NETCDFF_INCLUDE=-I$NETCDF_DIR/include
+export RNF_NETCDFF_LIB="-L$NETCDF_DIR/lib -lnetcdff"
+export RNF_FC=ftn
+export RNF_FFLAGS="-O2 -emf -hthread1 -hflex_mp=conservative -hfp1 -hadd_paren -hbyteswapio -J./ -hcpu=x86-skylake -U_CRAYFTN"
+export RNF_CFLAGS="-emf -O2 -hcpu=x86-skylake"
 export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 
 
