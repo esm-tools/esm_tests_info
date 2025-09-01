@@ -9,13 +9,13 @@
 #SBATCH --exclusive
 
 module use $OTHERSTAGES
-module load Stages/2023
-module load GCC/11.3.0
-module load OpenMPI/4.1.4
-module load CMake/3.26.3
-module load Python/3.10.4
-module load imkl/2022.1.0
-module load Perl/5.34.1
+module load Stages/2024
+module load GCC
+module load OpenMPI
+module load CMake
+module load Python
+module load imkl
+module load Perl
 module load git
 module load libaec FFTW cURL netCDF netCDF-Fortran ecCodes CDO NCO
 module list
@@ -72,7 +72,7 @@ unset SLURM_ARBITRARY_NODELIST
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 1099 - start >> <TEST_DIR>/run/awicm3//awicm3-v3.4-TCO95L91-CORE2_initial/log//awicm3-v3.4-TCO95L91-CORE2_initial_awicm3.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 1108 - start >> <TEST_DIR>/run/awicm3//awicm3-v3.4-TCO95L91-CORE2_initial/log//awicm3-v3.4-TCO95L91-CORE2_initial_awicm3.log
 
 cd <TEST_DIR>/run/awicm3//awicm3-v3.4-TCO95L91-CORE2_initial/run_20000101-20000101/work/
 
@@ -114,6 +114,6 @@ process=$!
 cd <TEST_DIR>/run/awicm3//awicm3-v3.4-TCO95L91-CORE2_initial/scripts/
 esm_runscripts awicm3-v3.4-TCO95L91-CORE2_initial.yaml -e awicm3-v3.4-TCO95L91-CORE2_initial -t observe_compute -p ${process} -s 20000101 -r 1 -v  --last-jobtype prepcompute --open-run
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 1099 - done >> <TEST_DIR>/run/awicm3//awicm3-v3.4-TCO95L91-CORE2_initial/log//awicm3-v3.4-TCO95L91-CORE2_initial_awicm3.log
+echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 1108 - done >> <TEST_DIR>/run/awicm3//awicm3-v3.4-TCO95L91-CORE2_initial/log//awicm3-v3.4-TCO95L91-CORE2_initial_awicm3.log
 
 wait

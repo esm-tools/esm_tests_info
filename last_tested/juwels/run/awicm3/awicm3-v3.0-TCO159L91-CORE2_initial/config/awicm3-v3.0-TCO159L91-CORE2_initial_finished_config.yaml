@@ -1228,8 +1228,8 @@ computer:
   account: esmtst # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:6,col:14
   jobtype: prepcompute # no provenance info
   accounting: true # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:8,col:17
-  compiler_mpi: intel2025_psmpi # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:997,col:39
-  iolibraries: system_libs # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:996,col:38
+  compiler_mpi: intel2025_psmpi # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:995,col:39
+  iolibraries: system_libs # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:994,col:38
   batch_system: slurm # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:15,col:19
   logical_cpus_per_core: 2 # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:16,col:28
   threads_per_core: 1 # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:17,col:23
@@ -1237,7 +1237,7 @@ computer:
   hetjob_flag: packjob # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:19,col:18
   hyperthreading_flag: '' # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:22,col:26
   use_hyperthreading: false # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:24,col:25
-  taskset: false # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:995,col:34
+  taskset: false # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:993,col:34
   sh_interpreter: /usr/bin/bash # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:54,col:21
   pool_dir: /pool/data/not/available/on/juwels # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:58,col:16
   pool_directories:
@@ -1263,16 +1263,16 @@ computer:
   - load Perl/5.38.2 # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:102,col:15
   - load Perl-bundle-CPAN/5.38.2 # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:103,col:15
   - load git/2.45.1 # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:104,col:15
-  - load libaec FFTW cURL netCDF netCDF-Fortran ecCodes CDO NCO # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:142,col:16
-  - list # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:143,col:16
+  - load libaec FFTW cURL netCDF netCDF-Fortran ecCodes CDO NCO # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:161,col:16
+  - list # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:162,col:16
   export_vars:
     LC_ALL: en_US.UTF-8  # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:87,col:21
     TMPDIR: /tmp # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:88,col:21
     LD_LIBRARY_PATH[(100)]: <TEST_DIR>/run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/run_20000101-20000101/work//lib/oasis/:$LD_LIBRARY_PATH # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.env.yaml,line:27,col:41
-    FESOM_USE_CPLNG: '"active"' # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1012,col:38
-    ECE_CPL_NEMO_LIM: '"false"' # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1013,col:39
-    ECE_CPL_FESOM_FESIM: '"true"' # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1014,col:42
-    ECE_AWI_CPL_FESOM: '"true"' # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1015,col:40
+    FESOM_USE_CPLNG: '"active"' # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1010,col:38
+    ECE_CPL_NEMO_LIM: '"false"' # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1011,col:39
+    ECE_CPL_FESOM_FESIM: '"true"' # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1012,col:42
+    ECE_AWI_CPL_FESOM: '"true"' # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1013,col:40
     OIFS_FFIXED: '""' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs43.env.yaml,line:48,col:26
     GRIB_SAMPLES_PATH: '"$ECCODESROOT/share/eccodes/ifs_samples/grib1_mlgrib2/"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs43.env.yaml,line:49,col:32
     DR_HOOK_IGNORE_SIGNALS: -1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs43.env.yaml,line:50,col:37
@@ -1287,31 +1287,31 @@ computer:
     CXX: mpic++ # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:111,col:18
     MPIROOT: "\"$($FC -show | perl -lne 'm{ -I(.*?)/include } and print $1')\"" # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:112,col:22
     MPI_LIB: "\"$($FC -show |sed -e 's/^[^ ]*//' -e 's/-[I][^ ]*//g')\"" # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:113,col:22
-    AEC_ROOT: $EBROOTLIBAEC # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:145,col:27
-    SZIPROOT: $EBROOTLIBAEC # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:146,col:27
-    HDF5ROOT: $EBROOTHDF5 # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:147,col:27
-    HDF5_ROOT: $EBROOTHDF5 # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:148,col:28
-    NETCDFROOT: $EBROOTNETCDF # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:149,col:29
-    NETCDFFROOT: $EBROOTNETCDFMINFORTRAN # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:150,col:30
-    ECCODESROOT: $EBROOTECCODES # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:151,col:30
-    HDF5_C_INCLUDE_DIRECTORIES: $HDF5_ROOT/include # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:153,col:45
-    NETCDF_Fortran_INCLUDE_DIRECTORIES: $NETCDFFROOT/include # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:154,col:53
-    NETCDF_C_INCLUDE_DIRECTORIES: $NETCDFROOT/include # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:155,col:47
-    NETCDF_CXX_INCLUDE_DIRECTORIES: $NETCDFROOT/include # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:156,col:49
-    OASIS3MCT_FC_LIB: '"-L$NETCDFFROOT/lib -lnetcdff"' # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:157,col:35
-    PERL5LIB: /p/project/chhb19/HPC_libraries/perl5/lib/perl5 # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:158,col:27
-    PERL5_PATH: $PERL5LIB # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:159,col:29
-    PERL5OPT: -Mwarnings=FATAL,uninitialized # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:160,col:27
-    MKL_CBWR: AUTO,STRICT # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:161,col:27
-    LD_RUN_PATH: $LD_LIBRARY_PATH # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:162,col:30
+    AEC_ROOT: $EBROOTLIBAEC # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:164,col:27
+    SZIPROOT: $EBROOTLIBAEC # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:165,col:27
+    HDF5ROOT: $EBROOTHDF5 # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:166,col:27
+    HDF5_ROOT: $EBROOTHDF5 # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:167,col:28
+    NETCDFROOT: $EBROOTNETCDF # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:168,col:29
+    NETCDFFROOT: $EBROOTNETCDFMINFORTRAN # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:169,col:30
+    ECCODESROOT: $EBROOTECCODES # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:170,col:30
+    HDF5_C_INCLUDE_DIRECTORIES: $HDF5_ROOT/include # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:172,col:45
+    NETCDF_Fortran_INCLUDE_DIRECTORIES: $NETCDFFROOT/include # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:173,col:53
+    NETCDF_C_INCLUDE_DIRECTORIES: $NETCDFROOT/include # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:174,col:47
+    NETCDF_CXX_INCLUDE_DIRECTORIES: $NETCDFROOT/include # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:175,col:49
+    OASIS3MCT_FC_LIB: '"-L$NETCDFFROOT/lib -lnetcdff"' # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:176,col:35
+    PERL5LIB: /p/project/chhb19/HPC_libraries/perl5/lib/perl5 # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:177,col:27
+    PERL5_PATH: $PERL5LIB # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:178,col:29
+    PERL5OPT: -Mwarnings=FATAL,uninitialized # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:179,col:27
+    MKL_CBWR: AUTO,STRICT # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:180,col:27
+    LD_RUN_PATH: $LD_LIBRARY_PATH # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:181,col:30
     ACCOUNT: None # no provenance info
     ESM_TESTING_DIR: <TEST_DIR>/run/awicm3/ # no provenance info
     MODEL_DIR: <TEST_DIR>/comp/awicm3/awicm3-v3.0 # no provenance info
-  fc: $FC # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:214,col:9
-  cc: $CC # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:215,col:9
-  mpifc: $MPIFC # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:216,col:12
-  mpicc: $MPICC # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:217,col:12
-  cxx: $CXX # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:218,col:10
+  fc: $FC # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:233,col:9
+  cc: $CC # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:234,col:9
+  mpifc: $MPIFC # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:235,col:12
+  mpicc: $MPICC # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:236,col:12
+  cxx: $CXX # <HOME_DIR>/esm_tools/configs/machines/juwels.yaml,line:237,col:10
   header_start: '#SBATCH' # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:6,col:19
   submit: sbatch # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:7,col:13
   launcher: srun # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:8,col:15
@@ -1353,7 +1353,7 @@ computer:
   overcommit_flag: '' # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:144,col:22
   model: computer # no provenance info
   merge_component_envs:
-    compile: true  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:981,col:22
+    compile: true  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:978,col:22
   add_export_vars:
     ACCOUNT: None  # no provenance info
     ESM_TESTING_DIR: <TEST_DIR>/run/awicm3/ # no provenance info
@@ -2259,12 +2259,12 @@ general:
     first_task_in_queue: prepcompute # no provenance info
     next_run_triggered_by: tidy # no provenance info
   submitted: false  # no provenance info
-  jobid: 1019 # no provenance info
+  jobid: 1028 # no provenance info
   batch: slurm # no provenance info
   coupler_config_dir: <TEST_DIR>/run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/run_20000101-20000101/config/oasis3mct/ # no provenance info
   coupler: oasis3mct # no provenance info
   experiment_log_file: <TEST_DIR>/run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/log//awicm3-v3.0-TCO159L91-CORE2_initial_awicm3.log # no provenance info
-  esm_tools_version: 6.54.5 # no provenance info
+  esm_tools_version: 6.57.0 # no provenance info
   logfile_path: <TEST_DIR>/run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/log//awicm3-v3.0-TCO159L91-CORE2_initial_awicm3_prepcompute_20000101-20000101.log # no provenance info
   logfile_path_in_run: <TEST_DIR>/run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/run_20000101-20000101/log//awicm3-v3.0-TCO159L91-CORE2_initial_awicm3_prepcompute_20000101-20000101.log # no provenance info
   relevant_filetypes:
