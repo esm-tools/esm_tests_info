@@ -1308,10 +1308,10 @@ computer:
     CXX: CC # <HOME_DIR>/esm_tools/configs/machines/aleph.yaml,line:111,col:18
     CRAYPE_LINK_TYPE: dynamic # <HOME_DIR>/esm_tools/configs/machines/aleph.yaml,line:114,col:31
     LD_LIBRARY_PATH[(100)]: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//lib/oasis/:$LD_LIBRARY_PATH # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.env.yaml,line:27,col:41
-    FESOM_USE_CPLNG: '"active"' # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1012,col:38
-    ECE_CPL_NEMO_LIM: '"false"' # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1013,col:39
-    ECE_CPL_FESOM_FESIM: '"true"' # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1014,col:42
-    ECE_AWI_CPL_FESOM: '"true"' # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1015,col:40
+    FESOM_USE_CPLNG: '"active"' # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1010,col:38
+    ECE_CPL_NEMO_LIM: '"false"' # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1011,col:39
+    ECE_CPL_FESOM_FESIM: '"true"' # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1012,col:42
+    ECE_AWI_CPL_FESOM: '"true"' # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:1013,col:40
     GRIB_SAMPLES_PATH: '"$ECCODESROOT/share/eccodes/ifs_samples/grib1_mlgrib2/"' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs43.env.yaml,line:15,col:32
     DR_HOOK_IGNORE_SIGNALS: -1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs43.env.yaml,line:16,col:37
     LD_LIBRARY_PATH: $LD_LIBRARY_PATH:$ECCODESROOT/lib:$PROJ4_DIR/lib # <HOME_DIR>/esm_tools/configs/components/oifs/oifs43.env.yaml,line:17,col:30
@@ -1354,9 +1354,9 @@ computer:
       message: 'PBS ERROR: pbs ended with an error, exiting.' # <HOME_DIR>/esm_tools/configs/other_software/batch_system/pbs.yaml,line:75,col:30
       file: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/log/awicm3-frontiers-xios-TCO159L91-CORE2_initial_awicm3_execution_20000101-20000101_@jobid@.log # <HOME_DIR>/esm_tools/configs/other_software/batch_system/pbs.yaml,line:76,col:27
   model: computer # no provenance info
-  taskset: true # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:979,col:18
+  taskset: true # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:976,col:18
   merge_component_envs:
-    compile: true  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:981,col:22
+    compile: true  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:978,col:22
   add_export_vars:
     ACCOUNT: None  # no provenance info
     ESM_TESTING_DIR: <TEST_DIR>/run/awicm3/ # no provenance info
@@ -1941,7 +1941,7 @@ xios:
     Authors: Yann Meurdesoif (yann.meurdesoif@cea.fr) # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:15,col:22
     Website: https://portal.enes.org/models/software-tools/xios # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:16,col:22
     License: Please make sure you have a licence to use XIOS. In case you are unsure, please contact redmine... # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:18,col:21
-  archfile: ESMTOOLS_generic_oasis_intel  # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:182,col:23
+  archfile: ESMTOOLS_generic_oasis_intel  # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:186,col:23
   available_versions:
   - 2.0_r982_ogcm  # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:25,col:7
   - 2.0_r982 # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:26,col:7
@@ -1955,28 +1955,28 @@ xios:
   - 2.5_r1910_ogcm # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:34,col:7
   - 2.5_smhi # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:35,col:7
   - 2.5_ece # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:36,col:7
-  branch: 2.5_r1910  # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:184,col:17
-  clean_command: rm -rf bin lib obj ppsrc cfg done etc flags inc tmp # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:217,col:20
-  comp_command: export XIOS_TOPLEVEL=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios; ./make_xios --arch ESMTOOLS_generic_oasis_intel --netcdf_lib netcdf4_par --full --use_oasis oasis3_mct --job 24; cp bin/xios_server.exe bin/xios.x # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:218,col:19
-  destination: xios # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:220,col:18
-  git-repository: https://git.geomar.de/foci/src/xios.git # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:221,col:21
-  contact: jan.streffing(at)awi.de, miguel.andres-martinez(at)awi.de # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:222,col:14
-  install_bins: bin/xios.x # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:223,col:19
-  use_oasis: --use_oasis oasis3_mct # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:183,col:20
-  setup_dir: <TEST_DIR>/comp/awicm3/awicm3-frontiers-xios # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:228,col:16
-  bin_dir: <TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/bin # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:229,col:14
+  branch: 2.5_r1910  # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:188,col:17
+  clean_command: rm -rf bin lib obj ppsrc cfg done etc flags inc tmp # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:221,col:20
+  comp_command: export XIOS_TOPLEVEL=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios; ./make_xios --arch ESMTOOLS_generic_oasis_intel --netcdf_lib netcdf4_par --full --use_oasis oasis3_mct --job 24; cp bin/xios_server.exe bin/xios.x # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:222,col:19
+  destination: xios # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:224,col:18
+  git-repository: https://git.geomar.de/foci/src/xios.git # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:225,col:21
+  contact: jan.streffing(at)awi.de, miguel.andres-martinez(at)awi.de # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:226,col:14
+  install_bins: bin/xios.x # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:227,col:19
+  use_oasis: --use_oasis oasis3_mct # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:187,col:20
+  setup_dir: <TEST_DIR>/comp/awicm3/awicm3-frontiers-xios # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:232,col:16
+  bin_dir: <TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/bin # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:233,col:14
   config_sources:
-    io_def: <HOME_DIR>/esm_tools/namelists//oifs/43r3/xios//iodef.xml  # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:345,col:21
-    context_ifs: <HOME_DIR>/esm_tools/namelists//oifs/43r3/xios//context_ifs.xml # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:349,col:26
+    io_def: <HOME_DIR>/esm_tools/namelists//oifs/43r3/xios//iodef.xml  # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:349,col:21
+    context_ifs: <HOME_DIR>/esm_tools/namelists//oifs/43r3/xios//context_ifs.xml # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:353,col:26
     domain_def: <HOME_DIR>/esm_tools/namelists//oifs/43r3/xios//domain_def.xml.j2 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:542,col:29
-    field_def: <HOME_DIR>/esm_tools/namelists//oifs/43r3/xios//field_def.xml # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:342,col:24
+    field_def: <HOME_DIR>/esm_tools/namelists//oifs/43r3/xios//field_def.xml # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:346,col:24
     file_def: <HOME_DIR>/esm_tools/namelists//oifs/43r3/xios//file_def.xml.j2 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:543,col:27
-    axis_def: <HOME_DIR>/esm_tools/namelists//oifs/43r3/xios//axis_def.xml # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:346,col:23
-    grid_def: <HOME_DIR>/esm_tools/namelists//oifs/43r3/xios//grid_def.xml # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:347,col:23
+    axis_def: <HOME_DIR>/esm_tools/namelists//oifs/43r3/xios//axis_def.xml # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:350,col:23
+    grid_def: <HOME_DIR>/esm_tools/namelists//oifs/43r3/xios//grid_def.xml # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:351,col:23
   ignore_sources:
     xios_registry: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//xios_registry.bin  # no provenance info
   bin_sources:
-    server: <TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/bin/xios.x  # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:371,col:21
+    server: <TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/bin/xios.x  # <HOME_DIR>/esm_tools/configs/components/xios/xios.yaml,line:375,col:21
   interpolation_order: 2  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:546,col:46
   compression_level: 0 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:547,col:44
   regular_res_lat: 192 # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:539,col:26
@@ -2462,12 +2462,12 @@ general:
     first_task_in_queue: prepcompute # no provenance info
     next_run_triggered_by: tidy # no provenance info
   submitted: false  # no provenance info
-  jobid: 939 # no provenance info
+  jobid: 984 # no provenance info
   batch: pbs # no provenance info
   coupler_config_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/config/oasis3mct/ # no provenance info
   coupler: oasis3mct # no provenance info
   experiment_log_file: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/log//awicm3-frontiers-xios-TCO159L91-CORE2_initial_awicm3.log # no provenance info
-  esm_tools_version: 6.54.5 # no provenance info
+  esm_tools_version: 6.57.0 # no provenance info
   logfile_path: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/log//awicm3-frontiers-xios-TCO159L91-CORE2_initial_awicm3_prepcompute_20000101-20000101.log # no provenance info
   logfile_path_in_run: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/log//awicm3-frontiers-xios-TCO159L91-CORE2_initial_awicm3_prepcompute_20000101-20000101.log # no provenance info
   relevant_filetypes:
