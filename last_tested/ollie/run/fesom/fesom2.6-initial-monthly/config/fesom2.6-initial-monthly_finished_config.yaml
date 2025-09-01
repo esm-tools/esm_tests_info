@@ -10,7 +10,7 @@ general:
   force_overwrite_in_file_movements: false # <HOME_DIR>/esm_tools/configs/defaults/general.yaml,line:9,col:36
   standalone: true # no provenance info
   models:
-  - fesom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:5,col:12
+  - fesom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:4,col:12
   include_models: []
   valid_setup_names:
   - general  # no provenance info
@@ -86,7 +86,7 @@ general:
   nhour: 0  # no provenance info
   nminute: 0 # no provenance info
   nsecond: 0 # no provenance info
-  leapyear: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:124,col:27
+  leapyear: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:64,col:27
   calendar: esm_calendar object with allowed leap years # no provenance info
   delta_date:
   - 0  # no provenance info
@@ -258,7 +258,7 @@ general:
   jobid: 1450 # no provenance info
   batch: slurm # no provenance info
   experiment_log_file: <TEST_DIR>/run/fesom//fesom2.6-initial-monthly/log//fesom2.6-initial-monthly_fesom.log # no provenance info
-  esm_tools_version: 6.57.0 # no provenance info
+  esm_tools_version: 6.56.1 # no provenance info
   logfile_path: <TEST_DIR>/run/fesom//fesom2.6-initial-monthly/log//fesom2.6-initial-monthly_fesom_prepcompute_19580101-19580101.log # no provenance info
   logfile_path_in_run: <TEST_DIR>/run/fesom//fesom2.6-initial-monthly/run_19580101-19580101/log//fesom2.6-initial-monthly_fesom_prepcompute_19580101-19580101.log # no provenance info
   relevant_filetypes:
@@ -479,69 +479,69 @@ computer:
   execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=cores --multi-prog hostfile_srun # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:80,col:40
   debugger_flags_prelauncher: '' # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:90,col:45
 fesom:
-  model: fesom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:5,col:12
-  branch: 2.6.7 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:41,col:17
+  model: fesom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:4,col:12
+  branch: 2.6.7 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:40,col:17
   version: 2.6.7 # <TEST_DIR>run/fesom/fesom2.6-initial-monthly/scripts/fesom2.6-initial-monthly.yaml,line:7,col:18
-  type: ocean # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:8,col:11
-  comp_command: mkdir -p build; cd build; cmake -DCMAKE_INSTALL_PREFIX=../ ..;   make install -j `nproc --all` # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:10,col:19
-  clean_command: rm -rf build CMakeCache.txt # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:11,col:20
-  with_icb: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:15,col:15
-  use_icebergs: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:16,col:19
-  use_icesheet_coupling: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:17,col:28
-  wiso_code: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:19,col:16
-  with_wiso: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:20,col:16
-  with_recom: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:22,col:17
+  type: ocean # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:7,col:11
+  comp_command: mkdir -p build; cd build; cmake -DENABLE_OPENMP=ON -DCMAKE_INSTALL_PREFIX=../ ..;   make install -j `nproc --all` # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:9,col:19
+  clean_command: rm -rf build CMakeCache.txt # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:10,col:20
+  with_icb: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:14,col:15
+  use_icebergs: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:15,col:19
+  use_icesheet_coupling: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:16,col:28
+  wiso_code: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:18,col:16
+  with_wiso: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:19,col:16
+  with_recom: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:21,col:17
   required_plugins:
-  - git+https://github.com/esm-tools-plugins/tar_binary_restarts  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:25,col:7
-  destination: fesom-2.6  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:55,col:18
-  install_bins: bin/fesom.x # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:56,col:19
+  - git+https://github.com/esm-tools-plugins/tar_binary_restarts  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:24,col:7
+  destination: fesom-2.6  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:58,col:18
+  install_bins: bin/fesom.x # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:59,col:19
   git-repository:
-  - https://github.com/FESOM/fesom2.git  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:58,col:7
-  contact: jan.streffing(at)awi.de, patrick.scholz(at)awi.de miguel.andres-martinez(at)awi.de, paul.gierz(at)awi.de  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:59,col:14
+  - https://github.com/FESOM/fesom2.git  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:61,col:7
+  contact: jan.streffing(at)awi.de, patrick.scholz(at)awi.de miguel.andres-martinez(at)awi.de, paul.gierz(at)awi.de  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:62,col:14
   restart_rate: 1 # <TEST_DIR>run/fesom/fesom2.6-initial-monthly/scripts/fesom2.6-initial-monthly.yaml,line:22,col:23
   restart_unit: d # <TEST_DIR>run/fesom/fesom2.6-initial-monthly/scripts/fesom2.6-initial-monthly.yaml,line:24,col:23
   restart_first: 1 # <TEST_DIR>run/fesom/fesom2.6-initial-monthly/scripts/fesom2.6-initial-monthly.yaml,line:23,col:24
-  restart_flag: last # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:64,col:19
-  tar_binary_restarts: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:66,col:26
+  restart_flag: last # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:67,col:19
+  tar_binary_restarts: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:69,col:26
   time_step: 1800 # <TEST_DIR>run/fesom/fesom2.6-initial-monthly/scripts/fesom2.6-initial-monthly.yaml,line:25,col:20
   resolution: CORE2 # <TEST_DIR>run/fesom/fesom2.6-initial-monthly/scripts/fesom2.6-initial-monthly.yaml,line:19,col:21
-  comp_executable: fesom.x # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:71,col:22
-  executable: fesom # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:72,col:17
-  mesh_rotated: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:74,col:19
-  old_mesh_format: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:75,col:22
-  with_part_format: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:76,col:23
-  time_dimension: time # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:77,col:21
+  comp_executable: fesom.x # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:74,col:22
+  executable: fesom # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:75,col:17
+  mesh_rotated: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:77,col:19
+  old_mesh_format: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:78,col:22
+  with_part_format: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:79,col:23
+  time_dimension: time # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:80,col:21
   pool_dir: /work/ab0246/a270092/input/ # <TEST_DIR>run/fesom/fesom2.6-initial-monthly/scripts/fesom2.6-initial-monthly.yaml,line:20,col:19
-  setup_dir: <TEST_DIR>/comp/fesom/fesom-2.6 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:91,col:16
-  bin_dir: <TEST_DIR>/comp/fesom/fesom-2.6/bin # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:92,col:14
-  climate_data_dir: /work/ab0246/a270092/input//FESOM2/hydrography/phc3.0/ # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:93,col:23
-  forcing_data_dir: /work/ab0246/a270092/input//forcing/ # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:94,col:23
-  mesh_base_dir: /work/ab0246/a270092/input//FESOM2/meshes/ # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:95,col:20
-  ini_data_dir: /work/ab0246/a270092/input//pool-data/ # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:96,col:19
-  namelist_dir: <HOME_DIR>/esm_tools/namelists//fesom2/2.6.7/ # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:97,col:19
-  opbnd_dir: somepath # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:99,col:16
-  tide_forcing_dir: somepath # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:100,col:23
-  steps_per_day: 48 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:102,col:20
-  asforcing: JRA55 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:104,col:16
+  setup_dir: <TEST_DIR>/comp/fesom/fesom-2.6 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:94,col:16
+  bin_dir: <TEST_DIR>/comp/fesom/fesom-2.6/bin # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:95,col:14
+  climate_data_dir: /work/ab0246/a270092/input//FESOM2/hydrography/phc3.0/ # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:96,col:23
+  forcing_data_dir: /work/ab0246/a270092/input//forcing/ # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:97,col:23
+  mesh_base_dir: /work/ab0246/a270092/input//FESOM2/meshes/ # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:98,col:20
+  ini_data_dir: /work/ab0246/a270092/input//pool-data/ # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:99,col:19
+  namelist_dir: <HOME_DIR>/esm_tools/namelists//fesom2/2.6.7/ # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:100,col:19
+  opbnd_dir: somepath # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:102,col:16
+  tide_forcing_dir: somepath # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:103,col:23
+  steps_per_day: 48 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:105,col:20
+  asforcing: JRA55 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:107,col:16
   namelists:
     namelist.config:
       modelname:
         runid: fesom  # no provenance info
       timestep:
-        step_per_day: 48  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:391,col:43
-        run_length: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:392,col:41
-        run_length_unit: d # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:393,col:46
+        step_per_day: 48  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:440,col:43
+        run_length: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:441,col:41
+        run_length_unit: d # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:442,col:46
       clockinit:
         timenew: 0.0  # no provenance info
-        daynew: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:382,col:37
-        yearnew: 1958 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:383,col:38
+        daynew: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:431,col:37
+        yearnew: 1958 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:432,col:38
       paths:
-        meshpath: /work/ba0989/a270124/PalModII/experiments/ICEBERGS/mesh_core2/  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:387,col:39
-        climatedatapath: /work/ab0246/a270092/input//FESOM2/hydrography/phc3.0/ # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:388,col:46
-        resultpath: <TEST_DIR>/run/fesom//fesom2.6-initial-monthly/run_19580101-19580101/work/ # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:389,col:41
+        meshpath: /work/ba0989/a270124/PalModII/experiments/ICEBERGS/mesh_core2/  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:436,col:39
+        climatedatapath: /work/ab0246/a270092/input//FESOM2/hydrography/phc3.0/ # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:437,col:46
+        resultpath: <TEST_DIR>/run/fesom//fesom2.6-initial-monthly/run_19580101-19580101/work/ # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:438,col:41
       restart_log:
-        restart_length: 1  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:395,col:45
-        restart_length_unit: d # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:396,col:50
+        restart_length: 1  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:444,col:45
+        restart_length_unit: d # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:445,col:50
         raw_restart_length: 1 # no provenance info
         raw_restart_length_unit: y # no provenance info
         bin_restart_length: 1 # no provenance info
@@ -560,7 +560,7 @@ fesom:
         betaeuler: 15.0 # no provenance info
         gammaeuler: -90.0 # no provenance info
       calendar:
-        include_fleapyear: true  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:385,col:48
+        include_fleapyear: true  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:434,col:48
       run_config:
         use_ice: true  # no provenance info
         use_cavity: false # no provenance info
@@ -569,23 +569,23 @@ fesom:
         use_sw_pene: true # no provenance info
         flag_debug: false # no provenance info
         use_transit: false # no provenance info
-        lwiso: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:403,col:36
+        lwiso: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:452,col:36
       machine:
         n_levels: 2  # no provenance info
         n_part:
         - 12  # no provenance info
         - 36 # no provenance info
       icebergs:
-        use_icesheet_coupling: false  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:406,col:52
+        use_icesheet_coupling: false  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:455,col:52
         ib_num: 1 # no provenance info
-        use_icebergs: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:405,col:43
-        steps_per_ib_step: 8 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:407,col:48
+        use_icebergs: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:454,col:43
+        steps_per_ib_step: 8 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:456,col:48
         ib_async_mode: 0 # no provenance info
       inout:
-        restartflag: last  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:398,col:42
-        output_length: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:399,col:44
-        output_length_unit: d # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:400,col:49
-        restart_length: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:401,col:45
+        restartflag: last  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:447,col:42
+        output_length: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:448,col:44
+        output_length_unit: d # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:449,col:49
+        restart_length: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:450,col:45
     namelist.cvmix:
       param_tke:
         tke_c_k: 0.1  # no provenance info
@@ -671,19 +671,19 @@ fesom:
         se_visc_gamma2: 0 # no provenance info
     namelist.forcing:
       forcing_exchange_coeff:
-        ce_atm_oce: 0.00175  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:413,col:41
-        ch_atm_oce: 0.00175 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:414,col:41
-        cd_atm_oce: 0.001 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:415,col:41
-        ce_atm_ice: 0.00175 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:416,col:41
-        ch_atm_ice: 0.00175 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:417,col:41
-        cd_atm_ice: 0.0012 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:418,col:41
+        ce_atm_oce: 0.00175  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:462,col:41
+        ch_atm_oce: 0.00175 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:463,col:41
+        cd_atm_oce: 0.001 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:464,col:41
+        ce_atm_ice: 0.00175 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:465,col:41
+        ch_atm_ice: 0.00175 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:466,col:41
+        cd_atm_ice: 0.0012 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:467,col:41
         swind: 0.0 # no provenance info
       forcing_bulk:
-        aomip_drag_coeff: false  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:421,col:47
-        ncar_bulk_formulae: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:422,col:49
-        ncar_bulk_z_wind: 10 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:423,col:47
-        ncar_bulk_z_tair: 10 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:424,col:47
-        ncar_bulk_z_shum: 10 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:425,col:47
+        aomip_drag_coeff: false  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:470,col:47
+        ncar_bulk_formulae: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:471,col:49
+        ncar_bulk_z_wind: 10 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:472,col:47
+        ncar_bulk_z_tair: 10 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:473,col:47
+        ncar_bulk_z_shum: 10 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:474,col:47
       land_ice:
         use_landice_water: false  # no provenance info
         landice_start_mon: 5 # no provenance info
@@ -695,49 +695,49 @@ fesom:
         age_tracer_path: ./mesh/ # no provenance info
         age_start_year: 2000 # no provenance info
       nam_sbc:
-        nm_xwind_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//uas.  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:428,col:44
-        nm_ywind_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//vas. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:429,col:44
+        nm_xwind_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//uas.  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:477,col:44
+        nm_ywind_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//vas. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:478,col:44
         nm_xstre_file: /pool/data/AWICM/FESOM2/FORCING/JRA55-do-v1.4.0/uas. # no provenance info
         nm_ystre_file: /pool/data/AWICM/FESOM2/FORCING/JRA55-do-v1.4.0/vas. # no provenance info
-        nm_humi_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//huss. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:430,col:43
-        nm_qsr_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//rsds. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:431,col:42
-        nm_qlw_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//rlds. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:432,col:42
-        nm_tair_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//tas. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:433,col:43
-        nm_prec_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//prra. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:434,col:43
-        nm_snow_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//prsn. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:435,col:43
-        nm_mslp_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//psl. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:436,col:43
-        nm_xwind_var: uas # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:438,col:43
-        nm_ywind_var: vas # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:439,col:43
+        nm_humi_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//huss. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:479,col:43
+        nm_qsr_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//rsds. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:480,col:42
+        nm_qlw_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//rlds. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:481,col:42
+        nm_tair_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//tas. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:482,col:43
+        nm_prec_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//prra. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:483,col:43
+        nm_snow_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//prsn. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:484,col:43
+        nm_mslp_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//psl. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:485,col:43
+        nm_xwind_var: uas # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:487,col:43
+        nm_ywind_var: vas # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:488,col:43
         nm_xstre_var: uas # no provenance info
         nm_ystre_var: vas # no provenance info
-        nm_humi_var: huss # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:440,col:42
-        nm_qsr_var: rsds # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:441,col:41
-        nm_qlw_var: rlds # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:442,col:41
-        nm_tair_var: tas # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:443,col:42
-        nm_prec_var: prra # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:444,col:42
-        nm_snow_var: prsn # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:445,col:42
-        nm_mslp_var: psl # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:446,col:42
-        nm_nc_iyear: 1900 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:448,col:42
-        nm_nc_imm: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:449,col:40
-        nm_nc_idd: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:450,col:40
-        nm_nc_freq: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:451,col:41
-        nm_nc_tmid: 0 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:452,col:41
-        l_xwind: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:453,col:38
-        l_ywind: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:454,col:38
+        nm_humi_var: huss # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:489,col:42
+        nm_qsr_var: rsds # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:490,col:41
+        nm_qlw_var: rlds # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:491,col:41
+        nm_tair_var: tas # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:492,col:42
+        nm_prec_var: prra # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:493,col:42
+        nm_snow_var: prsn # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:494,col:42
+        nm_mslp_var: psl # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:495,col:42
+        nm_nc_iyear: 1900 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:497,col:42
+        nm_nc_imm: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:498,col:40
+        nm_nc_idd: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:499,col:40
+        nm_nc_freq: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:500,col:41
+        nm_nc_tmid: 0 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:501,col:41
+        l_xwind: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:502,col:38
+        l_ywind: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:503,col:38
         l_xstre: false # no provenance info
         l_ystre: false # no provenance info
-        l_humi: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:455,col:37
-        l_qsr: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:456,col:36
-        l_qlw: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:457,col:36
-        l_tair: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:458,col:37
-        l_prec: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:459,col:37
-        l_mslp: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:460,col:37
-        l_cloud: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:461,col:38
-        l_snow: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:462,col:37
-        runoff_data_source: CORE2 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:467,col:49
-        nm_runoff_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//CORE2_runoff.nc # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:464,col:45
-        sss_data_source: CORE2 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:468,col:46
-        nm_sss_data_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//PHC2_salx.nc # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:465,col:47
+        l_humi: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:504,col:37
+        l_qsr: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:505,col:36
+        l_qlw: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:506,col:36
+        l_tair: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:507,col:37
+        l_prec: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:508,col:37
+        l_mslp: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:509,col:37
+        l_cloud: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:510,col:38
+        l_snow: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:511,col:37
+        runoff_data_source: CORE2 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:516,col:49
+        nm_runoff_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//CORE2_runoff.nc # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:513,col:45
+        sss_data_source: CORE2 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:517,col:46
+        nm_sss_data_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//PHC2_salx.nc # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:514,col:47
         chl_data_source: None # no provenance info
         nm_chl_data_file: /pool/data/AWICM/FESOM2/FORCING/JRA55-do-v1.4.0/Sweeney/Sweeney_2005.nc # no provenance info
         chl_const: 0.1 # no provenance info
@@ -746,14 +746,14 @@ fesom:
         runoff_radius: 500000.0 # no provenance info
     namelist.ice:
       ice_dyn:
-        whichevp: 0  # no provenance info
+        whichevp: 0  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:520,col:39
         pstar: 30000.0 # no provenance info
         ellipse: 2.0 # no provenance info
         c_pressure: 20.0 # no provenance info
         delta_min: 1e-11 # no provenance info
         evp_rheol_steps: 120 # no provenance info
-        alpha_evp: 250 # no provenance info
-        beta_evp: 250 # no provenance info
+        alpha_evp: 250 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:521,col:40
+        beta_evp: 250 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:522,col:39
         c_aevp: 0.15 # no provenance info
         cd_oce_ice: 0.0055 # no provenance info
         ice_gamma_fct: 0.5 # no provenance info
@@ -955,11 +955,11 @@ fesom:
         - 4 # no provenance info
         - 'temp      ' # no provenance info
         - 1 # no provenance info
-        - y # no provenance info
+        - m # no provenance info
         - 4 # no provenance info
         - 'salt      ' # no provenance info
         - 1 # no provenance info
-        - y # no provenance info
+        - m # no provenance info
         - 8 # no provenance info
         - 'N2        ' # no provenance info
         - 1 # no provenance info
@@ -1130,6 +1130,7 @@ fesom:
         arg_0: 0.01 # no provenance info
         decay14: 3.8561e-12 # no provenance info
         decay39: 8.1708e-11 # no provenance info
+  whichEVP: 0 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:121,col:15
   restart_out_sources: {}
   outdata_sources: {}
   outdata_targets: {}
@@ -1138,55 +1139,55 @@ fesom:
     mesh_diag: <TEST_DIR>/run/fesom//fesom2.6-initial-monthly/run_19580101-19580101/work//fesom.mesh.diag.nc # no provenance info
   file_movements:
     fesom_raw_restart_in:
-      init_to_exp: move  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:335,col:37
-      exp_to_run: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:335,col:37
-      run_to_work: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:335,col:37
-      work_to_run: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:335,col:37
+      init_to_exp: move  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:384,col:37
+      exp_to_run: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:384,col:37
+      run_to_work: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:384,col:37
+      work_to_run: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:384,col:37
     fesom_raw_restart_out:
-      init_to_exp: move  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:337,col:37
-      exp_to_run: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:337,col:37
-      run_to_work: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:337,col:37
-      work_to_run: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:337,col:37
+      init_to_exp: move  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:386,col:37
+      exp_to_run: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:386,col:37
+      run_to_work: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:386,col:37
+      work_to_run: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:386,col:37
     fesom_raw_restart_info_in:
-      init_to_exp: move  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:339,col:37
-      exp_to_run: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:339,col:37
-      run_to_work: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:339,col:37
-      work_to_run: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:339,col:37
+      init_to_exp: move  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:388,col:37
+      exp_to_run: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:388,col:37
+      run_to_work: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:388,col:37
+      work_to_run: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:388,col:37
     fesom_raw_restart_info_out:
-      init_to_exp: move  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:341,col:37
-      exp_to_run: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:341,col:37
-      run_to_work: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:341,col:37
-      work_to_run: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:341,col:37
+      init_to_exp: move  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:390,col:37
+      exp_to_run: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:390,col:37
+      run_to_work: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:390,col:37
+      work_to_run: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:390,col:37
     fesom_raw_restart_tar_out:
-      init_to_exp: move  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:343,col:37
-      exp_to_run: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:343,col:37
-      run_to_work: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:343,col:37
-      work_to_run: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:343,col:37
+      init_to_exp: move  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:392,col:37
+      exp_to_run: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:392,col:37
+      run_to_work: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:392,col:37
+      work_to_run: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:392,col:37
     fesom_bin_restart_in:
-      init_to_exp: move  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:345,col:37
-      exp_to_run: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:345,col:37
-      run_to_work: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:345,col:37
-      work_to_run: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:345,col:37
+      init_to_exp: move  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:394,col:37
+      exp_to_run: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:394,col:37
+      run_to_work: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:394,col:37
+      work_to_run: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:394,col:37
     fesom_bin_restart_out:
-      init_to_exp: move  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:347,col:37
-      exp_to_run: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:347,col:37
-      run_to_work: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:347,col:37
-      work_to_run: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:347,col:37
+      init_to_exp: move  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:396,col:37
+      exp_to_run: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:396,col:37
+      run_to_work: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:396,col:37
+      work_to_run: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:396,col:37
     fesom_bin_restart_info_in:
-      init_to_exp: move  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:349,col:37
-      exp_to_run: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:349,col:37
-      run_to_work: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:349,col:37
-      work_to_run: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:349,col:37
+      init_to_exp: move  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:398,col:37
+      exp_to_run: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:398,col:37
+      run_to_work: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:398,col:37
+      work_to_run: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:398,col:37
     fesom_bin_restart_info_out:
-      init_to_exp: move  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:351,col:37
-      exp_to_run: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:351,col:37
-      run_to_work: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:351,col:37
-      work_to_run: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:351,col:37
+      init_to_exp: move  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:400,col:37
+      exp_to_run: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:400,col:37
+      run_to_work: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:400,col:37
+      work_to_run: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:400,col:37
     fesom_bin_restart_tar_out:
-      init_to_exp: move  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:353,col:37
-      exp_to_run: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:353,col:37
-      run_to_work: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:353,col:37
-      work_to_run: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:353,col:37
+      init_to_exp: move  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:402,col:37
+      exp_to_run: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:402,col:37
+      run_to_work: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:402,col:37
+      work_to_run: move # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:402,col:37
     analysis:
       init_to_exp: copy  # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
       exp_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
@@ -1262,242 +1263,253 @@ fesom:
       exp_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
       run_to_work: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
       work_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:14,col:41
-  branchoff: false  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:361,col:16
+  branchoff: false  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:410,col:16
   namelist_changes:
     namelist.config:
       clockinit:
-        daynew: 1  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:382,col:37
-        yearnew: 1958 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:383,col:38
+        daynew: 1  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:431,col:37
+        yearnew: 1958 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:432,col:38
       calendar:
-        include_fleapyear: true  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:385,col:48
+        include_fleapyear: true  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:434,col:48
       paths:
-        MeshPath: /work/ba0989/a270124/PalModII/experiments/ICEBERGS/mesh_core2/  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:387,col:39
-        ClimateDataPath: /work/ab0246/a270092/input//FESOM2/hydrography/phc3.0/ # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:388,col:46
-        ResultPath: <TEST_DIR>/run/fesom//fesom2.6-initial-monthly/run_19580101-19580101/work/ # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:389,col:41
+        MeshPath: /work/ba0989/a270124/PalModII/experiments/ICEBERGS/mesh_core2/  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:436,col:39
+        ClimateDataPath: /work/ab0246/a270092/input//FESOM2/hydrography/phc3.0/ # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:437,col:46
+        ResultPath: <TEST_DIR>/run/fesom//fesom2.6-initial-monthly/run_19580101-19580101/work/ # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:438,col:41
       timestep:
-        step_per_day: 48  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:391,col:43
-        run_length: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:392,col:41
-        run_length_unit: d # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:393,col:46
+        step_per_day: 48  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:440,col:43
+        run_length: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:441,col:41
+        run_length_unit: d # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:442,col:46
       restart_log:
-        restart_length: 1  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:395,col:45
-        restart_length_unit: d # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:396,col:50
+        restart_length: 1  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:444,col:45
+        restart_length_unit: d # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:445,col:50
       inout:
-        restartflag: last  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:398,col:42
-        output_length: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:399,col:44
-        output_length_unit: d # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:400,col:49
-        restart_length: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:401,col:45
+        restartflag: last  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:447,col:42
+        output_length: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:448,col:44
+        output_length_unit: d # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:449,col:49
+        restart_length: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:450,col:45
       run_config:
-        lwiso: false  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:403,col:36
+        lwiso: false  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:452,col:36
       icebergs:
-        use_icebergs: false  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:405,col:43
-        use_icesheet_coupling: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:406,col:52
-        steps_per_ib_step: 8 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:407,col:48
+        use_icebergs: false  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:454,col:43
+        use_icesheet_coupling: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:455,col:52
+        steps_per_ib_step: 8 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:456,col:48
     namelist.forcing:
       forcing_exchange_coeff:
-        Ce_atm_oce: 0.00175  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:413,col:41
-        Ch_atm_oce: 0.00175 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:414,col:41
-        Cd_atm_oce: 0.001 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:415,col:41
-        Ce_atm_ice: 0.00175 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:416,col:41
-        Ch_atm_ice: 0.00175 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:417,col:41
-        Cd_atm_ice: 0.0012 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:418,col:41
+        Ce_atm_oce: 0.00175  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:462,col:41
+        Ch_atm_oce: 0.00175 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:463,col:41
+        Cd_atm_oce: 0.001 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:464,col:41
+        Ce_atm_ice: 0.00175 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:465,col:41
+        Ch_atm_ice: 0.00175 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:466,col:41
+        Cd_atm_ice: 0.0012 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:467,col:41
       forcing_bulk:
-        AOMIP_drag_coeff: false  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:421,col:47
-        ncar_bulk_formulae: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:422,col:49
-        ncar_bulk_z_wind: 10 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:423,col:47
-        ncar_bulk_z_tair: 10 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:424,col:47
-        ncar_bulk_z_shum: 10 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:425,col:47
+        AOMIP_drag_coeff: false  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:470,col:47
+        ncar_bulk_formulae: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:471,col:49
+        ncar_bulk_z_wind: 10 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:472,col:47
+        ncar_bulk_z_tair: 10 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:473,col:47
+        ncar_bulk_z_shum: 10 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:474,col:47
       nam_sbc:
-        nm_xwind_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//uas.  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:428,col:44
-        nm_ywind_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//vas. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:429,col:44
-        nm_humi_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//huss. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:430,col:43
-        nm_qsr_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//rsds. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:431,col:42
-        nm_qlw_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//rlds. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:432,col:42
-        nm_tair_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//tas. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:433,col:43
-        nm_prec_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//prra. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:434,col:43
-        nm_snow_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//prsn. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:435,col:43
-        nm_mslp_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//psl. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:436,col:43
-        nm_xwind_var: uas # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:438,col:43
-        nm_ywind_var: vas # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:439,col:43
-        nm_humi_var: huss # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:440,col:42
-        nm_qsr_var: rsds # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:441,col:41
-        nm_qlw_var: rlds # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:442,col:41
-        nm_tair_var: tas # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:443,col:42
-        nm_prec_var: prra # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:444,col:42
-        nm_snow_var: prsn # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:445,col:42
-        nm_mslp_var: psl # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:446,col:42
-        nm_nc_iyear: 1900 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:448,col:42
-        nm_nc_imm: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:449,col:40
-        nm_nc_idd: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:450,col:40
-        nm_nc_freq: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:451,col:41
-        nm_nc_tmid: 0 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:452,col:41
-        l_xwind: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:453,col:38
-        l_ywind: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:454,col:38
-        l_humi: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:455,col:37
-        l_qsr: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:456,col:36
-        l_qlw: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:457,col:36
-        l_tair: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:458,col:37
-        l_prec: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:459,col:37
-        l_mslp: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:460,col:37
-        l_cloud: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:461,col:38
-        l_snow: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:462,col:37
-        nm_runoff_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//CORE2_runoff.nc # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:464,col:45
-        nm_sss_data_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//PHC2_salx.nc # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:465,col:47
-        runoff_data_source: CORE2 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:467,col:49
-        sss_data_source: CORE2 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:468,col:46
-  use_landice_water: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:470,col:24
-  lasttime: 84600 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:494,col:15
-  currentday: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:495,col:17
+        nm_xwind_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//uas.  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:477,col:44
+        nm_ywind_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//vas. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:478,col:44
+        nm_humi_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//huss. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:479,col:43
+        nm_qsr_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//rsds. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:480,col:42
+        nm_qlw_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//rlds. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:481,col:42
+        nm_tair_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//tas. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:482,col:43
+        nm_prec_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//prra. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:483,col:43
+        nm_snow_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//prsn. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:484,col:43
+        nm_mslp_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//psl. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:485,col:43
+        nm_xwind_var: uas # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:487,col:43
+        nm_ywind_var: vas # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:488,col:43
+        nm_humi_var: huss # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:489,col:42
+        nm_qsr_var: rsds # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:490,col:41
+        nm_qlw_var: rlds # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:491,col:41
+        nm_tair_var: tas # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:492,col:42
+        nm_prec_var: prra # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:493,col:42
+        nm_snow_var: prsn # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:494,col:42
+        nm_mslp_var: psl # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:495,col:42
+        nm_nc_iyear: 1900 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:497,col:42
+        nm_nc_imm: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:498,col:40
+        nm_nc_idd: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:499,col:40
+        nm_nc_freq: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:500,col:41
+        nm_nc_tmid: 0 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:501,col:41
+        l_xwind: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:502,col:38
+        l_ywind: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:503,col:38
+        l_humi: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:504,col:37
+        l_qsr: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:505,col:36
+        l_qlw: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:506,col:36
+        l_tair: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:507,col:37
+        l_prec: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:508,col:37
+        l_mslp: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:509,col:37
+        l_cloud: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:510,col:38
+        l_snow: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:511,col:37
+        nm_runoff_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//CORE2_runoff.nc # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:513,col:45
+        nm_sss_data_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//PHC2_salx.nc # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:514,col:47
+        runoff_data_source: CORE2 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:516,col:49
+        sss_data_source: CORE2 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:517,col:46
+    namelist.ice:
+      ice_dyn:
+        whichEVP: 0  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:520,col:39
+        alpha_evp: 250 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:521,col:40
+        beta_evp: 250 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:522,col:39
+  use_landice_water: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:524,col:24
+  lasttime: 84600 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:548,col:15
+  currentday: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:549,col:17
   bin_sources:
-    bin: <TEST_DIR>/comp/fesom/fesom-2.6/bin/fesom.x  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:521,col:18
-    lib: <TEST_DIR>/comp/fesom/fesom-2.6/build/lib/libfesom.so # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:522,col:18
+    bin: <TEST_DIR>/comp/fesom/fesom-2.6/bin/fesom.x  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:575,col:18
+    lib: <TEST_DIR>/comp/fesom/fesom-2.6/build/lib/libfesom.so # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:576,col:18
   config_sources:
-    config: <HOME_DIR>/esm_tools/namelists//fesom2/2.6.7//namelist.config  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:539,col:22
-    cvmix: <HOME_DIR>/esm_tools/namelists//fesom2/2.6.7//namelist.cvmix # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:540,col:22
-    dyn: <HOME_DIR>/esm_tools/namelists//fesom2/2.6.7//namelist.dyn # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:541,col:22
-    forcing: <HOME_DIR>/esm_tools/namelists//fesom2/2.6.7//namelist.forcing # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:542,col:22
-    ice: <HOME_DIR>/esm_tools/namelists//fesom2/2.6.7//namelist.ice # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:543,col:22
-    icepack: <HOME_DIR>/esm_tools/namelists//fesom2/2.6.7//namelist.icepack # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:544,col:22
-    io: <HOME_DIR>/esm_tools/namelists//fesom2/2.6.7//namelist.io # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:545,col:22
-    oce: <HOME_DIR>/esm_tools/namelists//fesom2/2.6.7//namelist.oce # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:546,col:22
-    tra: <HOME_DIR>/esm_tools/namelists//fesom2/2.6.7//namelist.tra # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:547,col:22
-    transit: <HOME_DIR>/esm_tools/namelists//fesom2/2.6.7//namelist.transit # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:548,col:22
+    config: <HOME_DIR>/esm_tools/namelists//fesom2/2.6.7//namelist.config  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:593,col:22
+    cvmix: <HOME_DIR>/esm_tools/namelists//fesom2/2.6.7//namelist.cvmix # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:594,col:22
+    dyn: <HOME_DIR>/esm_tools/namelists//fesom2/2.6.7//namelist.dyn # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:595,col:22
+    forcing: <HOME_DIR>/esm_tools/namelists//fesom2/2.6.7//namelist.forcing # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:596,col:22
+    ice: <HOME_DIR>/esm_tools/namelists//fesom2/2.6.7//namelist.ice # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:597,col:22
+    icepack: <HOME_DIR>/esm_tools/namelists//fesom2/2.6.7//namelist.icepack # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:598,col:22
+    io: <HOME_DIR>/esm_tools/namelists//fesom2/2.6.7//namelist.io # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:599,col:22
+    oce: <HOME_DIR>/esm_tools/namelists//fesom2/2.6.7//namelist.oce # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:600,col:22
+    tra: <HOME_DIR>/esm_tools/namelists//fesom2/2.6.7//namelist.tra # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:601,col:22
+    transit: <HOME_DIR>/esm_tools/namelists//fesom2/2.6.7//namelist.transit # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:602,col:22
     fesom.clock: <TEST_DIR>/run/fesom//fesom2.6-initial-monthly/run_19580101-19580101/config/fesom//fesom.clock # no provenance info
   coupling_fields:
     sst_feom:
-      grid: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:564,col:27
+      grid: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:618,col:27
     sit_feom:
-      grid: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:566,col:27
+      grid: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:620,col:27
     sie_feom:
-      grid: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:568,col:27
+      grid: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:622,col:27
     snt_feom:
-      grid: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:570,col:27
+      grid: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:624,col:27
     u_feom:
-      grid: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:572,col:27
+      grid: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:626,col:27
     v_feom:
-      grid: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:574,col:27
+      grid: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:628,col:27
     taux_oce:
-      grid: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:576,col:27
+      grid: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:630,col:27
     tauy_oce:
-      grid: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:578,col:27
+      grid: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:632,col:27
     taux_ico:
-      grid: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:580,col:27
+      grid: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:634,col:27
     tauy_ico:
-      grid: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:582,col:27
+      grid: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:636,col:27
     prec_oce:
-      grid: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:584,col:27
+      grid: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:638,col:27
     snow_oce:
-      grid: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:586,col:27
+      grid: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:640,col:27
     evap_oce:
-      grid: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:588,col:27
+      grid: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:642,col:27
     subl_oce:
-      grid: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:590,col:27
+      grid: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:644,col:27
     heat_oce:
-      grid: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:592,col:27
+      grid: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:646,col:27
     heat_ico:
-      grid: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:594,col:27
+      grid: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:648,col:27
     heat_swo:
-      grid: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:596,col:27
+      grid: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:650,col:27
     hydr_oce:
-      grid: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:598,col:27
+      grid: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:652,col:27
     calv_oce:
-      grid: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:600,col:27
+      grid: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:654,col:27
     enth_oce:
-      grid: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:602,col:27
+      grid: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:656,col:27
+    u10w_oce:
+      grid: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:658,col:27
+    v10w_oce:
+      grid: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:660,col:27
   wiso_fields:
-  - o18w_oce  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:606,col:15
-  - hdow_oce # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:607,col:15
-  - o16w_oce # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:608,col:15
-  - o18i_oce # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:609,col:15
-  - hdoi_oce # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:610,col:15
-  - o16i_oce # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:611,col:15
-  - w1_oce # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:612,col:15
-  - w2_oce # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:613,col:15
-  - w3_oce # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:614,col:15
-  - i1_oce # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:615,col:15
-  - i2_oce # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:616,col:15
-  - i3_oce # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:617,col:15
+  - o18w_oce  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:664,col:15
+  - hdow_oce # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:665,col:15
+  - o16w_oce # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:666,col:15
+  - o18i_oce # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:667,col:15
+  - hdoi_oce # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:668,col:15
+  - o16i_oce # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:669,col:15
+  - w1_oce # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:670,col:15
+  - w2_oce # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:671,col:15
+  - w3_oce # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:672,col:15
+  - i1_oce # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:673,col:15
+  - i2_oce # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:674,col:15
+  - i3_oce # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:675,col:15
   grids:
     feom:
-      name: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:633,col:27
-      nx: 126858 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:634,col:25
-      ny: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:635,col:25
-      oasis_grid_type: U # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:636,col:38
-      oyac_grid_type: GC # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:637,col:37
-      oyac_io_per_node: 4 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:638,col:39
-      number_of_overlapping_points: 0 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:639,col:51
+      name: feom  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:691,col:27
+      nx: 126858 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:692,col:25
+      ny: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:693,col:25
+      oasis_grid_type: U # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:694,col:38
+      oyac_grid_type: GC # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:695,col:37
+      oyac_io_per_node: 4 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:696,col:39
+      number_of_overlapping_points: 0 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:697,col:51
   tidy_recipe:
-  - tidy_coupler  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:650,col:7
-  - tar_binary_restarts # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:651,col:7
-  - assemble # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:652,col:7
-  - check_for_unknown_files # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:653,col:7
-  - log_used_files # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:654,col:7
-  - throw_away_some_infiles # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:655,col:7
-  - copy_stuff_back_from_work # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:656,col:7
-  - copy_all_results_to_exp # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:657,col:7
-  - clean_run_dir # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:658,col:7
+  - tidy_coupler  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:708,col:7
+  - tar_binary_restarts # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:709,col:7
+  - assemble # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:710,col:7
+  - check_for_unknown_files # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:711,col:7
+  - log_used_files # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:712,col:7
+  - throw_away_some_infiles # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:713,col:7
+  - copy_stuff_back_from_work # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:714,col:7
+  - copy_all_results_to_exp # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:715,col:7
+  - clean_run_dir # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:716,col:7
   model_dir: <TEST_DIR>/comp/fesom/fesom-2.6 # <TEST_DIR>run/fesom/fesom2.6-initial-monthly/scripts/fesom2.6-initial-monthly.yaml,line:18,col:20
   mesh_dir: /work/ba0989/a270124/PalModII/experiments/ICEBERGS/mesh_core2/ # <TEST_DIR>run/fesom/fesom2.6-initial-monthly/scripts/fesom2.6-initial-monthly.yaml,line:21,col:19
   lresume: false # no provenance info
-  nx: 126858 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:120,col:25
-  nproc: 288 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:122,col:28
-  daynew: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:369,col:29
-  yearnew: 1958 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:370,col:30
+  nx: 126858 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:125,col:25
+  nproc: 288 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:127,col:28
+  alpha_evp: 250 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:129,col:32
+  beta_evp: 250 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:130,col:31
+  daynew: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:418,col:29
+  yearnew: 1958 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:419,col:30
   create_config:
     fesom.clock:
-    - <--append-- 0.0000000000000 1 1958  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:508,col:39
-    - <--append-- 0.0000000000000 1 1958 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:509,col:39
-  leapyear: true  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:124,col:27
-  forcing_folder: /JRA55-do-v1.4.0/ # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:125,col:33
-  Ce_atm_oce: 0.00175 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:127,col:29
-  Ch_atm_oce: 0.00175 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:128,col:29
-  Cd_atm_oce: 0.001 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:129,col:29
-  Ce_atm_ice: 0.00175 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:130,col:29
-  Ch_atm_ice: 0.00175 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:131,col:29
-  Cd_atm_ice: 0.0012 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:132,col:29
-  AOMIP_drag_coeff: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:134,col:35
-  ncar_bulk_formulae: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:135,col:37
-  ncar_bulk_z_wind: 10 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:136,col:35
-  ncar_bulk_z_tair: 10 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:137,col:35
-  ncar_bulk_z_shum: 10 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:138,col:35
-  xwind_prefix: uas. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:140,col:31
-  ywind_prefix: vas. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:141,col:31
-  humi_prefix: huss. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:142,col:30
-  qsr_prefix: rsds. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:143,col:29
-  qlw_prefix: rlds. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:144,col:29
-  tair_prefix: tas. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:145,col:30
-  prec_prefix: prra. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:146,col:30
-  snow_prefix: prsn. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:147,col:30
-  mslp_prefix: psl. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:148,col:30
-  nm_xwind_var: uas # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:150,col:31
-  nm_ywind_var: vas # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:151,col:31
-  nm_humi_var: huss # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:152,col:30
-  nm_qsr_var: rsds # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:153,col:29
-  nm_qlw_var: rlds # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:154,col:29
-  nm_tair_var: tas # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:155,col:30
-  nm_prec_var: prra # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:156,col:30
-  nm_snow_var: prsn # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:157,col:30
-  nm_mslp_var: psl # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:158,col:30
-  nm_nc_iyear: 1900 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:160,col:30
-  nm_nc_imm: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:161,col:28
-  nm_nc_idd: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:162,col:28
-  nm_nc_freq: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:163,col:29
-  nm_nc_tmid: 0 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:164,col:29
-  l_xwind: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:165,col:26
-  l_ywind: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:166,col:26
-  l_humi: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:167,col:25
-  l_qsr: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:168,col:24
-  l_qlw: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:169,col:24
-  l_tair: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:170,col:25
-  l_prec: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:171,col:25
-  l_mslp: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:172,col:25
-  l_cloud: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:173,col:26
-  l_snow: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:174,col:25
-  runoff_file: CORE2_runoff.nc # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:176,col:30
-  sss_data_file: PHC2_salx.nc # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:177,col:32
-  runoff_data_source: CORE2 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:179,col:37
-  sss_data_source: CORE2 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:180,col:34
-  starttime: 0 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:498,col:32
-  startday: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:499,col:31
+    - <--append-- 0.0000000000000 1 1958  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:562,col:39
+    - <--append-- 0.0000000000000 1 1958 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:563,col:39
+  leapyear: true  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:64,col:27
+  forcing_folder: /JRA55-do-v1.4.0/ # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:65,col:33
+  Ce_atm_oce: 0.00175 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:67,col:29
+  Ch_atm_oce: 0.00175 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:68,col:29
+  Cd_atm_oce: 0.001 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:69,col:29
+  Ce_atm_ice: 0.00175 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:70,col:29
+  Ch_atm_ice: 0.00175 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:71,col:29
+  Cd_atm_ice: 0.0012 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:72,col:29
+  AOMIP_drag_coeff: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:74,col:35
+  ncar_bulk_formulae: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:75,col:37
+  ncar_bulk_z_wind: 10 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:76,col:35
+  ncar_bulk_z_tair: 10 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:77,col:35
+  ncar_bulk_z_shum: 10 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:78,col:35
+  xwind_prefix: uas. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:80,col:31
+  ywind_prefix: vas. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:81,col:31
+  humi_prefix: huss. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:82,col:30
+  qsr_prefix: rsds. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:83,col:29
+  qlw_prefix: rlds. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:84,col:29
+  tair_prefix: tas. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:85,col:30
+  prec_prefix: prra. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:86,col:30
+  snow_prefix: prsn. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:87,col:30
+  mslp_prefix: psl. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:88,col:30
+  nm_xwind_var: uas # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:90,col:31
+  nm_ywind_var: vas # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:91,col:31
+  nm_humi_var: huss # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:92,col:30
+  nm_qsr_var: rsds # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:93,col:29
+  nm_qlw_var: rlds # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:94,col:29
+  nm_tair_var: tas # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:95,col:30
+  nm_prec_var: prra # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:96,col:30
+  nm_snow_var: prsn # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:97,col:30
+  nm_mslp_var: psl # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:98,col:30
+  nm_nc_iyear: 1900 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:100,col:30
+  nm_nc_imm: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:101,col:28
+  nm_nc_idd: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:102,col:28
+  nm_nc_freq: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:103,col:29
+  nm_nc_tmid: 0 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:104,col:29
+  l_xwind: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:105,col:26
+  l_ywind: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:106,col:26
+  l_humi: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:107,col:25
+  l_qsr: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:108,col:24
+  l_qlw: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:109,col:24
+  l_tair: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:110,col:25
+  l_prec: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:111,col:25
+  l_mslp: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:112,col:25
+  l_cloud: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:113,col:26
+  l_snow: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:114,col:25
+  runoff_file: CORE2_runoff.nc # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:116,col:30
+  sss_data_file: PHC2_salx.nc # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:117,col:32
+  runoff_data_source: CORE2 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:119,col:37
+  sss_data_source: CORE2 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.forcing.yaml,line:120,col:34
+  starttime: 0 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:552,col:32
+  startday: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:553,col:31
   experiment_analysis_dir: <TEST_DIR>/run/fesom//fesom2.6-initial-monthly/analysis/fesom/ # no provenance info
   thisrun_analysis_dir: <TEST_DIR>/run/fesom//fesom2.6-initial-monthly/run_19580101-19580101/analysis/fesom/ # no provenance info
   all_filetypes:
@@ -1597,20 +1609,20 @@ fesom:
       modelname:
         runid: fesom  # no provenance info
       timestep:
-        step_per_day: 48  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:391,col:43
-        run_length: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:392,col:41
-        run_length_unit: d # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:393,col:46
+        step_per_day: 48  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:440,col:43
+        run_length: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:441,col:41
+        run_length_unit: d # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:442,col:46
       clockinit:
         timenew: 0.0  # no provenance info
-        daynew: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:382,col:37
-        yearnew: 1958 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:383,col:38
+        daynew: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:431,col:37
+        yearnew: 1958 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:432,col:38
       paths:
-        meshpath: /work/ba0989/a270124/PalModII/experiments/ICEBERGS/mesh_core2/  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:387,col:39
-        climatedatapath: /work/ab0246/a270092/input//FESOM2/hydrography/phc3.0/ # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:388,col:46
-        resultpath: <TEST_DIR>/run/fesom//fesom2.6-initial-monthly/run_19580101-19580101/work/ # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:389,col:41
+        meshpath: /work/ba0989/a270124/PalModII/experiments/ICEBERGS/mesh_core2/  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:436,col:39
+        climatedatapath: /work/ab0246/a270092/input//FESOM2/hydrography/phc3.0/ # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:437,col:46
+        resultpath: <TEST_DIR>/run/fesom//fesom2.6-initial-monthly/run_19580101-19580101/work/ # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:438,col:41
       restart_log:
-        restart_length: 1  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:395,col:45
-        restart_length_unit: d # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:396,col:50
+        restart_length: 1  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:444,col:45
+        restart_length_unit: d # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:445,col:50
         raw_restart_length: 1 # no provenance info
         raw_restart_length_unit: y # no provenance info
         bin_restart_length: 1 # no provenance info
@@ -1629,7 +1641,7 @@ fesom:
         betaeuler: 15.0 # no provenance info
         gammaeuler: -90.0 # no provenance info
       calendar:
-        include_fleapyear: true  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:385,col:48
+        include_fleapyear: true  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:434,col:48
       run_config:
         use_ice: true  # no provenance info
         use_cavity: false # no provenance info
@@ -1638,23 +1650,23 @@ fesom:
         use_sw_pene: true # no provenance info
         flag_debug: false # no provenance info
         use_transit: false # no provenance info
-        lwiso: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:403,col:36
+        lwiso: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:452,col:36
       machine:
         n_levels: 2  # no provenance info
         n_part:
         - 12  # no provenance info
         - 36 # no provenance info
       icebergs:
-        use_icesheet_coupling: false  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:406,col:52
+        use_icesheet_coupling: false  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:455,col:52
         ib_num: 1 # no provenance info
-        use_icebergs: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:405,col:43
-        steps_per_ib_step: 8 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:407,col:48
+        use_icebergs: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:454,col:43
+        steps_per_ib_step: 8 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:456,col:48
         ib_async_mode: 0 # no provenance info
       inout:
-        restartflag: last  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:398,col:42
-        output_length: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:399,col:44
-        output_length_unit: d # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:400,col:49
-        restart_length: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:401,col:45
+        restartflag: last  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:447,col:42
+        output_length: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:448,col:44
+        output_length_unit: d # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:449,col:49
+        restart_length: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:450,col:45
     namelist.cvmix:
       param_tke:
         tke_c_k: 0.1  # no provenance info
@@ -1740,19 +1752,19 @@ fesom:
         se_visc_gamma2: 0 # no provenance info
     namelist.forcing:
       forcing_exchange_coeff:
-        ce_atm_oce: 0.00175  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:413,col:41
-        ch_atm_oce: 0.00175 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:414,col:41
-        cd_atm_oce: 0.001 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:415,col:41
-        ce_atm_ice: 0.00175 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:416,col:41
-        ch_atm_ice: 0.00175 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:417,col:41
-        cd_atm_ice: 0.0012 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:418,col:41
+        ce_atm_oce: 0.00175  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:462,col:41
+        ch_atm_oce: 0.00175 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:463,col:41
+        cd_atm_oce: 0.001 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:464,col:41
+        ce_atm_ice: 0.00175 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:465,col:41
+        ch_atm_ice: 0.00175 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:466,col:41
+        cd_atm_ice: 0.0012 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:467,col:41
         swind: 0.0 # no provenance info
       forcing_bulk:
-        aomip_drag_coeff: false  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:421,col:47
-        ncar_bulk_formulae: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:422,col:49
-        ncar_bulk_z_wind: 10 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:423,col:47
-        ncar_bulk_z_tair: 10 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:424,col:47
-        ncar_bulk_z_shum: 10 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:425,col:47
+        aomip_drag_coeff: false  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:470,col:47
+        ncar_bulk_formulae: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:471,col:49
+        ncar_bulk_z_wind: 10 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:472,col:47
+        ncar_bulk_z_tair: 10 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:473,col:47
+        ncar_bulk_z_shum: 10 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:474,col:47
       land_ice:
         use_landice_water: false  # no provenance info
         landice_start_mon: 5 # no provenance info
@@ -1764,49 +1776,49 @@ fesom:
         age_tracer_path: ./mesh/ # no provenance info
         age_start_year: 2000 # no provenance info
       nam_sbc:
-        nm_xwind_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//uas.  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:428,col:44
-        nm_ywind_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//vas. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:429,col:44
+        nm_xwind_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//uas.  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:477,col:44
+        nm_ywind_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//vas. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:478,col:44
         nm_xstre_file: /pool/data/AWICM/FESOM2/FORCING/JRA55-do-v1.4.0/uas. # no provenance info
         nm_ystre_file: /pool/data/AWICM/FESOM2/FORCING/JRA55-do-v1.4.0/vas. # no provenance info
-        nm_humi_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//huss. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:430,col:43
-        nm_qsr_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//rsds. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:431,col:42
-        nm_qlw_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//rlds. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:432,col:42
-        nm_tair_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//tas. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:433,col:43
-        nm_prec_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//prra. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:434,col:43
-        nm_snow_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//prsn. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:435,col:43
-        nm_mslp_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//psl. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:436,col:43
-        nm_xwind_var: uas # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:438,col:43
-        nm_ywind_var: vas # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:439,col:43
+        nm_humi_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//huss. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:479,col:43
+        nm_qsr_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//rsds. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:480,col:42
+        nm_qlw_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//rlds. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:481,col:42
+        nm_tair_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//tas. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:482,col:43
+        nm_prec_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//prra. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:483,col:43
+        nm_snow_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//prsn. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:484,col:43
+        nm_mslp_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//psl. # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:485,col:43
+        nm_xwind_var: uas # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:487,col:43
+        nm_ywind_var: vas # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:488,col:43
         nm_xstre_var: uas # no provenance info
         nm_ystre_var: vas # no provenance info
-        nm_humi_var: huss # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:440,col:42
-        nm_qsr_var: rsds # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:441,col:41
-        nm_qlw_var: rlds # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:442,col:41
-        nm_tair_var: tas # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:443,col:42
-        nm_prec_var: prra # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:444,col:42
-        nm_snow_var: prsn # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:445,col:42
-        nm_mslp_var: psl # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:446,col:42
-        nm_nc_iyear: 1900 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:448,col:42
-        nm_nc_imm: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:449,col:40
-        nm_nc_idd: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:450,col:40
-        nm_nc_freq: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:451,col:41
-        nm_nc_tmid: 0 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:452,col:41
-        l_xwind: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:453,col:38
-        l_ywind: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:454,col:38
+        nm_humi_var: huss # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:489,col:42
+        nm_qsr_var: rsds # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:490,col:41
+        nm_qlw_var: rlds # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:491,col:41
+        nm_tair_var: tas # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:492,col:42
+        nm_prec_var: prra # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:493,col:42
+        nm_snow_var: prsn # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:494,col:42
+        nm_mslp_var: psl # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:495,col:42
+        nm_nc_iyear: 1900 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:497,col:42
+        nm_nc_imm: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:498,col:40
+        nm_nc_idd: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:499,col:40
+        nm_nc_freq: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:500,col:41
+        nm_nc_tmid: 0 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:501,col:41
+        l_xwind: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:502,col:38
+        l_ywind: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:503,col:38
         l_xstre: false # no provenance info
         l_ystre: false # no provenance info
-        l_humi: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:455,col:37
-        l_qsr: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:456,col:36
-        l_qlw: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:457,col:36
-        l_tair: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:458,col:37
-        l_prec: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:459,col:37
-        l_mslp: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:460,col:37
-        l_cloud: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:461,col:38
-        l_snow: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:462,col:37
-        runoff_data_source: CORE2 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:467,col:49
-        nm_runoff_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//CORE2_runoff.nc # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:464,col:45
-        sss_data_source: CORE2 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:468,col:46
-        nm_sss_data_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//PHC2_salx.nc # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:465,col:47
+        l_humi: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:504,col:37
+        l_qsr: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:505,col:36
+        l_qlw: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:506,col:36
+        l_tair: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:507,col:37
+        l_prec: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:508,col:37
+        l_mslp: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:509,col:37
+        l_cloud: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:510,col:38
+        l_snow: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:511,col:37
+        runoff_data_source: CORE2 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:516,col:49
+        nm_runoff_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//CORE2_runoff.nc # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:513,col:45
+        sss_data_source: CORE2 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:517,col:46
+        nm_sss_data_file: /work/ab0246/a270092/input//forcing///JRA55-do-v1.4.0//PHC2_salx.nc # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:514,col:47
         chl_data_source: None # no provenance info
         nm_chl_data_file: /pool/data/AWICM/FESOM2/FORCING/JRA55-do-v1.4.0/Sweeney/Sweeney_2005.nc # no provenance info
         chl_const: 0.1 # no provenance info
@@ -1815,14 +1827,14 @@ fesom:
         runoff_radius: 500000.0 # no provenance info
     namelist.ice:
       ice_dyn:
-        whichevp: 0  # no provenance info
+        whichevp: 0  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:520,col:39
         pstar: 30000.0 # no provenance info
         ellipse: 2.0 # no provenance info
         c_pressure: 20.0 # no provenance info
         delta_min: 1e-11 # no provenance info
         evp_rheol_steps: 120 # no provenance info
-        alpha_evp: 250 # no provenance info
-        beta_evp: 250 # no provenance info
+        alpha_evp: 250 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:521,col:40
+        beta_evp: 250 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.6.yaml,line:522,col:39
         c_aevp: 0.15 # no provenance info
         cd_oce_ice: 0.0055 # no provenance info
         ice_gamma_fct: 0.5 # no provenance info
@@ -2024,11 +2036,11 @@ fesom:
         - 4 # no provenance info
         - 'temp      ' # no provenance info
         - 1 # no provenance info
-        - y # no provenance info
+        - m # no provenance info
         - 4 # no provenance info
         - 'salt      ' # no provenance info
         - 1 # no provenance info
-        - y # no provenance info
+        - m # no provenance info
         - 8 # no provenance info
         - 'N2        ' # no provenance info
         - 1 # no provenance info
