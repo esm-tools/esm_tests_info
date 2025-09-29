@@ -4,7 +4,7 @@
 #SBATCH --nodes=5
 #SBATCH --output=<TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/log/awicm3-frontiers-xios-TCO159L91-CORE2_initial_awicm3_compute_20000101-20000101_%j.log --error=<TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/log/awicm3-frontiers-xios-TCO159L91-CORE2_initial_awicm3_compute_20000101-20000101_%j.log
 #SBATCH --job-name=awicm3-frontiers-xios-TCO159L91-CORE2_initial
-#SBATCH --account=None
+#SBATCH --account=ab0246
 #SBATCH --mail-type=NONE
 #SBATCH --exclusive
 
@@ -82,7 +82,7 @@ export FESOM_USE_CPLNG="active"
 export ECE_CPL_NEMO_LIM="false"
 export ECE_CPL_FESOM_FESIM="true"
 export ECE_AWI_CPL_FESOM="true"
-export ACCOUNT=None
+export ACCOUNT=ab0246
 export ESM_TESTING_DIR=<TEST_DIR>/run/awicm3/
 export MODEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios
 export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
@@ -96,7 +96,7 @@ unset SLURM_ARBITRARY_NODELIST
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 1173 - start >> <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/log//awicm3-frontiers-xios-TCO159L91-CORE2_initial_awicm3.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 2000-01-01T00:00:00 1587758 - start" >> <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/log//awicm3-frontiers-xios-TCO159L91-CORE2_initial_awicm3.log
 
 cd <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work/
 
@@ -136,8 +136,8 @@ time srun -l --hint=nomultithread --multi-prog hostfile_srun 2>&1 &
 process=$! 
 # Comment the following line if you don't want esm_runscripts to restart:
 cd <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/scripts/
-esm_runscripts awicm3-frontiers-xios-TCO159L91-CORE2_initial.yaml -e awicm3-frontiers-xios-TCO159L91-CORE2_initial -t observe_compute -p ${process} -s 20000101 -r 1 -v  --last-jobtype prepcompute --open-run
+esm_runscripts awicm3-frontiers-xios-TCO159L91-CORE2_initial.yaml -e awicm3-frontiers-xios-TCO159L91-CORE2_initial -t observe_compute -p ${process} -s 20000101 -r 1 -v --last-jobtype prepcompute --open-run
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 1173 - done >> <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/log//awicm3-frontiers-xios-TCO159L91-CORE2_initial_awicm3.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 2000-01-01T00:00:00 1587758 - done" >> <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/log//awicm3-frontiers-xios-TCO159L91-CORE2_initial_awicm3.log
 
 wait
