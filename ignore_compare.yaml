@@ -4,7 +4,7 @@
     - "--account="
     - "#PBS -A "
     - "echo $(date +%c) : compute"
-    - 'echo \$\(date \+"%a %b  %e %T %Y"\) :' # Matches 'echo $(date +"%a %b  %e %T %Y") :'
+    - 'echo " \$\(date \+"%Y-%m-%d %H:%M:%S.%3N"\) | PROGRESS | compute'
     - "export ACCOUNT="
 finished_config:
     - "  jobid: "
@@ -14,5 +14,7 @@ finished_config:
     - "  account: "
     - "  accounting_flag: "
     - "  esm_tools_version: "
+    - "  logfile_path: "
+    - "  logfile_path_in_run: "
 finished_config_dicts:
     - "files_missing_when_preparing_run"
