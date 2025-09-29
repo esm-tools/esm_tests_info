@@ -1524,7 +1524,7 @@ computer:
     LD_LIBRARY_PATH[(0)]: $HDF5ROOT/lib:$NETCDFROOT/lib:$NETCDFFROOT/lib:$LD_LIBRARY_PATH # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:311,col:39
     LD_LIBRARY_PATH[(1)]: /sw/spack-levante/intel-oneapi-mkl-2022.0.1-ttdktf/mkl/2022.0.1/lib/intel64:$LD_LIBRARY_PATH # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:328,col:39
     LD_LIBRARY_PATH[(2)]: /sw/spack-levante/intel-oneapi-mpi-2021.5.0-mrcss7/mpi/2021.5.0/libfabric/lib:$LD_LIBRARY_PATH # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:331,col:39
-    ACCOUNT: ab0246 # no provenance info
+    ACCOUNT: None # no provenance info
     ESM_TESTING_DIR: <TEST_DIR>/run/awicm/ # no provenance info
     MODEL_DIR: <TEST_DIR>/comp/awicm/awicm-1.0-recom # no provenance info
   load_python: false  # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:134,col:18
@@ -1576,7 +1576,7 @@ computer:
   overcommit_flag: '' # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:144,col:22
   model: computer # no provenance info
   add_export_vars:
-    ACCOUNT: ab0246  # no provenance info
+    ACCOUNT: None  # no provenance info
     ESM_TESTING_DIR: <TEST_DIR>/run/awicm/ # no provenance info
     MODEL_DIR: <TEST_DIR>/comp/awicm/awicm-1.0-recom # no provenance info
   heterogeneous_parallelization: false  # no provenance info
@@ -1587,7 +1587,7 @@ computer:
   mod_netcdf_f: netcdf-fortran/4.5.3-openmpi-4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:182,col:35
   mod_hdf5: hdf5/1.12.1-openmpi-4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:183,col:31
   netcdf_cxx_root: /work/ab0995/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:184,col:38
-  accounting_flag: --account=ab0246 # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:24,col:38
+  accounting_flag: --account=None # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:24,col:38
   cpu_bind: cores # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:74,col:23
   srun_execution_command: srun -l --hint=nomultithread --multi-prog hostfile_srun # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:75,col:37
   hyperthreading_flag: --ntasks-per-core=1 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:33,col:58
@@ -3006,7 +3006,6 @@ oasis3mct:
   bin_sources: {}
   config_sources:
     namcouple: <TEST_DIR>/run/awicm//awicm1_recom_pictrl_initial/run_18500101-18500131/config/oasis3mct//namcouple  # no provenance info
-    cf_glob_0: <TEST_DIR>/comp/awicm/awicm-1.0-recom/oasis/cf_name_table.txt # no provenance info
   version: 2.8 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:44,col:14
   available_versions:
   - foci  # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:47,col:7
@@ -3296,7 +3295,6 @@ oasis3mct:
   bin_targets: {}
   config_targets:
     namcouple: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/run_18500101-18500131/work/namcouple  # no provenance info
-    cf_glob_0: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/run_18500101-18500131/work/cf_name_table.txt # no provenance info
   log_targets:
     nout: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/log/oasis3mct/nout.000000  # no provenance info
     debug_r1: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/log/oasis3mct/debug.root.01 # no provenance info
@@ -3367,7 +3365,6 @@ oasis3mct:
   bin_intermediate: {}
   config_intermediate:
     namcouple: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/run_18500101-18500131/config/oasis3mct/namcouple  # no provenance info
-    cf_glob_0: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/run_18500101-18500131/config/oasis3mct/cf_name_table.txt # no provenance info
   log_intermediate:
     nout: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/run_18500101-18500131/log/oasis3mct/nout.000000  # no provenance info
     debug_r1: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/run_18500101-18500131/log/oasis3mct/debug.root.01 # no provenance info
@@ -4861,7 +4858,7 @@ general:
   - recom # <HOME_DIR>/esm_tools/configs/setups/awicm/awicm.yaml,line:45,col:15
   setup_name: awicm  # <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/scripts/awicm1_recom_pictrl_initial.yaml,line:9,col:17
   post_processing: 0 # <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/scripts/awicm1_recom_pictrl_initial.yaml,line:12,col:22
-  account: ab0246 # <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/scripts/awicm1_recom_pictrl_initial.yaml,line:13,col:14
+  account: None # <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/scripts/awicm1_recom_pictrl_initial.yaml,line:13,col:14
   compute_time: 00:30:00 # <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/scripts/awicm1_recom_pictrl_initial.yaml,line:14,col:19
   use_venv: false # no provenance info
   base_dir: <TEST_DIR>/run/awicm/ # <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/scripts/awicm1_recom_pictrl_initial.yaml,line:17,col:15
@@ -4883,7 +4880,7 @@ general:
   verbose: false # no provenance info
   contained_run: # no provenance info
   open_run: true # no provenance info
-  check: false # no provenance info
+  check: true # no provenance info
   modify_config_file: # no provenance info
   last_jobtype: prepcompute # no provenance info
   task: prepcompute # no provenance info
@@ -4898,7 +4895,7 @@ general:
   motd: false  # no provenance info
   ignore_config_warnings: false # no provenance info
   jobtype: prepcompute # no provenance info
-  original_command: awicm1_recom_pictrl_initial.yaml -e awicm1_recom_pictrl_initial --open-run --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
+  original_command: awicm1_recom_pictrl_initial.yaml -e awicm1_recom_pictrl_initial --open-run -c --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
   started_from: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/scripts/ # no provenance info
   scriptname: awicm1_recom_pictrl_initial.yaml # no provenance info
   isinteractive: false # no provenance info
@@ -4924,7 +4921,7 @@ general:
     contained_run: # no provenance info
     open_run: true # no provenance info
     expid: awicm1_recom_pictrl_initial # no provenance info
-    check: false # no provenance info
+    check: true # no provenance info
     modify_config_file: # no provenance info
     last_jobtype: prepcompute # no provenance info
     task: prepcompute # no provenance info
@@ -4940,7 +4937,7 @@ general:
     ignore_config_warnings: false # no provenance info
     jobtype: prepcompute # no provenance info
     use_venv: false # no provenance info
-    original_command: awicm1_recom_pictrl_initial.yaml -e awicm1_recom_pictrl_initial --open-run --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
+    original_command: awicm1_recom_pictrl_initial.yaml -e awicm1_recom_pictrl_initial --open-run -c --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
     started_from: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/scripts/ # no provenance info
     scriptname: awicm1_recom_pictrl_initial.yaml # no provenance info
     runscript_abspath: <TEST_DIR>run/awicm/awicm1_recom_pictrl_initial/scripts/awicm1_recom_pictrl_initial.yaml # no provenance info
@@ -5120,14 +5117,14 @@ general:
     first_task_in_queue: prepcompute # no provenance info
     next_run_triggered_by: tidy # no provenance info
   submitted: false  # no provenance info
-  jobid: 1558485 # no provenance info
+  jobid: 1525 # no provenance info
   batch: slurm # no provenance info
   coupler_config_dir: <TEST_DIR>/run/awicm//awicm1_recom_pictrl_initial/run_18500101-18500131/config/oasis3mct/ # no provenance info
   coupler: oasis3mct # no provenance info
   experiment_log_file: <TEST_DIR>/run/awicm//awicm1_recom_pictrl_initial/log//awicm1_recom_pictrl_initial_awicm.log # no provenance info
   esm_tools_version: 6.58.0 # no provenance info
-  logfile_path: <TEST_DIR>/run/awicm//awicm1_recom_pictrl_initial/log//awicm1_recom_pictrl_initial_awicm_prepcompute_18500101-18500131_1558485.log # no provenance info
-  logfile_path_in_run: <TEST_DIR>/run/awicm//awicm1_recom_pictrl_initial/run_18500101-18500131/log//awicm1_recom_pictrl_initial_awicm_prepcompute_18500101-18500131_1558485.log # no provenance info
+  logfile_path: <TEST_DIR>/run/awicm//awicm1_recom_pictrl_initial/log//awicm1_recom_pictrl_initial_awicm_prepcompute_18500101-18500131_1525.log # no provenance info
+  logfile_path_in_run: <TEST_DIR>/run/awicm//awicm1_recom_pictrl_initial/run_18500101-18500131/log//awicm1_recom_pictrl_initial_awicm_prepcompute_18500101-18500131_1525.log # no provenance info
   relevant_filetypes:
   - bin  # no provenance info
   - config # no provenance info
