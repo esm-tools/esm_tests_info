@@ -105,7 +105,7 @@ unset SLURM_ARBITRARY_NODELIST
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1900-01-01T00:00:00 1191 - start" >> <TEST_DIR>/run/awiesm3//awiesm3-develop-levante-TL255L91-CORE2_1y/log//awiesm3-develop-levante-TL255L91-CORE2_1y_awiesm3.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1900-01-01T00:00:00 1190 - start" >> <TEST_DIR>/run/awiesm3//awiesm3-develop-levante-TL255L91-CORE2_1y/log//awiesm3-develop-levante-TL255L91-CORE2_1y_awiesm3.log
 
 cd <TEST_DIR>/run/awiesm3//awiesm3-develop-levante-TL255L91-CORE2_1y/run_19000101-19001231/work/
 
@@ -149,6 +149,6 @@ process=$!
 cd <TEST_DIR>/run/awiesm3//awiesm3-develop-levante-TL255L91-CORE2_1y/scripts/
 esm_runscripts awiesm3-develop-levante-TL255L91-CORE2_1y.yaml -e awiesm3-develop-levante-TL255L91-CORE2_1y -t observe_compute -p ${process} -s 19000101 -r 1 -v --last-jobtype prepcompute --open-run
 
-echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1900-01-01T00:00:00 1191 - done" >> <TEST_DIR>/run/awiesm3//awiesm3-develop-levante-TL255L91-CORE2_1y/log//awiesm3-develop-levante-TL255L91-CORE2_1y_awiesm3.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1900-01-01T00:00:00 1190 - done" >> <TEST_DIR>/run/awiesm3//awiesm3-develop-levante-TL255L91-CORE2_1y/log//awiesm3-develop-levante-TL255L91-CORE2_1y_awiesm3.log
 
 wait

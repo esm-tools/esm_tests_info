@@ -83,7 +83,7 @@ export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 2015-01-01T00:00:00 1538 - start" >> <TEST_DIR>/run/awicm//awicm1_recom_ssp585/log//awicm1_recom_ssp585_awicm.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 2015-01-01T00:00:00 1537 - start" >> <TEST_DIR>/run/awicm//awicm1_recom_ssp585/log//awicm1_recom_ssp585_awicm.log
 
 cd <TEST_DIR>/run/awicm//awicm1_recom_ssp585/run_20150101-20150131/work/
 time srun -l --hint=nomultithread --multi-prog hostfile_srun 2>&1 &
@@ -95,6 +95,6 @@ process=$!
 cd <TEST_DIR>/run/awicm//awicm1_recom_ssp585/scripts/
 esm_runscripts awicm1_recom_ssp585.yaml -e awicm1_recom_ssp585 -t observe_compute -p ${process} -s 20150101 -r 1 -v --last-jobtype prepcompute --open-run
 
-echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 2015-01-01T00:00:00 1538 - done" >> <TEST_DIR>/run/awicm//awicm1_recom_ssp585/log//awicm1_recom_ssp585_awicm.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 2015-01-01T00:00:00 1537 - done" >> <TEST_DIR>/run/awicm//awicm1_recom_ssp585/log//awicm1_recom_ssp585_awicm.log
 
 wait
