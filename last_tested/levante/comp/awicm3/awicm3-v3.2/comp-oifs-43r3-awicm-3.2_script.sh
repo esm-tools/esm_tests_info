@@ -36,7 +36,7 @@ export CC=mpicc
 export CXX=mpicxx
 export MPIROOT="$(mpif90 -show | perl -lne 'm{ -I(.*?)/include } and print $1')"
 export MPI_LIB="$(mpif90 -show |sed -e 's/^[^ ]*//' -e 's/-[I][^ ]*//g')"
-export IO_LIB_ROOT=/work/ab0246/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0
+export IO_LIB_ROOT=/work/<SLURM_ACCOUNT>/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0
 export HDF5ROOT=/sw/spack-levante/hdf5-1.12.1-tvymb5
 export HDF5_C_INCLUDE_DIRECTORIES=$HDF5_ROOT/include
 export HDF5_ROOT=$HDF5ROOT
@@ -88,6 +88,7 @@ export OIFS_LFLAGS="$OIFS_MPI_LIB -qopenmp"
 export OIFS_CC=$CC
 export OIFS_CFLAGS="-fp-model precise -O3 -g -traceback -qopt-report=0 -fpe0 -qopenmp -march=core-avx2 -mtune=core-avx2"
 export OIFS_CCDEFS="LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS _OPENMP"
+export USER=<USER_ACCOUNT>
 export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 
 unset SLURM_DISTRIBUTION
@@ -96,5 +97,5 @@ unset SLURM_NPROCS
 unset SLURM_ARBITRARY_NODELIST
 
 pushd oifs-43r3
-export OIFS_TOPLEVEL_DIR=<TEST_DIR>comp/awicm3/awicm3-v3.2/oifs-43r3; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>comp/awicm3/awicm3-v3.2/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>comp/awicm3/awicm3-v3.2/oifs-43r3/../xios/inc/; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; chmod -R 700 .; git config core.fileMode false; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
+export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-v3.2/oifs-43r3; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/awicm3/awicm3-v3.2/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/awicm3/awicm3-v3.2/oifs-43r3/../xios/inc/; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; chmod -R 700 .; git config core.fileMode false; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
 popd

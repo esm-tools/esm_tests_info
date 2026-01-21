@@ -4,7 +4,7 @@
 #SBATCH --nodes=13
 #SBATCH --output=<TEST_DIR>/run/awiesm3//awiesm3-develop-levante-TL255L91-CORE2_1d/log/awiesm3-develop-levante-TL255L91-CORE2_1d_awiesm3_compute_19000101-19000101_%j.log --error=<TEST_DIR>/run/awiesm3//awiesm3-develop-levante-TL255L91-CORE2_1d/log/awiesm3-develop-levante-TL255L91-CORE2_1d_awiesm3_compute_19000101-19000101_%j.log
 #SBATCH --job-name=awiesm3-develop-levante-TL255L91-CORE2_1d
-#SBATCH --account=None
+#SBATCH --account=ab0246
 #SBATCH --mail-type=NONE
 #SBATCH --exclusive
 
@@ -91,7 +91,7 @@ export OASIS_ANCHOR=../../../oasis
 export NETCDF_C_DIR=$NETCDFROOT
 export NETCDF_F_DIR=$NETCDFFROOT
 export OASIS_DIR=../../../oasis/arch_ecearth/
-export ACCOUNT=None
+export ACCOUNT=ab0246
 export ESM_TESTING_DIR=<TEST_DIR>/run/awiesm3/
 export MODEL_DIR=<TEST_DIR>/comp/awiesm3/awiesm3-develop
 export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
@@ -105,7 +105,7 @@ unset SLURM_ARBITRARY_NODELIST
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1900-01-01T00:00:00 1231 - start" >> <TEST_DIR>/run/awiesm3//awiesm3-develop-levante-TL255L91-CORE2_1d/log//awiesm3-develop-levante-TL255L91-CORE2_1d_awiesm3.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1900-01-01T00:00:00 188618 - start" >> <TEST_DIR>/run/awiesm3//awiesm3-develop-levante-TL255L91-CORE2_1d/log//awiesm3-develop-levante-TL255L91-CORE2_1d_awiesm3.log
 
 cd <TEST_DIR>/run/awiesm3//awiesm3-develop-levante-TL255L91-CORE2_1d/run_19000101-19000101/work/
 
@@ -149,6 +149,6 @@ process=$!
 cd <TEST_DIR>/run/awiesm3//awiesm3-develop-levante-TL255L91-CORE2_1d/scripts/
 esm_runscripts awiesm3-develop-levante-TL255L91-CORE2_1d.yaml -e awiesm3-develop-levante-TL255L91-CORE2_1d -t observe_compute -p ${process} -s 19000101 -r 1 -v --last-jobtype prepcompute --open-run
 
-echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1900-01-01T00:00:00 1231 - done" >> <TEST_DIR>/run/awiesm3//awiesm3-develop-levante-TL255L91-CORE2_1d/log//awiesm3-develop-levante-TL255L91-CORE2_1d_awiesm3.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1900-01-01T00:00:00 188618 - done" >> <TEST_DIR>/run/awiesm3//awiesm3-develop-levante-TL255L91-CORE2_1d/log//awiesm3-develop-levante-TL255L91-CORE2_1d_awiesm3.log
 
 wait
