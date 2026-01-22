@@ -4,7 +4,7 @@
 #SBATCH --nodes=1
 #SBATCH --output=<TEST_DIR>/run/awicm3//awicm3-v3.3-TCO95L91-CORE2_initial/log/awicm3-v3.3-TCO95L91-CORE2_initial_awicm3_Tripy_Fesom_20000101-20000101_%j.log --error=<TEST_DIR>/run/awicm3//awicm3-v3.3-TCO95L91-CORE2_initial/log/awicm3-v3.3-TCO95L91-CORE2_initial_awicm3_Tripy_Fesom_20000101-20000101_%j.log
 #SBATCH --job-name=awicm3-v3.3-TCO95L91-CORE2_initial
-#SBATCH --account=<SLURM_ACCOUNT>
+#SBATCH --account=ab0246
 #SBATCH --mail-type=NONE
 #SBATCH --exclusive
 
@@ -49,7 +49,7 @@ export CC=mpicc
 export CXX=mpicxx
 export MPIROOT="$(mpif90 -show | perl -lne 'm{ -I(.*?)/include } and print $1')"
 export MPI_LIB="$(mpif90 -show |sed -e 's/^[^ ]*//' -e 's/-[I][^ ]*//g')"
-export IO_LIB_ROOT=/work/<SLURM_ACCOUNT>/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0
+export IO_LIB_ROOT=/work/ab0246/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0
 export HDF5ROOT=/sw/spack-levante/hdf5-1.12.1-tvymb5
 export HDF5_C_INCLUDE_DIRECTORIES=$HDF5_ROOT/include
 export HDF5_ROOT=$HDF5ROOT
@@ -84,7 +84,7 @@ export ECE_CPL_NEMO_LIM="false"
 export ECE_CPL_FESOM_FESIM="true"
 export ECE_AWI_CPL_FESOM="true"
 export USER=<USER_ACCOUNT>
-export ACCOUNT=<SLURM_ACCOUNT>
+export ACCOUNT=ab0246
 export ESM_TESTING_DIR=<TEST_DIR>/run/awicm3/
 export MODEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-v3.3.0
 export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
@@ -98,9 +98,9 @@ unset SLURM_ARBITRARY_NODELIST
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | Tripy_Fesom_fesom 1 2000-01-01T00:00:00 22063522 - start" >> <TEST_DIR>/run/awicm3//awicm3-v3.3-TCO95L91-CORE2_initial/log//awicm3-v3.3-TCO95L91-CORE2_initial_awicm3.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | Tripy_Fesom_fesom 1 2000-01-01T00:00:00 22123374 - start" >> <TEST_DIR>/run/awicm3//awicm3-v3.3-TCO95L91-CORE2_initial/log//awicm3-v3.3-TCO95L91-CORE2_initial_awicm3.log
 
 cd <TEST_DIR>/run/awicm3//awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/
-time srun -l <TEST_DIR>/run/awicm3//awicm3-v3.3-TCO95L91-CORE2_initial/scripts/fesom/Subjob_tripy.sh <TEST_DIR>/run/awicm3//awicm3-v3.3-TCO95L91-CORE2_initial/outdata/fesom/ 2000-01-01T00:00:00 2000-01-02T00:00:00 2000-01-01T00:00:00 2000-01-03T00:00:00 /work/<SLURM_ACCOUNT>/a270092/input/fesom2//core2/ <TEST_DIR>/run/awicm3/ awicm3-v3.3-TCO95L91-CORE2_initial python3 True modvis.dkrz.de /var/www/projects/<SLURM_ACCOUNT>/<USER_ACCOUNT>/awicm3-v3.3-TCO95L91-CORE2_initial 2>&1 &
+time srun -l <TEST_DIR>/run/awicm3//awicm3-v3.3-TCO95L91-CORE2_initial/scripts/fesom/Subjob_tripy.sh <TEST_DIR>/run/awicm3//awicm3-v3.3-TCO95L91-CORE2_initial/outdata/fesom/ 2000-01-01T00:00:00 2000-01-02T00:00:00 2000-01-01T00:00:00 2000-01-03T00:00:00 /work/ab0246/a270092/input/fesom2//core2/ <TEST_DIR>/run/awicm3/ awicm3-v3.3-TCO95L91-CORE2_initial python3 True modvis.dkrz.de /var/www/projects/ab0246/<USER_ACCOUNT>/awicm3-v3.3-TCO95L91-CORE2_initial 2>&1 &
 
 wait

@@ -87,6 +87,7 @@ export RNF_NETCDFF_LIB="-L$NETCDFFROOT/lib -lnetcdff"
 export RNF_MPI_LIB="$MPI_LIB"
 export RNF_FFLAGS="-fdefault-real-8 -march=core-avx2 -mtune=core-avx2 -O3 -fopenmp -g -fbacktrace -fconvert=big-endian"
 export RNF_CFLAG="-march=core-avx2 -mtune=core-avx2 -O3 -fopenmp -g -fbacktrace -fno-opt-report -fpe0"
+export USER=<USER_ACCOUNT>
 export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 
 unset SLURM_DISTRIBUTION
