@@ -55,6 +55,7 @@ export FESOM_USE_CPLNG="active"
 export ECE_CPL_NEMO_LIM="false"
 export ECE_CPL_FESOM_FESIM="true"
 export ECE_AWI_CPL_FESOM="true"
+export USER=<USER_ACCOUNT>
 export ACCOUNT=None
 export ESM_TESTING_DIR=<TEST_DIR>/run/awicm3/
 export MODEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-v3.3.0
@@ -65,7 +66,7 @@ export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 2000-01-01T00:00:00 1022 - start" >> <TEST_DIR>/run/awicm3//awicm3-v3.3-TCO95L91-CORE2_initial/log//awicm3-v3.3-TCO95L91-CORE2_initial_awicm3.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 2000-01-01T00:00:00 1021 - start" >> <TEST_DIR>/run/awicm3//awicm3-v3.3-TCO95L91-CORE2_initial/log//awicm3-v3.3-TCO95L91-CORE2_initial_awicm3.log
 
 cd <TEST_DIR>/run/awicm3//awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work/
 qalter $PBS_JOBID -o <TEST_DIR>/run/awicm3//awicm3-v3.3-TCO95L91-CORE2_initial/log/awicm3-v3.3-TCO95L91-CORE2_initial_awicm3_compute_20000101-20000101_$PBS_JOBID.log
@@ -81,6 +82,6 @@ process=$!
 cd <TEST_DIR>/run/awicm3//awicm3-v3.3-TCO95L91-CORE2_initial/scripts/
 esm_runscripts awicm3-v3.3-TCO95L91-CORE2_initial.yaml -e awicm3-v3.3-TCO95L91-CORE2_initial -t observe_compute -p ${process} -s 20000101 -r 1 -v --last-jobtype prepcompute --open-run
 
-echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 2000-01-01T00:00:00 1022 - done" >> <TEST_DIR>/run/awicm3//awicm3-v3.3-TCO95L91-CORE2_initial/log//awicm3-v3.3-TCO95L91-CORE2_initial_awicm3.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 2000-01-01T00:00:00 1021 - done" >> <TEST_DIR>/run/awicm3//awicm3-v3.3-TCO95L91-CORE2_initial/log//awicm3-v3.3-TCO95L91-CORE2_initial_awicm3.log
 
 wait
