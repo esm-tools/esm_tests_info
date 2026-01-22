@@ -93,6 +93,7 @@ export OASIS_ANCHOR=../../../oasis
 export NETCDF_C_DIR=$NETCDFROOT
 export NETCDF_F_DIR=$NETCDFFROOT
 export OASIS_DIR=../../../oasis/arch_ecearth/
+export USER=<USER_ACCOUNT>
 export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 
 unset SLURM_DISTRIBUTION
