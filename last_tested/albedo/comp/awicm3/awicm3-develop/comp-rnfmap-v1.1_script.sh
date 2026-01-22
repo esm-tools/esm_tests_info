@@ -64,6 +64,7 @@ export RNF_NETCDFF_INCLUDE="-I$NETCDFFROOT/include"
 export RNF_NETCDFF_LIB="-L$NETCDFFROOT/lib -lnetcdff"
 export RNF_FFLAGS="-r8 -fp-model precise -align array32byte -O3 -qopenmp -g -traceback -convert big_endian -march=core-avx2 -mtune=core-avx2"
 export RNF_CFLAGS="-fp-model precise -O3 -g -traceback -qopt-report=0 -fpe0 -qopenmp -march=core-avx2 -mtune=core-avx2"
+export USER=<USER_ACCOUNT>
 export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 
 unset SLURM_DISTRIBUTION
