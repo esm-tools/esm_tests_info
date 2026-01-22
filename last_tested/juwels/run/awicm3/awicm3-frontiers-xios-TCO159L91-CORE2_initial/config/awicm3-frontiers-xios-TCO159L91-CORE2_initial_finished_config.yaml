@@ -766,31 +766,30 @@ oifs:
       oyac_io_per_node: 4 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1343,col:39
   output_step_freq: 6 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1350,col:23
   branchoff: false # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1367,col:16
-  ini_pseudo_initial_date: '2000-01-01T00:00:00' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1368,col:30
-  eternal_run_number: 1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1369,col:25
+  eternal_run_number: 1 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1368,col:25
   preprocess:
     preprocess_shell:
-      method: "<HOME_DIR>/esm_tools/configs//components/oifs/change_icm_date.sh <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs// awi3 awi3 20000101 20000101 1 0 108160 1;   echo 'Run number for internal OpenIFS timekeeping: 1'"  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1493,col:29
-      type: shell # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1494,col:27
+      method: "<HOME_DIR>/esm_tools/configs//components/oifs/change_icm_date.sh <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs// awi3 awi3 20000101 20000101 1 0 108160 1;   echo 'Run number for internal OpenIFS timekeeping: 1'"  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1495,col:29
+      type: shell # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1496,col:27
   prepcompute_recipe:
-  - compile_model  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1529,col:10
-  - _show_simulation_info # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1530,col:10
-  - create_new_files # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1531,col:10
-  - create_empty_folders # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1532,col:10
-  - prepare_coupler_files # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1533,col:10
-  - assemble # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1534,col:10
-  - log_used_files # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1535,col:10
-  - _write_finalized_config # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1536,col:10
-  - wait_for_iterative_coupling # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1537,col:10
-  - copy_files_to_thisrun # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1538,col:10
-  - write_env # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1539,col:10
-  - preprocess # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1540,col:10
-  - modify_namelists # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1541,col:10
-  - modify_files # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1542,col:10
-  - copy_files_to_work # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1543,col:10
-  - report_missing_files # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1544,col:10
-  - compute_and_log_file_checksums # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1545,col:10
-  - database_entry # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1549,col:10
+  - compile_model  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1531,col:10
+  - _show_simulation_info # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1532,col:10
+  - create_new_files # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1533,col:10
+  - create_empty_folders # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1534,col:10
+  - prepare_coupler_files # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1535,col:10
+  - assemble # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1536,col:10
+  - log_used_files # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1537,col:10
+  - _write_finalized_config # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1538,col:10
+  - wait_for_iterative_coupling # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1539,col:10
+  - copy_files_to_thisrun # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1540,col:10
+  - write_env # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1541,col:10
+  - preprocess # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1542,col:10
+  - modify_namelists # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1543,col:10
+  - modify_files # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1544,col:10
+  - copy_files_to_work # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1545,col:10
+  - report_missing_files # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1546,col:10
+  - compute_and_log_file_checksums # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1547,col:10
+  - database_entry # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1551,col:10
   - oasis_rmp_rst_to_input # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:157,col:34
   models:
   - xios  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:861,col:31
@@ -867,7 +866,7 @@ oifs:
     A_Calving:
       grid: atmr  # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:314,col:27
   time_step: 3600 # <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/scripts/awicm3-frontiers-xios-TCO159L91-CORE2_initial.yaml,line:55,col:16
-  slice_icml: '' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1488,col:33
+  slice_icml: '' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1490,col:33
   rnproc: 24 # <TEST_DIR>run/awicm3/awicm3-frontiers-xios-TCO159L91-CORE2_initial/scripts/awicm3-frontiers-xios-TCO159L91-CORE2_initial.yaml,line:65,col:21
   branch: oifs-deck # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:241,col:17
   nx: 108160 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:443,col:25
@@ -895,9 +894,9 @@ oifs:
   - -1  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1204,col:31
   - -24 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1205,col:31
   nrest_ind: '' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1206,col:32
-  pseudo_initial_date: '2000-01-01T00:00:00' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1425,col:42
-  start_ndays_source: 0 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1426,col:41
-  preprocess_method: "<HOME_DIR>/esm_tools/configs//components/oifs/change_icm_date.sh <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs// awi3 awi3 20000101 20000101 1 0 108160 1;   echo 'Run number for internal OpenIFS timekeeping: 1'" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1427,col:40
+  pseudo_initial_date: '2000-01-01T00:00:00' # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1427,col:42
+  start_ndays_source: 0 # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1428,col:41
+  preprocess_method: "<HOME_DIR>/esm_tools/configs//components/oifs/change_icm_date.sh <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/input/oifs// awi3 awi3 20000101 20000101 1 0 108160 1;   echo 'Run number for internal OpenIFS timekeeping: 1'" # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1429,col:40
   leapyear: true # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:384,col:19
   experiment_analysis_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/analysis/oifs/ # no provenance info
   thisrun_analysis_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/analysis/oifs/ # no provenance info
@@ -2201,24 +2200,24 @@ general:
   - bin # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:125,col:37
   - src # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:125,col:42
   prepcompute_recipe:
-  - compile_model  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1529,col:10
-  - _show_simulation_info # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1530,col:10
-  - create_new_files # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1531,col:10
-  - create_empty_folders # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1532,col:10
-  - prepare_coupler_files # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1533,col:10
-  - assemble # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1534,col:10
-  - log_used_files # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1535,col:10
-  - _write_finalized_config # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1536,col:10
-  - wait_for_iterative_coupling # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1537,col:10
-  - copy_files_to_thisrun # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1538,col:10
-  - write_env # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1539,col:10
-  - preprocess # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1540,col:10
-  - modify_namelists # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1541,col:10
-  - modify_files # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1542,col:10
-  - copy_files_to_work # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1543,col:10
-  - report_missing_files # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1544,col:10
-  - compute_and_log_file_checksums # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1545,col:10
-  - database_entry # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1549,col:10
+  - compile_model  # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1531,col:10
+  - _show_simulation_info # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1532,col:10
+  - create_new_files # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1533,col:10
+  - create_empty_folders # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1534,col:10
+  - prepare_coupler_files # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1535,col:10
+  - assemble # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1536,col:10
+  - log_used_files # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1537,col:10
+  - _write_finalized_config # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1538,col:10
+  - wait_for_iterative_coupling # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1539,col:10
+  - copy_files_to_thisrun # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1540,col:10
+  - write_env # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1541,col:10
+  - preprocess # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1542,col:10
+  - modify_namelists # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1543,col:10
+  - modify_files # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1544,col:10
+  - copy_files_to_work # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1545,col:10
+  - report_missing_files # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1546,col:10
+  - compute_and_log_file_checksums # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1547,col:10
+  - database_entry # <HOME_DIR>/esm_tools/configs/components/oifs/oifs.yaml,line:1551,col:10
   - oasis_rmp_rst_to_input # <HOME_DIR>/esm_tools/configs/setups/awicm3/awicm3.yaml,line:157,col:34
   tidy_recipe:
   - tidy_coupler  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.0.yaml,line:435,col:11
@@ -2515,7 +2514,7 @@ general:
   coupler_config_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/config/oasis3mct/ # no provenance info
   coupler: oasis3mct # no provenance info
   experiment_log_file: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/log//awicm3-frontiers-xios-TCO159L91-CORE2_initial_awicm3.log # no provenance info
-  esm_tools_version: 6.59.3 # no provenance info
+  esm_tools_version: 6.60.0 # no provenance info
   logfile_path: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/log//awicm3-frontiers-xios-TCO159L91-CORE2_initial_awicm3_prepcompute_20000101-20000101_949.log # no provenance info
   logfile_path_in_run: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/log//awicm3-frontiers-xios-TCO159L91-CORE2_initial_awicm3_prepcompute_20000101-20000101_949.log # no provenance info
   relevant_filetypes:
