@@ -1,3 +1,13 @@
+#computer:
+#    choose_computer.name:
+#       glogin:
+#            pool_dir: "/mnt/ceph-hdd/cold/shk00060/foci_input2/" 
+#            partition: "standard96:test"
+#            launcher: "mpirun"
+#            launcher_flags: "" 
+#       levante:
+#            pool_dir: "/work/bb0519/foci_input2/" 
+
 general:
    use_venv: False
    verbose: False
@@ -18,7 +28,7 @@ general:
    ini_parent_exp_id: "FOCI1.16-SW111"
    ini_parent_date: "24991231"
    ini_nemo_restart_steps: 11395584
-   ini_parent_dir: "/work/bb0519/foci_input2/FOCI_RESTART/${ini_parent_exp_id}"
+   ini_parent_dir: "${computer.pool_dir}/FOCI_RESTART/${ini_parent_exp_id}"
 
 foci:
    model_dir: !ENV ${MODEL_DIR}
