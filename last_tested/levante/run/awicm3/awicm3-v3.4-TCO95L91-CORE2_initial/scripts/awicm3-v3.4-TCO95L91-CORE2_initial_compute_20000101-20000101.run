@@ -4,9 +4,12 @@
 #SBATCH --nodes=4
 #SBATCH --output=<TEST_DIR>/run/awicm3//awicm3-v3.4-TCO95L91-CORE2_initial/log/awicm3-v3.4-TCO95L91-CORE2_initial_awicm3_compute_20000101-20000101_%j.log --error=<TEST_DIR>/run/awicm3//awicm3-v3.4-TCO95L91-CORE2_initial/log/awicm3-v3.4-TCO95L91-CORE2_initial_awicm3_compute_20000101-20000101_%j.log
 #SBATCH --job-name=awicm3-v3.4-TCO95L91-CORE2_initial
-#SBATCH --account=None
+#SBATCH --account=ab0246
 #SBATCH --mail-type=NONE
 #SBATCH --exclusive
+
+# Store batch system environment variables for later sourcing
+declare -p | grep -E "(SLURM)" > <TEST_DIR>/run/awicm3//awicm3-v3.4-TCO95L91-CORE2_initial/run_20000101-20000101/work//batch_system.env
 
 module purge
 module load python3/2023.01-gcc-11.2.0
@@ -90,7 +93,7 @@ export ECE_CPL_NEMO_LIM="false"
 export ECE_CPL_FESOM_FESIM="true"
 export ECE_AWI_CPL_FESOM="true"
 export USER=<USER_ACCOUNT>
-export ACCOUNT=None
+export ACCOUNT=ab0246
 export ESM_TESTING_DIR=<TEST_DIR>/run/awicm3/
 export MODEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-develop
 export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
@@ -104,7 +107,7 @@ unset SLURM_ARBITRARY_NODELIST
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 2000-01-01T00:00:00 1382 - start" >> <TEST_DIR>/run/awicm3//awicm3-v3.4-TCO95L91-CORE2_initial/log//awicm3-v3.4-TCO95L91-CORE2_initial_awicm3.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 2000-01-01T00:00:00 1483692 - start" >> <TEST_DIR>/run/awicm3//awicm3-v3.4-TCO95L91-CORE2_initial/log//awicm3-v3.4-TCO95L91-CORE2_initial_awicm3.log
 
 cd <TEST_DIR>/run/awicm3//awicm3-v3.4-TCO95L91-CORE2_initial/run_20000101-20000101/work/
 
@@ -138,14 +141,19 @@ for model in fesom oifs rnfmap oasis3mct xios ;do
 done
 
 time srun -l --hint=nomultithread --multi-prog hostfile_srun 2>&1 &
+unset SLURM_HOSTFILE
 
 # Call to esm_runscript to start subjobs:
 # ['tidy']
-process=$! 
+process=$!
+
+# Recover batch system environment variables
+source <TEST_DIR>/run/awicm3//awicm3-v3.4-TCO95L91-CORE2_initial/run_20000101-20000101/work//batch_system.env; rm <TEST_DIR>/run/awicm3//awicm3-v3.4-TCO95L91-CORE2_initial/run_20000101-20000101/work//batch_system.env
+
 # Comment the following line if you don't want esm_runscripts to restart:
 cd <TEST_DIR>/run/awicm3//awicm3-v3.4-TCO95L91-CORE2_initial/scripts/
 esm_runscripts awicm3-v3.4-TCO95L91-CORE2_initial.yaml -e awicm3-v3.4-TCO95L91-CORE2_initial -t observe_compute -p ${process} -s 20000101 -r 1 -v --last-jobtype prepcompute --open-run
 
-echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 2000-01-01T00:00:00 1382 - done" >> <TEST_DIR>/run/awicm3//awicm3-v3.4-TCO95L91-CORE2_initial/log//awicm3-v3.4-TCO95L91-CORE2_initial_awicm3.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 2000-01-01T00:00:00 1483692 - done" >> <TEST_DIR>/run/awicm3//awicm3-v3.4-TCO95L91-CORE2_initial/log//awicm3-v3.4-TCO95L91-CORE2_initial_awicm3.log
 
 wait

@@ -4,9 +4,12 @@
 #SBATCH --nodes=13
 #SBATCH --output=<TEST_DIR>/run/awiesm3//awiesm3-develop-levante-TL255L91-CORE2_1y/log/awiesm3-develop-levante-TL255L91-CORE2_1y_awiesm3_compute_19000101-19001231_%j.log --error=<TEST_DIR>/run/awiesm3//awiesm3-develop-levante-TL255L91-CORE2_1y/log/awiesm3-develop-levante-TL255L91-CORE2_1y_awiesm3_compute_19000101-19001231_%j.log
 #SBATCH --job-name=awiesm3-develop-levante-TL255L91-CORE2_1y
-#SBATCH --account=None
+#SBATCH --account=ab0246
 #SBATCH --mail-type=NONE
 #SBATCH --exclusive
+
+# Store batch system environment variables for later sourcing
+declare -p | grep -E "(SLURM)" > <TEST_DIR>/run/awiesm3//awiesm3-develop-levante-TL255L91-CORE2_1y/run_19000101-19001231/work//batch_system.env
 
 module purge
 module load python3/2023.01-gcc-11.2.0
@@ -92,7 +95,7 @@ export NETCDF_C_DIR=$NETCDFROOT
 export NETCDF_F_DIR=$NETCDFFROOT
 export OASIS_DIR=../../../oasis/arch_ecearth/
 export USER=<USER_ACCOUNT>
-export ACCOUNT=None
+export ACCOUNT=ab0246
 export ESM_TESTING_DIR=<TEST_DIR>/run/awiesm3/
 export MODEL_DIR=<TEST_DIR>/comp/awiesm3/awiesm3-develop
 export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
@@ -106,7 +109,7 @@ unset SLURM_ARBITRARY_NODELIST
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1900-01-01T00:00:00 1189 - start" >> <TEST_DIR>/run/awiesm3//awiesm3-develop-levante-TL255L91-CORE2_1y/log//awiesm3-develop-levante-TL255L91-CORE2_1y_awiesm3.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1900-01-01T00:00:00 1509507 - start" >> <TEST_DIR>/run/awiesm3//awiesm3-develop-levante-TL255L91-CORE2_1y/log//awiesm3-develop-levante-TL255L91-CORE2_1y_awiesm3.log
 
 cd <TEST_DIR>/run/awiesm3//awiesm3-develop-levante-TL255L91-CORE2_1y/run_19000101-19001231/work/
 
@@ -142,14 +145,19 @@ for model in fesom oifs rnfmap lpj_guess oasis3mct xios ;do
 done
 
 time srun -l --hint=nomultithread --multi-prog hostfile_srun 2>&1 &
+unset SLURM_HOSTFILE
 
 # Call to esm_runscript to start subjobs:
 # ['tidy']
-process=$! 
+process=$!
+
+# Recover batch system environment variables
+source <TEST_DIR>/run/awiesm3//awiesm3-develop-levante-TL255L91-CORE2_1y/run_19000101-19001231/work//batch_system.env; rm <TEST_DIR>/run/awiesm3//awiesm3-develop-levante-TL255L91-CORE2_1y/run_19000101-19001231/work//batch_system.env
+
 # Comment the following line if you don't want esm_runscripts to restart:
 cd <TEST_DIR>/run/awiesm3//awiesm3-develop-levante-TL255L91-CORE2_1y/scripts/
 esm_runscripts awiesm3-develop-levante-TL255L91-CORE2_1y.yaml -e awiesm3-develop-levante-TL255L91-CORE2_1y -t observe_compute -p ${process} -s 19000101 -r 1 -v --last-jobtype prepcompute --open-run
 
-echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1900-01-01T00:00:00 1189 - done" >> <TEST_DIR>/run/awiesm3//awiesm3-develop-levante-TL255L91-CORE2_1y/log//awiesm3-develop-levante-TL255L91-CORE2_1y_awiesm3.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1900-01-01T00:00:00 1509507 - done" >> <TEST_DIR>/run/awiesm3//awiesm3-develop-levante-TL255L91-CORE2_1y/log//awiesm3-develop-levante-TL255L91-CORE2_1y_awiesm3.log
 
 wait

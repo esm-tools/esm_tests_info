@@ -9,6 +9,9 @@
 #SBATCH --ntasks-per-core=1
 #SBATCH --exclusive
 
+# Store batch system environment variables for later sourcing
+declare -p | grep -E "(SLURM)" > <TEST_DIR>/run/awiesm//pi/run_18500101-18500101/work//batch_system.env
+
 module purge
 module load git/2.31.1-gcc-11.2.0
 module load cdo/2.0.5-gcc-11.2.0
@@ -82,7 +85,7 @@ export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | Tripy_Fesom_fesom 1 1850-01-01T00:00:00 22123431 - start" >> <TEST_DIR>/run/awiesm//pi/log//pi_awiesm.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | Tripy_Fesom_fesom 1 1850-01-01T00:00:00 22790399 - start" >> <TEST_DIR>/run/awiesm//pi/log//pi_awiesm.log
 
 cd <TEST_DIR>/run/awiesm//pi/run_18500101-18500101/work/
 time srun -l <TEST_DIR>/run/awiesm//pi/scripts/fesom/Subjob_tripy.sh <TEST_DIR>/run/awiesm//pi/outdata/fesom/ 1850-01-01T00:00:00 1850-01-02T00:00:00 1850-01-01T00:00:00 1850-01-04T00:00:00 /pool/data/AWICM//FESOM2/MESHES_FESOM2.1//core2/ <TEST_DIR>/run/awiesm/ pi python3 True modvis.dkrz.de /var/www/projects/ab0246/<USER_ACCOUNT>/pi 2>&1 &
