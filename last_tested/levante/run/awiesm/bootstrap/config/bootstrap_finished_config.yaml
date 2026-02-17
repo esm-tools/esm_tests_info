@@ -1361,7 +1361,7 @@ computer:
       _value: --with-coupler=oasis3-mct  # <HOME_DIR>/esm_tools/configs/setups/awiesm/awiesm.yaml,line:668,col:21
       _execution_mode: compile # <HOME_DIR>/esm_tools/configs/setups/awiesm/awiesm.yaml,line:669,col:30
       _component: echam # <HOME_DIR>/esm_tools/configs/setups/awiesm/awiesm.yaml,line:670,col:25
-    ACCOUNT: ab0246  # no provenance info
+    ACCOUNT: None  # no provenance info
     ESM_TESTING_DIR: <TEST_DIR>/run/awiesm/ # no provenance info
     MODEL_DIR: <TEST_DIR>/comp/awiesm/awiesm-2.1 # no provenance info
   name: levante  # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:4,col:11
@@ -1473,7 +1473,7 @@ computer:
       _value: --with-coupler=oasis3-mct  # <HOME_DIR>/esm_tools/configs/setups/awiesm/awiesm.yaml,line:668,col:21
       _execution_mode: compile # <HOME_DIR>/esm_tools/configs/setups/awiesm/awiesm.yaml,line:669,col:30
       _component: echam # <HOME_DIR>/esm_tools/configs/setups/awiesm/awiesm.yaml,line:670,col:25
-    ACCOUNT: ab0246  # no provenance info
+    ACCOUNT: None  # no provenance info
     ESM_TESTING_DIR: <TEST_DIR>/run/awiesm/ # no provenance info
     MODEL_DIR: <TEST_DIR>/comp/awiesm/awiesm-2.1 # no provenance info
   load_python: false  # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:134,col:18
@@ -1536,7 +1536,7 @@ computer:
   mod_netcdf_f: netcdf-fortran/4.5.3-openmpi-4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:182,col:35
   mod_hdf5: hdf5/1.12.1-openmpi-4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:183,col:31
   netcdf_cxx_root: /work/ab0995/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:184,col:38
-  accounting_flag: --account=ab0246 # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:28,col:38
+  accounting_flag: --account=None # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:28,col:38
   cpu_bind: cores # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:79,col:23
   srun_execution_command: srun -l --hint=nomultithread --multi-prog hostfile_srun # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:80,col:37
   hyperthreading_flag: --ntasks-per-core=1 # <HOME_DIR>/esm_tools/configs/machines/levante.yaml,line:33,col:58
@@ -2376,10 +2376,10 @@ fesom:
   - copy_stuff_back_from_work # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.1.yaml,line:625,col:11
   - copy_all_results_to_exp # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.1.yaml,line:626,col:11
   - clean_run_dir # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.1.yaml,line:627,col:11
-  vis_project: ab0246 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.tripyview.yaml,line:59,col:18
+  vis_project: None # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.tripyview.yaml,line:59,col:18
   vis_user: <USER_ACCOUNT> # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.tripyview.yaml,line:60,col:15
   vis_server: modvis.dkrz.de # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.tripyview.yaml,line:68,col:25
-  vis_publicdir: /var/www/projects/ab0246/<USER_ACCOUNT>/bootstrap # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.tripyview.yaml,line:69,col:28
+  vis_publicdir: /var/www/projects/None/<USER_ACCOUNT>/bootstrap # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.tripyview.yaml,line:69,col:28
   vis_sync: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.tripyview.yaml,line:70,col:23
   tripyview_conda_module: python3 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.tripyview.yaml,line:71,col:37
   scripts_files:
@@ -2401,7 +2401,7 @@ fesom:
         run_after: tidy # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.tripyview.yaml,line:92,col:28
         script_dir: <TEST_DIR>/run/awiesm//bootstrap/scripts/fesom # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.tripyview.yaml,line:93,col:29
         submit_to_batch_system: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.tripyview.yaml,line:94,col:41
-        script: Subjob_tripy.sh <TEST_DIR>/run/awiesm//bootstrap/outdata/fesom/ 1850-01-01T00:00:00 1851-01-01T00:00:00 1850-01-01T00:00:00 1850-12-31T00:00:00 /pool/data/AWICM//FESOM2/MESHES_FESOM2.1//core2/ <TEST_DIR>/run/awiesm/ bootstrap python3 True modvis.dkrz.de /var/www/projects/ab0246/<USER_ACCOUNT>/bootstrap # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.tripyview.yaml,line:95,col:25
+        script: Subjob_tripy.sh <TEST_DIR>/run/awiesm//bootstrap/outdata/fesom/ 1850-01-01T00:00:00 1851-01-01T00:00:00 1850-01-01T00:00:00 1850-12-31T00:00:00 /pool/data/AWICM//FESOM2/MESHES_FESOM2.1//core2/ <TEST_DIR>/run/awiesm/ bootstrap python3 True modvis.dkrz.de /var/www/projects/None/<USER_ACCOUNT>/bootstrap # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.tripyview.yaml,line:95,col:25
         nproc: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.tripyview.yaml,line:96,col:24
   leapyear: true  # <HOME_DIR>/esm_tools/configs/setups/awiesm/awiesm.yaml,line:328,col:19
   with_pico: false # <HOME_DIR>/esm_tools/configs/setups/awiesm/awiesm.yaml,line:331,col:20
@@ -3069,7 +3069,6 @@ oasis3mct:
   bin_sources: {}
   config_sources:
     namcouple: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/config/oasis3mct//namcouple  # no provenance info
-    cf_glob_0: <TEST_DIR>/comp/awiesm/awiesm-2.1/oasis/cf_name_table.txt # no provenance info
   version: 2.8 # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:44,col:14
   available_versions:
   - foci  # <HOME_DIR>/esm_tools/configs/components/oasis3mct/oasis3mct.yaml,line:47,col:7
@@ -3350,7 +3349,6 @@ oasis3mct:
   bin_targets: {}
   config_targets:
     namcouple: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/work/namcouple  # no provenance info
-    cf_glob_0: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/work/cf_name_table.txt # no provenance info
   log_targets:
     nout: <TEST_DIR>run/awiesm/bootstrap/log/oasis3mct/nout.000000  # no provenance info
     debug_r1: <TEST_DIR>run/awiesm/bootstrap/log/oasis3mct/debug.root.01 # no provenance info
@@ -3415,7 +3413,6 @@ oasis3mct:
   bin_intermediate: {}
   config_intermediate:
     namcouple: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/config/oasis3mct/namcouple  # no provenance info
-    cf_glob_0: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/config/oasis3mct/cf_name_table.txt # no provenance info
   log_intermediate:
     nout: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/log/oasis3mct/nout.000000  # no provenance info
     debug_r1: <TEST_DIR>run/awiesm/bootstrap/run_18500101-18501231/log/oasis3mct/debug.root.01 # no provenance info
@@ -4104,7 +4101,7 @@ general:
   - echam  # <HOME_DIR>/esm_tools/configs/setups/awiesm/awiesm.yaml,line:85,col:19
   - fesom # <HOME_DIR>/esm_tools/configs/setups/awiesm/awiesm.yaml,line:86,col:19
   - oasis3mct # <HOME_DIR>/esm_tools/configs/setups/awiesm/awiesm.yaml,line:87,col:19
-  account: ab0246  # <TEST_DIR>run/awiesm/bootstrap/scripts/bootstrap.yaml,line:4,col:14
+  account: None  # <TEST_DIR>run/awiesm/bootstrap/scripts/bootstrap.yaml,line:4,col:14
   setup_name: awiesm # <TEST_DIR>run/awiesm/bootstrap/scripts/bootstrap.yaml,line:5,col:17
   compute_time: 02:00:00 # <TEST_DIR>run/awiesm/bootstrap/scripts/bootstrap.yaml,line:6,col:19
   initial_date: '1850-01-01T00:00:00' # no provenance info
@@ -4124,7 +4121,7 @@ general:
   verbose: false # no provenance info
   contained_run: # no provenance info
   open_run: true # no provenance info
-  check: false # no provenance info
+  check: true # no provenance info
   modify_config_file: # no provenance info
   last_jobtype: prepcompute # no provenance info
   task: prepcompute # no provenance info
@@ -4139,7 +4136,7 @@ general:
   motd: false  # no provenance info
   ignore_config_warnings: false # no provenance info
   jobtype: prepcompute # no provenance info
-  original_command: bootstrap.yaml -e bootstrap --open-run --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
+  original_command: bootstrap.yaml -e bootstrap --open-run -c --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
   started_from: <TEST_DIR>run/awiesm/bootstrap/scripts/ # no provenance info
   scriptname: bootstrap.yaml # no provenance info
   isinteractive: false # no provenance info
@@ -4174,7 +4171,7 @@ general:
     contained_run: # no provenance info
     open_run: true # no provenance info
     expid: bootstrap # no provenance info
-    check: false # no provenance info
+    check: true # no provenance info
     modify_config_file: # no provenance info
     last_jobtype: prepcompute # no provenance info
     task: prepcompute # no provenance info
@@ -4190,7 +4187,7 @@ general:
     ignore_config_warnings: false # no provenance info
     jobtype: prepcompute # no provenance info
     use_venv: false # no provenance info
-    original_command: bootstrap.yaml -e bootstrap --open-run --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
+    original_command: bootstrap.yaml -e bootstrap --open-run -c --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
     started_from: <TEST_DIR>run/awiesm/bootstrap/scripts/ # no provenance info
     scriptname: bootstrap.yaml # no provenance info
     runscript_abspath: <TEST_DIR>run/awiesm/bootstrap/scripts/bootstrap.yaml # no provenance info
@@ -4400,21 +4397,21 @@ general:
         run_after: tidy # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.tripyview.yaml,line:92,col:28
         script_dir: <TEST_DIR>/run/awiesm//bootstrap/scripts/fesom # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.tripyview.yaml,line:93,col:29
         submit_to_batch_system: true # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.tripyview.yaml,line:94,col:41
-        script: Subjob_tripy.sh <TEST_DIR>/run/awiesm//bootstrap/outdata/fesom/ 1850-01-01T00:00:00 1851-01-01T00:00:00 1850-01-01T00:00:00 1850-12-31T00:00:00 /pool/data/AWICM//FESOM2/MESHES_FESOM2.1//core2/ <TEST_DIR>/run/awiesm/ bootstrap python3 True modvis.dkrz.de /var/www/projects/ab0246/<USER_ACCOUNT>/bootstrap # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.tripyview.yaml,line:95,col:25
+        script: Subjob_tripy.sh <TEST_DIR>/run/awiesm//bootstrap/outdata/fesom/ 1850-01-01T00:00:00 1851-01-01T00:00:00 1850-01-01T00:00:00 1850-12-31T00:00:00 /pool/data/AWICM//FESOM2/MESHES_FESOM2.1//core2/ <TEST_DIR>/run/awiesm/ bootstrap python3 True modvis.dkrz.de /var/www/projects/None/<USER_ACCOUNT>/bootstrap # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.tripyview.yaml,line:95,col:25
         nproc: 1 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.tripyview.yaml,line:96,col:24
         subjob_cluster: Tripy_Fesom # no provenance info
     last_task_in_queue: tidy  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.tripyview.yaml,line:86,col:32
     first_task_in_queue: prepcompute # no provenance info
     next_run_triggered_by: tidy # <HOME_DIR>/esm_tools/configs/components/fesom/fesom.tripyview.yaml,line:86,col:32
   submitted: false  # no provenance info
-  jobid: 1492923 # no provenance info
+  jobid: 1797 # no provenance info
   batch: slurm # no provenance info
   coupler_config_dir: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/config/oasis3mct/ # no provenance info
   coupler: oasis3mct # no provenance info
   experiment_log_file: <TEST_DIR>/run/awiesm//bootstrap/log//bootstrap_awiesm.log # no provenance info
   esm_tools_version: 6.60.4 # no provenance info
-  logfile_path: <TEST_DIR>/run/awiesm//bootstrap/log//bootstrap_awiesm_prepcompute_18500101-18501231_1492923.log # no provenance info
-  logfile_path_in_run: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/log//bootstrap_awiesm_prepcompute_18500101-18501231_1492923.log # no provenance info
+  logfile_path: <TEST_DIR>/run/awiesm//bootstrap/log//bootstrap_awiesm_prepcompute_18500101-18501231_1797.log # no provenance info
+  logfile_path_in_run: <TEST_DIR>/run/awiesm//bootstrap/run_18500101-18501231/log//bootstrap_awiesm_prepcompute_18500101-18501231_1797.log # no provenance info
   relevant_filetypes:
   - bin  # no provenance info
   - config # no provenance info
