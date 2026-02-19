@@ -32,7 +32,7 @@ general:
    ini_parent_exp_id: "FOCI1.20.0-CC103_piControl_ESM_250y_spinup2099"
    ini_parent_date: "20491231" 
    ini_nemo_restart_steps: 2921960 
-   ini_parent_dir: "${computer.pool_dir}/FOCI_RESTART/${ini_parent_exp_id}"
+   ini_parent_dir: "${computer.pool_directories.focipool}/FOCI_RESTART/${ini_parent_exp_id}"
 
    check_error:
        "check_exit_codes":
@@ -85,7 +85,7 @@ jsbach:
    lresume: ${general.lresume} 
    ini_parent_exp_id: ${general.ini_parent_exp_id}
    ini_parent_date:  ${general.ini_parent_date}
-   ini_parent_dir: "${computer.pool_dir}/FOCI_RESTART/${ini_parent_exp_id}/jsbach_12tiles/"
+   ini_parent_dir: "${computer.pool_directories.focipool}/FOCI_RESTART/${ini_parent_exp_id}/jsbach_12tiles/"
 
    dynamic_vegetations: false
    tiles: 12
@@ -111,7 +111,7 @@ jsbach:
 
    add_forcing_sources:
       "cover_fract_ssp_cdr":
-          "${computer.pool_dir}/STEPSEC/input/land_use/LUH2/historical_maps/cover_fract_${echam.resolution}_12tiles_${echam.resolution}_hbp_1850.nc":
+          "${computer.pool_directories.focipool}/STEPSEC/input/land_use/LUH2/historical_maps/cover_fract_${echam.resolution}_12tiles_${echam.resolution}_hbp_1850.nc":
              from: 1850
              to: 2299
 
