@@ -1,0 +1,36 @@
+&namtrc_run
+    nn_writetrc = 1216
+    ln_rsttr = .true.
+    nn_rsttr = 0
+    cn_trcrst_in = 'FOCI1.16-SW111_11395584_restart_trc_24991231_global'
+    cn_trcrst_indir = '/work/bb0519/foci_input2/FOCI_RESTART/FOCI1.16-SW111/nemo//'
+    cn_trcrst_out = 'restart_trc_18500101'
+    cn_trcrst_outdir = '<TEST_DIR>/run/foci//foci-moz-restart-pictrl_run/restart/nemo//'
+/
+
+&namtrc
+    sn_tracer(1) = 'AGE'
+    ln_trcdta = .false.
+/
+
+&namtrc_ldf
+    rn_ahtrc_0 = 600
+/
+
+&namtrc_rad
+    ln_trcrad = .true.
+/
+
+&namtrc_dmp
+    cn_resto_tr = ''
+/
+
+&namtrc_trd
+    nn_trd_trc = 1216
+    ln_trdtrc = .false.
+/
+
+&namtrc_dia
+    ln_diabio = .false.
+    nn_writedia = 1216
+/

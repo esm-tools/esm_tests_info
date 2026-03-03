@@ -2,7 +2,7 @@
 #SBATCH --partition=compute
 #SBATCH --time=00:15:00
 #SBATCH --ntasks=64
-#SBATCH --output=/work/bb0519/b350071/esm-tests/run/foci//foci-moz-restart-pictrl_run/log/foci-moz-restart-pictrl_run_foci_compute_18500101-18500101_%j.log --error=/work/bb0519/b350071/esm-tests/run/foci//foci-moz-restart-pictrl_run/log/foci-moz-restart-pictrl_run_foci_compute_18500101-18500101_%j.log
+#SBATCH --output=<TEST_DIR>/run/foci//foci-moz-restart-pictrl_run/log/foci-moz-restart-pictrl_run_foci_compute_18500101-18500101_%j.log --error=<TEST_DIR>/run/foci//foci-moz-restart-pictrl_run/log/foci-moz-restart-pictrl_run_foci_compute_18500101-18500101_%j.log
 #SBATCH --job-name=foci-moz-restart-pictrl_run
 #SBATCH --account=bb0519
 #SBATCH --mail-type=NONE
@@ -10,7 +10,7 @@
 #SBATCH --exclusive
 
 # Store batch system environment variables for later sourcing
-declare -p | grep -E "(SLURM)" > /work/bb0519/b350071/esm-tests/run/foci//foci-moz-restart-pictrl_run/run_18500101-18500101/work//batch_system.env
+declare -p | grep -E "(SLURM)" > <TEST_DIR>/run/foci//foci-moz-restart-pictrl_run/run_18500101-18500101/work//batch_system.env
 
 module purge
 module load git/2.31.1-gcc-11.2.0
@@ -88,10 +88,10 @@ export PERL5LIB=/usr/lib64/perl5
 export LD_LIBRARY_PATH=$HDF5ROOT/lib:$NETCDFROOT/lib:$NETCDFFROOT/lib:$AEC_ROOT/lib:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/sw/spack-levante/intel-oneapi-mkl-2022.0.1-ttdktf/mkl/2022.0.1/lib/intel64:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/sw/spack-levante/intel-oneapi-mpi-2021.5.0-mrcss7/mpi/2021.5.0/libfabric/lib:$LD_LIBRARY_PATH
-export LD_LIBRARY_PATH=/work/bb0519/b350071/esm-tests/run/foci//foci-moz-restart-pictrl_run/run_18500101-18500101/work//lib/oasis/:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=<TEST_DIR>/run/foci//foci-moz-restart-pictrl_run/run_18500101-18500101/work//lib/oasis/:$LD_LIBRARY_PATH
 export ACCOUNT=bb0519
-export ESM_TESTING_DIR=/work/bb0519/b350071/esm-tests/run/foci/
-export MODEL_DIR=/work/bb0519/b350071/esm-tests/comp/foci/foci-moz
+export ESM_TESTING_DIR=<TEST_DIR>/run/foci/
+export MODEL_DIR=<TEST_DIR>/comp/foci/foci-moz
 export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 
 
@@ -99,9 +99,9 @@ export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1850-01-01T00:00:00 2970498 - start" >> /work/bb0519/b350071/esm-tests/run/foci//foci-moz-restart-pictrl_run/log//foci-moz-restart-pictrl_run_foci.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1850-01-01T00:00:00 2970498 - start" >> <TEST_DIR>/run/foci//foci-moz-restart-pictrl_run/log//foci-moz-restart-pictrl_run_foci.log
 
-cd /work/bb0519/b350071/esm-tests/run/foci//foci-moz-restart-pictrl_run/run_18500101-18500101/work/
+cd <TEST_DIR>/run/foci//foci-moz-restart-pictrl_run/run_18500101-18500101/work/
 time srun -l --cpu-bind=cores --distribution=cyclic:cyclic --hint=nomultithread --multi-prog hostfile_srun 2>&1 &
 
 # Call to esm_runscript to start subjobs:
@@ -109,12 +109,12 @@ time srun -l --cpu-bind=cores --distribution=cyclic:cyclic --hint=nomultithread 
 process=$!
 
 # Recover batch system environment variables
-source /work/bb0519/b350071/esm-tests/run/foci//foci-moz-restart-pictrl_run/run_18500101-18500101/work//batch_system.env; rm /work/bb0519/b350071/esm-tests/run/foci//foci-moz-restart-pictrl_run/run_18500101-18500101/work//batch_system.env
+source <TEST_DIR>/run/foci//foci-moz-restart-pictrl_run/run_18500101-18500101/work//batch_system.env; rm <TEST_DIR>/run/foci//foci-moz-restart-pictrl_run/run_18500101-18500101/work//batch_system.env
 
 # Comment the following line if you don't want esm_runscripts to restart:
-cd /work/bb0519/b350071/esm-tests/run/foci//foci-moz-restart-pictrl_run/scripts/
+cd <TEST_DIR>/run/foci//foci-moz-restart-pictrl_run/scripts/
 esm_runscripts foci-moz-restart-pictrl_run.yaml -e foci-moz-restart-pictrl_run -t observe_compute -p ${process} -s 18500101 -r 1 -v --last-jobtype prepcompute --open-run
 
-echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1850-01-01T00:00:00 2970498 - done" >> /work/bb0519/b350071/esm-tests/run/foci//foci-moz-restart-pictrl_run/log//foci-moz-restart-pictrl_run_foci.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1850-01-01T00:00:00 2970498 - done" >> <TEST_DIR>/run/foci//foci-moz-restart-pictrl_run/log//foci-moz-restart-pictrl_run_foci.log
 
 wait
