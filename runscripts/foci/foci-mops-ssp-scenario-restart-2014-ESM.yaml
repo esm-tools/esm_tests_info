@@ -146,3 +146,9 @@ nemo:
    
 xios:
    nproc: 8
+oasis3mct:
+    # Needed so that the tests in the GitHub machines can run
+    # otherwise the tests fail
+    choose_general.check:
+        True:
+            ini_parent_dir: "${general.esm_function_dir}/../src/esm_tests/resources/runscripts/foci/run_files4check_runs/foci-mops-ssp-scenario-restart-2014-ESM/"

@@ -26,6 +26,41 @@ run:
                     - "restart/oasis3mct/flxatmos*"
                     - "restart/oasis3mct/sstocean*"
         check: {}
+
+ignore_compare:
+    foci-initial-piCtl-test_daily_restart_lowcpu:
+        finished_config:
+            - "sstocean: .*/sstocean_FOCI1.20.0-CC103_piControl_ESM_250y_spinup2099_20491231"
+            - "flxatmos: .*/flxatmos_FOCI1.20.0-CC103_piControl_ESM_250y_spinup2099_20491231"
+            - "ini_parent_dir: .*/run_files4check_runs/foci-initial-piCtl-test_daily_restart_lowcpu/"
+    foci-initial-ssp-scenario:
+        finished_config:
+            - "ini_parent_dir: .*/run_files4check_runs/foci-initial-ssp-scenario/"
+    foci-mops-lmu-pictl-daily_restart_lowcpu:
+        finished_config:
+            - "sstocean: .*/sstocean_FOCI1.20.0-CC103_piControl_ESM_250y_spinup2099_20491231"
+            - "flxatmos: .*/flxatmos_FOCI1.20.0-CC103_piControl_ESM_250y_spinup2099_20491231"
+            - "ini_parent_dir: .*/FOCI1.20.0-CC103_piControl_ESM_250y_spinup2099/oasis3mct/"
+            - "ini_parent_dir: .*/run_files4check_runs/foci-mops-lmu-pictl-daily_restart_lowcpu/"
+            - "parent_restart_dir: .*/FOCI1.20.0-CC103_piControl_ESM_250y_spinup2099/oasis3mct/"
+            - "parent_restart_dir: .*/run_files4check_runs/foci-mops-lmu-pictl-daily_restart_lowcpu/"
+    foci-mops-ssp-scenario-restart-2014-ESM:
+        finished_config:
+            - "sstocean: .*/sstocean_FOCI1.20.0-CC105_RCP_ESM_spinup2099_20141231"
+            - "flxatmos: .*/flxatmos_FOCI1.20.0-CC105_RCP_ESM_spinup2099_20141231"
+            - "ini_parent_dir: .*/FOCI1.20.0-CC105_RCP_ESM_spinup2099/oasis3mct/"
+            - "ini_parent_dir: .*/run_files4check_runs/foci-mops-ssp-scenario-restart-2014-ESM/"
+            - "parent_restart_dir: .*/FOCI1.20.0-CC105_RCP_ESM_spinup2099/oasis3mct/"
+            - "parent_restart_dir: .*/run_files4check_runs/foci-mops-ssp-scenario-restart-2014-ESM/"
+    foci-moz-restart-pictrl_run:
+        finished_config:
+            - "sstocean: .*/sstocean_FOCI1.16-SW111_24991231"
+            - "flxatmos: .*/flxatmos_FOCI1.16-SW111_24991231"
+            - "ini_parent_dir: .*/FOCI1.16-SW111/oasis3mct/"
+            - "ini_parent_dir: .*/run_files4check_runs/foci-moz-restart-pictrl_run/"
+            - "parent_restart_dir: .*/FOCI1.16-SW111/oasis3mct/"
+            - "parent_restart_dir: .*/run_files4check_runs/foci-moz-restart-pictrl_run/"
+
 computers:
         - levante
         - glogin
