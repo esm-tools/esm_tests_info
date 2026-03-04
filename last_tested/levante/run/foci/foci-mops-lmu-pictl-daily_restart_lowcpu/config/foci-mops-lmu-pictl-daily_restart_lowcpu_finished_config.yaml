@@ -361,35 +361,42 @@ echam:
       gwsctl:
         rmscon_hi: 0.92  # no provenance info
       _grp_mvstreamctl_0:
-        filetag: nitroday  # no provenance info
-        source: nitro # no provenance info
-        target: '*day' # no provenance info
-        interval: # no provenance info
-        - 1
-        - days
-        - last
-        - 0
-        variables: # no provenance info
-        - boxN_slow
-        - boxN_green
-        - boxN_woods
-        - boxN_litter_wood_ag
-        - boxN_litter_wood_bg
-        - box_Npools_total
-        - boxN_litter_green_ag
-        - boxN_litter_green_bg
-        - boxN_hbp_harvest
-        - boxN_crop_harvest
-        - boxN_mobile
-        - boxN_sminN
-        - jsbachNconserv
-        - Npool_hbp_harvest
-        - Npool_slow
-        - Npool_green
-        - Npool_woods
-        - Npool_litter_wood_ag
-        - Npool_litter_wood_bg
+        filetag: echam  # no provenance info
+        source:
+        - sp  # no provenance info
+        - gl # no provenance info
+        - g3b # no provenance info
+      _grp_mvstreamctl_1:
+        filetag: co2  # no provenance info
+        source: co2 # no provenance info
+      _grp_mvstreamctl_2:
+        filetag: surf  # no provenance info
+        source: surf # no provenance info
+      _grp_mvstreamctl_3:
+        filetag: tracer  # no provenance info
+        source: tracer # no provenance info
+      _grp_mvstreamctl_4:
+        filetag: jsbach  # no provenance info
+        source: jsbach # no provenance info
+      _grp_mvstreamctl_5:
+        filetag: land  # no provenance info
+        source: land # no provenance info
+      _grp_mvstreamctl_6:
+        filetag: veg  # no provenance info
+        source: veg # no provenance info
+      _grp_mvstreamctl_7:
+        filetag: yasso  # no provenance info
+        source: yasso # no provenance info
       _grp_set_stream_0:
+        stream: jsbach  # no provenance info
+        lpost: 0 # no provenance info
+      _grp_set_stream_1:
+        stream: land  # no provenance info
+        lpost: 0 # no provenance info
+      _grp_set_stream_2:
+        stream: veg  # no provenance info
+        lpost: 0 # no provenance info
+      _grp_set_stream_3:
         stream: yasso  # no provenance info
         lpost: 0 # no provenance info
       radctl:
@@ -407,6 +414,227 @@ echam:
         lco2_2perc: true  # no provenance info
       submdiagctl:
         vphysc_lpost: false  # no provenance info
+      _grp_mvstreamctl_8:
+        filetag: echamday  # no provenance info
+        source:
+        - sp  # no provenance info
+        - gl # no provenance info
+        - g3b # no provenance info
+        target: '*day' # no provenance info
+        interval:
+        - 1  # no provenance info
+        - days # no provenance info
+        - last # no provenance info
+        - 0 # no provenance info
+        variables:
+        - ahfl_na>ahfl=147  # no provenance info
+        - ahfs_na>ahfs=146 # no provenance info
+        - aprc_na>aprc=143 # no provenance info
+        - aprl_na>aprl=142 # no provenance info
+        - aprs_na>aprs=144 # no provenance info
+        - aps # no provenance info
+        - dew2 # no provenance info
+        - geosp # no provenance info
+        - q2m # no provenance info
+        - rh2m # no provenance info
+        - srads_na>srads=176 # no provenance info
+        - temp2 # no provenance info
+        - tsurf_na>tsurf=169 # no provenance info
+        - u10 # no provenance info
+        - v10 # no provenance info
+        - wind10_na>wind10=171 # no provenance info
+        - temp2:max>t2max=201 # no provenance info
+        - temp2:min>t2min=202 # no provenance info
+      _grp_mvstreamctl_9:
+        filetag: co2day  # no provenance info
+        source: co2 # no provenance info
+        target: '*day' # no provenance info
+        interval:
+        - 1  # no provenance info
+        - days # no provenance info
+        - last # no provenance info
+        - 0 # no provenance info
+        variables:
+        - co2_flx_inst  # no provenance info
+        - co2_flux # no provenance info
+        - co2_flx_land # no provenance info
+        - co2_flx_ocean # no provenance info
+        - co2_burden # no provenance info
+        - co2_burden_corr_acc2 # no provenance info
+        - co2_flux_corr # no provenance info
+        - co2_emis # no provenance info
+        - co2_flx_total_inst # no provenance info
+        - co2_flx_anthro # no provenance info
+        - co2_flx_npp # no provenance info
+        - co2_flx_resp # no provenance info
+        - co2_flx_herb # no provenance info
+        - co2_flx_lcc # no provenance info
+        - co2_flx_harvest # no provenance info
+        - co2_flx_fire # no provenance info
+        - co2_flx_npp_inst # no provenance info
+        - co2_flx_resp_inst # no provenance info
+        - co2_flx_hbps_inst # no provenance info
+        - co2_flx_hbps_acc # no provenance info
+      _grp_mvstreamctl_10:
+        filetag: jsbachday  # no provenance info
+        source: jsbach # no provenance info
+        target: '*day' # no provenance info
+        interval:
+        - 1  # no provenance info
+        - days # no provenance info
+        - last # no provenance info
+        - 0 # no provenance info
+        variables:
+        - layer_moisture  # no provenance info
+        - evapotranspiration_inst>evapotranspiration=44 # no provenance info
+        - transpiration_inst>transpiration=76 # no provenance info
+        - cover_fract # no provenance info
+        - veg_ratio_max # no provenance info
+        - CO2_emission_landcover_change # no provenance info
+        - CO2_emission_harvest # no provenance info
+        - lai # no provenance info
+      _grp_mvstreamctl_11:
+        filetag: landday  # no provenance info
+        source: land # no provenance info
+        target: '*day' # no provenance info
+        interval:
+        - 1  # no provenance info
+        - days # no provenance info
+        - last # no provenance info
+        - 0 # no provenance info
+        variables:
+        - bare_soil_evaporation  # no provenance info
+        - snow_evaporation # no provenance info
+        - lai # no provenance info
+        - snow_depth_canopy # no provenance info
+        - snow_fract # no provenance info
+        - soil_temperature # no provenance info
+        - surface_radiative_temp # no provenance info
+        - par_acc # no provenance info
+        - apar_acc # no provenance info
+      _grp_mvstreamctl_12:
+        filetag: vegday  # no provenance info
+        source: veg # no provenance info
+        target: '*day' # no provenance info
+        interval:
+        - 1  # no provenance info
+        - days # no provenance info
+        - last # no provenance info
+        - 0 # no provenance info
+        variables:
+        - LCC_flux_box_C2atmos  # no provenance info
+        - boxC_construction_LCC # no provenance info
+        - boxC_construction_harvest # no provenance info
+        - boxC_crop_harvest # no provenance info
+        - boxC_flux_2_construction_LCC # no provenance info
+        - boxC_flux_2_construction_harvest # no provenance info
+        - boxC_flux_2_onSite_LCC # no provenance info
+        - boxC_flux_2_onSite_harvest # no provenance info
+        - boxC_flux_2_paper_LCC # no provenance info
+        - boxC_flux_2_paper_harvest # no provenance info
+        - jsbachCconserv # no provenance info
+        - boxC_flux_construction_2_atmos_LCC # no provenance info
+        - boxC_flux_construction_2_atmos_harvest # no provenance info
+        - boxC_flux_onSite_2_atmos_LCC # no provenance info
+        - boxC_flux_onsite_2_atmos_harvest # no provenance info
+        - boxC_flux_paper_2_atmos_LCC # no provenance info
+        - boxC_flux_paper_2_atmos_harvest # no provenance info
+        - boxC_green # no provenance info
+        - boxC_litter_green_bg # no provenance info
+        - boxC_onSite_LCC # no provenance info
+        - boxC_onSite_harvest # no provenance info
+        - boxC_paper_LCC # no provenance info
+        - boxC_paper_harvest # no provenance info
+        - boxC_reserve # no provenance info
+        - boxC_woods # no provenance info
+        - box_Cflux_herbivory_2_atm # no provenance info
+        - box_Cflx_2_crop_harvest # no provenance info
+        - box_Cflx_crop_harvest_2_atm # no provenance info
+        - box_Cpools_total # no provenance info
+        - box_Cpools_total_old # no provenance info
+        - box_Cpools_total_old2 # no provenance info
+        - box_fire_CO2_flux_2_atmos # no provenance info
+        - box_GPP_yDayMean # no provenance info
+        - box_NPP_act_yDayMean # no provenance info
+        - box_fire_CO2_flux_2_atmos # no provenance info
+        - box_soil_respiration # no provenance info
+        - burned_YC_acid_ag_wood # no provenance info
+        - dist_nitrogen_2_atmos # no provenance info
+        - boxC_hbp_ccs # no provenance info
+        - boxC_hbp_no_ccs # no provenance info
+        - Cpool_hbp_harvest # no provenance info
+        - boxC_hbp_harvest # no provenance info
+        - heat_sum_HBP # no provenance info
+        - Cflx_hbp_2_ccs # no provenance info
+        - Cflx_hbp_2_atm # no provenance info
+        - box_Cflx_hbp_2_ccs # no provenance info
+        - box_Cflx_hbp_2_atm # no provenance info
+        - boxC_slow # no provenance info
+        - Cpool_green # no provenance info
+        - Cpool_woods # no provenance info
+        - Cpool_slow # no provenance info
+        - Cpool_litter_wood_ag # no provenance info
+        - Cpool_litter_wood_bg # no provenance info
+        - Cpool_crop_harvest # no provenance info
+        - is_hbp_harvest # no provenance info
+        - testCconserv # no provenance info
+      _grp_mvstreamctl_13:
+        filetag: yassoday  # no provenance info
+        source: yasso # no provenance info
+        target: '*day' # no provenance info
+        interval:
+        - 1  # no provenance info
+        - days # no provenance info
+        - last # no provenance info
+        - 0 # no provenance info
+        variables:
+        - boxYC_humus_1  # no provenance info
+        - boxYC_humus_2 # no provenance info
+        - boxYC_acid_ag1 # no provenance info
+        - boxYC_acid_bg1 # no provenance info
+        - boxYC_water_ag1 # no provenance info
+        - boxYC_water_bg1 # no provenance info
+        - boxYC_ethanol_ag1 # no provenance info
+        - boxYC_ethanol_bg1 # no provenance info
+        - boxYC_nonsoluble_ag1 # no provenance info
+        - boxYC_nonsoluble_bg1 # no provenance info
+        - boxYC_acid_ag2 # no provenance info
+        - boxYC_acid_bg2 # no provenance info
+        - boxYC_water_ag2 # no provenance info
+        - boxYC_water_bg2 # no provenance info
+        - boxYC_ethanol_ag2 # no provenance info
+        - boxYC_ethanol_bg2 # no provenance info
+        - boxYC_nonsoluble_ag2 # no provenance info
+        - boxYC_nonsoluble_bg2 # no provenance info
+      _grp_mvstreamctl_14:
+        filetag: nitroday  # no provenance info
+        source: nitro # no provenance info
+        target: '*day' # no provenance info
+        interval:
+        - 1  # no provenance info
+        - days # no provenance info
+        - last # no provenance info
+        - 0 # no provenance info
+        variables:
+        - boxN_slow  # no provenance info
+        - boxN_green # no provenance info
+        - boxN_woods # no provenance info
+        - boxN_litter_wood_ag # no provenance info
+        - boxN_litter_wood_bg # no provenance info
+        - box_Npools_total # no provenance info
+        - boxN_litter_green_ag # no provenance info
+        - boxN_litter_green_bg # no provenance info
+        - boxN_hbp_harvest # no provenance info
+        - boxN_crop_harvest # no provenance info
+        - boxN_mobile # no provenance info
+        - boxN_sminN # no provenance info
+        - jsbachNconserv # no provenance info
+        - Npool_hbp_harvest # no provenance info
+        - Npool_slow # no provenance info
+        - Npool_green # no provenance info
+        - Npool_woods # no provenance info
+        - Npool_litter_wood_ag # no provenance info
+        - Npool_litter_wood_bg # no provenance info
   namelist_changes:
     namelist.echam:
       runctl:
@@ -1138,35 +1366,42 @@ echam:
       gwsctl:
         rmscon_hi: 0.92  # no provenance info
       _grp_mvstreamctl_0:
-        filetag: nitroday  # no provenance info
-        source: nitro # no provenance info
-        target: '*day' # no provenance info
-        interval: # no provenance info
-        - 1
-        - days
-        - last
-        - 0
-        variables: # no provenance info
-        - boxN_slow
-        - boxN_green
-        - boxN_woods
-        - boxN_litter_wood_ag
-        - boxN_litter_wood_bg
-        - box_Npools_total
-        - boxN_litter_green_ag
-        - boxN_litter_green_bg
-        - boxN_hbp_harvest
-        - boxN_crop_harvest
-        - boxN_mobile
-        - boxN_sminN
-        - jsbachNconserv
-        - Npool_hbp_harvest
-        - Npool_slow
-        - Npool_green
-        - Npool_woods
-        - Npool_litter_wood_ag
-        - Npool_litter_wood_bg
+        filetag: echam  # no provenance info
+        source:
+        - sp  # no provenance info
+        - gl # no provenance info
+        - g3b # no provenance info
+      _grp_mvstreamctl_1:
+        filetag: co2  # no provenance info
+        source: co2 # no provenance info
+      _grp_mvstreamctl_2:
+        filetag: surf  # no provenance info
+        source: surf # no provenance info
+      _grp_mvstreamctl_3:
+        filetag: tracer  # no provenance info
+        source: tracer # no provenance info
+      _grp_mvstreamctl_4:
+        filetag: jsbach  # no provenance info
+        source: jsbach # no provenance info
+      _grp_mvstreamctl_5:
+        filetag: land  # no provenance info
+        source: land # no provenance info
+      _grp_mvstreamctl_6:
+        filetag: veg  # no provenance info
+        source: veg # no provenance info
+      _grp_mvstreamctl_7:
+        filetag: yasso  # no provenance info
+        source: yasso # no provenance info
       _grp_set_stream_0:
+        stream: jsbach  # no provenance info
+        lpost: 0 # no provenance info
+      _grp_set_stream_1:
+        stream: land  # no provenance info
+        lpost: 0 # no provenance info
+      _grp_set_stream_2:
+        stream: veg  # no provenance info
+        lpost: 0 # no provenance info
+      _grp_set_stream_3:
         stream: yasso  # no provenance info
         lpost: 0 # no provenance info
       radctl:
@@ -1184,6 +1419,227 @@ echam:
         lco2_2perc: true  # no provenance info
       submdiagctl:
         vphysc_lpost: false  # no provenance info
+      _grp_mvstreamctl_8:
+        filetag: echamday  # no provenance info
+        source:
+        - sp  # no provenance info
+        - gl # no provenance info
+        - g3b # no provenance info
+        target: '*day' # no provenance info
+        interval:
+        - 1  # no provenance info
+        - days # no provenance info
+        - last # no provenance info
+        - 0 # no provenance info
+        variables:
+        - ahfl_na>ahfl=147  # no provenance info
+        - ahfs_na>ahfs=146 # no provenance info
+        - aprc_na>aprc=143 # no provenance info
+        - aprl_na>aprl=142 # no provenance info
+        - aprs_na>aprs=144 # no provenance info
+        - aps # no provenance info
+        - dew2 # no provenance info
+        - geosp # no provenance info
+        - q2m # no provenance info
+        - rh2m # no provenance info
+        - srads_na>srads=176 # no provenance info
+        - temp2 # no provenance info
+        - tsurf_na>tsurf=169 # no provenance info
+        - u10 # no provenance info
+        - v10 # no provenance info
+        - wind10_na>wind10=171 # no provenance info
+        - temp2:max>t2max=201 # no provenance info
+        - temp2:min>t2min=202 # no provenance info
+      _grp_mvstreamctl_9:
+        filetag: co2day  # no provenance info
+        source: co2 # no provenance info
+        target: '*day' # no provenance info
+        interval:
+        - 1  # no provenance info
+        - days # no provenance info
+        - last # no provenance info
+        - 0 # no provenance info
+        variables:
+        - co2_flx_inst  # no provenance info
+        - co2_flux # no provenance info
+        - co2_flx_land # no provenance info
+        - co2_flx_ocean # no provenance info
+        - co2_burden # no provenance info
+        - co2_burden_corr_acc2 # no provenance info
+        - co2_flux_corr # no provenance info
+        - co2_emis # no provenance info
+        - co2_flx_total_inst # no provenance info
+        - co2_flx_anthro # no provenance info
+        - co2_flx_npp # no provenance info
+        - co2_flx_resp # no provenance info
+        - co2_flx_herb # no provenance info
+        - co2_flx_lcc # no provenance info
+        - co2_flx_harvest # no provenance info
+        - co2_flx_fire # no provenance info
+        - co2_flx_npp_inst # no provenance info
+        - co2_flx_resp_inst # no provenance info
+        - co2_flx_hbps_inst # no provenance info
+        - co2_flx_hbps_acc # no provenance info
+      _grp_mvstreamctl_10:
+        filetag: jsbachday  # no provenance info
+        source: jsbach # no provenance info
+        target: '*day' # no provenance info
+        interval:
+        - 1  # no provenance info
+        - days # no provenance info
+        - last # no provenance info
+        - 0 # no provenance info
+        variables:
+        - layer_moisture  # no provenance info
+        - evapotranspiration_inst>evapotranspiration=44 # no provenance info
+        - transpiration_inst>transpiration=76 # no provenance info
+        - cover_fract # no provenance info
+        - veg_ratio_max # no provenance info
+        - CO2_emission_landcover_change # no provenance info
+        - CO2_emission_harvest # no provenance info
+        - lai # no provenance info
+      _grp_mvstreamctl_11:
+        filetag: landday  # no provenance info
+        source: land # no provenance info
+        target: '*day' # no provenance info
+        interval:
+        - 1  # no provenance info
+        - days # no provenance info
+        - last # no provenance info
+        - 0 # no provenance info
+        variables:
+        - bare_soil_evaporation  # no provenance info
+        - snow_evaporation # no provenance info
+        - lai # no provenance info
+        - snow_depth_canopy # no provenance info
+        - snow_fract # no provenance info
+        - soil_temperature # no provenance info
+        - surface_radiative_temp # no provenance info
+        - par_acc # no provenance info
+        - apar_acc # no provenance info
+      _grp_mvstreamctl_12:
+        filetag: vegday  # no provenance info
+        source: veg # no provenance info
+        target: '*day' # no provenance info
+        interval:
+        - 1  # no provenance info
+        - days # no provenance info
+        - last # no provenance info
+        - 0 # no provenance info
+        variables:
+        - LCC_flux_box_C2atmos  # no provenance info
+        - boxC_construction_LCC # no provenance info
+        - boxC_construction_harvest # no provenance info
+        - boxC_crop_harvest # no provenance info
+        - boxC_flux_2_construction_LCC # no provenance info
+        - boxC_flux_2_construction_harvest # no provenance info
+        - boxC_flux_2_onSite_LCC # no provenance info
+        - boxC_flux_2_onSite_harvest # no provenance info
+        - boxC_flux_2_paper_LCC # no provenance info
+        - boxC_flux_2_paper_harvest # no provenance info
+        - jsbachCconserv # no provenance info
+        - boxC_flux_construction_2_atmos_LCC # no provenance info
+        - boxC_flux_construction_2_atmos_harvest # no provenance info
+        - boxC_flux_onSite_2_atmos_LCC # no provenance info
+        - boxC_flux_onsite_2_atmos_harvest # no provenance info
+        - boxC_flux_paper_2_atmos_LCC # no provenance info
+        - boxC_flux_paper_2_atmos_harvest # no provenance info
+        - boxC_green # no provenance info
+        - boxC_litter_green_bg # no provenance info
+        - boxC_onSite_LCC # no provenance info
+        - boxC_onSite_harvest # no provenance info
+        - boxC_paper_LCC # no provenance info
+        - boxC_paper_harvest # no provenance info
+        - boxC_reserve # no provenance info
+        - boxC_woods # no provenance info
+        - box_Cflux_herbivory_2_atm # no provenance info
+        - box_Cflx_2_crop_harvest # no provenance info
+        - box_Cflx_crop_harvest_2_atm # no provenance info
+        - box_Cpools_total # no provenance info
+        - box_Cpools_total_old # no provenance info
+        - box_Cpools_total_old2 # no provenance info
+        - box_fire_CO2_flux_2_atmos # no provenance info
+        - box_GPP_yDayMean # no provenance info
+        - box_NPP_act_yDayMean # no provenance info
+        - box_fire_CO2_flux_2_atmos # no provenance info
+        - box_soil_respiration # no provenance info
+        - burned_YC_acid_ag_wood # no provenance info
+        - dist_nitrogen_2_atmos # no provenance info
+        - boxC_hbp_ccs # no provenance info
+        - boxC_hbp_no_ccs # no provenance info
+        - Cpool_hbp_harvest # no provenance info
+        - boxC_hbp_harvest # no provenance info
+        - heat_sum_HBP # no provenance info
+        - Cflx_hbp_2_ccs # no provenance info
+        - Cflx_hbp_2_atm # no provenance info
+        - box_Cflx_hbp_2_ccs # no provenance info
+        - box_Cflx_hbp_2_atm # no provenance info
+        - boxC_slow # no provenance info
+        - Cpool_green # no provenance info
+        - Cpool_woods # no provenance info
+        - Cpool_slow # no provenance info
+        - Cpool_litter_wood_ag # no provenance info
+        - Cpool_litter_wood_bg # no provenance info
+        - Cpool_crop_harvest # no provenance info
+        - is_hbp_harvest # no provenance info
+        - testCconserv # no provenance info
+      _grp_mvstreamctl_13:
+        filetag: yassoday  # no provenance info
+        source: yasso # no provenance info
+        target: '*day' # no provenance info
+        interval:
+        - 1  # no provenance info
+        - days # no provenance info
+        - last # no provenance info
+        - 0 # no provenance info
+        variables:
+        - boxYC_humus_1  # no provenance info
+        - boxYC_humus_2 # no provenance info
+        - boxYC_acid_ag1 # no provenance info
+        - boxYC_acid_bg1 # no provenance info
+        - boxYC_water_ag1 # no provenance info
+        - boxYC_water_bg1 # no provenance info
+        - boxYC_ethanol_ag1 # no provenance info
+        - boxYC_ethanol_bg1 # no provenance info
+        - boxYC_nonsoluble_ag1 # no provenance info
+        - boxYC_nonsoluble_bg1 # no provenance info
+        - boxYC_acid_ag2 # no provenance info
+        - boxYC_acid_bg2 # no provenance info
+        - boxYC_water_ag2 # no provenance info
+        - boxYC_water_bg2 # no provenance info
+        - boxYC_ethanol_ag2 # no provenance info
+        - boxYC_ethanol_bg2 # no provenance info
+        - boxYC_nonsoluble_ag2 # no provenance info
+        - boxYC_nonsoluble_bg2 # no provenance info
+      _grp_mvstreamctl_14:
+        filetag: nitroday  # no provenance info
+        source: nitro # no provenance info
+        target: '*day' # no provenance info
+        interval:
+        - 1  # no provenance info
+        - days # no provenance info
+        - last # no provenance info
+        - 0 # no provenance info
+        variables:
+        - boxN_slow  # no provenance info
+        - boxN_green # no provenance info
+        - boxN_woods # no provenance info
+        - boxN_litter_wood_ag # no provenance info
+        - boxN_litter_wood_bg # no provenance info
+        - box_Npools_total # no provenance info
+        - boxN_litter_green_ag # no provenance info
+        - boxN_litter_green_bg # no provenance info
+        - boxN_hbp_harvest # no provenance info
+        - boxN_crop_harvest # no provenance info
+        - boxN_mobile # no provenance info
+        - boxN_sminN # no provenance info
+        - jsbachNconserv # no provenance info
+        - Npool_hbp_harvest # no provenance info
+        - Npool_slow # no provenance info
+        - Npool_green # no provenance info
+        - Npool_woods # no provenance info
+        - Npool_litter_wood_ag # no provenance info
+        - Npool_litter_wood_bg # no provenance info
 computer:
   name: levante  # <FUNCTIONS_PATH>/machines/levante.yaml,line:4,col:11
   account: None # <FUNCTIONS_PATH>/machines/levante.yaml,line:7,col:14
@@ -1217,10 +1673,10 @@ computer:
   - load intel-oneapi-compilers/2022.0.1-gcc-11.2.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:192,col:31
   - load intel-oneapi-mkl/2022.0.1-gcc-11.2.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:193,col:31
   - load openmpi/4.1.2-intel-2021.5.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:194,col:31
-  - load netcdf-c/4.8.1-openmpi-4.1.2-intel-2021.5.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:280,col:19
-  - load netcdf-fortran/4.5.3-openmpi-4.1.2-intel-2021.5.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:281,col:19
-  - load hdf5/1.12.1-openmpi-4.1.2-intel-2021.5.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:282,col:19
-  - load libaec/1.0.5-intel-2021.5.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:283,col:19
+  - load netcdf-c/4.8.1-openmpi-4.1.2-intel-2021.5.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:286,col:19
+  - load netcdf-fortran/4.5.3-openmpi-4.1.2-intel-2021.5.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:287,col:19
+  - load hdf5/1.12.1-openmpi-4.1.2-intel-2021.5.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:288,col:19
+  - load libaec/1.0.5-intel-2021.5.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:289,col:19
   export_vars:
     LC_ALL: en_US.UTF-8  # <FUNCTIONS_PATH>/machines/levante.yaml,line:97,col:21
     CPU_MODEL: AMD_EPYC_ZEN3 # <FUNCTIONS_PATH>/machines/levante.yaml,line:100,col:24
@@ -1253,50 +1709,50 @@ computer:
     CXX: mpicxx # <FUNCTIONS_PATH>/machines/levante.yaml,line:202,col:34
     MPIROOT: "\"$(mpif90 -show | perl -lne 'm{ -I(.*?)/include } and print $1')\"" # <FUNCTIONS_PATH>/machines/levante.yaml,line:203,col:38
     MPI_LIB: "\"$(mpif90 -show |sed -e 's/^[^ ]*//' -e 's/-[I][^ ]*//g')\"" # <FUNCTIONS_PATH>/machines/levante.yaml,line:204,col:38
-    IO_LIB_ROOT: /work/ab0246/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:286,col:30
-    MPI_HOME: /sw/spack-levante/openmpi-4.1.2-yfwe6t # <FUNCTIONS_PATH>/machines/levante.yaml,line:287,col:27
-    MPI_ROOT: /sw/spack-levante/openmpi-4.1.2-yfwe6t # <FUNCTIONS_PATH>/machines/levante.yaml,line:288,col:27
-    mpi_ROOT: /sw/spack-levante/openmpi-4.1.2-yfwe6t # <FUNCTIONS_PATH>/machines/levante.yaml,line:289,col:27
-    MPI_DIR: /sw/spack-levante/openmpi-4.1.2-yfwe6t # <FUNCTIONS_PATH>/machines/levante.yaml,line:290,col:26
-    mpi_DIR: /sw/spack-levante/openmpi-4.1.2-yfwe6t # <FUNCTIONS_PATH>/machines/levante.yaml,line:291,col:26
-    AEC_ROOT: /sw/spack-levante/libaec-1.0.5-gij7yv # <FUNCTIONS_PATH>/machines/levante.yaml,line:293,col:27
-    aec_ROOT: /sw/spack-levante/libaec-1.0.5-gij7yv # <FUNCTIONS_PATH>/machines/levante.yaml,line:294,col:27
-    HDF5ROOT: /sw/spack-levante/hdf5-1.12.1-tvymb5 # <FUNCTIONS_PATH>/machines/levante.yaml,line:296,col:27
-    HDF5_C_INCLUDE_DIRECTORIES: $HDF5ROOT/include # <FUNCTIONS_PATH>/machines/levante.yaml,line:297,col:45
-    HDF5_ROOT: $HDF5ROOT # <FUNCTIONS_PATH>/machines/levante.yaml,line:298,col:28
-    NETCDFFROOT: /sw/spack-levante/netcdf-fortran-4.5.3-k6xq5g # <FUNCTIONS_PATH>/machines/levante.yaml,line:300,col:30
-    NETCDF_Fortran_INCLUDE_DIRECTORIES: $NETCDFFROOT/include # <FUNCTIONS_PATH>/machines/levante.yaml,line:301,col:53
-    NetCDF_Fortran_ROOT: $NETCDFFROOT # <FUNCTIONS_PATH>/machines/levante.yaml,line:302,col:38
-    NETCDF_ROOT: $NETCDFFROOT # <FUNCTIONS_PATH>/machines/levante.yaml,line:303,col:30
-    NETCDFROOT: /sw/spack-levante/netcdf-c-4.8.1-2k3cmu # <FUNCTIONS_PATH>/machines/levante.yaml,line:305,col:29
-    NETCDF_C_INCLUDE_DIRECTORIES: $NETCDFROOT/include # <FUNCTIONS_PATH>/machines/levante.yaml,line:306,col:47
-    NETCDF_CXX_INCLUDE_DIRECTORIES: $NETCDFROOT/include # <FUNCTIONS_PATH>/machines/levante.yaml,line:307,col:49
-    NETCDF_CXX_LIBRARIES: $NETCDFROOT/lib # <FUNCTIONS_PATH>/machines/levante.yaml,line:308,col:39
-    NetCDF_C_ROOT: $NETCDFROOT # <FUNCTIONS_PATH>/machines/levante.yaml,line:309,col:32
-    NETCDF_PATH: $NETCDFROOT # <FUNCTIONS_PATH>/machines/levante.yaml,line:310,col:30
-    TBBROOT: /sw/spack-levante/intel-oneapi-compilers-2022.0.1-an2cbq/tbb/2021.5.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:312,col:26
-    TBBMALLOC_DIR: $TBBROOT/lib/intel64/gcc4.8 # <FUNCTIONS_PATH>/machines/levante.yaml,line:313,col:32
-    ECCODESROOT: $IO_LIB_ROOT # <FUNCTIONS_PATH>/machines/levante.yaml,line:314,col:30
-    OASIS_NETCDF: $NETCDFROOT # <FUNCTIONS_PATH>/machines/levante.yaml,line:316,col:31
-    OASIS_NETCDFF: $NETCDFFROOT # <FUNCTIONS_PATH>/machines/levante.yaml,line:317,col:32
-    PSMPIFLAGS: '"-lrt -lm -ldl"' # <FUNCTIONS_PATH>/machines/levante.yaml,line:321,col:29
-    LAPACK_LIB: "'-mkl=sequential'" # <FUNCTIONS_PATH>/machines/levante.yaml,line:324,col:29
-    ZLIBROOT: /usr # <FUNCTIONS_PATH>/machines/levante.yaml,line:327,col:27
-    OASIS3MCT_FC_LIB: '"-L$NETCDFFROOT/lib -lnetcdff"' # <FUNCTIONS_PATH>/machines/levante.yaml,line:331,col:35
-    PERL5LIB: /usr/lib64/perl5 # <FUNCTIONS_PATH>/machines/levante.yaml,line:334,col:27
-    LD_LIBRARY_PATH[(0)]: $HDF5ROOT/lib:$NETCDFROOT/lib:$NETCDFFROOT/lib:$AEC_ROOT/lib:$LD_LIBRARY_PATH # <FUNCTIONS_PATH>/machines/levante.yaml,line:336,col:39
-    LD_LIBRARY_PATH[(1)]: /sw/spack-levante/intel-oneapi-mkl-2022.0.1-ttdktf/mkl/2022.0.1/lib/intel64:$LD_LIBRARY_PATH # <FUNCTIONS_PATH>/machines/levante.yaml,line:339,col:39
-    LD_LIBRARY_PATH[(2)]: /sw/spack-levante/intel-oneapi-mpi-2021.5.0-mrcss7/mpi/2021.5.0/libfabric/lib:$LD_LIBRARY_PATH # <FUNCTIONS_PATH>/machines/levante.yaml,line:342,col:39
+    MPI_HOME: $MPIROOT # <FUNCTIONS_PATH>/machines/levante.yaml,line:206,col:39
+    MPI_ROOT: $MPIROOT # <FUNCTIONS_PATH>/machines/levante.yaml,line:207,col:39
+    mpi_ROOT: $MPIROOT # <FUNCTIONS_PATH>/machines/levante.yaml,line:208,col:39
+    MPI_DIR: $MPIROOT # <FUNCTIONS_PATH>/machines/levante.yaml,line:209,col:38
+    mpi_DIR: $MPIROOT # <FUNCTIONS_PATH>/machines/levante.yaml,line:210,col:38
+    IO_LIB_ROOT: /work/ab0246/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:292,col:30
+    AEC_ROOT: /sw/spack-levante/libaec-1.0.5-gij7yv # <FUNCTIONS_PATH>/machines/levante.yaml,line:294,col:27
+    aec_ROOT: /sw/spack-levante/libaec-1.0.5-gij7yv # <FUNCTIONS_PATH>/machines/levante.yaml,line:295,col:27
+    HDF5ROOT: /sw/spack-levante/hdf5-1.12.1-tvymb5 # <FUNCTIONS_PATH>/machines/levante.yaml,line:297,col:27
+    HDF5_C_INCLUDE_DIRECTORIES: $HDF5ROOT/include # <FUNCTIONS_PATH>/machines/levante.yaml,line:298,col:45
+    HDF5_ROOT: $HDF5ROOT # <FUNCTIONS_PATH>/machines/levante.yaml,line:299,col:28
+    NETCDFFROOT: /sw/spack-levante/netcdf-fortran-4.5.3-k6xq5g # <FUNCTIONS_PATH>/machines/levante.yaml,line:301,col:30
+    NETCDF_Fortran_INCLUDE_DIRECTORIES: $NETCDFFROOT/include # <FUNCTIONS_PATH>/machines/levante.yaml,line:302,col:53
+    NetCDF_Fortran_ROOT: $NETCDFFROOT # <FUNCTIONS_PATH>/machines/levante.yaml,line:303,col:38
+    NETCDF_ROOT: $NETCDFFROOT # <FUNCTIONS_PATH>/machines/levante.yaml,line:304,col:30
+    NETCDFROOT: /sw/spack-levante/netcdf-c-4.8.1-2k3cmu # <FUNCTIONS_PATH>/machines/levante.yaml,line:306,col:29
+    NETCDF_C_INCLUDE_DIRECTORIES: $NETCDFROOT/include # <FUNCTIONS_PATH>/machines/levante.yaml,line:307,col:47
+    NETCDF_CXX_INCLUDE_DIRECTORIES: $NETCDFROOT/include # <FUNCTIONS_PATH>/machines/levante.yaml,line:308,col:49
+    NETCDF_CXX_LIBRARIES: $NETCDFROOT/lib # <FUNCTIONS_PATH>/machines/levante.yaml,line:309,col:39
+    NetCDF_C_ROOT: $NETCDFROOT # <FUNCTIONS_PATH>/machines/levante.yaml,line:310,col:32
+    NETCDF_PATH: $NETCDFROOT # <FUNCTIONS_PATH>/machines/levante.yaml,line:311,col:30
+    TBBROOT: /sw/spack-levante/intel-oneapi-compilers-2022.0.1-an2cbq/tbb/2021.5.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:313,col:26
+    TBBMALLOC_DIR: $TBBROOT/lib/intel64/gcc4.8 # <FUNCTIONS_PATH>/machines/levante.yaml,line:314,col:32
+    ECCODESROOT: $IO_LIB_ROOT # <FUNCTIONS_PATH>/machines/levante.yaml,line:315,col:30
+    OASIS_NETCDF: $NETCDFROOT # <FUNCTIONS_PATH>/machines/levante.yaml,line:317,col:31
+    OASIS_NETCDFF: $NETCDFFROOT # <FUNCTIONS_PATH>/machines/levante.yaml,line:318,col:32
+    PSMPIFLAGS: '"-lrt -lm -ldl"' # <FUNCTIONS_PATH>/machines/levante.yaml,line:322,col:29
+    LAPACK_LIB: "'-mkl=sequential'" # <FUNCTIONS_PATH>/machines/levante.yaml,line:325,col:29
+    ZLIBROOT: /usr # <FUNCTIONS_PATH>/machines/levante.yaml,line:328,col:27
+    OASIS3MCT_FC_LIB: '"-L$NETCDFFROOT/lib -lnetcdff"' # <FUNCTIONS_PATH>/machines/levante.yaml,line:332,col:35
+    PERL5LIB: /usr/lib64/perl5 # <FUNCTIONS_PATH>/machines/levante.yaml,line:335,col:27
+    LD_LIBRARY_PATH[(0)]: $HDF5ROOT/lib:$NETCDFROOT/lib:$NETCDFFROOT/lib:$AEC_ROOT/lib:$LD_LIBRARY_PATH # <FUNCTIONS_PATH>/machines/levante.yaml,line:337,col:39
+    LD_LIBRARY_PATH[(1)]: /sw/spack-levante/intel-oneapi-mkl-2022.0.1-ttdktf/mkl/2022.0.1/lib/intel64:$LD_LIBRARY_PATH # <FUNCTIONS_PATH>/machines/levante.yaml,line:340,col:39
+    LD_LIBRARY_PATH[(2)]: /sw/spack-levante/intel-oneapi-mpi-2021.5.0-mrcss7/mpi/2021.5.0/libfabric/lib:$LD_LIBRARY_PATH # <FUNCTIONS_PATH>/machines/levante.yaml,line:343,col:39
     HOME: <HOME_DIR> # no provenance info
     ACCOUNT: ab0246 # no provenance info
     ESM_TESTING_DIR: <TEST_DIR>/run/foci/ # no provenance info
     MODEL_DIR: <TEST_DIR>/comp/foci/foci-mops_lmu # no provenance info
   load_python: false  # <FUNCTIONS_PATH>/machines/levante.yaml,line:137,col:18
-  fc: $FC # <FUNCTIONS_PATH>/machines/levante.yaml,line:518,col:9
-  cc: $CC # <FUNCTIONS_PATH>/machines/levante.yaml,line:519,col:9
-  mpifc: $MPIFC # <FUNCTIONS_PATH>/machines/levante.yaml,line:520,col:12
-  mpicc: $MPICC # <FUNCTIONS_PATH>/machines/levante.yaml,line:521,col:12
-  cxx: $CXX # <FUNCTIONS_PATH>/machines/levante.yaml,line:522,col:10
+  fc: $FC # <FUNCTIONS_PATH>/machines/levante.yaml,line:519,col:9
+  cc: $CC # <FUNCTIONS_PATH>/machines/levante.yaml,line:520,col:9
+  mpifc: $MPIFC # <FUNCTIONS_PATH>/machines/levante.yaml,line:521,col:12
+  mpicc: $MPICC # <FUNCTIONS_PATH>/machines/levante.yaml,line:522,col:12
+  cxx: $CXX # <FUNCTIONS_PATH>/machines/levante.yaml,line:523,col:10
   launcher_flags: -l --cpu-bind=cores --distribution=cyclic:cyclic # <FUNCTIONS_PATH>/setups/foci/foci.yaml,line:1647,col:35
   header_start: '#SBATCH' # <FUNCTIONS_PATH>/other_software/batch_system/slurm.yaml,line:6,col:19
   submit: sbatch # <FUNCTIONS_PATH>/other_software/batch_system/slurm.yaml,line:7,col:13
@@ -6646,6 +7102,11 @@ jsbach:
         fuel_name: thonicke # no provenance info
         lburn_pasture: true # no provenance info
       _grp_input_ctl_0:
+        var_name: lightning_frq  # no provenance info
+        var_file_name: HRMC_COM_FR # no provenance info
+        file_name: lightning.nc # no provenance info
+        action_cycle: all # no provenance info
+      _grp_input_ctl_1:
         var_name: population_density  # no provenance info
   further_reading:
   - jsbach/jsbach.inherit.yaml  # <FUNCTIONS_PATH>/components/jsbach/jsbach.yaml,line:486,col:15
@@ -7041,6 +7502,11 @@ jsbach:
         fuel_name: thonicke # no provenance info
         lburn_pasture: true # no provenance info
       _grp_input_ctl_0:
+        var_name: lightning_frq  # no provenance info
+        var_file_name: HRMC_COM_FR # no provenance info
+        file_name: lightning.nc # no provenance info
+        action_cycle: all # no provenance info
+      _grp_input_ctl_1:
         var_name: population_density  # no provenance info
 hdmodel:
   model: hdmodel  # <FUNCTIONS_PATH>/components/hdmodel/hdmodel.yaml,line:4,col:12
@@ -7569,14 +8035,14 @@ general:
     first_task_in_queue: prepcompute # no provenance info
     next_run_triggered_by: tidy # no provenance info
   submitted: false  # no provenance info
-  jobid: 94359 # no provenance info
+  jobid: 46494 # no provenance info
   batch: slurm # no provenance info
   coupler_config_dir: <TEST_DIR>/run/foci//foci-mops-lmu-pictl-daily_restart_lowcpu/run_18500101-18500101/config/oasis3mct/ # no provenance info
   coupler: oasis3mct # no provenance info
   experiment_log_file: <TEST_DIR>/run/foci//foci-mops-lmu-pictl-daily_restart_lowcpu/log//foci-mops-lmu-pictl-daily_restart_lowcpu_foci.log # no provenance info
   esm_tools_version: 6.61.0 # no provenance info
-  logfile_path: <TEST_DIR>/run/foci//foci-mops-lmu-pictl-daily_restart_lowcpu/log//foci-mops-lmu-pictl-daily_restart_lowcpu_foci_prepcompute_18500101-18500101_94359.log # no provenance info
-  logfile_path_in_run: <TEST_DIR>/run/foci//foci-mops-lmu-pictl-daily_restart_lowcpu/run_18500101-18500101/log//foci-mops-lmu-pictl-daily_restart_lowcpu_foci_prepcompute_18500101-18500101_94359.log # no provenance info
+  logfile_path: <TEST_DIR>/run/foci//foci-mops-lmu-pictl-daily_restart_lowcpu/log//foci-mops-lmu-pictl-daily_restart_lowcpu_foci_prepcompute_18500101-18500101_46494.log # no provenance info
+  logfile_path_in_run: <TEST_DIR>/run/foci//foci-mops-lmu-pictl-daily_restart_lowcpu/run_18500101-18500101/log//foci-mops-lmu-pictl-daily_restart_lowcpu_foci_prepcompute_18500101-18500101_46494.log # no provenance info
   relevant_filetypes:
   - bin  # no provenance info
   - config # no provenance info

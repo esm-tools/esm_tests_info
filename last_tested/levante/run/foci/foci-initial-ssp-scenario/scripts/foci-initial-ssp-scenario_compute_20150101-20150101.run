@@ -54,12 +54,12 @@ export CC=mpicc
 export CXX=mpicxx
 export MPIROOT="$(mpif90 -show | perl -lne 'm{ -I(.*?)/include } and print $1')"
 export MPI_LIB="$(mpif90 -show |sed -e 's/^[^ ]*//' -e 's/-[I][^ ]*//g')"
+export MPI_HOME=$MPIROOT
+export MPI_ROOT=$MPIROOT
+export mpi_ROOT=$MPIROOT
+export MPI_DIR=$MPIROOT
+export mpi_DIR=$MPIROOT
 export IO_LIB_ROOT=/work/ab0246/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0
-export MPI_HOME=/sw/spack-levante/openmpi-4.1.2-yfwe6t
-export MPI_ROOT=/sw/spack-levante/openmpi-4.1.2-yfwe6t
-export mpi_ROOT=/sw/spack-levante/openmpi-4.1.2-yfwe6t
-export MPI_DIR=/sw/spack-levante/openmpi-4.1.2-yfwe6t
-export mpi_DIR=/sw/spack-levante/openmpi-4.1.2-yfwe6t
 export AEC_ROOT=/sw/spack-levante/libaec-1.0.5-gij7yv
 export aec_ROOT=/sw/spack-levante/libaec-1.0.5-gij7yv
 export HDF5ROOT=/sw/spack-levante/hdf5-1.12.1-tvymb5
@@ -99,7 +99,7 @@ export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 2015-01-01T00:00:00 94484 - start" >> <TEST_DIR>/run/foci//foci-initial-ssp-scenario/log//foci-initial-ssp-scenario_foci.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 2015-01-01T00:00:00 46609 - start" >> <TEST_DIR>/run/foci//foci-initial-ssp-scenario/log//foci-initial-ssp-scenario_foci.log
 
 cd <TEST_DIR>/run/foci//foci-initial-ssp-scenario/run_20150101-20150101/work/
 time srun -l --cpu-bind=cores --distribution=cyclic:cyclic --hint=nomultithread --multi-prog hostfile_srun 2>&1 &
@@ -115,6 +115,6 @@ source <TEST_DIR>/run/foci//foci-initial-ssp-scenario/run_20150101-20150101/work
 cd <TEST_DIR>/run/foci//foci-initial-ssp-scenario/scripts/
 esm_runscripts foci-initial-ssp-scenario.yaml -e foci-initial-ssp-scenario -t observe_compute -p ${process} -s 20150101 -r 1 -v --last-jobtype prepcompute --open-run
 
-echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 2015-01-01T00:00:00 94484 - done" >> <TEST_DIR>/run/foci//foci-initial-ssp-scenario/log//foci-initial-ssp-scenario_foci.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 2015-01-01T00:00:00 46609 - done" >> <TEST_DIR>/run/foci//foci-initial-ssp-scenario/log//foci-initial-ssp-scenario_foci.log
 
 wait
