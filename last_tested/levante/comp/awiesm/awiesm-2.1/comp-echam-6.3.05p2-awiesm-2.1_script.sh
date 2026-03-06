@@ -61,6 +61,7 @@ export OIFS_OASIS_INCLUDE="-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BAS
 export OASIS3MCT_FC_LIB=$(pwd)/lib/
 export OASIS3MCTROOT=$(pwd)/oasis/
 export configure_opts=--with-coupler=oasis3-mct
+export USER=<USER_ACCOUNT>
 export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 
 

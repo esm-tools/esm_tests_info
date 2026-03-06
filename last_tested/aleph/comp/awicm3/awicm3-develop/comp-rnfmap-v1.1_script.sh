@@ -63,6 +63,7 @@ export RNF_NETCDFF_LIB="-L$NETCDF_DIR/lib -lnetcdff"
 export RNF_FC=ftn
 export RNF_FFLAGS="-O2 -emf -hthread1 -hflex_mp=conservative -hfp1 -hadd_paren -hbyteswapio -J./ -hcpu=x86-skylake -U_CRAYFTN"
 export RNF_CFLAGS="-emf -O2 -hcpu=x86-skylake"
+export USER=<USER_ACCOUNT>
 export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 
 
