@@ -60,6 +60,7 @@ export OIFS_LOGFILE=<TEST_DIR>comp/awicm3/awicm3-develop/oifs-48r1/build/oifs_te
 export DR_HOOK_IGNORE_SIGNALS=-1
 export RNF_FFLAGS="-fdefault-real-8 -march=core-avx2 -mtune=core-avx2 -O3 -fopenmp -g -fbacktrace -fconvert=big-endian"
 export RNF_CFLAG="-march=core-avx2 -mtune=core-avx2 -O3 -fopenmp -g -fbacktrace -fno-opt-report -fpe0"
+export USER=<USER_ACCOUNT>
 export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 
 unset SLURM_DISTRIBUTION

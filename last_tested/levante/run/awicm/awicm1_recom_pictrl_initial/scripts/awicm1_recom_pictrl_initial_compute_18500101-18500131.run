@@ -9,6 +9,9 @@
 #SBATCH --ntasks-per-core=1
 #SBATCH --exclusive
 
+# Store batch system environment variables for later sourcing
+declare -p | grep -E "(SLURM)" > <TEST_DIR>/run/awicm//awicm1_recom_pictrl_initial/run_18500101-18500131/work//batch_system.env
+
 module purge
 module load git/2.31.1-gcc-11.2.0
 module load cdo/2.0.5-gcc-11.2.0
@@ -83,18 +86,22 @@ export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1850-01-01T00:00:00 1525 - start" >> <TEST_DIR>/run/awicm//awicm1_recom_pictrl_initial/log//awicm1_recom_pictrl_initial_awicm.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1850-01-01T00:00:00 1204 - start" >> <TEST_DIR>/run/awicm//awicm1_recom_pictrl_initial/log//awicm1_recom_pictrl_initial_awicm.log
 
 cd <TEST_DIR>/run/awicm//awicm1_recom_pictrl_initial/run_18500101-18500131/work/
 time srun -l --hint=nomultithread --multi-prog hostfile_srun 2>&1 &
 
 # Call to esm_runscript to start subjobs:
 # ['tidy']
-process=$! 
+process=$!
+
+# Recover batch system environment variables
+source <TEST_DIR>/run/awicm//awicm1_recom_pictrl_initial/run_18500101-18500131/work//batch_system.env; rm <TEST_DIR>/run/awicm//awicm1_recom_pictrl_initial/run_18500101-18500131/work//batch_system.env
+
 # Comment the following line if you don't want esm_runscripts to restart:
 cd <TEST_DIR>/run/awicm//awicm1_recom_pictrl_initial/scripts/
 esm_runscripts awicm1_recom_pictrl_initial.yaml -e awicm1_recom_pictrl_initial -t observe_compute -p ${process} -s 18500101 -r 1 -v --last-jobtype prepcompute --open-run
 
-echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1850-01-01T00:00:00 1525 - done" >> <TEST_DIR>/run/awicm//awicm1_recom_pictrl_initial/log//awicm1_recom_pictrl_initial_awicm.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1850-01-01T00:00:00 1204 - done" >> <TEST_DIR>/run/awicm//awicm1_recom_pictrl_initial/log//awicm1_recom_pictrl_initial_awicm.log
 
 wait
