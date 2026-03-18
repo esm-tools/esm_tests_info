@@ -9,6 +9,9 @@
 #SBATCH --qos=12h
 #SBATCH --exclusive
 
+# Store batch system environment variables for later sourcing
+declare -p | grep -E "(SLURM)" > <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/work//batch_system.env
+
 module purge
 module load cmake
 module load intel-oneapi-compilers/2022.1.0
@@ -64,18 +67,22 @@ unset SLURM_MEM_PER_CPU
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1850-01-01T00:00:00 1466 - start" >> <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/log//awicm1-CMIP6-initial-monthly_awicm.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1850-01-01T00:00:00 1167 - start" >> <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/log//awicm1-CMIP6-initial-monthly_awicm.log
 
 cd <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/work/
 time srun -l --kill-on-bad-exit=1 --cpu_bind=cores --multi-prog hostfile_srun 2>&1 &
 
 # Call to esm_runscript to start subjobs:
 # ['tidy']
-process=$! 
+process=$!
+
+# Recover batch system environment variables
+source <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/work//batch_system.env; rm <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/work//batch_system.env
+
 # Comment the following line if you don't want esm_runscripts to restart:
 cd <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/scripts/
 esm_runscripts awicm1-CMIP6-initial-monthly.yaml -e awicm1-CMIP6-initial-monthly -t observe_compute -p ${process} -s 18500101 -r 1 -v --last-jobtype prepcompute --open-run
 
-echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1850-01-01T00:00:00 1466 - done" >> <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/log//awicm1-CMIP6-initial-monthly_awicm.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1850-01-01T00:00:00 1167 - done" >> <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/log//awicm1-CMIP6-initial-monthly_awicm.log
 
 wait
