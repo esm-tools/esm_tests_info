@@ -280,12 +280,12 @@ general:
     first_task_in_queue: prepcompute # no provenance info
     next_run_triggered_by: tidy # no provenance info
   submitted: false  # no provenance info
-  jobid: 1312 # no provenance info
+  jobid: 1316 # no provenance info
   batch: slurm # no provenance info
   experiment_log_file: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/log//fesom1.4-initial-monthly_fesom.log # no provenance info
-  esm_tools_version: 6.61.1 # no provenance info
-  logfile_path: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/log//fesom1.4-initial-monthly_fesom_prepcompute_19500101-19500101_1312.log # no provenance info
-  logfile_path_in_run: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/log//fesom1.4-initial-monthly_fesom_prepcompute_19500101-19500101_1312.log # no provenance info
+  esm_tools_version: 6.61.2 # no provenance info
+  logfile_path: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/log//fesom1.4-initial-monthly_fesom_prepcompute_19500101-19500101_1316.log # no provenance info
+  logfile_path_in_run: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/log//fesom1.4-initial-monthly_fesom_prepcompute_19500101-19500101_1316.log # no provenance info
   relevant_filetypes:
   - bin  # no provenance info
   - config # no provenance info
@@ -639,7 +639,7 @@ computer:
 dask:
   ntasks: 32  # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:155,col:13
   init_scheduler_cmd: srun --ntasks=1 --nodes=1 --cpus-per-task=1 dask scheduler --scheduler-file <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//dask_scheduler.json --interface ib0 # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:156,col:25
-  init_workers_cmd: srun --ntasks=32 --cpus-per-task=1 --nodes=@nodes@ --distribution=cyclic:cyclic:cyclic ~/.conda/envs/esm_tools/bin/dask worker --scheduler-file <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//dask_scheduler.json --nthreads 1 --nworkers 1 --interface ib0 # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:159,col:23
+  init_workers_cmd: srun --ntasks=32 --cpus-per-task=1 --nodes=@nodes@ --distribution=cyclic:cyclic:cyclic dask worker --scheduler-file <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//dask_scheduler.json --nthreads 1 --nworkers 1 --interface ib0 # <HOME_DIR>/esm_tools/configs/other_software/batch_system/slurm.yaml,line:159,col:23
   scheduler_json_name: dask_scheduler.json # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:37,col:26
   scheduler_json: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work//dask_scheduler.json # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:38,col:21
   client_timeout: 0.05 # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:39,col:21
