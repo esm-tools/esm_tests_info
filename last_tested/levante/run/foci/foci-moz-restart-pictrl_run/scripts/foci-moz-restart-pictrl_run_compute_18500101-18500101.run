@@ -99,7 +99,7 @@ export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1850-01-01T00:00:00 46546 - start" >> <TEST_DIR>/run/foci//foci-moz-restart-pictrl_run/log//foci-moz-restart-pictrl_run_foci.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1850-01-01T00:00:00 84004 - start" >> <TEST_DIR>/run/foci//foci-moz-restart-pictrl_run/log//foci-moz-restart-pictrl_run_foci.log
 
 cd <TEST_DIR>/run/foci//foci-moz-restart-pictrl_run/run_18500101-18500101/work/
 time srun -l --cpu-bind=cores --distribution=cyclic:cyclic --hint=nomultithread --multi-prog hostfile_srun 2>&1 &
@@ -115,6 +115,6 @@ source <TEST_DIR>/run/foci//foci-moz-restart-pictrl_run/run_18500101-18500101/wo
 cd <TEST_DIR>/run/foci//foci-moz-restart-pictrl_run/scripts/
 esm_runscripts foci-moz-restart-pictrl_run.yaml -e foci-moz-restart-pictrl_run -t observe_compute -p ${process} -s 18500101 -r 1 -v --last-jobtype prepcompute --open-run
 
-echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1850-01-01T00:00:00 46546 - done" >> <TEST_DIR>/run/foci//foci-moz-restart-pictrl_run/log//foci-moz-restart-pictrl_run_foci.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1850-01-01T00:00:00 84004 - done" >> <TEST_DIR>/run/foci//foci-moz-restart-pictrl_run/log//foci-moz-restart-pictrl_run_foci.log
 
 wait
