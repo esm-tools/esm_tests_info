@@ -1342,7 +1342,7 @@ oifs:
     ICMCL_INIT: /work/ab0246/a270092/input/oifs-48r1/climate.v020/95_4//ICMCLawi3INIT  # <FUNCTIONS_PATH>/components/oifs/oifs.yaml,line:1312,col:25
   config_sources:
     fort.4: <NAMELIST_PATH>/oifs/48r1/awicm3/v3.4/fort.4  # <FUNCTIONS_PATH>/components/oifs/oifs.yaml,line:1316,col:23
-    wam_namelist: <FUNCTIONS_PATH>/../src/esm_tests/resources/runscripts/awicm3/run_files4check_runs/awicm3-v3.4-TCO95L91-CORE2_initial//wam_namelist # <FUNCTIONS_PATH>/components/oifs/oifs.yaml,line:953,col:45
+    wam_namelist: /work/ab0246/a270092/input/oifs-48r1/TCO95L91//ecmwf/wam_namelist # <FUNCTIONS_PATH>/components/oifs/oifs.yaml,line:953,col:45
   grids:
     atma:
       name: A096  # <FUNCTIONS_PATH>/components/oifs/oifs.yaml,line:1355,col:27
@@ -1468,7 +1468,6 @@ oifs:
       grid: atmr  # <FUNCTIONS_PATH>/setups/awicm3/awicm3.yaml,line:323,col:27
   time_step: 3600 # <TEST_DIR>/run/awicm3/awicm3-v3.4-TCO95L91-CORE2_initial/scripts/awicm3-v3.4-TCO95L91-CORE2_initial.yaml,line:38,col:16
   slice_icml: '' # <FUNCTIONS_PATH>/components/oifs/oifs.yaml,line:1521,col:33
-  wam_namelist_dir: <FUNCTIONS_PATH>/../src/esm_tests/resources/runscripts/awicm3/run_files4check_runs/awicm3-v3.4-TCO95L91-CORE2_initial/ # <TEST_DIR>/run/awicm3/awicm3-v3.4-TCO95L91-CORE2_initial/scripts/awicm3-v3.4-TCO95L91-CORE2_initial.yaml,line:45,col:31
   branch: main # <FUNCTIONS_PATH>/components/oifs/oifs.yaml,line:333,col:17
   destination: oifs-48r1 # <FUNCTIONS_PATH>/components/oifs/oifs.yaml,line:339,col:22
   nx: 40320 # <FUNCTIONS_PATH>/components/oifs/oifs.yaml,line:437,col:25
@@ -1488,6 +1487,7 @@ oifs:
   wam_number: 1 # <FUNCTIONS_PATH>/components/oifs/oifs.yaml,line:917,col:33
   ignore_sources: {}
   append_icmcl: ''  # <FUNCTIONS_PATH>/components/oifs/oifs.yaml,line:1147,col:35
+  wam_namelist_dir: /work/ab0246/a270092/input/oifs-48r1/TCO95L91//ecmwf # <FUNCTIONS_PATH>/components/oifs/oifs.yaml,line:1151,col:39
   further_reading:
   - oifs/oifs48.env.yaml  # <FUNCTIONS_PATH>/components/oifs/oifs.yaml,line:1169,col:31
   - oifs/oifs48.cmip.yaml # <FUNCTIONS_PATH>/components/oifs/oifs.yaml,line:1170,col:31
@@ -3282,7 +3282,7 @@ general:
   verbose: false # no provenance info
   contained_run: # no provenance info
   open_run: true # no provenance info
-  check: true # no provenance info
+  check: false # no provenance info
   modify_config_file: # no provenance info
   last_jobtype: prepcompute # no provenance info
   task: prepcompute # no provenance info
@@ -3298,7 +3298,7 @@ general:
   ignore_config_warnings: false # no provenance info
   jobtype: prepcompute # no provenance info
   use_venv: false # no provenance info
-  original_command: awicm3-v3.4-TCO95L91-CORE2_initial.yaml -e awicm3-v3.4-TCO95L91-CORE2_initial --open-run -c --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
+  original_command: awicm3-v3.4-TCO95L91-CORE2_initial.yaml -e awicm3-v3.4-TCO95L91-CORE2_initial --open-run --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
   started_from: <TEST_DIR>/run/awicm3/awicm3-v3.4-TCO95L91-CORE2_initial/scripts/ # no provenance info
   scriptname: awicm3-v3.4-TCO95L91-CORE2_initial.yaml # no provenance info
   isinteractive: false # no provenance info
@@ -3332,7 +3332,7 @@ general:
     contained_run: # no provenance info
     open_run: true # no provenance info
     expid: awicm3-v3.4-TCO95L91-CORE2_initial # no provenance info
-    check: true # no provenance info
+    check: false # no provenance info
     modify_config_file: # no provenance info
     last_jobtype: prepcompute # no provenance info
     task: prepcompute # no provenance info
@@ -3348,7 +3348,7 @@ general:
     ignore_config_warnings: false # no provenance info
     jobtype: prepcompute # no provenance info
     use_venv: false # no provenance info
-    original_command: awicm3-v3.4-TCO95L91-CORE2_initial.yaml -e awicm3-v3.4-TCO95L91-CORE2_initial --open-run -c --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
+    original_command: awicm3-v3.4-TCO95L91-CORE2_initial.yaml -e awicm3-v3.4-TCO95L91-CORE2_initial --open-run --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
     started_from: <TEST_DIR>/run/awicm3/awicm3-v3.4-TCO95L91-CORE2_initial/scripts/ # no provenance info
     scriptname: awicm3-v3.4-TCO95L91-CORE2_initial.yaml # no provenance info
     runscript_abspath: <TEST_DIR>/run/awicm3/awicm3-v3.4-TCO95L91-CORE2_initial/scripts/awicm3-v3.4-TCO95L91-CORE2_initial.yaml # no provenance info
@@ -3549,14 +3549,14 @@ general:
     first_task_in_queue: prepcompute # no provenance info
     next_run_triggered_by: tidy # <FUNCTIONS_PATH>/components/fesom/fesom.tripyview.yaml,line:86,col:32
   submitted: false  # no provenance info
-  jobid: 1163769 # no provenance info
+  jobid: 255465 # no provenance info
   batch: slurm # no provenance info
   coupler_config_dir: <TEST_DIR>/run/awicm3//awicm3-v3.4-TCO95L91-CORE2_initial/run_20000101-20000101/config/oasis3mct/ # no provenance info
   coupler: oasis3mct # no provenance info
   experiment_log_file: <TEST_DIR>/run/awicm3//awicm3-v3.4-TCO95L91-CORE2_initial/log//awicm3-v3.4-TCO95L91-CORE2_initial_awicm3.log # no provenance info
   esm_tools_version: 6.61.3 # no provenance info
-  logfile_path: <TEST_DIR>/run/awicm3//awicm3-v3.4-TCO95L91-CORE2_initial/log//awicm3-v3.4-TCO95L91-CORE2_initial_awicm3_prepcompute_20000101-20000101_1163769.log # no provenance info
-  logfile_path_in_run: <TEST_DIR>/run/awicm3//awicm3-v3.4-TCO95L91-CORE2_initial/run_20000101-20000101/log//awicm3-v3.4-TCO95L91-CORE2_initial_awicm3_prepcompute_20000101-20000101_1163769.log # no provenance info
+  logfile_path: <TEST_DIR>/run/awicm3//awicm3-v3.4-TCO95L91-CORE2_initial/log//awicm3-v3.4-TCO95L91-CORE2_initial_awicm3_prepcompute_20000101-20000101_255465.log # no provenance info
+  logfile_path_in_run: <TEST_DIR>/run/awicm3//awicm3-v3.4-TCO95L91-CORE2_initial/run_20000101-20000101/log//awicm3-v3.4-TCO95L91-CORE2_initial_awicm3_prepcompute_20000101-20000101_255465.log # no provenance info
   relevant_filetypes:
   - bin  # no provenance info
   - config # no provenance info

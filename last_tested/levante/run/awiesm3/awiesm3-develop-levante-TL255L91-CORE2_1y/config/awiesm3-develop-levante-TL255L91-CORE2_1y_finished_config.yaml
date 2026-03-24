@@ -1360,7 +1360,7 @@ oifs:
     ICMCL_INIT: /work/ab0246/a270092/input/oifs-48r1/climate.v020/255l_2//ICMCLawi3INIT  # <FUNCTIONS_PATH>/components/oifs/oifs.yaml,line:1312,col:25
   config_sources:
     fort.4: <NAMELIST_PATH>/oifs/48r1/awicm3/v3.4/fort.4  # <FUNCTIONS_PATH>/components/oifs/oifs.yaml,line:1316,col:23
-    wam_namelist: <FUNCTIONS_PATH>/../src/esm_tests/resources/runscripts/awiesm3/run_files4check_runs/awiesm3-develop-levante-TL255L91-CORE2_1y//wam_namelist # <FUNCTIONS_PATH>/components/oifs/oifs.yaml,line:953,col:45
+    wam_namelist: /work/ab0246/a270092/input/oifs-48r1/TL255L91//ecmwf/wam_namelist # <FUNCTIONS_PATH>/components/oifs/oifs.yaml,line:953,col:45
   grids:
     atma:
       name: A128  # <FUNCTIONS_PATH>/components/oifs/oifs.yaml,line:1355,col:27
@@ -1572,7 +1572,6 @@ oifs:
   mpi: cmip6 # <TEST_DIR>/run/awiesm3/awiesm3-develop-levante-TL255L91-CORE2_1y/scripts/awiesm3-develop-levante-TL255L91-CORE2_1y.yaml,line:52,col:10
   slice_icml: '' # <FUNCTIONS_PATH>/components/oifs/oifs.yaml,line:1521,col:33
   rnproc: 512 # <TEST_DIR>/run/awiesm3/awiesm3-develop-levante-TL255L91-CORE2_1y/scripts/awiesm3-develop-levante-TL255L91-CORE2_1y.yaml,line:49,col:21
-  wam_namelist_dir: <FUNCTIONS_PATH>/../src/esm_tests/resources/runscripts/awiesm3/run_files4check_runs/awiesm3-develop-levante-TL255L91-CORE2_1y/ # <TEST_DIR>/run/awiesm3/awiesm3-develop-levante-TL255L91-CORE2_1y/scripts/awiesm3-develop-levante-TL255L91-CORE2_1y.yaml,line:58,col:31
   destination: oifs-48r1 # <FUNCTIONS_PATH>/components/oifs/oifs.yaml,line:339,col:22
   nx: 88838 # <FUNCTIONS_PATH>/components/oifs/oifs.yaml,line:473,col:25
   oasis_grid_name: 128 # <FUNCTIONS_PATH>/components/oifs/oifs.yaml,line:476,col:38
@@ -1591,6 +1590,7 @@ oifs:
   wam_number: 1 # <FUNCTIONS_PATH>/components/oifs/oifs.yaml,line:917,col:33
   ignore_sources: {}
   append_icmcl: ''  # <FUNCTIONS_PATH>/components/oifs/oifs.yaml,line:1147,col:35
+  wam_namelist_dir: /work/ab0246/a270092/input/oifs-48r1/TL255L91//ecmwf # <FUNCTIONS_PATH>/components/oifs/oifs.yaml,line:1151,col:39
   further_reading:
   - oifs/oifs48.env.yaml  # <FUNCTIONS_PATH>/components/oifs/oifs.yaml,line:1169,col:31
   - oifs/oifs48.cmip.yaml # <FUNCTIONS_PATH>/components/oifs/oifs.yaml,line:1170,col:31
@@ -4678,7 +4678,7 @@ general:
   verbose: false # no provenance info
   contained_run: # no provenance info
   open_run: true # no provenance info
-  check: true # no provenance info
+  check: false # no provenance info
   modify_config_file: # no provenance info
   last_jobtype: prepcompute # no provenance info
   task: prepcompute # no provenance info
@@ -4694,7 +4694,7 @@ general:
   ignore_config_warnings: false # no provenance info
   jobtype: prepcompute # no provenance info
   use_venv: false # no provenance info
-  original_command: awiesm3-develop-levante-TL255L91-CORE2_1y.yaml -e awiesm3-develop-levante-TL255L91-CORE2_1y --open-run -c --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
+  original_command: awiesm3-develop-levante-TL255L91-CORE2_1y.yaml -e awiesm3-develop-levante-TL255L91-CORE2_1y --open-run --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
   started_from: <TEST_DIR>/run/awiesm3/awiesm3-develop-levante-TL255L91-CORE2_1y/scripts/ # no provenance info
   scriptname: awiesm3-develop-levante-TL255L91-CORE2_1y.yaml # no provenance info
   isinteractive: false # no provenance info
@@ -4728,7 +4728,7 @@ general:
     contained_run: # no provenance info
     open_run: true # no provenance info
     expid: awiesm3-develop-levante-TL255L91-CORE2_1y # no provenance info
-    check: true # no provenance info
+    check: false # no provenance info
     modify_config_file: # no provenance info
     last_jobtype: prepcompute # no provenance info
     task: prepcompute # no provenance info
@@ -4744,7 +4744,7 @@ general:
     ignore_config_warnings: false # no provenance info
     jobtype: prepcompute # no provenance info
     use_venv: false # no provenance info
-    original_command: awiesm3-develop-levante-TL255L91-CORE2_1y.yaml -e awiesm3-develop-levante-TL255L91-CORE2_1y --open-run -c --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
+    original_command: awiesm3-develop-levante-TL255L91-CORE2_1y.yaml -e awiesm3-develop-levante-TL255L91-CORE2_1y --open-run --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
     started_from: <TEST_DIR>/run/awiesm3/awiesm3-develop-levante-TL255L91-CORE2_1y/scripts/ # no provenance info
     scriptname: awiesm3-develop-levante-TL255L91-CORE2_1y.yaml # no provenance info
     runscript_abspath: <TEST_DIR>/run/awiesm3/awiesm3-develop-levante-TL255L91-CORE2_1y/scripts/awiesm3-develop-levante-TL255L91-CORE2_1y.yaml # no provenance info
@@ -4946,14 +4946,14 @@ general:
     first_task_in_queue: prepcompute # no provenance info
     next_run_triggered_by: tidy # <FUNCTIONS_PATH>/components/fesom/fesom.tripyview.yaml,line:86,col:32
   submitted: false  # no provenance info
-  jobid: 1189260 # no provenance info
+  jobid: 273279 # no provenance info
   batch: slurm # no provenance info
   coupler_config_dir: <TEST_DIR>/run/awiesm3//awiesm3-develop-levante-TL255L91-CORE2_1y/run_19000101-19001231/config/oasis3mct/ # no provenance info
   coupler: oasis3mct # no provenance info
   experiment_log_file: <TEST_DIR>/run/awiesm3//awiesm3-develop-levante-TL255L91-CORE2_1y/log//awiesm3-develop-levante-TL255L91-CORE2_1y_awiesm3.log # no provenance info
   esm_tools_version: 6.61.3 # no provenance info
-  logfile_path: <TEST_DIR>/run/awiesm3//awiesm3-develop-levante-TL255L91-CORE2_1y/log//awiesm3-develop-levante-TL255L91-CORE2_1y_awiesm3_prepcompute_19000101-19001231_1189260.log # no provenance info
-  logfile_path_in_run: <TEST_DIR>/run/awiesm3//awiesm3-develop-levante-TL255L91-CORE2_1y/run_19000101-19001231/log//awiesm3-develop-levante-TL255L91-CORE2_1y_awiesm3_prepcompute_19000101-19001231_1189260.log # no provenance info
+  logfile_path: <TEST_DIR>/run/awiesm3//awiesm3-develop-levante-TL255L91-CORE2_1y/log//awiesm3-develop-levante-TL255L91-CORE2_1y_awiesm3_prepcompute_19000101-19001231_273279.log # no provenance info
+  logfile_path_in_run: <TEST_DIR>/run/awiesm3//awiesm3-develop-levante-TL255L91-CORE2_1y/run_19000101-19001231/log//awiesm3-develop-levante-TL255L91-CORE2_1y_awiesm3_prepcompute_19000101-19001231_273279.log # no provenance info
   relevant_filetypes:
   - bin  # no provenance info
   - config # no provenance info
