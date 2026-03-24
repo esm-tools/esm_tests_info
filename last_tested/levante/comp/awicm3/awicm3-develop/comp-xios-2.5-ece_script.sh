@@ -6,6 +6,8 @@ module load python3/2023.01-gcc-11.2.0
 module load git/2.31.1-gcc-11.2.0
 module load cdo/2.0.5-gcc-11.2.0
 module load nco/5.0.6-gcc-11.2.0
+module load libaec/1.0.5-gcc-11.2.0
+module load gcc/11.2.0-gcc-11.2.0
 module load intel-oneapi-mkl/2022.0.1-gcc-11.2.0
 module load openmpi/4.1.2-gcc-11.2.0
 module unload cdo
@@ -14,7 +16,6 @@ module load hdf5/1.12.1-openmpi-4.1.2-gcc-11.2.0
 module load netcdf-c/4.8.1-openmpi-4.1.2-gcc-11.2.0
 module load netcdf-fortran/4.5.3-openmpi-4.1.2-gcc-11.2.0
 module load git/2.31.1-gcc-11.2.0
-module load libaec/1.0.5-gcc-11.2.0
 
 export LC_ALL=en_US.UTF-8
 export CPU_MODEL=AMD_EPYC_ZEN3
@@ -32,6 +33,10 @@ export UCX_TLS=mm,knem,cma,dc_mlx5,dc_x,self
 export UCX_UNIFIED_MODE=y
 export KMP_LIBRARY=turnaround
 export KMP_AFFINITY=granularity=fine,scatter
+export AEC_ROOT=/sw/spack-levante/libaec-1.0.5-gij7yv
+export aec_ROOT=/sw/spack-levante/libaec-1.0.5-gij7yv
+export TBBROOT=/sw/spack-levante/intel-oneapi-compilers-2022.0.1-an2cbq/tbb/2021.5.0
+export TBBMALLOC_DIR=$TBBROOT/lib/intel64/gcc4.8
 export FC=mpif90
 export F77=mpi77
 export MPICC=mpicc
@@ -41,8 +46,6 @@ export CXX=mpic++
 export MPIROOT="$(mpif90 -show | perl -lne 'm{ -I(.*?)/include } and print $1')"
 export MPI_LIB="$(mpif90 -show |sed -e 's/^[^ ]*//' -e 's/-[I][^ ]*//g')"
 export LD_RUN_PATH=$LD_LIBRARY_PATH
-export AEC_ROOT=/sw/spack-levante/libaec-1.0.5-gij7yv
-export aec_ROOT=/sw/spack-levante/libaec-1.0.5-gij7yv
 export HDF5ROOT=/sw/spack-levante/hdf5-1.12.1-kxfaux
 export HDF5_C_INCLUDE_DIRECTORIES=$HDF5ROOT/include
 export HDF5_ROOT=$HDF5ROOT
@@ -52,8 +55,7 @@ export NETCDF_PATH=$NetCDF_C_ROOT
 export NETCDF_ROOT=$NetCDF_Fortran_ROOT
 export NETCDFROOT=$NetCDF_C_ROOT
 export NETCDFFROOT=$NetCDF_Fortran_ROOT
-export TBBROOT=/sw/spack-levante/intel-oneapi-compilers-2022.0.1-an2cbq/tbb/2021.5.0
-export TBBMALLOC_DIR=$TBBROOT/lib/intel64/gcc4.8
+export NETCDF_Fortran_INCLUDE_DIRECTORIES=$NETCDFFROOT/include
 export MPI_HOME=/sw/spack-levante/openmpi-4.1.2-yfwe6t
 export MPI_ROOT=/sw/spack-levante/openmpi-4.1.2-yfwe6t
 export mpi_ROOT=/sw/spack-levante/openmpi-4.1.2-yfwe6t
@@ -64,16 +66,16 @@ export LD_LIBRARY_PATH=/sw/spack-levante/intel-oneapi-mkl-2022.0.1-ttdktf/mkl/20
 export OASIS_NETCDF=$NETCDF_PATH
 export OASIS_NETCDFF=$NETCDF_ROOT
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/on/a/road/to/nowwhere/test/run_20000101-20001231/work//lib/fesom/
-export OASIS_FFLAGS="-fPIC"
-export OASIS_CFLAGS="-fPIC"
+export OASIS_FFLAGS="-fPIC -O3 -fallow-argument-mismatch -fallow-invalid-boz -ffree-line-length-512"
+export OASIS_CFLAGS="-fPIC -O3"
 export CFLAGS="-fPIC"
 export CCFLAGS="-fPIC"
 export FFLAGS="-fPIC"
 export FCFLAGS="-fPIC"
 export DATA=/on/a/road/to/nowwhere/test/run_20000101-20001231/work/
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/on/a/road/to/nowwhere/test/run_20000101-20001231/work//lib/oifs/
-export GRIB_SAMPLES_PATH=<TEST_DIR>comp/awicm3/awicm3-develop/oifs-48r1/build/share/eccodes/ifs_samples/grib1_mlgrib2
-export OIFS_LOGFILE=<TEST_DIR>comp/awicm3/awicm3-develop/oifs-48r1/build/oifs_test_log.txt
+export GRIB_SAMPLES_PATH=<TEST_DIR>/comp/awicm3/awicm3-develop/oifs-48r1/build/share/eccodes/ifs_samples/grib1_mlgrib2
+export OIFS_LOGFILE=<TEST_DIR>/comp/awicm3/awicm3-develop/oifs-48r1/build/oifs_test_log.txt
 export DR_HOOK_IGNORE_SIGNALS=-1
 export OIFS_DATA_DIR=/p/project/chhb19/streffing1/input/oifs-48r1/
 export MKL_CBWR=AUTO,STRICT
@@ -96,5 +98,5 @@ unset SLURM_NPROCS
 unset SLURM_ARBITRARY_NODELIST
 
 pushd xios
-export XIOS_TOPLEVEL=<TEST_DIR>comp/awicm3/awicm3-develop/xios; ./make_xios --arch ESMTOOLS_generic_oasis_gcc --netcdf_lib netcdf4_par --use_oasis oasis3_mct --job 24 --prod; cp bin/xios_server.exe bin/xios.x
+export XIOS_TOPLEVEL=<TEST_DIR>/comp/awicm3/awicm3-develop/xios; ./make_xios --arch ESMTOOLS_generic_oasis_gcc --netcdf_lib netcdf4_par --use_oasis oasis3_mct --job 24 --prod; cp bin/xios_server.exe bin/xios.x
 popd

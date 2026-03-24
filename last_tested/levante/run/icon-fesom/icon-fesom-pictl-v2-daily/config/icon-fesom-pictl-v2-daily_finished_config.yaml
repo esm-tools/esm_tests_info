@@ -1296,9 +1296,9 @@ computer:
   - load git/2.31.1-gcc-11.2.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:86,col:15
   - load cdo/2.0.5-gcc-11.2.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:87,col:15
   - load nco/5.0.6-gcc-11.2.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:88,col:15
-  - load intel-oneapi-compilers/2022.0.1-gcc-11.2.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:192,col:31
-  - load intel-oneapi-mkl/2022.0.1-gcc-11.2.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:193,col:31
-  - load openmpi/4.1.2-intel-2021.5.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:194,col:31
+  - load intel-oneapi-compilers/2022.0.1-gcc-11.2.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:214,col:31
+  - load intel-oneapi-mkl/2022.0.1-gcc-11.2.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:215,col:31
+  - load openmpi/4.1.2-intel-2021.5.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:216,col:31
   export_vars:
     LC_ALL: en_US.UTF-8  # <FUNCTIONS_PATH>/machines/levante.yaml,line:97,col:21
     CPU_MODEL: AMD_EPYC_ZEN3 # <FUNCTIONS_PATH>/machines/levante.yaml,line:100,col:24
@@ -1331,19 +1331,19 @@ computer:
     MKL_DEBUG_CPU_TYPE: 5 # <FUNCTIONS_PATH>/components/icon/icon.yaml,line:559,col:39
     MKL_ENABLE_INSTRUCTIONS: AVX2 # <FUNCTIONS_PATH>/components/icon/icon.yaml,line:560,col:44
     UCX_HANDLE_ERRORS: bt # <FUNCTIONS_PATH>/components/icon/icon.yaml,line:566,col:38
-    FC: mpif90 # <FUNCTIONS_PATH>/machines/levante.yaml,line:197,col:33
-    F77: mpif90 # <FUNCTIONS_PATH>/machines/levante.yaml,line:198,col:34
-    MPICC: mpicc # <FUNCTIONS_PATH>/machines/levante.yaml,line:199,col:36
-    MPIFC: mpif90 # <FUNCTIONS_PATH>/machines/levante.yaml,line:200,col:36
-    CC: mpicc # <FUNCTIONS_PATH>/machines/levante.yaml,line:201,col:33
-    CXX: mpicxx # <FUNCTIONS_PATH>/machines/levante.yaml,line:202,col:34
-    MPIROOT: "\"$(mpif90 -show | perl -lne 'm{ -I(.*?)/include } and print $1')\"" # <FUNCTIONS_PATH>/machines/levante.yaml,line:203,col:38
-    MPI_LIB: "\"$(mpif90 -show |sed -e 's/^[^ ]*//' -e 's/-[I][^ ]*//g')\"" # <FUNCTIONS_PATH>/machines/levante.yaml,line:204,col:38
-    MPI_HOME: $MPIROOT # <FUNCTIONS_PATH>/machines/levante.yaml,line:206,col:39
-    MPI_ROOT: $MPIROOT # <FUNCTIONS_PATH>/machines/levante.yaml,line:207,col:39
-    mpi_ROOT: $MPIROOT # <FUNCTIONS_PATH>/machines/levante.yaml,line:208,col:39
-    MPI_DIR: $MPIROOT # <FUNCTIONS_PATH>/machines/levante.yaml,line:209,col:38
-    mpi_DIR: $MPIROOT # <FUNCTIONS_PATH>/machines/levante.yaml,line:210,col:38
+    FC: mpif90 # <FUNCTIONS_PATH>/machines/levante.yaml,line:219,col:33
+    F77: mpif90 # <FUNCTIONS_PATH>/machines/levante.yaml,line:220,col:34
+    MPICC: mpicc # <FUNCTIONS_PATH>/machines/levante.yaml,line:221,col:36
+    MPIFC: mpif90 # <FUNCTIONS_PATH>/machines/levante.yaml,line:222,col:36
+    CC: mpicc # <FUNCTIONS_PATH>/machines/levante.yaml,line:223,col:33
+    CXX: mpicxx # <FUNCTIONS_PATH>/machines/levante.yaml,line:224,col:34
+    MPIROOT: "\"$(mpif90 -show | perl -lne 'm{ -I(.*?)/include } and print $1')\"" # <FUNCTIONS_PATH>/machines/levante.yaml,line:225,col:38
+    MPI_LIB: "\"$(mpif90 -show |sed -e 's/^[^ ]*//' -e 's/-[I][^ ]*//g')\"" # <FUNCTIONS_PATH>/machines/levante.yaml,line:226,col:38
+    MPI_HOME: $MPIROOT # <FUNCTIONS_PATH>/machines/levante.yaml,line:228,col:39
+    MPI_ROOT: $MPIROOT # <FUNCTIONS_PATH>/machines/levante.yaml,line:229,col:39
+    mpi_ROOT: $MPIROOT # <FUNCTIONS_PATH>/machines/levante.yaml,line:230,col:39
+    MPI_DIR: $MPIROOT # <FUNCTIONS_PATH>/machines/levante.yaml,line:231,col:38
+    mpi_DIR: $MPIROOT # <FUNCTIONS_PATH>/machines/levante.yaml,line:232,col:38
     LD_LIBRARY_PATH[(4)]: $LD_LIBRARY_PATH:<TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/run_18500101-18500101/work//lib/fesom/ # <FUNCTIONS_PATH>/components/fesom/fesom.env.yaml,line:3,col:31
     USER: <USER_ACCOUNT> # no provenance info
     HOME: <HOME_DIR> # no provenance info
@@ -1351,11 +1351,13 @@ computer:
     ESM_TESTING_DIR: <TEST_DIR>/run/icon-fesom/ # no provenance info
     MODEL_DIR: <TEST_DIR>/comp/icon-fesom/icon-fesom-v2.0 # no provenance info
   load_python: false  # <FUNCTIONS_PATH>/machines/levante.yaml,line:137,col:18
-  fc: $FC # <FUNCTIONS_PATH>/machines/levante.yaml,line:519,col:9
-  cc: $CC # <FUNCTIONS_PATH>/machines/levante.yaml,line:520,col:9
-  mpifc: $MPIFC # <FUNCTIONS_PATH>/machines/levante.yaml,line:521,col:12
-  mpicc: $MPICC # <FUNCTIONS_PATH>/machines/levante.yaml,line:522,col:12
-  cxx: $CXX # <FUNCTIONS_PATH>/machines/levante.yaml,line:523,col:10
+  load_libaec: false # <FUNCTIONS_PATH>/machines/levante.yaml,line:144,col:18
+  load_tbb: false # <FUNCTIONS_PATH>/machines/levante.yaml,line:156,col:15
+  fc: $FC # <FUNCTIONS_PATH>/machines/levante.yaml,line:529,col:9
+  cc: $CC # <FUNCTIONS_PATH>/machines/levante.yaml,line:530,col:9
+  mpifc: $MPIFC # <FUNCTIONS_PATH>/machines/levante.yaml,line:531,col:12
+  mpicc: $MPICC # <FUNCTIONS_PATH>/machines/levante.yaml,line:532,col:12
+  cxx: $CXX # <FUNCTIONS_PATH>/machines/levante.yaml,line:533,col:10
   launcher_flags: -l --kill-on-bad-exit=1 # <TEST_DIR>/run/icon-fesom/icon-fesom-pictl-v2-daily/scripts/icon-fesom-pictl-v2-daily.yaml,line:5,col:21
   header_start: '#SBATCH' # <FUNCTIONS_PATH>/other_software/batch_system/slurm.yaml,line:6,col:19
   submit: sbatch # <FUNCTIONS_PATH>/other_software/batch_system/slurm.yaml,line:7,col:13
@@ -1410,7 +1412,9 @@ computer:
   additional_flags: --threads-per-core=2 # <TEST_DIR>/run/icon-fesom/icon-fesom-pictl-v2-daily/scripts/icon-fesom-pictl-v2-daily.yaml,line:3,col:23
   heterogeneous_parallelization: false # no provenance info
   load_python_command: []
-  input_dir: /work/bb0519/foci_input2/ICON-FESOM/ICON  # <FUNCTIONS_PATH>/components/icon/icon.yaml,line:524,col:27
+  lib_aec: ''  # <FUNCTIONS_PATH>/machines/levante.yaml,line:154,col:22
+  lib_tbbmalloc: '' # <FUNCTIONS_PATH>/machines/levante.yaml,line:164,col:28
+  input_dir: /work/bb0519/foci_input2/ICON-FESOM/ICON # <FUNCTIONS_PATH>/components/icon/icon.yaml,line:524,col:27
   icon_pool: /work/bb0519/foci_input2/ICON-FESOM/ICON # <FUNCTIONS_PATH>/components/icon/icon.yaml,line:525,col:27
   grid_dir: /work/bb0519/foci_input2/ICON-FESOM/ICON/grids # <FUNCTIONS_PATH>/components/icon/icon.yaml,line:526,col:26
   aerosol_dir: /work/bb0519/foci_input2/ICON-FESOM/ICON/0012/aerosol_kinne/r0001 # <FUNCTIONS_PATH>/components/icon/icon.yaml,line:527,col:29
@@ -1420,11 +1424,11 @@ computer:
   hyperthreading_flag: '' # <FUNCTIONS_PATH>/machines/levante.yaml,line:15,col:42
   partition_name: compute # <FUNCTIONS_PATH>/machines/levante.yaml,line:54,col:37
   partition_cpn: 128 # <FUNCTIONS_PATH>/machines/levante.yaml,line:55,col:36
-  python_version: python3/2023.01-gcc-11.2.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:185,col:37
-  mod_netcdf_c: netcdf-c/4.8.1-openmpi-4.1.2-intel-2021.5.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:187,col:35
-  mod_netcdf_f: netcdf-fortran/4.5.3-openmpi-4.1.2-intel-2021.5.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:188,col:35
-  mod_hdf5: hdf5/1.12.1-openmpi-4.1.2-intel-2021.5.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:189,col:31
-  netcdf_cxx_root: /work/ab0995/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:190,col:38
+  python_version: python3/2023.01-gcc-11.2.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:207,col:37
+  mod_netcdf_c: netcdf-c/4.8.1-openmpi-4.1.2-intel-2021.5.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:209,col:35
+  mod_netcdf_f: netcdf-fortran/4.5.3-openmpi-4.1.2-intel-2021.5.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:210,col:35
+  mod_hdf5: hdf5/1.12.1-openmpi-4.1.2-intel-2021.5.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:211,col:31
+  netcdf_cxx_root: /work/ab0995/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:212,col:38
   accounting_flag: --account=ab0246 # <FUNCTIONS_PATH>/other_software/batch_system/slurm.yaml,line:28,col:38
   cpu_bind: cores # <FUNCTIONS_PATH>/other_software/batch_system/slurm.yaml,line:79,col:23
   srun_execution_command: srun -l --kill-on-bad-exit=1 --multi-prog hostfile_srun # <FUNCTIONS_PATH>/other_software/batch_system/slurm.yaml,line:80,col:37
@@ -3641,14 +3645,14 @@ general:
     first_task_in_queue: prepcompute # no provenance info
     next_run_triggered_by: tidy # <FUNCTIONS_PATH>/components/fesom/fesom.tripyview.yaml,line:86,col:32
   submitted: false  # no provenance info
-  jobid: 6422 # no provenance info
+  jobid: 1223935 # no provenance info
   batch: slurm # no provenance info
   coupler_config_dir: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/run_18500101-18500101/config/yac/ # no provenance info
   coupler: yac # no provenance info
   experiment_log_file: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/log//icon-fesom-pictl-v2-daily_icon-fesom.log # no provenance info
-  esm_tools_version: 6.61.0 # no provenance info
-  logfile_path: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/log//icon-fesom-pictl-v2-daily_icon-fesom_prepcompute_18500101-18500101_6422.log # no provenance info
-  logfile_path_in_run: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/run_18500101-18500101/log//icon-fesom-pictl-v2-daily_icon-fesom_prepcompute_18500101-18500101_6422.log # no provenance info
+  esm_tools_version: 6.61.3 # no provenance info
+  logfile_path: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/log//icon-fesom-pictl-v2-daily_icon-fesom_prepcompute_18500101-18500101_1223935.log # no provenance info
+  logfile_path_in_run: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/run_18500101-18500101/log//icon-fesom-pictl-v2-daily_icon-fesom_prepcompute_18500101-18500101_1223935.log # no provenance info
   relevant_filetypes:
   - bin  # no provenance info
   - config # no provenance info
@@ -3736,7 +3740,7 @@ general:
 dask:
   ntasks: 32  # <FUNCTIONS_PATH>/other_software/batch_system/slurm.yaml,line:155,col:13
   init_scheduler_cmd: srun --ntasks=1 --nodes=1 --cpus-per-task=1 dask scheduler --scheduler-file <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/run_18500101-18500101/work//dask_scheduler.json --interface ib0 # <FUNCTIONS_PATH>/other_software/batch_system/slurm.yaml,line:156,col:25
-  init_workers_cmd: srun --ntasks=32 --cpus-per-task=1 --nodes=@nodes@ --distribution=cyclic:cyclic:cyclic ~/.conda/envs/esm_tools/bin/dask worker --scheduler-file <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/run_18500101-18500101/work//dask_scheduler.json --nthreads 1 --nworkers 1 --interface ib0 # <FUNCTIONS_PATH>/other_software/batch_system/slurm.yaml,line:159,col:23
+  init_workers_cmd: srun --ntasks=32 --cpus-per-task=1 --nodes=@nodes@ --distribution=cyclic:cyclic:cyclic dask worker --scheduler-file <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/run_18500101-18500101/work//dask_scheduler.json --nthreads 1 --nworkers 1 --interface ib0 # <FUNCTIONS_PATH>/other_software/batch_system/slurm.yaml,line:159,col:23
   scheduler_json_name: dask_scheduler.json # <FUNCTIONS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:37,col:26
   scheduler_json: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/run_18500101-18500101/work//dask_scheduler.json # <FUNCTIONS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:38,col:21
   client_timeout: 0.05 # <FUNCTIONS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:39,col:21

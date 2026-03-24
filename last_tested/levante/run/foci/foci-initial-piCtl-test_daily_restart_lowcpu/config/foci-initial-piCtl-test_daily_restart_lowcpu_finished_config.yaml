@@ -1080,20 +1080,20 @@ computer:
     pool: /pool/data  # <FUNCTIONS_PATH>/machines/levante.yaml,line:72,col:19
     focipool: /work/bb0519/foci_input2 # <FUNCTIONS_PATH>/machines/levante.yaml,line:73,col:23
   pool_dir: /pool/data # <FUNCTIONS_PATH>/machines/levante.yaml,line:75,col:16
-  compiler_mpi: intel2022_openmpi # <FUNCTIONS_PATH>/setups/foci/foci.yaml,line:1645,col:33
+  compiler_mpi: intel2022_openmpi # <FUNCTIONS_PATH>/setups/foci/foci.yaml,line:1647,col:33
   iolibraries: system_libs # <FUNCTIONS_PATH>/setups/foci/foci.yaml,line:1613,col:18
   module_actions:
   - purge  # <FUNCTIONS_PATH>/machines/levante.yaml,line:84,col:15
   - load git/2.31.1-gcc-11.2.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:86,col:15
   - load cdo/2.0.5-gcc-11.2.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:87,col:15
   - load nco/5.0.6-gcc-11.2.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:88,col:15
-  - load intel-oneapi-compilers/2022.0.1-gcc-11.2.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:192,col:31
-  - load intel-oneapi-mkl/2022.0.1-gcc-11.2.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:193,col:31
-  - load openmpi/4.1.2-intel-2021.5.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:194,col:31
-  - load netcdf-c/4.8.1-openmpi-4.1.2-intel-2021.5.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:286,col:19
-  - load netcdf-fortran/4.5.3-openmpi-4.1.2-intel-2021.5.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:287,col:19
-  - load hdf5/1.12.1-openmpi-4.1.2-intel-2021.5.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:288,col:19
-  - load libaec/1.0.5-intel-2021.5.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:289,col:19
+  - load libaec/1.0.5-intel-2021.5.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:149,col:19
+  - load intel-oneapi-compilers/2022.0.1-gcc-11.2.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:214,col:31
+  - load intel-oneapi-mkl/2022.0.1-gcc-11.2.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:215,col:31
+  - load openmpi/4.1.2-intel-2021.5.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:216,col:31
+  - load netcdf-c/4.8.1-openmpi-4.1.2-intel-2021.5.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:308,col:19
+  - load netcdf-fortran/4.5.3-openmpi-4.1.2-intel-2021.5.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:309,col:19
+  - load hdf5/1.12.1-openmpi-4.1.2-intel-2021.5.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:310,col:19
   export_vars:
     LC_ALL: en_US.UTF-8  # <FUNCTIONS_PATH>/machines/levante.yaml,line:97,col:21
     CPU_MODEL: AMD_EPYC_ZEN3 # <FUNCTIONS_PATH>/machines/levante.yaml,line:100,col:24
@@ -1111,65 +1111,67 @@ computer:
     UCX_UNIFIED_MODE: y # <FUNCTIONS_PATH>/machines/levante.yaml,line:119,col:31
     KMP_LIBRARY: turnaround # <FUNCTIONS_PATH>/machines/levante.yaml,line:122,col:26
     KMP_AFFINITY: granularity=fine,scatter # <FUNCTIONS_PATH>/machines/levante.yaml,line:123,col:27
-    LD_LIBRARY_PATH[(100)]: <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/work//lib/oasis/:$LD_LIBRARY_PATH # <FUNCTIONS_PATH>/components/oasis3mct/oasis3mct.env.yaml,line:37,col:41
+    LD_LIBRARY_PATH[(100)]: <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/work//lib/oasis/:$LD_LIBRARY_PATH # <FUNCTIONS_PATH>/components/oasis3mct/oasis3mct.env.yaml,line:33,col:41
     OMPI_MCA_btl: self # <FUNCTIONS_PATH>/machines/levante.yaml,line:130,col:31
     OMPI_MCA_coll: ^ml # <FUNCTIONS_PATH>/machines/levante.yaml,line:131,col:32
     OMPI_MCA_coll_hcoll_enable: 1 # <FUNCTIONS_PATH>/machines/levante.yaml,line:132,col:45
     OMPI_MCA_io: romio321 # <FUNCTIONS_PATH>/machines/levante.yaml,line:133,col:30
     OMPI_MCA_osc: pt2pt # <FUNCTIONS_PATH>/machines/levante.yaml,line:134,col:31
     OMPI_MCA_pml: ucx # <FUNCTIONS_PATH>/machines/levante.yaml,line:135,col:31
-    FC: mpif90 # <FUNCTIONS_PATH>/machines/levante.yaml,line:197,col:33
-    F77: mpif90 # <FUNCTIONS_PATH>/machines/levante.yaml,line:198,col:34
-    MPICC: mpicc # <FUNCTIONS_PATH>/machines/levante.yaml,line:199,col:36
-    MPIFC: mpif90 # <FUNCTIONS_PATH>/machines/levante.yaml,line:200,col:36
-    CC: mpicc # <FUNCTIONS_PATH>/machines/levante.yaml,line:201,col:33
-    CXX: mpicxx # <FUNCTIONS_PATH>/machines/levante.yaml,line:202,col:34
-    MPIROOT: "\"$(mpif90 -show | perl -lne 'm{ -I(.*?)/include } and print $1')\"" # <FUNCTIONS_PATH>/machines/levante.yaml,line:203,col:38
-    MPI_LIB: "\"$(mpif90 -show |sed -e 's/^[^ ]*//' -e 's/-[I][^ ]*//g')\"" # <FUNCTIONS_PATH>/machines/levante.yaml,line:204,col:38
-    MPI_HOME: $MPIROOT # <FUNCTIONS_PATH>/machines/levante.yaml,line:206,col:39
-    MPI_ROOT: $MPIROOT # <FUNCTIONS_PATH>/machines/levante.yaml,line:207,col:39
-    mpi_ROOT: $MPIROOT # <FUNCTIONS_PATH>/machines/levante.yaml,line:208,col:39
-    MPI_DIR: $MPIROOT # <FUNCTIONS_PATH>/machines/levante.yaml,line:209,col:38
-    mpi_DIR: $MPIROOT # <FUNCTIONS_PATH>/machines/levante.yaml,line:210,col:38
-    IO_LIB_ROOT: /work/ab0246/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:292,col:30
-    AEC_ROOT: /sw/spack-levante/libaec-1.0.5-gij7yv # <FUNCTIONS_PATH>/machines/levante.yaml,line:294,col:27
-    aec_ROOT: /sw/spack-levante/libaec-1.0.5-gij7yv # <FUNCTIONS_PATH>/machines/levante.yaml,line:295,col:27
-    HDF5ROOT: /sw/spack-levante/hdf5-1.12.1-tvymb5 # <FUNCTIONS_PATH>/machines/levante.yaml,line:297,col:27
-    HDF5_C_INCLUDE_DIRECTORIES: $HDF5ROOT/include # <FUNCTIONS_PATH>/machines/levante.yaml,line:298,col:45
-    HDF5_ROOT: $HDF5ROOT # <FUNCTIONS_PATH>/machines/levante.yaml,line:299,col:28
-    NETCDFFROOT: /sw/spack-levante/netcdf-fortran-4.5.3-k6xq5g # <FUNCTIONS_PATH>/machines/levante.yaml,line:301,col:30
-    NETCDF_Fortran_INCLUDE_DIRECTORIES: $NETCDFFROOT/include # <FUNCTIONS_PATH>/machines/levante.yaml,line:302,col:53
-    NetCDF_Fortran_ROOT: $NETCDFFROOT # <FUNCTIONS_PATH>/machines/levante.yaml,line:303,col:38
-    NETCDF_ROOT: $NETCDFFROOT # <FUNCTIONS_PATH>/machines/levante.yaml,line:304,col:30
-    NETCDFROOT: /sw/spack-levante/netcdf-c-4.8.1-2k3cmu # <FUNCTIONS_PATH>/machines/levante.yaml,line:306,col:29
-    NETCDF_C_INCLUDE_DIRECTORIES: $NETCDFROOT/include # <FUNCTIONS_PATH>/machines/levante.yaml,line:307,col:47
-    NETCDF_CXX_INCLUDE_DIRECTORIES: $NETCDFROOT/include # <FUNCTIONS_PATH>/machines/levante.yaml,line:308,col:49
-    NETCDF_CXX_LIBRARIES: $NETCDFROOT/lib # <FUNCTIONS_PATH>/machines/levante.yaml,line:309,col:39
-    NetCDF_C_ROOT: $NETCDFROOT # <FUNCTIONS_PATH>/machines/levante.yaml,line:310,col:32
-    NETCDF_PATH: $NETCDFROOT # <FUNCTIONS_PATH>/machines/levante.yaml,line:311,col:30
-    TBBROOT: /sw/spack-levante/intel-oneapi-compilers-2022.0.1-an2cbq/tbb/2021.5.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:313,col:26
-    TBBMALLOC_DIR: $TBBROOT/lib/intel64/gcc4.8 # <FUNCTIONS_PATH>/machines/levante.yaml,line:314,col:32
-    ECCODESROOT: $IO_LIB_ROOT # <FUNCTIONS_PATH>/machines/levante.yaml,line:315,col:30
-    OASIS_NETCDF: $NETCDFROOT # <FUNCTIONS_PATH>/machines/levante.yaml,line:317,col:31
-    OASIS_NETCDFF: $NETCDFFROOT # <FUNCTIONS_PATH>/machines/levante.yaml,line:318,col:32
-    PSMPIFLAGS: '"-lrt -lm -ldl"' # <FUNCTIONS_PATH>/machines/levante.yaml,line:322,col:29
-    LAPACK_LIB: "'-mkl=sequential'" # <FUNCTIONS_PATH>/machines/levante.yaml,line:325,col:29
-    ZLIBROOT: /usr # <FUNCTIONS_PATH>/machines/levante.yaml,line:328,col:27
-    OASIS3MCT_FC_LIB: '"-L$NETCDFFROOT/lib -lnetcdff"' # <FUNCTIONS_PATH>/machines/levante.yaml,line:332,col:35
-    PERL5LIB: /usr/lib64/perl5 # <FUNCTIONS_PATH>/machines/levante.yaml,line:335,col:27
-    LD_LIBRARY_PATH[(0)]: $HDF5ROOT/lib:$NETCDFROOT/lib:$NETCDFFROOT/lib:$AEC_ROOT/lib:$LD_LIBRARY_PATH # <FUNCTIONS_PATH>/machines/levante.yaml,line:337,col:39
-    LD_LIBRARY_PATH[(1)]: /sw/spack-levante/intel-oneapi-mkl-2022.0.1-ttdktf/mkl/2022.0.1/lib/intel64:$LD_LIBRARY_PATH # <FUNCTIONS_PATH>/machines/levante.yaml,line:340,col:39
-    LD_LIBRARY_PATH[(2)]: /sw/spack-levante/intel-oneapi-mpi-2021.5.0-mrcss7/mpi/2021.5.0/libfabric/lib:$LD_LIBRARY_PATH # <FUNCTIONS_PATH>/machines/levante.yaml,line:343,col:39
+    AEC_ROOT: /sw/spack-levante/libaec-1.0.5-gij7yv # <FUNCTIONS_PATH>/machines/levante.yaml,line:151,col:27
+    aec_ROOT: /sw/spack-levante/libaec-1.0.5-gij7yv # <FUNCTIONS_PATH>/machines/levante.yaml,line:152,col:27
+    TBBROOT: /sw/spack-levante/intel-oneapi-compilers-2022.0.1-an2cbq/tbb/2021.5.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:161,col:26
+    TBBMALLOC_DIR: $TBBROOT/lib/intel64/gcc4.8 # <FUNCTIONS_PATH>/machines/levante.yaml,line:162,col:32
+    FC: mpif90 # <FUNCTIONS_PATH>/machines/levante.yaml,line:219,col:33
+    F77: mpif90 # <FUNCTIONS_PATH>/machines/levante.yaml,line:220,col:34
+    MPICC: mpicc # <FUNCTIONS_PATH>/machines/levante.yaml,line:221,col:36
+    MPIFC: mpif90 # <FUNCTIONS_PATH>/machines/levante.yaml,line:222,col:36
+    CC: mpicc # <FUNCTIONS_PATH>/machines/levante.yaml,line:223,col:33
+    CXX: mpicxx # <FUNCTIONS_PATH>/machines/levante.yaml,line:224,col:34
+    MPIROOT: "\"$(mpif90 -show | perl -lne 'm{ -I(.*?)/include } and print $1')\"" # <FUNCTIONS_PATH>/machines/levante.yaml,line:225,col:38
+    MPI_LIB: "\"$(mpif90 -show |sed -e 's/^[^ ]*//' -e 's/-[I][^ ]*//g')\"" # <FUNCTIONS_PATH>/machines/levante.yaml,line:226,col:38
+    MPI_HOME: $MPIROOT # <FUNCTIONS_PATH>/machines/levante.yaml,line:228,col:39
+    MPI_ROOT: $MPIROOT # <FUNCTIONS_PATH>/machines/levante.yaml,line:229,col:39
+    mpi_ROOT: $MPIROOT # <FUNCTIONS_PATH>/machines/levante.yaml,line:230,col:39
+    MPI_DIR: $MPIROOT # <FUNCTIONS_PATH>/machines/levante.yaml,line:231,col:38
+    mpi_DIR: $MPIROOT # <FUNCTIONS_PATH>/machines/levante.yaml,line:232,col:38
+    IO_LIB_ROOT: /work/ab0246/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:313,col:30
+    HDF5ROOT: /sw/spack-levante/hdf5-1.12.1-tvymb5 # <FUNCTIONS_PATH>/machines/levante.yaml,line:316,col:27
+    HDF5_C_INCLUDE_DIRECTORIES: $HDF5ROOT/include # <FUNCTIONS_PATH>/machines/levante.yaml,line:317,col:45
+    HDF5_ROOT: $HDF5ROOT # <FUNCTIONS_PATH>/machines/levante.yaml,line:318,col:28
+    NETCDFFROOT: /sw/spack-levante/netcdf-fortran-4.5.3-k6xq5g # <FUNCTIONS_PATH>/machines/levante.yaml,line:320,col:30
+    NETCDF_Fortran_INCLUDE_DIRECTORIES: $NETCDFFROOT/include # <FUNCTIONS_PATH>/machines/levante.yaml,line:321,col:53
+    NetCDF_Fortran_ROOT: $NETCDFFROOT # <FUNCTIONS_PATH>/machines/levante.yaml,line:322,col:38
+    NETCDF_ROOT: $NETCDFFROOT # <FUNCTIONS_PATH>/machines/levante.yaml,line:323,col:30
+    NETCDFROOT: /sw/spack-levante/netcdf-c-4.8.1-2k3cmu # <FUNCTIONS_PATH>/machines/levante.yaml,line:325,col:29
+    NETCDF_C_INCLUDE_DIRECTORIES: $NETCDFROOT/include # <FUNCTIONS_PATH>/machines/levante.yaml,line:326,col:47
+    NETCDF_CXX_INCLUDE_DIRECTORIES: $NETCDFROOT/include # <FUNCTIONS_PATH>/machines/levante.yaml,line:327,col:49
+    NETCDF_CXX_LIBRARIES: $NETCDFROOT/lib # <FUNCTIONS_PATH>/machines/levante.yaml,line:328,col:39
+    NetCDF_C_ROOT: $NETCDFROOT # <FUNCTIONS_PATH>/machines/levante.yaml,line:329,col:32
+    NETCDF_PATH: $NETCDFROOT # <FUNCTIONS_PATH>/machines/levante.yaml,line:330,col:30
+    ECCODESROOT: $IO_LIB_ROOT # <FUNCTIONS_PATH>/machines/levante.yaml,line:332,col:30
+    OASIS_NETCDF: $NETCDFROOT # <FUNCTIONS_PATH>/machines/levante.yaml,line:334,col:31
+    OASIS_NETCDFF: $NETCDFFROOT # <FUNCTIONS_PATH>/machines/levante.yaml,line:335,col:32
+    PSMPIFLAGS: '"-lrt -lm -ldl"' # <FUNCTIONS_PATH>/machines/levante.yaml,line:339,col:29
+    LAPACK_LIB: "'-mkl=sequential'" # <FUNCTIONS_PATH>/machines/levante.yaml,line:342,col:29
+    ZLIBROOT: /usr # <FUNCTIONS_PATH>/machines/levante.yaml,line:345,col:27
+    OASIS3MCT_FC_LIB: '"-L$NETCDFFROOT/lib -lnetcdff"' # <FUNCTIONS_PATH>/machines/levante.yaml,line:349,col:35
+    PERL5LIB: /usr/lib64/perl5 # <FUNCTIONS_PATH>/machines/levante.yaml,line:352,col:27
+    LD_LIBRARY_PATH[(0)]: $HDF5ROOT/lib:$NETCDFROOT/lib:$NETCDFFROOT/lib:$AEC_ROOT/lib:$LD_LIBRARY_PATH # <FUNCTIONS_PATH>/machines/levante.yaml,line:354,col:39
+    LD_LIBRARY_PATH[(1)]: /sw/spack-levante/intel-oneapi-mkl-2022.0.1-ttdktf/mkl/2022.0.1/lib/intel64:$LD_LIBRARY_PATH # <FUNCTIONS_PATH>/machines/levante.yaml,line:357,col:39
+    LD_LIBRARY_PATH[(2)]: /sw/spack-levante/intel-oneapi-mpi-2021.5.0-mrcss7/mpi/2021.5.0/libfabric/lib:$LD_LIBRARY_PATH # <FUNCTIONS_PATH>/machines/levante.yaml,line:360,col:39
     ACCOUNT: ab0246 # no provenance info
     ESM_TESTING_DIR: <TEST_DIR>/run/foci/ # no provenance info
     MODEL_DIR: <TEST_DIR>/comp/foci/foci-default # no provenance info
   load_python: false  # <FUNCTIONS_PATH>/machines/levante.yaml,line:137,col:18
-  fc: $FC # <FUNCTIONS_PATH>/machines/levante.yaml,line:519,col:9
-  cc: $CC # <FUNCTIONS_PATH>/machines/levante.yaml,line:520,col:9
-  mpifc: $MPIFC # <FUNCTIONS_PATH>/machines/levante.yaml,line:521,col:12
-  mpicc: $MPICC # <FUNCTIONS_PATH>/machines/levante.yaml,line:522,col:12
-  cxx: $CXX # <FUNCTIONS_PATH>/machines/levante.yaml,line:523,col:10
-  launcher_flags: -l --cpu-bind=cores --distribution=cyclic:cyclic # <FUNCTIONS_PATH>/setups/foci/foci.yaml,line:1647,col:35
+  load_libaec: true # <FUNCTIONS_PATH>/setups/foci/foci.yaml,line:1649,col:32
+  load_tbb: true # <FUNCTIONS_PATH>/setups/foci/foci.yaml,line:1650,col:29
+  fc: $FC # <FUNCTIONS_PATH>/machines/levante.yaml,line:529,col:9
+  cc: $CC # <FUNCTIONS_PATH>/machines/levante.yaml,line:530,col:9
+  mpifc: $MPIFC # <FUNCTIONS_PATH>/machines/levante.yaml,line:531,col:12
+  mpicc: $MPICC # <FUNCTIONS_PATH>/machines/levante.yaml,line:532,col:12
+  cxx: $CXX # <FUNCTIONS_PATH>/machines/levante.yaml,line:533,col:10
+  launcher_flags: -l --cpu-bind=cores --distribution=cyclic:cyclic # <FUNCTIONS_PATH>/setups/foci/foci.yaml,line:1651,col:35
   header_start: '#SBATCH' # <FUNCTIONS_PATH>/other_software/batch_system/slurm.yaml,line:6,col:19
   submit: sbatch # <FUNCTIONS_PATH>/other_software/batch_system/slurm.yaml,line:7,col:13
   launcher: srun # <FUNCTIONS_PATH>/other_software/batch_system/slurm.yaml,line:8,col:15
@@ -1221,13 +1223,18 @@ computer:
     MODEL_DIR: <TEST_DIR>/comp/foci/foci-default # no provenance info
   heterogeneous_parallelization: false  # no provenance info
   load_python_command: []
+  lib_aec: '$AEC_ROOT/lib:'  # <FUNCTIONS_PATH>/machines/levante.yaml,line:147,col:22
+  lib_tbbmalloc: '$TBBMALLOC_DIR:' # <FUNCTIONS_PATH>/machines/levante.yaml,line:159,col:28
   partition_name: compute # <FUNCTIONS_PATH>/machines/levante.yaml,line:54,col:37
   partition_cpn: 128 # <FUNCTIONS_PATH>/machines/levante.yaml,line:55,col:36
-  python_version: python3/2023.01-gcc-11.2.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:185,col:37
-  mod_netcdf_c: netcdf-c/4.8.1-openmpi-4.1.2-intel-2021.5.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:187,col:35
-  mod_netcdf_f: netcdf-fortran/4.5.3-openmpi-4.1.2-intel-2021.5.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:188,col:35
-  mod_hdf5: hdf5/1.12.1-openmpi-4.1.2-intel-2021.5.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:189,col:31
-  netcdf_cxx_root: /work/ab0995/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:190,col:38
+  python_version: python3/2023.01-gcc-11.2.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:207,col:37
+  mod_netcdf_c: netcdf-c/4.8.1-openmpi-4.1.2-intel-2021.5.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:209,col:35
+  mod_netcdf_f: netcdf-fortran/4.5.3-openmpi-4.1.2-intel-2021.5.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:210,col:35
+  mod_hdf5: hdf5/1.12.1-openmpi-4.1.2-intel-2021.5.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:211,col:31
+  netcdf_cxx_root: /work/ab0995/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:212,col:38
+  libaec_version: 1.0.5-intel-2021.5.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:304,col:29
+  libaec_path: /sw/spack-levante/libaec-1.0.5-gij7yv # <FUNCTIONS_PATH>/machines/levante.yaml,line:305,col:26
+  tbb_path: /sw/spack-levante/intel-oneapi-compilers-2022.0.1-an2cbq/tbb/2021.5.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:306,col:23
   accounting_flag: --account=ab0246 # <FUNCTIONS_PATH>/other_software/batch_system/slurm.yaml,line:28,col:38
   cpu_bind: cores # <FUNCTIONS_PATH>/other_software/batch_system/slurm.yaml,line:79,col:23
   srun_execution_command: srun -l --cpu-bind=cores --distribution=cyclic:cyclic --hint=nomultithread --multi-prog hostfile_srun # <FUNCTIONS_PATH>/other_software/batch_system/slurm.yaml,line:80,col:37
@@ -2863,9 +2870,9 @@ oasis3mct:
     - OIceEvap <--conserv2-- AIceEvap # <FUNCTIONS_PATH>/setups/foci/foci.yaml,line:844,col:33
     - O_dQnsdT <--conserv2-- A_dQnsdT # <FUNCTIONS_PATH>/setups/foci/foci.yaml,line:845,col:33
   branch: oasis3mct2.8-foci  # <FUNCTIONS_PATH>/components/oasis3mct/oasis3mct.yaml,line:113,col:17
-  yac_libs: '' # <FUNCTIONS_PATH>/components/oasis3mct/oasis3mct.env.yaml,line:46,col:27
-  yac_inc_path: '' # <FUNCTIONS_PATH>/components/oasis3mct/oasis3mct.env.yaml,line:47,col:31
-  yac_lib_path: '' # <FUNCTIONS_PATH>/components/oasis3mct/oasis3mct.env.yaml,line:48,col:31
+  yac_libs: '' # <FUNCTIONS_PATH>/components/oasis3mct/oasis3mct.env.yaml,line:42,col:27
+  yac_inc_path: '' # <FUNCTIONS_PATH>/components/oasis3mct/oasis3mct.env.yaml,line:43,col:31
+  yac_lib_path: '' # <FUNCTIONS_PATH>/components/oasis3mct/oasis3mct.env.yaml,line:44,col:31
   ini_parent_dir: <FUNCTIONS_PATH>/../src/esm_tests/resources/runscripts/foci/run_files4check_runs/foci-initial-piCtl-test_daily_restart_lowcpu/ # <TEST_DIR>/run/foci/foci-initial-piCtl-test_daily_restart_lowcpu/scripts/foci-initial-piCtl-test_daily_restart_lowcpu.yaml,line:43,col:29
   leapyear: true # <FUNCTIONS_PATH>/components/nemo/nemo.yaml,line:2376,col:19
   experiment_analysis_dir: <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/analysis/oasis3mct/ # no provenance info
@@ -4115,14 +4122,14 @@ general:
     first_task_in_queue: prepcompute # no provenance info
     next_run_triggered_by: tidy # no provenance info
   submitted: false  # no provenance info
-  jobid: 76929 # no provenance info
+  jobid: 1200692 # no provenance info
   batch: slurm # no provenance info
   coupler_config_dir: <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/config/oasis3mct/ # no provenance info
   coupler: oasis3mct # no provenance info
   experiment_log_file: <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/log//foci-initial-piCtl-test_daily_restart_lowcpu_foci.log # no provenance info
-  esm_tools_version: 6.61.0 # no provenance info
-  logfile_path: <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/log//foci-initial-piCtl-test_daily_restart_lowcpu_foci_prepcompute_18500101-18500101_76929.log # no provenance info
-  logfile_path_in_run: <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/log//foci-initial-piCtl-test_daily_restart_lowcpu_foci_prepcompute_18500101-18500101_76929.log # no provenance info
+  esm_tools_version: 6.61.3 # no provenance info
+  logfile_path: <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/log//foci-initial-piCtl-test_daily_restart_lowcpu_foci_prepcompute_18500101-18500101_1200692.log # no provenance info
+  logfile_path_in_run: <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/log//foci-initial-piCtl-test_daily_restart_lowcpu_foci_prepcompute_18500101-18500101_1200692.log # no provenance info
   relevant_filetypes:
   - bin  # no provenance info
   - config # no provenance info
@@ -4210,7 +4217,7 @@ general:
 dask:
   ntasks: 32  # <FUNCTIONS_PATH>/other_software/batch_system/slurm.yaml,line:155,col:13
   init_scheduler_cmd: srun --ntasks=1 --nodes=1 --cpus-per-task=1 dask scheduler --scheduler-file <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/work//dask_scheduler.json --interface ib0 # <FUNCTIONS_PATH>/other_software/batch_system/slurm.yaml,line:156,col:25
-  init_workers_cmd: srun --ntasks=32 --cpus-per-task=1 --nodes=@nodes@ --distribution=cyclic:cyclic:cyclic ~/.conda/envs/esm_tools/bin/dask worker --scheduler-file <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/work//dask_scheduler.json --nthreads 1 --nworkers 1 --interface ib0 # <FUNCTIONS_PATH>/other_software/batch_system/slurm.yaml,line:159,col:23
+  init_workers_cmd: srun --ntasks=32 --cpus-per-task=1 --nodes=@nodes@ --distribution=cyclic:cyclic:cyclic dask worker --scheduler-file <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/work//dask_scheduler.json --nthreads 1 --nworkers 1 --interface ib0 # <FUNCTIONS_PATH>/other_software/batch_system/slurm.yaml,line:159,col:23
   scheduler_json_name: dask_scheduler.json # <FUNCTIONS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:37,col:26
   scheduler_json: <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/work//dask_scheduler.json # <FUNCTIONS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:38,col:21
   client_timeout: 0.05 # <FUNCTIONS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:39,col:21

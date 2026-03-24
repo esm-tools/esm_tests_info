@@ -36,16 +36,25 @@ export CC=mpicc
 export CXX=mpicxx
 export MPIROOT="$(mpif90 -show | perl -lne 'm{ -I(.*?)/include } and print $1')"
 export MPI_LIB="$(mpif90 -show |sed -e 's/^[^ ]*//' -e 's/-[I][^ ]*//g')"
+export MPI_HOME=$MPIROOT
+export MPI_ROOT=$MPIROOT
+export mpi_ROOT=$MPIROOT
+export MPI_DIR=$MPIROOT
+export mpi_DIR=$MPIROOT
 export IO_LIB_ROOT=/work/ab0246/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0
 export HDF5ROOT=/sw/spack-levante/hdf5-1.12.1-tvymb5
 export HDF5_C_INCLUDE_DIRECTORIES=$HDF5_ROOT/include
 export HDF5_ROOT=$HDF5ROOT
 export NETCDFFROOT=/sw/spack-levante/netcdf-fortran-4.5.3-k6xq5g
-export NETCDFROOT=/sw/spack-levante/netcdf-c-4.8.1-2k3cmu
 export NETCDF_Fortran_INCLUDE_DIRECTORIES=$NETCDFFROOT/include
+export NetCDF_Fortran_ROOT=$NETCDFFROOT
+export NETCDF_ROOT=$NETCDFFROOT
+export NETCDFROOT=/sw/spack-levante/netcdf-c-4.8.1-2k3cmu
 export NETCDF_C_INCLUDE_DIRECTORIES=$NETCDFROOT/include
 export NETCDF_CXX_INCLUDE_DIRECTORIES=$NETCDFROOT/include
 export NETCDF_CXX_LIBRARIES=$NETCDFROOT/lib
+export NetCDF_C_ROOT=$NETCDFROOT
+export NETCDF_PATH=$NETCDFROOT
 export ECCODESROOT=$IO_LIB_ROOT
 export OASIS_NETCDF=$NETCDFROOT
 export OASIS_NETCDFF=$NETCDFFROOT
@@ -97,5 +106,5 @@ unset SLURM_NPROCS
 unset SLURM_ARBITRARY_NODELIST
 
 pushd oifs-43r3
-export OIFS_TOPLEVEL_DIR=<TEST_DIR>comp/awicm3/awicm3-v3.3.0/oifs-43r3; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>comp/awicm3/awicm3-v3.3.0/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>comp/awicm3/awicm3-v3.3.0/oifs-43r3/../xios/inc/; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; chmod -R 700 .; git config core.fileMode false; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
+export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-v3.3.0/oifs-43r3; export OIFS_XIOS=enable ; export OIFS_XIOS_DIR=<TEST_DIR>/comp/awicm3/awicm3-v3.3.0/oifs-43r3/../xios ; export OIFS_XIOS_INCLUDE=-I/<TEST_DIR>/comp/awicm3/awicm3-v3.3.0/oifs-43r3/../xios/inc/; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.fcm ; chmod -R 700 .; git config core.fileMode false; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs
 popd
