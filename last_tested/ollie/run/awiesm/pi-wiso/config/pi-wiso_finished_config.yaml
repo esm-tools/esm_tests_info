@@ -107,8 +107,8 @@ echam:
   pseudo_start_date: '1850-01-01T00:00:00' # <HOME_DIR>/esm_tools/configs/components/echam/echam.yaml,line:164,col:24
   pseudo_end_date: '1850-01-02T00:00:00' # <HOME_DIR>/esm_tools/configs/components/echam/echam.yaml,line:165,col:22
   pseudo_resume_date: '1850-01-01T00:00:00' # <HOME_DIR>/esm_tools/configs/components/echam/echam.yaml,line:166,col:25
-  restart_rate: 1 # <TEST_DIR>run/awiesm/pi-wiso/scripts/pi-wiso.yaml,line:30,col:19
-  restart_unit: days # <TEST_DIR>run/awiesm/pi-wiso/scripts/pi-wiso.yaml,line:31,col:19
+  restart_rate: 1 # <TEST_DIR>/run/awiesm/pi-wiso/scripts/pi-wiso.yaml,line:30,col:19
+  restart_unit: days # <TEST_DIR>/run/awiesm/pi-wiso/scripts/pi-wiso.yaml,line:31,col:19
   restart_firstlast: first # <HOME_DIR>/esm_tools/configs/setups/awiesm/awiesm.yaml,line:166,col:28
   setup_dir: <TEST_DIR>/comp/awiesm/awiesm-2.1 # <HOME_DIR>/esm_tools/configs/setups/awiesm/awiesm.yaml,line:182,col:20
   bin_dir: <TEST_DIR>/comp/awiesm/awiesm-2.1/bin # <HOME_DIR>/esm_tools/configs/components/echam/echam.yaml,line:180,col:14
@@ -512,12 +512,12 @@ echam:
   input_sources:
     cldoptprops: /work/ollie/pool/ECHAM6//input/r0008/ECHAM6_CldOptProps.nc  # <HOME_DIR>/esm_tools/configs/components/echam/echam.datasets.yaml,line:5,col:28
     janspec: /work/ollie/pool/ECHAM6//input/r0008/T63/T63L47_jan_spec.nc # <HOME_DIR>/esm_tools/configs/components/echam/echam.datasets.yaml,line:6,col:24
-    jansurf: /work/ollie/pool/FESOM/meshes_default/core/tarfilesT63/input/echam6/T63CORE2_jan_surf.nc # <TEST_DIR>run/awiesm/pi-wiso/scripts/pi-wiso.yaml,line:33,col:22
+    jansurf: /work/ollie/pool/FESOM/meshes_default/core/tarfilesT63/input/echam6/T63CORE2_jan_surf.nc # <TEST_DIR>/run/awiesm/pi-wiso/scripts/pi-wiso.yaml,line:33,col:22
     rrtmglw: /work/ollie/pool/ECHAM6//input/r0008/rrtmg_lw.nc # <HOME_DIR>/esm_tools/configs/components/echam/echam.datasets.yaml,line:8,col:24
     rrtmgsw: /work/ollie/pool/ECHAM6//input/r0008/rrtmg_sw.nc # <HOME_DIR>/esm_tools/configs/components/echam/echam.datasets.yaml,line:9,col:24
     tslclim: /work/ollie/pool/ECHAM6//input/r0008/T63/T63_TSLCLIM.nc # <HOME_DIR>/esm_tools/configs/components/echam/echam.datasets.yaml,line:10,col:24
-    vgratclim: /work/ollie/pool/FESOM/meshes_default/core/tarfilesT63/input/echam6/T63CORE2_VGRATCLIM.nc # <TEST_DIR>run/awiesm/pi-wiso/scripts/pi-wiso.yaml,line:34,col:24
-    vltclim: /work/ollie/pool/FESOM/meshes_default/core/tarfilesT63/input/echam6/T63CORE2_VLTCLIM.nc # <TEST_DIR>run/awiesm/pi-wiso/scripts/pi-wiso.yaml,line:35,col:22
+    vgratclim: /work/ollie/pool/FESOM/meshes_default/core/tarfilesT63/input/echam6/T63CORE2_VGRATCLIM.nc # <TEST_DIR>/run/awiesm/pi-wiso/scripts/pi-wiso.yaml,line:34,col:24
+    vltclim: /work/ollie/pool/FESOM/meshes_default/core/tarfilesT63/input/echam6/T63CORE2_VLTCLIM.nc # <TEST_DIR>/run/awiesm/pi-wiso/scripts/pi-wiso.yaml,line:35,col:22
   ozone_source_file_scenario: PI-CTRL # <HOME_DIR>/esm_tools/configs/components/echam/echam.datasets.yaml,line:16,col:33
   forcing_sources:
     ozonea: /work/ollie/pool/ECHAM6//input/r0008/T63/ozone/T63_ozone_picontrol.nc  # <HOME_DIR>/esm_tools/configs/components/echam/echam.datasets.yaml,line:131,col:25
@@ -1099,133 +1099,133 @@ echam:
       run_to_work: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
       work_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
   bin_targets:
-    echam_bin: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/work/echam6  # no provenance info
+    echam_bin: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/work/echam6  # no provenance info
   config_targets:
-    namelist.echam: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/work/namelist.echam  # no provenance info
+    namelist.echam: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/work/namelist.echam  # no provenance info
   forcing_targets:
-    ozonea: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/work/ozon1988  # no provenance info
-    ozoneb: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/work/ozon1989 # no provenance info
-    ozonec: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/work/ozon1990 # no provenance info
-    aerocoarse_year_1850: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/work/aero_coarse_1850.nc # no provenance info
-    aerocoarse_year_1849: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/work/aero_coarse_1849.nc # no provenance info
-    aerocoarse_year_1851: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/work/aero_coarse_1851.nc # no provenance info
-    aerocoarse_year_1848: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/work/aero_coarse_1848.nc # no provenance info
-    aerocoarse_year_1852: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/work/aero_coarse_1852.nc # no provenance info
-    aerofin_year_1850: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/work/aero_fine_1850.nc # no provenance info
-    aerofin_year_1849: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/work/aero_fine_1849.nc # no provenance info
-    aerofin_year_1851: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/work/aero_fine_1851.nc # no provenance info
-    aerofin_year_1848: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/work/aero_fine_1848.nc # no provenance info
-    aerofin_year_1852: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/work/aero_fine_1852.nc # no provenance info
-    aerofarir_year_1850: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/work/aero_farir_1850.nc # no provenance info
-    aerofarir_year_1849: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/work/aero_farir_1849.nc # no provenance info
-    aerofarir_year_1851: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/work/aero_farir_1851.nc # no provenance info
-    aerofarir_year_1848: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/work/aero_farir_1848.nc # no provenance info
-    aerofarir_year_1852: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/work/aero_farir_1852.nc # no provenance info
-    ozone_year_1850: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/work/ozon1850 # no provenance info
-    ozone_year_1849: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/work/ozon1849 # no provenance info
-    ozone_year_1851: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/work/ozon1851 # no provenance info
-    ozone_year_1848: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/work/ozon1848 # no provenance info
-    ozone_year_1852: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/work/ozon1852 # no provenance info
+    ozonea: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/work/ozon1988  # no provenance info
+    ozoneb: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/work/ozon1989 # no provenance info
+    ozonec: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/work/ozon1990 # no provenance info
+    aerocoarse_year_1850: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/work/aero_coarse_1850.nc # no provenance info
+    aerocoarse_year_1849: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/work/aero_coarse_1849.nc # no provenance info
+    aerocoarse_year_1851: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/work/aero_coarse_1851.nc # no provenance info
+    aerocoarse_year_1848: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/work/aero_coarse_1848.nc # no provenance info
+    aerocoarse_year_1852: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/work/aero_coarse_1852.nc # no provenance info
+    aerofin_year_1850: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/work/aero_fine_1850.nc # no provenance info
+    aerofin_year_1849: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/work/aero_fine_1849.nc # no provenance info
+    aerofin_year_1851: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/work/aero_fine_1851.nc # no provenance info
+    aerofin_year_1848: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/work/aero_fine_1848.nc # no provenance info
+    aerofin_year_1852: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/work/aero_fine_1852.nc # no provenance info
+    aerofarir_year_1850: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/work/aero_farir_1850.nc # no provenance info
+    aerofarir_year_1849: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/work/aero_farir_1849.nc # no provenance info
+    aerofarir_year_1851: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/work/aero_farir_1851.nc # no provenance info
+    aerofarir_year_1848: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/work/aero_farir_1848.nc # no provenance info
+    aerofarir_year_1852: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/work/aero_farir_1852.nc # no provenance info
+    ozone_year_1850: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/work/ozon1850 # no provenance info
+    ozone_year_1849: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/work/ozon1849 # no provenance info
+    ozone_year_1851: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/work/ozon1851 # no provenance info
+    ozone_year_1848: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/work/ozon1848 # no provenance info
+    ozone_year_1852: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/work/ozon1852 # no provenance info
   input_targets:
-    cldoptprops: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/work/ECHAM6_CldOptProps.nc  # no provenance info
-    janspec: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/work/unit.23 # no provenance info
-    jansurf: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/work/unit.24 # no provenance info
-    rrtmglw: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/work/rrtmg_lw.nc # no provenance info
-    rrtmgsw: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/work/rrtmg_sw.nc # no provenance info
-    tslclim: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/work/unit.92 # no provenance info
-    vgratclim: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/work/unit.91 # no provenance info
-    vltclim: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/work/unit.90 # no provenance info
+    cldoptprops: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/work/ECHAM6_CldOptProps.nc  # no provenance info
+    janspec: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/work/unit.23 # no provenance info
+    jansurf: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/work/unit.24 # no provenance info
+    rrtmglw: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/work/rrtmg_lw.nc # no provenance info
+    rrtmgsw: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/work/rrtmg_sw.nc # no provenance info
+    tslclim: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/work/unit.92 # no provenance info
+    vgratclim: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/work/unit.91 # no provenance info
+    vltclim: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/work/unit.90 # no provenance info
   log_targets:
-    atmout: <TEST_DIR>run/awiesm/pi-wiso/log/echam/atmout  # no provenance info
-    stderr: <TEST_DIR>run/awiesm/pi-wiso/log/echam/echam.stderr # no provenance info
-    stdout: <TEST_DIR>run/awiesm/pi-wiso/log/echam/echam.stdout # no provenance info
+    atmout: <TEST_DIR>/run/awiesm/pi-wiso/log/echam/atmout  # no provenance info
+    stderr: <TEST_DIR>/run/awiesm/pi-wiso/log/echam/echam.stderr # no provenance info
+    stdout: <TEST_DIR>/run/awiesm/pi-wiso/log/echam/echam.stdout # no provenance info
   outdata_targets:
-    aclcim_nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/echam/pi-wiso_185001.01_aclcim.nc  # no provenance info
-    g3b1hi_nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/echam/pi-wiso_185001.01_g3b1hi.nc # no provenance info
-    g3bday_nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/echam/pi-wiso_185001.01_g3bday.nc # no provenance info
-    g3bid_nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/echam/pi-wiso_185001.01_g3bid.nc # no provenance info
-    g3bim_nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/echam/pi-wiso_185001.01_g3bim.nc # no provenance info
-    glday_nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/echam/pi-wiso_185001.01_glday.nc # no provenance info
-    glim_nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/echam/pi-wiso_185001.01_glim.nc # no provenance info
-    jsbid_nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/echam/pi-wiso_185001.01_jsbid.nc # no provenance info
-    sp6h_nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/echam/pi-wiso_185001.01_sp6h.nc # no provenance info
-    spim_nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/echam/pi-wiso_185001.01_spim.nc # no provenance info
-    sp_nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/echam/pi-wiso_185001.01_sp.nc # no provenance info
-    gl_nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/echam/pi-wiso_185001.01_gl.nc # no provenance info
-    g3b_nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/echam/pi-wiso_185001.01_g3b.nc # no provenance info
-    scm_nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/echam/pi-wiso_185001.01_scm.nc # no provenance info
-    ma_nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/echam/pi-wiso_185001.01_ma.nc # no provenance info
-    surf_nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/echam/pi-wiso_185001.01_surf.nc # no provenance info
-    cfdiag_nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/echam/pi-wiso_185001.01_cfdiag.nc # no provenance info
-    aeropt_nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/echam/pi-wiso_185001.01_aeropt.nc # no provenance info
-    co2_nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/echam/pi-wiso_185001.01_co2.nc # no provenance info
-    tdiag_nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/echam/pi-wiso_185001.01_tdiag.nc # no provenance info
+    aclcim_nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/echam/pi-wiso_185001.01_aclcim.nc  # no provenance info
+    g3b1hi_nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/echam/pi-wiso_185001.01_g3b1hi.nc # no provenance info
+    g3bday_nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/echam/pi-wiso_185001.01_g3bday.nc # no provenance info
+    g3bid_nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/echam/pi-wiso_185001.01_g3bid.nc # no provenance info
+    g3bim_nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/echam/pi-wiso_185001.01_g3bim.nc # no provenance info
+    glday_nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/echam/pi-wiso_185001.01_glday.nc # no provenance info
+    glim_nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/echam/pi-wiso_185001.01_glim.nc # no provenance info
+    jsbid_nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/echam/pi-wiso_185001.01_jsbid.nc # no provenance info
+    sp6h_nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/echam/pi-wiso_185001.01_sp6h.nc # no provenance info
+    spim_nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/echam/pi-wiso_185001.01_spim.nc # no provenance info
+    sp_nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/echam/pi-wiso_185001.01_sp.nc # no provenance info
+    gl_nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/echam/pi-wiso_185001.01_gl.nc # no provenance info
+    g3b_nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/echam/pi-wiso_185001.01_g3b.nc # no provenance info
+    scm_nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/echam/pi-wiso_185001.01_scm.nc # no provenance info
+    ma_nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/echam/pi-wiso_185001.01_ma.nc # no provenance info
+    surf_nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/echam/pi-wiso_185001.01_surf.nc # no provenance info
+    cfdiag_nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/echam/pi-wiso_185001.01_cfdiag.nc # no provenance info
+    aeropt_nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/echam/pi-wiso_185001.01_aeropt.nc # no provenance info
+    co2_nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/echam/pi-wiso_185001.01_co2.nc # no provenance info
+    tdiag_nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/echam/pi-wiso_185001.01_tdiag.nc # no provenance info
   restart_out_targets:
-    echam: <TEST_DIR>run/awiesm/pi-wiso/restart/echam/restart_pi-wiso_echam_18500101.nc  # no provenance info
-    accw: <TEST_DIR>run/awiesm/pi-wiso/restart/echam/restart_pi-wiso_accw_18500101.nc # no provenance info
-    co2: <TEST_DIR>run/awiesm/pi-wiso/restart/echam/restart_pi-wiso_co2_18500101.nc # no provenance info
-    g3bid: <TEST_DIR>run/awiesm/pi-wiso/restart/echam/restart_pi-wiso_g3bid_18500101.nc # no provenance info
-    g3bim: <TEST_DIR>run/awiesm/pi-wiso/restart/echam/restart_pi-wiso_g3bim_18500101.nc # no provenance info
-    g3bday: <TEST_DIR>run/awiesm/pi-wiso/restart/echam/restart_pi-wiso_g3bday_18500101.nc # no provenance info
-    g3b1hi: <TEST_DIR>run/awiesm/pi-wiso/restart/echam/restart_pi-wiso_g3b1hi_18500101.nc # no provenance info
-    glday: <TEST_DIR>run/awiesm/pi-wiso/restart/echam/restart_pi-wiso_glday_18500101.nc # no provenance info
-    aclcim: <TEST_DIR>run/awiesm/pi-wiso/restart/echam/restart_pi-wiso_aclcim_18500101.nc # no provenance info
-    sp6h: <TEST_DIR>run/awiesm/pi-wiso/restart/echam/restart_pi-wiso_sp6h_18500101.nc # no provenance info
-    glim: <TEST_DIR>run/awiesm/pi-wiso/restart/echam/restart_pi-wiso_glim_18500101.nc # no provenance info
-    spim: <TEST_DIR>run/awiesm/pi-wiso/restart/echam/restart_pi-wiso_spim_18500101.nc # no provenance info
-    ism: <TEST_DIR>run/awiesm/pi-wiso/restart/echam/restart_pi-wiso_ism_18500101.nc # no provenance info
-    rad: <TEST_DIR>run/awiesm/pi-wiso/restart/echam/restart_pi-wiso_rad_18500101.nc # no provenance info
-    wiso: <TEST_DIR>run/awiesm/pi-wiso/restart/echam/restart_pi-wiso_wiso_18500101.nc # no provenance info
-    accw_wiso: <TEST_DIR>run/awiesm/pi-wiso/restart/echam/restart_pi-wiso_accw_wiso_18500101.nc # no provenance info
+    echam: <TEST_DIR>/run/awiesm/pi-wiso/restart/echam/restart_pi-wiso_echam_18500101.nc  # no provenance info
+    accw: <TEST_DIR>/run/awiesm/pi-wiso/restart/echam/restart_pi-wiso_accw_18500101.nc # no provenance info
+    co2: <TEST_DIR>/run/awiesm/pi-wiso/restart/echam/restart_pi-wiso_co2_18500101.nc # no provenance info
+    g3bid: <TEST_DIR>/run/awiesm/pi-wiso/restart/echam/restart_pi-wiso_g3bid_18500101.nc # no provenance info
+    g3bim: <TEST_DIR>/run/awiesm/pi-wiso/restart/echam/restart_pi-wiso_g3bim_18500101.nc # no provenance info
+    g3bday: <TEST_DIR>/run/awiesm/pi-wiso/restart/echam/restart_pi-wiso_g3bday_18500101.nc # no provenance info
+    g3b1hi: <TEST_DIR>/run/awiesm/pi-wiso/restart/echam/restart_pi-wiso_g3b1hi_18500101.nc # no provenance info
+    glday: <TEST_DIR>/run/awiesm/pi-wiso/restart/echam/restart_pi-wiso_glday_18500101.nc # no provenance info
+    aclcim: <TEST_DIR>/run/awiesm/pi-wiso/restart/echam/restart_pi-wiso_aclcim_18500101.nc # no provenance info
+    sp6h: <TEST_DIR>/run/awiesm/pi-wiso/restart/echam/restart_pi-wiso_sp6h_18500101.nc # no provenance info
+    glim: <TEST_DIR>/run/awiesm/pi-wiso/restart/echam/restart_pi-wiso_glim_18500101.nc # no provenance info
+    spim: <TEST_DIR>/run/awiesm/pi-wiso/restart/echam/restart_pi-wiso_spim_18500101.nc # no provenance info
+    ism: <TEST_DIR>/run/awiesm/pi-wiso/restart/echam/restart_pi-wiso_ism_18500101.nc # no provenance info
+    rad: <TEST_DIR>/run/awiesm/pi-wiso/restart/echam/restart_pi-wiso_rad_18500101.nc # no provenance info
+    wiso: <TEST_DIR>/run/awiesm/pi-wiso/restart/echam/restart_pi-wiso_wiso_18500101.nc # no provenance info
+    accw_wiso: <TEST_DIR>/run/awiesm/pi-wiso/restart/echam/restart_pi-wiso_accw_wiso_18500101.nc # no provenance info
   ignore_targets:
-    echam: <TEST_DIR>run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_echam  # no provenance info
-    accw: <TEST_DIR>run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_accw # no provenance info
-    co2: <TEST_DIR>run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_co2 # no provenance info
-    g3bid: <TEST_DIR>run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_g3bid # no provenance info
-    g3bim: <TEST_DIR>run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_g3bim # no provenance info
-    g3bday: <TEST_DIR>run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_g3bday # no provenance info
-    g3b1hi: <TEST_DIR>run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_g3b1hi # no provenance info
-    glday: <TEST_DIR>run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_glday # no provenance info
-    aclcim: <TEST_DIR>run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_aclcim # no provenance info
-    sp6h: <TEST_DIR>run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_sp6h # no provenance info
-    glim: <TEST_DIR>run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_glim # no provenance info
-    spim: <TEST_DIR>run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_spim # no provenance info
-    ism: <TEST_DIR>run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_ism # no provenance info
-    rad: <TEST_DIR>run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_rad # no provenance info
-    wiso: <TEST_DIR>run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_wiso # no provenance info
-    accw_wiso: <TEST_DIR>run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_accw_wiso # no provenance info
-    echam_restart: <TEST_DIR>run/awiesm/pi-wiso/ignore/echam/restart_pi-wiso_echam.nc # no provenance info
-    accw_restart: <TEST_DIR>run/awiesm/pi-wiso/ignore/echam/restart_pi-wiso_accw.nc # no provenance info
-    co2_restart: <TEST_DIR>run/awiesm/pi-wiso/ignore/echam/restart_pi-wiso_co2.nc # no provenance info
-    g3bid_restart: <TEST_DIR>run/awiesm/pi-wiso/ignore/echam/restart_pi-wiso_g3bid.nc # no provenance info
-    g3bim_restart: <TEST_DIR>run/awiesm/pi-wiso/ignore/echam/restart_pi-wiso_g3bim.nc # no provenance info
-    g3bday_restart: <TEST_DIR>run/awiesm/pi-wiso/ignore/echam/restart_pi-wiso_g3bday.nc # no provenance info
-    g3b1hi_restart: <TEST_DIR>run/awiesm/pi-wiso/ignore/echam/restart_pi-wiso_g3b1hi.nc # no provenance info
-    glday_restart: <TEST_DIR>run/awiesm/pi-wiso/ignore/echam/restart_pi-wiso_glday.nc # no provenance info
-    aclcim_restart: <TEST_DIR>run/awiesm/pi-wiso/ignore/echam/restart_pi-wiso_aclcim.nc # no provenance info
-    sp6h_restart: <TEST_DIR>run/awiesm/pi-wiso/ignore/echam/restart_pi-wiso_sp6h.nc # no provenance info
-    glim_restart: <TEST_DIR>run/awiesm/pi-wiso/ignore/echam/restart_pi-wiso_glim.nc # no provenance info
-    spim_restart: <TEST_DIR>run/awiesm/pi-wiso/ignore/echam/restart_pi-wiso_spim.nc # no provenance info
-    ism_restart: <TEST_DIR>run/awiesm/pi-wiso/ignore/echam/restart_pi-wiso_ism.nc # no provenance info
-    rad_restart: <TEST_DIR>run/awiesm/pi-wiso/ignore/echam/restart_pi-wiso_rad.nc # no provenance info
-    wiso_restart: <TEST_DIR>run/awiesm/pi-wiso/ignore/echam/restart_pi-wiso_wiso.nc # no provenance info
-    accw_wiso_restart: <TEST_DIR>run/awiesm/pi-wiso/ignore/echam/restart_pi-wiso_accw_wiso.nc # no provenance info
-    echam_codes: <TEST_DIR>run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_echam.codes # no provenance info
-    accw_codes: <TEST_DIR>run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_accw.codes # no provenance info
-    co2_codes: <TEST_DIR>run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_co2.codes # no provenance info
-    g3bid_codes: <TEST_DIR>run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_g3bid.codes # no provenance info
-    g3bim_codes: <TEST_DIR>run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_g3bim.codes # no provenance info
-    g3bday_codes: <TEST_DIR>run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_g3bday.codes # no provenance info
-    g3b1hi_codes: <TEST_DIR>run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_g3b1hi.codes # no provenance info
-    glday_codes: <TEST_DIR>run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_glday.codes # no provenance info
-    aclcim_codes: <TEST_DIR>run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_aclcim.codes # no provenance info
-    sp6h_codes: <TEST_DIR>run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_sp6h.codes # no provenance info
-    glim_codes: <TEST_DIR>run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_glim.codes # no provenance info
-    spim_codes: <TEST_DIR>run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_spim.codes # no provenance info
-    ism_codes: <TEST_DIR>run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_ism.codes # no provenance info
-    rad_codes: <TEST_DIR>run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_rad.codes # no provenance info
-    wiso_codes: <TEST_DIR>run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_wiso.codes # no provenance info
-    accw_wiso_codes: <TEST_DIR>run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_accw_wiso.codes # no provenance info
+    echam: <TEST_DIR>/run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_echam  # no provenance info
+    accw: <TEST_DIR>/run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_accw # no provenance info
+    co2: <TEST_DIR>/run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_co2 # no provenance info
+    g3bid: <TEST_DIR>/run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_g3bid # no provenance info
+    g3bim: <TEST_DIR>/run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_g3bim # no provenance info
+    g3bday: <TEST_DIR>/run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_g3bday # no provenance info
+    g3b1hi: <TEST_DIR>/run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_g3b1hi # no provenance info
+    glday: <TEST_DIR>/run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_glday # no provenance info
+    aclcim: <TEST_DIR>/run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_aclcim # no provenance info
+    sp6h: <TEST_DIR>/run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_sp6h # no provenance info
+    glim: <TEST_DIR>/run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_glim # no provenance info
+    spim: <TEST_DIR>/run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_spim # no provenance info
+    ism: <TEST_DIR>/run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_ism # no provenance info
+    rad: <TEST_DIR>/run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_rad # no provenance info
+    wiso: <TEST_DIR>/run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_wiso # no provenance info
+    accw_wiso: <TEST_DIR>/run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_accw_wiso # no provenance info
+    echam_restart: <TEST_DIR>/run/awiesm/pi-wiso/ignore/echam/restart_pi-wiso_echam.nc # no provenance info
+    accw_restart: <TEST_DIR>/run/awiesm/pi-wiso/ignore/echam/restart_pi-wiso_accw.nc # no provenance info
+    co2_restart: <TEST_DIR>/run/awiesm/pi-wiso/ignore/echam/restart_pi-wiso_co2.nc # no provenance info
+    g3bid_restart: <TEST_DIR>/run/awiesm/pi-wiso/ignore/echam/restart_pi-wiso_g3bid.nc # no provenance info
+    g3bim_restart: <TEST_DIR>/run/awiesm/pi-wiso/ignore/echam/restart_pi-wiso_g3bim.nc # no provenance info
+    g3bday_restart: <TEST_DIR>/run/awiesm/pi-wiso/ignore/echam/restart_pi-wiso_g3bday.nc # no provenance info
+    g3b1hi_restart: <TEST_DIR>/run/awiesm/pi-wiso/ignore/echam/restart_pi-wiso_g3b1hi.nc # no provenance info
+    glday_restart: <TEST_DIR>/run/awiesm/pi-wiso/ignore/echam/restart_pi-wiso_glday.nc # no provenance info
+    aclcim_restart: <TEST_DIR>/run/awiesm/pi-wiso/ignore/echam/restart_pi-wiso_aclcim.nc # no provenance info
+    sp6h_restart: <TEST_DIR>/run/awiesm/pi-wiso/ignore/echam/restart_pi-wiso_sp6h.nc # no provenance info
+    glim_restart: <TEST_DIR>/run/awiesm/pi-wiso/ignore/echam/restart_pi-wiso_glim.nc # no provenance info
+    spim_restart: <TEST_DIR>/run/awiesm/pi-wiso/ignore/echam/restart_pi-wiso_spim.nc # no provenance info
+    ism_restart: <TEST_DIR>/run/awiesm/pi-wiso/ignore/echam/restart_pi-wiso_ism.nc # no provenance info
+    rad_restart: <TEST_DIR>/run/awiesm/pi-wiso/ignore/echam/restart_pi-wiso_rad.nc # no provenance info
+    wiso_restart: <TEST_DIR>/run/awiesm/pi-wiso/ignore/echam/restart_pi-wiso_wiso.nc # no provenance info
+    accw_wiso_restart: <TEST_DIR>/run/awiesm/pi-wiso/ignore/echam/restart_pi-wiso_accw_wiso.nc # no provenance info
+    echam_codes: <TEST_DIR>/run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_echam.codes # no provenance info
+    accw_codes: <TEST_DIR>/run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_accw.codes # no provenance info
+    co2_codes: <TEST_DIR>/run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_co2.codes # no provenance info
+    g3bid_codes: <TEST_DIR>/run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_g3bid.codes # no provenance info
+    g3bim_codes: <TEST_DIR>/run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_g3bim.codes # no provenance info
+    g3bday_codes: <TEST_DIR>/run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_g3bday.codes # no provenance info
+    g3b1hi_codes: <TEST_DIR>/run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_g3b1hi.codes # no provenance info
+    glday_codes: <TEST_DIR>/run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_glday.codes # no provenance info
+    aclcim_codes: <TEST_DIR>/run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_aclcim.codes # no provenance info
+    sp6h_codes: <TEST_DIR>/run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_sp6h.codes # no provenance info
+    glim_codes: <TEST_DIR>/run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_glim.codes # no provenance info
+    spim_codes: <TEST_DIR>/run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_spim.codes # no provenance info
+    ism_codes: <TEST_DIR>/run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_ism.codes # no provenance info
+    rad_codes: <TEST_DIR>/run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_rad.codes # no provenance info
+    wiso_codes: <TEST_DIR>/run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_wiso.codes # no provenance info
+    accw_wiso_codes: <TEST_DIR>/run/awiesm/pi-wiso/ignore/echam/pi-wiso_185001.02_accw_wiso.codes # no provenance info
   outdata_sources_wild_card:
     echam: pi-wiso_1850*.01_echam  # no provenance info
     accw: pi-wiso_1850*.01_accw # no provenance info
@@ -1260,133 +1260,133 @@ echam:
     wiso_codes: pi-wiso_1850*.01_wiso.codes # no provenance info
     accw_wiso_codes: pi-wiso_1850*.01_accw_wiso.codes # no provenance info
   bin_intermediate:
-    echam_bin: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/bin/echam/echam6  # no provenance info
+    echam_bin: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/bin/echam/echam6  # no provenance info
   config_intermediate:
-    namelist.echam: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/config/echam/namelist.echam  # no provenance info
+    namelist.echam: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/config/echam/namelist.echam  # no provenance info
   forcing_intermediate:
-    ozonea: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/forcing/echam/ozon1988  # no provenance info
-    ozoneb: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/forcing/echam/ozon1989 # no provenance info
-    ozonec: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/forcing/echam/ozon1990 # no provenance info
-    aerocoarse_year_1850: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/forcing/echam/aero_coarse_1850.nc # no provenance info
-    aerocoarse_year_1849: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/forcing/echam/aero_coarse_1849.nc # no provenance info
-    aerocoarse_year_1851: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/forcing/echam/aero_coarse_1851.nc # no provenance info
-    aerocoarse_year_1848: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/forcing/echam/aero_coarse_1848.nc # no provenance info
-    aerocoarse_year_1852: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/forcing/echam/aero_coarse_1852.nc # no provenance info
-    aerofin_year_1850: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/forcing/echam/aero_fine_1850.nc # no provenance info
-    aerofin_year_1849: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/forcing/echam/aero_fine_1849.nc # no provenance info
-    aerofin_year_1851: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/forcing/echam/aero_fine_1851.nc # no provenance info
-    aerofin_year_1848: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/forcing/echam/aero_fine_1848.nc # no provenance info
-    aerofin_year_1852: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/forcing/echam/aero_fine_1852.nc # no provenance info
-    aerofarir_year_1850: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/forcing/echam/aero_farir_1850.nc # no provenance info
-    aerofarir_year_1849: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/forcing/echam/aero_farir_1849.nc # no provenance info
-    aerofarir_year_1851: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/forcing/echam/aero_farir_1851.nc # no provenance info
-    aerofarir_year_1848: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/forcing/echam/aero_farir_1848.nc # no provenance info
-    aerofarir_year_1852: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/forcing/echam/aero_farir_1852.nc # no provenance info
-    ozone_year_1850: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/forcing/echam/ozon1850 # no provenance info
-    ozone_year_1849: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/forcing/echam/ozon1849 # no provenance info
-    ozone_year_1851: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/forcing/echam/ozon1851 # no provenance info
-    ozone_year_1848: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/forcing/echam/ozon1848 # no provenance info
-    ozone_year_1852: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/forcing/echam/ozon1852 # no provenance info
+    ozonea: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/forcing/echam/ozon1988  # no provenance info
+    ozoneb: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/forcing/echam/ozon1989 # no provenance info
+    ozonec: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/forcing/echam/ozon1990 # no provenance info
+    aerocoarse_year_1850: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/forcing/echam/aero_coarse_1850.nc # no provenance info
+    aerocoarse_year_1849: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/forcing/echam/aero_coarse_1849.nc # no provenance info
+    aerocoarse_year_1851: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/forcing/echam/aero_coarse_1851.nc # no provenance info
+    aerocoarse_year_1848: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/forcing/echam/aero_coarse_1848.nc # no provenance info
+    aerocoarse_year_1852: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/forcing/echam/aero_coarse_1852.nc # no provenance info
+    aerofin_year_1850: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/forcing/echam/aero_fine_1850.nc # no provenance info
+    aerofin_year_1849: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/forcing/echam/aero_fine_1849.nc # no provenance info
+    aerofin_year_1851: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/forcing/echam/aero_fine_1851.nc # no provenance info
+    aerofin_year_1848: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/forcing/echam/aero_fine_1848.nc # no provenance info
+    aerofin_year_1852: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/forcing/echam/aero_fine_1852.nc # no provenance info
+    aerofarir_year_1850: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/forcing/echam/aero_farir_1850.nc # no provenance info
+    aerofarir_year_1849: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/forcing/echam/aero_farir_1849.nc # no provenance info
+    aerofarir_year_1851: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/forcing/echam/aero_farir_1851.nc # no provenance info
+    aerofarir_year_1848: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/forcing/echam/aero_farir_1848.nc # no provenance info
+    aerofarir_year_1852: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/forcing/echam/aero_farir_1852.nc # no provenance info
+    ozone_year_1850: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/forcing/echam/ozon1850 # no provenance info
+    ozone_year_1849: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/forcing/echam/ozon1849 # no provenance info
+    ozone_year_1851: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/forcing/echam/ozon1851 # no provenance info
+    ozone_year_1848: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/forcing/echam/ozon1848 # no provenance info
+    ozone_year_1852: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/forcing/echam/ozon1852 # no provenance info
   input_intermediate:
-    cldoptprops: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/input/echam/ECHAM6_CldOptProps.nc  # no provenance info
-    janspec: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/input/echam/unit.23 # no provenance info
-    jansurf: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/input/echam/unit.24 # no provenance info
-    rrtmglw: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/input/echam/rrtmg_lw.nc # no provenance info
-    rrtmgsw: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/input/echam/rrtmg_sw.nc # no provenance info
-    tslclim: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/input/echam/unit.92 # no provenance info
-    vgratclim: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/input/echam/unit.91 # no provenance info
-    vltclim: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/input/echam/unit.90 # no provenance info
+    cldoptprops: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/input/echam/ECHAM6_CldOptProps.nc  # no provenance info
+    janspec: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/input/echam/unit.23 # no provenance info
+    jansurf: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/input/echam/unit.24 # no provenance info
+    rrtmglw: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/input/echam/rrtmg_lw.nc # no provenance info
+    rrtmgsw: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/input/echam/rrtmg_sw.nc # no provenance info
+    tslclim: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/input/echam/unit.92 # no provenance info
+    vgratclim: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/input/echam/unit.91 # no provenance info
+    vltclim: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/input/echam/unit.90 # no provenance info
   log_intermediate:
-    atmout: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/log/echam/atmout  # no provenance info
-    stderr: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/log/echam/echam.stderr # no provenance info
-    stdout: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/log/echam/echam.stdout # no provenance info
+    atmout: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/log/echam/atmout  # no provenance info
+    stderr: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/log/echam/echam.stderr # no provenance info
+    stdout: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/log/echam/echam.stdout # no provenance info
   outdata_intermediate:
-    aclcim_nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/echam/pi-wiso_185001.01_aclcim.nc  # no provenance info
-    g3b1hi_nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/echam/pi-wiso_185001.01_g3b1hi.nc # no provenance info
-    g3bday_nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/echam/pi-wiso_185001.01_g3bday.nc # no provenance info
-    g3bid_nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/echam/pi-wiso_185001.01_g3bid.nc # no provenance info
-    g3bim_nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/echam/pi-wiso_185001.01_g3bim.nc # no provenance info
-    glday_nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/echam/pi-wiso_185001.01_glday.nc # no provenance info
-    glim_nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/echam/pi-wiso_185001.01_glim.nc # no provenance info
-    jsbid_nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/echam/pi-wiso_185001.01_jsbid.nc # no provenance info
-    sp6h_nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/echam/pi-wiso_185001.01_sp6h.nc # no provenance info
-    spim_nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/echam/pi-wiso_185001.01_spim.nc # no provenance info
-    sp_nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/echam/pi-wiso_185001.01_sp.nc # no provenance info
-    gl_nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/echam/pi-wiso_185001.01_gl.nc # no provenance info
-    g3b_nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/echam/pi-wiso_185001.01_g3b.nc # no provenance info
-    scm_nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/echam/pi-wiso_185001.01_scm.nc # no provenance info
-    ma_nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/echam/pi-wiso_185001.01_ma.nc # no provenance info
-    surf_nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/echam/pi-wiso_185001.01_surf.nc # no provenance info
-    cfdiag_nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/echam/pi-wiso_185001.01_cfdiag.nc # no provenance info
-    aeropt_nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/echam/pi-wiso_185001.01_aeropt.nc # no provenance info
-    co2_nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/echam/pi-wiso_185001.01_co2.nc # no provenance info
-    tdiag_nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/echam/pi-wiso_185001.01_tdiag.nc # no provenance info
+    aclcim_nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/echam/pi-wiso_185001.01_aclcim.nc  # no provenance info
+    g3b1hi_nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/echam/pi-wiso_185001.01_g3b1hi.nc # no provenance info
+    g3bday_nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/echam/pi-wiso_185001.01_g3bday.nc # no provenance info
+    g3bid_nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/echam/pi-wiso_185001.01_g3bid.nc # no provenance info
+    g3bim_nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/echam/pi-wiso_185001.01_g3bim.nc # no provenance info
+    glday_nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/echam/pi-wiso_185001.01_glday.nc # no provenance info
+    glim_nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/echam/pi-wiso_185001.01_glim.nc # no provenance info
+    jsbid_nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/echam/pi-wiso_185001.01_jsbid.nc # no provenance info
+    sp6h_nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/echam/pi-wiso_185001.01_sp6h.nc # no provenance info
+    spim_nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/echam/pi-wiso_185001.01_spim.nc # no provenance info
+    sp_nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/echam/pi-wiso_185001.01_sp.nc # no provenance info
+    gl_nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/echam/pi-wiso_185001.01_gl.nc # no provenance info
+    g3b_nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/echam/pi-wiso_185001.01_g3b.nc # no provenance info
+    scm_nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/echam/pi-wiso_185001.01_scm.nc # no provenance info
+    ma_nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/echam/pi-wiso_185001.01_ma.nc # no provenance info
+    surf_nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/echam/pi-wiso_185001.01_surf.nc # no provenance info
+    cfdiag_nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/echam/pi-wiso_185001.01_cfdiag.nc # no provenance info
+    aeropt_nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/echam/pi-wiso_185001.01_aeropt.nc # no provenance info
+    co2_nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/echam/pi-wiso_185001.01_co2.nc # no provenance info
+    tdiag_nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/echam/pi-wiso_185001.01_tdiag.nc # no provenance info
   restart_out_intermediate:
-    echam: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/restart/echam/restart_pi-wiso_echam_18500101.nc  # no provenance info
-    accw: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/restart/echam/restart_pi-wiso_accw_18500101.nc # no provenance info
-    co2: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/restart/echam/restart_pi-wiso_co2_18500101.nc # no provenance info
-    g3bid: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/restart/echam/restart_pi-wiso_g3bid_18500101.nc # no provenance info
-    g3bim: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/restart/echam/restart_pi-wiso_g3bim_18500101.nc # no provenance info
-    g3bday: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/restart/echam/restart_pi-wiso_g3bday_18500101.nc # no provenance info
-    g3b1hi: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/restart/echam/restart_pi-wiso_g3b1hi_18500101.nc # no provenance info
-    glday: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/restart/echam/restart_pi-wiso_glday_18500101.nc # no provenance info
-    aclcim: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/restart/echam/restart_pi-wiso_aclcim_18500101.nc # no provenance info
-    sp6h: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/restart/echam/restart_pi-wiso_sp6h_18500101.nc # no provenance info
-    glim: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/restart/echam/restart_pi-wiso_glim_18500101.nc # no provenance info
-    spim: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/restart/echam/restart_pi-wiso_spim_18500101.nc # no provenance info
-    ism: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/restart/echam/restart_pi-wiso_ism_18500101.nc # no provenance info
-    rad: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/restart/echam/restart_pi-wiso_rad_18500101.nc # no provenance info
-    wiso: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/restart/echam/restart_pi-wiso_wiso_18500101.nc # no provenance info
-    accw_wiso: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/restart/echam/restart_pi-wiso_accw_wiso_18500101.nc # no provenance info
+    echam: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/restart/echam/restart_pi-wiso_echam_18500101.nc  # no provenance info
+    accw: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/restart/echam/restart_pi-wiso_accw_18500101.nc # no provenance info
+    co2: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/restart/echam/restart_pi-wiso_co2_18500101.nc # no provenance info
+    g3bid: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/restart/echam/restart_pi-wiso_g3bid_18500101.nc # no provenance info
+    g3bim: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/restart/echam/restart_pi-wiso_g3bim_18500101.nc # no provenance info
+    g3bday: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/restart/echam/restart_pi-wiso_g3bday_18500101.nc # no provenance info
+    g3b1hi: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/restart/echam/restart_pi-wiso_g3b1hi_18500101.nc # no provenance info
+    glday: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/restart/echam/restart_pi-wiso_glday_18500101.nc # no provenance info
+    aclcim: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/restart/echam/restart_pi-wiso_aclcim_18500101.nc # no provenance info
+    sp6h: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/restart/echam/restart_pi-wiso_sp6h_18500101.nc # no provenance info
+    glim: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/restart/echam/restart_pi-wiso_glim_18500101.nc # no provenance info
+    spim: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/restart/echam/restart_pi-wiso_spim_18500101.nc # no provenance info
+    ism: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/restart/echam/restart_pi-wiso_ism_18500101.nc # no provenance info
+    rad: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/restart/echam/restart_pi-wiso_rad_18500101.nc # no provenance info
+    wiso: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/restart/echam/restart_pi-wiso_wiso_18500101.nc # no provenance info
+    accw_wiso: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/restart/echam/restart_pi-wiso_accw_wiso_18500101.nc # no provenance info
   ignore_intermediate:
-    echam: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_echam  # no provenance info
-    accw: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_accw # no provenance info
-    co2: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_co2 # no provenance info
-    g3bid: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_g3bid # no provenance info
-    g3bim: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_g3bim # no provenance info
-    g3bday: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_g3bday # no provenance info
-    g3b1hi: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_g3b1hi # no provenance info
-    glday: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_glday # no provenance info
-    aclcim: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_aclcim # no provenance info
-    sp6h: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_sp6h # no provenance info
-    glim: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_glim # no provenance info
-    spim: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_spim # no provenance info
-    ism: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_ism # no provenance info
-    rad: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_rad # no provenance info
-    wiso: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_wiso # no provenance info
-    accw_wiso: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_accw_wiso # no provenance info
-    echam_restart: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/restart_pi-wiso_echam.nc # no provenance info
-    accw_restart: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/restart_pi-wiso_accw.nc # no provenance info
-    co2_restart: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/restart_pi-wiso_co2.nc # no provenance info
-    g3bid_restart: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/restart_pi-wiso_g3bid.nc # no provenance info
-    g3bim_restart: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/restart_pi-wiso_g3bim.nc # no provenance info
-    g3bday_restart: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/restart_pi-wiso_g3bday.nc # no provenance info
-    g3b1hi_restart: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/restart_pi-wiso_g3b1hi.nc # no provenance info
-    glday_restart: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/restart_pi-wiso_glday.nc # no provenance info
-    aclcim_restart: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/restart_pi-wiso_aclcim.nc # no provenance info
-    sp6h_restart: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/restart_pi-wiso_sp6h.nc # no provenance info
-    glim_restart: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/restart_pi-wiso_glim.nc # no provenance info
-    spim_restart: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/restart_pi-wiso_spim.nc # no provenance info
-    ism_restart: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/restart_pi-wiso_ism.nc # no provenance info
-    rad_restart: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/restart_pi-wiso_rad.nc # no provenance info
-    wiso_restart: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/restart_pi-wiso_wiso.nc # no provenance info
-    accw_wiso_restart: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/restart_pi-wiso_accw_wiso.nc # no provenance info
-    echam_codes: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_echam.codes # no provenance info
-    accw_codes: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_accw.codes # no provenance info
-    co2_codes: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_co2.codes # no provenance info
-    g3bid_codes: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_g3bid.codes # no provenance info
-    g3bim_codes: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_g3bim.codes # no provenance info
-    g3bday_codes: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_g3bday.codes # no provenance info
-    g3b1hi_codes: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_g3b1hi.codes # no provenance info
-    glday_codes: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_glday.codes # no provenance info
-    aclcim_codes: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_aclcim.codes # no provenance info
-    sp6h_codes: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_sp6h.codes # no provenance info
-    glim_codes: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_glim.codes # no provenance info
-    spim_codes: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_spim.codes # no provenance info
-    ism_codes: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_ism.codes # no provenance info
-    rad_codes: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_rad.codes # no provenance info
-    wiso_codes: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_wiso.codes # no provenance info
-    accw_wiso_codes: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_accw_wiso.codes # no provenance info
+    echam: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_echam  # no provenance info
+    accw: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_accw # no provenance info
+    co2: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_co2 # no provenance info
+    g3bid: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_g3bid # no provenance info
+    g3bim: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_g3bim # no provenance info
+    g3bday: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_g3bday # no provenance info
+    g3b1hi: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_g3b1hi # no provenance info
+    glday: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_glday # no provenance info
+    aclcim: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_aclcim # no provenance info
+    sp6h: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_sp6h # no provenance info
+    glim: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_glim # no provenance info
+    spim: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_spim # no provenance info
+    ism: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_ism # no provenance info
+    rad: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_rad # no provenance info
+    wiso: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_wiso # no provenance info
+    accw_wiso: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_accw_wiso # no provenance info
+    echam_restart: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/restart_pi-wiso_echam.nc # no provenance info
+    accw_restart: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/restart_pi-wiso_accw.nc # no provenance info
+    co2_restart: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/restart_pi-wiso_co2.nc # no provenance info
+    g3bid_restart: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/restart_pi-wiso_g3bid.nc # no provenance info
+    g3bim_restart: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/restart_pi-wiso_g3bim.nc # no provenance info
+    g3bday_restart: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/restart_pi-wiso_g3bday.nc # no provenance info
+    g3b1hi_restart: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/restart_pi-wiso_g3b1hi.nc # no provenance info
+    glday_restart: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/restart_pi-wiso_glday.nc # no provenance info
+    aclcim_restart: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/restart_pi-wiso_aclcim.nc # no provenance info
+    sp6h_restart: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/restart_pi-wiso_sp6h.nc # no provenance info
+    glim_restart: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/restart_pi-wiso_glim.nc # no provenance info
+    spim_restart: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/restart_pi-wiso_spim.nc # no provenance info
+    ism_restart: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/restart_pi-wiso_ism.nc # no provenance info
+    rad_restart: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/restart_pi-wiso_rad.nc # no provenance info
+    wiso_restart: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/restart_pi-wiso_wiso.nc # no provenance info
+    accw_wiso_restart: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/restart_pi-wiso_accw_wiso.nc # no provenance info
+    echam_codes: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_echam.codes # no provenance info
+    accw_codes: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_accw.codes # no provenance info
+    co2_codes: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_co2.codes # no provenance info
+    g3bid_codes: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_g3bid.codes # no provenance info
+    g3bim_codes: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_g3bim.codes # no provenance info
+    g3bday_codes: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_g3bday.codes # no provenance info
+    g3b1hi_codes: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_g3b1hi.codes # no provenance info
+    glday_codes: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_glday.codes # no provenance info
+    aclcim_codes: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_aclcim.codes # no provenance info
+    sp6h_codes: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_sp6h.codes # no provenance info
+    glim_codes: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_glim.codes # no provenance info
+    spim_codes: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_spim.codes # no provenance info
+    ism_codes: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_ism.codes # no provenance info
+    rad_codes: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_rad.codes # no provenance info
+    wiso_codes: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_wiso.codes # no provenance info
+    accw_wiso_codes: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/echam/pi-wiso_185001.02_accw_wiso.codes # no provenance info
   namelist_objs:
     namelist.echam:
       runctl:
@@ -1664,9 +1664,9 @@ fesom:
   git-repository:
   - https://github.com/FESOM/fesom2.git  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.1.yaml,line:61,col:7
   contact: dmitry.sidorenko(at)awi.de, nikolay.koldunov(at)awi.de, miguel.andres-martinez(at)awi.de, paul.gierz(at)awi.de  # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.1.yaml,line:62,col:14
-  restart_rate: 1 # <TEST_DIR>run/awiesm/pi-wiso/scripts/pi-wiso.yaml,line:41,col:19
-  restart_unit: d # <TEST_DIR>run/awiesm/pi-wiso/scripts/pi-wiso.yaml,line:42,col:19
-  restart_first: 1 # <TEST_DIR>run/awiesm/pi-wiso/scripts/pi-wiso.yaml,line:43,col:20
+  restart_rate: 1 # <TEST_DIR>/run/awiesm/pi-wiso/scripts/pi-wiso.yaml,line:41,col:19
+  restart_unit: d # <TEST_DIR>/run/awiesm/pi-wiso/scripts/pi-wiso.yaml,line:42,col:19
+  restart_first: 1 # <TEST_DIR>/run/awiesm/pi-wiso/scripts/pi-wiso.yaml,line:43,col:20
   restart_flag: last # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.1.yaml,line:68,col:19
   tar_binary_restarts: false # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.1.yaml,line:70,col:26
   time_step: 1800 # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.1.yaml,line:72,col:16
@@ -1680,7 +1680,7 @@ fesom:
   pool_dir: /work/ollie/pool/../clidyn/ # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.1.yaml,line:87,col:23
   setup_dir: <TEST_DIR>/comp/awiesm/awiesm-2.1 # <HOME_DIR>/esm_tools/configs/setups/awiesm/awiesm.yaml,line:401,col:20
   bin_dir: <TEST_DIR>/comp/awiesm/awiesm-2.1/bin # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.1.yaml,line:98,col:14
-  climate_data_dir: /work/ollie/mandresm/testing_pool/awiesm_unified/FESOM/hydrography/ # <TEST_DIR>run/awiesm/pi-wiso/scripts/pi-wiso.yaml,line:44,col:23
+  climate_data_dir: /work/ollie/mandresm/testing_pool/awiesm_unified/FESOM/hydrography/ # <TEST_DIR>/run/awiesm/pi-wiso/scripts/pi-wiso.yaml,line:44,col:23
   forcing_data_dir: remove_from_namelist # <HOME_DIR>/esm_tools/configs/setups/awiesm/awiesm.yaml,line:399,col:27
   mesh_base_dir: /work/ollie/pool/../clidyn//FESOM2/meshes/ # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.1.yaml,line:101,col:20
   ini_data_dir: /work/ollie/pool/../clidyn//pool-data/ # <HOME_DIR>/esm_tools/configs/components/fesom/fesom-2.1.yaml,line:102,col:19
@@ -2645,32 +2645,32 @@ fesom:
   parent_date: '1849-12-31T23:30:00' # no provenance info
   parent_restart_dir: <TEST_DIR>/run/awiesm//pi-wiso/restart/fesom/ # no provenance info
   config_intermediate:
-    fesom.clock: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/config/fesom/fesom.clock  # no provenance info
-    config: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/config/fesom/namelist.config # no provenance info
-    forcing: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/config/fesom/namelist.forcing # no provenance info
-    ice: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/config/fesom/namelist.ice # no provenance info
-    oce: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/config/fesom/namelist.oce # no provenance info
-    io: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/config/fesom/namelist.io # no provenance info
-    cvmix: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/config/fesom/namelist.cvmix # no provenance info
-    icepack: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/config/fesom/namelist.icepack # no provenance info
+    fesom.clock: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/config/fesom/fesom.clock  # no provenance info
+    config: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/config/fesom/namelist.config # no provenance info
+    forcing: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/config/fesom/namelist.forcing # no provenance info
+    ice: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/config/fesom/namelist.ice # no provenance info
+    oce: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/config/fesom/namelist.oce # no provenance info
+    io: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/config/fesom/namelist.io # no provenance info
+    cvmix: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/config/fesom/namelist.cvmix # no provenance info
+    icepack: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/config/fesom/namelist.icepack # no provenance info
   bin_targets:
-    fesom: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/work/fesom  # no provenance info
+    fesom: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/work/fesom  # no provenance info
   config_targets:
-    config: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/work/namelist.config  # no provenance info
-    forcing: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/work/namelist.forcing # no provenance info
-    ice: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/work/namelist.ice # no provenance info
-    oce: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/work/namelist.oce # no provenance info
-    io: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/work/namelist.io # no provenance info
-    cvmix: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/work/namelist.cvmix # no provenance info
-    icepack: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/work/namelist.icepack # no provenance info
-    fesom.clock: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/work/fesom.clock # no provenance info
+    config: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/work/namelist.config  # no provenance info
+    forcing: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/work/namelist.forcing # no provenance info
+    ice: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/work/namelist.ice # no provenance info
+    oce: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/work/namelist.oce # no provenance info
+    io: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/work/namelist.io # no provenance info
+    cvmix: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/work/namelist.cvmix # no provenance info
+    icepack: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/work/namelist.icepack # no provenance info
+    fesom.clock: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/work/fesom.clock # no provenance info
   log_targets:
-    clock: <TEST_DIR>run/awiesm/pi-wiso/log/fesom/fesom.clock  # no provenance info
-    mesh_diag: <TEST_DIR>run/awiesm/pi-wiso/log/fesom/fesom.mesh.diag.nc # no provenance info
+    clock: <TEST_DIR>/run/awiesm/pi-wiso/log/fesom/fesom.clock  # no provenance info
+    mesh_diag: <TEST_DIR>/run/awiesm/pi-wiso/log/fesom/fesom.mesh.diag.nc # no provenance info
   restart_out_targets:
-    oce_restart: <TEST_DIR>run/awiesm/pi-wiso/restart/fesom/fesom.1850.oce.restart.nc  # no provenance info
-    ice_restart: <TEST_DIR>run/awiesm/pi-wiso/restart/fesom/fesom.1850.ice.restart.nc # no provenance info
-    wiso_restart: <TEST_DIR>run/awiesm/pi-wiso/restart/fesom/fesom.1850.wiso.restart.nc # no provenance info
+    oce_restart: <TEST_DIR>/run/awiesm/pi-wiso/restart/fesom/fesom.1850.oce.restart.nc  # no provenance info
+    ice_restart: <TEST_DIR>/run/awiesm/pi-wiso/restart/fesom/fesom.1850.ice.restart.nc # no provenance info
+    wiso_restart: <TEST_DIR>/run/awiesm/pi-wiso/restart/fesom/fesom.1850.wiso.restart.nc # no provenance info
   outdata_sources_wild_card:
     fesom: '*.fesom.*.nc'  # no provenance info
   restart_out_sources_wild_card:
@@ -2681,15 +2681,15 @@ fesom:
     fesom_bin_restart_info: '*.info' # no provenance info
     fesom_bin_restart: '*' # no provenance info
   bin_intermediate:
-    fesom: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/bin/fesom/fesom  # no provenance info
+    fesom: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/bin/fesom/fesom  # no provenance info
   log_intermediate:
-    clock: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/log/fesom/fesom.clock  # no provenance info
-    mesh_diag: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/log/fesom/fesom.mesh.diag.nc # no provenance info
+    clock: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/log/fesom/fesom.clock  # no provenance info
+    mesh_diag: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/log/fesom/fesom.mesh.diag.nc # no provenance info
   outdata_intermediate: {}
   restart_out_intermediate:
-    oce_restart: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/restart/fesom/fesom.1850.oce.restart.nc  # no provenance info
-    ice_restart: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/restart/fesom/fesom.1850.ice.restart.nc # no provenance info
-    wiso_restart: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/restart/fesom/fesom.1850.wiso.restart.nc # no provenance info
+    oce_restart: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/restart/fesom/fesom.1850.oce.restart.nc  # no provenance info
+    ice_restart: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/restart/fesom/fesom.1850.ice.restart.nc # no provenance info
+    wiso_restart: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/restart/fesom/fesom.1850.wiso.restart.nc # no provenance info
   namelist_objs:
     namelist.config:
       modelname:
@@ -3513,83 +3513,83 @@ oasis3mct:
       work_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
   bin_targets: {}
   config_targets:
-    namcouple: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/work/namcouple  # no provenance info
+    namcouple: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/work/namcouple  # no provenance info
   log_targets:
-    nout: <TEST_DIR>run/awiesm/pi-wiso/log/oasis3mct/nout.000000  # no provenance info
-    debug_r1: <TEST_DIR>run/awiesm/pi-wiso/log/oasis3mct/debug.root.01 # no provenance info
-    debug_nr1: <TEST_DIR>run/awiesm/pi-wiso/log/oasis3mct/debug_notroot.01 # no provenance info
-    debug_r2: <TEST_DIR>run/awiesm/pi-wiso/log/oasis3mct/debug.root.02 # no provenance info
-    debug_nr2: <TEST_DIR>run/awiesm/pi-wiso/log/oasis3mct/debug_notroot.02 # no provenance info
+    nout: <TEST_DIR>/run/awiesm/pi-wiso/log/oasis3mct/nout.000000  # no provenance info
+    debug_r1: <TEST_DIR>/run/awiesm/pi-wiso/log/oasis3mct/debug.root.01 # no provenance info
+    debug_nr1: <TEST_DIR>/run/awiesm/pi-wiso/log/oasis3mct/debug_notroot.01 # no provenance info
+    debug_r2: <TEST_DIR>/run/awiesm/pi-wiso/log/oasis3mct/debug.root.02 # no provenance info
+    debug_nr2: <TEST_DIR>/run/awiesm/pi-wiso/log/oasis3mct/debug_notroot.02 # no provenance info
   outdata_targets:
-    sst_atmo_echam6_01.nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/oasis3mct/sst_atmo_echam6_01.nc  # no provenance info
-    sit_atmo_echam6_01.nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/oasis3mct/sit_atmo_echam6_01.nc # no provenance info
-    sie_atmo_echam6_01.nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/oasis3mct/sie_atmo_echam6_01.nc # no provenance info
-    sst_feom_fesom_01.nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/oasis3mct/sst_feom_fesom_01.nc # no provenance info
-    sit_feom_fesom_01.nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/oasis3mct/sit_feom_fesom_01.nc # no provenance info
-    sie_feom_fesom_01.nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/oasis3mct/sie_feom_fesom_01.nc # no provenance info
-    snt_atmo_echam6_02.nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/oasis3mct/snt_atmo_echam6_02.nc # no provenance info
-    snt_feom_fesom_02.nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/oasis3mct/snt_feom_fesom_02.nc # no provenance info
-    o18w_atm_echam6_03.nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/oasis3mct/o18w_atm_echam6_03.nc # no provenance info
-    o18w_oce_fesom_03.nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/oasis3mct/o18w_oce_fesom_03.nc # no provenance info
-    hdow_atm_echam6_04.nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/oasis3mct/hdow_atm_echam6_04.nc # no provenance info
-    hdow_oce_fesom_04.nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/oasis3mct/hdow_oce_fesom_04.nc # no provenance info
-    o16w_atm_echam6_05.nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/oasis3mct/o16w_atm_echam6_05.nc # no provenance info
-    o16w_oce_fesom_05.nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/oasis3mct/o16w_oce_fesom_05.nc # no provenance info
-    o18i_atm_echam6_06.nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/oasis3mct/o18i_atm_echam6_06.nc # no provenance info
-    o18i_oce_fesom_06.nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/oasis3mct/o18i_oce_fesom_06.nc # no provenance info
-    hdoi_atm_echam6_07.nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/oasis3mct/hdoi_atm_echam6_07.nc # no provenance info
-    hdoi_oce_fesom_07.nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/oasis3mct/hdoi_oce_fesom_07.nc # no provenance info
-    o16i_atm_echam6_08.nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/oasis3mct/o16i_atm_echam6_08.nc # no provenance info
-    o16i_oce_fesom_08.nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/oasis3mct/o16i_oce_fesom_08.nc # no provenance info
-    taux_oce_fesom_09.nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/oasis3mct/taux_oce_fesom_09.nc # no provenance info
-    tauy_oce_fesom_09.nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/oasis3mct/tauy_oce_fesom_09.nc # no provenance info
-    taux_ico_fesom_09.nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/oasis3mct/taux_ico_fesom_09.nc # no provenance info
-    tauy_ico_fesom_09.nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/oasis3mct/tauy_ico_fesom_09.nc # no provenance info
-    taux_atm_echam6_09.nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/oasis3mct/taux_atm_echam6_09.nc # no provenance info
-    tauy_atm_echam6_09.nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/oasis3mct/tauy_atm_echam6_09.nc # no provenance info
-    taux_ica_echam6_09.nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/oasis3mct/taux_ica_echam6_09.nc # no provenance info
-    tauy_ica_echam6_09.nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/oasis3mct/tauy_ica_echam6_09.nc # no provenance info
-    prec_oce_fesom_10.nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/oasis3mct/prec_oce_fesom_10.nc # no provenance info
-    prec_atm_echam6_10.nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/oasis3mct/prec_atm_echam6_10.nc # no provenance info
-    snow_oce_fesom_11.nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/oasis3mct/snow_oce_fesom_11.nc # no provenance info
-    snow_atm_echam6_11.nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/oasis3mct/snow_atm_echam6_11.nc # no provenance info
-    evap_oce_fesom_12.nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/oasis3mct/evap_oce_fesom_12.nc # no provenance info
-    evap_atm_echam6_12.nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/oasis3mct/evap_atm_echam6_12.nc # no provenance info
-    subl_oce_fesom_13.nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/oasis3mct/subl_oce_fesom_13.nc # no provenance info
-    subl_atm_echam6_13.nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/oasis3mct/subl_atm_echam6_13.nc # no provenance info
-    heat_oce_fesom_14.nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/oasis3mct/heat_oce_fesom_14.nc # no provenance info
-    heat_atm_echam6_14.nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/oasis3mct/heat_atm_echam6_14.nc # no provenance info
-    heat_ico_fesom_15.nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/oasis3mct/heat_ico_fesom_15.nc # no provenance info
-    heat_ica_echam6_15.nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/oasis3mct/heat_ica_echam6_15.nc # no provenance info
-    heat_swo_fesom_16.nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/oasis3mct/heat_swo_fesom_16.nc # no provenance info
-    heat_swa_echam6_16.nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/oasis3mct/heat_swa_echam6_16.nc # no provenance info
-    hydr_oce_fesom_17.nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/oasis3mct/hydr_oce_fesom_17.nc # no provenance info
-    hydr_atm_echam6_17.nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/oasis3mct/hydr_atm_echam6_17.nc # no provenance info
-    w1_oce_fesom_18.nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/oasis3mct/w1_oce_fesom_18.nc # no provenance info
-    w1_atm_echam6_18.nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/oasis3mct/w1_atm_echam6_18.nc # no provenance info
-    w2_oce_fesom_19.nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/oasis3mct/w2_oce_fesom_19.nc # no provenance info
-    w2_atm_echam6_19.nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/oasis3mct/w2_atm_echam6_19.nc # no provenance info
-    w3_oce_fesom_20.nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/oasis3mct/w3_oce_fesom_20.nc # no provenance info
-    w3_atm_echam6_20.nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/oasis3mct/w3_atm_echam6_20.nc # no provenance info
-    i1_oce_fesom_21.nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/oasis3mct/i1_oce_fesom_21.nc # no provenance info
-    i1_atm_echam6_21.nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/oasis3mct/i1_atm_echam6_21.nc # no provenance info
-    i2_oce_fesom_22.nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/oasis3mct/i2_oce_fesom_22.nc # no provenance info
-    i2_atm_echam6_22.nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/oasis3mct/i2_atm_echam6_22.nc # no provenance info
-    i3_oce_fesom_23.nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/oasis3mct/i3_oce_fesom_23.nc # no provenance info
-    i3_atm_echam6_23.nc: <TEST_DIR>run/awiesm/pi-wiso/outdata/oasis3mct/i3_atm_echam6_23.nc # no provenance info
+    sst_atmo_echam6_01.nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/oasis3mct/sst_atmo_echam6_01.nc  # no provenance info
+    sit_atmo_echam6_01.nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/oasis3mct/sit_atmo_echam6_01.nc # no provenance info
+    sie_atmo_echam6_01.nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/oasis3mct/sie_atmo_echam6_01.nc # no provenance info
+    sst_feom_fesom_01.nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/oasis3mct/sst_feom_fesom_01.nc # no provenance info
+    sit_feom_fesom_01.nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/oasis3mct/sit_feom_fesom_01.nc # no provenance info
+    sie_feom_fesom_01.nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/oasis3mct/sie_feom_fesom_01.nc # no provenance info
+    snt_atmo_echam6_02.nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/oasis3mct/snt_atmo_echam6_02.nc # no provenance info
+    snt_feom_fesom_02.nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/oasis3mct/snt_feom_fesom_02.nc # no provenance info
+    o18w_atm_echam6_03.nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/oasis3mct/o18w_atm_echam6_03.nc # no provenance info
+    o18w_oce_fesom_03.nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/oasis3mct/o18w_oce_fesom_03.nc # no provenance info
+    hdow_atm_echam6_04.nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/oasis3mct/hdow_atm_echam6_04.nc # no provenance info
+    hdow_oce_fesom_04.nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/oasis3mct/hdow_oce_fesom_04.nc # no provenance info
+    o16w_atm_echam6_05.nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/oasis3mct/o16w_atm_echam6_05.nc # no provenance info
+    o16w_oce_fesom_05.nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/oasis3mct/o16w_oce_fesom_05.nc # no provenance info
+    o18i_atm_echam6_06.nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/oasis3mct/o18i_atm_echam6_06.nc # no provenance info
+    o18i_oce_fesom_06.nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/oasis3mct/o18i_oce_fesom_06.nc # no provenance info
+    hdoi_atm_echam6_07.nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/oasis3mct/hdoi_atm_echam6_07.nc # no provenance info
+    hdoi_oce_fesom_07.nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/oasis3mct/hdoi_oce_fesom_07.nc # no provenance info
+    o16i_atm_echam6_08.nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/oasis3mct/o16i_atm_echam6_08.nc # no provenance info
+    o16i_oce_fesom_08.nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/oasis3mct/o16i_oce_fesom_08.nc # no provenance info
+    taux_oce_fesom_09.nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/oasis3mct/taux_oce_fesom_09.nc # no provenance info
+    tauy_oce_fesom_09.nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/oasis3mct/tauy_oce_fesom_09.nc # no provenance info
+    taux_ico_fesom_09.nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/oasis3mct/taux_ico_fesom_09.nc # no provenance info
+    tauy_ico_fesom_09.nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/oasis3mct/tauy_ico_fesom_09.nc # no provenance info
+    taux_atm_echam6_09.nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/oasis3mct/taux_atm_echam6_09.nc # no provenance info
+    tauy_atm_echam6_09.nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/oasis3mct/tauy_atm_echam6_09.nc # no provenance info
+    taux_ica_echam6_09.nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/oasis3mct/taux_ica_echam6_09.nc # no provenance info
+    tauy_ica_echam6_09.nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/oasis3mct/tauy_ica_echam6_09.nc # no provenance info
+    prec_oce_fesom_10.nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/oasis3mct/prec_oce_fesom_10.nc # no provenance info
+    prec_atm_echam6_10.nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/oasis3mct/prec_atm_echam6_10.nc # no provenance info
+    snow_oce_fesom_11.nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/oasis3mct/snow_oce_fesom_11.nc # no provenance info
+    snow_atm_echam6_11.nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/oasis3mct/snow_atm_echam6_11.nc # no provenance info
+    evap_oce_fesom_12.nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/oasis3mct/evap_oce_fesom_12.nc # no provenance info
+    evap_atm_echam6_12.nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/oasis3mct/evap_atm_echam6_12.nc # no provenance info
+    subl_oce_fesom_13.nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/oasis3mct/subl_oce_fesom_13.nc # no provenance info
+    subl_atm_echam6_13.nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/oasis3mct/subl_atm_echam6_13.nc # no provenance info
+    heat_oce_fesom_14.nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/oasis3mct/heat_oce_fesom_14.nc # no provenance info
+    heat_atm_echam6_14.nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/oasis3mct/heat_atm_echam6_14.nc # no provenance info
+    heat_ico_fesom_15.nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/oasis3mct/heat_ico_fesom_15.nc # no provenance info
+    heat_ica_echam6_15.nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/oasis3mct/heat_ica_echam6_15.nc # no provenance info
+    heat_swo_fesom_16.nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/oasis3mct/heat_swo_fesom_16.nc # no provenance info
+    heat_swa_echam6_16.nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/oasis3mct/heat_swa_echam6_16.nc # no provenance info
+    hydr_oce_fesom_17.nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/oasis3mct/hydr_oce_fesom_17.nc # no provenance info
+    hydr_atm_echam6_17.nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/oasis3mct/hydr_atm_echam6_17.nc # no provenance info
+    w1_oce_fesom_18.nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/oasis3mct/w1_oce_fesom_18.nc # no provenance info
+    w1_atm_echam6_18.nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/oasis3mct/w1_atm_echam6_18.nc # no provenance info
+    w2_oce_fesom_19.nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/oasis3mct/w2_oce_fesom_19.nc # no provenance info
+    w2_atm_echam6_19.nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/oasis3mct/w2_atm_echam6_19.nc # no provenance info
+    w3_oce_fesom_20.nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/oasis3mct/w3_oce_fesom_20.nc # no provenance info
+    w3_atm_echam6_20.nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/oasis3mct/w3_atm_echam6_20.nc # no provenance info
+    i1_oce_fesom_21.nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/oasis3mct/i1_oce_fesom_21.nc # no provenance info
+    i1_atm_echam6_21.nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/oasis3mct/i1_atm_echam6_21.nc # no provenance info
+    i2_oce_fesom_22.nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/oasis3mct/i2_oce_fesom_22.nc # no provenance info
+    i2_atm_echam6_22.nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/oasis3mct/i2_atm_echam6_22.nc # no provenance info
+    i3_oce_fesom_23.nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/oasis3mct/i3_oce_fesom_23.nc # no provenance info
+    i3_atm_echam6_23.nc: <TEST_DIR>/run/awiesm/pi-wiso/outdata/oasis3mct/i3_atm_echam6_23.nc # no provenance info
   restart_out_targets:
-    areas: <TEST_DIR>run/awiesm/pi-wiso/restart/oasis3mct/areas.nc  # no provenance info
-    masks: <TEST_DIR>run/awiesm/pi-wiso/restart/oasis3mct/masks.nc # no provenance info
-    grids: <TEST_DIR>run/awiesm/pi-wiso/restart/oasis3mct/grids.nc # no provenance info
-    rmp_a2f_B: <TEST_DIR>run/awiesm/pi-wiso/restart/oasis3mct/rmp_atmo_to_feom_BICUBIC.nc # no provenance info
-    rmp_a2f_D: <TEST_DIR>run/awiesm/pi-wiso/restart/oasis3mct/rmp_atmo_to_feom_DISTWGT.nc # no provenance info
-    rmp_f2a_D: <TEST_DIR>run/awiesm/pi-wiso/restart/oasis3mct/rmp_feom_to_atmo_DISTWGT.nc # no provenance info
-    o2a_flux: <TEST_DIR>run/awiesm/pi-wiso/restart/oasis3mct/o2a_flux # no provenance info
-    o2a_flux_recv: <TEST_DIR>run/awiesm/pi-wiso/restart/oasis3mct/o2a_flux_recv # no provenance info
-    a2o_flux: <TEST_DIR>run/awiesm/pi-wiso/restart/oasis3mct/a2o_flux # no provenance info
-    a2o_flux_recv: <TEST_DIR>run/awiesm/pi-wiso/restart/oasis3mct/a2o_flux_recv # no provenance info
+    areas: <TEST_DIR>/run/awiesm/pi-wiso/restart/oasis3mct/areas.nc  # no provenance info
+    masks: <TEST_DIR>/run/awiesm/pi-wiso/restart/oasis3mct/masks.nc # no provenance info
+    grids: <TEST_DIR>/run/awiesm/pi-wiso/restart/oasis3mct/grids.nc # no provenance info
+    rmp_a2f_B: <TEST_DIR>/run/awiesm/pi-wiso/restart/oasis3mct/rmp_atmo_to_feom_BICUBIC.nc # no provenance info
+    rmp_a2f_D: <TEST_DIR>/run/awiesm/pi-wiso/restart/oasis3mct/rmp_atmo_to_feom_DISTWGT.nc # no provenance info
+    rmp_f2a_D: <TEST_DIR>/run/awiesm/pi-wiso/restart/oasis3mct/rmp_feom_to_atmo_DISTWGT.nc # no provenance info
+    o2a_flux: <TEST_DIR>/run/awiesm/pi-wiso/restart/oasis3mct/o2a_flux # no provenance info
+    o2a_flux_recv: <TEST_DIR>/run/awiesm/pi-wiso/restart/oasis3mct/o2a_flux_recv # no provenance info
+    a2o_flux: <TEST_DIR>/run/awiesm/pi-wiso/restart/oasis3mct/a2o_flux # no provenance info
+    a2o_flux_recv: <TEST_DIR>/run/awiesm/pi-wiso/restart/oasis3mct/a2o_flux_recv # no provenance info
   ignore_targets:
-    nout: <TEST_DIR>run/awiesm/pi-wiso/ignore/oasis3mct/nout.000000  # no provenance info
+    nout: <TEST_DIR>/run/awiesm/pi-wiso/ignore/oasis3mct/nout.000000  # no provenance info
   bin_sources_wild_card:
     yaclib: '*'  # no provenance info
     yaxtlib: '*' # no provenance info
@@ -3601,83 +3601,83 @@ oasis3mct:
     lucia: lucia.* # no provenance info
   bin_intermediate: {}
   config_intermediate:
-    namcouple: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/config/oasis3mct/namcouple  # no provenance info
+    namcouple: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/config/oasis3mct/namcouple  # no provenance info
   log_intermediate:
-    nout: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/log/oasis3mct/nout.000000  # no provenance info
-    debug_r1: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/log/oasis3mct/debug.root.01 # no provenance info
-    debug_nr1: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/log/oasis3mct/debug_notroot.01 # no provenance info
-    debug_r2: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/log/oasis3mct/debug.root.02 # no provenance info
-    debug_nr2: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/log/oasis3mct/debug_notroot.02 # no provenance info
+    nout: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/log/oasis3mct/nout.000000  # no provenance info
+    debug_r1: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/log/oasis3mct/debug.root.01 # no provenance info
+    debug_nr1: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/log/oasis3mct/debug_notroot.01 # no provenance info
+    debug_r2: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/log/oasis3mct/debug.root.02 # no provenance info
+    debug_nr2: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/log/oasis3mct/debug_notroot.02 # no provenance info
   outdata_intermediate:
-    sst_atmo_echam6_01.nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/sst_atmo_echam6_01.nc  # no provenance info
-    sit_atmo_echam6_01.nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/sit_atmo_echam6_01.nc # no provenance info
-    sie_atmo_echam6_01.nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/sie_atmo_echam6_01.nc # no provenance info
-    sst_feom_fesom_01.nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/sst_feom_fesom_01.nc # no provenance info
-    sit_feom_fesom_01.nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/sit_feom_fesom_01.nc # no provenance info
-    sie_feom_fesom_01.nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/sie_feom_fesom_01.nc # no provenance info
-    snt_atmo_echam6_02.nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/snt_atmo_echam6_02.nc # no provenance info
-    snt_feom_fesom_02.nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/snt_feom_fesom_02.nc # no provenance info
-    o18w_atm_echam6_03.nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/o18w_atm_echam6_03.nc # no provenance info
-    o18w_oce_fesom_03.nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/o18w_oce_fesom_03.nc # no provenance info
-    hdow_atm_echam6_04.nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/hdow_atm_echam6_04.nc # no provenance info
-    hdow_oce_fesom_04.nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/hdow_oce_fesom_04.nc # no provenance info
-    o16w_atm_echam6_05.nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/o16w_atm_echam6_05.nc # no provenance info
-    o16w_oce_fesom_05.nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/o16w_oce_fesom_05.nc # no provenance info
-    o18i_atm_echam6_06.nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/o18i_atm_echam6_06.nc # no provenance info
-    o18i_oce_fesom_06.nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/o18i_oce_fesom_06.nc # no provenance info
-    hdoi_atm_echam6_07.nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/hdoi_atm_echam6_07.nc # no provenance info
-    hdoi_oce_fesom_07.nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/hdoi_oce_fesom_07.nc # no provenance info
-    o16i_atm_echam6_08.nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/o16i_atm_echam6_08.nc # no provenance info
-    o16i_oce_fesom_08.nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/o16i_oce_fesom_08.nc # no provenance info
-    taux_oce_fesom_09.nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/taux_oce_fesom_09.nc # no provenance info
-    tauy_oce_fesom_09.nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/tauy_oce_fesom_09.nc # no provenance info
-    taux_ico_fesom_09.nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/taux_ico_fesom_09.nc # no provenance info
-    tauy_ico_fesom_09.nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/tauy_ico_fesom_09.nc # no provenance info
-    taux_atm_echam6_09.nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/taux_atm_echam6_09.nc # no provenance info
-    tauy_atm_echam6_09.nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/tauy_atm_echam6_09.nc # no provenance info
-    taux_ica_echam6_09.nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/taux_ica_echam6_09.nc # no provenance info
-    tauy_ica_echam6_09.nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/tauy_ica_echam6_09.nc # no provenance info
-    prec_oce_fesom_10.nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/prec_oce_fesom_10.nc # no provenance info
-    prec_atm_echam6_10.nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/prec_atm_echam6_10.nc # no provenance info
-    snow_oce_fesom_11.nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/snow_oce_fesom_11.nc # no provenance info
-    snow_atm_echam6_11.nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/snow_atm_echam6_11.nc # no provenance info
-    evap_oce_fesom_12.nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/evap_oce_fesom_12.nc # no provenance info
-    evap_atm_echam6_12.nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/evap_atm_echam6_12.nc # no provenance info
-    subl_oce_fesom_13.nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/subl_oce_fesom_13.nc # no provenance info
-    subl_atm_echam6_13.nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/subl_atm_echam6_13.nc # no provenance info
-    heat_oce_fesom_14.nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/heat_oce_fesom_14.nc # no provenance info
-    heat_atm_echam6_14.nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/heat_atm_echam6_14.nc # no provenance info
-    heat_ico_fesom_15.nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/heat_ico_fesom_15.nc # no provenance info
-    heat_ica_echam6_15.nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/heat_ica_echam6_15.nc # no provenance info
-    heat_swo_fesom_16.nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/heat_swo_fesom_16.nc # no provenance info
-    heat_swa_echam6_16.nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/heat_swa_echam6_16.nc # no provenance info
-    hydr_oce_fesom_17.nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/hydr_oce_fesom_17.nc # no provenance info
-    hydr_atm_echam6_17.nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/hydr_atm_echam6_17.nc # no provenance info
-    w1_oce_fesom_18.nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/w1_oce_fesom_18.nc # no provenance info
-    w1_atm_echam6_18.nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/w1_atm_echam6_18.nc # no provenance info
-    w2_oce_fesom_19.nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/w2_oce_fesom_19.nc # no provenance info
-    w2_atm_echam6_19.nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/w2_atm_echam6_19.nc # no provenance info
-    w3_oce_fesom_20.nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/w3_oce_fesom_20.nc # no provenance info
-    w3_atm_echam6_20.nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/w3_atm_echam6_20.nc # no provenance info
-    i1_oce_fesom_21.nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/i1_oce_fesom_21.nc # no provenance info
-    i1_atm_echam6_21.nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/i1_atm_echam6_21.nc # no provenance info
-    i2_oce_fesom_22.nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/i2_oce_fesom_22.nc # no provenance info
-    i2_atm_echam6_22.nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/i2_atm_echam6_22.nc # no provenance info
-    i3_oce_fesom_23.nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/i3_oce_fesom_23.nc # no provenance info
-    i3_atm_echam6_23.nc: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/i3_atm_echam6_23.nc # no provenance info
+    sst_atmo_echam6_01.nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/sst_atmo_echam6_01.nc  # no provenance info
+    sit_atmo_echam6_01.nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/sit_atmo_echam6_01.nc # no provenance info
+    sie_atmo_echam6_01.nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/sie_atmo_echam6_01.nc # no provenance info
+    sst_feom_fesom_01.nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/sst_feom_fesom_01.nc # no provenance info
+    sit_feom_fesom_01.nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/sit_feom_fesom_01.nc # no provenance info
+    sie_feom_fesom_01.nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/sie_feom_fesom_01.nc # no provenance info
+    snt_atmo_echam6_02.nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/snt_atmo_echam6_02.nc # no provenance info
+    snt_feom_fesom_02.nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/snt_feom_fesom_02.nc # no provenance info
+    o18w_atm_echam6_03.nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/o18w_atm_echam6_03.nc # no provenance info
+    o18w_oce_fesom_03.nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/o18w_oce_fesom_03.nc # no provenance info
+    hdow_atm_echam6_04.nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/hdow_atm_echam6_04.nc # no provenance info
+    hdow_oce_fesom_04.nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/hdow_oce_fesom_04.nc # no provenance info
+    o16w_atm_echam6_05.nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/o16w_atm_echam6_05.nc # no provenance info
+    o16w_oce_fesom_05.nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/o16w_oce_fesom_05.nc # no provenance info
+    o18i_atm_echam6_06.nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/o18i_atm_echam6_06.nc # no provenance info
+    o18i_oce_fesom_06.nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/o18i_oce_fesom_06.nc # no provenance info
+    hdoi_atm_echam6_07.nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/hdoi_atm_echam6_07.nc # no provenance info
+    hdoi_oce_fesom_07.nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/hdoi_oce_fesom_07.nc # no provenance info
+    o16i_atm_echam6_08.nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/o16i_atm_echam6_08.nc # no provenance info
+    o16i_oce_fesom_08.nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/o16i_oce_fesom_08.nc # no provenance info
+    taux_oce_fesom_09.nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/taux_oce_fesom_09.nc # no provenance info
+    tauy_oce_fesom_09.nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/tauy_oce_fesom_09.nc # no provenance info
+    taux_ico_fesom_09.nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/taux_ico_fesom_09.nc # no provenance info
+    tauy_ico_fesom_09.nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/tauy_ico_fesom_09.nc # no provenance info
+    taux_atm_echam6_09.nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/taux_atm_echam6_09.nc # no provenance info
+    tauy_atm_echam6_09.nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/tauy_atm_echam6_09.nc # no provenance info
+    taux_ica_echam6_09.nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/taux_ica_echam6_09.nc # no provenance info
+    tauy_ica_echam6_09.nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/tauy_ica_echam6_09.nc # no provenance info
+    prec_oce_fesom_10.nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/prec_oce_fesom_10.nc # no provenance info
+    prec_atm_echam6_10.nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/prec_atm_echam6_10.nc # no provenance info
+    snow_oce_fesom_11.nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/snow_oce_fesom_11.nc # no provenance info
+    snow_atm_echam6_11.nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/snow_atm_echam6_11.nc # no provenance info
+    evap_oce_fesom_12.nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/evap_oce_fesom_12.nc # no provenance info
+    evap_atm_echam6_12.nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/evap_atm_echam6_12.nc # no provenance info
+    subl_oce_fesom_13.nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/subl_oce_fesom_13.nc # no provenance info
+    subl_atm_echam6_13.nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/subl_atm_echam6_13.nc # no provenance info
+    heat_oce_fesom_14.nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/heat_oce_fesom_14.nc # no provenance info
+    heat_atm_echam6_14.nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/heat_atm_echam6_14.nc # no provenance info
+    heat_ico_fesom_15.nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/heat_ico_fesom_15.nc # no provenance info
+    heat_ica_echam6_15.nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/heat_ica_echam6_15.nc # no provenance info
+    heat_swo_fesom_16.nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/heat_swo_fesom_16.nc # no provenance info
+    heat_swa_echam6_16.nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/heat_swa_echam6_16.nc # no provenance info
+    hydr_oce_fesom_17.nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/hydr_oce_fesom_17.nc # no provenance info
+    hydr_atm_echam6_17.nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/hydr_atm_echam6_17.nc # no provenance info
+    w1_oce_fesom_18.nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/w1_oce_fesom_18.nc # no provenance info
+    w1_atm_echam6_18.nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/w1_atm_echam6_18.nc # no provenance info
+    w2_oce_fesom_19.nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/w2_oce_fesom_19.nc # no provenance info
+    w2_atm_echam6_19.nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/w2_atm_echam6_19.nc # no provenance info
+    w3_oce_fesom_20.nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/w3_oce_fesom_20.nc # no provenance info
+    w3_atm_echam6_20.nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/w3_atm_echam6_20.nc # no provenance info
+    i1_oce_fesom_21.nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/i1_oce_fesom_21.nc # no provenance info
+    i1_atm_echam6_21.nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/i1_atm_echam6_21.nc # no provenance info
+    i2_oce_fesom_22.nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/i2_oce_fesom_22.nc # no provenance info
+    i2_atm_echam6_22.nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/i2_atm_echam6_22.nc # no provenance info
+    i3_oce_fesom_23.nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/i3_oce_fesom_23.nc # no provenance info
+    i3_atm_echam6_23.nc: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/outdata/oasis3mct/i3_atm_echam6_23.nc # no provenance info
   restart_out_intermediate:
-    areas: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/restart/oasis3mct/areas.nc  # no provenance info
-    masks: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/restart/oasis3mct/masks.nc # no provenance info
-    grids: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/restart/oasis3mct/grids.nc # no provenance info
-    rmp_a2f_B: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/restart/oasis3mct/rmp_atmo_to_feom_BICUBIC.nc # no provenance info
-    rmp_a2f_D: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/restart/oasis3mct/rmp_atmo_to_feom_DISTWGT.nc # no provenance info
-    rmp_f2a_D: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/restart/oasis3mct/rmp_feom_to_atmo_DISTWGT.nc # no provenance info
-    o2a_flux: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/restart/oasis3mct/o2a_flux # no provenance info
-    o2a_flux_recv: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/restart/oasis3mct/o2a_flux_recv # no provenance info
-    a2o_flux: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/restart/oasis3mct/a2o_flux # no provenance info
-    a2o_flux_recv: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/restart/oasis3mct/a2o_flux_recv # no provenance info
+    areas: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/restart/oasis3mct/areas.nc  # no provenance info
+    masks: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/restart/oasis3mct/masks.nc # no provenance info
+    grids: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/restart/oasis3mct/grids.nc # no provenance info
+    rmp_a2f_B: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/restart/oasis3mct/rmp_atmo_to_feom_BICUBIC.nc # no provenance info
+    rmp_a2f_D: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/restart/oasis3mct/rmp_atmo_to_feom_DISTWGT.nc # no provenance info
+    rmp_f2a_D: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/restart/oasis3mct/rmp_feom_to_atmo_DISTWGT.nc # no provenance info
+    o2a_flux: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/restart/oasis3mct/o2a_flux # no provenance info
+    o2a_flux_recv: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/restart/oasis3mct/o2a_flux_recv # no provenance info
+    a2o_flux: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/restart/oasis3mct/a2o_flux # no provenance info
+    a2o_flux_recv: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/restart/oasis3mct/a2o_flux_recv # no provenance info
   ignore_intermediate:
-    nout: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/oasis3mct/nout.000000  # no provenance info
+    nout: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/oasis3mct/nout.000000  # no provenance info
   namelists: {}
   namelist_objs: {}
 jsbach:
@@ -3823,7 +3823,7 @@ jsbach:
   hist_extend_scenario: ssp370 # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.datasets.yaml,line:9,col:27
   input_sources:
     lctlib: <TEST_DIR>/comp/awiesm/awiesm-2.1/echam-6.3.05p2/lctlib_nlct21.def  # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.datasets.yaml,line:12,col:21
-    jsbach: /work/ollie/pool/FESOM/meshes_default/core/tarfilesT63/input/jsbach/jsbach_T63CORE2_11tiles_5layers_1850.nc # <TEST_DIR>run/awiesm/pi-wiso/scripts/pi-wiso.yaml,line:38,col:26
+    jsbach: /work/ollie/pool/FESOM/meshes_default/core/tarfilesT63/input/jsbach/jsbach_T63CORE2_11tiles_5layers_1850.nc # <TEST_DIR>/run/awiesm/pi-wiso/scripts/pi-wiso.yaml,line:38,col:26
   forcing_sources:
     a_nd_file: /work/ollie/pool/JSBACH/input/r0010/T63/spitfire/a_nd_T63.nc  # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.datasets.yaml,line:85,col:42
     lightning: /work/ollie/pool/JSBACH/input/r0010/T63/spitfire/LISOTD_HRMC_V2.2_T63.nc # <HOME_DIR>/esm_tools/configs/components/jsbach/jsbach.datasets.yaml,line:86,col:42
@@ -3968,63 +3968,63 @@ jsbach:
       run_to_work: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
       work_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
   config_targets:
-    namelist.jsbach: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/work/namelist.jsbach  # no provenance info
+    namelist.jsbach: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/work/namelist.jsbach  # no provenance info
   forcing_targets:
-    a_nd_file: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/work/a_nd_file.nc  # no provenance info
-    lightning: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/work/lightning.nc # no provenance info
-    popdens: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/work/population_density.nc # no provenance info
-    LU_year_1850: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/work/landuseHarvest.1850.nc # no provenance info
-    LU_year_1849: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/work/landuseHarvest.1849.nc # no provenance info
-    LU_trans_year_1850: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/work/landuseTransitions.1850.nc # no provenance info
-    LU_trans_year_1849: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/work/landuseTransitions.1849.nc # no provenance info
-    Ndepo_year_1850: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/work/Ndepo.1850.nc # no provenance info
-    Ndepo_year_1849: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/work/Ndepo.1849.nc # no provenance info
+    a_nd_file: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/work/a_nd_file.nc  # no provenance info
+    lightning: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/work/lightning.nc # no provenance info
+    popdens: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/work/population_density.nc # no provenance info
+    LU_year_1850: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/work/landuseHarvest.1850.nc # no provenance info
+    LU_year_1849: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/work/landuseHarvest.1849.nc # no provenance info
+    LU_trans_year_1850: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/work/landuseTransitions.1850.nc # no provenance info
+    LU_trans_year_1849: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/work/landuseTransitions.1849.nc # no provenance info
+    Ndepo_year_1850: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/work/Ndepo.1850.nc # no provenance info
+    Ndepo_year_1849: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/work/Ndepo.1849.nc # no provenance info
   input_targets:
-    jsbach: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/work/jsbach.nc  # no provenance info
-    lctlib: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/work/lctlib.def # no provenance info
+    jsbach: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/work/jsbach.nc  # no provenance info
+    lctlib: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/work/lctlib.def # no provenance info
   outdata_targets: {}
   restart_out_targets:
-    jsbach: <TEST_DIR>run/awiesm/pi-wiso/restart/jsbach/restart_pi-wiso_18500101_jsbach.nc  # no provenance info
-    jsbid: <TEST_DIR>run/awiesm/pi-wiso/restart/jsbach/restart_pi-wiso_18500101_jsbid.nc # no provenance info
-    yasso: <TEST_DIR>run/awiesm/pi-wiso/restart/jsbach/restart_pi-wiso_18500101_yasso.nc # no provenance info
-    surf: <TEST_DIR>run/awiesm/pi-wiso/restart/jsbach/restart_pi-wiso_18500101_surf.nc # no provenance info
-    nitro: <TEST_DIR>run/awiesm/pi-wiso/restart/jsbach/restart_pi-wiso_18500101_nitro.nc # no provenance info
-    veg: <TEST_DIR>run/awiesm/pi-wiso/restart/jsbach/restart_pi-wiso_18500101_veg.nc # no provenance info
-    land: <TEST_DIR>run/awiesm/pi-wiso/restart/jsbach/restart_pi-wiso_18500101_land.nc # no provenance info
-    js_wiso: <TEST_DIR>run/awiesm/pi-wiso/restart/jsbach/restart_pi-wiso_18500101_js_wiso.nc # no provenance info
-    la_wiso: <TEST_DIR>run/awiesm/pi-wiso/restart/jsbach/restart_pi-wiso_18500101_la_wiso.nc # no provenance info
-    sf_wiso: <TEST_DIR>run/awiesm/pi-wiso/restart/jsbach/restart_pi-wiso_18500101_sf_wiso.nc # no provenance info
+    jsbach: <TEST_DIR>/run/awiesm/pi-wiso/restart/jsbach/restart_pi-wiso_18500101_jsbach.nc  # no provenance info
+    jsbid: <TEST_DIR>/run/awiesm/pi-wiso/restart/jsbach/restart_pi-wiso_18500101_jsbid.nc # no provenance info
+    yasso: <TEST_DIR>/run/awiesm/pi-wiso/restart/jsbach/restart_pi-wiso_18500101_yasso.nc # no provenance info
+    surf: <TEST_DIR>/run/awiesm/pi-wiso/restart/jsbach/restart_pi-wiso_18500101_surf.nc # no provenance info
+    nitro: <TEST_DIR>/run/awiesm/pi-wiso/restart/jsbach/restart_pi-wiso_18500101_nitro.nc # no provenance info
+    veg: <TEST_DIR>/run/awiesm/pi-wiso/restart/jsbach/restart_pi-wiso_18500101_veg.nc # no provenance info
+    land: <TEST_DIR>/run/awiesm/pi-wiso/restart/jsbach/restart_pi-wiso_18500101_land.nc # no provenance info
+    js_wiso: <TEST_DIR>/run/awiesm/pi-wiso/restart/jsbach/restart_pi-wiso_18500101_js_wiso.nc # no provenance info
+    la_wiso: <TEST_DIR>/run/awiesm/pi-wiso/restart/jsbach/restart_pi-wiso_18500101_la_wiso.nc # no provenance info
+    sf_wiso: <TEST_DIR>/run/awiesm/pi-wiso/restart/jsbach/restart_pi-wiso_18500101_sf_wiso.nc # no provenance info
   ignore_targets:
-    jsbach: <TEST_DIR>run/awiesm/pi-wiso/ignore/jsbach/pi-wiso_185001.02_jsbach  # no provenance info
-    jsbid: <TEST_DIR>run/awiesm/pi-wiso/ignore/jsbach/pi-wiso_185001.02_jsbid # no provenance info
-    yasso: <TEST_DIR>run/awiesm/pi-wiso/ignore/jsbach/pi-wiso_185001.02_yasso # no provenance info
-    surf: <TEST_DIR>run/awiesm/pi-wiso/ignore/jsbach/pi-wiso_185001.02_surf # no provenance info
-    nitro: <TEST_DIR>run/awiesm/pi-wiso/ignore/jsbach/pi-wiso_185001.02_nitro # no provenance info
-    veg: <TEST_DIR>run/awiesm/pi-wiso/ignore/jsbach/pi-wiso_185001.02_veg # no provenance info
-    land: <TEST_DIR>run/awiesm/pi-wiso/ignore/jsbach/pi-wiso_185001.02_land # no provenance info
-    js_wiso: <TEST_DIR>run/awiesm/pi-wiso/ignore/jsbach/pi-wiso_185001.02_js_wiso # no provenance info
-    la_wiso: <TEST_DIR>run/awiesm/pi-wiso/ignore/jsbach/pi-wiso_185001.02_la_wiso # no provenance info
-    sf_wiso: <TEST_DIR>run/awiesm/pi-wiso/ignore/jsbach/pi-wiso_185001.02_sf_wiso # no provenance info
-    jsbach_restart: <TEST_DIR>run/awiesm/pi-wiso/ignore/jsbach/restart_pi-wiso_jsbach.nc # no provenance info
-    jsbid_restart: <TEST_DIR>run/awiesm/pi-wiso/ignore/jsbach/restart_pi-wiso_jsbid.nc # no provenance info
-    yasso_restart: <TEST_DIR>run/awiesm/pi-wiso/ignore/jsbach/restart_pi-wiso_yasso.nc # no provenance info
-    surf_restart: <TEST_DIR>run/awiesm/pi-wiso/ignore/jsbach/restart_pi-wiso_surf.nc # no provenance info
-    nitro_restart: <TEST_DIR>run/awiesm/pi-wiso/ignore/jsbach/restart_pi-wiso_nitro.nc # no provenance info
-    veg_restart: <TEST_DIR>run/awiesm/pi-wiso/ignore/jsbach/restart_pi-wiso_veg.nc # no provenance info
-    land_restart: <TEST_DIR>run/awiesm/pi-wiso/ignore/jsbach/restart_pi-wiso_land.nc # no provenance info
-    js_wiso_restart: <TEST_DIR>run/awiesm/pi-wiso/ignore/jsbach/restart_pi-wiso_js_wiso.nc # no provenance info
-    la_wiso_restart: <TEST_DIR>run/awiesm/pi-wiso/ignore/jsbach/restart_pi-wiso_la_wiso.nc # no provenance info
-    sf_wiso_restart: <TEST_DIR>run/awiesm/pi-wiso/ignore/jsbach/restart_pi-wiso_sf_wiso.nc # no provenance info
-    jsbach_codes: <TEST_DIR>run/awiesm/pi-wiso/ignore/jsbach/pi-wiso_185001.02_jsbach.codes # no provenance info
-    jsbid_codes: <TEST_DIR>run/awiesm/pi-wiso/ignore/jsbach/pi-wiso_185001.02_jsbid.codes # no provenance info
-    yasso_codes: <TEST_DIR>run/awiesm/pi-wiso/ignore/jsbach/pi-wiso_185001.02_yasso.codes # no provenance info
-    surf_codes: <TEST_DIR>run/awiesm/pi-wiso/ignore/jsbach/pi-wiso_185001.02_surf.codes # no provenance info
-    nitro_codes: <TEST_DIR>run/awiesm/pi-wiso/ignore/jsbach/pi-wiso_185001.02_nitro.codes # no provenance info
-    veg_codes: <TEST_DIR>run/awiesm/pi-wiso/ignore/jsbach/pi-wiso_185001.02_veg.codes # no provenance info
-    land_codes: <TEST_DIR>run/awiesm/pi-wiso/ignore/jsbach/pi-wiso_185001.02_land.codes # no provenance info
-    js_wiso_codes: <TEST_DIR>run/awiesm/pi-wiso/ignore/jsbach/pi-wiso_185001.02_js_wiso.codes # no provenance info
-    la_wiso_codes: <TEST_DIR>run/awiesm/pi-wiso/ignore/jsbach/pi-wiso_185001.02_la_wiso.codes # no provenance info
-    sf_wiso_codes: <TEST_DIR>run/awiesm/pi-wiso/ignore/jsbach/pi-wiso_185001.02_sf_wiso.codes # no provenance info
+    jsbach: <TEST_DIR>/run/awiesm/pi-wiso/ignore/jsbach/pi-wiso_185001.02_jsbach  # no provenance info
+    jsbid: <TEST_DIR>/run/awiesm/pi-wiso/ignore/jsbach/pi-wiso_185001.02_jsbid # no provenance info
+    yasso: <TEST_DIR>/run/awiesm/pi-wiso/ignore/jsbach/pi-wiso_185001.02_yasso # no provenance info
+    surf: <TEST_DIR>/run/awiesm/pi-wiso/ignore/jsbach/pi-wiso_185001.02_surf # no provenance info
+    nitro: <TEST_DIR>/run/awiesm/pi-wiso/ignore/jsbach/pi-wiso_185001.02_nitro # no provenance info
+    veg: <TEST_DIR>/run/awiesm/pi-wiso/ignore/jsbach/pi-wiso_185001.02_veg # no provenance info
+    land: <TEST_DIR>/run/awiesm/pi-wiso/ignore/jsbach/pi-wiso_185001.02_land # no provenance info
+    js_wiso: <TEST_DIR>/run/awiesm/pi-wiso/ignore/jsbach/pi-wiso_185001.02_js_wiso # no provenance info
+    la_wiso: <TEST_DIR>/run/awiesm/pi-wiso/ignore/jsbach/pi-wiso_185001.02_la_wiso # no provenance info
+    sf_wiso: <TEST_DIR>/run/awiesm/pi-wiso/ignore/jsbach/pi-wiso_185001.02_sf_wiso # no provenance info
+    jsbach_restart: <TEST_DIR>/run/awiesm/pi-wiso/ignore/jsbach/restart_pi-wiso_jsbach.nc # no provenance info
+    jsbid_restart: <TEST_DIR>/run/awiesm/pi-wiso/ignore/jsbach/restart_pi-wiso_jsbid.nc # no provenance info
+    yasso_restart: <TEST_DIR>/run/awiesm/pi-wiso/ignore/jsbach/restart_pi-wiso_yasso.nc # no provenance info
+    surf_restart: <TEST_DIR>/run/awiesm/pi-wiso/ignore/jsbach/restart_pi-wiso_surf.nc # no provenance info
+    nitro_restart: <TEST_DIR>/run/awiesm/pi-wiso/ignore/jsbach/restart_pi-wiso_nitro.nc # no provenance info
+    veg_restart: <TEST_DIR>/run/awiesm/pi-wiso/ignore/jsbach/restart_pi-wiso_veg.nc # no provenance info
+    land_restart: <TEST_DIR>/run/awiesm/pi-wiso/ignore/jsbach/restart_pi-wiso_land.nc # no provenance info
+    js_wiso_restart: <TEST_DIR>/run/awiesm/pi-wiso/ignore/jsbach/restart_pi-wiso_js_wiso.nc # no provenance info
+    la_wiso_restart: <TEST_DIR>/run/awiesm/pi-wiso/ignore/jsbach/restart_pi-wiso_la_wiso.nc # no provenance info
+    sf_wiso_restart: <TEST_DIR>/run/awiesm/pi-wiso/ignore/jsbach/restart_pi-wiso_sf_wiso.nc # no provenance info
+    jsbach_codes: <TEST_DIR>/run/awiesm/pi-wiso/ignore/jsbach/pi-wiso_185001.02_jsbach.codes # no provenance info
+    jsbid_codes: <TEST_DIR>/run/awiesm/pi-wiso/ignore/jsbach/pi-wiso_185001.02_jsbid.codes # no provenance info
+    yasso_codes: <TEST_DIR>/run/awiesm/pi-wiso/ignore/jsbach/pi-wiso_185001.02_yasso.codes # no provenance info
+    surf_codes: <TEST_DIR>/run/awiesm/pi-wiso/ignore/jsbach/pi-wiso_185001.02_surf.codes # no provenance info
+    nitro_codes: <TEST_DIR>/run/awiesm/pi-wiso/ignore/jsbach/pi-wiso_185001.02_nitro.codes # no provenance info
+    veg_codes: <TEST_DIR>/run/awiesm/pi-wiso/ignore/jsbach/pi-wiso_185001.02_veg.codes # no provenance info
+    land_codes: <TEST_DIR>/run/awiesm/pi-wiso/ignore/jsbach/pi-wiso_185001.02_land.codes # no provenance info
+    js_wiso_codes: <TEST_DIR>/run/awiesm/pi-wiso/ignore/jsbach/pi-wiso_185001.02_js_wiso.codes # no provenance info
+    la_wiso_codes: <TEST_DIR>/run/awiesm/pi-wiso/ignore/jsbach/pi-wiso_185001.02_la_wiso.codes # no provenance info
+    sf_wiso_codes: <TEST_DIR>/run/awiesm/pi-wiso/ignore/jsbach/pi-wiso_185001.02_sf_wiso.codes # no provenance info
   outdata_sources_wild_card:
     jsbach: pi-wiso_1850*.01_jsbach  # no provenance info
     jsbid: pi-wiso_1850*.01_jsbid # no provenance info
@@ -4047,63 +4047,63 @@ jsbach:
     la_wiso_codes: pi-wiso_1850*.01_la_wiso.codes # no provenance info
     sf_wiso_codes: pi-wiso_1850*.01_sf_wiso.codes # no provenance info
   config_intermediate:
-    namelist.jsbach: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/config/jsbach/namelist.jsbach  # no provenance info
+    namelist.jsbach: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/config/jsbach/namelist.jsbach  # no provenance info
   forcing_intermediate:
-    a_nd_file: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/forcing/jsbach/a_nd_file.nc  # no provenance info
-    lightning: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/forcing/jsbach/lightning.nc # no provenance info
-    popdens: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/forcing/jsbach/population_density.nc # no provenance info
-    LU_year_1850: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/forcing/jsbach/landuseHarvest.1850.nc # no provenance info
-    LU_year_1849: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/forcing/jsbach/landuseHarvest.1849.nc # no provenance info
-    LU_trans_year_1850: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/forcing/jsbach/landuseTransitions.1850.nc # no provenance info
-    LU_trans_year_1849: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/forcing/jsbach/landuseTransitions.1849.nc # no provenance info
-    Ndepo_year_1850: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/forcing/jsbach/Ndepo.1850.nc # no provenance info
-    Ndepo_year_1849: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/forcing/jsbach/Ndepo.1849.nc # no provenance info
+    a_nd_file: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/forcing/jsbach/a_nd_file.nc  # no provenance info
+    lightning: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/forcing/jsbach/lightning.nc # no provenance info
+    popdens: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/forcing/jsbach/population_density.nc # no provenance info
+    LU_year_1850: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/forcing/jsbach/landuseHarvest.1850.nc # no provenance info
+    LU_year_1849: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/forcing/jsbach/landuseHarvest.1849.nc # no provenance info
+    LU_trans_year_1850: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/forcing/jsbach/landuseTransitions.1850.nc # no provenance info
+    LU_trans_year_1849: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/forcing/jsbach/landuseTransitions.1849.nc # no provenance info
+    Ndepo_year_1850: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/forcing/jsbach/Ndepo.1850.nc # no provenance info
+    Ndepo_year_1849: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/forcing/jsbach/Ndepo.1849.nc # no provenance info
   input_intermediate:
-    jsbach: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/input/jsbach/jsbach.nc  # no provenance info
-    lctlib: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/input/jsbach/lctlib.def # no provenance info
+    jsbach: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/input/jsbach/jsbach.nc  # no provenance info
+    lctlib: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/input/jsbach/lctlib.def # no provenance info
   outdata_intermediate: {}
   restart_out_intermediate:
-    jsbach: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/restart/jsbach/restart_pi-wiso_18500101_jsbach.nc  # no provenance info
-    jsbid: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/restart/jsbach/restart_pi-wiso_18500101_jsbid.nc # no provenance info
-    yasso: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/restart/jsbach/restart_pi-wiso_18500101_yasso.nc # no provenance info
-    surf: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/restart/jsbach/restart_pi-wiso_18500101_surf.nc # no provenance info
-    nitro: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/restart/jsbach/restart_pi-wiso_18500101_nitro.nc # no provenance info
-    veg: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/restart/jsbach/restart_pi-wiso_18500101_veg.nc # no provenance info
-    land: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/restart/jsbach/restart_pi-wiso_18500101_land.nc # no provenance info
-    js_wiso: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/restart/jsbach/restart_pi-wiso_18500101_js_wiso.nc # no provenance info
-    la_wiso: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/restart/jsbach/restart_pi-wiso_18500101_la_wiso.nc # no provenance info
-    sf_wiso: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/restart/jsbach/restart_pi-wiso_18500101_sf_wiso.nc # no provenance info
+    jsbach: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/restart/jsbach/restart_pi-wiso_18500101_jsbach.nc  # no provenance info
+    jsbid: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/restart/jsbach/restart_pi-wiso_18500101_jsbid.nc # no provenance info
+    yasso: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/restart/jsbach/restart_pi-wiso_18500101_yasso.nc # no provenance info
+    surf: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/restart/jsbach/restart_pi-wiso_18500101_surf.nc # no provenance info
+    nitro: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/restart/jsbach/restart_pi-wiso_18500101_nitro.nc # no provenance info
+    veg: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/restart/jsbach/restart_pi-wiso_18500101_veg.nc # no provenance info
+    land: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/restart/jsbach/restart_pi-wiso_18500101_land.nc # no provenance info
+    js_wiso: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/restart/jsbach/restart_pi-wiso_18500101_js_wiso.nc # no provenance info
+    la_wiso: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/restart/jsbach/restart_pi-wiso_18500101_la_wiso.nc # no provenance info
+    sf_wiso: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/restart/jsbach/restart_pi-wiso_18500101_sf_wiso.nc # no provenance info
   ignore_intermediate:
-    jsbach: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/jsbach/pi-wiso_185001.02_jsbach  # no provenance info
-    jsbid: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/jsbach/pi-wiso_185001.02_jsbid # no provenance info
-    yasso: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/jsbach/pi-wiso_185001.02_yasso # no provenance info
-    surf: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/jsbach/pi-wiso_185001.02_surf # no provenance info
-    nitro: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/jsbach/pi-wiso_185001.02_nitro # no provenance info
-    veg: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/jsbach/pi-wiso_185001.02_veg # no provenance info
-    land: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/jsbach/pi-wiso_185001.02_land # no provenance info
-    js_wiso: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/jsbach/pi-wiso_185001.02_js_wiso # no provenance info
-    la_wiso: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/jsbach/pi-wiso_185001.02_la_wiso # no provenance info
-    sf_wiso: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/jsbach/pi-wiso_185001.02_sf_wiso # no provenance info
-    jsbach_restart: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/jsbach/restart_pi-wiso_jsbach.nc # no provenance info
-    jsbid_restart: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/jsbach/restart_pi-wiso_jsbid.nc # no provenance info
-    yasso_restart: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/jsbach/restart_pi-wiso_yasso.nc # no provenance info
-    surf_restart: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/jsbach/restart_pi-wiso_surf.nc # no provenance info
-    nitro_restart: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/jsbach/restart_pi-wiso_nitro.nc # no provenance info
-    veg_restart: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/jsbach/restart_pi-wiso_veg.nc # no provenance info
-    land_restart: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/jsbach/restart_pi-wiso_land.nc # no provenance info
-    js_wiso_restart: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/jsbach/restart_pi-wiso_js_wiso.nc # no provenance info
-    la_wiso_restart: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/jsbach/restart_pi-wiso_la_wiso.nc # no provenance info
-    sf_wiso_restart: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/jsbach/restart_pi-wiso_sf_wiso.nc # no provenance info
-    jsbach_codes: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/jsbach/pi-wiso_185001.02_jsbach.codes # no provenance info
-    jsbid_codes: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/jsbach/pi-wiso_185001.02_jsbid.codes # no provenance info
-    yasso_codes: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/jsbach/pi-wiso_185001.02_yasso.codes # no provenance info
-    surf_codes: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/jsbach/pi-wiso_185001.02_surf.codes # no provenance info
-    nitro_codes: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/jsbach/pi-wiso_185001.02_nitro.codes # no provenance info
-    veg_codes: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/jsbach/pi-wiso_185001.02_veg.codes # no provenance info
-    land_codes: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/jsbach/pi-wiso_185001.02_land.codes # no provenance info
-    js_wiso_codes: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/jsbach/pi-wiso_185001.02_js_wiso.codes # no provenance info
-    la_wiso_codes: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/jsbach/pi-wiso_185001.02_la_wiso.codes # no provenance info
-    sf_wiso_codes: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/ignore/jsbach/pi-wiso_185001.02_sf_wiso.codes # no provenance info
+    jsbach: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/jsbach/pi-wiso_185001.02_jsbach  # no provenance info
+    jsbid: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/jsbach/pi-wiso_185001.02_jsbid # no provenance info
+    yasso: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/jsbach/pi-wiso_185001.02_yasso # no provenance info
+    surf: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/jsbach/pi-wiso_185001.02_surf # no provenance info
+    nitro: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/jsbach/pi-wiso_185001.02_nitro # no provenance info
+    veg: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/jsbach/pi-wiso_185001.02_veg # no provenance info
+    land: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/jsbach/pi-wiso_185001.02_land # no provenance info
+    js_wiso: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/jsbach/pi-wiso_185001.02_js_wiso # no provenance info
+    la_wiso: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/jsbach/pi-wiso_185001.02_la_wiso # no provenance info
+    sf_wiso: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/jsbach/pi-wiso_185001.02_sf_wiso # no provenance info
+    jsbach_restart: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/jsbach/restart_pi-wiso_jsbach.nc # no provenance info
+    jsbid_restart: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/jsbach/restart_pi-wiso_jsbid.nc # no provenance info
+    yasso_restart: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/jsbach/restart_pi-wiso_yasso.nc # no provenance info
+    surf_restart: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/jsbach/restart_pi-wiso_surf.nc # no provenance info
+    nitro_restart: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/jsbach/restart_pi-wiso_nitro.nc # no provenance info
+    veg_restart: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/jsbach/restart_pi-wiso_veg.nc # no provenance info
+    land_restart: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/jsbach/restart_pi-wiso_land.nc # no provenance info
+    js_wiso_restart: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/jsbach/restart_pi-wiso_js_wiso.nc # no provenance info
+    la_wiso_restart: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/jsbach/restart_pi-wiso_la_wiso.nc # no provenance info
+    sf_wiso_restart: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/jsbach/restart_pi-wiso_sf_wiso.nc # no provenance info
+    jsbach_codes: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/jsbach/pi-wiso_185001.02_jsbach.codes # no provenance info
+    jsbid_codes: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/jsbach/pi-wiso_185001.02_jsbid.codes # no provenance info
+    yasso_codes: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/jsbach/pi-wiso_185001.02_yasso.codes # no provenance info
+    surf_codes: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/jsbach/pi-wiso_185001.02_surf.codes # no provenance info
+    nitro_codes: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/jsbach/pi-wiso_185001.02_nitro.codes # no provenance info
+    veg_codes: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/jsbach/pi-wiso_185001.02_veg.codes # no provenance info
+    land_codes: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/jsbach/pi-wiso_185001.02_land.codes # no provenance info
+    js_wiso_codes: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/jsbach/pi-wiso_185001.02_js_wiso.codes # no provenance info
+    la_wiso_codes: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/jsbach/pi-wiso_185001.02_la_wiso.codes # no provenance info
+    sf_wiso_codes: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/ignore/jsbach/pi-wiso_185001.02_sf_wiso.codes # no provenance info
   namelist_objs:
     namelist.jsbach:
       jsbach_ctl:
@@ -4286,19 +4286,19 @@ hdmodel:
       run_to_work: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
       work_to_run: copy # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
   input_targets:
-    hdpara: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/work/hdpara.nc  # no provenance info
-    rmp_hd: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/work/rmp_hd.nc # no provenance info
-    hdstart: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/work/hdstart.nc # no provenance info
+    hdpara: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/work/hdpara.nc  # no provenance info
+    rmp_hd: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/work/rmp_hd.nc # no provenance info
+    hdstart: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/work/hdstart.nc # no provenance info
   restart_out_targets:
-    hdrestart: <TEST_DIR>run/awiesm/pi-wiso/restart/hdmodel/restart_pi-wiso_18500101_hdrestart.nc  # no provenance info
-    hdrestart_wiso: <TEST_DIR>run/awiesm/pi-wiso/restart/hdmodel/restart_pi-wiso_18500101_hdrestart_wiso.nc # no provenance info
+    hdrestart: <TEST_DIR>/run/awiesm/pi-wiso/restart/hdmodel/restart_pi-wiso_18500101_hdrestart.nc  # no provenance info
+    hdrestart_wiso: <TEST_DIR>/run/awiesm/pi-wiso/restart/hdmodel/restart_pi-wiso_18500101_hdrestart_wiso.nc # no provenance info
   input_intermediate:
-    hdpara: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/input/hdmodel/hdpara.nc  # no provenance info
-    rmp_hd: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/input/hdmodel/rmp_hd.nc # no provenance info
-    hdstart: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/input/hdmodel/hdstart.nc # no provenance info
+    hdpara: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/input/hdmodel/hdpara.nc  # no provenance info
+    rmp_hd: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/input/hdmodel/rmp_hd.nc # no provenance info
+    hdstart: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/input/hdmodel/hdstart.nc # no provenance info
   restart_out_intermediate:
-    hdrestart: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/restart/hdmodel/restart_pi-wiso_18500101_hdrestart.nc  # no provenance info
-    hdrestart_wiso: <TEST_DIR>run/awiesm/pi-wiso/run_18500101-18500101/restart/hdmodel/restart_pi-wiso_18500101_hdrestart_wiso.nc # no provenance info
+    hdrestart: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/restart/hdmodel/restart_pi-wiso_18500101_hdrestart.nc  # no provenance info
+    hdrestart_wiso: <TEST_DIR>/run/awiesm/pi-wiso/run_18500101-18500101/restart/hdmodel/restart_pi-wiso_18500101_hdrestart_wiso.nc # no provenance info
   namelists: {}
   namelist_objs: {}
 general:
@@ -4310,7 +4310,7 @@ general:
   standalone: false  # no provenance info
   model: awiesm # <HOME_DIR>/esm_tools/configs/setups/awiesm/awiesm.yaml,line:80,col:16
   coupled_setup: true # <HOME_DIR>/esm_tools/configs/setups/awiesm/awiesm.yaml,line:82,col:24
-  version: 2.1 # <TEST_DIR>run/awiesm/pi-wiso/scripts/pi-wiso.yaml,line:13,col:14
+  version: 2.1 # <TEST_DIR>/run/awiesm/pi-wiso/scripts/pi-wiso.yaml,line:13,col:14
   available_versions:
   - 2.1  # <HOME_DIR>/esm_tools/configs/setups/awiesm/awiesm.yaml,line:91,col:11
   - 2.1-wiso # <HOME_DIR>/esm_tools/configs/setups/awiesm/awiesm.yaml,line:92,col:11
@@ -4318,14 +4318,14 @@ general:
   - 2.1-paleodyn-2.5 # <HOME_DIR>/esm_tools/configs/setups/awiesm/awiesm.yaml,line:94,col:11
   - 2.6 # <HOME_DIR>/esm_tools/configs/setups/awiesm/awiesm.yaml,line:95,col:11
   - 2.6.1 # <HOME_DIR>/esm_tools/configs/setups/awiesm/awiesm.yaml,line:96,col:11
-  with_wiso: true # <TEST_DIR>run/awiesm/pi-wiso/scripts/pi-wiso.yaml,line:11,col:16
+  with_wiso: true # <TEST_DIR>/run/awiesm/pi-wiso/scripts/pi-wiso.yaml,line:11,col:16
   with_pico: false # <HOME_DIR>/esm_tools/configs/setups/awiesm/awiesm.yaml,line:138,col:20
   with_icb: false # <HOME_DIR>/esm_tools/configs/setups/awiesm/awiesm.yaml,line:139,col:19
   with_bootstrap: false # <HOME_DIR>/esm_tools/configs/setups/awiesm/awiesm.yaml,line:140,col:25
   iterative_coupling: false # <HOME_DIR>/esm_tools/configs/setups/awiesm/awiesm.yaml,line:141,col:29
   scenario: PI-CTRL # <HOME_DIR>/esm_tools/configs/setups/awiesm/awiesm.yaml,line:143,col:19
   resolution: T63_CORE2 # <HOME_DIR>/esm_tools/configs/setups/awiesm/awiesm.yaml,line:144,col:21
-  postprocessing: false # <TEST_DIR>run/awiesm/pi-wiso/scripts/pi-wiso.yaml,line:26,col:21
+  postprocessing: false # <TEST_DIR>/run/awiesm/pi-wiso/scripts/pi-wiso.yaml,line:26,col:21
   post_time: 00:05:00 # <HOME_DIR>/esm_tools/configs/setups/awiesm/awiesm.yaml,line:146,col:20
   valid_setup_names:
   - general  # no provenance info
@@ -4352,18 +4352,18 @@ general:
   - echam  # <HOME_DIR>/esm_tools/configs/setups/awiesm/awiesm.yaml,line:85,col:19
   - fesom # <HOME_DIR>/esm_tools/configs/setups/awiesm/awiesm.yaml,line:86,col:19
   - oasis3mct # <HOME_DIR>/esm_tools/configs/setups/awiesm/awiesm.yaml,line:87,col:19
-  account: None  # <TEST_DIR>run/awiesm/pi-wiso/scripts/pi-wiso.yaml,line:2,col:14
-  setup_name: awiesm # <TEST_DIR>run/awiesm/pi-wiso/scripts/pi-wiso.yaml,line:3,col:17
-  compute_time: 00:30:00 # <TEST_DIR>run/awiesm/pi-wiso/scripts/pi-wiso.yaml,line:4,col:19
+  account: None  # <TEST_DIR>/run/awiesm/pi-wiso/scripts/pi-wiso.yaml,line:2,col:14
+  setup_name: awiesm # <TEST_DIR>/run/awiesm/pi-wiso/scripts/pi-wiso.yaml,line:3,col:17
+  compute_time: 00:30:00 # <TEST_DIR>/run/awiesm/pi-wiso/scripts/pi-wiso.yaml,line:4,col:19
   initial_date: '1850-01-01T00:00:00' # no provenance info
   final_date: '1850-01-04T00:00:00' # no provenance info
-  base_dir: <TEST_DIR>/run/awiesm/ # <TEST_DIR>run/awiesm/pi-wiso/scripts/pi-wiso.yaml,line:7,col:15
+  base_dir: <TEST_DIR>/run/awiesm/ # <TEST_DIR>/run/awiesm/pi-wiso/scripts/pi-wiso.yaml,line:7,col:15
   nday: 1 # no provenance info
   nmonth: 0 # no provenance info
   nyear: 0 # no provenance info
   use_venv: false # no provenance info
-  description: Basic AWIESM Test for PI # <TEST_DIR>run/awiesm/pi-wiso/scripts/pi-wiso.yaml,line:14,col:18
-  runscript_abspath: <TEST_DIR>run/awiesm/pi-wiso/scripts/pi-wiso.yaml # no provenance info
+  description: Basic AWIESM Test for PI # <TEST_DIR>/run/awiesm/pi-wiso/scripts/pi-wiso.yaml,line:14,col:18
+  runscript_abspath: <TEST_DIR>/run/awiesm/pi-wiso/scripts/pi-wiso.yaml # no provenance info
   additional_files: []
   runscript: pi-wiso.yaml  # no provenance info
   debug: false # no provenance info
@@ -4388,12 +4388,12 @@ general:
   ignore_config_warnings: false # no provenance info
   jobtype: prepcompute # no provenance info
   original_command: pi-wiso.yaml -e pi-wiso --open-run -c --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
-  started_from: <TEST_DIR>run/awiesm/pi-wiso/scripts/ # no provenance info
+  started_from: <TEST_DIR>/run/awiesm/pi-wiso/scripts/ # no provenance info
   scriptname: pi-wiso.yaml # no provenance info
   isinteractive: false # no provenance info
   isresubmitted: true # no provenance info
   execution_mode: run # no provenance info
-  model_dir: <TEST_DIR>/comp/awiesm/awiesm-2.1 # <TEST_DIR>run/awiesm/pi-wiso/scripts/pi-wiso.yaml,line:27,col:16
+  model_dir: <TEST_DIR>/comp/awiesm/awiesm-2.1 # <TEST_DIR>/run/awiesm/pi-wiso/scripts/pi-wiso.yaml,line:27,col:16
   experiment_dir: <TEST_DIR>/run/awiesm//pi-wiso # no provenance info
   per_model_defaults: {}
   iterative_coupled_model: ''  # <HOME_DIR>/esm_tools/configs/esm_software/esm_runscripts/defaults.yaml,line:6,col:30
@@ -4439,9 +4439,9 @@ general:
     jobtype: prepcompute # no provenance info
     use_venv: false # no provenance info
     original_command: pi-wiso.yaml -e pi-wiso --open-run -c --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
-    started_from: <TEST_DIR>run/awiesm/pi-wiso/scripts/ # no provenance info
+    started_from: <TEST_DIR>/run/awiesm/pi-wiso/scripts/ # no provenance info
     scriptname: pi-wiso.yaml # no provenance info
-    runscript_abspath: <TEST_DIR>run/awiesm/pi-wiso/scripts/pi-wiso.yaml # no provenance info
+    runscript_abspath: <TEST_DIR>/run/awiesm/pi-wiso/scripts/pi-wiso.yaml # no provenance info
   couplings:
   - fesom-2.1-awiesm-2.1+echam-6.3.05p2-awiesm-2.1  # <HOME_DIR>/esm_tools/configs/setups/awiesm/awiesm.yaml,line:121,col:15
   fesom_Dflags: -DFESOM_COUPLED=ON  # <HOME_DIR>/esm_tools/configs/setups/awiesm/awiesm.yaml,line:122,col:27
@@ -4463,7 +4463,7 @@ general:
   - compute_and_log_file_checksums # <HOME_DIR>/esm_tools/configs/setups/awiesm/awiesm.yaml,line:74,col:19
   - _write_finalized_config # <HOME_DIR>/esm_tools/configs/setups/awiesm/awiesm.yaml,line:77,col:19
   - database_entry # <HOME_DIR>/esm_tools/configs/setups/awiesm/awiesm.yaml,line:78,col:19
-  CDP: /work/ollie/mandresm/testing_pool/awiesm_unified/FESOM/hydrography/  # <TEST_DIR>run/awiesm/pi-wiso/scripts/pi-wiso.yaml,line:22,col:18
+  CDP: /work/ollie/mandresm/testing_pool/awiesm_unified/FESOM/hydrography/  # <TEST_DIR>/run/awiesm/pi-wiso/scripts/pi-wiso.yaml,line:22,col:18
   nhour: 0 # no provenance info
   nminute: 0 # no provenance info
   nsecond: 0 # no provenance info
