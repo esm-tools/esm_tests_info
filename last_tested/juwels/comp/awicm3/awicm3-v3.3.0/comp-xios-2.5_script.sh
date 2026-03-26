@@ -81,5 +81,5 @@ unset SLURM_NPROCS
 unset SLURM_ARBITRARY_NODELIST
 
 pushd xios
-export XIOS_TOPLEVEL=<TEST_DIR>comp/awicm3/awicm3-v3.3.0/xios; ./make_xios --arch ESMTOOLS_generic_oasis_intel --netcdf_lib netcdf4_par --use_oasis oasis3_mct --job 24 --prod; cp bin/xios_server.exe bin/xios.x
+export XIOS_TOPLEVEL=<TEST_DIR>/comp/awicm3/awicm3-v3.3.0/xios; ./make_xios --arch ESMTOOLS_generic_oasis_intel --netcdf_lib netcdf4_par --use_oasis oasis3_mct --job 24 --prod; cp bin/xios_server.exe bin/xios.x
 popd
