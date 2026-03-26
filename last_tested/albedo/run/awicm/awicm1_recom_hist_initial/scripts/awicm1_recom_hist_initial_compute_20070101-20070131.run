@@ -67,7 +67,7 @@ unset SLURM_MEM_PER_CPU
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 2007-01-01T00:00:00 1124 - start" >> <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/log//awicm1_recom_hist_initial_awicm.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 2007-01-01T00:00:00 1125 - start" >> <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/log//awicm1_recom_hist_initial_awicm.log
 
 cd <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/run_20070101-20070131/work/
 time srun -l --kill-on-bad-exit=1 --cpu_bind=cores --multi-prog hostfile_srun 2>&1 &
@@ -83,6 +83,6 @@ source <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/run_20070101-20070131/wor
 cd <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/scripts/
 esm_runscripts awicm1_recom_hist_initial.yaml -e awicm1_recom_hist_initial -t observe_compute -p ${process} -s 20070101 -r 1 -v --last-jobtype prepcompute --open-run
 
-echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 2007-01-01T00:00:00 1124 - done" >> <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/log//awicm1_recom_hist_initial_awicm.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 2007-01-01T00:00:00 1125 - done" >> <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/log//awicm1_recom_hist_initial_awicm.log
 
 wait
