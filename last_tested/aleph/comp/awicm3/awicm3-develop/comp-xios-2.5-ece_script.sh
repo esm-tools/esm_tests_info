@@ -50,8 +50,8 @@ export FCFLAGS="-fPIC"
 export MKL_CBWR=AUTO,STRICT
 export DATA=/on/a/road/to/nowwhere/test/run_20000101-20001231/work/
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/on/a/road/to/nowwhere/test/run_20000101-20001231/work//lib/oifs/
-export GRIB_SAMPLES_PATH=<TEST_DIR>comp/awicm3/awicm3-develop/oifs-48r1/build/share/eccodes/ifs_samples/grib1_mlgrib2
-export OIFS_LOGFILE=<TEST_DIR>comp/awicm3/awicm3-develop/oifs-48r1/build/oifs_test_log.txt
+export GRIB_SAMPLES_PATH=<TEST_DIR>/comp/awicm3/awicm3-develop/oifs-48r1/build/share/eccodes/ifs_samples/grib1_mlgrib2
+export OIFS_LOGFILE=<TEST_DIR>/comp/awicm3/awicm3-develop/oifs-48r1/build/oifs_test_log.txt
 export DR_HOOK_IGNORE_SIGNALS=-1
 export RNF_OASIS_BASE=$(pwd)/oasis
 export RNF_OASIS_INCLUDE="-I$RNF_OASIS_BASE/build/lib/psmile -I$RNF_OASIS_BASE/build/lib/psmile/scrip -I$RNF_OASIS_BASE/build/lib/psmile/mct -I$RNF_OASIS_BASE/build/lib/psmile/mct/mpeu"
@@ -68,5 +68,5 @@ export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 
 
 pushd xios
-export XIOS_TOPLEVEL=<TEST_DIR>comp/awicm3/awicm3-develop/xios; ./make_xios --arch ESMTOOLS_generic_oasis_cray --netcdf_lib netcdf4_par --use_oasis oasis3_mct --job 24 --prod; cp bin/xios_server.exe bin/xios.x
+export XIOS_TOPLEVEL=<TEST_DIR>/comp/awicm3/awicm3-develop/xios; ./make_xios --arch ESMTOOLS_generic_oasis_cray --netcdf_lib netcdf4_par --use_oasis oasis3_mct --job 24 --prod; cp bin/xios_server.exe bin/xios.x
 popd
