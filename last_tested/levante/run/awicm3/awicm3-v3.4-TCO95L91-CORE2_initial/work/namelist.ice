@@ -18,8 +18,6 @@
 &ice_therm
     sice = 4.0
     iclasses = 7
-    new_iclasses = .false.
-    h_cutoff = 3.0
     h0 = 0.5
     h0_s = 0.5
     hmin = 0.01
@@ -31,9 +29,11 @@
     albi = 0.7
     albim = 0.68
     albw = 0.1
-    open_water_albedo = 0
     con = 2.1656
     consn = 0.31
     snowdist = .true.
+    new_iclasses = .false.
+    open_water_albedo = 0
     c_melt = 0.5
+    h_cutoff = 3.0
 /

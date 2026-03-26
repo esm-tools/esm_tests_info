@@ -4,7 +4,7 @@
 #SBATCH --ntasks=64
 #SBATCH --output=<TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/log/foci-initial-piCtl-test_daily_restart_lowcpu_foci_compute_18500101-18500101_%j.log --error=<TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/log/foci-initial-piCtl-test_daily_restart_lowcpu_foci_compute_18500101-18500101_%j.log
 #SBATCH --job-name=foci-initial-piCtl-test_daily_restart_lowcpu
-#SBATCH --account=ab0246
+#SBATCH --account=None
 #SBATCH --mail-type=NONE
 #SBATCH --ntasks-per-core=1
 #SBATCH --exclusive
@@ -89,7 +89,7 @@ export LD_LIBRARY_PATH=$HDF5ROOT/lib:$NETCDFROOT/lib:$NETCDFFROOT/lib:$AEC_ROOT/
 export LD_LIBRARY_PATH=/sw/spack-levante/intel-oneapi-mkl-2022.0.1-ttdktf/mkl/2022.0.1/lib/intel64:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/sw/spack-levante/intel-oneapi-mpi-2021.5.0-mrcss7/mpi/2021.5.0/libfabric/lib:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=<TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/work//lib/oasis/:$LD_LIBRARY_PATH
-export ACCOUNT=ab0246
+export ACCOUNT=None
 export ESM_TESTING_DIR=<TEST_DIR>/run/foci/
 export MODEL_DIR=<TEST_DIR>/comp/foci/foci-default
 export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
@@ -99,7 +99,7 @@ export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1850-01-01T00:00:00 1200692 - start" >> <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/log//foci-initial-piCtl-test_daily_restart_lowcpu_foci.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1850-01-01T00:00:00 1429 - start" >> <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/log//foci-initial-piCtl-test_daily_restart_lowcpu_foci.log
 
 cd <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/run_18500101-18500101/work/
 time srun -l --cpu-bind=cores --distribution=cyclic:cyclic --hint=nomultithread --multi-prog hostfile_srun 2>&1 &
@@ -115,6 +115,6 @@ source <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/run_185
 cd <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/scripts/
 esm_runscripts foci-initial-piCtl-test_daily_restart_lowcpu.yaml -e foci-initial-piCtl-test_daily_restart_lowcpu -t observe_compute -p ${process} -s 18500101 -r 1 -v --last-jobtype prepcompute --open-run
 
-echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1850-01-01T00:00:00 1200692 - done" >> <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/log//foci-initial-piCtl-test_daily_restart_lowcpu_foci.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1850-01-01T00:00:00 1429 - done" >> <TEST_DIR>/run/foci//foci-initial-piCtl-test_daily_restart_lowcpu/log//foci-initial-piCtl-test_daily_restart_lowcpu_foci.log
 
 wait

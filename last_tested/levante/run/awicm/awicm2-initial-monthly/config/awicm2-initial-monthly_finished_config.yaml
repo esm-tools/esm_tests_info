@@ -136,7 +136,7 @@ echam:
   bin_dir: <TEST_DIR>/comp/awicm/awicm-2.0/bin # <FUNCTIONS_PATH>/components/echam/echam.yaml,line:213,col:14
   pool_dir: /pool/data/ECHAM6/ # <FUNCTIONS_PATH>/components/echam/echam.yaml,line:214,col:15
   input_dir: /pool/data/ECHAM6//input/r0007 # <FUNCTIONS_PATH>/components/echam/echam.yaml,line:215,col:16
-  adj_input_dir: /work/ab0246/<USER_ACCOUNT>/pool/AWICM/ECHAM6/tarfilesT63/input/echam6 # <TEST_DIR>/run/awicm/awicm2-initial-monthly/scripts/awicm2-initial-monthly.yaml,line:35,col:20
+  adj_input_dir: /work/ab0246/a270152/pool/AWICM/ECHAM6/tarfilesT63/input/echam6 # <TEST_DIR>/run/awicm/awicm2-initial-monthly/scripts/awicm2-initial-monthly.yaml,line:35,col:20
   forcing_dir: /pool/data/ECHAM6//input/r0007/T63 # <FUNCTIONS_PATH>/components/echam/echam.yaml,line:217,col:18
   greenhouse_dir: /pool/data/ECHAM6/ # <FUNCTIONS_PATH>/components/echam/echam.yaml,line:218,col:21
   namelist_dir: <NAMELIST_PATH>/echam/6.3.04p1/PI-CTRL # <FUNCTIONS_PATH>/components/echam/echam.yaml,line:219,col:19
@@ -619,12 +619,12 @@ echam:
   input_sources:
     cldoptprops: /pool/data/ECHAM6//input/r0007/ECHAM6_CldOptProps.nc  # <FUNCTIONS_PATH>/components/echam/echam.datasets.yaml,line:5,col:28
     janspec: /pool/data/ECHAM6//input/r0007/T63/T63L47_jan_spec.nc # <FUNCTIONS_PATH>/components/echam/echam.datasets.yaml,line:6,col:24
-    jansurf: /work/ab0246/<USER_ACCOUNT>/pool/AWICM/ECHAM6/tarfilesT63/input/echam6/T63CORE2_jan_surf.nc # <FUNCTIONS_PATH>/components/echam/echam.datasets.yaml,line:7,col:24
+    jansurf: /work/ab0246/a270152/pool/AWICM/ECHAM6/tarfilesT63/input/echam6/T63CORE2_jan_surf.nc # <FUNCTIONS_PATH>/components/echam/echam.datasets.yaml,line:7,col:24
     rrtmglw: /pool/data/ECHAM6//input/r0007/rrtmg_lw.nc # <FUNCTIONS_PATH>/components/echam/echam.datasets.yaml,line:8,col:24
     rrtmgsw: /pool/data/ECHAM6//input/r0007/rrtmg_sw.nc # <FUNCTIONS_PATH>/components/echam/echam.datasets.yaml,line:9,col:24
     tslclim: /pool/data/ECHAM6//input/r0007/T63/T63_TSLCLIM.nc # <FUNCTIONS_PATH>/components/echam/echam.datasets.yaml,line:10,col:24
-    vgratclim: /work/ab0246/<USER_ACCOUNT>/pool/AWICM/ECHAM6/tarfilesT63/input/echam6/T63CORE2_VGRATCLIM.nc # <FUNCTIONS_PATH>/components/echam/echam.datasets.yaml,line:11,col:26
-    vltclim: /work/ab0246/<USER_ACCOUNT>/pool/AWICM/ECHAM6/tarfilesT63/input/echam6/T63CORE2_VLTCLIM.nc # <FUNCTIONS_PATH>/components/echam/echam.datasets.yaml,line:12,col:24
+    vgratclim: /work/ab0246/a270152/pool/AWICM/ECHAM6/tarfilesT63/input/echam6/T63CORE2_VGRATCLIM.nc # <FUNCTIONS_PATH>/components/echam/echam.datasets.yaml,line:11,col:26
+    vltclim: /work/ab0246/a270152/pool/AWICM/ECHAM6/tarfilesT63/input/echam6/T63CORE2_VLTCLIM.nc # <FUNCTIONS_PATH>/components/echam/echam.datasets.yaml,line:12,col:24
   ozone_source_file_scenario: PI-CTRL # <FUNCTIONS_PATH>/components/echam/echam.datasets.yaml,line:16,col:33
   forcing_sources:
     aerocoarse_year_2000: /pool/data/ECHAM6//input/r0007/T63/aero/T63_aeropt_kinne_sw_b14_coa.nc  # <FUNCTIONS_PATH>/components/echam/echam.datasets.yaml,line:35,col:29
@@ -777,7 +777,7 @@ echam:
   model_dir: <TEST_DIR>/comp/awicm/awicm-2.0/echam-6.3.04p1 # <FUNCTIONS_PATH>/setups/awicm/awicm-2.0.yaml,line:43,col:20
   repo_tag: 6.3.04p1 # <FUNCTIONS_PATH>/components/echam/echam.yaml,line:285,col:31
   dataset: r0007 # <FUNCTIONS_PATH>/components/echam/echam.yaml,line:286,col:30
-  adj_input_dir_base: /work/ab0246/<USER_ACCOUNT>/pool/AWICM/ECHAM6/tarfilesT63 # <TEST_DIR>/run/awicm/awicm2-initial-monthly/scripts/awicm2-initial-monthly.yaml,line:38,col:33
+  adj_input_dir_base: /work/ab0246/a270152/pool/AWICM/ECHAM6/tarfilesT63 # <TEST_DIR>/run/awicm/awicm2-initial-monthly/scripts/awicm2-initial-monthly.yaml,line:38,col:33
   levels: L47 # <FUNCTIONS_PATH>/components/echam/echam.yaml,line:260,col:29
   time_step: 450 # <FUNCTIONS_PATH>/components/echam/echam.yaml,line:261,col:32
   _nx: 192 # <FUNCTIONS_PATH>/components/echam/echam.yaml,line:262,col:26
@@ -1636,7 +1636,7 @@ computer:
     LD_LIBRARY_PATH[(0)]: $HDF5ROOT/lib:$NETCDFROOT/lib:$NETCDFFROOT/lib:$LD_LIBRARY_PATH # <FUNCTIONS_PATH>/machines/levante.yaml,line:354,col:39
     LD_LIBRARY_PATH[(1)]: /sw/spack-levante/intel-oneapi-mkl-2022.0.1-ttdktf/mkl/2022.0.1/lib/intel64:$LD_LIBRARY_PATH # <FUNCTIONS_PATH>/machines/levante.yaml,line:357,col:39
     LD_LIBRARY_PATH[(2)]: /sw/spack-levante/intel-oneapi-mpi-2021.5.0-mrcss7/mpi/2021.5.0/libfabric/lib:$LD_LIBRARY_PATH # <FUNCTIONS_PATH>/machines/levante.yaml,line:360,col:39
-    ACCOUNT: ab0246 # no provenance info
+    ACCOUNT: None # no provenance info
     ESM_TESTING_DIR: <TEST_DIR>/run/awicm/ # no provenance info
     MODEL_DIR: <TEST_DIR>/comp/awicm/awicm-2.0 # no provenance info
   load_python: false  # <FUNCTIONS_PATH>/machines/levante.yaml,line:137,col:18
@@ -1694,7 +1694,7 @@ computer:
   nnodes: 1 # <FUNCTIONS_PATH>/other_software/batch_system/slurm.yaml,line:152,col:13
   model: computer # no provenance info
   add_export_vars:
-    ACCOUNT: ab0246  # no provenance info
+    ACCOUNT: None  # no provenance info
     ESM_TESTING_DIR: <TEST_DIR>/run/awicm/ # no provenance info
     MODEL_DIR: <TEST_DIR>/comp/awicm/awicm-2.0 # no provenance info
   heterogeneous_parallelization: false  # no provenance info
@@ -1711,7 +1711,7 @@ computer:
   libaec_version: 1.0.5-intel-2021.5.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:304,col:29
   libaec_path: /sw/spack-levante/libaec-1.0.5-gij7yv # <FUNCTIONS_PATH>/machines/levante.yaml,line:305,col:26
   tbb_path: /sw/spack-levante/intel-oneapi-compilers-2022.0.1-an2cbq/tbb/2021.5.0 # <FUNCTIONS_PATH>/machines/levante.yaml,line:306,col:23
-  accounting_flag: --account=ab0246 # <FUNCTIONS_PATH>/other_software/batch_system/slurm.yaml,line:28,col:38
+  accounting_flag: --account=None # <FUNCTIONS_PATH>/other_software/batch_system/slurm.yaml,line:28,col:38
   cpu_bind: cores # <FUNCTIONS_PATH>/other_software/batch_system/slurm.yaml,line:79,col:23
   srun_execution_command: srun -l --hint=nomultithread --multi-prog hostfile_srun # <FUNCTIONS_PATH>/other_software/batch_system/slurm.yaml,line:80,col:37
   hyperthreading_flag: --ntasks-per-core=1 # <FUNCTIONS_PATH>/machines/levante.yaml,line:33,col:58
@@ -2871,7 +2871,6 @@ oasis3mct:
   bin_sources: {}
   config_sources:
     namcouple: <TEST_DIR>/run/awicm//awicm2-initial-monthly/run_20000101-20000131/config/oasis3mct//namcouple  # no provenance info
-    cf_glob_0: <TEST_DIR>/comp/awicm/awicm-2.0/oasis/cf_name_table.txt # no provenance info
   version: 2.8 # <FUNCTIONS_PATH>/components/oasis3mct/oasis3mct.yaml,line:44,col:14
   available_versions:
   - foci  # <FUNCTIONS_PATH>/components/oasis3mct/oasis3mct.yaml,line:47,col:7
@@ -3151,7 +3150,6 @@ oasis3mct:
   bin_targets: {}
   config_targets:
     namcouple: <TEST_DIR>/run/awicm/awicm2-initial-monthly/run_20000101-20000131/work/namcouple  # no provenance info
-    cf_glob_0: <TEST_DIR>/run/awicm/awicm2-initial-monthly/run_20000101-20000131/work/cf_name_table.txt # no provenance info
   log_targets:
     nout: <TEST_DIR>/run/awicm/awicm2-initial-monthly/log/oasis3mct/nout.000000  # no provenance info
     debug_r1: <TEST_DIR>/run/awicm/awicm2-initial-monthly/log/oasis3mct/debug.root.01 # no provenance info
@@ -3216,7 +3214,6 @@ oasis3mct:
   bin_intermediate: {}
   config_intermediate:
     namcouple: <TEST_DIR>/run/awicm/awicm2-initial-monthly/run_20000101-20000131/config/oasis3mct/namcouple  # no provenance info
-    cf_glob_0: <TEST_DIR>/run/awicm/awicm2-initial-monthly/run_20000101-20000131/config/oasis3mct/cf_name_table.txt # no provenance info
   log_intermediate:
     nout: <TEST_DIR>/run/awicm/awicm2-initial-monthly/run_20000101-20000131/log/oasis3mct/nout.000000  # no provenance info
     debug_r1: <TEST_DIR>/run/awicm/awicm2-initial-monthly/run_20000101-20000131/log/oasis3mct/debug.root.01 # no provenance info
@@ -3279,7 +3276,7 @@ jsbach:
   license_text: "Please make sure you have a licence to use echam.In case you are\nunsure, please contact redmine...." # <FUNCTIONS_PATH>/components/jsbach/jsbach.yaml,line:13,col:19
   pool_dir: /pool/data/JSBACH # <FUNCTIONS_PATH>/components/jsbach/jsbach.yaml,line:17,col:15
   input_dir: /pool/data/JSBACH/input/r0010 # <FUNCTIONS_PATH>/components/jsbach/jsbach.yaml,line:18,col:16
-  adj_input_dir: /work/ab0246/<USER_ACCOUNT>/pool/AWICM/ECHAM6/tarfilesT63/input/jsbach # <TEST_DIR>/run/awicm/awicm2-initial-monthly/scripts/awicm2-initial-monthly.yaml,line:45,col:20
+  adj_input_dir: /work/ab0246/a270152/pool/AWICM/ECHAM6/tarfilesT63/input/jsbach # <TEST_DIR>/run/awicm/awicm2-initial-monthly/scripts/awicm2-initial-monthly.yaml,line:45,col:20
   cover_fract_dir: /pool/data/JSBACH/input/r0010/T63/land_use_maps/ # <FUNCTIONS_PATH>/components/jsbach/jsbach.yaml,line:20,col:22
   pool_dir_couple: /pool/data/AWICM/JSBACH # <FUNCTIONS_PATH>/components/jsbach/jsbach.yaml,line:23,col:22
   input_dir_couple: /pool/data/AWICM/JSBACH/input/r0010 # <FUNCTIONS_PATH>/components/jsbach/jsbach.yaml,line:27,col:23
@@ -3395,7 +3392,7 @@ jsbach:
   hist_extend_scenario: ssp370 # <FUNCTIONS_PATH>/components/jsbach/jsbach.datasets.yaml,line:9,col:27
   input_sources:
     lctlib: <TEST_DIR>/comp/awicm/awicm-2.0/echam-6.3.04p1/lctlib_nlct21.def  # <FUNCTIONS_PATH>/components/jsbach/jsbach.datasets.yaml,line:12,col:21
-    jsbach: /work/ab0246/<USER_ACCOUNT>/pool/AWICM/ECHAM6/tarfilesT63/input/jsbach/jsbach_T63CORE2_11tiles_5layers_1850.nc # <FUNCTIONS_PATH>/components/jsbach/jsbach.datasets.yaml,line:13,col:28
+    jsbach: /work/ab0246/a270152/pool/AWICM/ECHAM6/tarfilesT63/input/jsbach/jsbach_T63CORE2_11tiles_5layers_1850.nc # <FUNCTIONS_PATH>/components/jsbach/jsbach.datasets.yaml,line:13,col:28
   forcing_sources:
     a_nd_file: /pool/data/JSBACH/input/r0010/T63/spitfire/a_nd_T63.nc  # <FUNCTIONS_PATH>/components/jsbach/jsbach.datasets.yaml,line:85,col:42
     lightning: /pool/data/JSBACH/input/r0010/T63/spitfire/LISOTD_HRMC_V2.2_T63.nc # <FUNCTIONS_PATH>/components/jsbach/jsbach.datasets.yaml,line:86,col:42
@@ -3409,7 +3406,7 @@ jsbach:
   namelist_changes:
     namelist.jsbach:
       hydrology_ctl: {}
-  adj_input_dir_base: /work/ab0246/<USER_ACCOUNT>/pool/AWICM/ECHAM6/tarfilesT63  # <TEST_DIR>/run/awicm/awicm2-initial-monthly/scripts/awicm2-initial-monthly.yaml,line:48,col:33
+  adj_input_dir_base: /work/ab0246/a270152/pool/AWICM/ECHAM6/tarfilesT63  # <TEST_DIR>/run/awicm/awicm2-initial-monthly/scripts/awicm2-initial-monthly.yaml,line:48,col:33
   ssp_num: # <FUNCTIONS_PATH>/components/jsbach/jsbach.yaml,line:354,col:30
   Ndepo_sufix: '' # <FUNCTIONS_PATH>/components/jsbach/jsbach.yaml,line:355,col:34
   namelist_dir: <NAMELIST_PATH>/jsbach/3.20/PI-CTRL/no_dynveg # <FUNCTIONS_PATH>/components/jsbach/jsbach.yaml,line:124,col:51
@@ -3863,7 +3860,7 @@ general:
   - echam  # <FUNCTIONS_PATH>/setups/awicm/awicm-2.0.yaml,line:12,col:19
   - fesom # <FUNCTIONS_PATH>/setups/awicm/awicm-2.0.yaml,line:13,col:19
   - oasis3mct # <FUNCTIONS_PATH>/setups/awicm/awicm-2.0.yaml,line:14,col:19
-  account: ab0246  # <TEST_DIR>/run/awicm/awicm2-initial-monthly/scripts/awicm2-initial-monthly.yaml,line:2,col:14
+  account: None  # <TEST_DIR>/run/awicm/awicm2-initial-monthly/scripts/awicm2-initial-monthly.yaml,line:2,col:14
   setup_name: awicm # <TEST_DIR>/run/awicm/awicm2-initial-monthly/scripts/awicm2-initial-monthly.yaml,line:3,col:17
   compute_time: 00:15:00 # <TEST_DIR>/run/awicm/awicm2-initial-monthly/scripts/awicm2-initial-monthly.yaml,line:5,col:19
   initial_date: '2000-01-01T00:00:00' # no provenance info
@@ -3880,7 +3877,7 @@ general:
   verbose: false # no provenance info
   contained_run: # no provenance info
   open_run: true # no provenance info
-  check: false # no provenance info
+  check: true # no provenance info
   modify_config_file: # no provenance info
   last_jobtype: prepcompute # no provenance info
   task: prepcompute # no provenance info
@@ -3896,7 +3893,7 @@ general:
   ignore_config_warnings: false # no provenance info
   jobtype: prepcompute # no provenance info
   use_venv: false # no provenance info
-  original_command: awicm2-initial-monthly.yaml -e awicm2-initial-monthly --open-run --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
+  original_command: awicm2-initial-monthly.yaml -e awicm2-initial-monthly --open-run -c --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
   started_from: <TEST_DIR>/run/awicm/awicm2-initial-monthly/scripts/ # no provenance info
   scriptname: awicm2-initial-monthly.yaml # no provenance info
   isinteractive: false # no provenance info
@@ -3931,7 +3928,7 @@ general:
     contained_run: # no provenance info
     open_run: true # no provenance info
     expid: awicm2-initial-monthly # no provenance info
-    check: false # no provenance info
+    check: true # no provenance info
     modify_config_file: # no provenance info
     last_jobtype: prepcompute # no provenance info
     task: prepcompute # no provenance info
@@ -3947,7 +3944,7 @@ general:
     ignore_config_warnings: false # no provenance info
     jobtype: prepcompute # no provenance info
     use_venv: false # no provenance info
-    original_command: awicm2-initial-monthly.yaml -e awicm2-initial-monthly --open-run --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
+    original_command: awicm2-initial-monthly.yaml -e awicm2-initial-monthly --open-run -c --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
     started_from: <TEST_DIR>/run/awicm/awicm2-initial-monthly/scripts/ # no provenance info
     scriptname: awicm2-initial-monthly.yaml # no provenance info
     runscript_abspath: <TEST_DIR>/run/awicm/awicm2-initial-monthly/scripts/awicm2-initial-monthly.yaml # no provenance info
@@ -4126,14 +4123,14 @@ general:
     first_task_in_queue: prepcompute # no provenance info
     next_run_triggered_by: tidy # no provenance info
   submitted: false  # no provenance info
-  jobid: 248172 # no provenance info
+  jobid: 1320 # no provenance info
   batch: slurm # no provenance info
   coupler_config_dir: <TEST_DIR>/run/awicm//awicm2-initial-monthly/run_20000101-20000131/config/oasis3mct/ # no provenance info
   coupler: oasis3mct # no provenance info
   experiment_log_file: <TEST_DIR>/run/awicm//awicm2-initial-monthly/log//awicm2-initial-monthly_awicm.log # no provenance info
   esm_tools_version: 6.61.3 # no provenance info
-  logfile_path: <TEST_DIR>/run/awicm//awicm2-initial-monthly/log//awicm2-initial-monthly_awicm_prepcompute_20000101-20000131_248172.log # no provenance info
-  logfile_path_in_run: <TEST_DIR>/run/awicm//awicm2-initial-monthly/run_20000101-20000131/log//awicm2-initial-monthly_awicm_prepcompute_20000101-20000131_248172.log # no provenance info
+  logfile_path: <TEST_DIR>/run/awicm//awicm2-initial-monthly/log//awicm2-initial-monthly_awicm_prepcompute_20000101-20000131_1320.log # no provenance info
+  logfile_path_in_run: <TEST_DIR>/run/awicm//awicm2-initial-monthly/run_20000101-20000131/log//awicm2-initial-monthly_awicm_prepcompute_20000101-20000131_1320.log # no provenance info
   relevant_filetypes:
   - bin  # no provenance info
   - config # no provenance info

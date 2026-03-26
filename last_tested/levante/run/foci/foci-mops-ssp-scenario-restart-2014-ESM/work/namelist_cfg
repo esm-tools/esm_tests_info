@@ -1,0 +1,42 @@
+&namrun
+    cn_exp = 'foci-mops-ssp-scenario-restart-2014-ESM'
+    nn_it000 = 1
+    nn_itend = 40
+    nn_date0 = 20150101
+    cn_ocerst_in = 'FOCI1.20.0-CC105_RCP_ESM_spinup2099_02410600_restart_20141231_global'
+    cn_ocerst_indir = '/work/bb0519/foci_input2/FOCI_RESTART/FOCI1.20.0-CC105_RCP_ESM_spinup2099/nemo//'
+    cn_ocerst_out = 'restart_20150101'
+    cn_ocerst_outdir = '<TEST_DIR>/run/foci//foci-mops-ssp-scenario-restart-2014-ESM/restart/nemo//'
+    nn_stock = 40
+    nn_leapy = 1
+    nn_rstctl = 0
+    ln_rstart = .true.
+    nn_euler = 0
+/
+
+&namtsd
+    ln_tsd_init = .false.
+    ln_tsd_tradmp = .false.
+/
+
+&namsbc
+    nn_fsbc = 5
+/
+
+&nammpp
+    jpni = 0
+    jpnj = 0
+    jpnij = 24
+/
+
+&namdom
+    nn_closea = 1
+    nn_msh = 0
+    rn_rdt = 2160
+/
+
+&namdyn_hpg
+    ln_hpg_zps = .false.
+    ln_hpg_sco = .true.
+    ln_dynhpg_imp = .false.
+/
