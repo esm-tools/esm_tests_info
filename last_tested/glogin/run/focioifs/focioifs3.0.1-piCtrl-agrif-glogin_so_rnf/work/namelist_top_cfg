@@ -1,0 +1,80 @@
+&namtrc_run
+    nn_dttrc = 1
+    nn_writetrc = 1216
+    ln_top_euler = .false.
+    ln_rsttr = .false.
+    nn_rsttr = 2
+    cn_trcrst_in = 'focioifs3.0.1-piCtrl-agrif-glogin_so_rnf_00000000_restart_trc_18491231'
+    cn_trcrst_indir = '<TEST_DIR>/run/focioifs//focioifs3.0.1-piCtrl-agrif-glogin_so_rnf/restart/nemo//'
+    cn_trcrst_out = 'restart_trc_18500101'
+    cn_trcrst_outdir = '<TEST_DIR>/run/focioifs//focioifs3.0.1-piCtrl-agrif-glogin_so_rnf/restart/nemo//'
+/
+
+&namtrc
+    sn_tracer(1) = 'AGE'
+    ln_trcdta = .false.
+    ln_trcdmp = .false.
+    ln_trcdmp_clo = .false.
+/
+
+&namtrc_dta
+    cn_dir = './'
+/
+
+&namtrc_adv
+    ln_trcadv_cen2 = .false.
+    ln_trcadv_tvd = .true.
+    ln_trcadv_muscl = .false.
+    ln_trcadv_muscl2 = .false.
+    ln_trcadv_ubs = .false.
+    ln_trcadv_qck = .false.
+    ln_trcadv_msc_ups = .false.
+/
+
+&namtrc_ldf
+    ln_trcldf_lap = .true.
+    ln_trcldf_bilap = .false.
+    ln_trcldf_level = .false.
+    ln_trcldf_hor = .false.
+    ln_trcldf_iso = .true.
+    rn_ahtrc_0 = 600.0
+    rn_ahtrb_0 = 0.0
+/
+
+&namtrc_zdf
+    ln_trczdf_exp = .false.
+    nn_trczdf_exp = 3
+/
+
+&namtrc_rad
+    ln_trcrad = .false.
+/
+
+&namtrc_dmp
+    nn_zdmp_tr = 1
+    cn_resto_tr = ''
+/
+
+&namtrc_ice
+    nn_ice_tr = -1
+/
+
+&namtrc_trd
+    nn_trd_trc = 1216
+    nn_ctls_trc = 0
+    rn_ucf_trc = 1
+    ln_trdmxl_trc_restart = .false.
+    ln_trdmxl_trc_instant = .true.
+    ln_trdtrc = .false.
+/
+
+&namtrc_dia
+    ln_diatrc = .true.
+    ln_diabio = .false.
+    nn_writedia = 1216
+    nn_writebio = 10
+/
+
+&namtrc_bc
+    cn_dir = './'
+/

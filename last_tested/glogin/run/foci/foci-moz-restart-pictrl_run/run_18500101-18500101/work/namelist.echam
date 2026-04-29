@@ -1,0 +1,228 @@
+&parctl
+    nproca = 8
+    nprocb = 4
+    iomode = 0
+    nprocio = 0
+/
+
+&submodelctl
+    lmethox = .true.
+    lchemfeedback = .true.
+    linterh2o = .true.
+    lchemrad = .true.
+    lham = .false.
+    lbioemi_stdalone = .false.
+    lmoz = .true.
+    lhammoz = .false.
+    lhammonia = .false.
+    llght = .true.
+    lburden = .false.
+    lemissions = .false.
+    emi_basepath = ''
+/
+
+&qboctl
+    i_time = 0
+/
+
+&runctl
+    dt_start = 1848, 12, 31, 23, 52, 30
+    dt_stop = 1850, 1, 2, 23, 52, 30
+    putrerun = 1, 'days', 'last', 0
+    lfractional_mask = .false.
+    out_datapath = '<TEST_DIR>/run/foci//foci-moz-restart-pictrl_run/run_18500101-18500101/work/'
+    out_expname = 'foci-moz-restart-pictrl_run'
+    rerun_filetype = 4
+    delta_time = 450
+    putdata = 1, 'days', 'last', 0
+    trigfiles = 1, 'months', 'first', 0
+    nproma = 32
+    lcouple = .true.
+    getocean = 8, 'steps', 'exact', 0
+    putocean = 8, 'steps', 'exact', -450
+    lcouple_co2 = .false.
+    default_output = .false.
+    ltdiag = .true.
+    lresume = .true.
+    dt_resume = 1849, 12, 31, 23, 52, 30
+    ltimer = .true.
+/
+
+&gwsctl
+    rmscon_hi = 0.92
+    rmscon_lo = 1.13
+/
+
+&mvstreamctl
+    filetag = 'temraw'
+    source = 'sp', 'gl', 'g3b'
+    target = '*inst'
+    interval = 6, 'hours', 'first', 0
+    variables = 'svo:=inst', 'sd:=inst', 'lsp:=inst', 'geosp:=inst', 'st:=inst',
+                'q:=inst'
+/
+
+&mvstreamctl
+    filetag = 'echam'
+    source = 'sp', 'gl', 'g3b'
+/
+
+&mvstreamctl
+    filetag = 'co2'
+    source = 'co2'
+    interval = 1, 'days', 'last', 0
+/
+
+&mvstreamctl
+    filetag = 'tdiag'
+    source = 'tdiag'
+    meannam = 'dtdt_rheat_sw', 'dtdt_rheat_lw', 'geosp', 'aps', 'lsp', 'gboxarea'
+    interval = 1, 'days', 'last', 0
+/
+
+&mvstreamctl
+    filetag = 'jsbach'
+    source = 'jsbach'
+    interval = 1, 'days', 'last', 0
+/
+
+&mvstreamctl
+    filetag = 'land'
+    source = 'land'
+    interval = 1, 'days', 'last', 0
+/
+
+&mvstreamctl
+    filetag = 'veg'
+    source = 'veg'
+    interval = 1, 'days', 'last', 0
+/
+
+&mvstreamctl
+    filetag = 'yasso'
+    source = 'yasso'
+    interval = 1, 'days', 'last', 0
+/
+
+&set_stream
+    stream = 'jsbach'
+    lpost = 0
+/
+
+&set_stream
+    stream = 'land'
+    lpost = 0
+/
+
+&set_stream
+    stream = 'veg'
+    lpost = 0
+/
+
+&set_stream
+    stream = 'surf'
+    lpost = 0
+/
+
+&set_stream
+    stream = 'yasso'
+    lpost = 0
+/
+
+&mvstreamctl
+    filetag = 'moz'
+    source = 'moz'
+    interval = 1, 'days', 'last', 0
+/
+
+&set_stream
+    stream = 'moz'
+    lpost = 0
+/
+
+&mvstreamctl
+    filetag = 'tracer'
+    source = 'tracer'
+    variables = 'H2O', 'O3', 'NO', 'NO2', 'HNO3', 'N2O5', 'CLONO2'
+    interval = 1, 'days', 'last', 0
+/
+
+&mvstreamctl
+    filetag = 'alltrm'
+    target = 'alltrm'
+    source = 'tracer'
+    interval = 1, 'months', 'last', 0
+/
+
+&set_stream
+    stream = 'tracer'
+    lpost = 0
+/
+
+&set_stream
+    stream = 'photo'
+    lpost = 0
+/
+
+&set_stream
+    stream = 'lghtng'
+    lpost = 0
+/
+
+&set_stream
+    stream = 'mozh'
+    lpost = 0
+/
+
+&set_stream
+    stream = 'ma'
+    lpost = 0
+/
+
+&radctl
+    iaero = 3
+    io3 = 1
+    isolrad = 6
+    ich4 = 3
+    in2o = 3
+    co2vmr = 0.000284316986084
+    ch4vmr = 8.082490234375e-07
+    n2ovmr = 2.730210571289e-07
+    yr_perp = 1850
+    ico2 = 1
+/
+
+&submdiagctl
+    vphysc_lpost = .false.
+    vphyscnam = 'all'
+    wetdep_lpost = .false.
+    wetdepnam = 'all'
+    wetdep_gastrac = 'default'
+    wetdep_keytype = 2
+    drydep_lpost = .false.
+    drydepnam = 'all'
+    drydep_gastrac = 'default'
+    drydep_keytype = 2
+    sedi_lpost = .false.
+    sedinam = 'all'
+    sedi_keytype = 2
+    emi_lpost = .false.
+    emi_lpost_sector = .false.
+    eminam = 'all'
+    emi_gastrac = 'all'
+/
+
+&mozctl
+    bc_epp%ef_type = 0
+    bc_epp%ef_timedef = 1
+    lese = .false.
+    tempthresh = 34.42212
+    out_species = 'default'
+    lbc_species = 'CCL4', 'CFC12', 'CF2CLBR', 'CF3BR', 'CFC113', 'CFC11',
+                  'CH3BR', 'CH3CCL3', 'CH3CL', 'CH4', 'CO2', 'H2', 'HCFC22',
+                  'N2O'
+    burden_species = 'O3', 'NO2', 'NO', 'CO'
+    lfastj = .false.
+    lstrathet = .true.
+    ltrophet = .false.
+/

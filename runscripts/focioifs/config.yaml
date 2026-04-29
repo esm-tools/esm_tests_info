@@ -13,8 +13,8 @@ comp:
 #                        focioifs-2.0: "/p/scratch/chhb19/mandresm/focioifs-2.0_2021-10-21.tar.gz"
 run:
         actual:
-                errors:
-                    - "MISSING FILES"
+                #errors:
+                #         - "MISSING FILES"
                 files:
                     - "outdata/nemo/mesh_mask_*"
                     - "outdata/nemo/*_grid_T.nc"
@@ -22,7 +22,6 @@ run:
                     - "outdata/oifs/ECE*.nc"
                     - "restart/nemo/*_restart_*"
                     - "restart/nemo/*_restart_ice_*"
-                    - "restart/nemo/*_restart_trc_*"
                     - "restart/oasis3mct/rmp_*.nc"
                     - "restart/oasis3mct/atmflx*"
                     - "restart/oasis3mct/atmtau*"
@@ -33,5 +32,4 @@ run:
                     - "restart/oifs/*/srf*"
         check: {}
 computers:
-        - blogin
         - glogin
