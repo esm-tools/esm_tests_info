@@ -91,7 +91,7 @@ unset SLURM_MEM_PER_CPU
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 2000-01-01T00:00:00 1545 - start" >> <TEST_DIR>/run/awicm3//awicm3-v3.1-TCO95L91-CORE2_initial/log//awicm3-v3.1-TCO95L91-CORE2_initial_awicm3.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 2000-01-01T00:00:00 1725 - start" >> <TEST_DIR>/run/awicm3//awicm3-v3.1-TCO95L91-CORE2_initial/log//awicm3-v3.1-TCO95L91-CORE2_initial_awicm3.log
 
 cd <TEST_DIR>/run/awicm3//awicm3-v3.1-TCO95L91-CORE2_initial/run_20000101-20000101/work/
 
@@ -138,6 +138,6 @@ source <TEST_DIR>/run/awicm3//awicm3-v3.1-TCO95L91-CORE2_initial/run_20000101-20
 cd <TEST_DIR>/run/awicm3//awicm3-v3.1-TCO95L91-CORE2_initial/scripts/
 esm_runscripts awicm3-v3.1-TCO95L91-CORE2_initial.yaml -e awicm3-v3.1-TCO95L91-CORE2_initial -t observe_compute -p ${process} -s 20000101 -r 1 -v --last-jobtype prepcompute --open-run
 
-echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 2000-01-01T00:00:00 1545 - done" >> <TEST_DIR>/run/awicm3//awicm3-v3.1-TCO95L91-CORE2_initial/log//awicm3-v3.1-TCO95L91-CORE2_initial_awicm3.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 2000-01-01T00:00:00 1725 - done" >> <TEST_DIR>/run/awicm3//awicm3-v3.1-TCO95L91-CORE2_initial/log//awicm3-v3.1-TCO95L91-CORE2_initial_awicm3.log
 
 wait
