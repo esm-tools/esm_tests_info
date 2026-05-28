@@ -2,7 +2,7 @@
 #SBATCH --partition=standard96
 #SBATCH --time=00:15:00
 #SBATCH --ntasks=64
-#SBATCH --output=/mnt/lustre-mdc/workspaces/ws/shk00060/u11179-esm-experiments/esm-tests/run/foci//foci-moz-restart-pictrl_run/log/foci-moz-restart-pictrl_run_foci_compute_18500101-18500101_%j.log --error=/mnt/lustre-mdc/workspaces/ws/shk00060/u11179-esm-experiments/esm-tests/run/foci//foci-moz-restart-pictrl_run/log/foci-moz-restart-pictrl_run_foci_compute_18500101-18500101_%j.log
+#SBATCH --output=<TEST_DIR>/run/foci//foci-moz-restart-pictrl_run/log/foci-moz-restart-pictrl_run_foci_compute_18500101-18500101_%j.log --error=<TEST_DIR>/run/foci//foci-moz-restart-pictrl_run/log/foci-moz-restart-pictrl_run_foci_compute_18500101-18500101_%j.log
 #SBATCH --job-name=foci-moz-restart-pictrl_run
 #SBATCH --account=shk00060
 #SBATCH --mail-type=NONE
@@ -10,7 +10,7 @@
 #SBATCH --exclusive
 
 # Store batch system environment variables for later sourcing
-declare -p | grep -E "(SLURM)" > /mnt/lustre-mdc/workspaces/ws/shk00060/u11179-esm-experiments/esm-tests/run/foci//foci-moz-restart-pictrl_run/run_18500101-18500101/work//batch_system.env
+declare -p | grep -E "(SLURM)" > <TEST_DIR>/run/foci//foci-moz-restart-pictrl_run/run_18500101-18500101/work//batch_system.env
 
 module purge
 module load git-lfs
@@ -53,14 +53,14 @@ export NETCDF_CXX_INCLUDE_DIRECTORIES=$NETCDFROOT/include
 export OASIS3MCT_FC_LIB="-L$NETCDFFROOT/lib -lnetcdff"
 export OASIS_NETCDF=$NETCDFROOT
 export OASIS_NETCDFF=$NETCDFFROOT
-export LD_LIBRARY_PATH=/mnt/lustre-mdc/workspaces/ws/shk00060/u11179-esm-experiments/esm-tests/run/foci//foci-moz-restart-pictrl_run/run_18500101-18500101/work//lib/oasis/:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=<TEST_DIR>/run/foci//foci-moz-restart-pictrl_run/run_18500101-18500101/work//lib/oasis/:$LD_LIBRARY_PATH
 export ECHAM6_THREADS=1
 export NEMO_THREADS=1
 export I_MPI_DEBUG=1
 export IO_LIB_ROOT=/mnt/lustre-emmy-hdd/projects/shk00060/foci_input2/HPC_libraries
 export ACCOUNT=shk00060
-export ESM_TESTING_DIR=/mnt/lustre-mdc/workspaces/ws/shk00060/u11179-esm-experiments/esm-tests/run/foci/
-export MODEL_DIR=/mnt/lustre-mdc/workspaces/ws/shk00060/u11179-esm-experiments/esm-tests/comp/foci/foci-moz
+export ESM_TESTING_DIR=<TEST_DIR>/run/foci/
+export MODEL_DIR=<TEST_DIR>/comp/foci/foci-moz
 export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 
 
@@ -68,9 +68,9 @@ export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1850-01-01T00:00:00 4079175 - start" >> /mnt/lustre-mdc/workspaces/ws/shk00060/u11179-esm-experiments/esm-tests/run/foci//foci-moz-restart-pictrl_run/log//foci-moz-restart-pictrl_run_foci.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1850-01-01T00:00:00 2808452 - start" >> <TEST_DIR>/run/foci//foci-moz-restart-pictrl_run/log//foci-moz-restart-pictrl_run_foci.log
 
-cd /mnt/lustre-mdc/workspaces/ws/shk00060/u11179-esm-experiments/esm-tests/run/foci//foci-moz-restart-pictrl_run/run_18500101-18500101/work/
+cd <TEST_DIR>/run/foci//foci-moz-restart-pictrl_run/run_18500101-18500101/work/
 time mpirun  $(cat hostfile_srun) 2>&1 &
 
 # Call to esm_runscript to start subjobs:
@@ -78,12 +78,12 @@ time mpirun  $(cat hostfile_srun) 2>&1 &
 process=$!
 
 # Recover batch system environment variables
-source /mnt/lustre-mdc/workspaces/ws/shk00060/u11179-esm-experiments/esm-tests/run/foci//foci-moz-restart-pictrl_run/run_18500101-18500101/work//batch_system.env; rm /mnt/lustre-mdc/workspaces/ws/shk00060/u11179-esm-experiments/esm-tests/run/foci//foci-moz-restart-pictrl_run/run_18500101-18500101/work//batch_system.env
+source <TEST_DIR>/run/foci//foci-moz-restart-pictrl_run/run_18500101-18500101/work//batch_system.env; rm <TEST_DIR>/run/foci//foci-moz-restart-pictrl_run/run_18500101-18500101/work//batch_system.env
 
 # Comment the following line if you don't want esm_runscripts to restart:
-cd /mnt/lustre-mdc/workspaces/ws/shk00060/u11179-esm-experiments/esm-tests/run/foci//foci-moz-restart-pictrl_run/scripts/
+cd <TEST_DIR>/run/foci//foci-moz-restart-pictrl_run/scripts/
 esm_runscripts foci-moz-restart-pictrl_run.yaml -e foci-moz-restart-pictrl_run -t observe_compute -p ${process} -s 18500101 -r 1 -v --last-jobtype prepcompute --open-run
 
-echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1850-01-01T00:00:00 4079175 - done" >> /mnt/lustre-mdc/workspaces/ws/shk00060/u11179-esm-experiments/esm-tests/run/foci//foci-moz-restart-pictrl_run/log//foci-moz-restart-pictrl_run_foci.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1850-01-01T00:00:00 2808452 - done" >> <TEST_DIR>/run/foci//foci-moz-restart-pictrl_run/log//foci-moz-restart-pictrl_run_foci.log
 
 wait

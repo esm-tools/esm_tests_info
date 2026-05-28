@@ -69,7 +69,7 @@ export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1850-01-01T00:00:00 4078245 - start" >> <TEST_DIR>/run/foci//foci-mops-lmu-pictl-daily_restart_lowcpu/log//foci-mops-lmu-pictl-daily_restart_lowcpu_foci.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1850-01-01T00:00:00 2807080 - start" >> <TEST_DIR>/run/foci//foci-mops-lmu-pictl-daily_restart_lowcpu/log//foci-mops-lmu-pictl-daily_restart_lowcpu_foci.log
 
 cd <TEST_DIR>/run/foci//foci-mops-lmu-pictl-daily_restart_lowcpu/run_18500101-18500101/work/
 time mpirun  $(cat hostfile_srun) 2>&1 &
@@ -85,6 +85,6 @@ source <TEST_DIR>/run/foci//foci-mops-lmu-pictl-daily_restart_lowcpu/run_1850010
 cd <TEST_DIR>/run/foci//foci-mops-lmu-pictl-daily_restart_lowcpu/scripts/
 esm_runscripts foci-mops-lmu-pictl-daily_restart_lowcpu.yaml -e foci-mops-lmu-pictl-daily_restart_lowcpu -t observe_compute -p ${process} -s 18500101 -r 1 -v --last-jobtype prepcompute --open-run
 
-echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1850-01-01T00:00:00 4078245 - done" >> <TEST_DIR>/run/foci//foci-mops-lmu-pictl-daily_restart_lowcpu/log//foci-mops-lmu-pictl-daily_restart_lowcpu_foci.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1850-01-01T00:00:00 2807080 - done" >> <TEST_DIR>/run/foci//foci-mops-lmu-pictl-daily_restart_lowcpu/log//foci-mops-lmu-pictl-daily_restart_lowcpu_foci.log
 
 wait

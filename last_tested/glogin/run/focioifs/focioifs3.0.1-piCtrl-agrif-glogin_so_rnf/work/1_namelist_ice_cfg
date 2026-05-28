@@ -1,0 +1,124 @@
+&namicerun
+    cn_icerst_in = 'focioifs3.0.1-piCtrl-agrif-glogin_so_rnf_00000000_restart_ice_18491231'
+    cn_icerst_indir = '<TEST_DIR>/run/focioifs//focioifs3.0.1-piCtrl-agrif-glogin_so_rnf/restart/nemo//'
+    cn_icerst_out = 'restart_ice_18500101'
+    cn_icerst_outdir = '<TEST_DIR>/run/focioifs//focioifs3.0.1-piCtrl-agrif-glogin_so_rnf/restart/nemo//'
+    ln_limdyn = .true.
+    ln_limdmp = .false.
+    acrit = 1e-06, 1e-06
+    hsndif = 0.0
+    hicdif = 0.0
+/
+
+&namiceini
+    ln_limini = .false.
+    ttest = 2.0
+    hninn = 0.1
+    hginn = 2.0
+    alinn = 0.05
+    hnins = 0.1
+    hgins = 1.0
+    alins = 0.1
+/
+
+&namicedyn
+    epsd = 1e-20
+    alpha = 0.5
+    dm = 600.0
+    nbiter = 1
+    nbitdr = 100
+    om = 0.5
+    resl = 5e-05
+    cw = 0.005
+    angvg = 0.0
+    pstar = 15000.0
+    c_rhg = 20.0
+    etamn = 0.0
+    rn_creepl = 2e-08
+    rn_ecc = 2.0
+    ahi0 = 350.0
+    nn_nevp = 360
+    telast = 3600
+    alphaevp = 1.0
+    testlimrhg = 10
+/
+
+&namicetrp
+    bound = 0.0
+/
+
+&namicethd
+    hmelt = -0.15
+    hiccrit = 0.3, 0.6
+    hicmin = 0.2
+    hiclim = 0.05
+    amax = 0.999
+    swiqst = 1.0
+    sbeta = 1.0
+    parlat = 0.0
+    hakspl = 0.5
+    hibspl = 0.5
+    exld = 2.0
+    hakdif = 1.0
+    thth = 0.2
+    hnzst = 0.1
+    parsub = 0.0
+    alphs = 1.0
+/
+
+&namice_dmp
+    sn_hicif = 'ice_damping', -1.0, 'hicif', .true., .true., 'yearly', '',
+               '', ''
+    sn_frld = 'ice_damping', -1.0, 'frld', .true., .true., 'yearly', '',
+              '', ''
+    cn_dir = './'
+/
+
+&namicedia
+    fmtinf = '1PE13.5'
+    nfrinf = 4
+    ntmoy = 1
+    ninfo = 1
+/
+
+&namiceout
+    field_1 = 'Snow thickness                     ', 'isnowthi', 'm       ',
+              1, 1.0, 0.0
+    field_2 = 'Ice thickness                      ', 'iicethic', 'm       ',
+              1, 1.0, 0.0
+    field_3 = 'Ice produced                       ', 'iiceprod', 'm/kt    ',
+              1, 1.0, 0.0
+    field_4 = 'Ice concentration                  ', 'ileadfra', '%       ',
+              1, -1.0, 1.0
+    field_5 = 'Ice temperature                    ', 'iicetemp', 'C       ',
+              1, 1.0, -273.15
+    field_6 = 'Oceanic flux at the ice base       ', 'ioceflxb', 'w/m2    ',
+              1, 1.0, 0.0
+    field_7 = 'Ice velocity u                     ', 'iicevelu', 'm/s     ',
+              1, 1.0, 0.0
+    field_8 = 'Ice velocity v                     ', 'iicevelv', 'm/s     ',
+              1, 1.0, 0.0
+    field_9 = 'Sea surface temperature            ', 'isstempe', 'C       ',
+              1, 1.0, -273.15
+    field_10 = 'Sea surface salinity               ', 'isssalin', 'PSU     ',
+               1, 1.0, 0.0
+    field_11 = 'Total flux at ocean surface        ', 'iocetflx', 'w/m2    ',
+               1, 1.0, 0.0
+    field_12 = 'Solar flux at ocean surface        ', 'iocesflx', 'w/m2    ',
+               1, 1.0, 0.0
+    field_13 = 'Non-solar flux at ocean surface    ', 'iocwnsfl', 'w/m2    ',
+               1, 1.0, 0.0
+    field_14 = 'Salt flux at ocean surface         ', 'iocesafl', 'kg/m2/kt',
+               1, 1.0, 0.0
+    field_15 = 'Wind stress u                      ', 'iocestru', 'Pa      ',
+               1, 1.0, 0.0
+    field_16 = 'Wind stress v                      ', 'iocestrv', 'Pa      ',
+               1, 1.0, 0.0
+    field_17 = 'Solar flux at ice/ocean surface    ', 'iicesflx', 'w/m2    ',
+               1, 1.0, 0.0
+    field_18 = 'Non-solar flux at ice/ocean surface', 'iicenflx', 'w/m2    ',
+               1, 1.0, 0.0
+    field_19 = 'Snow precipitation                 ', 'isnowpre', 'kg/day  ',
+               1, 1.0, 0.0
+    noumef = 19
+/
