@@ -5,13 +5,13 @@ module purge
 module load git/2.31.1-gcc-11.2.0
 module load cdo/2.0.5-gcc-11.2.0
 module load nco/5.0.6-gcc-11.2.0
+module load libaec/1.0.5-intel-2021.5.0
 module load intel-oneapi-compilers/2022.0.1-gcc-11.2.0
 module load intel-oneapi-mkl/2022.0.1-gcc-11.2.0
 module load openmpi/4.1.2-intel-2021.5.0
 module load netcdf-c/4.8.1-openmpi-4.1.2-intel-2021.5.0
 module load netcdf-fortran/4.5.3-openmpi-4.1.2-intel-2021.5.0
 module load hdf5/1.12.1-openmpi-4.1.2-intel-2021.5.0
-module load libaec/1.0.5-intel-2021.5.0
 
 export LC_ALL=en_US.UTF-8
 export CPU_MODEL=AMD_EPYC_ZEN3
@@ -29,6 +29,10 @@ export UCX_TLS=mm,knem,cma,dc_mlx5,dc_x,self
 export UCX_UNIFIED_MODE=y
 export KMP_LIBRARY=turnaround
 export KMP_AFFINITY=granularity=fine,scatter
+export AEC_ROOT=/sw/spack-levante/libaec-1.0.5-gij7yv
+export aec_ROOT=/sw/spack-levante/libaec-1.0.5-gij7yv
+export TBBROOT=/sw/spack-levante/intel-oneapi-compilers-2022.0.1-an2cbq/tbb/2021.5.0
+export TBBMALLOC_DIR=$TBBROOT/lib/intel64/gcc4.8
 export FC=mpif90
 export F77=mpif90
 export MPICC=mpicc
@@ -37,14 +41,12 @@ export CC=mpicc
 export CXX=mpicxx
 export MPIROOT="$(mpif90 -show | perl -lne 'm{ -I(.*?)/include } and print $1')"
 export MPI_LIB="$(mpif90 -show |sed -e 's/^[^ ]*//' -e 's/-[I][^ ]*//g')"
+export MPI_HOME=$MPIROOT
+export MPI_ROOT=$MPIROOT
+export mpi_ROOT=$MPIROOT
+export MPI_DIR=$MPIROOT
+export mpi_DIR=$MPIROOT
 export IO_LIB_ROOT=/work/ab0246/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0
-export MPI_HOME=/sw/spack-levante/openmpi-4.1.2-yfwe6t
-export MPI_ROOT=/sw/spack-levante/openmpi-4.1.2-yfwe6t
-export mpi_ROOT=/sw/spack-levante/openmpi-4.1.2-yfwe6t
-export MPI_DIR=/sw/spack-levante/openmpi-4.1.2-yfwe6t
-export mpi_DIR=/sw/spack-levante/openmpi-4.1.2-yfwe6t
-export AEC_ROOT=/sw/spack-levante/libaec-1.0.5-gij7yv
-export aec_ROOT=/sw/spack-levante/libaec-1.0.5-gij7yv
 export HDF5ROOT=/sw/spack-levante/hdf5-1.12.1-tvymb5
 export HDF5_C_INCLUDE_DIRECTORIES=$HDF5ROOT/include
 export HDF5_ROOT=$HDF5ROOT
@@ -58,8 +60,6 @@ export NETCDF_CXX_INCLUDE_DIRECTORIES=$NETCDFROOT/include
 export NETCDF_CXX_LIBRARIES=$NETCDFROOT/lib
 export NetCDF_C_ROOT=$NETCDFROOT
 export NETCDF_PATH=$NETCDFROOT
-export TBBROOT=/sw/spack-levante/intel-oneapi-compilers-2022.0.1-an2cbq/tbb/2021.5.0
-export TBBMALLOC_DIR=$TBBROOT/lib/intel64/gcc4.8
 export ECCODESROOT=$IO_LIB_ROOT
 export OASIS_NETCDF=$NETCDFROOT
 export OASIS_NETCDFF=$NETCDFFROOT
