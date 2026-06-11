@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --partition=compute
-#SBATCH --time=00:30:00
+#SBATCH --time=02:00:00
 #SBATCH --ntasks=832
 #SBATCH --output=<TEST_DIR>/run/awiesm//pi/log/pi_awiesm_compute_18500101-18500101_%j.log --error=<TEST_DIR>/run/awiesm//pi/log/pi_awiesm_compute_18500101-18500101_%j.log
 #SBATCH --job-name=pi
@@ -94,7 +94,7 @@ export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1850-01-01T00:00:00 1391 - start" >> <TEST_DIR>/run/awiesm//pi/log//pi_awiesm.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1850-01-01T00:00:00 1755 - start" >> <TEST_DIR>/run/awiesm//pi/log//pi_awiesm.log
 
 cd <TEST_DIR>/run/awiesm//pi/run_18500101-18500101/work/
 time srun -l --hint=nomultithread --multi-prog hostfile_srun 2>&1 &
@@ -110,6 +110,6 @@ source <TEST_DIR>/run/awiesm//pi/run_18500101-18500101/work//batch_system.env; r
 cd <TEST_DIR>/run/awiesm//pi/scripts/
 esm_runscripts pi.yaml -e pi -t observe_compute -p ${process} -s 18500101 -r 1 -v --last-jobtype prepcompute --open-run
 
-echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1850-01-01T00:00:00 1391 - done" >> <TEST_DIR>/run/awiesm//pi/log//pi_awiesm.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1850-01-01T00:00:00 1755 - done" >> <TEST_DIR>/run/awiesm//pi/log//pi_awiesm.log
 
 wait

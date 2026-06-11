@@ -3,8 +3,8 @@
 /
 
 &tracer_list
-    nml_tracer_list = 1, 'MFCT', 'QR4C', 'FCT ', 0.0, 1.0, 2, 'MFCT', 'QR4C',
-                      'FCT ', 0.0, 1.0
+    nml_tracer_list = 1, 'MFCT', 'QR4C', 'FCT ', 1.0, 1.0, 2, 'MFCT', 'QR4C',
+                      'FCT ', 1.0, 1.0
 /
 
 &tracer_init3d
@@ -43,9 +43,9 @@
     windmix_nl = 2
     diff_sh_limit = 0.005
     kv0_const = .false.
-    k_ver = 1e-05
-    k_hor = 0.0
     double_diffusion = .false.
+    k_ver = 1e-05
+    k_hor = 3000.0
     surf_relax_t = 0.0
     surf_relax_s = 0
     balance_salt_water = .true.

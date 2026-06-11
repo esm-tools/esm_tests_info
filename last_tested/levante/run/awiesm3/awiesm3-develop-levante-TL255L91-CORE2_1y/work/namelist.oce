@@ -6,46 +6,19 @@
     fer_gm = .true.
     k_gm_max = 3000
     k_gm_min = 2.0
-    k_gm_bvref = 1
+    k_gm_bvref = 2
     k_gm_rampmax = 40
     k_gm_rampmin = 30
-    k_gm_resscalorder = 2
-    k_gm_cm = 3.0
-    k_gm_cmin = 0.1
-    k_gm_ktaper = .false.
+    k_gm_resscalorder = 1
     scaling_ferreira = .true.
     scaling_rossby = .false.
     scaling_resolution = .true.
     scaling_fesom14 = .true.
-    scaling_gmzexp = .true.
-    gmzexp_zref = 500.0
-    gmzexp_smin = 0.6
-    scaling_ginsea = .false.
-    ginsea_fac = 2.0
-    scaling_odm95 = .true.
-    odm95_scr = 0.002
-    odm95_sd = 0.001
-    scaling_ldd97 = .false.
-    ldd97_c = 2.0
-    ldd97_rmin = 15000.0
-    ldd97_rmax = 100000.0
     redi = .true.
-    redi_ktaper = .true.
-    redi_kmax = 0.0
-    redi_kmin = 100.0
     visc_sh_limit = 0.005
     mix_scheme = 'KPP'
     ricr = 0.3
     concv = 1.6
-    use_global_tides = .false.
-/
-
-&tracer_init3d
-    n_ic3d = 2
-    idlist = 1, 0
-    filelist = 'phc3.0_winter.nc', 'phc3.0_winter.nc'
-    varlist = 'salt', 'temp'
-    t_insitu = .true.
 /
 
 &oce_tra
