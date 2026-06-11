@@ -111,7 +111,7 @@ echam:
   standalone_model: true # <CONFIGS_PATH>/components/echam/echam.yaml,line:147,col:23
   executable: echam6 # <CONFIGS_PATH>/components/echam/echam.yaml,line:153,col:17
   version: 6.3.04p1 # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:69,col:18
-  resolution: T63 # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:29,col:17
+  resolution: T63 # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:28,col:17
   scenario: HIST # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:71,col:19
   scenario_type: HIST # <CONFIGS_PATH>/components/echam/echam.yaml,line:157,col:20
   postprocessing_stream: BOT ATM LOG # <CONFIGS_PATH>/components/echam/echam.yaml,line:158,col:28
@@ -130,7 +130,7 @@ echam:
   pseudo_end_date: '2007-02-01T00:00:00' # <CONFIGS_PATH>/components/echam/echam.yaml,line:198,col:22
   pseudo_resume_date: '2007-01-01T00:00:00' # <CONFIGS_PATH>/components/echam/echam.yaml,line:199,col:25
   restart_rate: 1 # <CONFIGS_PATH>/components/echam/echam.yaml,line:204,col:19
-  restart_unit: months # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:35,col:19
+  restart_unit: months # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:34,col:19
   restart_firstlast: first # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:57,col:28
   setup_dir: <TEST_DIR>/comp/awicm/awicm-1.0-recom # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:64,col:20
   bin_dir: <TEST_DIR>/comp/awicm/awicm-1.0-recom/bin # <CONFIGS_PATH>/components/echam/echam.yaml,line:213,col:14
@@ -139,7 +139,7 @@ echam:
   adj_input_dir: /pool/data/AWICM/FESOM1/MESHES/core//tarfilesT63/input/echam6 # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:62,col:24
   forcing_dir: /pool/data/ECHAM6//input/r0007/T63 # <CONFIGS_PATH>/components/echam/echam.yaml,line:217,col:18
   greenhouse_dir: /pool/data/ECHAM6//input/r0007 # <CONFIGS_PATH>/components/echam/echam.yaml,line:456,col:37
-  namelist_dir: <CONFIGS_PATH>/../src/esm_tests/resources/runscripts/awicm/run_files4check_runs/awicm1_recom/HIST-CMIP6/ # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:39,col:19
+  namelist_dir: <CONFIGS_PATH>/../src/esm_tests/resources/runscripts/awicm/run_files4check_runs/awicm1_recom/HIST-CMIP6/ # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:38,col:19
   switch: 1 # <CONFIGS_PATH>/components/echam/echam.yaml,line:221,col:13
   value: echam switch # <CONFIGS_PATH>/components/echam/echam.yaml,line:225,col:28
   with_icb: false # <CONFIGS_PATH>/components/echam/echam.yaml,line:229,col:15
@@ -1414,8 +1414,8 @@ echam:
   - jsbach  # <CONFIGS_PATH>/components/echam/echam.yaml,line:150,col:15
   - hdmodel # <CONFIGS_PATH>/components/echam/echam.yaml,line:151,col:15
   model_dir: <TEST_DIR>/comp/awicm/awicm-1.0-recom/echam-6.3.04p1 # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:63,col:20
-  levels: L47 # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:30,col:13
-  dataset: r0007 # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:36,col:14
+  levels: L47 # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:29,col:13
+  dataset: r0007 # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:35,col:14
   repo_tag: 6.3.04p1 # <CONFIGS_PATH>/components/echam/echam.yaml,line:285,col:31
   time_step: 450 # <CONFIGS_PATH>/components/echam/echam.yaml,line:261,col:32
   _nx: 192 # <CONFIGS_PATH>/components/echam/echam.yaml,line:262,col:26
@@ -3090,7 +3090,7 @@ computer:
     LD_LIBRARY_PATH[(0)]: $HDF5ROOT/lib:$NETCDFROOT/lib:$NETCDFFROOT/lib:$LD_LIBRARY_PATH # <CONFIGS_PATH>/machines/levante.yaml,line:354,col:39
     LD_LIBRARY_PATH[(1)]: /sw/spack-levante/intel-oneapi-mkl-2022.0.1-ttdktf/mkl/2022.0.1/lib/intel64:$LD_LIBRARY_PATH # <CONFIGS_PATH>/machines/levante.yaml,line:357,col:39
     LD_LIBRARY_PATH[(2)]: /sw/spack-levante/intel-oneapi-mpi-2021.5.0-mrcss7/mpi/2021.5.0/libfabric/lib:$LD_LIBRARY_PATH # <CONFIGS_PATH>/machines/levante.yaml,line:360,col:39
-    ACCOUNT: None # no provenance info
+    ACCOUNT: ab0246 # no provenance info
     ESM_TESTING_DIR: <TEST_DIR>/run/awicm/ # no provenance info
     MODEL_DIR: <TEST_DIR>/comp/awicm/awicm-1.0-recom # no provenance info
   load_python: false  # <CONFIGS_PATH>/machines/levante.yaml,line:137,col:18
@@ -3117,7 +3117,7 @@ computer:
   tasks_flag: --ntasks=@tasks@ # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:45,col:17
   partition_flag: --partition=@partition@ # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:46,col:21
   nodes_flag: --nodes=@nodes@ # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:47,col:17
-  time_flag: --time=00:45:00 # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:48,col:16
+  time_flag: --time=02:00:00 # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:48,col:16
   output_path: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/log/ # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:49,col:18
   thisrun_logfile: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/log/awicm1_recom_hist_initial_awicm_@jobtype@_20070101-20070131_%j.log # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:50,col:22
   output_flags: --output=<TEST_DIR>/run/awicm//awicm1_recom_hist_initial/log/awicm1_recom_hist_initial_awicm_@jobtype@_20070101-20070131_%j.log --error=<TEST_DIR>/run/awicm//awicm1_recom_hist_initial/log/awicm1_recom_hist_initial_awicm_@jobtype@_20070101-20070131_%j.log # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:51,col:19
@@ -3148,7 +3148,7 @@ computer:
   nnodes: 1 # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:152,col:13
   model: computer # no provenance info
   add_export_vars:
-    ACCOUNT: None  # no provenance info
+    ACCOUNT: ab0246  # no provenance info
     ESM_TESTING_DIR: <TEST_DIR>/run/awicm/ # no provenance info
     MODEL_DIR: <TEST_DIR>/comp/awicm/awicm-1.0-recom # no provenance info
   heterogeneous_parallelization: false  # no provenance info
@@ -3165,12 +3165,363 @@ computer:
   libaec_version: 1.0.5-intel-2021.5.0 # <CONFIGS_PATH>/machines/levante.yaml,line:304,col:29
   libaec_path: /sw/spack-levante/libaec-1.0.5-gij7yv # <CONFIGS_PATH>/machines/levante.yaml,line:305,col:26
   tbb_path: /sw/spack-levante/intel-oneapi-compilers-2022.0.1-an2cbq/tbb/2021.5.0 # <CONFIGS_PATH>/machines/levante.yaml,line:306,col:23
-  accounting_flag: --account=None # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:28,col:38
+  accounting_flag: --account=ab0246 # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:28,col:38
   cpu_bind: cores # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:79,col:23
   srun_execution_command: srun -l --hint=nomultithread --multi-prog hostfile_srun # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:80,col:37
   hyperthreading_flag: --ntasks-per-core=1 # <CONFIGS_PATH>/machines/levante.yaml,line:33,col:58
   execution_command: srun -l --hint=nomultithread --multi-prog hostfile_srun # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:85,col:40
   debugger_flags_prelauncher: '' # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:95,col:45
+general:
+  sections:
+    echam: <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml  # no provenance info
+    computer: <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml # no provenance info
+    fesom: <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml # no provenance info
+    oasis3mct: <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml # no provenance info
+    recom: <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml # no provenance info
+    jsbach: <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml # no provenance info
+    hdmodel: <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml # no provenance info
+    dask: <CONFIGS_PATH>/other_software/batch_system/slurm.yaml # no provenance info
+    awicm: <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml # no provenance info
+    per_model_defaults: <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml # no provenance info
+  use_database: false  # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:15,col:19
+  system_components:
+  - general  # <CONFIGS_PATH>/defaults/general.yaml,line:2,col:21
+  - dask # <CONFIGS_PATH>/defaults/general.yaml,line:2,col:32
+  - prev_run # no provenance info
+  other_components: []
+  standalone: false  # no provenance info
+  model: awicm # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:11,col:16
+  coupled_setup: true # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:14,col:24
+  version: 1.0-recom # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:9,col:14
+  scenario: HIST # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:10,col:15
+  resolution: T63_CORE2 # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:23,col:21
+  postprocessing: false # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:24,col:25
+  post_time: 00:05:00 # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:25,col:20
+  available_versions:
+  - 1  # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:34,col:11
+  - 1.0-recom # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:35,col:11
+  - CMIP6 # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:36,col:11
+  valid_setup_names:
+  - general  # no provenance info
+  - computer # no provenance info
+  - dask # no provenance info
+  - echam # no provenance info
+  - jsbach # no provenance info
+  - fesom # no provenance info
+  - recom # no provenance info
+  - oasis3mct # no provenance info
+  valid_model_names:
+  - echam  # no provenance info
+  - fesom # no provenance info
+  - oasis3mct # no provenance info
+  - recom # no provenance info
+  - jsbach # no provenance info
+  - hdmodel # no provenance info
+  esm_configs_dir: <CONFIGS_PATH>/  # no provenance info
+  esm_namelist_dir: <NAMELIST_PATH>/ # no provenance info
+  esm_runscript_dir: <RUNSCRIPT_PATH>/ # no provenance info
+  esm_couplings_dir: <COUPLINGS_PATH>/ # no provenance info
+  expid: awicm1_recom_hist_initial # no provenance info
+  models:
+  - echam  # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:17,col:19
+  - fesom # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:18,col:19
+  - oasis3mct # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:19,col:19
+  - recom # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:45,col:15
+  setup_name: awicm  # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:8,col:17
+  post_processing: 0 # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:11,col:22
+  account: ab0246 # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:12,col:14
+  compute_time: 02:00:00 # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:28,col:39
+  use_venv: false # no provenance info
+  base_dir: <TEST_DIR>/run/awicm/ # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:16,col:15
+  lresume: false # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:17,col:14
+  initial_date: '2007-01-01T00:00:00' # no provenance info
+  final_date: '2007-03-31T00:00:00' # no provenance info
+  first_initial_year: 2007 # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:20,col:25
+  nyear: 0 # no provenance info
+  nmonth: 1 # no provenance info
+  runscript_abspath: <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml # no provenance info
+  additional_files: []
+  runscript: awicm1_recom_hist_initial.yaml  # no provenance info
+  debug: false # no provenance info
+  trace: false # no provenance info
+  task_log_files: false # no provenance info
+  verbose: false # no provenance info
+  contained_run: # no provenance info
+  open_run: true # no provenance info
+  check: false # no provenance info
+  modify_config_file: # no provenance info
+  last_jobtype: prepcompute # no provenance info
+  task: prepcompute # no provenance info
+  inspect: # no provenance info
+  launcher_pid: -666 # no provenance info
+  current_date: '2007-01-01T00:00:00' # no provenance info
+  exclude: # no provenance info
+  only: # no provenance info
+  run_number: 1 # no provenance info
+  update: false # no provenance info
+  update_filetypes: []
+  motd: false  # no provenance info
+  ignore_config_warnings: false # no provenance info
+  jobtype: prepcompute # no provenance info
+  original_command: awicm1_recom_hist_initial.yaml -e awicm1_recom_hist_initial --open-run --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
+  started_from: <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/ # no provenance info
+  scriptname: awicm1_recom_hist_initial.yaml # no provenance info
+  isinteractive: false # no provenance info
+  isresubmitted: true # no provenance info
+  execution_mode: run # no provenance info
+  model_dir: <TEST_DIR>/comp/awicm/awicm-1.0-recom # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:25,col:16
+  experiment_dir: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial # no provenance info
+  per_model_defaults: {}
+  iterative_coupled_model: ''  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:6,col:30
+  reset_calendar_to_last: false # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:7,col:29
+  profile: false # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:9,col:14
+  pre_recipe:
+    exclude_job_types:
+    - prepare  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:12,col:15
+    - prepexp # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:13,col:15
+    - observe # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:14,col:15
+    steps:
+    - initialize_dask_cluster  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:16,col:15
+  intermediate_movements:
+  - config  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:18,col:7
+  - bin # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:19,col:7
+  - input # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:20,col:7
+  compute_file_checksums: false  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:21,col:29
+  parallel_file_movements: dask # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:22,col:30
+  force_overwrite_in_file_movements: false # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:23,col:40
+  command_line_config:
+    runscript: awicm1_recom_hist_initial.yaml  # no provenance info
+    debug: false # no provenance info
+    trace: false # no provenance info
+    task_log_files: false # no provenance info
+    verbose: false # no provenance info
+    contained_run: # no provenance info
+    open_run: true # no provenance info
+    expid: awicm1_recom_hist_initial # no provenance info
+    check: false # no provenance info
+    modify_config_file: # no provenance info
+    last_jobtype: prepcompute # no provenance info
+    task: prepcompute # no provenance info
+    inspect: # no provenance info
+    launcher_pid: -666 # no provenance info
+    current_date: # no provenance info
+    exclude: # no provenance info
+    only: # no provenance info
+    run_number: # no provenance info
+    update: false # no provenance info
+    update_filetypes: []
+    motd: false  # no provenance info
+    ignore_config_warnings: false # no provenance info
+    jobtype: prepcompute # no provenance info
+    use_venv: false # no provenance info
+    original_command: awicm1_recom_hist_initial.yaml -e awicm1_recom_hist_initial --open-run --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
+    started_from: <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/ # no provenance info
+    scriptname: awicm1_recom_hist_initial.yaml # no provenance info
+    runscript_abspath: <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml # no provenance info
+  couplings:
+  - fesom-1.4+recom-2.0+echam-6.3.04p1  # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:43,col:15
+  include_models:
+  - recom  # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:45,col:15
+  nday: 0  # no provenance info
+  nhour: 0 # no provenance info
+  nminute: 0 # no provenance info
+  nsecond: 0 # no provenance info
+  leapyear: true # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:144,col:19
+  calendar: esm_calendar object with allowed leap years # no provenance info
+  delta_date:
+  - 0  # no provenance info
+  - 1 # no provenance info
+  - 0 # no provenance info
+  - 0 # no provenance info
+  - 0 # no provenance info
+  - 0 # no provenance info
+  start_date: '2007-01-01T00:00:00'  # no provenance info
+  prev_date: '2006-12-31T00:00:00' # no provenance info
+  next_date: '2007-02-01T00:00:00' # no provenance info
+  last_start_date: '2006-12-01T00:00:00' # no provenance info
+  end_date: '2007-01-31T00:00:00' # no provenance info
+  runtime:
+  - 0  # no provenance info
+  - 1 # no provenance info
+  - 31 # no provenance info
+  - 744 # no provenance info
+  - 44640 # no provenance info
+  - 2678400 # no provenance info
+  total_runtime:
+  - 0  # no provenance info
+  - 1 # no provenance info
+  - 31 # no provenance info
+  - 744 # no provenance info
+  - 44640 # no provenance info
+  - 2678400 # no provenance info
+  run_datestamp: 20070101-20070131  # no provenance info
+  last_run_datestamp: 20061201-20061231 # no provenance info
+  chunk_number: 1 # no provenance info
+  first_run_in_chunk: true # no provenance info
+  last_run_in_chunk: false # no provenance info
+  out_filetypes:
+  - analysis  # no provenance info
+  - log # no provenance info
+  - mon # no provenance info
+  - scripts # no provenance info
+  - ignore # no provenance info
+  - unknown # no provenance info
+  - outdata # no provenance info
+  - restart_out # no provenance info
+  in_filetypes:
+  - scripts  # no provenance info
+  - input # no provenance info
+  - forcing # no provenance info
+  - bin # no provenance info
+  - config # no provenance info
+  - restart_in # no provenance info
+  reusable_filetypes:
+  - bin  # no provenance info
+  - src # no provenance info
+  potentially_reusable_filetypes:
+  - analysis  # no provenance info
+  - config # no provenance info
+  - log # no provenance info
+  - mon # no provenance info
+  - couple # no provenance info
+  - scripts # no provenance info
+  - ignore # no provenance info
+  - unknown # no provenance info
+  - src # no provenance info
+  - scripts # no provenance info
+  - input # no provenance info
+  - forcing # no provenance info
+  - bin # no provenance info
+  - config # no provenance info
+  - restart_in # no provenance info
+  thisrun_dir: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/run_20070101-20070131  # no provenance info
+  experiment_analysis_dir: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/analysis/ # no provenance info
+  experiment_config_dir: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/config/ # no provenance info
+  experiment_log_dir: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/log/ # no provenance info
+  experiment_mon_dir: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/mon/ # no provenance info
+  experiment_couple_dir: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/couple/ # no provenance info
+  experiment_scripts_dir: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/scripts/ # no provenance info
+  experiment_ignore_dir: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/ignore/ # no provenance info
+  experiment_unknown_dir: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/unknown/ # no provenance info
+  experiment_src_dir: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/src/ # no provenance info
+  all_filetypes:
+  - analysis  # no provenance info
+  - config # no provenance info
+  - log # no provenance info
+  - mon # no provenance info
+  - couple # no provenance info
+  - scripts # no provenance info
+  - ignore # no provenance info
+  - unknown # no provenance info
+  - src # no provenance info
+  - work # no provenance info
+  thisrun_analysis_dir: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/run_20070101-20070131/analysis/  # no provenance info
+  thisrun_config_dir: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/run_20070101-20070131/config/ # no provenance info
+  thisrun_log_dir: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/run_20070101-20070131/log/ # no provenance info
+  thisrun_mon_dir: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/run_20070101-20070131/mon/ # no provenance info
+  thisrun_couple_dir: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/run_20070101-20070131/couple/ # no provenance info
+  thisrun_scripts_dir: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/run_20070101-20070131/scripts/ # no provenance info
+  thisrun_ignore_dir: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/run_20070101-20070131/ignore/ # no provenance info
+  thisrun_unknown_dir: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/run_20070101-20070131/unknown/ # no provenance info
+  thisrun_src_dir: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/run_20070101-20070131/src/ # no provenance info
+  thisrun_work_dir: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/run_20070101-20070131/work/ # no provenance info
+  work_dir: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/run_20070101-20070131/work/ # no provenance info
+  all_model_filetypes:
+  - analysis  # no provenance info
+  - bin # no provenance info
+  - config # no provenance info
+  - forcing # no provenance info
+  - input # no provenance info
+  - couple # no provenance info
+  - log # no provenance info
+  - mon # no provenance info
+  - outdata # no provenance info
+  - restart_in # no provenance info
+  - restart_out # no provenance info
+  - viz # no provenance info
+  - ignore # no provenance info
+  workflow:
+    subjob_clusters:
+      prepcompute:
+        subjobs:
+        - prepcompute_general  # no provenance info
+        run_before: compute  # no provenance info
+        submit_to_batch_system: false # no provenance info
+        batch_or_shell: SimulationSetup # no provenance info
+        order_in_cluster: sequential # no provenance info
+        nproc: 1 # no provenance info
+        next_submit:
+        - compute  # no provenance info
+        called_from: tidy  # no provenance info
+      compute:
+        subjobs:
+        - compute_general  # no provenance info
+        submit_to_batch_system: true  # no provenance info
+        batch_or_shell: batch # no provenance info
+        run_on_queue: compute # <CONFIGS_PATH>/machines/levante.yaml,line:62,col:27
+        run_before: tidy # no provenance info
+        order_in_cluster: sequential # no provenance info
+        nproc: 960 # no provenance info
+        next_submit:
+        - tidy  # no provenance info
+        called_from: prepcompute  # no provenance info
+      tidy:
+        subjobs:
+        - tidy_general  # no provenance info
+        run_after: compute  # no provenance info
+        submit_to_batch_system: false # no provenance info
+        batch_or_shell: SimulationSetup # no provenance info
+        order_in_cluster: sequential # no provenance info
+        nproc: 1 # no provenance info
+        next_submit:
+        - prepcompute  # no provenance info
+        called_from: compute  # no provenance info
+    subjobs:
+      prepcompute_general:
+        nproc: 1  # no provenance info
+        run_before: compute # no provenance info
+        subjob_cluster: prepcompute # no provenance info
+      compute_general:
+        nproc: 960  # no provenance info
+        run_before: tidy # no provenance info
+        submit_to_batch_system: true # no provenance info
+        run_on_queue: compute # <CONFIGS_PATH>/machines/levante.yaml,line:62,col:27
+        subjob_cluster: compute # no provenance info
+      tidy_general:
+        nproc: 1  # no provenance info
+        run_after: compute # no provenance info
+        subjob_cluster: tidy # no provenance info
+    last_task_in_queue: tidy  # no provenance info
+    first_task_in_queue: prepcompute # no provenance info
+    next_run_triggered_by: tidy # no provenance info
+  submitted: false  # no provenance info
+  jobid: 2168019 # no provenance info
+  batch: slurm # no provenance info
+  coupler_config_dir: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/run_20070101-20070131/config/oasis3mct/ # no provenance info
+  coupler: oasis3mct # no provenance info
+  experiment_log_file: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/log//awicm1_recom_hist_initial_awicm.log # no provenance info
+  esm_tools_version: 6.62.4 # no provenance info
+  logfile_path: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/log//awicm1_recom_hist_initial_awicm_prepcompute_20070101-20070131_2168019.log # no provenance info
+  logfile_path_in_run: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/run_20070101-20070131/log//awicm1_recom_hist_initial_awicm_prepcompute_20070101-20070131_2168019.log # no provenance info
+  relevant_filetypes:
+  - bin  # no provenance info
+  - config # no provenance info
+  - forcing # no provenance info
+  - input # no provenance info
+  - restart_in # no provenance info
+  file_movements:
+    default:
+      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+    bin:
+      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:31,col:41
+      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:32,col:41
+      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:33,col:41
+      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:34,col:41
+  files_source: thisrun  # no provenance info
+  files_target: work # no provenance info
 fesom:
   model: fesom  # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:6,col:12
   type: ocean # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:7,col:11
@@ -3202,18 +3553,18 @@ fesom:
     - 'Danilov et al. 2004: A finite-element ocean model: principles and evaluation <https://doi.org/10.1016/s1463-5003(02)00063-x>'  # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:74,col:23
     - 'Wang et al. 2014: The Finite Element Sea Ice-Ocean Model (FESOM) v.1.4: formulation of an ocean general circulation model. <https://doi.org/10.5194/gmd-7-663-2014>' # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:75,col:23
     License: www.fesom.de # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:77,col:21
-  restart_rate: 1 # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:69,col:19
-  restart_unit: m # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:70,col:19
-  restart_first: 1 # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:71,col:20
+  restart_rate: 1 # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:68,col:19
+  restart_unit: m # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:69,col:19
+  restart_first: 1 # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:70,col:20
   restart_flag: last # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:82,col:19
   yearly_outputs_start: 1 # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:83,col:27
   time_step: 1800 # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:85,col:16
-  resolution: CORE2 # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:62,col:17
+  resolution: CORE2 # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:61,col:17
   mesh_rotated: false # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:88,col:19
   old_mesh_format: false # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:89,col:22
   with_part_format: false # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:90,col:23
   time_dimension: time # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:91,col:21
-  pool_dir: /work/ab0995/from_Mistral/ab0995/a270046/iceberg-input/ # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:73,col:15
+  pool_dir: /work/ab0995/from_Mistral/ab0995/a270046/iceberg-input/ # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:72,col:15
   setup_dir: <TEST_DIR>/comp/awicm/awicm-1.0-recom # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:137,col:20
   bin_dir: <TEST_DIR>/comp/awicm/awicm-1.0-recom/bin # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:96,col:14
   climate_data_dir: /work/ab0995/from_Mistral/ab0995/a270046/iceberg-input//hydrography/ # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:97,col:23
@@ -3302,7 +3653,7 @@ fesom:
         smagorinsky_visc: true # no provenance info
         increase_equ_zonal_visc: true # no provenance info
         fac_visc_increase: 2.0 # no provenance info
-        kh0: 800 # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:79,col:22
+        kh0: 800 # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:78,col:22
         kh_flow_depend: true # no provenance info
         scale_mixing_h: true # no provenance info
         scale_mixing_type: 2 # no provenance info
@@ -3465,7 +3816,7 @@ fesom:
       boundary:
         restore_s_surf: 0  # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:142,col:49
       viscdiff:
-        Kh0: 800  # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:79,col:22
+        Kh0: 800  # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:78,col:22
   lasttime: 84600  # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:235,col:15
   currentday: 1 # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:236,col:17
   branchoff: false # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:258,col:16
@@ -4020,9 +4371,9 @@ fesom:
       number_of_overlapping_points: 0 # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:509,col:51
   model_dir: <TEST_DIR>/comp/awicm/awicm-1.0-recom/fesom-1.4-recom-awicm # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:136,col:20
   leapyear: true # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:144,col:19
-  mesh_dir: /pool/data/AWICM/FESOM1/MESHES/core/ # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:63,col:15
+  mesh_dir: /pool/data/AWICM/FESOM1/MESHES/core/ # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:62,col:15
   lresume: false # no provenance info
-  nproc: 384 # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:68,col:12
+  nproc: 384 # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:67,col:12
   mesh_base_dir: /work/ab0995/from_Mistral/ab0995/a270046/iceberg-input//MESHES/ # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:458,col:36
   nx: 126859 # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:130,col:25
   create_config:
@@ -4442,7 +4793,7 @@ fesom:
         smagorinsky_visc: true # no provenance info
         increase_equ_zonal_visc: true # no provenance info
         fac_visc_increase: 2.0 # no provenance info
-        kh0: 800 # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:79,col:22
+        kh0: 800 # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:78,col:22
         kh_flow_depend: true # no provenance info
         scale_mixing_h: true # no provenance info
         scale_mixing_type: 2 # no provenance info
@@ -4565,8 +4916,8 @@ fesom:
         diag_mesh: false # no provenance info
 oasis3mct:
   model: oasis3mct  # <CONFIGS_PATH>/components/oasis3mct/oasis3mct.yaml,line:2,col:12
-  cf_name_dir: <TEST_DIR>/comp/awicm/awicm-1.0-recom/oasis # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:98,col:18
-  time_step: 10800 # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:97,col:16
+  cf_name_dir: <TEST_DIR>/comp/awicm/awicm-1.0-recom/oasis # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:97,col:18
+  time_step: 10800 # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:96,col:16
   norestart: F # <CONFIGS_PATH>/components/oasis3mct/oasis3mct.yaml,line:6,col:16
   use_lucia: false # <CONFIGS_PATH>/components/oasis3mct/oasis3mct.yaml,line:7,col:16
   mct_version: 2.8 # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:169,col:22
@@ -4584,6 +4935,7 @@ oasis3mct:
   bin_sources: {}
   config_sources:
     namcouple: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/run_20070101-20070131/config/oasis3mct//namcouple  # no provenance info
+    cf_glob_0: <TEST_DIR>/comp/awicm/awicm-1.0-recom/oasis/cf_name_table.txt # no provenance info
   version: 2.8 # <CONFIGS_PATH>/components/oasis3mct/oasis3mct.yaml,line:44,col:14
   available_versions:
   - foci  # <CONFIGS_PATH>/components/oasis3mct/oasis3mct.yaml,line:47,col:7
@@ -4703,7 +5055,7 @@ oasis3mct:
     rmp_a2f_B: rmp_atmo_to_feom_BICUBIC.nc  # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:254,col:28
     rmp_a2f_D: rmp_atmo_to_feom_DISTWGT.nc # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:255,col:28
     rmp_f2a_D: rmp_feom_to_atmo_DISTWGT.nc # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:256,col:28
-  cf: <TEST_DIR>/comp/awicm/awicm-1.0-recom/oasis/cf_name_table.txt  # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:99,col:9
+  cf: <TEST_DIR>/comp/awicm/awicm-1.0-recom/oasis/cf_name_table.txt  # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:98,col:9
   lresume: false # no provenance info
   branch: v2.8 # <CONFIGS_PATH>/components/oasis3mct/oasis3mct.yaml,line:71,col:17
   yac_libs: '' # <CONFIGS_PATH>/components/oasis3mct/oasis3mct.env.yaml,line:42,col:27
@@ -4873,6 +5225,7 @@ oasis3mct:
   bin_targets: {}
   config_targets:
     namcouple: <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/run_20070101-20070131/work/namcouple  # no provenance info
+    cf_glob_0: <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/run_20070101-20070131/work/cf_name_table.txt # no provenance info
   log_targets:
     nout: <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/log/oasis3mct/nout.000000  # no provenance info
     debug_r1: <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/log/oasis3mct/debug.root.01 # no provenance info
@@ -4943,6 +5296,7 @@ oasis3mct:
   bin_intermediate: {}
   config_intermediate:
     namcouple: <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/run_20070101-20070131/config/oasis3mct/namcouple  # no provenance info
+    cf_glob_0: <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/run_20070101-20070131/config/oasis3mct/cf_name_table.txt # no provenance info
   log_intermediate:
     nout: <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/run_20070101-20070131/log/oasis3mct/nout.000000  # no provenance info
     debug_r1: <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/run_20070101-20070131/log/oasis3mct/debug.root.01 # no provenance info
@@ -5045,7 +5399,7 @@ recom:
         recom_binary_write: false # no provenance info
         recom_binary_init: false # no provenance info
         bgc_num: 22 # no provenance info
-        diags3d_num: 2 # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:94,col:30
+        diags3d_num: 2 # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:93,col:30
         vdet: 20.0 # no provenance info
         vdet_zoo2: 200.0 # no provenance info
         vphy: 0.0 # no provenance info
@@ -5232,7 +5586,7 @@ recom:
         currentCO2cycle: 1 # <CONFIGS_PATH>/components/recom/recom.yaml,line:220,col:46
         REcoM_PI: true # <CONFIGS_PATH>/components/recom/recom.yaml,line:221,col:39
         recom_restart: false # <CONFIGS_PATH>/components/recom/recom.yaml,line:222,col:44
-        diags3d_num: 2 # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:94,col:30
+        diags3d_num: 2 # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:93,col:30
       paco2_flux_param:
         CO2_for_spinup: 0  # <CONFIGS_PATH>/components/recom/recom.yaml,line:225,col:45
   config_sources:
@@ -5374,10 +5728,10 @@ recom:
       message: 'REcoM ERROR: CANNOT READ runoff FILE CORRECTLY' # <CONFIGS_PATH>/components/recom/recom.yaml,line:347,col:30
       file: stdout # <CONFIGS_PATH>/components/recom/recom.yaml,line:348,col:27
   lresume: false  # no provenance info
-  f_year_fesom_cycle: 2007 # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:86,col:25
-  l_year_fesom_cycle: 2007 # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:87,col:25
-  num_CO2_cycles: 1 # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:88,col:21
-  current_CO2_cycle: 1 # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:89,col:24
+  f_year_fesom_cycle: 2007 # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:85,col:25
+  l_year_fesom_cycle: 2007 # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:86,col:25
+  num_CO2_cycles: 1 # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:87,col:21
+  current_CO2_cycle: 1 # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:88,col:24
   recom_namelist: namelist.recom # <CONFIGS_PATH>/components/recom/recom.yaml,line:115,col:38
   constant_CO2: false # <CONFIGS_PATH>/components/recom/recom.yaml,line:166,col:35
   REcoM_PI: true # <CONFIGS_PATH>/components/recom/recom.yaml,line:167,col:31
@@ -5648,7 +6002,7 @@ recom:
         recom_binary_write: false # no provenance info
         recom_binary_init: false # no provenance info
         bgc_num: 22 # no provenance info
-        diags3d_num: 2 # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:94,col:30
+        diags3d_num: 2 # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:93,col:30
         vdet: 20.0 # no provenance info
         vdet_zoo2: 200.0 # no provenance info
         vphy: 0.0 # no provenance info
@@ -5835,16 +6189,16 @@ jsbach:
   cover_fract_dir: /pool/data/JSBACH/input/r0010/T63/land_use_maps/ # <CONFIGS_PATH>/components/jsbach/jsbach.yaml,line:20,col:22
   pool_dir_couple: /pool/data/AWICM/JSBACH # <CONFIGS_PATH>/components/jsbach/jsbach.yaml,line:23,col:22
   input_dir_couple: /pool/data/AWICM/JSBACH/input/r0010 # <CONFIGS_PATH>/components/jsbach/jsbach.yaml,line:27,col:23
-  dynamic_vegetations: true # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:47,col:26
+  dynamic_vegetations: true # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:46,col:26
   tiles: 11 # <CONFIGS_PATH>/components/jsbach/jsbach.yaml,line:30,col:12
   version: 3.2 # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:101,col:18
-  dataset: r0010 # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:49,col:14
+  dataset: r0010 # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:48,col:14
   scenario: HIST # <CONFIGS_PATH>/components/jsbach/jsbach.yaml,line:33,col:15
   scenario_type: HIST # <CONFIGS_PATH>/components/jsbach/jsbach.yaml,line:34,col:20
   config_sources:
     namelist.jsbach: <NAMELIST_PATH>/jsbach/3.20/HIST/dynveg/namelist.jsbach  # <CONFIGS_PATH>/components/jsbach/jsbach.yaml,line:37,col:32
   no_dynveg_file_ending: _no-dynveg # <CONFIGS_PATH>/components/jsbach/jsbach.yaml,line:40,col:28
-  dynveg_file_ending: _dynveg # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:48,col:25
+  dynveg_file_ending: _dynveg # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:47,col:25
   Ndepo_cmip6: Ndepo_hist_scenario # <CONFIGS_PATH>/components/jsbach/jsbach.yaml,line:320,col:18
   Ndepo_path: '' # <CONFIGS_PATH>/components/jsbach/jsbach.yaml,line:321,col:17
   popdens_cmip6: popdens # <CONFIGS_PATH>/components/jsbach/jsbach.yaml,line:322,col:20
@@ -5964,7 +6318,7 @@ jsbach:
   hist_extend_scenario: ssp370 # <CONFIGS_PATH>/components/jsbach/jsbach.datasets.yaml,line:9,col:27
   input_sources:
     lctlib: <TEST_DIR>/comp/awicm/awicm-1.0-recom/echam-6.3.04p1/lctlib_nlct21.def  # <CONFIGS_PATH>/components/jsbach/jsbach.datasets.yaml,line:12,col:21
-    jsbach: /work/ab0995/from_Mistral/ab0995/a270046/meshes_default/core/tarfilesT63/input/jsbach/jsbach_T63CORE2_11tiles_5layers_1850.nc # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:52,col:24
+    jsbach: /work/ab0995/from_Mistral/ab0995/a270046/meshes_default/core/tarfilesT63/input/jsbach/jsbach_T63CORE2_11tiles_5layers_1850.nc # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:51,col:24
   forcing_sources:
     cover_fract: /pool/data/JSBACH/input/r0010/T63/land_use_maps//cover_fract_T63_11tiles_2007.nc  # no provenance info
     a_nd_file: /pool/data/JSBACH/input/r0010/T63/spitfire/a_nd_T63.nc # <CONFIGS_PATH>/components/jsbach/jsbach.datasets.yaml,line:85,col:42
@@ -5980,7 +6334,7 @@ jsbach:
     namelist.jsbach:
       hydrology_ctl: {}
   add_input_sources:
-    jsbach_1850: /work/ab0995/from_Mistral/ab0995/a270046/meshes_default/core/tarfilesT63/input/jsbach/jsbach_T63CORE2_11tiles_5layers_1850.nc  # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:52,col:24
+    jsbach_1850: /work/ab0995/from_Mistral/ab0995/a270046/meshes_default/core/tarfilesT63/input/jsbach/jsbach_T63CORE2_11tiles_5layers_1850.nc  # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:51,col:24
   ssp_num: # <CONFIGS_PATH>/components/jsbach/jsbach.yaml,line:354,col:30
   Ndepo_sufix: '' # <CONFIGS_PATH>/components/jsbach/jsbach.yaml,line:355,col:34
   namelist_dir: <NAMELIST_PATH>/jsbach/3.20/HIST/dynveg # <CONFIGS_PATH>/components/jsbach/jsbach.yaml,line:120,col:51
@@ -6414,410 +6768,6 @@ hdmodel:
     hdrestart: <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/run_20070101-20070131/restart/hdmodel/restart_awicm1_recom_hist_initial_20070131_hdrestart.nc  # no provenance info
   namelists: {}
   namelist_objs: {}
-general:
-  use_database: false  # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:16,col:19
-  general:
-    system_components:
-    - general  # <CONFIGS_PATH>/defaults/general.yaml,line:4,col:23
-    - dask # <CONFIGS_PATH>/defaults/general.yaml,line:4,col:34
-  standalone: false  # no provenance info
-  model: awicm # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:11,col:16
-  coupled_setup: true # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:14,col:24
-  version: 1.0-recom # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:10,col:14
-  scenario: HIST # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:11,col:15
-  resolution: T63_CORE2 # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:23,col:21
-  postprocessing: false # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:24,col:25
-  post_time: 00:05:00 # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:25,col:20
-  available_versions:
-  - 1  # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:34,col:11
-  - 1.0-recom # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:35,col:11
-  - CMIP6 # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:36,col:11
-  valid_setup_names:
-  - general  # no provenance info
-  - computer # no provenance info
-  - dask # no provenance info
-  - echam # no provenance info
-  - jsbach # no provenance info
-  - fesom # no provenance info
-  - recom # no provenance info
-  - oasis3mct # no provenance info
-  valid_model_names:
-  - echam  # no provenance info
-  - fesom # no provenance info
-  - oasis3mct # no provenance info
-  - recom # no provenance info
-  - jsbach # no provenance info
-  - hdmodel # no provenance info
-  esm_configs_dir: <CONFIGS_PATH>/  # no provenance info
-  esm_namelist_dir: <NAMELIST_PATH>/ # no provenance info
-  esm_runscript_dir: <RUNSCRIPT_PATH>/ # no provenance info
-  esm_couplings_dir: <COUPLINGS_PATH>/ # no provenance info
-  expid: awicm1_recom_hist_initial # no provenance info
-  models:
-  - echam  # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:17,col:19
-  - fesom # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:18,col:19
-  - oasis3mct # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:19,col:19
-  - recom # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:45,col:15
-  setup_name: awicm  # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:9,col:17
-  post_processing: 0 # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:12,col:22
-  account: None # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:13,col:14
-  compute_time: 00:45:00 # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:14,col:19
-  use_venv: false # no provenance info
-  base_dir: <TEST_DIR>/run/awicm/ # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:17,col:15
-  lresume: false # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:18,col:14
-  initial_date: '2007-01-01T00:00:00' # no provenance info
-  final_date: '2007-03-31T00:00:00' # no provenance info
-  first_initial_year: 2007 # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:21,col:25
-  nyear: 0 # no provenance info
-  nmonth: 1 # no provenance info
-  runscript_abspath: <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml # no provenance info
-  additional_files: []
-  runscript: awicm1_recom_hist_initial.yaml  # no provenance info
-  debug: false # no provenance info
-  trace: false # no provenance info
-  task_log_files: false # no provenance info
-  verbose: false # no provenance info
-  contained_run: # no provenance info
-  open_run: true # no provenance info
-  check: true # no provenance info
-  modify_config_file: # no provenance info
-  last_jobtype: prepcompute # no provenance info
-  task: prepcompute # no provenance info
-  inspect: # no provenance info
-  launcher_pid: -666 # no provenance info
-  current_date: '2007-01-01T00:00:00' # no provenance info
-  exclude: # no provenance info
-  only: # no provenance info
-  run_number: 1 # no provenance info
-  update: false # no provenance info
-  update_filetypes: []
-  motd: false  # no provenance info
-  ignore_config_warnings: false # no provenance info
-  jobtype: prepcompute # no provenance info
-  original_command: awicm1_recom_hist_initial.yaml -e awicm1_recom_hist_initial --open-run -c --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
-  started_from: <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/ # no provenance info
-  scriptname: awicm1_recom_hist_initial.yaml # no provenance info
-  isinteractive: false # no provenance info
-  isresubmitted: true # no provenance info
-  execution_mode: run # no provenance info
-  model_dir: <TEST_DIR>/comp/awicm/awicm-1.0-recom # <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml,line:26,col:16
-  experiment_dir: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial # no provenance info
-  per_model_defaults: {}
-  iterative_coupled_model: ''  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:6,col:30
-  reset_calendar_to_last: false # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:7,col:29
-  profile: false # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:9,col:14
-  pre_recipe:
-    exclude_job_types:
-    - prepare  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:12,col:15
-    - prepexp # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:13,col:15
-    - observe # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:14,col:15
-    steps:
-    - initialize_dask_cluster  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:16,col:15
-  intermediate_movements:
-  - config  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:18,col:7
-  - bin # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:19,col:7
-  - input # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:20,col:7
-  compute_file_checksums: false  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:21,col:29
-  parallel_file_movements: dask # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:22,col:30
-  force_overwrite_in_file_movements: false # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:23,col:40
-  command_line_config:
-    runscript: awicm1_recom_hist_initial.yaml  # no provenance info
-    debug: false # no provenance info
-    trace: false # no provenance info
-    task_log_files: false # no provenance info
-    verbose: false # no provenance info
-    contained_run: # no provenance info
-    open_run: true # no provenance info
-    expid: awicm1_recom_hist_initial # no provenance info
-    check: true # no provenance info
-    modify_config_file: # no provenance info
-    last_jobtype: prepcompute # no provenance info
-    task: prepcompute # no provenance info
-    inspect: # no provenance info
-    launcher_pid: -666 # no provenance info
-    current_date: # no provenance info
-    exclude: # no provenance info
-    only: # no provenance info
-    run_number: # no provenance info
-    update: false # no provenance info
-    update_filetypes: []
-    motd: false  # no provenance info
-    ignore_config_warnings: false # no provenance info
-    jobtype: prepcompute # no provenance info
-    use_venv: false # no provenance info
-    original_command: awicm1_recom_hist_initial.yaml -e awicm1_recom_hist_initial --open-run -c --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
-    started_from: <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/ # no provenance info
-    scriptname: awicm1_recom_hist_initial.yaml # no provenance info
-    runscript_abspath: <TEST_DIR>/run/awicm/awicm1_recom_hist_initial/scripts/awicm1_recom_hist_initial.yaml # no provenance info
-  couplings:
-  - fesom-1.4+recom-2.0+echam-6.3.04p1  # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:43,col:15
-  include_models:
-  - recom  # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:45,col:15
-  nday: 0  # no provenance info
-  nhour: 0 # no provenance info
-  nminute: 0 # no provenance info
-  nsecond: 0 # no provenance info
-  leapyear: true # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:144,col:19
-  calendar: esm_calendar object with allowed leap years # no provenance info
-  delta_date:
-  - 0  # no provenance info
-  - 1 # no provenance info
-  - 0 # no provenance info
-  - 0 # no provenance info
-  - 0 # no provenance info
-  - 0 # no provenance info
-  start_date: '2007-01-01T00:00:00'  # no provenance info
-  prev_date: '2006-12-31T00:00:00' # no provenance info
-  next_date: '2007-02-01T00:00:00' # no provenance info
-  last_start_date: '2006-12-01T00:00:00' # no provenance info
-  end_date: '2007-01-31T00:00:00' # no provenance info
-  runtime:
-  - 0  # no provenance info
-  - 1 # no provenance info
-  - 31 # no provenance info
-  - 744 # no provenance info
-  - 44640 # no provenance info
-  - 2678400 # no provenance info
-  total_runtime:
-  - 0  # no provenance info
-  - 1 # no provenance info
-  - 31 # no provenance info
-  - 744 # no provenance info
-  - 44640 # no provenance info
-  - 2678400 # no provenance info
-  run_datestamp: 20070101-20070131  # no provenance info
-  last_run_datestamp: 20061201-20061231 # no provenance info
-  chunk_number: 1 # no provenance info
-  first_run_in_chunk: true # no provenance info
-  last_run_in_chunk: false # no provenance info
-  out_filetypes:
-  - analysis  # no provenance info
-  - log # no provenance info
-  - mon # no provenance info
-  - scripts # no provenance info
-  - ignore # no provenance info
-  - unknown # no provenance info
-  - outdata # no provenance info
-  - restart_out # no provenance info
-  in_filetypes:
-  - scripts  # no provenance info
-  - input # no provenance info
-  - forcing # no provenance info
-  - bin # no provenance info
-  - config # no provenance info
-  - restart_in # no provenance info
-  reusable_filetypes:
-  - bin  # no provenance info
-  - src # no provenance info
-  potentially_reusable_filetypes:
-  - analysis  # no provenance info
-  - config # no provenance info
-  - log # no provenance info
-  - mon # no provenance info
-  - couple # no provenance info
-  - scripts # no provenance info
-  - ignore # no provenance info
-  - unknown # no provenance info
-  - src # no provenance info
-  - scripts # no provenance info
-  - input # no provenance info
-  - forcing # no provenance info
-  - bin # no provenance info
-  - config # no provenance info
-  - restart_in # no provenance info
-  thisrun_dir: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/run_20070101-20070131  # no provenance info
-  experiment_analysis_dir: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/analysis/ # no provenance info
-  experiment_config_dir: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/config/ # no provenance info
-  experiment_log_dir: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/log/ # no provenance info
-  experiment_mon_dir: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/mon/ # no provenance info
-  experiment_couple_dir: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/couple/ # no provenance info
-  experiment_scripts_dir: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/scripts/ # no provenance info
-  experiment_ignore_dir: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/ignore/ # no provenance info
-  experiment_unknown_dir: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/unknown/ # no provenance info
-  experiment_src_dir: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/src/ # no provenance info
-  all_filetypes:
-  - analysis  # no provenance info
-  - config # no provenance info
-  - log # no provenance info
-  - mon # no provenance info
-  - couple # no provenance info
-  - scripts # no provenance info
-  - ignore # no provenance info
-  - unknown # no provenance info
-  - src # no provenance info
-  - work # no provenance info
-  thisrun_analysis_dir: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/run_20070101-20070131/analysis/  # no provenance info
-  thisrun_config_dir: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/run_20070101-20070131/config/ # no provenance info
-  thisrun_log_dir: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/run_20070101-20070131/log/ # no provenance info
-  thisrun_mon_dir: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/run_20070101-20070131/mon/ # no provenance info
-  thisrun_couple_dir: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/run_20070101-20070131/couple/ # no provenance info
-  thisrun_scripts_dir: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/run_20070101-20070131/scripts/ # no provenance info
-  thisrun_ignore_dir: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/run_20070101-20070131/ignore/ # no provenance info
-  thisrun_unknown_dir: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/run_20070101-20070131/unknown/ # no provenance info
-  thisrun_src_dir: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/run_20070101-20070131/src/ # no provenance info
-  thisrun_work_dir: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/run_20070101-20070131/work/ # no provenance info
-  work_dir: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/run_20070101-20070131/work/ # no provenance info
-  all_model_filetypes:
-  - analysis  # no provenance info
-  - bin # no provenance info
-  - config # no provenance info
-  - forcing # no provenance info
-  - input # no provenance info
-  - couple # no provenance info
-  - log # no provenance info
-  - mon # no provenance info
-  - outdata # no provenance info
-  - restart_in # no provenance info
-  - restart_out # no provenance info
-  - viz # no provenance info
-  - ignore # no provenance info
-  workflow:
-    subjob_clusters:
-      prepcompute:
-        subjobs:
-        - prepcompute_general  # no provenance info
-        run_before: compute  # no provenance info
-        submit_to_batch_system: false # no provenance info
-        batch_or_shell: SimulationSetup # no provenance info
-        order_in_cluster: sequential # no provenance info
-        nproc: 1 # no provenance info
-        next_submit:
-        - compute  # no provenance info
-        called_from: tidy  # no provenance info
-      compute:
-        subjobs:
-        - compute_general  # no provenance info
-        submit_to_batch_system: true  # no provenance info
-        batch_or_shell: batch # no provenance info
-        run_on_queue: compute # <CONFIGS_PATH>/machines/levante.yaml,line:62,col:27
-        run_before: tidy # no provenance info
-        order_in_cluster: sequential # no provenance info
-        nproc: 960 # no provenance info
-        next_submit:
-        - tidy  # no provenance info
-        called_from: prepcompute  # no provenance info
-      tidy:
-        subjobs:
-        - tidy_general  # no provenance info
-        run_after: compute  # no provenance info
-        submit_to_batch_system: false # no provenance info
-        batch_or_shell: SimulationSetup # no provenance info
-        order_in_cluster: sequential # no provenance info
-        nproc: 1 # no provenance info
-        next_submit:
-        - prepcompute  # no provenance info
-        called_from: compute  # no provenance info
-    subjobs:
-      prepcompute_general:
-        nproc: 1  # no provenance info
-        run_before: compute # no provenance info
-        subjob_cluster: prepcompute # no provenance info
-      compute_general:
-        nproc: 960  # no provenance info
-        run_before: tidy # no provenance info
-        submit_to_batch_system: true # no provenance info
-        run_on_queue: compute # <CONFIGS_PATH>/machines/levante.yaml,line:62,col:27
-        subjob_cluster: compute # no provenance info
-      tidy_general:
-        nproc: 1  # no provenance info
-        run_after: compute # no provenance info
-        subjob_cluster: tidy # no provenance info
-    last_task_in_queue: tidy  # no provenance info
-    first_task_in_queue: prepcompute # no provenance info
-    next_run_triggered_by: tidy # no provenance info
-  submitted: false  # no provenance info
-  jobid: 1280 # no provenance info
-  batch: slurm # no provenance info
-  coupler_config_dir: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/run_20070101-20070131/config/oasis3mct/ # no provenance info
-  coupler: oasis3mct # no provenance info
-  experiment_log_file: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/log//awicm1_recom_hist_initial_awicm.log # no provenance info
-  esm_tools_version: 6.62.1 # no provenance info
-  logfile_path: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/log//awicm1_recom_hist_initial_awicm_prepcompute_20070101-20070131_1280.log # no provenance info
-  logfile_path_in_run: <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/run_20070101-20070131/log//awicm1_recom_hist_initial_awicm_prepcompute_20070101-20070131_1280.log # no provenance info
-  relevant_filetypes:
-  - bin  # no provenance info
-  - config # no provenance info
-  - forcing # no provenance info
-  - input # no provenance info
-  - restart_in # no provenance info
-  file_movements:
-    bin:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:31,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:32,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:33,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:34,col:41
-    analysis:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    config:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    forcing:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    input:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    couple:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    log:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    mon:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    outdata:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    restart_in:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    restart_out:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    viz:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    ignore:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    scripts:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    unknown:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-  files_source: thisrun  # no provenance info
-  files_target: work # no provenance info
 dask:
   ntasks: 32  # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:155,col:13
   init_scheduler_cmd: srun --ntasks=1 --nodes=1 --cpus-per-task=1 dask scheduler --scheduler-file <TEST_DIR>/run/awicm//awicm1_recom_hist_initial/run_20070101-20070131/work//dask_scheduler.json --interface ib0 # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:156,col:25

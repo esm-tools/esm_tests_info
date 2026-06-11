@@ -771,7 +771,7 @@ echam:
     - vdate <--set_global_attr-- 20150101  # no provenance info
     - vdate <--set_global_attr-- 20150101 # no provenance info
     - vdate <--set_global_attr-- 20150101 # no provenance info
-  leapyear: true  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2376,col:19
+  leapyear: true  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2380,col:19
   iaero: 9 # <CONFIGS_PATH>/components/echam/echam.yaml,line:525,col:36
   experiment_analysis_dir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/analysis/echam/ # no provenance info
   thisrun_analysis_dir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/run_20150101-20150101/analysis/echam/ # no provenance info
@@ -1214,7 +1214,7 @@ computer:
     LD_LIBRARY_PATH[(0)]: $HDF5ROOT/lib:$NETCDFROOT/lib:$NETCDFFROOT/lib:$AEC_ROOT/lib:$LD_LIBRARY_PATH # <CONFIGS_PATH>/machines/levante.yaml,line:354,col:39
     LD_LIBRARY_PATH[(1)]: /sw/spack-levante/intel-oneapi-mkl-2022.0.1-ttdktf/mkl/2022.0.1/lib/intel64:$LD_LIBRARY_PATH # <CONFIGS_PATH>/machines/levante.yaml,line:357,col:39
     LD_LIBRARY_PATH[(2)]: /sw/spack-levante/intel-oneapi-mpi-2021.5.0-mrcss7/mpi/2021.5.0/libfabric/lib:$LD_LIBRARY_PATH # <CONFIGS_PATH>/machines/levante.yaml,line:360,col:39
-    ACCOUNT: None # no provenance info
+    ACCOUNT: ab0246 # no provenance info
     ESM_TESTING_DIR: <TEST_DIR>/run/foci/ # no provenance info
     MODEL_DIR: <TEST_DIR>/comp/foci/foci-default # no provenance info
   load_python: false  # <CONFIGS_PATH>/machines/levante.yaml,line:137,col:18
@@ -1272,7 +1272,7 @@ computer:
   nnodes: 1 # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:152,col:13
   model: computer # no provenance info
   add_export_vars:
-    ACCOUNT: None  # no provenance info
+    ACCOUNT: ab0246  # no provenance info
     ESM_TESTING_DIR: <TEST_DIR>/run/foci/ # no provenance info
     MODEL_DIR: <TEST_DIR>/comp/foci/foci-default # no provenance info
   heterogeneous_parallelization: false  # no provenance info
@@ -1289,30 +1289,396 @@ computer:
   libaec_version: 1.0.5-intel-2021.5.0 # <CONFIGS_PATH>/machines/levante.yaml,line:304,col:29
   libaec_path: /sw/spack-levante/libaec-1.0.5-gij7yv # <CONFIGS_PATH>/machines/levante.yaml,line:305,col:26
   tbb_path: /sw/spack-levante/intel-oneapi-compilers-2022.0.1-an2cbq/tbb/2021.5.0 # <CONFIGS_PATH>/machines/levante.yaml,line:306,col:23
-  accounting_flag: --account=None # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:28,col:38
+  accounting_flag: --account=ab0246 # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:28,col:38
   cpu_bind: cores # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:79,col:23
   srun_execution_command: srun -l --cpu-bind=cores --distribution=cyclic:cyclic --hint=nomultithread --multi-prog hostfile_srun # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:80,col:37
   hyperthreading_flag: --ntasks-per-core=1 # <CONFIGS_PATH>/machines/levante.yaml,line:33,col:58
   execution_command: srun -l --cpu-bind=cores --distribution=cyclic:cyclic --hint=nomultithread --multi-prog hostfile_srun # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:85,col:40
   debugger_flags_prelauncher: '' # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:95,col:45
+general:
+  sections:
+    echam: <TEST_DIR>/run/foci/foci-initial-ssp-scenario/scripts/foci-initial-ssp-scenario.yaml  # no provenance info
+    computer: <TEST_DIR>/run/foci/foci-initial-ssp-scenario/scripts/foci-initial-ssp-scenario.yaml # no provenance info
+    nemo: <TEST_DIR>/run/foci/foci-initial-ssp-scenario/scripts/foci-initial-ssp-scenario.yaml # no provenance info
+    xios: <TEST_DIR>/run/foci/foci-initial-ssp-scenario/scripts/foci-initial-ssp-scenario.yaml # no provenance info
+    oasis3mct: <TEST_DIR>/run/foci/foci-initial-ssp-scenario/scripts/foci-initial-ssp-scenario.yaml # no provenance info
+    jsbach: <CONFIGS_PATH>/setups/foci/foci.yaml # no provenance info
+    hdmodel: <CONFIGS_PATH>/setups/foci/foci.yaml # no provenance info
+    dask: <CONFIGS_PATH>/other_software/batch_system/slurm.yaml # no provenance info
+    foci: <TEST_DIR>/run/foci/foci-initial-ssp-scenario/scripts/foci-initial-ssp-scenario.yaml # no provenance info
+    per_model_defaults: <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml # no provenance info
+  add_other_components:
+  - nemobasemodel  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:6,col:7
+  use_database: false  # <CONFIGS_PATH>/defaults/general.yaml,line:1,col:15
+  system_components:
+  - general  # <CONFIGS_PATH>/defaults/general.yaml,line:2,col:21
+  - dask # <CONFIGS_PATH>/defaults/general.yaml,line:2,col:32
+  - prev_run # no provenance info
+  other_components:
+  - nemobasemodel  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:6,col:7
+  standalone: false  # no provenance info
+  model: foci # <CONFIGS_PATH>/setups/foci/foci.yaml,line:5,col:16
+  pool_dir: /work/bb0519/foci_input2 # <CONFIGS_PATH>/setups/foci/foci.yaml,line:6,col:19
+  lresume: false # <CONFIGS_PATH>/setups/foci/foci.yaml,line:14,col:18
+  ini_parent_exp_id: unset # <CONFIGS_PATH>/setups/foci/foci.yaml,line:17,col:28
+  ini_parent_date: '18491231' # <CONFIGS_PATH>/setups/foci/foci.yaml,line:18,col:26
+  ini_nemo_restart_steps: 26297472 # <CONFIGS_PATH>/setups/foci/foci.yaml,line:19,col:33
+  ini_parent_dir: /work/bb0519/foci_input2/FOCI_RESTART/unset/ # <CONFIGS_PATH>/setups/foci/foci.yaml,line:20,col:25
+  coupled_setup: true # <CONFIGS_PATH>/setups/foci/foci.yaml,line:22,col:24
+  version: default # <TEST_DIR>/run/foci/foci-initial-ssp-scenario/scripts/foci-initial-ssp-scenario.yaml,line:6,col:13
+  scenario: PI-CTRL # <CONFIGS_PATH>/setups/foci/foci.yaml,line:31,col:19
+  resolution: T63_ORCA05 # <CONFIGS_PATH>/setups/foci/foci.yaml,line:32,col:21
+  postprocessing: 0 # <TEST_DIR>/run/foci/foci-initial-ssp-scenario/scripts/foci-initial-ssp-scenario.yaml,line:12,col:20
+  post_time: 00:05:00 # <CONFIGS_PATH>/setups/foci/foci.yaml,line:34,col:20
+  compute_time: 00:15:00 # <TEST_DIR>/run/foci/foci-initial-ssp-scenario/scripts/foci-initial-ssp-scenario.yaml,line:9,col:18
+  available_versions:
+  - default  # <CONFIGS_PATH>/setups/foci/foci.yaml,line:38,col:11
+  - default_autotools # <CONFIGS_PATH>/setups/foci/foci.yaml,line:39,col:11
+  - fs # <CONFIGS_PATH>/setups/foci/foci.yaml,line:40,col:11
+  - fs_oasismct4 # <CONFIGS_PATH>/setups/foci/foci.yaml,line:41,col:11
+  - default_oasismct4 # <CONFIGS_PATH>/setups/foci/foci.yaml,line:42,col:11
+  - default_oasismct5 # <CONFIGS_PATH>/setups/foci/foci.yaml,line:43,col:11
+  - moz # <CONFIGS_PATH>/setups/foci/foci.yaml,line:44,col:11
+  - moz_mct2 # <CONFIGS_PATH>/setups/foci/foci.yaml,line:45,col:11
+  - mops_oasismct4 # <CONFIGS_PATH>/setups/foci/foci.yaml,line:46,col:11
+  - mops_lmu # <CONFIGS_PATH>/setups/foci/foci.yaml,line:47,col:11
+  - agrif # <CONFIGS_PATH>/setups/foci/foci.yaml,line:48,col:11
+  - agrif_oasismct4 # <CONFIGS_PATH>/setups/foci/foci.yaml,line:49,col:11
+  - agrif_mops_oasismct4 # <CONFIGS_PATH>/setups/foci/foci.yaml,line:50,col:11
+  valid_setup_names:
+  - general  # no provenance info
+  - computer # no provenance info
+  - dask # no provenance info
+  - echam # no provenance info
+  - hdmodel # no provenance info
+  - jsbach # no provenance info
+  - nemo # no provenance info
+  - xios # no provenance info
+  - oasis3mct # no provenance info
+  valid_model_names:
+  - echam  # no provenance info
+  - nemo # no provenance info
+  - xios # no provenance info
+  - oasis3mct # no provenance info
+  - jsbach # no provenance info
+  - hdmodel # no provenance info
+  esm_configs_dir: <CONFIGS_PATH>/  # no provenance info
+  esm_namelist_dir: <NAMELIST_PATH>/ # no provenance info
+  esm_runscript_dir: <RUNSCRIPT_PATH>/ # no provenance info
+  esm_couplings_dir: <COUPLINGS_PATH>/ # no provenance info
+  expid: foci-initial-ssp-scenario # no provenance info
+  models:
+  - echam  # <CONFIGS_PATH>/setups/foci/foci.yaml,line:25,col:19
+  - nemo # <CONFIGS_PATH>/setups/foci/foci.yaml,line:26,col:19
+  - xios # <CONFIGS_PATH>/setups/foci/foci.yaml,line:27,col:19
+  - oasis3mct # <CONFIGS_PATH>/setups/foci/foci.yaml,line:28,col:19
+  use_venv: false # no provenance info
+  verbose: false # no provenance info
+  setup_name: foci # <TEST_DIR>/run/foci/foci-initial-ssp-scenario/scripts/foci-initial-ssp-scenario.yaml,line:5,col:16
+  initial_date: '2015-01-01T00:00:00' # no provenance info
+  final_date: '2015-01-03T00:00:00' # no provenance info
+  nday: 1 # no provenance info
+  account: ab0246 # <TEST_DIR>/run/foci/foci-initial-ssp-scenario/scripts/foci-initial-ssp-scenario.yaml,line:16,col:13
+  base_dir: <TEST_DIR>/run/foci/ # <TEST_DIR>/run/foci/foci-initial-ssp-scenario/scripts/foci-initial-ssp-scenario.yaml,line:17,col:14
+  runscript_abspath: <TEST_DIR>/run/foci/foci-initial-ssp-scenario/scripts/foci-initial-ssp-scenario.yaml # no provenance info
+  additional_files: []
+  runscript: foci-initial-ssp-scenario.yaml  # no provenance info
+  debug: false # no provenance info
+  trace: false # no provenance info
+  task_log_files: false # no provenance info
+  contained_run: # no provenance info
+  open_run: true # no provenance info
+  check: false # no provenance info
+  modify_config_file: # no provenance info
+  last_jobtype: prepcompute # no provenance info
+  task: prepcompute # no provenance info
+  inspect: # no provenance info
+  launcher_pid: -666 # no provenance info
+  current_date: '2015-01-01T00:00:00' # no provenance info
+  exclude: # no provenance info
+  only: # no provenance info
+  run_number: 1 # no provenance info
+  update: false # no provenance info
+  update_filetypes: []
+  motd: false  # no provenance info
+  ignore_config_warnings: false # no provenance info
+  jobtype: prepcompute # no provenance info
+  original_command: foci-initial-ssp-scenario.yaml -e foci-initial-ssp-scenario --open-run --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
+  started_from: <TEST_DIR>/run/foci/foci-initial-ssp-scenario/scripts/ # no provenance info
+  scriptname: foci-initial-ssp-scenario.yaml # no provenance info
+  isinteractive: false # no provenance info
+  isresubmitted: true # no provenance info
+  execution_mode: run # no provenance info
+  model_dir: <TEST_DIR>/comp/foci/foci-default # <TEST_DIR>/run/foci/foci-initial-ssp-scenario/scripts/foci-initial-ssp-scenario.yaml,line:20,col:15
+  experiment_dir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario # no provenance info
+  per_model_defaults: {}
+  iterative_coupled_model: ''  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:6,col:30
+  reset_calendar_to_last: false # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:7,col:29
+  profile: false # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:9,col:14
+  pre_recipe:
+    exclude_job_types:
+    - prepare  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:12,col:15
+    - prepexp # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:13,col:15
+    - observe # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:14,col:15
+    steps:
+    - initialize_dask_cluster  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:16,col:15
+  intermediate_movements:
+  - config  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:18,col:7
+  - bin # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:19,col:7
+  - input # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:20,col:7
+  compute_file_checksums: false  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:21,col:29
+  parallel_file_movements: dask # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:22,col:30
+  force_overwrite_in_file_movements: false # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:23,col:40
+  command_line_config:
+    runscript: foci-initial-ssp-scenario.yaml  # no provenance info
+    debug: false # no provenance info
+    trace: false # no provenance info
+    task_log_files: false # no provenance info
+    verbose: false # no provenance info
+    contained_run: # no provenance info
+    open_run: true # no provenance info
+    expid: foci-initial-ssp-scenario # no provenance info
+    check: false # no provenance info
+    modify_config_file: # no provenance info
+    last_jobtype: prepcompute # no provenance info
+    task: prepcompute # no provenance info
+    inspect: # no provenance info
+    launcher_pid: -666 # no provenance info
+    current_date: # no provenance info
+    exclude: # no provenance info
+    only: # no provenance info
+    run_number: # no provenance info
+    update: false # no provenance info
+    update_filetypes: []
+    motd: false  # no provenance info
+    ignore_config_warnings: false # no provenance info
+    jobtype: prepcompute # no provenance info
+    use_venv: false # no provenance info
+    original_command: foci-initial-ssp-scenario.yaml -e foci-initial-ssp-scenario --open-run --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
+    started_from: <TEST_DIR>/run/foci/foci-initial-ssp-scenario/scripts/ # no provenance info
+    scriptname: foci-initial-ssp-scenario.yaml # no provenance info
+    runscript_abspath: <TEST_DIR>/run/foci/foci-initial-ssp-scenario/scripts/foci-initial-ssp-scenario.yaml # no provenance info
+  couplings:
+  - nemo-ORCA05_LIM2_KCM_AOW+echam-6.3.05p2-foci  # <CONFIGS_PATH>/setups/foci/foci.yaml,line:55,col:15
+  nyear: 0  # no provenance info
+  nmonth: 0 # no provenance info
+  nhour: 0 # no provenance info
+  nminute: 0 # no provenance info
+  nsecond: 0 # no provenance info
+  leapyear: true # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2380,col:19
+  calendar: esm_calendar object with allowed leap years # no provenance info
+  delta_date:
+  - 0  # no provenance info
+  - 0 # no provenance info
+  - 1 # no provenance info
+  - 0 # no provenance info
+  - 0 # no provenance info
+  - 0 # no provenance info
+  start_date: '2015-01-01T00:00:00'  # no provenance info
+  prev_date: '2014-12-31T00:00:00' # no provenance info
+  next_date: '2015-01-02T00:00:00' # no provenance info
+  last_start_date: '2014-12-31T00:00:00' # no provenance info
+  end_date: '2015-01-01T00:00:00' # no provenance info
+  runtime:
+  - 0  # no provenance info
+  - 0 # no provenance info
+  - 1 # no provenance info
+  - 24 # no provenance info
+  - 1440 # no provenance info
+  - 86400 # no provenance info
+  total_runtime:
+  - 0  # no provenance info
+  - 0 # no provenance info
+  - 1 # no provenance info
+  - 24 # no provenance info
+  - 1440 # no provenance info
+  - 86400 # no provenance info
+  run_datestamp: 20150101-20150101  # no provenance info
+  last_run_datestamp: 20141231-20141231 # no provenance info
+  chunk_number: 1 # no provenance info
+  first_run_in_chunk: true # no provenance info
+  last_run_in_chunk: false # no provenance info
+  out_filetypes:
+  - analysis  # no provenance info
+  - log # no provenance info
+  - mon # no provenance info
+  - scripts # no provenance info
+  - ignore # no provenance info
+  - unknown # no provenance info
+  - outdata # no provenance info
+  - restart_out # no provenance info
+  in_filetypes:
+  - scripts  # no provenance info
+  - input # no provenance info
+  - forcing # no provenance info
+  - bin # no provenance info
+  - config # no provenance info
+  - restart_in # no provenance info
+  reusable_filetypes:
+  - bin  # no provenance info
+  - src # no provenance info
+  potentially_reusable_filetypes:
+  - analysis  # no provenance info
+  - config # no provenance info
+  - log # no provenance info
+  - mon # no provenance info
+  - couple # no provenance info
+  - scripts # no provenance info
+  - ignore # no provenance info
+  - unknown # no provenance info
+  - src # no provenance info
+  - scripts # no provenance info
+  - input # no provenance info
+  - forcing # no provenance info
+  - bin # no provenance info
+  - config # no provenance info
+  - restart_in # no provenance info
+  thisrun_dir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/run_20150101-20150101  # no provenance info
+  experiment_analysis_dir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/analysis/ # no provenance info
+  experiment_config_dir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/config/ # no provenance info
+  experiment_log_dir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/log/ # no provenance info
+  experiment_mon_dir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/mon/ # no provenance info
+  experiment_couple_dir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/couple/ # no provenance info
+  experiment_scripts_dir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/scripts/ # no provenance info
+  experiment_ignore_dir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/ignore/ # no provenance info
+  experiment_unknown_dir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/unknown/ # no provenance info
+  experiment_src_dir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/src/ # no provenance info
+  all_filetypes:
+  - analysis  # no provenance info
+  - config # no provenance info
+  - log # no provenance info
+  - mon # no provenance info
+  - couple # no provenance info
+  - scripts # no provenance info
+  - ignore # no provenance info
+  - unknown # no provenance info
+  - src # no provenance info
+  - work # no provenance info
+  thisrun_analysis_dir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/run_20150101-20150101/analysis/  # no provenance info
+  thisrun_config_dir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/run_20150101-20150101/config/ # no provenance info
+  thisrun_log_dir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/run_20150101-20150101/log/ # no provenance info
+  thisrun_mon_dir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/run_20150101-20150101/mon/ # no provenance info
+  thisrun_couple_dir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/run_20150101-20150101/couple/ # no provenance info
+  thisrun_scripts_dir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/run_20150101-20150101/scripts/ # no provenance info
+  thisrun_ignore_dir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/run_20150101-20150101/ignore/ # no provenance info
+  thisrun_unknown_dir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/run_20150101-20150101/unknown/ # no provenance info
+  thisrun_src_dir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/run_20150101-20150101/src/ # no provenance info
+  thisrun_work_dir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/run_20150101-20150101/work/ # no provenance info
+  work_dir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/run_20150101-20150101/work/ # no provenance info
+  all_model_filetypes:
+  - analysis  # no provenance info
+  - bin # no provenance info
+  - config # no provenance info
+  - forcing # no provenance info
+  - input # no provenance info
+  - couple # no provenance info
+  - log # no provenance info
+  - mon # no provenance info
+  - outdata # no provenance info
+  - restart_in # no provenance info
+  - restart_out # no provenance info
+  - viz # no provenance info
+  - ignore # no provenance info
+  workflow:
+    subjob_clusters:
+      prepcompute:
+        subjobs:
+        - prepcompute_general  # no provenance info
+        run_before: compute  # no provenance info
+        submit_to_batch_system: false # no provenance info
+        batch_or_shell: SimulationSetup # no provenance info
+        order_in_cluster: sequential # no provenance info
+        nproc: 1 # no provenance info
+        next_submit:
+        - compute  # no provenance info
+        called_from: tidy  # no provenance info
+      compute:
+        subjobs:
+        - compute_general  # no provenance info
+        submit_to_batch_system: true  # no provenance info
+        batch_or_shell: batch # no provenance info
+        run_on_queue: compute # <CONFIGS_PATH>/machines/levante.yaml,line:62,col:27
+        run_before: tidy # no provenance info
+        order_in_cluster: sequential # no provenance info
+        nproc: 64 # no provenance info
+        next_submit:
+        - tidy  # no provenance info
+        called_from: prepcompute  # no provenance info
+      tidy:
+        subjobs:
+        - tidy_general  # no provenance info
+        run_after: compute  # no provenance info
+        submit_to_batch_system: false # no provenance info
+        batch_or_shell: SimulationSetup # no provenance info
+        order_in_cluster: sequential # no provenance info
+        nproc: 1 # no provenance info
+        next_submit:
+        - prepcompute  # no provenance info
+        called_from: compute  # no provenance info
+    subjobs:
+      prepcompute_general:
+        nproc: 1  # no provenance info
+        run_before: compute # no provenance info
+        subjob_cluster: prepcompute # no provenance info
+      compute_general:
+        nproc: 64  # no provenance info
+        run_before: tidy # no provenance info
+        submit_to_batch_system: true # no provenance info
+        run_on_queue: compute # <CONFIGS_PATH>/machines/levante.yaml,line:62,col:27
+        subjob_cluster: compute # no provenance info
+      tidy_general:
+        nproc: 1  # no provenance info
+        run_after: compute # no provenance info
+        subjob_cluster: tidy # no provenance info
+    last_task_in_queue: tidy  # no provenance info
+    first_task_in_queue: prepcompute # no provenance info
+    next_run_triggered_by: tidy # no provenance info
+  submitted: false  # no provenance info
+  jobid: 2247096 # no provenance info
+  batch: slurm # no provenance info
+  coupler_config_dir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/run_20150101-20150101/config/oasis3mct/ # no provenance info
+  coupler: oasis3mct # no provenance info
+  experiment_log_file: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/log//foci-initial-ssp-scenario_foci.log # no provenance info
+  esm_tools_version: 6.62.4 # no provenance info
+  logfile_path: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/log//foci-initial-ssp-scenario_foci_prepcompute_20150101-20150101_2247096.log # no provenance info
+  logfile_path_in_run: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/run_20150101-20150101/log//foci-initial-ssp-scenario_foci_prepcompute_20150101-20150101_2247096.log # no provenance info
+  relevant_filetypes:
+  - bin  # no provenance info
+  - config # no provenance info
+  - forcing # no provenance info
+  - input # no provenance info
+  - restart_in # no provenance info
+  file_movements:
+    default:
+      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+    bin:
+      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:31,col:41
+      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:32,col:41
+      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:33,col:41
+      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:34,col:41
+  files_source: thisrun  # no provenance info
+  files_target: work # no provenance info
 nemo:
-  model: nemo  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:6,col:12
-  generation: 3.6 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:7,col:17
-  executable: oceanx # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:8,col:21
+  model: nemo  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:10,col:12
+  generation: 3.6 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:11,col:17
+  executable: oceanx # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:12,col:21
   version: ORCA05_LIM2_KCM_AOW # <TEST_DIR>/run/foci/foci-initial-ssp-scenario/scripts/foci-initial-ssp-scenario.yaml,line:38,col:13
-  reference_expid: EXP00 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:10,col:22
-  clean_command: cp cfg.inc ../cfg.txt; cd ../ ./makenemo -n ORCA05_LIM2_KCM_AOW -m ESMTOOLS_generic_oasis_intel clean; rm -r ORCA05_LIM2_KCM_AOW/BLD; rm -r ../TOOLS/COMPILE/arch_nemo.fcm; cd .. # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:16,col:20
-  comp_command: export NEMO_TOPLEVEL=<TEST_DIR>/comp/foci/foci-default/nemo-ORCA05_LIM2_KCM_AOW/../../ ; cp cfg.inc ../cfg.txt ; cd ../ ; ./makenemo -n ORCA05_LIM2_KCM_AOW -m ESMTOOLS_generic_oasis_intel -j 24; cp -p ORCA05_LIM2_KCM_AOW/BLD/bin/nemo.exe ORCA05_LIM2_KCM_AOW/BLD/bin/oceanx ; cd .. # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:22,col:19
-  archfile: ESMTOOLS_generic_oasis_intel # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:27,col:15
-  destination: nemo-ORCA05_LIM2_KCM_AOW/CONFIG/ORCA05_LIM2_KCM_AOW # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2374,col:22
-  install_bins: BLD/bin/oceanx # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:39,col:19
-  contact: swahl(at)geomar.de # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:41,col:14
+  reference_expid: EXP00 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:14,col:22
+  clean_command: cp cfg.inc ../cfg.txt; cd ../ ./makenemo -n ORCA05_LIM2_KCM_AOW -m ESMTOOLS_generic_oasis_intel clean; rm -r ORCA05_LIM2_KCM_AOW/BLD; rm -r ../TOOLS/COMPILE/arch_nemo.fcm; cd .. # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:20,col:20
+  comp_command: export NEMO_TOPLEVEL=<TEST_DIR>/comp/foci/foci-default/nemo-ORCA05_LIM2_KCM_AOW/../../ ; cp cfg.inc ../cfg.txt ; cd ../ ; ./makenemo -n ORCA05_LIM2_KCM_AOW -m ESMTOOLS_generic_oasis_intel -j 24; cp -p ORCA05_LIM2_KCM_AOW/BLD/bin/nemo.exe ORCA05_LIM2_KCM_AOW/BLD/bin/oceanx ; cd .. # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:26,col:19
+  archfile: ESMTOOLS_generic_oasis_intel # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:31,col:15
+  destination: nemo-ORCA05_LIM2_KCM_AOW/CONFIG/ORCA05_LIM2_KCM_AOW # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2378,col:22
+  install_bins: BLD/bin/oceanx # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:43,col:19
+  contact: swahl(at)geomar.de # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:45,col:14
   file_movements:
     config:
       init_to_exp: copy  # <CONFIGS_PATH>/setups/foci/foci.yaml,line:743,col:28
       run_to_work: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:744,col:28
-      exp_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:741,col:31
-      work_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:741,col:31
+      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
     forcing:
       init_to_exp: link  # <CONFIGS_PATH>/setups/foci/foci.yaml,line:746,col:31
       exp_to_run: link # <CONFIGS_PATH>/setups/foci/foci.yaml,line:746,col:31
@@ -1334,243 +1700,243 @@ nemo:
       run_to_work: move # <CONFIGS_PATH>/setups/foci/foci.yaml,line:752,col:31
       work_to_run: move # <CONFIGS_PATH>/setups/foci/foci.yaml,line:752,col:31
     analysis:
-      init_to_exp: copy  # <CONFIGS_PATH>/setups/foci/foci.yaml,line:741,col:31
-      exp_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:741,col:31
-      run_to_work: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:741,col:31
-      work_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:741,col:31
+      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
     bin:
       init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:31,col:41
       exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:32,col:41
       run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:33,col:41
       work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:34,col:41
     couple:
-      init_to_exp: copy  # <CONFIGS_PATH>/setups/foci/foci.yaml,line:741,col:31
-      exp_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:741,col:31
-      run_to_work: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:741,col:31
-      work_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:741,col:31
+      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
     mon:
-      init_to_exp: copy  # <CONFIGS_PATH>/setups/foci/foci.yaml,line:741,col:31
-      exp_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:741,col:31
-      run_to_work: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:741,col:31
-      work_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:741,col:31
+      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
     restart_in:
-      init_to_exp: copy  # <CONFIGS_PATH>/setups/foci/foci.yaml,line:741,col:31
-      exp_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:741,col:31
-      run_to_work: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:741,col:31
-      work_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:741,col:31
+      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
     restart_out:
-      init_to_exp: copy  # <CONFIGS_PATH>/setups/foci/foci.yaml,line:741,col:31
-      exp_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:741,col:31
-      run_to_work: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:741,col:31
-      work_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:741,col:31
+      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
     viz:
-      init_to_exp: copy  # <CONFIGS_PATH>/setups/foci/foci.yaml,line:741,col:31
-      exp_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:741,col:31
-      run_to_work: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:741,col:31
-      work_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:741,col:31
+      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
     ignore:
-      init_to_exp: copy  # <CONFIGS_PATH>/setups/foci/foci.yaml,line:741,col:31
-      exp_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:741,col:31
-      run_to_work: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:741,col:31
-      work_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:741,col:31
+      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
     scripts:
-      init_to_exp: copy  # <CONFIGS_PATH>/setups/foci/foci.yaml,line:741,col:31
-      exp_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:741,col:31
-      run_to_work: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:741,col:31
-      work_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:741,col:31
+      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
     unknown:
-      init_to_exp: copy  # <CONFIGS_PATH>/setups/foci/foci.yaml,line:741,col:31
-      exp_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:741,col:31
-      run_to_work: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:741,col:31
-      work_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:741,col:31
-  runoff_method: old # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:60,col:20
+      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+  runoff_method: old # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:64,col:20
   available_versions:
-  - ORCA05_LIM2_KCM_AOW  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:77,col:7
-  - ORCA05_LIM2_KCM_AOW_autotools # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:78,col:7
-  - ORCA05_LIM2_KCM_AOW_FS # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:79,col:7
-  - ORCA05_LIM2_FOCI_AGRIF # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:80,col:7
-  - ORCA05_LIM2_FOCI_AGRIF_AOW # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:81,col:7
-  - ORCA05_LIM2_KCM_AGRIF_OASISMCT4 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:82,col:7
-  - ORCA05_LIM2_FOCI_MOPS_OASISMCT4 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:83,col:7
-  - ORCA05_LIM2_FOCI_AGRIF_MOPS_OASISMCT4 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:84,col:7
-  - ORCA05_LIM2_KCM_AOW_FS_OASISMCT4 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:85,col:7
-  - ORCA05_LIM2_KCM_AOW_OASISMCT4 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:86,col:7
-  - ORCA05_LIM2_KCM_AOW_FS_OASISMCT5 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:87,col:7
-  - ORCA05_LIM2_NEMO_JRA55_test # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:88,col:7
-  - GYRE_XIOS # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:89,col:7
-  - GYRE_PISCES # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:90,col:7
-  - ORCA05.z75.ICE.JRA # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:91,col:7
-  - eORCA025_Z75_SI3_JRA55 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:92,col:7
-  - eORCA025_Z75_SI3_COUPLED # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:93,col:7
-  - ORCA05_Z46_SI3_COUPLED # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:94,col:7
-  - eORCA05_Z75_SI3_COUPLED # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:95,col:7
-  - ORCA05_SI3_COUPLED_AGRIF # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:96,col:7
-  - eORCA_SI3_COUPLED # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:97,col:7
-  - eORCA_SI3_COUPLED_NEMO5 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:98,col:7
-  - eORCA_SI3_AGRIF_COUPLED_NEMO5 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:99,col:7
+  - ORCA05_LIM2_KCM_AOW  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:81,col:7
+  - ORCA05_LIM2_KCM_AOW_autotools # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:82,col:7
+  - ORCA05_LIM2_KCM_AOW_FS # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:83,col:7
+  - ORCA05_LIM2_FOCI_AGRIF # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:84,col:7
+  - ORCA05_LIM2_FOCI_AGRIF_AOW # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:85,col:7
+  - ORCA05_LIM2_KCM_AGRIF_OASISMCT4 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:86,col:7
+  - ORCA05_LIM2_FOCI_MOPS_OASISMCT4 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:87,col:7
+  - ORCA05_LIM2_FOCI_AGRIF_MOPS_OASISMCT4 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:88,col:7
+  - ORCA05_LIM2_KCM_AOW_FS_OASISMCT4 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:89,col:7
+  - ORCA05_LIM2_KCM_AOW_OASISMCT4 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:90,col:7
+  - ORCA05_LIM2_KCM_AOW_FS_OASISMCT5 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:91,col:7
+  - ORCA05_LIM2_NEMO_JRA55_test # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:92,col:7
+  - GYRE_XIOS # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:93,col:7
+  - GYRE_PISCES # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:94,col:7
+  - ORCA05.z75.ICE.JRA # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:95,col:7
+  - eORCA025_Z75_SI3_JRA55 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:96,col:7
+  - eORCA025_Z75_SI3_COUPLED # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:97,col:7
+  - ORCA05_Z46_SI3_COUPLED # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:98,col:7
+  - eORCA05_Z75_SI3_COUPLED # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:99,col:7
+  - ORCA05_SI3_COUPLED_AGRIF # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:100,col:7
+  - eORCA_SI3_COUPLED # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:101,col:7
+  - eORCA_SI3_COUPLED_NEMO5 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:102,col:7
+  - eORCA_SI3_AGRIF_COUPLED_NEMO5 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:103,col:7
   metadata:
-    Organization: Nucleus for European Modelling of the Ocean  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2859,col:27
-    Institute: IPSL # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2860,col:24
-    Description: NEMO standing for Nucleus for European Modelling of the Ocean is a state-of-the-art modelling framework for research activities and forecasting services in ocean and climate sciences, developed in a sustainable way by a European consortium. # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2862,col:21
-    Authors: Gurvan Madec and NEMO System Team (nemo_st@locean-ipsl.umpc.fr) # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2866,col:22
-    Publications: NEMO ocean engine <http://doi.org/10.5281/zenodo.1464816> # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2868,col:21
-    License: Please make sure you have a license to use NEMO. In case you are unsure, please contact redmine... # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2870,col:21
+    Organization: Nucleus for European Modelling of the Ocean  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2863,col:27
+    Institute: IPSL # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2864,col:24
+    Description: NEMO standing for Nucleus for European Modelling of the Ocean is a state-of-the-art modelling framework for research activities and forecasting services in ocean and climate sciences, developed in a sustainable way by a European consortium. # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2866,col:21
+    Authors: Gurvan Madec and NEMO System Team (nemo_st@locean-ipsl.umpc.fr) # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2870,col:22
+    Publications: NEMO ocean engine <http://doi.org/10.5281/zenodo.1464816> # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2872,col:21
+    License: Please make sure you have a license to use NEMO. In case you are unsure, please contact redmine... # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2874,col:21
   resolution: ORCA05 # <TEST_DIR>/run/foci/foci-initial-ssp-scenario/scripts/foci-initial-ssp-scenario.yaml,line:37,col:16
-  levels: L46 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2874,col:21
-  time_step: 1800 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2875,col:21
-  jpni: 0 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2876,col:21
-  jpnj: 0 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2877,col:21
+  levels: L46 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2878,col:21
+  time_step: 1800 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2879,col:21
+  jpni: 0 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2880,col:21
+  jpnj: 0 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2881,col:21
   nproc: 24 # <TEST_DIR>/run/foci/foci-initial-ssp-scenario/scripts/foci-initial-ssp-scenario.yaml,line:41,col:11
-  nn_euler: 1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2883,col:22
-  ln_1st_euler: true # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2884,col:19
-  use_lim2: true # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2888,col:21
-  use_si3: false # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2889,col:21
-  use_tracer: true # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2890,col:21
-  hosing: false # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2891,col:21
+  nn_euler: 1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2887,col:22
+  ln_1st_euler: true # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2888,col:19
+  use_lim2: true # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2892,col:21
+  use_si3: false # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2893,col:21
+  use_tracer: true # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2894,col:21
+  hosing: false # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2895,col:21
   lresume: false # no provenance info
-  free_surface: linear # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2893,col:21
-  correct_neg_tracer_conc: false # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2894,col:30
-  ln_tsd_tradmp: false # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2896,col:20
-  nest1: false # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2901,col:12
-  use_tracer_agrif: false # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2903,col:25
-  use_lim2_agrif: false # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2904,col:25
-  use_si3_agrif: false # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2905,col:25
-  ln_init_chfrpar: true # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2908,col:25
-  leapyear: true # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2376,col:19
-  ln_tsd_init: true # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2915,col:18
-  ln_limini: true # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2916,col:16
-  ln_limini_agrif: false # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2917,col:22
-  ln_iceini: true # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2919,col:16
-  ln_iceini_agrif: false # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2920,col:22
-  nn_msh: 1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2921,col:13
-  ln_meshmask: true # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2922,col:18
-  nn_rstctl: 2 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2925,col:16
-  ln_rsttr: false # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2927,col:15
-  nn_rsttr: 2 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2928,col:16
-  ln_trcdta: false # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2929,col:16
-  pool_dir: /work/bb0519/foci_input2 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2932,col:15
-  input_dir: /work/bb0519/foci_input2/NEMO_ORCA05/input/ORCA05 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2933,col:16
-  namelist_dir: <TEST_DIR>/comp/foci/foci-default/nemo-ORCA05_LIM2_KCM_AOW/CONFIG/ORCA05_LIM2_KCM_AOW/EXP00 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2934,col:19
+  free_surface: linear # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2897,col:21
+  correct_neg_tracer_conc: false # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2898,col:30
+  ln_tsd_tradmp: false # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2900,col:20
+  nest1: false # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2905,col:12
+  use_tracer_agrif: false # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2907,col:25
+  use_lim2_agrif: false # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2908,col:25
+  use_si3_agrif: false # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2909,col:25
+  ln_init_chfrpar: true # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2912,col:25
+  leapyear: true # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2380,col:19
+  ln_tsd_init: true # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2919,col:18
+  ln_limini: true # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2920,col:16
+  ln_limini_agrif: false # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2921,col:22
+  ln_iceini: true # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2923,col:16
+  ln_iceini_agrif: false # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2924,col:22
+  nn_msh: 1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2925,col:13
+  ln_meshmask: true # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2926,col:18
+  nn_rstctl: 2 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2929,col:16
+  ln_rsttr: false # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2931,col:15
+  nn_rsttr: 2 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2932,col:16
+  ln_trcdta: false # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2933,col:16
+  pool_dir: /work/bb0519/foci_input2 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2936,col:15
+  input_dir: /work/bb0519/foci_input2/NEMO_ORCA05/input/ORCA05 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2937,col:16
+  namelist_dir: <TEST_DIR>/comp/foci/foci-default/nemo-ORCA05_LIM2_KCM_AOW/CONFIG/ORCA05_LIM2_KCM_AOW/EXP00 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2938,col:19
   model_dir: <TEST_DIR>/comp/foci/foci-default/nemo-ORCA05_LIM2_KCM_AOW # <CONFIGS_PATH>/setups/foci/foci.yaml,line:735,col:20
   setup_dir: <TEST_DIR>/comp/foci/foci-default # <CONFIGS_PATH>/setups/foci/foci.yaml,line:736,col:20
-  bin_dir: <TEST_DIR>/comp/foci/foci-default/bin # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2938,col:14
-  agrif_dir: /work/bb0519/foci_input2/AGRIF/agrif_False # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2941,col:16
-  jra55_forcing_dir: /work/bb0519/foci_input2/JRA55-do/v1.5 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2944,col:24
-  jra55_runoff_dir: /work/bb0519/foci_input2/NEMO_ORCA05_JRA_runoff_forcing # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2945,col:23
-  end_date_m1: '2015-01-01T23:30:00' # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2948,col:18
-  runtime: 86400 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2949,col:14
-  timestep_per_run: 48 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2950,col:23
-  seconds_since_initial: 0 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2952,col:28
-  steps_since_initial: 0 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2953,col:26
-  prevstep: 0 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2955,col:15
-  thisstep: 1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2956,col:15
-  newstep: 48 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2957,col:14
-  prevstep_formatted: 0 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2959,col:25
-  thisstep_formatted: 1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2960,col:25
-  newstep_formatted: 48 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2961,col:24
-  time_step_nest: 600 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2963,col:21
-  prevstep_nest: 0 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2964,col:20
-  thisstep_nest: 1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2965,col:20
-  timesteps_per_run_nest: 144 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2966,col:29
-  newstep_nest: 144 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2967,col:19
-  prevstep_formatted_nest: 0 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2969,col:30
-  thisstep_formatted_nest: 1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2970,col:30
-  newstep_formatted_nest: 144 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2971,col:29
+  bin_dir: <TEST_DIR>/comp/foci/foci-default/bin # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2942,col:14
+  agrif_dir: /work/bb0519/foci_input2/AGRIF/agrif_False # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2945,col:16
+  jra55_forcing_dir: /work/bb0519/foci_input2/JRA55-do/v1.5 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2948,col:24
+  jra55_runoff_dir: /work/bb0519/foci_input2/NEMO_ORCA05_JRA_runoff_forcing # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2949,col:23
+  end_date_m1: '2015-01-01T23:30:00' # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2952,col:18
+  runtime: 86400 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2953,col:14
+  timestep_per_run: 48 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2954,col:23
+  seconds_since_initial: 0 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2956,col:28
+  steps_since_initial: 0 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2957,col:26
+  prevstep: 0 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2959,col:15
+  thisstep: 1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2960,col:15
+  newstep: 48 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2961,col:14
+  prevstep_formatted: 0 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2963,col:25
+  thisstep_formatted: 1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2964,col:25
+  newstep_formatted: 48 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2965,col:24
+  time_step_nest: 600 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2967,col:21
+  prevstep_nest: 0 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2968,col:20
+  thisstep_nest: 1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2969,col:20
+  timesteps_per_run_nest: 144 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2970,col:29
+  newstep_nest: 144 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2971,col:19
+  prevstep_formatted_nest: 0 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2973,col:30
+  thisstep_formatted_nest: 1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2974,col:30
+  newstep_formatted_nest: 144 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2975,col:29
   ini_restart_steps: 26297472 # <CONFIGS_PATH>/setups/foci/foci.yaml,line:759,col:28
-  ini_restart_steps_nest: 78892416 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2975,col:29
-  global_tag: '' # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2976,col:17
+  ini_restart_steps_nest: 78892416 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2979,col:29
+  global_tag: '' # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2980,col:17
   coupling_freq_in_steps: 6 # <CONFIGS_PATH>/setups/foci/foci.yaml,line:761,col:33
   namelist_changes:
     namelist_cfg:
       namrun:
-        cn_exp: foci-initial-ssp-scenario  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2990,col:37
-        nn_it000: 1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2991,col:39
-        nn_itend: 48 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2992,col:39
-        nn_date0: 20150101 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2993,col:39
-        cn_ocerst_in: foci-initial-ssp-scenario_00000000_restart_20141231 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2994,col:43
-        cn_ocerst_indir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/restart/nemo// # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2995,col:46
-        cn_ocerst_out: restart_20150101 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2996,col:44
-        cn_ocerst_outdir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/restart/nemo// # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2997,col:47
-        nn_stock: 48 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2998,col:39
-        nn_leapy: 1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2999,col:39
-        nn_rstctl: 2 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3000,col:40
-        ln_rstart: false # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3001,col:40
-        nn_euler: 1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3207,col:55
+        cn_exp: foci-initial-ssp-scenario  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2994,col:37
+        nn_it000: 1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2995,col:39
+        nn_itend: 48 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2996,col:39
+        nn_date0: 20150101 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2997,col:39
+        cn_ocerst_in: foci-initial-ssp-scenario_00000000_restart_20141231 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2998,col:43
+        cn_ocerst_indir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/restart/nemo// # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2999,col:46
+        cn_ocerst_out: restart_20150101 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3000,col:44
+        cn_ocerst_outdir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/restart/nemo// # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3001,col:47
+        nn_stock: 48 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3002,col:39
+        nn_leapy: 1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3003,col:39
+        nn_rstctl: 2 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3004,col:40
+        ln_rstart: false # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3005,col:40
+        nn_euler: 1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3211,col:55
       namtsd:
-        ln_tsd_init: true  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3004,col:42
-        ln_tsd_tradmp: false # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3215,col:60
+        ln_tsd_init: true  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3008,col:42
+        ln_tsd_tradmp: false # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3219,col:60
       namsbc:
-        nn_fsbc: 6  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3010,col:38
+        nn_fsbc: 6  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3014,col:38
       nammpp:
-        jpni: 0  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3012,col:35
-        jpnj: 0 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3013,col:35
-        jpnij: 24 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3213,col:52
+        jpni: 0  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3016,col:35
+        jpnj: 0 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3017,col:35
+        jpnij: 24 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3217,col:52
       namdom:
-        nn_closea: 1  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3209,col:56
-        nn_msh: 1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3210,col:53
-        rn_rdt: 1800 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3211,col:53
+        nn_closea: 1  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3213,col:56
+        nn_msh: 1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3214,col:53
+        rn_rdt: 1800 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3215,col:53
       namdyn_hpg:
-        ln_hpg_zps: true  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3221,col:48
-        ln_hpg_sco: false # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3222,col:48
-        ln_dynhpg_imp: true # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3223,col:51
+        ln_hpg_zps: true  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3225,col:48
+        ln_hpg_sco: false # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3226,col:48
+        ln_dynhpg_imp: true # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3227,col:51
     namelist_top_cfg:
       namtrc_run:
-        cn_trcrst_in: foci-initial-ssp-scenario_00000000_restart_trc_20141231  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3520,col:34
-        cn_trcrst_indir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/restart/nemo// # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3521,col:37
-        cn_trcrst_out: restart_trc_20150101 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3522,col:35
-        cn_trcrst_outdir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/restart/nemo// # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3523,col:38
-        ln_rsttr: false # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3524,col:30
-        nn_rsttr: 2 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3525,col:31
+        cn_trcrst_in: foci-initial-ssp-scenario_00000000_restart_trc_20141231  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3524,col:34
+        cn_trcrst_indir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/restart/nemo// # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3525,col:37
+        cn_trcrst_out: restart_trc_20150101 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3526,col:35
+        cn_trcrst_outdir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/restart/nemo// # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3527,col:38
+        ln_rsttr: false # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3528,col:30
+        nn_rsttr: 2 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3529,col:31
       namtrc:
-        ln_trcdta: false  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3527,col:31
+        ln_trcdta: false  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3531,col:31
       namtrc_rad:
-        ln_trcrad: false  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3529,col:31
+        ln_trcrad: false  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3533,col:31
     namelist_ice_cfg:
       namicerun:
-        cn_icerst_in: foci-initial-ssp-scenario_00000000_restart_ice_20141231  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3455,col:40
-        cn_icerst_indir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/restart/nemo// # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3456,col:43
-        cn_icerst_out: restart_ice_20150101 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3457,col:41
-        cn_icerst_outdir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/restart/nemo// # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3458,col:44
+        cn_icerst_in: foci-initial-ssp-scenario_00000000_restart_ice_20141231  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3459,col:40
+        cn_icerst_indir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/restart/nemo// # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3460,col:43
+        cn_icerst_out: restart_ice_20150101 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3461,col:41
+        cn_icerst_outdir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/restart/nemo// # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3462,col:44
       namiceini:
-        ln_limini: true  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3460,col:37
-  _nx_nest1: 0  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3377,col:16
-  _ny_nest1: 0 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3378,col:16
-  nest_refinement: 3 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3379,col:22
+        ln_limini: true  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3464,col:37
+  _nx_nest1: 0  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3381,col:16
+  _ny_nest1: 0 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3382,col:16
+  nest_refinement: 3 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3383,col:22
   bin_sources:
-    nemo: <TEST_DIR>/comp/foci/foci-default/bin/oceanx  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3550,col:19
+    nemo: <TEST_DIR>/comp/foci/foci-default/bin/oceanx  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3554,col:19
   input_sources:
-    namelist_ref: <TEST_DIR>/comp/foci/foci-default/nemo-ORCA05_LIM2_KCM_AOW/CONFIG/SHARED/namelist_ref  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3588,col:27
-    namelist_ice_ref: <TEST_DIR>/comp/foci/foci-default/nemo-ORCA05_LIM2_KCM_AOW/CONFIG/SHARED/namelist_ice_lim2_ref # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3589,col:31
-    cn_batmeter: /work/bb0519/foci_input2/NEMO_ORCA05/input/ORCA05/bathy_meter.nc # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3561,col:26
-    coordinates: /work/bb0519/foci_input2/NEMO_ORCA05/input/ORCA05/coordinates.nc # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3562,col:26
-    subbasins: /work/bb0519/foci_input2/NEMO_ORCA05/input/ORCA05/orca05_subbasins_3.6.nc # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3565,col:24
-    coef-G70: /work/bb0519/foci_input2/NEMO_ORCA05/input/ORCA05/orca05_bfr_coef-G70.nc # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3564,col:23
-    sn_tem: /work/bb0519/foci_input2/NEMO_ORCA05/input/ORCA05/Levitus_p2.1_1m_01_12_Tpot_ORCA_R05.nc # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3571,col:29
-    sn_sal: /work/bb0519/foci_input2/NEMO_ORCA05/input/ORCA05/Levitus_p2.1_1m_01_12_S_correc_ORCA_R05.nc # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3574,col:29
-    sn_sal_diag: /work/bb0519/foci_input2/NEMO_ORCA05/input/ORCA05/Levitus_p2.1_1m_01_12_S_correc_ORCA_R05.nc # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3574,col:29
-    ice_init: /work/bb0519/foci_input2/NEMO_ORCA05/input/ORCA05/Ice_initialization_KKG36F13H-R.nc # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3577,col:33
-    namelist_top_ref: <TEST_DIR>/comp/foci/foci-default/nemo-ORCA05_LIM2_KCM_AOW/CONFIG/SHARED/namelist_top_ref # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3590,col:31
+    namelist_ref: <TEST_DIR>/comp/foci/foci-default/nemo-ORCA05_LIM2_KCM_AOW/CONFIG/SHARED/namelist_ref  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3592,col:27
+    namelist_ice_ref: <TEST_DIR>/comp/foci/foci-default/nemo-ORCA05_LIM2_KCM_AOW/CONFIG/SHARED/namelist_ice_lim2_ref # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3593,col:31
+    cn_batmeter: /work/bb0519/foci_input2/NEMO_ORCA05/input/ORCA05/bathy_meter.nc # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3565,col:26
+    coordinates: /work/bb0519/foci_input2/NEMO_ORCA05/input/ORCA05/coordinates.nc # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3566,col:26
+    subbasins: /work/bb0519/foci_input2/NEMO_ORCA05/input/ORCA05/orca05_subbasins_3.6.nc # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3569,col:24
+    coef-G70: /work/bb0519/foci_input2/NEMO_ORCA05/input/ORCA05/orca05_bfr_coef-G70.nc # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3568,col:23
+    sn_tem: /work/bb0519/foci_input2/NEMO_ORCA05/input/ORCA05/Levitus_p2.1_1m_01_12_Tpot_ORCA_R05.nc # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3575,col:29
+    sn_sal: /work/bb0519/foci_input2/NEMO_ORCA05/input/ORCA05/Levitus_p2.1_1m_01_12_S_correc_ORCA_R05.nc # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3578,col:29
+    sn_sal_diag: /work/bb0519/foci_input2/NEMO_ORCA05/input/ORCA05/Levitus_p2.1_1m_01_12_S_correc_ORCA_R05.nc # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3578,col:29
+    ice_init: /work/bb0519/foci_input2/NEMO_ORCA05/input/ORCA05/Ice_initialization_KKG36F13H-R.nc # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3581,col:33
+    namelist_top_ref: <TEST_DIR>/comp/foci/foci-default/nemo-ORCA05_LIM2_KCM_AOW/CONFIG/SHARED/namelist_top_ref # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3594,col:31
   config_sources:
-    namelist_cfg: <TEST_DIR>/comp/foci/foci-default/nemo-ORCA05_LIM2_KCM_AOW/CONFIG/ORCA05_LIM2_KCM_AOW/EXP00/namelist_cfg  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3679,col:27
-    namelist_ice_cfg: <TEST_DIR>/comp/foci/foci-default/nemo-ORCA05_LIM2_KCM_AOW/CONFIG/ORCA05_LIM2_KCM_AOW/EXP00/namelist_ice_cfg # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3681,col:31
-    namelist_top_cfg: <TEST_DIR>/comp/foci/foci-default/nemo-ORCA05_LIM2_KCM_AOW/CONFIG/ORCA05_LIM2_KCM_AOW/EXP00/namelist_top_cfg # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3680,col:31
+    namelist_cfg: <TEST_DIR>/comp/foci/foci-default/nemo-ORCA05_LIM2_KCM_AOW/CONFIG/ORCA05_LIM2_KCM_AOW/EXP00/namelist_cfg  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3683,col:27
+    namelist_ice_cfg: <TEST_DIR>/comp/foci/foci-default/nemo-ORCA05_LIM2_KCM_AOW/CONFIG/ORCA05_LIM2_KCM_AOW/EXP00/namelist_ice_cfg # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3685,col:31
+    namelist_top_cfg: <TEST_DIR>/comp/foci/foci-default/nemo-ORCA05_LIM2_KCM_AOW/CONFIG/ORCA05_LIM2_KCM_AOW/EXP00/namelist_top_cfg # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3684,col:31
   namelists:
     namelist_cfg:
       namrun:
         nn_no: 1  # no provenance info
-        cn_exp: foci-initial-ssp-scenario # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2990,col:37
-        nn_it000: 1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2991,col:39
-        nn_itend: 48 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2992,col:39
-        nn_date0: 20150101 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2993,col:39
-        nn_leapy: 1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2999,col:39
-        ln_rstart: false # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3001,col:40
-        nn_euler: 1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3207,col:55
-        nn_rstctl: 2 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3000,col:40
-        cn_ocerst_in: foci-initial-ssp-scenario_00000000_restart_20141231 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2994,col:43
-        cn_ocerst_indir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/restart/nemo// # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2995,col:46
-        cn_ocerst_out: restart_20150101 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2996,col:44
-        cn_ocerst_outdir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/restart/nemo// # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2997,col:47
-        nn_stock: 48 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2998,col:39
+        cn_exp: foci-initial-ssp-scenario # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2994,col:37
+        nn_it000: 1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2995,col:39
+        nn_itend: 48 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2996,col:39
+        nn_date0: 20150101 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2997,col:39
+        nn_leapy: 1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3003,col:39
+        ln_rstart: false # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3005,col:40
+        nn_euler: 1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3211,col:55
+        nn_rstctl: 2 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3004,col:40
+        cn_ocerst_in: foci-initial-ssp-scenario_00000000_restart_20141231 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2998,col:43
+        cn_ocerst_indir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/restart/nemo// # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2999,col:46
+        cn_ocerst_out: restart_20150101 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3000,col:44
+        cn_ocerst_outdir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/restart/nemo// # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3001,col:47
+        nn_stock: 48 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3002,col:39
         nn_write: 1460 # no provenance info
       namcfg:
         cp_cfg: orca  # no provenance info
@@ -1585,11 +1951,11 @@ nemo:
       namzgr:
         cn_batmeter: bathy_meter.nc  # no provenance info
       namdom:
-        nn_closea: 1  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3209,col:56
-        nn_msh: 1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3210,col:53
+        nn_closea: 1  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3213,col:56
+        nn_msh: 1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3214,col:53
         rn_e3zps_min: 25.0 # no provenance info
         rn_e3zps_rat: 0.2 # no provenance info
-        rn_rdt: 1800 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3211,col:53
+        rn_rdt: 1800 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3215,col:53
         rn_rdtmin: 2160.0 # no provenance info
         rn_rdtmax: 2160.0 # no provenance info
         ppglam0: 999999.0 # no provenance info
@@ -1631,10 +1997,10 @@ nemo:
         - '' # no provenance info
         - ' ' # no provenance info
         - ' ' # no provenance info
-        ln_tsd_init: true  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3004,col:42
-        ln_tsd_tradmp: false # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3215,col:60
+        ln_tsd_init: true  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3008,col:42
+        ln_tsd_tradmp: false # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3219,col:60
       namsbc:
-        nn_fsbc: 6  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3010,col:38
+        nn_fsbc: 6  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3014,col:38
         ln_blk_core: false # no provenance info
         ln_cpl: true # no provenance info
         nn_ice_embd: 0 # no provenance info
@@ -1763,9 +2129,9 @@ nemo:
         ln_tradmp: false  # no provenance info
         cn_resto: '' # no provenance info
       namdyn_hpg:
-        ln_hpg_zps: true  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3221,col:48
-        ln_hpg_sco: false # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3222,col:48
-        ln_dynhpg_imp: true # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3223,col:51
+        ln_hpg_zps: true  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3225,col:48
+        ln_hpg_sco: false # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3226,col:48
+        ln_dynhpg_imp: true # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3227,col:51
       namdyn_ldf:
         ln_dynldf_lap: false  # no provenance info
         ln_dynldf_bilap: true # no provenance info
@@ -1794,9 +2160,9 @@ nemo:
         rn_sor: 1.973 # no provenance info
       nammpp:
         ln_nnogather: true  # no provenance info
-        jpni: 0 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3012,col:35
-        jpnj: 0 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3013,col:35
-        jpnij: 24 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3213,col:52
+        jpni: 0 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3016,col:35
+        jpnj: 0 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3017,col:35
+        jpnij: 24 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3217,col:52
       namnc4:
         nn_nchunks_k: 46  # no provenance info
         ln_nc4zip: false # no provenance info
@@ -1805,20 +2171,20 @@ nemo:
     namelist_top_cfg:
       namtrc_run:
         nn_writetrc: 1216  # no provenance info
-        ln_rsttr: false # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3524,col:30
-        nn_rsttr: 2 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3525,col:31
-        cn_trcrst_in: foci-initial-ssp-scenario_00000000_restart_trc_20141231 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3520,col:34
-        cn_trcrst_indir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/restart/nemo// # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3521,col:37
-        cn_trcrst_out: restart_trc_20150101 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3522,col:35
-        cn_trcrst_outdir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/restart/nemo// # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3523,col:38
+        ln_rsttr: false # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3528,col:30
+        nn_rsttr: 2 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3529,col:31
+        cn_trcrst_in: foci-initial-ssp-scenario_00000000_restart_trc_20141231 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3524,col:34
+        cn_trcrst_indir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/restart/nemo// # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3525,col:37
+        cn_trcrst_out: restart_trc_20150101 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3526,col:35
+        cn_trcrst_outdir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/restart/nemo// # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3527,col:38
       namtrc:
         sn_tracer:
         - AGE  # no provenance info
-        ln_trcdta: false  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3527,col:31
+        ln_trcdta: false  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3531,col:31
       namtrc_ldf:
         rn_ahtrc_0: 600.0  # no provenance info
       namtrc_rad:
-        ln_trcrad: false  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3529,col:31
+        ln_trcrad: false  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3533,col:31
       namtrc_dmp:
         cn_resto_tr: ''  # no provenance info
       namtrc_trd:
@@ -1829,12 +2195,12 @@ nemo:
         nn_writedia: 1216 # no provenance info
     namelist_ice_cfg:
       namicerun:
-        cn_icerst_in: foci-initial-ssp-scenario_00000000_restart_ice_20141231  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3455,col:40
-        cn_icerst_indir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/restart/nemo// # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3456,col:43
-        cn_icerst_out: restart_ice_20150101 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3457,col:41
-        cn_icerst_outdir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/restart/nemo// # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3458,col:44
+        cn_icerst_in: foci-initial-ssp-scenario_00000000_restart_ice_20141231  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3459,col:40
+        cn_icerst_indir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/restart/nemo// # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3460,col:43
+        cn_icerst_out: restart_ice_20150101 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3461,col:41
+        cn_icerst_outdir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/restart/nemo// # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3462,col:44
       namiceini:
-        ln_limini: true  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3460,col:37
+        ln_limini: true  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3464,col:37
         hninn: 0.1 # no provenance info
         hginn: 2.0 # no provenance info
       namicedyn:
@@ -1857,58 +2223,58 @@ nemo:
     solver_stat: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/run_20150101-20150101/work//solver.stat # no provenance info
     time_step: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/run_20150101-20150101/work//time.step # no provenance info
     layout: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/run_20150101-20150101/work//layout.dat # no provenance info
-  sst_grid_name: opat # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3728,col:20
+  sst_grid_name: opat # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3732,col:20
   opat_fields:
-  - OIceFrac  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3198,col:51
-  - O_SSTSST # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3198,col:61
-  - O_TepIce # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3198,col:71
-  - O_IceTck # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3198,col:81
-  - O_SnwTck # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3198,col:91
-  - O_OCurx1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3198,col:101
-  - O_OCury1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3198,col:111
-  - O_OTaux1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3198,col:121
-  - O_OTauy1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3198,col:131
-  - O_ITaux1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3198,col:141
-  - O_ITauy1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3198,col:151
+  - OIceFrac  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3202,col:51
+  - O_SSTSST # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3202,col:61
+  - O_TepIce # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3202,col:71
+  - O_IceTck # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3202,col:81
+  - O_SnwTck # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3202,col:91
+  - O_OCurx1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3202,col:101
+  - O_OCury1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3202,col:111
+  - O_OTaux1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3202,col:121
+  - O_OTauy1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3202,col:131
+  - O_ITaux1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3202,col:141
+  - O_ITauy1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3202,col:151
   opat_mops_fields:
-  - CO2OCEAN  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3730,col:24
-  - CO2TRA # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3730,col:34
-  - FF_OCE # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3730,col:42
+  - CO2OCEAN  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3734,col:24
+  - CO2TRA # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3734,col:34
+  - FF_OCE # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3734,col:42
   opac_fields:
-  - O_QsrIce  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3732,col:19
-  - O_QsrMix # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3732,col:29
-  - O_QnsIce # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3732,col:39
-  - O_QnsMix # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3732,col:49
-  - OTotRain # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3732,col:59
-  - OTotSnow # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3732,col:69
-  - OIceEvap # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3732,col:79
-  - OTotEvap # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3732,col:89
-  - O_dQnsdT # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3732,col:99
+  - O_QsrIce  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3736,col:19
+  - O_QsrMix # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3736,col:29
+  - O_QnsIce # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3736,col:39
+  - O_QnsMix # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3736,col:49
+  - OTotRain # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3736,col:59
+  - OTotSnow # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3736,col:69
+  - OIceEvap # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3736,col:79
+  - OTotEvap # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3736,col:89
+  - O_dQnsdT # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3736,col:99
   opac_mops_fields:
-  - O_AtmCO2  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3733,col:24
-  - CO2FLXOC # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3733,col:34
+  - O_AtmCO2  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3737,col:24
+  - CO2FLXOC # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3737,col:34
   agr1_t_mops_fields:
-  - 1_CO2OCEAN  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3736,col:26
-  - 1_CO2TRA # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3736,col:38
-  - 1_FF_OCE # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3736,col:48
+  - 1_CO2OCEAN  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3740,col:26
+  - 1_CO2TRA # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3740,col:38
+  - 1_FF_OCE # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3740,col:48
   agr1_c_fields:
-  - 1_O_QsrIce  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3738,col:21
-  - 1_O_QsrMix # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3738,col:33
-  - 1_O_QnsIce # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3738,col:45
-  - 1_O_QnsMix # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3738,col:57
-  - 1_OTotRain # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3738,col:69
-  - 1_OTotSnow # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3738,col:81
-  - 1_OTotEvap # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3738,col:93
-  - 1_OIceEvap # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3738,col:105
-  - 1_O_dQnsdT # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3738,col:117
+  - 1_O_QsrIce  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3742,col:21
+  - 1_O_QsrMix # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3742,col:33
+  - 1_O_QnsIce # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3742,col:45
+  - 1_O_QnsMix # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3742,col:57
+  - 1_OTotRain # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3742,col:69
+  - 1_OTotSnow # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3742,col:81
+  - 1_OTotEvap # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3742,col:93
+  - 1_OIceEvap # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3742,col:105
+  - 1_O_dQnsdT # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3742,col:117
   agr1_c_mops_fields:
-  - 1_O_AtmCO2  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3739,col:26
-  - 1_CO2FLXOC # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3739,col:38
+  - 1_O_AtmCO2  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3743,col:26
+  - 1_CO2FLXOC # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3743,col:38
   agr2_t_fields:
-  - 1_O_AgrSpg  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3741,col:21
+  - 1_O_AgrSpg  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3745,col:21
   agr1_rc_fields:
-  - 1_OCalving  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3798,col:38
-  oasis_p: 2 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3750,col:14
+  - 1_OCalving  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3802,col:38
+  oasis_p: 2 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3754,col:14
   coupling_fields:
     OIceFrac:
       grid: opat  # no provenance info
@@ -1956,83 +2322,83 @@ nemo:
       grid: agr1r  # no provenance info
   grids:
     opat:
-      name: opat  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3807,col:27
-      nx: 722 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3808,col:25
-      ny: 511 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3809,col:25
-      oasis_grid_type: LR # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3810,col:38
-      number_of_overlapping_points: 2 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3811,col:51
+      name: opat  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3811,col:27
+      nx: 722 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3812,col:25
+      ny: 511 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3813,col:25
+      oasis_grid_type: LR # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3814,col:38
+      number_of_overlapping_points: 2 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3815,col:51
     opac:
-      name: opac  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3813,col:27
-      nx: 722 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3814,col:25
-      ny: 511 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3815,col:25
-      oasis_grid_type: LR # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3816,col:38
-      number_of_overlapping_points: 2 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3817,col:51
+      name: opac  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3817,col:27
+      nx: 722 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3818,col:25
+      ny: 511 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3819,col:25
+      oasis_grid_type: LR # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3820,col:38
+      number_of_overlapping_points: 2 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3821,col:51
     opaa:
-      name: opaa  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3819,col:27
-      nx: 722 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3820,col:25
-      ny: 511 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3821,col:25
-      oasis_grid_type: LR # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3822,col:38
-      number_of_overlapping_points: 0 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3823,col:51
+      name: opaa  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3823,col:27
+      nx: 722 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3824,col:25
+      ny: 511 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3825,col:25
+      oasis_grid_type: LR # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3826,col:38
+      number_of_overlapping_points: 0 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3827,col:51
     rnfo:
-      name: rnfo  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3825,col:27
-      nx: 722 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3826,col:25
-      ny: 511 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3827,col:25
-      oasis_grid_type: LR # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3828,col:38
-      number_of_overlapping_points: 0 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3829,col:51
+      name: rnfo  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3829,col:27
+      nx: 722 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3830,col:25
+      ny: 511 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3831,col:25
+      oasis_grid_type: LR # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3832,col:38
+      number_of_overlapping_points: 0 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3833,col:51
     agr1:
-      name: agr1  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3831,col:27
-      nx: 0 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3832,col:25
-      ny: 0 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3833,col:25
-      oasis_grid_type: LR # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3834,col:38
-      number_of_overlapping_points: 0 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3835,col:51
+      name: agr1  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3835,col:27
+      nx: 0 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3836,col:25
+      ny: 0 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3837,col:25
+      oasis_grid_type: LR # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3838,col:38
+      number_of_overlapping_points: 0 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3839,col:51
     agr2:
-      name: agr2  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3837,col:27
-      nx: 0 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3838,col:25
-      ny: 0 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3839,col:25
-      oasis_grid_type: LR # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3840,col:38
-      number_of_overlapping_points: 0 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3841,col:51
+      name: agr2  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3841,col:27
+      nx: 0 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3842,col:25
+      ny: 0 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3843,col:25
+      oasis_grid_type: LR # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3844,col:38
+      number_of_overlapping_points: 0 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3845,col:51
     agr1r:
-      name: agr1r  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3843,col:27
-      nx: 0 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3844,col:25
-      ny: 0 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3845,col:25
-      oasis_grid_type: LR # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3846,col:38
-      number_of_overlapping_points: 0 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3847,col:51
+      name: agr1r  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3847,col:27
+      nx: 0 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3848,col:25
+      ny: 0 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3849,col:25
+      oasis_grid_type: LR # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3850,col:38
+      number_of_overlapping_points: 0 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3851,col:51
     agrc:
-      name: agrc  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3851,col:27
-      nx: 0 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3852,col:25
-      ny: 0 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3853,col:25
-      oasis_grid_type: LR # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3854,col:38
-      number_of_overlapping_points: 0 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3855,col:51
+      name: agrc  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3855,col:27
+      nx: 0 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3856,col:25
+      ny: 0 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3857,col:25
+      oasis_grid_type: LR # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3858,col:38
+      number_of_overlapping_points: 0 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3859,col:51
   models:
-  - xios  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:12,col:7
+  - xios  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:16,col:7
   ini_parent_exp_id: unset  # <CONFIGS_PATH>/setups/foci/foci.yaml,line:756,col:28
   ini_parent_date: '18491231' # <CONFIGS_PATH>/setups/foci/foci.yaml,line:757,col:26
   ini_parent_dir: /work/bb0519/foci_input2/FOCI_RESTART/unset//nemo/ # <CONFIGS_PATH>/setups/foci/foci.yaml,line:758,col:25
   restart_rate: 1 # <TEST_DIR>/run/foci/foci-initial-ssp-scenario/scripts/foci-initial-ssp-scenario.yaml,line:39,col:18
   restart_unit: days # <TEST_DIR>/run/foci/foci-initial-ssp-scenario/scripts/foci-initial-ssp-scenario.yaml,line:40,col:18
   requires:
-  - nemobasemodel-3.6foci  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2372,col:11
-  branch: master  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2373,col:17
-  git-repository: https://git.geomar.de/foci/src/nemo_config/ORCA05_LIM2_KCM_AOW.git # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2375,col:25
+  - nemobasemodel-3.6foci  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2376,col:11
+  branch: master  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2377,col:17
+  git-repository: https://git.geomar.de/foci/src/nemo_config/ORCA05_LIM2_KCM_AOW.git # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2379,col:25
   agr1_t_fields:
-  - 1_OIceFrac  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3202,col:37
-  - 1_O_SSTSST # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3202,col:49
-  - 1_O_TepIce # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3202,col:61
-  - 1_O_IceTck # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3202,col:73
-  - 1_O_SnwTck # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3202,col:85
-  - 1_O_OCurx1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3202,col:97
-  - 1_O_OCury1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3202,col:109
-  - 1_O_OTaux1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3202,col:121
-  - 1_O_OTauy1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3202,col:133
-  - 1_O_ITaux1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3202,col:145
-  - 1_O_ITauy1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3202,col:157
-  nn_leapy: 1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3275,col:29
-  _nx: 722 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3316,col:26
-  _ny: 511 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3317,col:26
+  - 1_OIceFrac  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3206,col:37
+  - 1_O_SSTSST # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3206,col:49
+  - 1_O_TepIce # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3206,col:61
+  - 1_O_IceTck # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3206,col:73
+  - 1_O_SnwTck # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3206,col:85
+  - 1_O_OCurx1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3206,col:97
+  - 1_O_OCury1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3206,col:109
+  - 1_O_OTaux1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3206,col:121
+  - 1_O_OTauy1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3206,col:133
+  - 1_O_ITaux1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3206,col:145
+  - 1_O_ITauy1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3206,col:157
+  nn_leapy: 1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3279,col:29
+  _nx: 722 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3320,col:26
+  _ny: 511 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3321,col:26
   ornf_fields:
-  - O_Runoff  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3796,col:35
+  - O_Runoff  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3800,col:35
   agr1_r_fields:
-  - 1_O_Runoff  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3797,col:37
+  - 1_O_Runoff  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3801,col:37
   experiment_analysis_dir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/analysis/nemo/  # no provenance info
   thisrun_analysis_dir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/run_20150101-20150101/analysis/nemo/ # no provenance info
   all_filetypes:
@@ -2141,19 +2507,19 @@ nemo:
     namelist_cfg:
       namrun:
         nn_no: 1  # no provenance info
-        cn_exp: foci-initial-ssp-scenario # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2990,col:37
-        nn_it000: 1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2991,col:39
-        nn_itend: 48 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2992,col:39
-        nn_date0: 20150101 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2993,col:39
-        nn_leapy: 1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2999,col:39
-        ln_rstart: false # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3001,col:40
-        nn_euler: 1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3207,col:55
-        nn_rstctl: 2 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3000,col:40
-        cn_ocerst_in: foci-initial-ssp-scenario_00000000_restart_20141231 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2994,col:43
-        cn_ocerst_indir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/restart/nemo// # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2995,col:46
-        cn_ocerst_out: restart_20150101 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2996,col:44
-        cn_ocerst_outdir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/restart/nemo// # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2997,col:47
-        nn_stock: 48 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2998,col:39
+        cn_exp: foci-initial-ssp-scenario # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2994,col:37
+        nn_it000: 1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2995,col:39
+        nn_itend: 48 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2996,col:39
+        nn_date0: 20150101 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2997,col:39
+        nn_leapy: 1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3003,col:39
+        ln_rstart: false # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3005,col:40
+        nn_euler: 1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3211,col:55
+        nn_rstctl: 2 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3004,col:40
+        cn_ocerst_in: foci-initial-ssp-scenario_00000000_restart_20141231 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2998,col:43
+        cn_ocerst_indir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/restart/nemo// # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2999,col:46
+        cn_ocerst_out: restart_20150101 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3000,col:44
+        cn_ocerst_outdir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/restart/nemo// # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3001,col:47
+        nn_stock: 48 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3002,col:39
         nn_write: 1460 # no provenance info
       namcfg:
         cp_cfg: orca  # no provenance info
@@ -2168,11 +2534,11 @@ nemo:
       namzgr:
         cn_batmeter: bathy_meter.nc  # no provenance info
       namdom:
-        nn_closea: 1  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3209,col:56
-        nn_msh: 1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3210,col:53
+        nn_closea: 1  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3213,col:56
+        nn_msh: 1 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3214,col:53
         rn_e3zps_min: 25.0 # no provenance info
         rn_e3zps_rat: 0.2 # no provenance info
-        rn_rdt: 1800 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3211,col:53
+        rn_rdt: 1800 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3215,col:53
         rn_rdtmin: 2160.0 # no provenance info
         rn_rdtmax: 2160.0 # no provenance info
         ppglam0: 999999.0 # no provenance info
@@ -2214,10 +2580,10 @@ nemo:
         - '' # no provenance info
         - ' ' # no provenance info
         - ' ' # no provenance info
-        ln_tsd_init: true  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3004,col:42
-        ln_tsd_tradmp: false # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3215,col:60
+        ln_tsd_init: true  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3008,col:42
+        ln_tsd_tradmp: false # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3219,col:60
       namsbc:
-        nn_fsbc: 6  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3010,col:38
+        nn_fsbc: 6  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3014,col:38
         ln_blk_core: false # no provenance info
         ln_cpl: true # no provenance info
         nn_ice_embd: 0 # no provenance info
@@ -2346,9 +2712,9 @@ nemo:
         ln_tradmp: false  # no provenance info
         cn_resto: '' # no provenance info
       namdyn_hpg:
-        ln_hpg_zps: true  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3221,col:48
-        ln_hpg_sco: false # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3222,col:48
-        ln_dynhpg_imp: true # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3223,col:51
+        ln_hpg_zps: true  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3225,col:48
+        ln_hpg_sco: false # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3226,col:48
+        ln_dynhpg_imp: true # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3227,col:51
       namdyn_ldf:
         ln_dynldf_lap: false  # no provenance info
         ln_dynldf_bilap: true # no provenance info
@@ -2377,9 +2743,9 @@ nemo:
         rn_sor: 1.973 # no provenance info
       nammpp:
         ln_nnogather: true  # no provenance info
-        jpni: 0 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3012,col:35
-        jpnj: 0 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3013,col:35
-        jpnij: 24 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3213,col:52
+        jpni: 0 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3016,col:35
+        jpnj: 0 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3017,col:35
+        jpnij: 24 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3217,col:52
       namnc4:
         nn_nchunks_k: 46  # no provenance info
         ln_nc4zip: false # no provenance info
@@ -2388,20 +2754,20 @@ nemo:
     namelist_top_cfg:
       namtrc_run:
         nn_writetrc: 1216  # no provenance info
-        ln_rsttr: false # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3524,col:30
-        nn_rsttr: 2 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3525,col:31
-        cn_trcrst_in: foci-initial-ssp-scenario_00000000_restart_trc_20141231 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3520,col:34
-        cn_trcrst_indir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/restart/nemo// # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3521,col:37
-        cn_trcrst_out: restart_trc_20150101 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3522,col:35
-        cn_trcrst_outdir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/restart/nemo// # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3523,col:38
+        ln_rsttr: false # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3528,col:30
+        nn_rsttr: 2 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3529,col:31
+        cn_trcrst_in: foci-initial-ssp-scenario_00000000_restart_trc_20141231 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3524,col:34
+        cn_trcrst_indir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/restart/nemo// # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3525,col:37
+        cn_trcrst_out: restart_trc_20150101 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3526,col:35
+        cn_trcrst_outdir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/restart/nemo// # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3527,col:38
       namtrc:
         sn_tracer:
         - AGE  # no provenance info
-        ln_trcdta: false  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3527,col:31
+        ln_trcdta: false  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3531,col:31
       namtrc_ldf:
         rn_ahtrc_0: 600.0  # no provenance info
       namtrc_rad:
-        ln_trcrad: false  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3529,col:31
+        ln_trcrad: false  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3533,col:31
       namtrc_dmp:
         cn_resto_tr: ''  # no provenance info
       namtrc_trd:
@@ -2412,12 +2778,12 @@ nemo:
         nn_writedia: 1216 # no provenance info
     namelist_ice_cfg:
       namicerun:
-        cn_icerst_in: foci-initial-ssp-scenario_00000000_restart_ice_20141231  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3455,col:40
-        cn_icerst_indir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/restart/nemo// # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3456,col:43
-        cn_icerst_out: restart_ice_20150101 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3457,col:41
-        cn_icerst_outdir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/restart/nemo// # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3458,col:44
+        cn_icerst_in: foci-initial-ssp-scenario_00000000_restart_ice_20141231  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3459,col:40
+        cn_icerst_indir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/restart/nemo// # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3460,col:43
+        cn_icerst_out: restart_ice_20150101 # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3461,col:41
+        cn_icerst_outdir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/restart/nemo// # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3462,col:44
       namiceini:
-        ln_limini: true  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3460,col:37
+        ln_limini: true  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:3464,col:37
         hninn: 0.1 # no provenance info
         hginn: 2.0 # no provenance info
       namicedyn:
@@ -2482,7 +2848,7 @@ xios:
     server: <TEST_DIR>/comp/foci/foci-default/bin/xios.x  # <CONFIGS_PATH>/components/xios/xios.yaml,line:431,col:21
   nproc: 8 # <TEST_DIR>/run/foci/foci-initial-ssp-scenario/scripts/foci-initial-ssp-scenario.yaml,line:48,col:11
   lresume: false # no provenance info
-  leapyear: true # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2376,col:19
+  leapyear: true # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2380,col:19
   experiment_analysis_dir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/analysis/xios/ # no provenance info
   thisrun_analysis_dir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/run_20150101-20150101/analysis/xios/ # no provenance info
   all_filetypes:
@@ -2696,8 +3062,8 @@ oasis3mct:
     sstocean_recv: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/run_20150101-20150101/work//sstocean_recv # no provenance info
     flxatmos_recv: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/run_20150101-20150101/work//flxatmos_recv # no provenance info
   restart_in_sources:
-    sstocean: <CONFIGS_PATH>/../src/esm_tests/resources/runscripts/foci/run_files4check_runs/foci-initial-ssp-scenario/sstocean_18491231-18491231  # no provenance info
-    flxatmos: <CONFIGS_PATH>/../src/esm_tests/resources/runscripts/foci/run_files4check_runs/foci-initial-ssp-scenario/flxatmos_18491231-18491231 # no provenance info
+    sstocean: /work/bb0519/foci_input2/OASIS3_ECHAM6T63_ORCA05/input/T63_ORCA05//sstocean_18491231-18491231  # no provenance info
+    flxatmos: /work/bb0519/foci_input2/OASIS3_ECHAM6T63_ORCA05/input/T63_ORCA05//flxatmos_18491231-18491231 # no provenance info
   ignore_sources:
     nout: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/run_20150101-20150101/work//nout.000000  # no provenance info
   model_dir: <TEST_DIR>/comp/foci/foci-default/oasis # <CONFIGS_PATH>/setups/foci/foci.yaml,line:794,col:20
@@ -2927,8 +3293,8 @@ oasis3mct:
   yac_libs: '' # <CONFIGS_PATH>/components/oasis3mct/oasis3mct.env.yaml,line:42,col:27
   yac_inc_path: '' # <CONFIGS_PATH>/components/oasis3mct/oasis3mct.env.yaml,line:43,col:31
   yac_lib_path: '' # <CONFIGS_PATH>/components/oasis3mct/oasis3mct.env.yaml,line:44,col:31
-  ini_parent_dir: <CONFIGS_PATH>/../src/esm_tests/resources/runscripts/foci/run_files4check_runs/foci-initial-ssp-scenario/ # <TEST_DIR>/run/foci/foci-initial-ssp-scenario/scripts/foci-initial-ssp-scenario.yaml,line:54,col:29
-  leapyear: true # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2376,col:19
+  ini_parent_dir: /work/bb0519/foci_input2/OASIS3_ECHAM6T63_ORCA05/input/T63_ORCA05// # <CONFIGS_PATH>/setups/foci/foci.yaml,line:1568,col:36
+  leapyear: true # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2380,col:19
   experiment_analysis_dir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/analysis/oasis3mct/ # no provenance info
   thisrun_analysis_dir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/run_20150101-20150101/analysis/oasis3mct/ # no provenance info
   all_filetypes:
@@ -2973,7 +3339,7 @@ oasis3mct:
   last_parent_date: '2014-12-31T23:30:00' # no provenance info
   parent_expid: unset # <CONFIGS_PATH>/setups/foci/foci.yaml,line:806,col:28
   parent_date: '18491231' # <CONFIGS_PATH>/setups/foci/foci.yaml,line:807,col:26
-  parent_restart_dir: <CONFIGS_PATH>/../src/esm_tests/resources/runscripts/foci/run_files4check_runs/foci-initial-ssp-scenario/ # <TEST_DIR>/run/foci/foci-initial-ssp-scenario/scripts/foci-initial-ssp-scenario.yaml,line:54,col:29
+  parent_restart_dir: /work/bb0519/foci_input2/OASIS3_ECHAM6T63_ORCA05/input/T63_ORCA05// # <CONFIGS_PATH>/setups/foci/foci.yaml,line:1568,col:36
   outdata_sources:
     AIceFrac_echam6_01.nc: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/run_20150101-20150101/work//AIceFrac_echam6_01.nc  # no provenance info
     OIceFrac_oceanx_01.nc: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/run_20150101-20150101/work//OIceFrac_oceanx_01.nc # no provenance info
@@ -3014,7 +3380,7 @@ oasis3mct:
     O_dQnsdT_oceanx_19.nc: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/run_20150101-20150101/work//O_dQnsdT_oceanx_19.nc # no provenance info
     A_dQnsdT_echam6_19.nc: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/run_20150101-20150101/work//A_dQnsdT_echam6_19.nc # no provenance info
   ini_restart_date: *id001
-  ini_restart_dir: <CONFIGS_PATH>/../src/esm_tests/resources/runscripts/foci/run_files4check_runs/foci-initial-ssp-scenario/ # <TEST_DIR>/run/foci/foci-initial-ssp-scenario/scripts/foci-initial-ssp-scenario.yaml,line:54,col:29
+  ini_restart_dir: /work/bb0519/foci_input2/OASIS3_ECHAM6T63_ORCA05/input/T63_ORCA05// # <CONFIGS_PATH>/setups/foci/foci.yaml,line:1568,col:36
   file_movements:
     analysis:
       init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
@@ -3468,7 +3834,7 @@ jsbach:
       run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
       work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
   ini_parent_date: '18491231'  # <CONFIGS_PATH>/setups/foci/foci.yaml,line:593,col:26
-  ini_parent_dir: /work/bb0519/foci_input2/ECHAM6_T63/JSBACH//FOCI_RESTART/unset//jsbach/ # <CONFIGS_PATH>/setups/foci/foci.yaml,line:594,col:25
+  ini_parent_dir: /work/bb0519/foci_input2/FOCI_RESTART/unset//jsbach/ # <CONFIGS_PATH>/setups/foci/foci.yaml,line:594,col:25
   namelist_changes:
     namelist.jsbach:
       hydrology_ctl:
@@ -3490,7 +3856,7 @@ jsbach:
   namelist_dir: <NAMELIST_PATH>/jsbach/3.20p1/cmip6/dynveg # <CONFIGS_PATH>/components/jsbach/jsbach.yaml,line:55,col:51
   dynveg: _dynveg # <CONFIGS_PATH>/components/jsbach/jsbach.yaml,line:56,col:45
   jsbachnc_file_ending: _dynveg # <CONFIGS_PATH>/components/jsbach/jsbach.yaml,line:57,col:59
-  leapyear: true # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2376,col:19
+  leapyear: true # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2380,col:19
   experiment_analysis_dir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/analysis/jsbach/ # no provenance info
   thisrun_analysis_dir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/run_20150101-20150101/analysis/jsbach/ # no provenance info
   all_filetypes:
@@ -3719,8 +4085,8 @@ hdmodel:
     config:
       init_to_exp: copy  # <CONFIGS_PATH>/setups/foci/foci.yaml,line:534,col:28
       run_to_work: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:535,col:28
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      exp_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:532,col:31
+      work_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:532,col:31
     forcing:
       init_to_exp: link  # <CONFIGS_PATH>/setups/foci/foci.yaml,line:537,col:31
       exp_to_run: link # <CONFIGS_PATH>/setups/foci/foci.yaml,line:537,col:31
@@ -3752,46 +4118,46 @@ hdmodel:
       run_to_work: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:547,col:31
       work_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:547,col:31
     analysis:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      init_to_exp: copy  # <CONFIGS_PATH>/setups/foci/foci.yaml,line:532,col:31
+      exp_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:532,col:31
+      run_to_work: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:532,col:31
+      work_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:532,col:31
     bin:
       init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:31,col:41
       exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:32,col:41
       run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:33,col:41
       work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:34,col:41
     couple:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      init_to_exp: copy  # <CONFIGS_PATH>/setups/foci/foci.yaml,line:532,col:31
+      exp_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:532,col:31
+      run_to_work: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:532,col:31
+      work_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:532,col:31
     mon:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      init_to_exp: copy  # <CONFIGS_PATH>/setups/foci/foci.yaml,line:532,col:31
+      exp_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:532,col:31
+      run_to_work: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:532,col:31
+      work_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:532,col:31
     viz:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      init_to_exp: copy  # <CONFIGS_PATH>/setups/foci/foci.yaml,line:532,col:31
+      exp_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:532,col:31
+      run_to_work: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:532,col:31
+      work_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:532,col:31
     ignore:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      init_to_exp: copy  # <CONFIGS_PATH>/setups/foci/foci.yaml,line:532,col:31
+      exp_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:532,col:31
+      run_to_work: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:532,col:31
+      work_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:532,col:31
     scripts:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      init_to_exp: copy  # <CONFIGS_PATH>/setups/foci/foci.yaml,line:532,col:31
+      exp_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:532,col:31
+      run_to_work: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:532,col:31
+      work_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:532,col:31
     unknown:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-  leapyear: true  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2376,col:19
+      init_to_exp: copy  # <CONFIGS_PATH>/setups/foci/foci.yaml,line:532,col:31
+      exp_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:532,col:31
+      run_to_work: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:532,col:31
+      work_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:532,col:31
+  leapyear: true  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2380,col:19
   experiment_analysis_dir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/analysis/hdmodel/ # no provenance info
   thisrun_analysis_dir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/run_20150101-20150101/analysis/hdmodel/ # no provenance info
   all_filetypes:
@@ -3851,422 +4217,6 @@ hdmodel:
     hdrestart: <TEST_DIR>/run/foci/foci-initial-ssp-scenario/run_20150101-20150101/restart/hdmodel/restart_foci-initial-ssp-scenario_hd_20150101.nc  # no provenance info
   namelists: {}
   namelist_objs: {}
-general:
-  use_database: false  # <CONFIGS_PATH>/defaults/general.yaml,line:1,col:15
-  general:
-    system_components:
-    - general  # <CONFIGS_PATH>/defaults/general.yaml,line:4,col:23
-    - dask # <CONFIGS_PATH>/defaults/general.yaml,line:4,col:34
-  standalone: false  # no provenance info
-  model: foci # <CONFIGS_PATH>/setups/foci/foci.yaml,line:5,col:16
-  pool_dir: /work/bb0519/foci_input2 # <CONFIGS_PATH>/setups/foci/foci.yaml,line:6,col:19
-  lresume: false # <CONFIGS_PATH>/setups/foci/foci.yaml,line:14,col:18
-  ini_parent_exp_id: unset # <CONFIGS_PATH>/setups/foci/foci.yaml,line:17,col:28
-  ini_parent_date: '18491231' # <CONFIGS_PATH>/setups/foci/foci.yaml,line:18,col:26
-  ini_nemo_restart_steps: 26297472 # <CONFIGS_PATH>/setups/foci/foci.yaml,line:19,col:33
-  ini_parent_dir: /work/bb0519/foci_input2/FOCI_RESTART/unset/ # <CONFIGS_PATH>/setups/foci/foci.yaml,line:20,col:25
-  coupled_setup: true # <CONFIGS_PATH>/setups/foci/foci.yaml,line:22,col:24
-  version: default # <TEST_DIR>/run/foci/foci-initial-ssp-scenario/scripts/foci-initial-ssp-scenario.yaml,line:6,col:13
-  scenario: PI-CTRL # <CONFIGS_PATH>/setups/foci/foci.yaml,line:31,col:19
-  resolution: T63_ORCA05 # <CONFIGS_PATH>/setups/foci/foci.yaml,line:32,col:21
-  postprocessing: 0 # <TEST_DIR>/run/foci/foci-initial-ssp-scenario/scripts/foci-initial-ssp-scenario.yaml,line:12,col:20
-  post_time: 00:05:00 # <CONFIGS_PATH>/setups/foci/foci.yaml,line:34,col:20
-  compute_time: 00:15:00 # <TEST_DIR>/run/foci/foci-initial-ssp-scenario/scripts/foci-initial-ssp-scenario.yaml,line:9,col:18
-  available_versions:
-  - default  # <CONFIGS_PATH>/setups/foci/foci.yaml,line:38,col:11
-  - default_autotools # <CONFIGS_PATH>/setups/foci/foci.yaml,line:39,col:11
-  - fs # <CONFIGS_PATH>/setups/foci/foci.yaml,line:40,col:11
-  - fs_oasismct4 # <CONFIGS_PATH>/setups/foci/foci.yaml,line:41,col:11
-  - default_oasismct4 # <CONFIGS_PATH>/setups/foci/foci.yaml,line:42,col:11
-  - default_oasismct5 # <CONFIGS_PATH>/setups/foci/foci.yaml,line:43,col:11
-  - moz # <CONFIGS_PATH>/setups/foci/foci.yaml,line:44,col:11
-  - moz_mct2 # <CONFIGS_PATH>/setups/foci/foci.yaml,line:45,col:11
-  - mops_oasismct4 # <CONFIGS_PATH>/setups/foci/foci.yaml,line:46,col:11
-  - mops_lmu # <CONFIGS_PATH>/setups/foci/foci.yaml,line:47,col:11
-  - agrif # <CONFIGS_PATH>/setups/foci/foci.yaml,line:48,col:11
-  - agrif_oasismct4 # <CONFIGS_PATH>/setups/foci/foci.yaml,line:49,col:11
-  - agrif_mops_oasismct4 # <CONFIGS_PATH>/setups/foci/foci.yaml,line:50,col:11
-  valid_setup_names:
-  - general  # no provenance info
-  - computer # no provenance info
-  - dask # no provenance info
-  - echam # no provenance info
-  - hdmodel # no provenance info
-  - jsbach # no provenance info
-  - nemo # no provenance info
-  - xios # no provenance info
-  - oasis3mct # no provenance info
-  valid_model_names:
-  - echam  # no provenance info
-  - nemo # no provenance info
-  - xios # no provenance info
-  - oasis3mct # no provenance info
-  - jsbach # no provenance info
-  - hdmodel # no provenance info
-  esm_configs_dir: <CONFIGS_PATH>/  # no provenance info
-  esm_namelist_dir: <NAMELIST_PATH>/ # no provenance info
-  esm_runscript_dir: <RUNSCRIPT_PATH>/ # no provenance info
-  esm_couplings_dir: <COUPLINGS_PATH>/ # no provenance info
-  expid: foci-initial-ssp-scenario # no provenance info
-  models:
-  - echam  # <CONFIGS_PATH>/setups/foci/foci.yaml,line:25,col:19
-  - nemo # <CONFIGS_PATH>/setups/foci/foci.yaml,line:26,col:19
-  - xios # <CONFIGS_PATH>/setups/foci/foci.yaml,line:27,col:19
-  - oasis3mct # <CONFIGS_PATH>/setups/foci/foci.yaml,line:28,col:19
-  use_venv: false # no provenance info
-  verbose: false # no provenance info
-  setup_name: foci # <TEST_DIR>/run/foci/foci-initial-ssp-scenario/scripts/foci-initial-ssp-scenario.yaml,line:5,col:16
-  initial_date: '2015-01-01T00:00:00' # no provenance info
-  final_date: '2015-01-03T00:00:00' # no provenance info
-  nday: 1 # no provenance info
-  account: None # <TEST_DIR>/run/foci/foci-initial-ssp-scenario/scripts/foci-initial-ssp-scenario.yaml,line:16,col:13
-  base_dir: <TEST_DIR>/run/foci/ # <TEST_DIR>/run/foci/foci-initial-ssp-scenario/scripts/foci-initial-ssp-scenario.yaml,line:17,col:14
-  runscript_abspath: <TEST_DIR>/run/foci/foci-initial-ssp-scenario/scripts/foci-initial-ssp-scenario.yaml # no provenance info
-  additional_files: []
-  runscript: foci-initial-ssp-scenario.yaml  # no provenance info
-  debug: false # no provenance info
-  trace: false # no provenance info
-  task_log_files: false # no provenance info
-  contained_run: # no provenance info
-  open_run: true # no provenance info
-  check: true # no provenance info
-  modify_config_file: # no provenance info
-  last_jobtype: prepcompute # no provenance info
-  task: prepcompute # no provenance info
-  inspect: # no provenance info
-  launcher_pid: -666 # no provenance info
-  current_date: '2015-01-01T00:00:00' # no provenance info
-  exclude: # no provenance info
-  only: # no provenance info
-  run_number: 1 # no provenance info
-  update: false # no provenance info
-  update_filetypes: []
-  motd: false  # no provenance info
-  ignore_config_warnings: false # no provenance info
-  jobtype: prepcompute # no provenance info
-  original_command: foci-initial-ssp-scenario.yaml -e foci-initial-ssp-scenario --open-run -c --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
-  started_from: <TEST_DIR>/run/foci/foci-initial-ssp-scenario/scripts/ # no provenance info
-  scriptname: foci-initial-ssp-scenario.yaml # no provenance info
-  isinteractive: false # no provenance info
-  isresubmitted: true # no provenance info
-  execution_mode: run # no provenance info
-  model_dir: <TEST_DIR>/comp/foci/foci-default # <TEST_DIR>/run/foci/foci-initial-ssp-scenario/scripts/foci-initial-ssp-scenario.yaml,line:20,col:15
-  experiment_dir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario # no provenance info
-  per_model_defaults: {}
-  iterative_coupled_model: ''  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:6,col:30
-  reset_calendar_to_last: false # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:7,col:29
-  profile: false # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:9,col:14
-  pre_recipe:
-    exclude_job_types:
-    - prepare  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:12,col:15
-    - prepexp # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:13,col:15
-    - observe # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:14,col:15
-    steps:
-    - initialize_dask_cluster  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:16,col:15
-  intermediate_movements:
-  - config  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:18,col:7
-  - bin # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:19,col:7
-  - input # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:20,col:7
-  compute_file_checksums: false  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:21,col:29
-  parallel_file_movements: dask # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:22,col:30
-  force_overwrite_in_file_movements: false # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:23,col:40
-  command_line_config:
-    runscript: foci-initial-ssp-scenario.yaml  # no provenance info
-    debug: false # no provenance info
-    trace: false # no provenance info
-    task_log_files: false # no provenance info
-    verbose: false # no provenance info
-    contained_run: # no provenance info
-    open_run: true # no provenance info
-    expid: foci-initial-ssp-scenario # no provenance info
-    check: true # no provenance info
-    modify_config_file: # no provenance info
-    last_jobtype: prepcompute # no provenance info
-    task: prepcompute # no provenance info
-    inspect: # no provenance info
-    launcher_pid: -666 # no provenance info
-    current_date: # no provenance info
-    exclude: # no provenance info
-    only: # no provenance info
-    run_number: # no provenance info
-    update: false # no provenance info
-    update_filetypes: []
-    motd: false  # no provenance info
-    ignore_config_warnings: false # no provenance info
-    jobtype: prepcompute # no provenance info
-    use_venv: false # no provenance info
-    original_command: foci-initial-ssp-scenario.yaml -e foci-initial-ssp-scenario --open-run -c --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
-    started_from: <TEST_DIR>/run/foci/foci-initial-ssp-scenario/scripts/ # no provenance info
-    scriptname: foci-initial-ssp-scenario.yaml # no provenance info
-    runscript_abspath: <TEST_DIR>/run/foci/foci-initial-ssp-scenario/scripts/foci-initial-ssp-scenario.yaml # no provenance info
-  couplings:
-  - nemo-ORCA05_LIM2_KCM_AOW+echam-6.3.05p2-foci  # <CONFIGS_PATH>/setups/foci/foci.yaml,line:55,col:15
-  nyear: 0  # no provenance info
-  nmonth: 0 # no provenance info
-  nhour: 0 # no provenance info
-  nminute: 0 # no provenance info
-  nsecond: 0 # no provenance info
-  leapyear: true # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2376,col:19
-  calendar: esm_calendar object with allowed leap years # no provenance info
-  delta_date:
-  - 0  # no provenance info
-  - 0 # no provenance info
-  - 1 # no provenance info
-  - 0 # no provenance info
-  - 0 # no provenance info
-  - 0 # no provenance info
-  start_date: '2015-01-01T00:00:00'  # no provenance info
-  prev_date: '2014-12-31T00:00:00' # no provenance info
-  next_date: '2015-01-02T00:00:00' # no provenance info
-  last_start_date: '2014-12-31T00:00:00' # no provenance info
-  end_date: '2015-01-01T00:00:00' # no provenance info
-  runtime:
-  - 0  # no provenance info
-  - 0 # no provenance info
-  - 1 # no provenance info
-  - 24 # no provenance info
-  - 1440 # no provenance info
-  - 86400 # no provenance info
-  total_runtime:
-  - 0  # no provenance info
-  - 0 # no provenance info
-  - 1 # no provenance info
-  - 24 # no provenance info
-  - 1440 # no provenance info
-  - 86400 # no provenance info
-  run_datestamp: 20150101-20150101  # no provenance info
-  last_run_datestamp: 20141231-20141231 # no provenance info
-  chunk_number: 1 # no provenance info
-  first_run_in_chunk: true # no provenance info
-  last_run_in_chunk: false # no provenance info
-  out_filetypes:
-  - analysis  # no provenance info
-  - log # no provenance info
-  - mon # no provenance info
-  - scripts # no provenance info
-  - ignore # no provenance info
-  - unknown # no provenance info
-  - outdata # no provenance info
-  - restart_out # no provenance info
-  in_filetypes:
-  - scripts  # no provenance info
-  - input # no provenance info
-  - forcing # no provenance info
-  - bin # no provenance info
-  - config # no provenance info
-  - restart_in # no provenance info
-  reusable_filetypes:
-  - bin  # no provenance info
-  - src # no provenance info
-  potentially_reusable_filetypes:
-  - analysis  # no provenance info
-  - config # no provenance info
-  - log # no provenance info
-  - mon # no provenance info
-  - couple # no provenance info
-  - scripts # no provenance info
-  - ignore # no provenance info
-  - unknown # no provenance info
-  - src # no provenance info
-  - scripts # no provenance info
-  - input # no provenance info
-  - forcing # no provenance info
-  - bin # no provenance info
-  - config # no provenance info
-  - restart_in # no provenance info
-  thisrun_dir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/run_20150101-20150101  # no provenance info
-  experiment_analysis_dir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/analysis/ # no provenance info
-  experiment_config_dir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/config/ # no provenance info
-  experiment_log_dir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/log/ # no provenance info
-  experiment_mon_dir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/mon/ # no provenance info
-  experiment_couple_dir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/couple/ # no provenance info
-  experiment_scripts_dir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/scripts/ # no provenance info
-  experiment_ignore_dir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/ignore/ # no provenance info
-  experiment_unknown_dir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/unknown/ # no provenance info
-  experiment_src_dir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/src/ # no provenance info
-  all_filetypes:
-  - analysis  # no provenance info
-  - config # no provenance info
-  - log # no provenance info
-  - mon # no provenance info
-  - couple # no provenance info
-  - scripts # no provenance info
-  - ignore # no provenance info
-  - unknown # no provenance info
-  - src # no provenance info
-  - work # no provenance info
-  thisrun_analysis_dir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/run_20150101-20150101/analysis/  # no provenance info
-  thisrun_config_dir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/run_20150101-20150101/config/ # no provenance info
-  thisrun_log_dir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/run_20150101-20150101/log/ # no provenance info
-  thisrun_mon_dir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/run_20150101-20150101/mon/ # no provenance info
-  thisrun_couple_dir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/run_20150101-20150101/couple/ # no provenance info
-  thisrun_scripts_dir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/run_20150101-20150101/scripts/ # no provenance info
-  thisrun_ignore_dir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/run_20150101-20150101/ignore/ # no provenance info
-  thisrun_unknown_dir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/run_20150101-20150101/unknown/ # no provenance info
-  thisrun_src_dir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/run_20150101-20150101/src/ # no provenance info
-  thisrun_work_dir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/run_20150101-20150101/work/ # no provenance info
-  work_dir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/run_20150101-20150101/work/ # no provenance info
-  all_model_filetypes:
-  - analysis  # no provenance info
-  - bin # no provenance info
-  - config # no provenance info
-  - forcing # no provenance info
-  - input # no provenance info
-  - couple # no provenance info
-  - log # no provenance info
-  - mon # no provenance info
-  - outdata # no provenance info
-  - restart_in # no provenance info
-  - restart_out # no provenance info
-  - viz # no provenance info
-  - ignore # no provenance info
-  workflow:
-    subjob_clusters:
-      prepcompute:
-        subjobs:
-        - prepcompute_general  # no provenance info
-        run_before: compute  # no provenance info
-        submit_to_batch_system: false # no provenance info
-        batch_or_shell: SimulationSetup # no provenance info
-        order_in_cluster: sequential # no provenance info
-        nproc: 1 # no provenance info
-        next_submit:
-        - compute  # no provenance info
-        called_from: tidy  # no provenance info
-      compute:
-        subjobs:
-        - compute_general  # no provenance info
-        submit_to_batch_system: true  # no provenance info
-        batch_or_shell: batch # no provenance info
-        run_on_queue: compute # <CONFIGS_PATH>/machines/levante.yaml,line:62,col:27
-        run_before: tidy # no provenance info
-        order_in_cluster: sequential # no provenance info
-        nproc: 64 # no provenance info
-        next_submit:
-        - tidy  # no provenance info
-        called_from: prepcompute  # no provenance info
-      tidy:
-        subjobs:
-        - tidy_general  # no provenance info
-        run_after: compute  # no provenance info
-        submit_to_batch_system: false # no provenance info
-        batch_or_shell: SimulationSetup # no provenance info
-        order_in_cluster: sequential # no provenance info
-        nproc: 1 # no provenance info
-        next_submit:
-        - prepcompute  # no provenance info
-        called_from: compute  # no provenance info
-    subjobs:
-      prepcompute_general:
-        nproc: 1  # no provenance info
-        run_before: compute # no provenance info
-        subjob_cluster: prepcompute # no provenance info
-      compute_general:
-        nproc: 64  # no provenance info
-        run_before: tidy # no provenance info
-        submit_to_batch_system: true # no provenance info
-        run_on_queue: compute # <CONFIGS_PATH>/machines/levante.yaml,line:62,col:27
-        subjob_cluster: compute # no provenance info
-      tidy_general:
-        nproc: 1  # no provenance info
-        run_after: compute # no provenance info
-        subjob_cluster: tidy # no provenance info
-    last_task_in_queue: tidy  # no provenance info
-    first_task_in_queue: prepcompute # no provenance info
-    next_run_triggered_by: tidy # no provenance info
-  submitted: false  # no provenance info
-  jobid: 1632 # no provenance info
-  batch: slurm # no provenance info
-  coupler_config_dir: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/run_20150101-20150101/config/oasis3mct/ # no provenance info
-  coupler: oasis3mct # no provenance info
-  experiment_log_file: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/log//foci-initial-ssp-scenario_foci.log # no provenance info
-  esm_tools_version: 6.62.1 # no provenance info
-  logfile_path: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/log//foci-initial-ssp-scenario_foci_prepcompute_20150101-20150101_1632.log # no provenance info
-  logfile_path_in_run: <TEST_DIR>/run/foci//foci-initial-ssp-scenario/run_20150101-20150101/log//foci-initial-ssp-scenario_foci_prepcompute_20150101-20150101_1632.log # no provenance info
-  relevant_filetypes:
-  - bin  # no provenance info
-  - config # no provenance info
-  - forcing # no provenance info
-  - input # no provenance info
-  - restart_in # no provenance info
-  file_movements:
-    bin:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:31,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:32,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:33,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:34,col:41
-    analysis:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    config:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    forcing:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    input:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    couple:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    log:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    mon:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    outdata:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    restart_in:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    restart_out:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    viz:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    ignore:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    scripts:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    unknown:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-  files_source: thisrun  # no provenance info
-  files_target: work # no provenance info
 dask:
   ntasks: 32  # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:155,col:13
   init_scheduler_cmd: srun --ntasks=1 --nodes=1 --cpus-per-task=1 dask scheduler --scheduler-file <TEST_DIR>/run/foci//foci-initial-ssp-scenario/run_20150101-20150101/work//dask_scheduler.json --interface ib0 # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:156,col:25

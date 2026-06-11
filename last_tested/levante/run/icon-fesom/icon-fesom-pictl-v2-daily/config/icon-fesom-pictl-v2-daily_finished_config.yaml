@@ -1263,8 +1263,8 @@ computer:
   add_export_vars:
     LD_LIBRARY_PATH[(4)]: $LD_LIBRARY_PATH:<TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/run_18500101-18500101/work//lib/fesom/  # <CONFIGS_PATH>/components/fesom/fesom.env.yaml,line:3,col:31
     USER: <USER_ACCOUNT> # no provenance info
-    HOME: /github/home # no provenance info
-    ACCOUNT: None # no provenance info
+    HOME: <HOME_DIR> # no provenance info
+    ACCOUNT: ab0246 # no provenance info
     ESM_TESTING_DIR: <TEST_DIR>/run/icon-fesom/ # no provenance info
     MODEL_DIR: <TEST_DIR>/comp/icon-fesom/icon-fesom-v2.0 # no provenance info
   name: levante  # <CONFIGS_PATH>/machines/levante.yaml,line:4,col:11
@@ -1346,8 +1346,8 @@ computer:
     mpi_DIR: $MPIROOT # <CONFIGS_PATH>/machines/levante.yaml,line:232,col:38
     LD_LIBRARY_PATH[(4)]: $LD_LIBRARY_PATH:<TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/run_18500101-18500101/work//lib/fesom/ # <CONFIGS_PATH>/components/fesom/fesom.env.yaml,line:3,col:31
     USER: <USER_ACCOUNT> # no provenance info
-    HOME: /github/home # no provenance info
-    ACCOUNT: None # no provenance info
+    HOME: <HOME_DIR> # no provenance info
+    ACCOUNT: ab0246 # no provenance info
     ESM_TESTING_DIR: <TEST_DIR>/run/icon-fesom/ # no provenance info
     MODEL_DIR: <TEST_DIR>/comp/icon-fesom/icon-fesom-v2.0 # no provenance info
   load_python: false  # <CONFIGS_PATH>/machines/levante.yaml,line:137,col:18
@@ -1429,11 +1429,377 @@ computer:
   mod_netcdf_f: netcdf-fortran/4.5.3-openmpi-4.1.2-intel-2021.5.0 # <CONFIGS_PATH>/machines/levante.yaml,line:210,col:35
   mod_hdf5: hdf5/1.12.1-openmpi-4.1.2-intel-2021.5.0 # <CONFIGS_PATH>/machines/levante.yaml,line:211,col:31
   netcdf_cxx_root: /work/ab0995/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0 # <CONFIGS_PATH>/machines/levante.yaml,line:212,col:38
-  accounting_flag: --account=None # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:28,col:38
+  accounting_flag: --account=ab0246 # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:28,col:38
   cpu_bind: cores # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:79,col:23
   srun_execution_command: srun -l --kill-on-bad-exit=1 --multi-prog hostfile_srun # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:80,col:37
   execution_command: srun -l --kill-on-bad-exit=1 --multi-prog hostfile_srun # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:85,col:40
   debugger_flags_prelauncher: '' # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:95,col:45
+general:
+  sections:
+    icon: <TEST_DIR>/run/icon-fesom/icon-fesom-pictl-v2-daily/scripts/icon-fesom-pictl-v2-daily.yaml  # no provenance info
+    computer: <TEST_DIR>/run/icon-fesom/icon-fesom-pictl-v2-daily/scripts/icon-fesom-pictl-v2-daily.yaml # no provenance info
+    fesom: <TEST_DIR>/run/icon-fesom/icon-fesom-pictl-v2-daily/scripts/icon-fesom-pictl-v2-daily.yaml # no provenance info
+    yac: <TEST_DIR>/run/icon-fesom/icon-fesom-pictl-v2-daily/scripts/icon-fesom-pictl-v2-daily.yaml # no provenance info
+    dask: <CONFIGS_PATH>/other_software/batch_system/slurm.yaml # no provenance info
+    icon-fesom: <TEST_DIR>/run/icon-fesom/icon-fesom-pictl-v2-daily/scripts/icon-fesom-pictl-v2-daily.yaml # no provenance info
+    per_model_defaults: <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml # no provenance info
+  use_database: false  # <CONFIGS_PATH>/defaults/general.yaml,line:1,col:15
+  system_components:
+  - general  # <CONFIGS_PATH>/defaults/general.yaml,line:2,col:21
+  - dask # <CONFIGS_PATH>/defaults/general.yaml,line:2,col:32
+  - prev_run # no provenance info
+  other_components: []
+  standalone: false  # no provenance info
+  model: icon-fesom # <CONFIGS_PATH>/setups/icon-fesom/icon-fesom.yaml,line:10,col:12
+  version: v2.0 # <TEST_DIR>/run/icon-fesom/icon-fesom-pictl-v2-daily/scripts/icon-fesom-pictl-v2-daily.yaml,line:33,col:13
+  coupled_setup: true # <CONFIGS_PATH>/setups/icon-fesom/icon-fesom.yaml,line:12,col:20
+  prepcompute_recipe:
+  - compile_model  # <CONFIGS_PATH>/setups/icon-fesom/icon-fesom.yaml,line:27,col:11
+  - _show_simulation_info # <CONFIGS_PATH>/setups/icon-fesom/icon-fesom.yaml,line:28,col:11
+  - create_new_files # <CONFIGS_PATH>/setups/icon-fesom/icon-fesom.yaml,line:29,col:11
+  - create_empty_folders # <CONFIGS_PATH>/setups/icon-fesom/icon-fesom.yaml,line:30,col:11
+  - assemble # <CONFIGS_PATH>/setups/icon-fesom/icon-fesom.yaml,line:33,col:11
+  - log_used_files # <CONFIGS_PATH>/setups/icon-fesom/icon-fesom.yaml,line:34,col:11
+  - wait_for_iterative_coupling # <CONFIGS_PATH>/setups/icon-fesom/icon-fesom.yaml,line:35,col:11
+  - copy_files_to_thisrun # <CONFIGS_PATH>/setups/icon-fesom/icon-fesom.yaml,line:36,col:11
+  - modify_namelists # <CONFIGS_PATH>/setups/icon-fesom/icon-fesom.yaml,line:37,col:11
+  - modify_files # <CONFIGS_PATH>/setups/icon-fesom/icon-fesom.yaml,line:38,col:11
+  - copy_files_to_work # <CONFIGS_PATH>/setups/icon-fesom/icon-fesom.yaml,line:39,col:11
+  - report_missing_files # <CONFIGS_PATH>/setups/icon-fesom/icon-fesom.yaml,line:40,col:11
+  - compute_and_log_file_checksums # <CONFIGS_PATH>/setups/icon-fesom/icon-fesom.yaml,line:41,col:11
+  - _write_finalized_config # <CONFIGS_PATH>/setups/icon-fesom/icon-fesom.yaml,line:42,col:11
+  - database_entry # <CONFIGS_PATH>/setups/icon-fesom/icon-fesom.yaml,line:43,col:11
+  valid_setup_names:
+  - general  # no provenance info
+  - computer # no provenance info
+  - dask # no provenance info
+  - fesom # no provenance info
+  valid_model_names:
+  - icon  # no provenance info
+  - fesom # no provenance info
+  - yac # no provenance info
+  esm_configs_dir: <CONFIGS_PATH>/  # no provenance info
+  esm_namelist_dir: <NAMELIST_PATH>/ # no provenance info
+  esm_runscript_dir: <RUNSCRIPT_PATH>/ # no provenance info
+  esm_couplings_dir: <COUPLINGS_PATH>/ # no provenance info
+  expid: icon-fesom-pictl-v2-daily # no provenance info
+  models:
+  - icon  # <CONFIGS_PATH>/setups/icon-fesom/icon-fesom.yaml,line:15,col:7
+  - fesom # <CONFIGS_PATH>/setups/icon-fesom/icon-fesom.yaml,line:16,col:7
+  - yac # <CONFIGS_PATH>/setups/icon-fesom/icon-fesom.yaml,line:17,col:7
+  use_venv: false # no provenance info
+  homedir: <HOME_DIR> # <TEST_DIR>/run/icon-fesom/icon-fesom-pictl-v2-daily/scripts/icon-fesom-pictl-v2-daily.yaml,line:19,col:13
+  setup_name: icon-fesom # <TEST_DIR>/run/icon-fesom/icon-fesom-pictl-v2-daily/scripts/icon-fesom-pictl-v2-daily.yaml,line:20,col:16
+  compute_time: 00:08:00 # <TEST_DIR>/run/icon-fesom/icon-fesom-pictl-v2-daily/scripts/icon-fesom-pictl-v2-daily.yaml,line:21,col:18
+  account: ab0246 # <TEST_DIR>/run/icon-fesom/icon-fesom-pictl-v2-daily/scripts/icon-fesom-pictl-v2-daily.yaml,line:22,col:13
+  base_dir: <TEST_DIR>/run/icon-fesom/ # <TEST_DIR>/run/icon-fesom/icon-fesom-pictl-v2-daily/scripts/icon-fesom-pictl-v2-daily.yaml,line:23,col:14
+  initial_date: '1850-01-01T00:00:00' # no provenance info
+  final_date: '1850-01-03T00:00:00' # no provenance info
+  nday: 1 # no provenance info
+  runscript_abspath: <TEST_DIR>/run/icon-fesom/icon-fesom-pictl-v2-daily/scripts/icon-fesom-pictl-v2-daily.yaml # no provenance info
+  additional_files: []
+  runscript: icon-fesom-pictl-v2-daily.yaml  # no provenance info
+  debug: false # no provenance info
+  trace: false # no provenance info
+  task_log_files: false # no provenance info
+  verbose: false # no provenance info
+  contained_run: # no provenance info
+  open_run: true # no provenance info
+  check: false # no provenance info
+  modify_config_file: # no provenance info
+  last_jobtype: prepcompute # no provenance info
+  task: prepcompute # no provenance info
+  inspect: # no provenance info
+  launcher_pid: -666 # no provenance info
+  current_date: '1850-01-01T00:00:00' # no provenance info
+  exclude: # no provenance info
+  only: # no provenance info
+  run_number: 1 # no provenance info
+  update: false # no provenance info
+  update_filetypes: []
+  motd: false  # no provenance info
+  ignore_config_warnings: false # no provenance info
+  jobtype: prepcompute # no provenance info
+  original_command: icon-fesom-pictl-v2-daily.yaml -e icon-fesom-pictl-v2-daily --open-run --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
+  started_from: <TEST_DIR>/run/icon-fesom/icon-fesom-pictl-v2-daily/scripts/ # no provenance info
+  scriptname: icon-fesom-pictl-v2-daily.yaml # no provenance info
+  isinteractive: false # no provenance info
+  isresubmitted: true # no provenance info
+  execution_mode: run # no provenance info
+  model_dir: <TEST_DIR>/comp/icon-fesom/icon-fesom-v2.0 # <TEST_DIR>/run/icon-fesom/icon-fesom-pictl-v2-daily/scripts/icon-fesom-pictl-v2-daily.yaml,line:36,col:15
+  experiment_dir: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily # no provenance info
+  per_model_defaults: {}
+  iterative_coupled_model: ''  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:6,col:30
+  reset_calendar_to_last: false # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:7,col:29
+  profile: false # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:9,col:14
+  pre_recipe:
+    exclude_job_types:
+    - prepare  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:12,col:15
+    - prepexp # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:13,col:15
+    - observe # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:14,col:15
+    steps:
+    - initialize_dask_cluster  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:16,col:15
+  intermediate_movements:
+  - config  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:18,col:7
+  - bin # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:19,col:7
+  - input # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:20,col:7
+  compute_file_checksums: false  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:21,col:29
+  parallel_file_movements: dask # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:22,col:30
+  force_overwrite_in_file_movements: false # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:23,col:40
+  command_line_config:
+    runscript: icon-fesom-pictl-v2-daily.yaml  # no provenance info
+    debug: false # no provenance info
+    trace: false # no provenance info
+    task_log_files: false # no provenance info
+    verbose: false # no provenance info
+    contained_run: # no provenance info
+    open_run: true # no provenance info
+    expid: icon-fesom-pictl-v2-daily # no provenance info
+    check: false # no provenance info
+    modify_config_file: # no provenance info
+    last_jobtype: prepcompute # no provenance info
+    task: prepcompute # no provenance info
+    inspect: # no provenance info
+    launcher_pid: -666 # no provenance info
+    current_date: # no provenance info
+    exclude: # no provenance info
+    only: # no provenance info
+    run_number: # no provenance info
+    update: false # no provenance info
+    update_filetypes: []
+    motd: false  # no provenance info
+    ignore_config_warnings: false # no provenance info
+    jobtype: prepcompute # no provenance info
+    use_venv: false # no provenance info
+    original_command: icon-fesom-pictl-v2-daily.yaml -e icon-fesom-pictl-v2-daily --open-run --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
+    started_from: <TEST_DIR>/run/icon-fesom/icon-fesom-pictl-v2-daily/scripts/ # no provenance info
+    scriptname: icon-fesom-pictl-v2-daily.yaml # no provenance info
+    runscript_abspath: <TEST_DIR>/run/icon-fesom/icon-fesom-pictl-v2-daily/scripts/icon-fesom-pictl-v2-daily.yaml # no provenance info
+  couplings:
+  - fesom-2.6.2-yac+icon-2025.04-public  # <CONFIGS_PATH>/setups/icon-fesom/icon-fesom.yaml,line:24,col:15
+  nyear: 0  # no provenance info
+  nmonth: 0 # no provenance info
+  nhour: 0 # no provenance info
+  nminute: 0 # no provenance info
+  nsecond: 0 # no provenance info
+  leapyear: true # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:124,col:27
+  calendar: esm_calendar object with allowed leap years # no provenance info
+  delta_date:
+  - 0  # no provenance info
+  - 0 # no provenance info
+  - 1 # no provenance info
+  - 0 # no provenance info
+  - 0 # no provenance info
+  - 0 # no provenance info
+  start_date: '1850-01-01T00:00:00'  # no provenance info
+  prev_date: '1849-12-31T00:00:00' # no provenance info
+  next_date: '1850-01-02T00:00:00' # no provenance info
+  last_start_date: '1849-12-31T00:00:00' # no provenance info
+  end_date: '1850-01-01T00:00:00' # no provenance info
+  runtime:
+  - 0  # no provenance info
+  - 0 # no provenance info
+  - 1 # no provenance info
+  - 24 # no provenance info
+  - 1440 # no provenance info
+  - 86400 # no provenance info
+  total_runtime:
+  - 0  # no provenance info
+  - 0 # no provenance info
+  - 1 # no provenance info
+  - 24 # no provenance info
+  - 1440 # no provenance info
+  - 86400 # no provenance info
+  run_datestamp: 18500101-18500101  # no provenance info
+  last_run_datestamp: 18491231-18491231 # no provenance info
+  chunk_number: 1 # no provenance info
+  first_run_in_chunk: true # no provenance info
+  last_run_in_chunk: false # no provenance info
+  out_filetypes:
+  - analysis  # no provenance info
+  - log # no provenance info
+  - mon # no provenance info
+  - scripts # no provenance info
+  - ignore # no provenance info
+  - unknown # no provenance info
+  - outdata # no provenance info
+  - restart_out # no provenance info
+  in_filetypes:
+  - scripts  # no provenance info
+  - input # no provenance info
+  - forcing # no provenance info
+  - bin # no provenance info
+  - config # no provenance info
+  - restart_in # no provenance info
+  reusable_filetypes:
+  - bin  # no provenance info
+  - src # no provenance info
+  potentially_reusable_filetypes:
+  - analysis  # no provenance info
+  - config # no provenance info
+  - log # no provenance info
+  - mon # no provenance info
+  - couple # no provenance info
+  - scripts # no provenance info
+  - ignore # no provenance info
+  - unknown # no provenance info
+  - src # no provenance info
+  - scripts # no provenance info
+  - input # no provenance info
+  - forcing # no provenance info
+  - bin # no provenance info
+  - config # no provenance info
+  - restart_in # no provenance info
+  thisrun_dir: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/run_18500101-18500101  # no provenance info
+  experiment_analysis_dir: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/analysis/ # no provenance info
+  experiment_config_dir: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/config/ # no provenance info
+  experiment_log_dir: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/log/ # no provenance info
+  experiment_mon_dir: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/mon/ # no provenance info
+  experiment_couple_dir: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/couple/ # no provenance info
+  experiment_scripts_dir: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/scripts/ # no provenance info
+  experiment_ignore_dir: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/ignore/ # no provenance info
+  experiment_unknown_dir: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/unknown/ # no provenance info
+  experiment_src_dir: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/src/ # no provenance info
+  all_filetypes:
+  - analysis  # no provenance info
+  - config # no provenance info
+  - log # no provenance info
+  - mon # no provenance info
+  - couple # no provenance info
+  - scripts # no provenance info
+  - ignore # no provenance info
+  - unknown # no provenance info
+  - src # no provenance info
+  - work # no provenance info
+  thisrun_analysis_dir: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/run_18500101-18500101/analysis/  # no provenance info
+  thisrun_config_dir: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/run_18500101-18500101/config/ # no provenance info
+  thisrun_log_dir: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/run_18500101-18500101/log/ # no provenance info
+  thisrun_mon_dir: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/run_18500101-18500101/mon/ # no provenance info
+  thisrun_couple_dir: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/run_18500101-18500101/couple/ # no provenance info
+  thisrun_scripts_dir: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/run_18500101-18500101/scripts/ # no provenance info
+  thisrun_ignore_dir: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/run_18500101-18500101/ignore/ # no provenance info
+  thisrun_unknown_dir: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/run_18500101-18500101/unknown/ # no provenance info
+  thisrun_src_dir: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/run_18500101-18500101/src/ # no provenance info
+  thisrun_work_dir: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/run_18500101-18500101/work/ # no provenance info
+  work_dir: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/run_18500101-18500101/work/ # no provenance info
+  all_model_filetypes:
+  - analysis  # no provenance info
+  - bin # no provenance info
+  - config # no provenance info
+  - forcing # no provenance info
+  - input # no provenance info
+  - couple # no provenance info
+  - log # no provenance info
+  - mon # no provenance info
+  - outdata # no provenance info
+  - restart_in # no provenance info
+  - restart_out # no provenance info
+  - viz # no provenance info
+  - ignore # no provenance info
+  workflow:
+    subjob_clusters:
+      prepcompute:
+        subjobs:
+        - prepcompute_general  # no provenance info
+        run_before: compute  # no provenance info
+        submit_to_batch_system: false # no provenance info
+        batch_or_shell: SimulationSetup # no provenance info
+        order_in_cluster: sequential # no provenance info
+        nproc: 1 # no provenance info
+        next_submit:
+        - compute  # no provenance info
+        called_from: tidy  # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:86,col:32
+      compute:
+        subjobs:
+        - compute_general  # no provenance info
+        submit_to_batch_system: true  # no provenance info
+        batch_or_shell: batch # no provenance info
+        run_on_queue: compute # <CONFIGS_PATH>/machines/levante.yaml,line:62,col:27
+        run_before: tidy # no provenance info
+        order_in_cluster: sequential # no provenance info
+        nproc: 1920 # no provenance info
+        next_submit:
+        - tidy  # no provenance info
+        called_from: prepcompute  # no provenance info
+      tidy:
+        subjobs:
+        - tidy_general  # no provenance info
+        run_after: compute  # no provenance info
+        submit_to_batch_system: false # no provenance info
+        batch_or_shell: SimulationSetup # no provenance info
+        order_in_cluster: sequential # no provenance info
+        nproc: 1 # no provenance info
+        next_submit:
+        - Tripy_Fesom  # no provenance info
+        - prepcompute # no provenance info
+        called_from: compute  # no provenance info
+      Tripy_Fesom:
+        subjobs:
+        - Tripy_Fesom_fesom  # no provenance info
+        submit_to_batch_system: true  # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:94,col:41
+        order_in_cluster: concurrent # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:90,col:35
+        batch_or_shell: batch # no provenance info
+        run_on_queue: compute # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:91,col:31
+        run_after: tidy # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:92,col:28
+        nproc: 1 # no provenance info
+        next_submit: []
+        called_from: tidy  # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:92,col:28
+    subjobs:
+      prepcompute_general:
+        nproc: 1  # no provenance info
+        run_before: compute # no provenance info
+        subjob_cluster: prepcompute # no provenance info
+      compute_general:
+        nproc: 1920  # no provenance info
+        run_before: tidy # no provenance info
+        submit_to_batch_system: true # no provenance info
+        run_on_queue: compute # <CONFIGS_PATH>/machines/levante.yaml,line:62,col:27
+        subjob_cluster: compute # no provenance info
+      tidy_general:
+        nproc: 1  # no provenance info
+        run_after: compute # no provenance info
+        subjob_cluster: tidy # no provenance info
+      Tripy_Fesom_fesom:
+        batch_or_shell: batch  # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:89,col:33
+        order_in_cluster: concurrent # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:90,col:35
+        run_on_queue: compute # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:91,col:31
+        run_after: tidy # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:92,col:28
+        script_dir: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/scripts/fesom # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:93,col:29
+        submit_to_batch_system: true # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:94,col:41
+        script: Subjob_tripy.sh <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/outdata/fesom/ 1850-01-01T00:00:00 1850-01-02T00:00:00 1850-01-01T00:00:00 1850-01-03T00:00:00 /pool/data/AWICM//FESOM2/MESHES_FESOM2.1//core2/ <TEST_DIR>/run/icon-fesom/ icon-fesom-pictl-v2-daily python3 True modvis.dkrz.de /var/www/projects/ab0246/<USER_ACCOUNT>/icon-fesom-pictl-v2-daily # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:95,col:25
+        nproc: 1 # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:96,col:24
+        subjob_cluster: Tripy_Fesom # no provenance info
+    last_task_in_queue: tidy  # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:86,col:32
+    first_task_in_queue: prepcompute # no provenance info
+    next_run_triggered_by: tidy # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:86,col:32
+  submitted: false  # no provenance info
+  jobid: 2256570 # no provenance info
+  batch: slurm # no provenance info
+  coupler_config_dir: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/run_18500101-18500101/config/yac/ # no provenance info
+  coupler: yac # no provenance info
+  experiment_log_file: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/log//icon-fesom-pictl-v2-daily_icon-fesom.log # no provenance info
+  esm_tools_version: 6.62.4 # no provenance info
+  logfile_path: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/log//icon-fesom-pictl-v2-daily_icon-fesom_prepcompute_18500101-18500101_2256570.log # no provenance info
+  logfile_path_in_run: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/run_18500101-18500101/log//icon-fesom-pictl-v2-daily_icon-fesom_prepcompute_18500101-18500101_2256570.log # no provenance info
+  relevant_filetypes:
+  - bin  # no provenance info
+  - config # no provenance info
+  - forcing # no provenance info
+  - input # no provenance info
+  - restart_in # no provenance info
+  file_movements:
+    default:
+      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+    bin:
+      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:31,col:41
+      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:32,col:41
+      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:33,col:41
+      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:34,col:41
+  files_source: thisrun  # no provenance info
+  files_target: work # no provenance info
 fesom:
   model: fesom  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:4,col:12
   branch: yac # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:28,col:17
@@ -2385,10 +2751,10 @@ fesom:
   - copy_stuff_back_from_work # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:741,col:7
   - copy_all_results_to_exp # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:742,col:7
   - clean_run_dir # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:743,col:7
-  vis_project: None # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:59,col:18
+  vis_project: ab0246 # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:59,col:18
   vis_user: <USER_ACCOUNT> # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:60,col:15
   vis_server: modvis.dkrz.de # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:68,col:25
-  vis_publicdir: /var/www/projects/None/<USER_ACCOUNT>/icon-fesom-pictl-v2-daily # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:69,col:28
+  vis_publicdir: /var/www/projects/ab0246/<USER_ACCOUNT>/icon-fesom-pictl-v2-daily # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:69,col:28
   vis_sync: true # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:70,col:23
   tripyview_conda_module: python3 # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:71,col:37
   scripts_files:
@@ -2410,7 +2776,7 @@ fesom:
         run_after: tidy # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:92,col:28
         script_dir: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/scripts/fesom # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:93,col:29
         submit_to_batch_system: true # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:94,col:41
-        script: Subjob_tripy.sh <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/outdata/fesom/ 1850-01-01T00:00:00 1850-01-02T00:00:00 1850-01-01T00:00:00 1850-01-03T00:00:00 /pool/data/AWICM//FESOM2/MESHES_FESOM2.1//core2/ <TEST_DIR>/run/icon-fesom/ icon-fesom-pictl-v2-daily python3 True modvis.dkrz.de /var/www/projects/None/<USER_ACCOUNT>/icon-fesom-pictl-v2-daily # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:95,col:25
+        script: Subjob_tripy.sh <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/outdata/fesom/ 1850-01-01T00:00:00 1850-01-02T00:00:00 1850-01-01T00:00:00 1850-01-03T00:00:00 /pool/data/AWICM//FESOM2/MESHES_FESOM2.1//core2/ <TEST_DIR>/run/icon-fesom/ icon-fesom-pictl-v2-daily python3 True modvis.dkrz.de /var/www/projects/ab0246/<USER_ACCOUNT>/icon-fesom-pictl-v2-daily # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:95,col:25
         nproc: 1 # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:96,col:24
   model_dir: <TEST_DIR>/comp/icon-fesom/icon-fesom-v2.0/fesom-2.6 # <CONFIGS_PATH>/setups/icon-fesom/icon-fesom.yaml,line:46,col:16
   nproc: 432 # <TEST_DIR>/run/icon-fesom/icon-fesom-pictl-v2-daily/scripts/icon-fesom-pictl-v2-daily.yaml,line:88,col:11
@@ -3315,428 +3681,6 @@ yac:
     coupling_yaml: <TEST_DIR>/run/icon-fesom/icon-fesom-pictl-v2-daily/run_18500101-18500101/input/yac/coupling.yaml  # no provenance info
   namelists: {}
   namelist_objs: {}
-general:
-  use_database: false  # <CONFIGS_PATH>/defaults/general.yaml,line:1,col:15
-  general:
-    system_components:
-    - general  # <CONFIGS_PATH>/defaults/general.yaml,line:4,col:23
-    - dask # <CONFIGS_PATH>/defaults/general.yaml,line:4,col:34
-  standalone: false  # no provenance info
-  model: icon-fesom # <CONFIGS_PATH>/setups/icon-fesom/icon-fesom.yaml,line:10,col:12
-  version: v2.0 # <TEST_DIR>/run/icon-fesom/icon-fesom-pictl-v2-daily/scripts/icon-fesom-pictl-v2-daily.yaml,line:33,col:13
-  coupled_setup: true # <CONFIGS_PATH>/setups/icon-fesom/icon-fesom.yaml,line:12,col:20
-  prepcompute_recipe:
-  - compile_model  # <CONFIGS_PATH>/setups/icon-fesom/icon-fesom.yaml,line:27,col:11
-  - _show_simulation_info # <CONFIGS_PATH>/setups/icon-fesom/icon-fesom.yaml,line:28,col:11
-  - create_new_files # <CONFIGS_PATH>/setups/icon-fesom/icon-fesom.yaml,line:29,col:11
-  - create_empty_folders # <CONFIGS_PATH>/setups/icon-fesom/icon-fesom.yaml,line:30,col:11
-  - assemble # <CONFIGS_PATH>/setups/icon-fesom/icon-fesom.yaml,line:33,col:11
-  - log_used_files # <CONFIGS_PATH>/setups/icon-fesom/icon-fesom.yaml,line:34,col:11
-  - wait_for_iterative_coupling # <CONFIGS_PATH>/setups/icon-fesom/icon-fesom.yaml,line:35,col:11
-  - copy_files_to_thisrun # <CONFIGS_PATH>/setups/icon-fesom/icon-fesom.yaml,line:36,col:11
-  - modify_namelists # <CONFIGS_PATH>/setups/icon-fesom/icon-fesom.yaml,line:37,col:11
-  - modify_files # <CONFIGS_PATH>/setups/icon-fesom/icon-fesom.yaml,line:38,col:11
-  - copy_files_to_work # <CONFIGS_PATH>/setups/icon-fesom/icon-fesom.yaml,line:39,col:11
-  - report_missing_files # <CONFIGS_PATH>/setups/icon-fesom/icon-fesom.yaml,line:40,col:11
-  - compute_and_log_file_checksums # <CONFIGS_PATH>/setups/icon-fesom/icon-fesom.yaml,line:41,col:11
-  - _write_finalized_config # <CONFIGS_PATH>/setups/icon-fesom/icon-fesom.yaml,line:42,col:11
-  - database_entry # <CONFIGS_PATH>/setups/icon-fesom/icon-fesom.yaml,line:43,col:11
-  valid_setup_names:
-  - general  # no provenance info
-  - computer # no provenance info
-  - dask # no provenance info
-  - fesom # no provenance info
-  valid_model_names:
-  - icon  # no provenance info
-  - fesom # no provenance info
-  - yac # no provenance info
-  esm_configs_dir: <CONFIGS_PATH>/  # no provenance info
-  esm_namelist_dir: <NAMELIST_PATH>/ # no provenance info
-  esm_runscript_dir: <RUNSCRIPT_PATH>/ # no provenance info
-  esm_couplings_dir: <COUPLINGS_PATH>/ # no provenance info
-  expid: icon-fesom-pictl-v2-daily # no provenance info
-  models:
-  - icon  # <CONFIGS_PATH>/setups/icon-fesom/icon-fesom.yaml,line:15,col:7
-  - fesom # <CONFIGS_PATH>/setups/icon-fesom/icon-fesom.yaml,line:16,col:7
-  - yac # <CONFIGS_PATH>/setups/icon-fesom/icon-fesom.yaml,line:17,col:7
-  use_venv: false # no provenance info
-  homedir: /github/home # <TEST_DIR>/run/icon-fesom/icon-fesom-pictl-v2-daily/scripts/icon-fesom-pictl-v2-daily.yaml,line:19,col:13
-  setup_name: icon-fesom # <TEST_DIR>/run/icon-fesom/icon-fesom-pictl-v2-daily/scripts/icon-fesom-pictl-v2-daily.yaml,line:20,col:16
-  compute_time: 00:08:00 # <TEST_DIR>/run/icon-fesom/icon-fesom-pictl-v2-daily/scripts/icon-fesom-pictl-v2-daily.yaml,line:21,col:18
-  account: None # <TEST_DIR>/run/icon-fesom/icon-fesom-pictl-v2-daily/scripts/icon-fesom-pictl-v2-daily.yaml,line:22,col:13
-  base_dir: <TEST_DIR>/run/icon-fesom/ # <TEST_DIR>/run/icon-fesom/icon-fesom-pictl-v2-daily/scripts/icon-fesom-pictl-v2-daily.yaml,line:23,col:14
-  initial_date: '1850-01-01T00:00:00' # no provenance info
-  final_date: '1850-01-03T00:00:00' # no provenance info
-  nday: 1 # no provenance info
-  runscript_abspath: <TEST_DIR>/run/icon-fesom/icon-fesom-pictl-v2-daily/scripts/icon-fesom-pictl-v2-daily.yaml # no provenance info
-  additional_files: []
-  runscript: icon-fesom-pictl-v2-daily.yaml  # no provenance info
-  debug: false # no provenance info
-  trace: false # no provenance info
-  task_log_files: false # no provenance info
-  verbose: false # no provenance info
-  contained_run: # no provenance info
-  open_run: true # no provenance info
-  check: true # no provenance info
-  modify_config_file: # no provenance info
-  last_jobtype: prepcompute # no provenance info
-  task: prepcompute # no provenance info
-  inspect: # no provenance info
-  launcher_pid: -666 # no provenance info
-  current_date: '1850-01-01T00:00:00' # no provenance info
-  exclude: # no provenance info
-  only: # no provenance info
-  run_number: 1 # no provenance info
-  update: false # no provenance info
-  update_filetypes: []
-  motd: false  # no provenance info
-  ignore_config_warnings: false # no provenance info
-  jobtype: prepcompute # no provenance info
-  original_command: icon-fesom-pictl-v2-daily.yaml -e icon-fesom-pictl-v2-daily --open-run -c --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
-  started_from: <TEST_DIR>/run/icon-fesom/icon-fesom-pictl-v2-daily/scripts/ # no provenance info
-  scriptname: icon-fesom-pictl-v2-daily.yaml # no provenance info
-  isinteractive: false # no provenance info
-  isresubmitted: true # no provenance info
-  execution_mode: run # no provenance info
-  model_dir: <TEST_DIR>/comp/icon-fesom/icon-fesom-v2.0 # <TEST_DIR>/run/icon-fesom/icon-fesom-pictl-v2-daily/scripts/icon-fesom-pictl-v2-daily.yaml,line:36,col:15
-  experiment_dir: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily # no provenance info
-  per_model_defaults: {}
-  iterative_coupled_model: ''  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:6,col:30
-  reset_calendar_to_last: false # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:7,col:29
-  profile: false # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:9,col:14
-  pre_recipe:
-    exclude_job_types:
-    - prepare  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:12,col:15
-    - prepexp # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:13,col:15
-    - observe # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:14,col:15
-    steps:
-    - initialize_dask_cluster  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:16,col:15
-  intermediate_movements:
-  - config  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:18,col:7
-  - bin # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:19,col:7
-  - input # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:20,col:7
-  compute_file_checksums: false  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:21,col:29
-  parallel_file_movements: dask # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:22,col:30
-  force_overwrite_in_file_movements: false # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:23,col:40
-  command_line_config:
-    runscript: icon-fesom-pictl-v2-daily.yaml  # no provenance info
-    debug: false # no provenance info
-    trace: false # no provenance info
-    task_log_files: false # no provenance info
-    verbose: false # no provenance info
-    contained_run: # no provenance info
-    open_run: true # no provenance info
-    expid: icon-fesom-pictl-v2-daily # no provenance info
-    check: true # no provenance info
-    modify_config_file: # no provenance info
-    last_jobtype: prepcompute # no provenance info
-    task: prepcompute # no provenance info
-    inspect: # no provenance info
-    launcher_pid: -666 # no provenance info
-    current_date: # no provenance info
-    exclude: # no provenance info
-    only: # no provenance info
-    run_number: # no provenance info
-    update: false # no provenance info
-    update_filetypes: []
-    motd: false  # no provenance info
-    ignore_config_warnings: false # no provenance info
-    jobtype: prepcompute # no provenance info
-    use_venv: false # no provenance info
-    original_command: icon-fesom-pictl-v2-daily.yaml -e icon-fesom-pictl-v2-daily --open-run -c --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
-    started_from: <TEST_DIR>/run/icon-fesom/icon-fesom-pictl-v2-daily/scripts/ # no provenance info
-    scriptname: icon-fesom-pictl-v2-daily.yaml # no provenance info
-    runscript_abspath: <TEST_DIR>/run/icon-fesom/icon-fesom-pictl-v2-daily/scripts/icon-fesom-pictl-v2-daily.yaml # no provenance info
-  couplings:
-  - fesom-2.6.2-yac+icon-2025.04-public  # <CONFIGS_PATH>/setups/icon-fesom/icon-fesom.yaml,line:24,col:15
-  nyear: 0  # no provenance info
-  nmonth: 0 # no provenance info
-  nhour: 0 # no provenance info
-  nminute: 0 # no provenance info
-  nsecond: 0 # no provenance info
-  leapyear: true # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:124,col:27
-  calendar: esm_calendar object with allowed leap years # no provenance info
-  delta_date:
-  - 0  # no provenance info
-  - 0 # no provenance info
-  - 1 # no provenance info
-  - 0 # no provenance info
-  - 0 # no provenance info
-  - 0 # no provenance info
-  start_date: '1850-01-01T00:00:00'  # no provenance info
-  prev_date: '1849-12-31T00:00:00' # no provenance info
-  next_date: '1850-01-02T00:00:00' # no provenance info
-  last_start_date: '1849-12-31T00:00:00' # no provenance info
-  end_date: '1850-01-01T00:00:00' # no provenance info
-  runtime:
-  - 0  # no provenance info
-  - 0 # no provenance info
-  - 1 # no provenance info
-  - 24 # no provenance info
-  - 1440 # no provenance info
-  - 86400 # no provenance info
-  total_runtime:
-  - 0  # no provenance info
-  - 0 # no provenance info
-  - 1 # no provenance info
-  - 24 # no provenance info
-  - 1440 # no provenance info
-  - 86400 # no provenance info
-  run_datestamp: 18500101-18500101  # no provenance info
-  last_run_datestamp: 18491231-18491231 # no provenance info
-  chunk_number: 1 # no provenance info
-  first_run_in_chunk: true # no provenance info
-  last_run_in_chunk: false # no provenance info
-  out_filetypes:
-  - analysis  # no provenance info
-  - log # no provenance info
-  - mon # no provenance info
-  - scripts # no provenance info
-  - ignore # no provenance info
-  - unknown # no provenance info
-  - outdata # no provenance info
-  - restart_out # no provenance info
-  in_filetypes:
-  - scripts  # no provenance info
-  - input # no provenance info
-  - forcing # no provenance info
-  - bin # no provenance info
-  - config # no provenance info
-  - restart_in # no provenance info
-  reusable_filetypes:
-  - bin  # no provenance info
-  - src # no provenance info
-  potentially_reusable_filetypes:
-  - analysis  # no provenance info
-  - config # no provenance info
-  - log # no provenance info
-  - mon # no provenance info
-  - couple # no provenance info
-  - scripts # no provenance info
-  - ignore # no provenance info
-  - unknown # no provenance info
-  - src # no provenance info
-  - scripts # no provenance info
-  - input # no provenance info
-  - forcing # no provenance info
-  - bin # no provenance info
-  - config # no provenance info
-  - restart_in # no provenance info
-  thisrun_dir: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/run_18500101-18500101  # no provenance info
-  experiment_analysis_dir: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/analysis/ # no provenance info
-  experiment_config_dir: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/config/ # no provenance info
-  experiment_log_dir: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/log/ # no provenance info
-  experiment_mon_dir: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/mon/ # no provenance info
-  experiment_couple_dir: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/couple/ # no provenance info
-  experiment_scripts_dir: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/scripts/ # no provenance info
-  experiment_ignore_dir: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/ignore/ # no provenance info
-  experiment_unknown_dir: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/unknown/ # no provenance info
-  experiment_src_dir: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/src/ # no provenance info
-  all_filetypes:
-  - analysis  # no provenance info
-  - config # no provenance info
-  - log # no provenance info
-  - mon # no provenance info
-  - couple # no provenance info
-  - scripts # no provenance info
-  - ignore # no provenance info
-  - unknown # no provenance info
-  - src # no provenance info
-  - work # no provenance info
-  thisrun_analysis_dir: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/run_18500101-18500101/analysis/  # no provenance info
-  thisrun_config_dir: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/run_18500101-18500101/config/ # no provenance info
-  thisrun_log_dir: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/run_18500101-18500101/log/ # no provenance info
-  thisrun_mon_dir: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/run_18500101-18500101/mon/ # no provenance info
-  thisrun_couple_dir: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/run_18500101-18500101/couple/ # no provenance info
-  thisrun_scripts_dir: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/run_18500101-18500101/scripts/ # no provenance info
-  thisrun_ignore_dir: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/run_18500101-18500101/ignore/ # no provenance info
-  thisrun_unknown_dir: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/run_18500101-18500101/unknown/ # no provenance info
-  thisrun_src_dir: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/run_18500101-18500101/src/ # no provenance info
-  thisrun_work_dir: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/run_18500101-18500101/work/ # no provenance info
-  work_dir: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/run_18500101-18500101/work/ # no provenance info
-  all_model_filetypes:
-  - analysis  # no provenance info
-  - bin # no provenance info
-  - config # no provenance info
-  - forcing # no provenance info
-  - input # no provenance info
-  - couple # no provenance info
-  - log # no provenance info
-  - mon # no provenance info
-  - outdata # no provenance info
-  - restart_in # no provenance info
-  - restart_out # no provenance info
-  - viz # no provenance info
-  - ignore # no provenance info
-  workflow:
-    subjob_clusters:
-      prepcompute:
-        subjobs:
-        - prepcompute_general  # no provenance info
-        run_before: compute  # no provenance info
-        submit_to_batch_system: false # no provenance info
-        batch_or_shell: SimulationSetup # no provenance info
-        order_in_cluster: sequential # no provenance info
-        nproc: 1 # no provenance info
-        next_submit:
-        - compute  # no provenance info
-        called_from: tidy  # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:86,col:32
-      compute:
-        subjobs:
-        - compute_general  # no provenance info
-        submit_to_batch_system: true  # no provenance info
-        batch_or_shell: batch # no provenance info
-        run_on_queue: compute # <CONFIGS_PATH>/machines/levante.yaml,line:62,col:27
-        run_before: tidy # no provenance info
-        order_in_cluster: sequential # no provenance info
-        nproc: 1920 # no provenance info
-        next_submit:
-        - tidy  # no provenance info
-        called_from: prepcompute  # no provenance info
-      tidy:
-        subjobs:
-        - tidy_general  # no provenance info
-        run_after: compute  # no provenance info
-        submit_to_batch_system: false # no provenance info
-        batch_or_shell: SimulationSetup # no provenance info
-        order_in_cluster: sequential # no provenance info
-        nproc: 1 # no provenance info
-        next_submit:
-        - Tripy_Fesom  # no provenance info
-        - prepcompute # no provenance info
-        called_from: compute  # no provenance info
-      Tripy_Fesom:
-        subjobs:
-        - Tripy_Fesom_fesom_general  # no provenance info
-        submit_to_batch_system: true  # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:94,col:41
-        order_in_cluster: concurrent # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:90,col:35
-        batch_or_shell: batch # no provenance info
-        run_on_queue: compute # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:91,col:31
-        run_after: tidy # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:92,col:28
-        nproc: 1 # no provenance info
-        next_submit: []
-        called_from: tidy  # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:92,col:28
-    subjobs:
-      prepcompute_general:
-        nproc: 1  # no provenance info
-        run_before: compute # no provenance info
-        subjob_cluster: prepcompute # no provenance info
-      compute_general:
-        nproc: 1920  # no provenance info
-        run_before: tidy # no provenance info
-        submit_to_batch_system: true # no provenance info
-        run_on_queue: compute # <CONFIGS_PATH>/machines/levante.yaml,line:62,col:27
-        subjob_cluster: compute # no provenance info
-      tidy_general:
-        nproc: 1  # no provenance info
-        run_after: compute # no provenance info
-        subjob_cluster: tidy # no provenance info
-      Tripy_Fesom_fesom_general:
-        batch_or_shell: batch  # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:89,col:33
-        order_in_cluster: concurrent # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:90,col:35
-        run_on_queue: compute # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:91,col:31
-        run_after: tidy # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:92,col:28
-        script_dir: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/scripts/fesom # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:93,col:29
-        submit_to_batch_system: true # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:94,col:41
-        script: Subjob_tripy.sh <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/outdata/fesom/ 1850-01-01T00:00:00 1850-01-02T00:00:00 1850-01-01T00:00:00 1850-01-03T00:00:00 /pool/data/AWICM//FESOM2/MESHES_FESOM2.1//core2/ <TEST_DIR>/run/icon-fesom/ icon-fesom-pictl-v2-daily python3 True modvis.dkrz.de /var/www/projects/None/<USER_ACCOUNT>/icon-fesom-pictl-v2-daily # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:95,col:25
-        nproc: 1 # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:96,col:24
-        subjob_cluster: Tripy_Fesom # no provenance info
-    last_task_in_queue: tidy  # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:86,col:32
-    first_task_in_queue: prepcompute # no provenance info
-    next_run_triggered_by: tidy # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:86,col:32
-  submitted: false  # no provenance info
-  jobid: 1592 # no provenance info
-  batch: slurm # no provenance info
-  coupler_config_dir: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/run_18500101-18500101/config/yac/ # no provenance info
-  coupler: yac # no provenance info
-  experiment_log_file: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/log//icon-fesom-pictl-v2-daily_icon-fesom.log # no provenance info
-  esm_tools_version: 6.62.1 # no provenance info
-  logfile_path: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/log//icon-fesom-pictl-v2-daily_icon-fesom_prepcompute_18500101-18500101_1592.log # no provenance info
-  logfile_path_in_run: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/run_18500101-18500101/log//icon-fesom-pictl-v2-daily_icon-fesom_prepcompute_18500101-18500101_1592.log # no provenance info
-  relevant_filetypes:
-  - bin  # no provenance info
-  - config # no provenance info
-  - forcing # no provenance info
-  - input # no provenance info
-  - restart_in # no provenance info
-  file_movements:
-    bin:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:31,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:32,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:33,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:34,col:41
-    analysis:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    config:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    forcing:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    input:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    couple:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    log:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    mon:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    outdata:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    restart_in:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    restart_out:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    viz:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    ignore:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    scripts:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    unknown:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-  files_source: thisrun  # no provenance info
-  files_target: work # no provenance info
 dask:
   ntasks: 32  # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:155,col:13
   init_scheduler_cmd: srun --ntasks=1 --nodes=1 --cpus-per-task=1 dask scheduler --scheduler-file <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/run_18500101-18500101/work//dask_scheduler.json --interface ib0 # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:156,col:25

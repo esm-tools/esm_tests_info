@@ -94,7 +94,7 @@ export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | Tripy_Fesom_fesom 1 2001-01-01T00:00:00 23682224 - start" >> <TEST_DIR>/run/fesom//fesom2.1-initial-monthly/log//fesom2.1-initial-monthly_fesom.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | Tripy_Fesom_fesom 1 2001-01-01T00:00:00 25490194 - start" >> <TEST_DIR>/run/fesom//fesom2.1-initial-monthly/log//fesom2.1-initial-monthly_fesom.log
 
 cd <TEST_DIR>/run/fesom//fesom2.1-initial-monthly/run_20010101-20010131/work/
 time srun -l <TEST_DIR>/run/fesom//fesom2.1-initial-monthly/scripts/fesom/Subjob_tripy.sh <TEST_DIR>/run/fesom//fesom2.1-initial-monthly/outdata/fesom/ 2001-01-01T00:00:00 2001-02-01T00:00:00 2001-01-01T00:00:00 2001-03-31T00:00:00 /pool/data/AWICM//FESOM2/MESHES_FESOM2.1//core2/ <TEST_DIR>/run/fesom/ fesom2.1-initial-monthly python3 True modvis.dkrz.de /var/www/projects/ab0246/<USER_ACCOUNT>/fesom2.1-initial-monthly 2>&1 &

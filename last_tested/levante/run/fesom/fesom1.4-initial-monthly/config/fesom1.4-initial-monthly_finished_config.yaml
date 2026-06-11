@@ -1,9 +1,15 @@
 general:
   use_database: false  # <CONFIGS_PATH>/defaults/general.yaml,line:1,col:15
-  general:
-    system_components:
-    - general  # <CONFIGS_PATH>/defaults/general.yaml,line:4,col:23
-    - dask # <CONFIGS_PATH>/defaults/general.yaml,line:4,col:34
+  system_components:
+  - general  # <CONFIGS_PATH>/defaults/general.yaml,line:2,col:21
+  - dask # <CONFIGS_PATH>/defaults/general.yaml,line:2,col:32
+  - prev_run # no provenance info
+  other_components: []
+  sections:
+    computer: <TEST_DIR>/run/fesom/fesom1.4-initial-monthly/scripts/fesom1.4-initial-monthly.yaml  # no provenance info
+    dask: <CONFIGS_PATH>/other_software/batch_system/slurm.yaml # no provenance info
+    fesom: <TEST_DIR>/run/fesom/fesom1.4-initial-monthly/scripts/fesom1.4-initial-monthly.yaml # no provenance info
+    per_model_defaults: <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml # no provenance info
   standalone: true  # no provenance info
   models:
   - fesom  # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:6,col:12
@@ -19,7 +25,7 @@ general:
   esm_runscript_dir: <RUNSCRIPT_PATH>/ # no provenance info
   esm_couplings_dir: <COUPLINGS_PATH>/ # no provenance info
   expid: fesom1.4-initial-monthly # no provenance info
-  account: None # <TEST_DIR>/run/fesom/fesom1.4-initial-monthly/scripts/fesom1.4-initial-monthly.yaml,line:2,col:14
+  account: ab0246 # <TEST_DIR>/run/fesom/fesom1.4-initial-monthly/scripts/fesom1.4-initial-monthly.yaml,line:2,col:14
   setup_name: fesom # <TEST_DIR>/run/fesom/fesom1.4-initial-monthly/scripts/fesom1.4-initial-monthly.yaml,line:3,col:17
   version: 1.4 # <TEST_DIR>/run/fesom/fesom1.4-initial-monthly/scripts/fesom1.4-initial-monthly.yaml,line:4,col:14
   compute_time: 00:20:00 # <TEST_DIR>/run/fesom/fesom1.4-initial-monthly/scripts/fesom1.4-initial-monthly.yaml,line:5,col:19
@@ -38,7 +44,7 @@ general:
   verbose: false # no provenance info
   contained_run: # no provenance info
   open_run: true # no provenance info
-  check: true # no provenance info
+  check: false # no provenance info
   modify_config_file: # no provenance info
   last_jobtype: prepcompute # no provenance info
   task: prepcompute # no provenance info
@@ -54,7 +60,7 @@ general:
   ignore_config_warnings: false # no provenance info
   jobtype: prepcompute # no provenance info
   use_venv: false # no provenance info
-  original_command: fesom1.4-initial-monthly.yaml -e fesom1.4-initial-monthly --open-run -c --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
+  original_command: fesom1.4-initial-monthly.yaml -e fesom1.4-initial-monthly --open-run --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
   started_from: <TEST_DIR>/run/fesom/fesom1.4-initial-monthly/scripts/ # no provenance info
   scriptname: fesom1.4-initial-monthly.yaml # no provenance info
   isinteractive: false # no provenance info
@@ -88,7 +94,7 @@ general:
     contained_run: # no provenance info
     open_run: true # no provenance info
     expid: fesom1.4-initial-monthly # no provenance info
-    check: true # no provenance info
+    check: false # no provenance info
     modify_config_file: # no provenance info
     last_jobtype: prepcompute # no provenance info
     task: prepcompute # no provenance info
@@ -104,7 +110,7 @@ general:
     ignore_config_warnings: false # no provenance info
     jobtype: prepcompute # no provenance info
     use_venv: false # no provenance info
-    original_command: fesom1.4-initial-monthly.yaml -e fesom1.4-initial-monthly --open-run -c --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
+    original_command: fesom1.4-initial-monthly.yaml -e fesom1.4-initial-monthly --open-run --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
     started_from: <TEST_DIR>/run/fesom/fesom1.4-initial-monthly/scripts/ # no provenance info
     scriptname: fesom1.4-initial-monthly.yaml # no provenance info
     runscript_abspath: <TEST_DIR>/run/fesom/fesom1.4-initial-monthly/scripts/fesom1.4-initial-monthly.yaml # no provenance info
@@ -280,12 +286,12 @@ general:
     first_task_in_queue: prepcompute # no provenance info
     next_run_triggered_by: tidy # no provenance info
   submitted: false  # no provenance info
-  jobid: 1573 # no provenance info
+  jobid: 2237879 # no provenance info
   batch: slurm # no provenance info
   experiment_log_file: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/log//fesom1.4-initial-monthly_fesom.log # no provenance info
-  esm_tools_version: 6.62.1 # no provenance info
-  logfile_path: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/log//fesom1.4-initial-monthly_fesom_prepcompute_19500101-19500101_1573.log # no provenance info
-  logfile_path_in_run: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/log//fesom1.4-initial-monthly_fesom_prepcompute_19500101-19500101_1573.log # no provenance info
+  esm_tools_version: 6.62.4 # no provenance info
+  logfile_path: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/log//fesom1.4-initial-monthly_fesom_prepcompute_19500101-19500101_2237879.log # no provenance info
+  logfile_path_in_run: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/log//fesom1.4-initial-monthly_fesom_prepcompute_19500101-19500101_2237879.log # no provenance info
   relevant_filetypes:
   - bin  # no provenance info
   - config # no provenance info
@@ -293,81 +299,16 @@ general:
   - input # no provenance info
   - restart_in # no provenance info
   file_movements:
+    default:
+      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
     bin:
       init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:31,col:41
       exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:32,col:41
       run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:33,col:41
       work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:34,col:41
-    analysis:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    config:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    forcing:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    input:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    couple:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    log:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    mon:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    outdata:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    restart_in:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    restart_out:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    viz:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    ignore:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    scripts:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    unknown:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
   files_source: thisrun  # no provenance info
   files_target: work # no provenance info
 computer:
@@ -572,7 +513,7 @@ computer:
     LD_LIBRARY_PATH[(0)]: $HDF5ROOT/lib:$NETCDFROOT/lib:$NETCDFFROOT/lib:$LD_LIBRARY_PATH # <CONFIGS_PATH>/machines/levante.yaml,line:354,col:39
     LD_LIBRARY_PATH[(1)]: /sw/spack-levante/intel-oneapi-mkl-2022.0.1-ttdktf/mkl/2022.0.1/lib/intel64:$LD_LIBRARY_PATH # <CONFIGS_PATH>/machines/levante.yaml,line:357,col:39
     LD_LIBRARY_PATH[(2)]: /sw/spack-levante/intel-oneapi-mpi-2021.5.0-mrcss7/mpi/2021.5.0/libfabric/lib:$LD_LIBRARY_PATH # <CONFIGS_PATH>/machines/levante.yaml,line:360,col:39
-    ACCOUNT: None # no provenance info
+    ACCOUNT: ab0246 # no provenance info
     ESM_TESTING_DIR: <TEST_DIR>/run/fesom/ # no provenance info
     MODEL_DIR: <TEST_DIR>/comp/fesom/fesom-1.4 # no provenance info
   load_python: false  # <CONFIGS_PATH>/machines/levante.yaml,line:137,col:18
@@ -630,7 +571,7 @@ computer:
   nnodes: 1 # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:152,col:13
   model: computer # no provenance info
   add_export_vars:
-    ACCOUNT: None  # no provenance info
+    ACCOUNT: ab0246  # no provenance info
     ESM_TESTING_DIR: <TEST_DIR>/run/fesom/ # no provenance info
     MODEL_DIR: <TEST_DIR>/comp/fesom/fesom-1.4 # no provenance info
   heterogeneous_parallelization: false  # no provenance info
@@ -647,7 +588,7 @@ computer:
   libaec_version: 1.0.5-intel-2021.5.0 # <CONFIGS_PATH>/machines/levante.yaml,line:304,col:29
   libaec_path: /sw/spack-levante/libaec-1.0.5-gij7yv # <CONFIGS_PATH>/machines/levante.yaml,line:305,col:26
   tbb_path: /sw/spack-levante/intel-oneapi-compilers-2022.0.1-an2cbq/tbb/2021.5.0 # <CONFIGS_PATH>/machines/levante.yaml,line:306,col:23
-  accounting_flag: --account=None # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:28,col:38
+  accounting_flag: --account=ab0246 # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:28,col:38
   cpu_bind: cores # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:79,col:23
   srun_execution_command: srun -l --hint=nomultithread --multi-prog hostfile_srun # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:80,col:37
   hyperthreading_flag: --ntasks-per-core=1 # <CONFIGS_PATH>/machines/levante.yaml,line:33,col:58
@@ -712,15 +653,15 @@ fesom:
   old_mesh_format: false # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:89,col:22
   with_part_format: false # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:90,col:23
   time_dimension: time # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:91,col:21
-  pool_dir: /work/ab0995/a270152/testing_pool/AWICM/FESOM1/ # <TEST_DIR>/run/fesom/fesom1.4-initial-monthly/scripts/fesom1.4-initial-monthly.yaml,line:36,col:15
+  pool_dir: /work/ab0995/<USER_ACCOUNT>/testing_pool/AWICM/FESOM1/ # <TEST_DIR>/run/fesom/fesom1.4-initial-monthly/scripts/fesom1.4-initial-monthly.yaml,line:32,col:15
   setup_dir: <TEST_DIR>/comp/fesom/fesom-1.4 # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:95,col:16
   bin_dir: <TEST_DIR>/comp/fesom/fesom-1.4/bin # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:96,col:14
-  climate_data_dir: /work/ab0995/a270152/testing_pool/AWICM/FESOM1//hydrography/ # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:97,col:23
-  forcing_data_dir: /work/ab0995/a270152/testing_pool/AWICM/FESOM1//forcing/ # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:98,col:23
-  ini_data_dir: /work/ab0995/a270152/testing_pool/AWICM/FESOM1//pool-data/ # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:99,col:19
+  climate_data_dir: /work/ab0995/<USER_ACCOUNT>/testing_pool/AWICM/FESOM1//hydrography/ # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:97,col:23
+  forcing_data_dir: /work/ab0995/<USER_ACCOUNT>/testing_pool/AWICM/FESOM1//forcing/ # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:98,col:23
+  ini_data_dir: /work/ab0995/<USER_ACCOUNT>/testing_pool/AWICM/FESOM1//pool-data/ # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:99,col:19
   namelist_dir: <NAMELIST_PATH>/fesom # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:100,col:19
-  opbnd_dir: remove_from_namelist # <TEST_DIR>/run/fesom/fesom1.4-initial-monthly/scripts/fesom1.4-initial-monthly.yaml,line:39,col:16
-  tide_forcing_dir: remove_from_namelist # <TEST_DIR>/run/fesom/fesom1.4-initial-monthly/scripts/fesom1.4-initial-monthly.yaml,line:40,col:23
+  opbnd_dir: remove_from_namelist # <TEST_DIR>/run/fesom/fesom1.4-initial-monthly/scripts/fesom1.4-initial-monthly.yaml,line:35,col:16
+  tide_forcing_dir: remove_from_namelist # <TEST_DIR>/run/fesom/fesom1.4-initial-monthly/scripts/fesom1.4-initial-monthly.yaml,line:36,col:23
   steps_per_day: 48 # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:105,col:20
   asforcing: CORE2 # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:107,col:16
   namelists:
@@ -736,9 +677,9 @@ fesom:
         daynew: 1 # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:203,col:37
         yearnew: 1950 # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:204,col:38
       paths:
-        meshpath: /work/ab0995/a270152/testing_pool/AWICM/FESOM1/MESHES/core/  # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:209,col:39
-        climatedatapath: /work/ab0995/a270152/testing_pool/AWICM/FESOM1//hydrography/ # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:211,col:46
-        forcingdatapath: /work/ab0995/a270152/testing_pool/AWICM/FESOM1//forcing/ # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:208,col:46
+        meshpath: /work/ab0995/<USER_ACCOUNT>/testing_pool/AWICM/FESOM1/MESHES/core/  # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:209,col:39
+        climatedatapath: /work/ab0995/<USER_ACCOUNT>/testing_pool/AWICM/FESOM1//hydrography/ # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:211,col:46
+        forcingdatapath: /work/ab0995/<USER_ACCOUNT>/testing_pool/AWICM/FESOM1//forcing/ # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:208,col:46
         resultpath: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work/ # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:213,col:41
       initialization:
         use_prepared_init_ice: false  # no provenance info
@@ -936,9 +877,9 @@ fesom:
       calendar:
         include_fleapyear: false  # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:206,col:48
       paths:
-        ForcingDataPath: /work/ab0995/a270152/testing_pool/AWICM/FESOM1//forcing/  # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:208,col:46
-        MeshPath: /work/ab0995/a270152/testing_pool/AWICM/FESOM1/MESHES/core/ # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:209,col:39
-        ClimateDataPath: /work/ab0995/a270152/testing_pool/AWICM/FESOM1//hydrography/ # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:211,col:46
+        ForcingDataPath: /work/ab0995/<USER_ACCOUNT>/testing_pool/AWICM/FESOM1//forcing/  # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:208,col:46
+        MeshPath: /work/ab0995/<USER_ACCOUNT>/testing_pool/AWICM/FESOM1/MESHES/core/ # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:209,col:39
+        ClimateDataPath: /work/ab0995/<USER_ACCOUNT>/testing_pool/AWICM/FESOM1//hydrography/ # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:211,col:46
         ResultPath: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work/ # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:213,col:41
       timestep:
         step_per_day: 48  # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:215,col:43
@@ -1387,12 +1328,12 @@ fesom:
       oasis_grid_type: U # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:508,col:38
       number_of_overlapping_points: 0 # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:509,col:51
   model_dir: <TEST_DIR>/comp/fesom/fesom-1.4 # <TEST_DIR>/run/fesom/fesom1.4-initial-monthly/scripts/fesom1.4-initial-monthly.yaml,line:14,col:16
-  mesh_dir: /work/ab0995/a270152/testing_pool/AWICM/FESOM1/MESHES/core/ # <TEST_DIR>/run/fesom/fesom1.4-initial-monthly/scripts/fesom1.4-initial-monthly.yaml,line:37,col:15
-  nproc: 384 # <TEST_DIR>/run/fesom/fesom1.4-initial-monthly/scripts/fesom1.4-initial-monthly.yaml,line:41,col:12
+  mesh_dir: /work/ab0995/<USER_ACCOUNT>/testing_pool/AWICM/FESOM1/MESHES/core/ # <TEST_DIR>/run/fesom/fesom1.4-initial-monthly/scripts/fesom1.4-initial-monthly.yaml,line:33,col:15
+  nproc: 384 # <TEST_DIR>/run/fesom/fesom1.4-initial-monthly/scripts/fesom1.4-initial-monthly.yaml,line:37,col:12
   lresume: false # no provenance info
-  mesh_base_dir: /work/ab0995/a270152/testing_pool/AWICM/FESOM1//MESHES/ # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:458,col:36
-  rpool_dir: /work/ab0995/a270152/testing_pool/AWICM/FESOM1/ # <TEST_DIR>/run/fesom/fesom1.4-initial-monthly/scripts/fesom1.4-initial-monthly.yaml,line:21,col:24
-  rmesh_dir: /work/ab0995/a270152/testing_pool/AWICM/FESOM1/MESHES/core/ # <TEST_DIR>/run/fesom/fesom1.4-initial-monthly/scripts/fesom1.4-initial-monthly.yaml,line:22,col:24
+  mesh_base_dir: /work/ab0995/<USER_ACCOUNT>/testing_pool/AWICM/FESOM1//MESHES/ # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:458,col:36
+  rpool_dir: /work/ab0995/<USER_ACCOUNT>/testing_pool/AWICM/FESOM1/ # <TEST_DIR>/run/fesom/fesom1.4-initial-monthly/scripts/fesom1.4-initial-monthly.yaml,line:21,col:24
+  rmesh_dir: /work/ab0995/<USER_ACCOUNT>/testing_pool/AWICM/FESOM1/MESHES/core/ # <TEST_DIR>/run/fesom/fesom1.4-initial-monthly/scripts/fesom1.4-initial-monthly.yaml,line:22,col:24
   rproc: 384 # <TEST_DIR>/run/fesom/fesom1.4-initial-monthly/scripts/fesom1.4-initial-monthly.yaml,line:23,col:20
   leapyear: false # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:118,col:31
   nx: 126859 # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:130,col:25
@@ -1748,9 +1689,9 @@ fesom:
         daynew: 1 # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:203,col:37
         yearnew: 1950 # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:204,col:38
       paths:
-        meshpath: /work/ab0995/a270152/testing_pool/AWICM/FESOM1/MESHES/core/  # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:209,col:39
-        climatedatapath: /work/ab0995/a270152/testing_pool/AWICM/FESOM1//hydrography/ # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:211,col:46
-        forcingdatapath: /work/ab0995/a270152/testing_pool/AWICM/FESOM1//forcing/ # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:208,col:46
+        meshpath: /work/ab0995/<USER_ACCOUNT>/testing_pool/AWICM/FESOM1/MESHES/core/  # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:209,col:39
+        climatedatapath: /work/ab0995/<USER_ACCOUNT>/testing_pool/AWICM/FESOM1//hydrography/ # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:211,col:46
+        forcingdatapath: /work/ab0995/<USER_ACCOUNT>/testing_pool/AWICM/FESOM1//forcing/ # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:208,col:46
         resultpath: <TEST_DIR>/run/fesom//fesom1.4-initial-monthly/run_19500101-19500101/work/ # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:213,col:41
       initialization:
         use_prepared_init_ice: false  # no provenance info
