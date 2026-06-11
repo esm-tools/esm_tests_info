@@ -1,9 +1,15 @@
 general:
   use_database: false  # <CONFIGS_PATH>/defaults/general.yaml,line:1,col:15
-  general:
-    system_components:
-    - general  # <CONFIGS_PATH>/defaults/general.yaml,line:4,col:23
-    - dask # <CONFIGS_PATH>/defaults/general.yaml,line:4,col:34
+  system_components:
+  - general  # <CONFIGS_PATH>/defaults/general.yaml,line:2,col:21
+  - dask # <CONFIGS_PATH>/defaults/general.yaml,line:2,col:32
+  - prev_run # no provenance info
+  other_components: []
+  sections:
+    computer: <TEST_DIR>/run/fesom/fesom2.0-initial-monthly/scripts/fesom2.0-initial-monthly.yaml  # no provenance info
+    dask: <CONFIGS_PATH>/other_software/batch_system/slurm.yaml # no provenance info
+    fesom: <TEST_DIR>/run/fesom/fesom2.0-initial-monthly/scripts/fesom2.0-initial-monthly.yaml # no provenance info
+    per_model_defaults: <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml # no provenance info
   standalone: true  # no provenance info
   models:
   - fesom  # <CONFIGS_PATH>/components/fesom/fesom-2.0.yaml,line:5,col:12
@@ -280,12 +286,12 @@ general:
     first_task_in_queue: prepcompute # no provenance info
     next_run_triggered_by: tidy # no provenance info
   submitted: false  # no provenance info
-  jobid: 1125 # no provenance info
+  jobid: 1109 # no provenance info
   batch: slurm # no provenance info
   experiment_log_file: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/log//fesom2.0-initial-monthly_fesom.log # no provenance info
-  esm_tools_version: 6.62.1 # no provenance info
-  logfile_path: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/log//fesom2.0-initial-monthly_fesom_prepcompute_20010101-20010131_1125.log # no provenance info
-  logfile_path_in_run: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/log//fesom2.0-initial-monthly_fesom_prepcompute_20010101-20010131_1125.log # no provenance info
+  esm_tools_version: 6.62.4 # no provenance info
+  logfile_path: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/log//fesom2.0-initial-monthly_fesom_prepcompute_20010101-20010131_1109.log # no provenance info
+  logfile_path_in_run: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/log//fesom2.0-initial-monthly_fesom_prepcompute_20010101-20010131_1109.log # no provenance info
   relevant_filetypes:
   - bin  # no provenance info
   - config # no provenance info
@@ -293,81 +299,16 @@ general:
   - input # no provenance info
   - restart_in # no provenance info
   file_movements:
+    default:
+      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
     bin:
       init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:31,col:41
       exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:32,col:41
       run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:33,col:41
       work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:34,col:41
-    analysis:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    config:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    forcing:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    input:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    couple:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    log:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    mon:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    outdata:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    restart_in:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    restart_out:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    viz:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    ignore:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    scripts:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    unknown:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
   files_source: thisrun  # no provenance info
   files_target: work # no provenance info
 computer:
@@ -553,9 +494,9 @@ fesom:
   - https://github.com/FESOM/fesom2.git  # <CONFIGS_PATH>/components/fesom/fesom-2.0.yaml,line:21,col:11
   - https://gitlab.dkrz.de/FESOM/fesom2.git # <CONFIGS_PATH>/components/fesom/fesom-2.0.yaml,line:22,col:11
   contact: dmitry.sidorenko(at)awi.de, nikolay.koldunov(at)awi.de, miguel.andres-martinez(at)awi.de, paul.gierz(at)awi.de  # <CONFIGS_PATH>/components/fesom/fesom-2.0.yaml,line:74,col:14
-  restart_rate: 1 # <TEST_DIR>/run/fesom/fesom2.0-initial-monthly/scripts/fesom2.0-initial-monthly.yaml,line:40,col:23
-  restart_unit: m # <TEST_DIR>/run/fesom/fesom2.0-initial-monthly/scripts/fesom2.0-initial-monthly.yaml,line:42,col:23
-  restart_first: 1 # <TEST_DIR>/run/fesom/fesom2.0-initial-monthly/scripts/fesom2.0-initial-monthly.yaml,line:41,col:24
+  restart_rate: 1 # <TEST_DIR>/run/fesom/fesom2.0-initial-monthly/scripts/fesom2.0-initial-monthly.yaml,line:35,col:23
+  restart_unit: m # <TEST_DIR>/run/fesom/fesom2.0-initial-monthly/scripts/fesom2.0-initial-monthly.yaml,line:37,col:23
+  restart_first: 1 # <TEST_DIR>/run/fesom/fesom2.0-initial-monthly/scripts/fesom2.0-initial-monthly.yaml,line:36,col:24
   restart_flag: last # <CONFIGS_PATH>/components/fesom/fesom-2.0.yaml,line:79,col:19
   tar_binary_restarts: false # <CONFIGS_PATH>/components/fesom/fesom-2.0.yaml,line:81,col:26
   time_step: 1800 # <CONFIGS_PATH>/components/fesom/fesom-2.0.yaml,line:83,col:16
@@ -573,8 +514,8 @@ fesom:
   forcing_data_dir: /albedo/pool/forcing/ # <CONFIGS_PATH>/components/fesom/fesom-2.0.yaml,line:99,col:23
   ini_data_dir: /albedo/pool/pool-data/ # <CONFIGS_PATH>/components/fesom/fesom-2.0.yaml,line:100,col:19
   namelist_dir: <NAMELIST_PATH>/fesom2/2.0/ # <CONFIGS_PATH>/components/fesom/fesom-2.0.yaml,line:101,col:19
-  opbnd_dir: remove_from_namelist # <TEST_DIR>/run/fesom/fesom2.0-initial-monthly/scripts/fesom2.0-initial-monthly.yaml,line:45,col:20
-  tide_forcing_dir: remove_from_namelist # <TEST_DIR>/run/fesom/fesom2.0-initial-monthly/scripts/fesom2.0-initial-monthly.yaml,line:46,col:27
+  opbnd_dir: remove_from_namelist # <TEST_DIR>/run/fesom/fesom2.0-initial-monthly/scripts/fesom2.0-initial-monthly.yaml,line:40,col:20
+  tide_forcing_dir: remove_from_namelist # <TEST_DIR>/run/fesom/fesom2.0-initial-monthly/scripts/fesom2.0-initial-monthly.yaml,line:41,col:27
   steps_per_day: 48 # <CONFIGS_PATH>/components/fesom/fesom-2.0.yaml,line:106,col:20
   asforcing: CORE2 # <CONFIGS_PATH>/components/fesom/fesom-2.0.yaml,line:108,col:16
   namelists:
@@ -1185,9 +1126,9 @@ fesom:
   - copy_all_results_to_exp # <CONFIGS_PATH>/components/fesom/fesom-2.0.yaml,line:442,col:11
   - clean_run_dir # <CONFIGS_PATH>/components/fesom/fesom-2.0.yaml,line:443,col:11
   model_dir: <TEST_DIR>/comp/fesom/fesom-2.0 # <TEST_DIR>/run/fesom/fesom2.0-initial-monthly/scripts/fesom2.0-initial-monthly.yaml,line:14,col:20
-  res: CORE2 # <TEST_DIR>/run/fesom/fesom2.0-initial-monthly/scripts/fesom2.0-initial-monthly.yaml,line:38,col:14
+  res: CORE2 # <TEST_DIR>/run/fesom/fesom2.0-initial-monthly/scripts/fesom2.0-initial-monthly.yaml,line:33,col:14
   lresume: false # no provenance info
-  post_processing: 0 # <TEST_DIR>/run/fesom/fesom2.0-initial-monthly/scripts/fesom2.0-initial-monthly.yaml,line:43,col:26
+  post_processing: 0 # <TEST_DIR>/run/fesom/fesom2.0-initial-monthly/scripts/fesom2.0-initial-monthly.yaml,line:38,col:26
   destination: fesom-2.0 # <CONFIGS_PATH>/components/fesom/fesom-2.0.yaml,line:19,col:22
   leapyear: false # <CONFIGS_PATH>/components/fesom/fesom-2.0.yaml,line:130,col:31
   nx: 126858 # <CONFIGS_PATH>/components/fesom/fesom-2.0.yaml,line:138,col:25

@@ -111,8 +111,8 @@ echam:
   standalone_model: true # <CONFIGS_PATH>/components/echam/echam.yaml,line:147,col:23
   executable: echam6 # <CONFIGS_PATH>/components/echam/echam.yaml,line:153,col:17
   version: 6.3.04p1 # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:69,col:18
-  resolution: T127 # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:50,col:17
-  scenario: PI-CTRL # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:49,col:15
+  resolution: T127 # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:46,col:17
+  scenario: PI-CTRL # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:45,col:15
   scenario_type: PI-CTRL # <CONFIGS_PATH>/components/echam/echam.yaml,line:157,col:20
   postprocessing_stream: BOT ATM LOG # <CONFIGS_PATH>/components/echam/echam.yaml,line:158,col:28
   yr_perp_off: false # <CONFIGS_PATH>/components/echam/echam.yaml,line:159,col:18
@@ -150,8 +150,8 @@ echam:
   nprocar: 0 # <CONFIGS_PATH>/components/echam/echam.yaml,line:238,col:14
   nprocbr: 0 # <CONFIGS_PATH>/components/echam/echam.yaml,line:239,col:14
   npromar: 0 # <CONFIGS_PATH>/components/echam/echam.yaml,line:240,col:14
-  nproca: 32 # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:59,col:21
-  nprocb: 32 # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:60,col:21
+  nproca: 32 # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:55,col:21
+  nprocb: 32 # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:56,col:21
   lrad_async: false # <CONFIGS_PATH>/components/echam/echam.yaml,line:243,col:17
   lrestart_from_old: false # <CONFIGS_PATH>/components/echam/echam.yaml,line:244,col:24
   scenario_is_ssp: false # <CONFIGS_PATH>/components/echam/echam.yaml,line:499,col:22
@@ -775,9 +775,9 @@ echam:
   - jsbach  # <CONFIGS_PATH>/components/echam/echam.yaml,line:150,col:15
   - hdmodel # <CONFIGS_PATH>/components/echam/echam.yaml,line:151,col:15
   model_dir: <TEST_DIR>/comp/awicm/awicm-CMIP6/echam-6.3.04p1 # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:63,col:20
-  levels: L95 # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:51,col:13
-  post_processing: false # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:52,col:22
-  time_step: 200 # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:64,col:16
+  levels: L95 # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:47,col:13
+  post_processing: false # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:48,col:22
+  time_step: 200 # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:60,col:16
   repo_tag: 6.3.04p1 # <CONFIGS_PATH>/components/echam/echam.yaml,line:285,col:31
   dataset: r0007 # <CONFIGS_PATH>/components/echam/echam.yaml,line:286,col:30
   _nx: 384 # <CONFIGS_PATH>/components/echam/echam.yaml,line:273,col:26
@@ -1796,6 +1796,352 @@ computer:
   launcher_flags: -l --kill-on-bad-exit=1 --cpu_bind=cores # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:84,col:37
   execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=cores --multi-prog hostfile_srun # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:85,col:40
   debugger_flags_prelauncher: '' # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:95,col:45
+general:
+  sections:
+    echam: <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml  # no provenance info
+    computer: <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml # no provenance info
+    fesom: <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml # no provenance info
+    oasis3mct: <CONFIGS_PATH>/setups/awicm/awicm.yaml # no provenance info
+    jsbach: <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml # no provenance info
+    hdmodel: <CONFIGS_PATH>/components/hdmodel/hdmodel.inherit.yaml # no provenance info
+    dask: <CONFIGS_PATH>/other_software/batch_system/slurm.yaml # no provenance info
+    recom: <CONFIGS_PATH>/setups/awicm/awicm.yaml # no provenance info
+    awicm: <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml # no provenance info
+    per_model_defaults: <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml # no provenance info
+  use_database: false  # <CONFIGS_PATH>/defaults/general.yaml,line:1,col:15
+  system_components:
+  - general  # <CONFIGS_PATH>/defaults/general.yaml,line:2,col:21
+  - dask # <CONFIGS_PATH>/defaults/general.yaml,line:2,col:32
+  - prev_run # no provenance info
+  other_components: []
+  standalone: false  # no provenance info
+  model: awicm # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:11,col:16
+  coupled_setup: true # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:14,col:24
+  version: CMIP6 # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:3,col:14
+  scenario: PI-CTRL # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:14,col:15
+  resolution: T127 # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:18,col:17
+  postprocessing: false # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:24,col:25
+  post_time: 00:05:00 # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:25,col:20
+  available_versions:
+  - 1  # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:34,col:11
+  - 1.0-recom # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:35,col:11
+  - CMIP6 # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:36,col:11
+  valid_setup_names:
+  - general  # no provenance info
+  - computer # no provenance info
+  - dask # no provenance info
+  - echam # no provenance info
+  - jsbach # no provenance info
+  - fesom # no provenance info
+  - recom # no provenance info
+  - oasis3mct # no provenance info
+  valid_model_names:
+  - echam  # no provenance info
+  - fesom # no provenance info
+  - oasis3mct # no provenance info
+  - jsbach # no provenance info
+  - hdmodel # no provenance info
+  esm_configs_dir: <CONFIGS_PATH>/  # no provenance info
+  esm_namelist_dir: <NAMELIST_PATH>/ # no provenance info
+  esm_runscript_dir: <RUNSCRIPT_PATH>/ # no provenance info
+  esm_couplings_dir: <COUPLINGS_PATH>/ # no provenance info
+  expid: awicm1-CMIP6-initial-monthly # no provenance info
+  models:
+  - echam  # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:17,col:19
+  - fesom # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:18,col:19
+  - oasis3mct # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:19,col:19
+  setup_name: awicm  # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:2,col:17
+  account: None # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:4,col:14
+  compute_time: 01:00:00 # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:5,col:19
+  initial_date: '1850-01-01T00:00:00' # no provenance info
+  final_date: '1850-03-01T00:00:00' # no provenance info
+  base_dir: <TEST_DIR>/run/awicm/ # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:8,col:15
+  nyear: 0 # no provenance info
+  nmonth: 1 # no provenance info
+  nday: 0 # no provenance info
+  runscript_abspath: <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml # no provenance info
+  additional_files: []
+  runscript: awicm1-CMIP6-initial-monthly.yaml  # no provenance info
+  debug: false # no provenance info
+  trace: false # no provenance info
+  task_log_files: false # no provenance info
+  verbose: false # no provenance info
+  contained_run: # no provenance info
+  open_run: true # no provenance info
+  check: true # no provenance info
+  modify_config_file: # no provenance info
+  last_jobtype: prepcompute # no provenance info
+  task: prepcompute # no provenance info
+  inspect: # no provenance info
+  launcher_pid: -666 # no provenance info
+  current_date: '1850-01-01T00:00:00' # no provenance info
+  exclude: # no provenance info
+  only: # no provenance info
+  run_number: 1 # no provenance info
+  update: false # no provenance info
+  update_filetypes: []
+  motd: false  # no provenance info
+  ignore_config_warnings: false # no provenance info
+  jobtype: prepcompute # no provenance info
+  use_venv: false # no provenance info
+  original_command: awicm1-CMIP6-initial-monthly.yaml -e awicm1-CMIP6-initial-monthly --open-run -c --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
+  started_from: <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/ # no provenance info
+  scriptname: awicm1-CMIP6-initial-monthly.yaml # no provenance info
+  isinteractive: false # no provenance info
+  isresubmitted: true # no provenance info
+  execution_mode: run # no provenance info
+  post_processing: 0 # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:15,col:22
+  model_dir: <TEST_DIR>/comp/awicm/awicm-CMIP6 # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:16,col:16
+  pool_dir: /pool/data/ # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:17,col:15
+  experiment_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly # no provenance info
+  per_model_defaults: {}
+  iterative_coupled_model: ''  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:6,col:30
+  reset_calendar_to_last: false # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:7,col:29
+  profile: false # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:9,col:14
+  pre_recipe:
+    exclude_job_types:
+    - prepare  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:12,col:15
+    - prepexp # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:13,col:15
+    - observe # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:14,col:15
+    steps:
+    - initialize_dask_cluster  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:16,col:15
+  intermediate_movements:
+  - config  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:18,col:7
+  - bin # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:19,col:7
+  - input # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:20,col:7
+  compute_file_checksums: false  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:21,col:29
+  parallel_file_movements: dask # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:22,col:30
+  force_overwrite_in_file_movements: false # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:23,col:40
+  command_line_config:
+    runscript: awicm1-CMIP6-initial-monthly.yaml  # no provenance info
+    debug: false # no provenance info
+    trace: false # no provenance info
+    task_log_files: false # no provenance info
+    verbose: false # no provenance info
+    contained_run: # no provenance info
+    open_run: true # no provenance info
+    expid: awicm1-CMIP6-initial-monthly # no provenance info
+    check: true # no provenance info
+    modify_config_file: # no provenance info
+    last_jobtype: prepcompute # no provenance info
+    task: prepcompute # no provenance info
+    inspect: # no provenance info
+    launcher_pid: -666 # no provenance info
+    current_date: # no provenance info
+    exclude: # no provenance info
+    only: # no provenance info
+    run_number: # no provenance info
+    update: false # no provenance info
+    update_filetypes: []
+    motd: false  # no provenance info
+    ignore_config_warnings: false # no provenance info
+    jobtype: prepcompute # no provenance info
+    use_venv: false # no provenance info
+    original_command: awicm1-CMIP6-initial-monthly.yaml -e awicm1-CMIP6-initial-monthly --open-run -c --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
+    started_from: <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/ # no provenance info
+    scriptname: awicm1-CMIP6-initial-monthly.yaml # no provenance info
+    runscript_abspath: <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml # no provenance info
+  couplings:
+  - fesom-1.4+echam-6.3.04p1  # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:48,col:15
+  nhour: 0  # no provenance info
+  nminute: 0 # no provenance info
+  nsecond: 0 # no provenance info
+  leapyear: true # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:144,col:19
+  calendar: esm_calendar object with allowed leap years # no provenance info
+  delta_date:
+  - 0  # no provenance info
+  - 1 # no provenance info
+  - 0 # no provenance info
+  - 0 # no provenance info
+  - 0 # no provenance info
+  - 0 # no provenance info
+  start_date: '1850-01-01T00:00:00'  # no provenance info
+  prev_date: '1849-12-31T00:00:00' # no provenance info
+  next_date: '1850-02-01T00:00:00' # no provenance info
+  last_start_date: '1849-12-01T00:00:00' # no provenance info
+  end_date: '1850-01-31T00:00:00' # no provenance info
+  runtime:
+  - 0  # no provenance info
+  - 1 # no provenance info
+  - 31 # no provenance info
+  - 744 # no provenance info
+  - 44640 # no provenance info
+  - 2678400 # no provenance info
+  total_runtime:
+  - 0  # no provenance info
+  - 1 # no provenance info
+  - 31 # no provenance info
+  - 744 # no provenance info
+  - 44640 # no provenance info
+  - 2678400 # no provenance info
+  run_datestamp: 18500101-18500131  # no provenance info
+  last_run_datestamp: 18491201-18491231 # no provenance info
+  chunk_number: 1 # no provenance info
+  first_run_in_chunk: true # no provenance info
+  last_run_in_chunk: false # no provenance info
+  out_filetypes:
+  - analysis  # no provenance info
+  - log # no provenance info
+  - mon # no provenance info
+  - scripts # no provenance info
+  - ignore # no provenance info
+  - unknown # no provenance info
+  - outdata # no provenance info
+  - restart_out # no provenance info
+  in_filetypes:
+  - scripts  # no provenance info
+  - input # no provenance info
+  - forcing # no provenance info
+  - bin # no provenance info
+  - config # no provenance info
+  - restart_in # no provenance info
+  reusable_filetypes:
+  - bin  # no provenance info
+  - src # no provenance info
+  potentially_reusable_filetypes:
+  - analysis  # no provenance info
+  - config # no provenance info
+  - log # no provenance info
+  - mon # no provenance info
+  - couple # no provenance info
+  - scripts # no provenance info
+  - ignore # no provenance info
+  - unknown # no provenance info
+  - src # no provenance info
+  - scripts # no provenance info
+  - input # no provenance info
+  - forcing # no provenance info
+  - bin # no provenance info
+  - config # no provenance info
+  - restart_in # no provenance info
+  thisrun_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131  # no provenance info
+  experiment_analysis_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/analysis/ # no provenance info
+  experiment_config_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/config/ # no provenance info
+  experiment_log_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/log/ # no provenance info
+  experiment_mon_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/mon/ # no provenance info
+  experiment_couple_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/couple/ # no provenance info
+  experiment_scripts_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/scripts/ # no provenance info
+  experiment_ignore_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/ignore/ # no provenance info
+  experiment_unknown_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/unknown/ # no provenance info
+  experiment_src_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/src/ # no provenance info
+  all_filetypes:
+  - analysis  # no provenance info
+  - config # no provenance info
+  - log # no provenance info
+  - mon # no provenance info
+  - couple # no provenance info
+  - scripts # no provenance info
+  - ignore # no provenance info
+  - unknown # no provenance info
+  - src # no provenance info
+  - work # no provenance info
+  thisrun_analysis_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/analysis/  # no provenance info
+  thisrun_config_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/config/ # no provenance info
+  thisrun_log_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/log/ # no provenance info
+  thisrun_mon_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/mon/ # no provenance info
+  thisrun_couple_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/couple/ # no provenance info
+  thisrun_scripts_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/scripts/ # no provenance info
+  thisrun_ignore_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/ignore/ # no provenance info
+  thisrun_unknown_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/unknown/ # no provenance info
+  thisrun_src_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/src/ # no provenance info
+  thisrun_work_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/work/ # no provenance info
+  work_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/work/ # no provenance info
+  all_model_filetypes:
+  - analysis  # no provenance info
+  - bin # no provenance info
+  - config # no provenance info
+  - forcing # no provenance info
+  - input # no provenance info
+  - couple # no provenance info
+  - log # no provenance info
+  - mon # no provenance info
+  - outdata # no provenance info
+  - restart_in # no provenance info
+  - restart_out # no provenance info
+  - viz # no provenance info
+  - ignore # no provenance info
+  workflow:
+    subjob_clusters:
+      prepcompute:
+        subjobs:
+        - prepcompute_general  # no provenance info
+        run_before: compute  # no provenance info
+        submit_to_batch_system: false # no provenance info
+        batch_or_shell: SimulationSetup # no provenance info
+        order_in_cluster: sequential # no provenance info
+        nproc: 1 # no provenance info
+        next_submit:
+        - compute  # no provenance info
+        called_from: tidy  # no provenance info
+      compute:
+        subjobs:
+        - compute_general  # no provenance info
+        submit_to_batch_system: true  # no provenance info
+        batch_or_shell: batch # no provenance info
+        run_on_queue: mpp # <CONFIGS_PATH>/machines/albedo.yaml,line:21,col:19
+        run_before: tidy # no provenance info
+        order_in_cluster: sequential # no provenance info
+        nproc: 1408 # no provenance info
+        next_submit:
+        - tidy  # no provenance info
+        called_from: prepcompute  # no provenance info
+      tidy:
+        subjobs:
+        - tidy_general  # no provenance info
+        run_after: compute  # no provenance info
+        submit_to_batch_system: false # no provenance info
+        batch_or_shell: SimulationSetup # no provenance info
+        order_in_cluster: sequential # no provenance info
+        nproc: 1 # no provenance info
+        next_submit:
+        - prepcompute  # no provenance info
+        called_from: compute  # no provenance info
+    subjobs:
+      prepcompute_general:
+        nproc: 1  # no provenance info
+        run_before: compute # no provenance info
+        subjob_cluster: prepcompute # no provenance info
+      compute_general:
+        nproc: 1408  # no provenance info
+        run_before: tidy # no provenance info
+        submit_to_batch_system: true # no provenance info
+        run_on_queue: mpp # <CONFIGS_PATH>/machines/albedo.yaml,line:21,col:19
+        subjob_cluster: compute # no provenance info
+      tidy_general:
+        nproc: 1  # no provenance info
+        run_after: compute # no provenance info
+        subjob_cluster: tidy # no provenance info
+    last_task_in_queue: tidy  # no provenance info
+    first_task_in_queue: prepcompute # no provenance info
+    next_run_triggered_by: tidy # no provenance info
+  submitted: false  # no provenance info
+  jobid: 1195 # no provenance info
+  batch: slurm # no provenance info
+  coupler_config_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/config/oasis3mct/ # no provenance info
+  coupler: oasis3mct # no provenance info
+  experiment_log_file: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/log//awicm1-CMIP6-initial-monthly_awicm.log # no provenance info
+  esm_tools_version: 6.62.4 # no provenance info
+  logfile_path: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/log//awicm1-CMIP6-initial-monthly_awicm_prepcompute_18500101-18500131_1195.log # no provenance info
+  logfile_path_in_run: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/log//awicm1-CMIP6-initial-monthly_awicm_prepcompute_18500101-18500131_1195.log # no provenance info
+  relevant_filetypes:
+  - bin  # no provenance info
+  - config # no provenance info
+  - forcing # no provenance info
+  - input # no provenance info
+  - restart_in # no provenance info
+  file_movements:
+    default:
+      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+    bin:
+      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:31,col:41
+      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:32,col:41
+      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:33,col:41
+      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:34,col:41
+  files_source: thisrun  # no provenance info
+  files_target: work # no provenance info
 fesom:
   model: fesom  # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:6,col:12
   type: ocean # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:7,col:11
@@ -1832,13 +2178,13 @@ fesom:
   restart_first: 1 # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:23,col:20
   restart_flag: last # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:82,col:19
   yearly_outputs_start: 1 # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:83,col:27
-  time_step: 450 # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:45,col:16
-  resolution: CORE2 # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:44,col:17
+  time_step: 450 # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:41,col:16
+  resolution: CORE2 # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:40,col:17
   mesh_rotated: false # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:88,col:19
   old_mesh_format: false # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:89,col:22
   with_part_format: false # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:90,col:23
   time_dimension: time # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:91,col:21
-  pool_dir: /albedo/pool/FESOM/ # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:42,col:15
+  pool_dir: /albedo/pool/FESOM/ # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:38,col:15
   setup_dir: <TEST_DIR>/comp/awicm/awicm-CMIP6 # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:137,col:20
   bin_dir: <TEST_DIR>/comp/awicm/awicm-CMIP6/bin # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:96,col:14
   climate_data_dir: /albedo/pool/FESOM//hydrography/ # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:97,col:23
@@ -2521,13 +2867,13 @@ fesom:
       number_of_overlapping_points: 0 # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:509,col:51
   model_dir: <TEST_DIR>/comp/awicm/awicm-CMIP6/fesom-1.4 # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:136,col:20
   leapyear: true # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:144,col:19
-  mesh_dir: /albedo/pool/FESOM/meshes_default/core/ # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:43,col:15
-  nproc: 384 # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:46,col:12
+  mesh_dir: /albedo/pool/FESOM/meshes_default/core/ # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:39,col:15
+  nproc: 384 # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:42,col:12
   lresume: false # no provenance info
   mesh_base_dir: /albedo/pool/FESOM//meshes_default/ # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:461,col:36
-  rpool_dir: /albedo/pool/FESOM/ # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:39,col:24
-  rmesh_dir: /albedo/pool/FESOM/meshes_default/core/ # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:40,col:24
-  rproc: 384 # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:41,col:20
+  rpool_dir: /albedo/pool/FESOM/ # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:35,col:24
+  rmesh_dir: /albedo/pool/FESOM/meshes_default/core/ # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:36,col:24
+  rproc: 384 # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:37,col:20
   nx: 126859 # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:130,col:25
   create_config:
     fesom.clock:
@@ -3500,7 +3846,7 @@ jsbach:
   dynamic_vegetations: false # <CONFIGS_PATH>/components/jsbach/jsbach.yaml,line:29,col:26
   tiles: 11 # <CONFIGS_PATH>/components/jsbach/jsbach.yaml,line:30,col:12
   version: 3.2 # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:101,col:18
-  dataset: r0009 # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:67,col:14
+  dataset: r0009 # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:63,col:14
   scenario: PI-CTRL # <CONFIGS_PATH>/components/jsbach/jsbach.yaml,line:33,col:15
   scenario_type: PI-CTRL # <CONFIGS_PATH>/components/jsbach/jsbach.yaml,line:34,col:20
   config_sources:
@@ -3525,11 +3871,11 @@ jsbach:
     - need_timestep_before  # <CONFIGS_PATH>/components/jsbach/jsbach.yaml,line:404,col:23
     - need_timestep_after # <CONFIGS_PATH>/components/jsbach/jsbach.yaml,line:405,col:23
   streams:
-  - jsbach  # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:69,col:11
-  - jsbid # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:70,col:11
-  - yasso # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:71,col:11
-  - surf # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:72,col:11
-  - veg # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:73,col:11
+  - jsbach  # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:65,col:11
+  - jsbid # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:66,col:11
+  - yasso # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:67,col:11
+  - surf # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:68,col:11
+  - veg # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:69,col:11
   restartstreams:
   - jsbach  # <CONFIGS_PATH>/components/jsbach/jsbach.yaml,line:416,col:15
   - jsbid # <CONFIGS_PATH>/components/jsbach/jsbach.yaml,line:417,col:15
@@ -3998,405 +4344,6 @@ hdmodel:
     hdrestart: <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/run_18500101-18500131/restart/hdmodel/restart_awicm1-CMIP6-initial-monthly_18500131_hdrestart.nc  # no provenance info
   namelists: {}
   namelist_objs: {}
-general:
-  use_database: false  # <CONFIGS_PATH>/defaults/general.yaml,line:1,col:15
-  general:
-    system_components:
-    - general  # <CONFIGS_PATH>/defaults/general.yaml,line:4,col:23
-    - dask # <CONFIGS_PATH>/defaults/general.yaml,line:4,col:34
-  standalone: false  # no provenance info
-  model: awicm # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:11,col:16
-  coupled_setup: true # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:14,col:24
-  version: CMIP6 # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:3,col:14
-  scenario: PI-CTRL # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:14,col:15
-  resolution: T127 # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:18,col:17
-  postprocessing: false # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:24,col:25
-  post_time: 00:05:00 # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:25,col:20
-  available_versions:
-  - 1  # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:34,col:11
-  - 1.0-recom # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:35,col:11
-  - CMIP6 # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:36,col:11
-  valid_setup_names:
-  - general  # no provenance info
-  - computer # no provenance info
-  - dask # no provenance info
-  - echam # no provenance info
-  - jsbach # no provenance info
-  - fesom # no provenance info
-  - recom # no provenance info
-  - oasis3mct # no provenance info
-  valid_model_names:
-  - echam  # no provenance info
-  - fesom # no provenance info
-  - oasis3mct # no provenance info
-  - jsbach # no provenance info
-  - hdmodel # no provenance info
-  esm_configs_dir: <CONFIGS_PATH>/  # no provenance info
-  esm_namelist_dir: <NAMELIST_PATH>/ # no provenance info
-  esm_runscript_dir: <RUNSCRIPT_PATH>/ # no provenance info
-  esm_couplings_dir: <COUPLINGS_PATH>/ # no provenance info
-  expid: awicm1-CMIP6-initial-monthly # no provenance info
-  models:
-  - echam  # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:17,col:19
-  - fesom # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:18,col:19
-  - oasis3mct # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:19,col:19
-  setup_name: awicm  # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:2,col:17
-  account: None # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:4,col:14
-  compute_time: 01:00:00 # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:5,col:19
-  initial_date: '1850-01-01T00:00:00' # no provenance info
-  final_date: '1850-03-01T00:00:00' # no provenance info
-  base_dir: <TEST_DIR>/run/awicm/ # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:8,col:15
-  nyear: 0 # no provenance info
-  nmonth: 1 # no provenance info
-  nday: 0 # no provenance info
-  runscript_abspath: <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml # no provenance info
-  additional_files: []
-  runscript: awicm1-CMIP6-initial-monthly.yaml  # no provenance info
-  debug: false # no provenance info
-  trace: false # no provenance info
-  task_log_files: false # no provenance info
-  verbose: false # no provenance info
-  contained_run: # no provenance info
-  open_run: true # no provenance info
-  check: true # no provenance info
-  modify_config_file: # no provenance info
-  last_jobtype: prepcompute # no provenance info
-  task: prepcompute # no provenance info
-  inspect: # no provenance info
-  launcher_pid: -666 # no provenance info
-  current_date: '1850-01-01T00:00:00' # no provenance info
-  exclude: # no provenance info
-  only: # no provenance info
-  run_number: 1 # no provenance info
-  update: false # no provenance info
-  update_filetypes: []
-  motd: false  # no provenance info
-  ignore_config_warnings: false # no provenance info
-  jobtype: prepcompute # no provenance info
-  use_venv: false # no provenance info
-  original_command: awicm1-CMIP6-initial-monthly.yaml -e awicm1-CMIP6-initial-monthly --open-run -c --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
-  started_from: <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/ # no provenance info
-  scriptname: awicm1-CMIP6-initial-monthly.yaml # no provenance info
-  isinteractive: false # no provenance info
-  isresubmitted: true # no provenance info
-  execution_mode: run # no provenance info
-  post_processing: 0 # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:15,col:22
-  model_dir: <TEST_DIR>/comp/awicm/awicm-CMIP6 # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:16,col:16
-  pool_dir: /pool/data/ # <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml,line:17,col:15
-  experiment_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly # no provenance info
-  per_model_defaults: {}
-  iterative_coupled_model: ''  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:6,col:30
-  reset_calendar_to_last: false # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:7,col:29
-  profile: false # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:9,col:14
-  pre_recipe:
-    exclude_job_types:
-    - prepare  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:12,col:15
-    - prepexp # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:13,col:15
-    - observe # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:14,col:15
-    steps:
-    - initialize_dask_cluster  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:16,col:15
-  intermediate_movements:
-  - config  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:18,col:7
-  - bin # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:19,col:7
-  - input # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:20,col:7
-  compute_file_checksums: false  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:21,col:29
-  parallel_file_movements: dask # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:22,col:30
-  force_overwrite_in_file_movements: false # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:23,col:40
-  command_line_config:
-    runscript: awicm1-CMIP6-initial-monthly.yaml  # no provenance info
-    debug: false # no provenance info
-    trace: false # no provenance info
-    task_log_files: false # no provenance info
-    verbose: false # no provenance info
-    contained_run: # no provenance info
-    open_run: true # no provenance info
-    expid: awicm1-CMIP6-initial-monthly # no provenance info
-    check: true # no provenance info
-    modify_config_file: # no provenance info
-    last_jobtype: prepcompute # no provenance info
-    task: prepcompute # no provenance info
-    inspect: # no provenance info
-    launcher_pid: -666 # no provenance info
-    current_date: # no provenance info
-    exclude: # no provenance info
-    only: # no provenance info
-    run_number: # no provenance info
-    update: false # no provenance info
-    update_filetypes: []
-    motd: false  # no provenance info
-    ignore_config_warnings: false # no provenance info
-    jobtype: prepcompute # no provenance info
-    use_venv: false # no provenance info
-    original_command: awicm1-CMIP6-initial-monthly.yaml -e awicm1-CMIP6-initial-monthly --open-run -c --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
-    started_from: <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/ # no provenance info
-    scriptname: awicm1-CMIP6-initial-monthly.yaml # no provenance info
-    runscript_abspath: <TEST_DIR>/run/awicm/awicm1-CMIP6-initial-monthly/scripts/awicm1-CMIP6-initial-monthly.yaml # no provenance info
-  couplings:
-  - fesom-1.4+echam-6.3.04p1  # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:48,col:15
-  nhour: 0  # no provenance info
-  nminute: 0 # no provenance info
-  nsecond: 0 # no provenance info
-  leapyear: true # <CONFIGS_PATH>/setups/awicm/awicm.yaml,line:144,col:19
-  calendar: esm_calendar object with allowed leap years # no provenance info
-  delta_date:
-  - 0  # no provenance info
-  - 1 # no provenance info
-  - 0 # no provenance info
-  - 0 # no provenance info
-  - 0 # no provenance info
-  - 0 # no provenance info
-  start_date: '1850-01-01T00:00:00'  # no provenance info
-  prev_date: '1849-12-31T00:00:00' # no provenance info
-  next_date: '1850-02-01T00:00:00' # no provenance info
-  last_start_date: '1849-12-01T00:00:00' # no provenance info
-  end_date: '1850-01-31T00:00:00' # no provenance info
-  runtime:
-  - 0  # no provenance info
-  - 1 # no provenance info
-  - 31 # no provenance info
-  - 744 # no provenance info
-  - 44640 # no provenance info
-  - 2678400 # no provenance info
-  total_runtime:
-  - 0  # no provenance info
-  - 1 # no provenance info
-  - 31 # no provenance info
-  - 744 # no provenance info
-  - 44640 # no provenance info
-  - 2678400 # no provenance info
-  run_datestamp: 18500101-18500131  # no provenance info
-  last_run_datestamp: 18491201-18491231 # no provenance info
-  chunk_number: 1 # no provenance info
-  first_run_in_chunk: true # no provenance info
-  last_run_in_chunk: false # no provenance info
-  out_filetypes:
-  - analysis  # no provenance info
-  - log # no provenance info
-  - mon # no provenance info
-  - scripts # no provenance info
-  - ignore # no provenance info
-  - unknown # no provenance info
-  - outdata # no provenance info
-  - restart_out # no provenance info
-  in_filetypes:
-  - scripts  # no provenance info
-  - input # no provenance info
-  - forcing # no provenance info
-  - bin # no provenance info
-  - config # no provenance info
-  - restart_in # no provenance info
-  reusable_filetypes:
-  - bin  # no provenance info
-  - src # no provenance info
-  potentially_reusable_filetypes:
-  - analysis  # no provenance info
-  - config # no provenance info
-  - log # no provenance info
-  - mon # no provenance info
-  - couple # no provenance info
-  - scripts # no provenance info
-  - ignore # no provenance info
-  - unknown # no provenance info
-  - src # no provenance info
-  - scripts # no provenance info
-  - input # no provenance info
-  - forcing # no provenance info
-  - bin # no provenance info
-  - config # no provenance info
-  - restart_in # no provenance info
-  thisrun_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131  # no provenance info
-  experiment_analysis_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/analysis/ # no provenance info
-  experiment_config_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/config/ # no provenance info
-  experiment_log_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/log/ # no provenance info
-  experiment_mon_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/mon/ # no provenance info
-  experiment_couple_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/couple/ # no provenance info
-  experiment_scripts_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/scripts/ # no provenance info
-  experiment_ignore_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/ignore/ # no provenance info
-  experiment_unknown_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/unknown/ # no provenance info
-  experiment_src_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/src/ # no provenance info
-  all_filetypes:
-  - analysis  # no provenance info
-  - config # no provenance info
-  - log # no provenance info
-  - mon # no provenance info
-  - couple # no provenance info
-  - scripts # no provenance info
-  - ignore # no provenance info
-  - unknown # no provenance info
-  - src # no provenance info
-  - work # no provenance info
-  thisrun_analysis_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/analysis/  # no provenance info
-  thisrun_config_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/config/ # no provenance info
-  thisrun_log_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/log/ # no provenance info
-  thisrun_mon_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/mon/ # no provenance info
-  thisrun_couple_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/couple/ # no provenance info
-  thisrun_scripts_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/scripts/ # no provenance info
-  thisrun_ignore_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/ignore/ # no provenance info
-  thisrun_unknown_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/unknown/ # no provenance info
-  thisrun_src_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/src/ # no provenance info
-  thisrun_work_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/work/ # no provenance info
-  work_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/work/ # no provenance info
-  all_model_filetypes:
-  - analysis  # no provenance info
-  - bin # no provenance info
-  - config # no provenance info
-  - forcing # no provenance info
-  - input # no provenance info
-  - couple # no provenance info
-  - log # no provenance info
-  - mon # no provenance info
-  - outdata # no provenance info
-  - restart_in # no provenance info
-  - restart_out # no provenance info
-  - viz # no provenance info
-  - ignore # no provenance info
-  workflow:
-    subjob_clusters:
-      prepcompute:
-        subjobs:
-        - prepcompute_general  # no provenance info
-        run_before: compute  # no provenance info
-        submit_to_batch_system: false # no provenance info
-        batch_or_shell: SimulationSetup # no provenance info
-        order_in_cluster: sequential # no provenance info
-        nproc: 1 # no provenance info
-        next_submit:
-        - compute  # no provenance info
-        called_from: tidy  # no provenance info
-      compute:
-        subjobs:
-        - compute_general  # no provenance info
-        submit_to_batch_system: true  # no provenance info
-        batch_or_shell: batch # no provenance info
-        run_on_queue: mpp # <CONFIGS_PATH>/machines/albedo.yaml,line:21,col:19
-        run_before: tidy # no provenance info
-        order_in_cluster: sequential # no provenance info
-        nproc: 1408 # no provenance info
-        next_submit:
-        - tidy  # no provenance info
-        called_from: prepcompute  # no provenance info
-      tidy:
-        subjobs:
-        - tidy_general  # no provenance info
-        run_after: compute  # no provenance info
-        submit_to_batch_system: false # no provenance info
-        batch_or_shell: SimulationSetup # no provenance info
-        order_in_cluster: sequential # no provenance info
-        nproc: 1 # no provenance info
-        next_submit:
-        - prepcompute  # no provenance info
-        called_from: compute  # no provenance info
-    subjobs:
-      prepcompute_general:
-        nproc: 1  # no provenance info
-        run_before: compute # no provenance info
-        subjob_cluster: prepcompute # no provenance info
-      compute_general:
-        nproc: 1408  # no provenance info
-        run_before: tidy # no provenance info
-        submit_to_batch_system: true # no provenance info
-        run_on_queue: mpp # <CONFIGS_PATH>/machines/albedo.yaml,line:21,col:19
-        subjob_cluster: compute # no provenance info
-      tidy_general:
-        nproc: 1  # no provenance info
-        run_after: compute # no provenance info
-        subjob_cluster: tidy # no provenance info
-    last_task_in_queue: tidy  # no provenance info
-    first_task_in_queue: prepcompute # no provenance info
-    next_run_triggered_by: tidy # no provenance info
-  submitted: false  # no provenance info
-  jobid: 1211 # no provenance info
-  batch: slurm # no provenance info
-  coupler_config_dir: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/config/oasis3mct/ # no provenance info
-  coupler: oasis3mct # no provenance info
-  experiment_log_file: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/log//awicm1-CMIP6-initial-monthly_awicm.log # no provenance info
-  esm_tools_version: 6.62.1 # no provenance info
-  logfile_path: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/log//awicm1-CMIP6-initial-monthly_awicm_prepcompute_18500101-18500131_1211.log # no provenance info
-  logfile_path_in_run: <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/log//awicm1-CMIP6-initial-monthly_awicm_prepcompute_18500101-18500131_1211.log # no provenance info
-  relevant_filetypes:
-  - bin  # no provenance info
-  - config # no provenance info
-  - forcing # no provenance info
-  - input # no provenance info
-  - restart_in # no provenance info
-  file_movements:
-    bin:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:31,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:32,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:33,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:34,col:41
-    analysis:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    config:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    forcing:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    input:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    couple:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    log:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    mon:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    outdata:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    restart_in:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    restart_out:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    viz:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    ignore:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    scripts:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    unknown:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-  files_source: thisrun  # no provenance info
-  files_target: work # no provenance info
 dask:
   ntasks: 32  # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:155,col:13
   init_scheduler_cmd: srun --ntasks=1 --nodes=1 --cpus-per-task=1 dask scheduler --scheduler-file <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/work//dask_scheduler.json --interface ib0 # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:156,col:25

@@ -1360,6 +1360,334 @@ computer:
   launcher_flags: -l --kill-on-bad-exit=1 --cpu_bind=cores # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:84,col:37
   execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=cores --multi-prog hostfile_srun # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:85,col:40
   debugger_flags_prelauncher: '' # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:95,col:45
+general:
+  sections:
+    recom: <TEST_DIR>/run/fesom-recom/fesom-recom1.4-initial-daily/scripts/fesom-recom1.4-initial-daily.yaml  # no provenance info
+    computer: <TEST_DIR>/run/fesom-recom/fesom-recom1.4-initial-daily/scripts/fesom-recom1.4-initial-daily.yaml # no provenance info
+    fesom: <TEST_DIR>/run/fesom-recom/fesom-recom1.4-initial-daily/scripts/fesom-recom1.4-initial-daily.yaml # no provenance info
+    dask: <CONFIGS_PATH>/other_software/batch_system/slurm.yaml # no provenance info
+    fesom-recom: <TEST_DIR>/run/fesom-recom/fesom-recom1.4-initial-daily/scripts/fesom-recom1.4-initial-daily.yaml # no provenance info
+    per_model_defaults: <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml # no provenance info
+  use_database: false  # <CONFIGS_PATH>/defaults/general.yaml,line:1,col:15
+  system_components:
+  - general  # <CONFIGS_PATH>/defaults/general.yaml,line:2,col:21
+  - dask # <CONFIGS_PATH>/defaults/general.yaml,line:2,col:32
+  - prev_run # no provenance info
+  other_components: []
+  standalone: true  # <CONFIGS_PATH>/setups/fesom-recom/fesom-recom.yaml,line:13,col:21
+  model: fesom-recom # <CONFIGS_PATH>/setups/fesom-recom/fesom-recom.yaml,line:6,col:16
+  version: 1.4 # <TEST_DIR>/run/fesom-recom/fesom-recom1.4-initial-daily/scripts/fesom-recom1.4-initial-daily.yaml,line:14,col:18
+  coupled_setup: false # <CONFIGS_PATH>/setups/fesom-recom/fesom-recom.yaml,line:11,col:24
+  pseudo_coupled_setup: true # <CONFIGS_PATH>/setups/fesom-recom/fesom-recom.yaml,line:12,col:31
+  available_versions:
+  - 1.4  # <CONFIGS_PATH>/setups/fesom-recom/fesom-recom.yaml,line:20,col:11
+  - 2 # <CONFIGS_PATH>/setups/fesom-recom/fesom-recom.yaml,line:21,col:11
+  valid_setup_names:
+  - general  # no provenance info
+  - computer # no provenance info
+  - dask # no provenance info
+  - fesom # no provenance info
+  - recom # no provenance info
+  valid_model_names:
+  - recom  # no provenance info
+  - fesom # no provenance info
+  esm_configs_dir: <CONFIGS_PATH>/  # no provenance info
+  esm_namelist_dir: <NAMELIST_PATH>/ # no provenance info
+  esm_runscript_dir: <RUNSCRIPT_PATH>/ # no provenance info
+  esm_couplings_dir: <COUPLINGS_PATH>/ # no provenance info
+  expid: fesom-recom1.4-initial-daily # no provenance info
+  models:
+  - recom  # <CONFIGS_PATH>/setups/fesom-recom/fesom-recom.yaml,line:16,col:19
+  - fesom # <CONFIGS_PATH>/setups/fesom-recom/fesom-recom.yaml,line:17,col:19
+  account: None  # <TEST_DIR>/run/fesom-recom/fesom-recom1.4-initial-daily/scripts/fesom-recom1.4-initial-daily.yaml,line:2,col:18
+  setup_name: fesom-recom # <TEST_DIR>/run/fesom-recom/fesom-recom1.4-initial-daily/scripts/fesom-recom1.4-initial-daily.yaml,line:3,col:21
+  compute_time: 00:10:00 # <TEST_DIR>/run/fesom-recom/fesom-recom1.4-initial-daily/scripts/fesom-recom1.4-initial-daily.yaml,line:4,col:23
+  initial_date: '1958-01-01T00:00:00' # no provenance info
+  final_date: '1958-01-03T00:00:00' # no provenance info
+  base_dir: <TEST_DIR>/run/fesom-recom/ # <TEST_DIR>/run/fesom-recom/fesom-recom1.4-initial-daily/scripts/fesom-recom1.4-initial-daily.yaml,line:7,col:19
+  nyear: 0 # no provenance info
+  nmonth: 0 # no provenance info
+  nday: 1 # no provenance info
+  lresume: 0 # <TEST_DIR>/run/fesom-recom/fesom-recom1.4-initial-daily/scripts/fesom-recom1.4-initial-daily.yaml,line:11,col:18
+  runscript_abspath: <TEST_DIR>/run/fesom-recom/fesom-recom1.4-initial-daily/scripts/fesom-recom1.4-initial-daily.yaml # no provenance info
+  additional_files: []
+  runscript: fesom-recom1.4-initial-daily.yaml  # no provenance info
+  debug: false # no provenance info
+  trace: false # no provenance info
+  task_log_files: false # no provenance info
+  verbose: false # no provenance info
+  contained_run: # no provenance info
+  open_run: true # no provenance info
+  check: true # no provenance info
+  modify_config_file: # no provenance info
+  last_jobtype: prepcompute # no provenance info
+  task: prepcompute # no provenance info
+  inspect: # no provenance info
+  launcher_pid: -666 # no provenance info
+  current_date: '1958-01-01T00:00:00' # no provenance info
+  exclude: # no provenance info
+  only: # no provenance info
+  run_number: 1 # no provenance info
+  update: false # no provenance info
+  update_filetypes: []
+  motd: false  # no provenance info
+  ignore_config_warnings: false # no provenance info
+  jobtype: prepcompute # no provenance info
+  use_venv: false # no provenance info
+  original_command: fesom-recom1.4-initial-daily.yaml -e fesom-recom1.4-initial-daily --open-run -c --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
+  started_from: <TEST_DIR>/run/fesom-recom/fesom-recom1.4-initial-daily/scripts/ # no provenance info
+  scriptname: fesom-recom1.4-initial-daily.yaml # no provenance info
+  isinteractive: false # no provenance info
+  isresubmitted: true # no provenance info
+  execution_mode: run # no provenance info
+  model_dir: <TEST_DIR>/comp/fesom-recom/fesom-recom-1.4 # <TEST_DIR>/run/fesom-recom/fesom-recom1.4-initial-daily/scripts/fesom-recom1.4-initial-daily.yaml,line:15,col:20
+  experiment_dir: <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily # no provenance info
+  per_model_defaults: {}
+  iterative_coupled_model: ''  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:6,col:30
+  reset_calendar_to_last: false # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:7,col:29
+  profile: false # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:9,col:14
+  pre_recipe:
+    exclude_job_types:
+    - prepare  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:12,col:15
+    - prepexp # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:13,col:15
+    - observe # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:14,col:15
+    steps:
+    - initialize_dask_cluster  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:16,col:15
+  intermediate_movements:
+  - config  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:18,col:7
+  - bin # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:19,col:7
+  - input # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:20,col:7
+  compute_file_checksums: false  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:21,col:29
+  parallel_file_movements: dask # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:22,col:30
+  force_overwrite_in_file_movements: false # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:23,col:40
+  command_line_config:
+    runscript: fesom-recom1.4-initial-daily.yaml  # no provenance info
+    debug: false # no provenance info
+    trace: false # no provenance info
+    task_log_files: false # no provenance info
+    verbose: false # no provenance info
+    contained_run: # no provenance info
+    open_run: true # no provenance info
+    expid: fesom-recom1.4-initial-daily # no provenance info
+    check: true # no provenance info
+    modify_config_file: # no provenance info
+    last_jobtype: prepcompute # no provenance info
+    task: prepcompute # no provenance info
+    inspect: # no provenance info
+    launcher_pid: -666 # no provenance info
+    current_date: # no provenance info
+    exclude: # no provenance info
+    only: # no provenance info
+    run_number: # no provenance info
+    update: false # no provenance info
+    update_filetypes: []
+    motd: false  # no provenance info
+    ignore_config_warnings: false # no provenance info
+    jobtype: prepcompute # no provenance info
+    use_venv: false # no provenance info
+    original_command: fesom-recom1.4-initial-daily.yaml -e fesom-recom1.4-initial-daily --open-run -c --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
+    started_from: <TEST_DIR>/run/fesom-recom/fesom-recom1.4-initial-daily/scripts/ # no provenance info
+    scriptname: fesom-recom1.4-initial-daily.yaml # no provenance info
+    runscript_abspath: <TEST_DIR>/run/fesom-recom/fesom-recom1.4-initial-daily/scripts/fesom-recom1.4-initial-daily.yaml # no provenance info
+  couplings:
+  - fesom-1.4+recom-2.0  # <CONFIGS_PATH>/setups/fesom-recom/fesom-recom.yaml,line:25,col:15
+  nhour: 0  # no provenance info
+  nminute: 0 # no provenance info
+  nsecond: 0 # no provenance info
+  leapyear: false # <CONFIGS_PATH>/setups/fesom-recom/fesom-recom.yaml,line:39,col:19
+  calendar: esm_calender object with no leap years allowed # no provenance info
+  delta_date:
+  - 0  # no provenance info
+  - 0 # no provenance info
+  - 1 # no provenance info
+  - 0 # no provenance info
+  - 0 # no provenance info
+  - 0 # no provenance info
+  start_date: '1958-01-01T00:00:00'  # no provenance info
+  prev_date: '1957-12-31T00:00:00' # no provenance info
+  next_date: '1958-01-02T00:00:00' # no provenance info
+  last_start_date: '1957-12-31T00:00:00' # no provenance info
+  end_date: '1958-01-01T00:00:00' # no provenance info
+  runtime:
+  - 0  # no provenance info
+  - 0 # no provenance info
+  - 1 # no provenance info
+  - 24 # no provenance info
+  - 1440 # no provenance info
+  - 86400 # no provenance info
+  total_runtime:
+  - 0  # no provenance info
+  - 0 # no provenance info
+  - 1 # no provenance info
+  - 24 # no provenance info
+  - 1440 # no provenance info
+  - 86400 # no provenance info
+  run_datestamp: 19580101-19580101  # no provenance info
+  last_run_datestamp: 19571231-19571231 # no provenance info
+  chunk_number: 1 # no provenance info
+  first_run_in_chunk: true # no provenance info
+  last_run_in_chunk: false # no provenance info
+  out_filetypes:
+  - analysis  # no provenance info
+  - log # no provenance info
+  - mon # no provenance info
+  - scripts # no provenance info
+  - ignore # no provenance info
+  - unknown # no provenance info
+  - outdata # no provenance info
+  - restart_out # no provenance info
+  in_filetypes:
+  - scripts  # no provenance info
+  - input # no provenance info
+  - forcing # no provenance info
+  - bin # no provenance info
+  - config # no provenance info
+  - restart_in # no provenance info
+  reusable_filetypes:
+  - bin  # no provenance info
+  - src # no provenance info
+  potentially_reusable_filetypes:
+  - analysis  # no provenance info
+  - config # no provenance info
+  - log # no provenance info
+  - mon # no provenance info
+  - couple # no provenance info
+  - scripts # no provenance info
+  - ignore # no provenance info
+  - unknown # no provenance info
+  - src # no provenance info
+  - scripts # no provenance info
+  - input # no provenance info
+  - forcing # no provenance info
+  - bin # no provenance info
+  - config # no provenance info
+  - restart_in # no provenance info
+  thisrun_dir: <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily/run_19580101-19580101  # no provenance info
+  experiment_analysis_dir: <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily/analysis/ # no provenance info
+  experiment_config_dir: <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily/config/ # no provenance info
+  experiment_log_dir: <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily/log/ # no provenance info
+  experiment_mon_dir: <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily/mon/ # no provenance info
+  experiment_couple_dir: <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily/couple/ # no provenance info
+  experiment_scripts_dir: <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily/scripts/ # no provenance info
+  experiment_ignore_dir: <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily/ignore/ # no provenance info
+  experiment_unknown_dir: <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily/unknown/ # no provenance info
+  experiment_src_dir: <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily/src/ # no provenance info
+  all_filetypes:
+  - analysis  # no provenance info
+  - config # no provenance info
+  - log # no provenance info
+  - mon # no provenance info
+  - couple # no provenance info
+  - scripts # no provenance info
+  - ignore # no provenance info
+  - unknown # no provenance info
+  - src # no provenance info
+  - work # no provenance info
+  thisrun_analysis_dir: <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily/run_19580101-19580101/analysis/  # no provenance info
+  thisrun_config_dir: <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily/run_19580101-19580101/config/ # no provenance info
+  thisrun_log_dir: <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily/run_19580101-19580101/log/ # no provenance info
+  thisrun_mon_dir: <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily/run_19580101-19580101/mon/ # no provenance info
+  thisrun_couple_dir: <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily/run_19580101-19580101/couple/ # no provenance info
+  thisrun_scripts_dir: <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily/run_19580101-19580101/scripts/ # no provenance info
+  thisrun_ignore_dir: <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily/run_19580101-19580101/ignore/ # no provenance info
+  thisrun_unknown_dir: <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily/run_19580101-19580101/unknown/ # no provenance info
+  thisrun_src_dir: <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily/run_19580101-19580101/src/ # no provenance info
+  thisrun_work_dir: <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily/run_19580101-19580101/work/ # no provenance info
+  work_dir: <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily/run_19580101-19580101/work/ # no provenance info
+  all_model_filetypes:
+  - analysis  # no provenance info
+  - bin # no provenance info
+  - config # no provenance info
+  - forcing # no provenance info
+  - input # no provenance info
+  - couple # no provenance info
+  - log # no provenance info
+  - mon # no provenance info
+  - outdata # no provenance info
+  - restart_in # no provenance info
+  - restart_out # no provenance info
+  - viz # no provenance info
+  - ignore # no provenance info
+  workflow:
+    subjob_clusters:
+      prepcompute:
+        subjobs:
+        - prepcompute_general  # no provenance info
+        run_before: compute  # no provenance info
+        submit_to_batch_system: false # no provenance info
+        batch_or_shell: SimulationSetup # no provenance info
+        order_in_cluster: sequential # no provenance info
+        nproc: 1 # no provenance info
+        next_submit:
+        - compute  # no provenance info
+        called_from: tidy  # no provenance info
+      compute:
+        subjobs:
+        - compute_general  # no provenance info
+        submit_to_batch_system: true  # no provenance info
+        batch_or_shell: batch # no provenance info
+        run_on_queue: mpp # <CONFIGS_PATH>/machines/albedo.yaml,line:21,col:19
+        run_before: tidy # no provenance info
+        order_in_cluster: sequential # no provenance info
+        nproc: 288 # no provenance info
+        next_submit:
+        - tidy  # no provenance info
+        called_from: prepcompute  # no provenance info
+      tidy:
+        subjobs:
+        - tidy_general  # no provenance info
+        run_after: compute  # no provenance info
+        submit_to_batch_system: false # no provenance info
+        batch_or_shell: SimulationSetup # no provenance info
+        order_in_cluster: sequential # no provenance info
+        nproc: 1 # no provenance info
+        next_submit:
+        - prepcompute  # no provenance info
+        called_from: compute  # no provenance info
+    subjobs:
+      prepcompute_general:
+        nproc: 1  # no provenance info
+        run_before: compute # no provenance info
+        subjob_cluster: prepcompute # no provenance info
+      compute_general:
+        nproc: 288  # no provenance info
+        run_before: tidy # no provenance info
+        submit_to_batch_system: true # no provenance info
+        run_on_queue: mpp # <CONFIGS_PATH>/machines/albedo.yaml,line:21,col:19
+        subjob_cluster: compute # no provenance info
+      tidy_general:
+        nproc: 1  # no provenance info
+        run_after: compute # no provenance info
+        subjob_cluster: tidy # no provenance info
+    last_task_in_queue: tidy  # no provenance info
+    first_task_in_queue: prepcompute # no provenance info
+    next_run_triggered_by: tidy # no provenance info
+  submitted: false  # no provenance info
+  jobid: 1624 # no provenance info
+  batch: slurm # no provenance info
+  experiment_log_file: <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily/log//fesom-recom1.4-initial-daily_fesom-recom.log # no provenance info
+  esm_tools_version: 6.62.4 # no provenance info
+  logfile_path: <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily/log//fesom-recom1.4-initial-daily_fesom-recom_prepcompute_19580101-19580101_1624.log # no provenance info
+  logfile_path_in_run: <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily/run_19580101-19580101/log//fesom-recom1.4-initial-daily_fesom-recom_prepcompute_19580101-19580101_1624.log # no provenance info
+  relevant_filetypes:
+  - bin  # no provenance info
+  - config # no provenance info
+  - forcing # no provenance info
+  - input # no provenance info
+  - restart_in # no provenance info
+  file_movements:
+    default:
+      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+    bin:
+      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:31,col:41
+      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:32,col:41
+      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:33,col:41
+      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:34,col:41
+  files_source: thisrun  # no provenance info
+  files_target: work # no provenance info
 fesom:
   model: fesom  # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:6,col:12
   type: ocean # <CONFIGS_PATH>/components/fesom/fesom.yaml,line:7,col:11
@@ -2853,391 +3181,6 @@ fesom:
         diag_oce_sgs_transp: false # no provenance info
         diag_ice: true # no provenance info
         diag_forcing: true # no provenance info
-general:
-  use_database: false  # <CONFIGS_PATH>/defaults/general.yaml,line:1,col:15
-  general:
-    system_components:
-    - general  # <CONFIGS_PATH>/defaults/general.yaml,line:4,col:23
-    - dask # <CONFIGS_PATH>/defaults/general.yaml,line:4,col:34
-  standalone: true  # <CONFIGS_PATH>/setups/fesom-recom/fesom-recom.yaml,line:13,col:21
-  model: fesom-recom # <CONFIGS_PATH>/setups/fesom-recom/fesom-recom.yaml,line:6,col:16
-  version: 1.4 # <TEST_DIR>/run/fesom-recom/fesom-recom1.4-initial-daily/scripts/fesom-recom1.4-initial-daily.yaml,line:14,col:18
-  coupled_setup: false # <CONFIGS_PATH>/setups/fesom-recom/fesom-recom.yaml,line:11,col:24
-  pseudo_coupled_setup: true # <CONFIGS_PATH>/setups/fesom-recom/fesom-recom.yaml,line:12,col:31
-  available_versions:
-  - 1.4  # <CONFIGS_PATH>/setups/fesom-recom/fesom-recom.yaml,line:20,col:11
-  - 2 # <CONFIGS_PATH>/setups/fesom-recom/fesom-recom.yaml,line:21,col:11
-  valid_setup_names:
-  - general  # no provenance info
-  - computer # no provenance info
-  - dask # no provenance info
-  - fesom # no provenance info
-  - recom # no provenance info
-  valid_model_names:
-  - recom  # no provenance info
-  - fesom # no provenance info
-  esm_configs_dir: <CONFIGS_PATH>/  # no provenance info
-  esm_namelist_dir: <NAMELIST_PATH>/ # no provenance info
-  esm_runscript_dir: <RUNSCRIPT_PATH>/ # no provenance info
-  esm_couplings_dir: <COUPLINGS_PATH>/ # no provenance info
-  expid: fesom-recom1.4-initial-daily # no provenance info
-  models:
-  - recom  # <CONFIGS_PATH>/setups/fesom-recom/fesom-recom.yaml,line:16,col:19
-  - fesom # <CONFIGS_PATH>/setups/fesom-recom/fesom-recom.yaml,line:17,col:19
-  account: None  # <TEST_DIR>/run/fesom-recom/fesom-recom1.4-initial-daily/scripts/fesom-recom1.4-initial-daily.yaml,line:2,col:18
-  setup_name: fesom-recom # <TEST_DIR>/run/fesom-recom/fesom-recom1.4-initial-daily/scripts/fesom-recom1.4-initial-daily.yaml,line:3,col:21
-  compute_time: 00:10:00 # <TEST_DIR>/run/fesom-recom/fesom-recom1.4-initial-daily/scripts/fesom-recom1.4-initial-daily.yaml,line:4,col:23
-  initial_date: '1958-01-01T00:00:00' # no provenance info
-  final_date: '1958-01-03T00:00:00' # no provenance info
-  base_dir: <TEST_DIR>/run/fesom-recom/ # <TEST_DIR>/run/fesom-recom/fesom-recom1.4-initial-daily/scripts/fesom-recom1.4-initial-daily.yaml,line:7,col:19
-  nyear: 0 # no provenance info
-  nmonth: 0 # no provenance info
-  nday: 1 # no provenance info
-  lresume: 0 # <TEST_DIR>/run/fesom-recom/fesom-recom1.4-initial-daily/scripts/fesom-recom1.4-initial-daily.yaml,line:11,col:18
-  runscript_abspath: <TEST_DIR>/run/fesom-recom/fesom-recom1.4-initial-daily/scripts/fesom-recom1.4-initial-daily.yaml # no provenance info
-  additional_files: []
-  runscript: fesom-recom1.4-initial-daily.yaml  # no provenance info
-  debug: false # no provenance info
-  trace: false # no provenance info
-  task_log_files: false # no provenance info
-  verbose: false # no provenance info
-  contained_run: # no provenance info
-  open_run: true # no provenance info
-  check: true # no provenance info
-  modify_config_file: # no provenance info
-  last_jobtype: prepcompute # no provenance info
-  task: prepcompute # no provenance info
-  inspect: # no provenance info
-  launcher_pid: -666 # no provenance info
-  current_date: '1958-01-01T00:00:00' # no provenance info
-  exclude: # no provenance info
-  only: # no provenance info
-  run_number: 1 # no provenance info
-  update: false # no provenance info
-  update_filetypes: []
-  motd: false  # no provenance info
-  ignore_config_warnings: false # no provenance info
-  jobtype: prepcompute # no provenance info
-  use_venv: false # no provenance info
-  original_command: fesom-recom1.4-initial-daily.yaml -e fesom-recom1.4-initial-daily --open-run -c --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
-  started_from: <TEST_DIR>/run/fesom-recom/fesom-recom1.4-initial-daily/scripts/ # no provenance info
-  scriptname: fesom-recom1.4-initial-daily.yaml # no provenance info
-  isinteractive: false # no provenance info
-  isresubmitted: true # no provenance info
-  execution_mode: run # no provenance info
-  model_dir: <TEST_DIR>/comp/fesom-recom/fesom-recom-1.4 # <TEST_DIR>/run/fesom-recom/fesom-recom1.4-initial-daily/scripts/fesom-recom1.4-initial-daily.yaml,line:15,col:20
-  experiment_dir: <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily # no provenance info
-  per_model_defaults: {}
-  iterative_coupled_model: ''  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:6,col:30
-  reset_calendar_to_last: false # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:7,col:29
-  profile: false # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:9,col:14
-  pre_recipe:
-    exclude_job_types:
-    - prepare  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:12,col:15
-    - prepexp # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:13,col:15
-    - observe # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:14,col:15
-    steps:
-    - initialize_dask_cluster  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:16,col:15
-  intermediate_movements:
-  - config  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:18,col:7
-  - bin # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:19,col:7
-  - input # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:20,col:7
-  compute_file_checksums: false  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:21,col:29
-  parallel_file_movements: dask # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:22,col:30
-  force_overwrite_in_file_movements: false # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:23,col:40
-  command_line_config:
-    runscript: fesom-recom1.4-initial-daily.yaml  # no provenance info
-    debug: false # no provenance info
-    trace: false # no provenance info
-    task_log_files: false # no provenance info
-    verbose: false # no provenance info
-    contained_run: # no provenance info
-    open_run: true # no provenance info
-    expid: fesom-recom1.4-initial-daily # no provenance info
-    check: true # no provenance info
-    modify_config_file: # no provenance info
-    last_jobtype: prepcompute # no provenance info
-    task: prepcompute # no provenance info
-    inspect: # no provenance info
-    launcher_pid: -666 # no provenance info
-    current_date: # no provenance info
-    exclude: # no provenance info
-    only: # no provenance info
-    run_number: # no provenance info
-    update: false # no provenance info
-    update_filetypes: []
-    motd: false  # no provenance info
-    ignore_config_warnings: false # no provenance info
-    jobtype: prepcompute # no provenance info
-    use_venv: false # no provenance info
-    original_command: fesom-recom1.4-initial-daily.yaml -e fesom-recom1.4-initial-daily --open-run -c --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
-    started_from: <TEST_DIR>/run/fesom-recom/fesom-recom1.4-initial-daily/scripts/ # no provenance info
-    scriptname: fesom-recom1.4-initial-daily.yaml # no provenance info
-    runscript_abspath: <TEST_DIR>/run/fesom-recom/fesom-recom1.4-initial-daily/scripts/fesom-recom1.4-initial-daily.yaml # no provenance info
-  couplings:
-  - fesom-1.4+recom-2.0  # <CONFIGS_PATH>/setups/fesom-recom/fesom-recom.yaml,line:25,col:15
-  nhour: 0  # no provenance info
-  nminute: 0 # no provenance info
-  nsecond: 0 # no provenance info
-  leapyear: false # <CONFIGS_PATH>/setups/fesom-recom/fesom-recom.yaml,line:39,col:19
-  calendar: esm_calender object with no leap years allowed # no provenance info
-  delta_date:
-  - 0  # no provenance info
-  - 0 # no provenance info
-  - 1 # no provenance info
-  - 0 # no provenance info
-  - 0 # no provenance info
-  - 0 # no provenance info
-  start_date: '1958-01-01T00:00:00'  # no provenance info
-  prev_date: '1957-12-31T00:00:00' # no provenance info
-  next_date: '1958-01-02T00:00:00' # no provenance info
-  last_start_date: '1957-12-31T00:00:00' # no provenance info
-  end_date: '1958-01-01T00:00:00' # no provenance info
-  runtime:
-  - 0  # no provenance info
-  - 0 # no provenance info
-  - 1 # no provenance info
-  - 24 # no provenance info
-  - 1440 # no provenance info
-  - 86400 # no provenance info
-  total_runtime:
-  - 0  # no provenance info
-  - 0 # no provenance info
-  - 1 # no provenance info
-  - 24 # no provenance info
-  - 1440 # no provenance info
-  - 86400 # no provenance info
-  run_datestamp: 19580101-19580101  # no provenance info
-  last_run_datestamp: 19571231-19571231 # no provenance info
-  chunk_number: 1 # no provenance info
-  first_run_in_chunk: true # no provenance info
-  last_run_in_chunk: false # no provenance info
-  out_filetypes:
-  - analysis  # no provenance info
-  - log # no provenance info
-  - mon # no provenance info
-  - scripts # no provenance info
-  - ignore # no provenance info
-  - unknown # no provenance info
-  - outdata # no provenance info
-  - restart_out # no provenance info
-  in_filetypes:
-  - scripts  # no provenance info
-  - input # no provenance info
-  - forcing # no provenance info
-  - bin # no provenance info
-  - config # no provenance info
-  - restart_in # no provenance info
-  reusable_filetypes:
-  - bin  # no provenance info
-  - src # no provenance info
-  potentially_reusable_filetypes:
-  - analysis  # no provenance info
-  - config # no provenance info
-  - log # no provenance info
-  - mon # no provenance info
-  - couple # no provenance info
-  - scripts # no provenance info
-  - ignore # no provenance info
-  - unknown # no provenance info
-  - src # no provenance info
-  - scripts # no provenance info
-  - input # no provenance info
-  - forcing # no provenance info
-  - bin # no provenance info
-  - config # no provenance info
-  - restart_in # no provenance info
-  thisrun_dir: <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily/run_19580101-19580101  # no provenance info
-  experiment_analysis_dir: <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily/analysis/ # no provenance info
-  experiment_config_dir: <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily/config/ # no provenance info
-  experiment_log_dir: <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily/log/ # no provenance info
-  experiment_mon_dir: <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily/mon/ # no provenance info
-  experiment_couple_dir: <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily/couple/ # no provenance info
-  experiment_scripts_dir: <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily/scripts/ # no provenance info
-  experiment_ignore_dir: <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily/ignore/ # no provenance info
-  experiment_unknown_dir: <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily/unknown/ # no provenance info
-  experiment_src_dir: <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily/src/ # no provenance info
-  all_filetypes:
-  - analysis  # no provenance info
-  - config # no provenance info
-  - log # no provenance info
-  - mon # no provenance info
-  - couple # no provenance info
-  - scripts # no provenance info
-  - ignore # no provenance info
-  - unknown # no provenance info
-  - src # no provenance info
-  - work # no provenance info
-  thisrun_analysis_dir: <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily/run_19580101-19580101/analysis/  # no provenance info
-  thisrun_config_dir: <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily/run_19580101-19580101/config/ # no provenance info
-  thisrun_log_dir: <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily/run_19580101-19580101/log/ # no provenance info
-  thisrun_mon_dir: <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily/run_19580101-19580101/mon/ # no provenance info
-  thisrun_couple_dir: <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily/run_19580101-19580101/couple/ # no provenance info
-  thisrun_scripts_dir: <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily/run_19580101-19580101/scripts/ # no provenance info
-  thisrun_ignore_dir: <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily/run_19580101-19580101/ignore/ # no provenance info
-  thisrun_unknown_dir: <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily/run_19580101-19580101/unknown/ # no provenance info
-  thisrun_src_dir: <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily/run_19580101-19580101/src/ # no provenance info
-  thisrun_work_dir: <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily/run_19580101-19580101/work/ # no provenance info
-  work_dir: <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily/run_19580101-19580101/work/ # no provenance info
-  all_model_filetypes:
-  - analysis  # no provenance info
-  - bin # no provenance info
-  - config # no provenance info
-  - forcing # no provenance info
-  - input # no provenance info
-  - couple # no provenance info
-  - log # no provenance info
-  - mon # no provenance info
-  - outdata # no provenance info
-  - restart_in # no provenance info
-  - restart_out # no provenance info
-  - viz # no provenance info
-  - ignore # no provenance info
-  workflow:
-    subjob_clusters:
-      prepcompute:
-        subjobs:
-        - prepcompute_general  # no provenance info
-        run_before: compute  # no provenance info
-        submit_to_batch_system: false # no provenance info
-        batch_or_shell: SimulationSetup # no provenance info
-        order_in_cluster: sequential # no provenance info
-        nproc: 1 # no provenance info
-        next_submit:
-        - compute  # no provenance info
-        called_from: tidy  # no provenance info
-      compute:
-        subjobs:
-        - compute_general  # no provenance info
-        submit_to_batch_system: true  # no provenance info
-        batch_or_shell: batch # no provenance info
-        run_on_queue: mpp # <CONFIGS_PATH>/machines/albedo.yaml,line:21,col:19
-        run_before: tidy # no provenance info
-        order_in_cluster: sequential # no provenance info
-        nproc: 288 # no provenance info
-        next_submit:
-        - tidy  # no provenance info
-        called_from: prepcompute  # no provenance info
-      tidy:
-        subjobs:
-        - tidy_general  # no provenance info
-        run_after: compute  # no provenance info
-        submit_to_batch_system: false # no provenance info
-        batch_or_shell: SimulationSetup # no provenance info
-        order_in_cluster: sequential # no provenance info
-        nproc: 1 # no provenance info
-        next_submit:
-        - prepcompute  # no provenance info
-        called_from: compute  # no provenance info
-    subjobs:
-      prepcompute_general:
-        nproc: 1  # no provenance info
-        run_before: compute # no provenance info
-        subjob_cluster: prepcompute # no provenance info
-      compute_general:
-        nproc: 288  # no provenance info
-        run_before: tidy # no provenance info
-        submit_to_batch_system: true # no provenance info
-        run_on_queue: mpp # <CONFIGS_PATH>/machines/albedo.yaml,line:21,col:19
-        subjob_cluster: compute # no provenance info
-      tidy_general:
-        nproc: 1  # no provenance info
-        run_after: compute # no provenance info
-        subjob_cluster: tidy # no provenance info
-    last_task_in_queue: tidy  # no provenance info
-    first_task_in_queue: prepcompute # no provenance info
-    next_run_triggered_by: tidy # no provenance info
-  submitted: false  # no provenance info
-  jobid: 1659 # no provenance info
-  batch: slurm # no provenance info
-  experiment_log_file: <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily/log//fesom-recom1.4-initial-daily_fesom-recom.log # no provenance info
-  esm_tools_version: 6.62.1 # no provenance info
-  logfile_path: <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily/log//fesom-recom1.4-initial-daily_fesom-recom_prepcompute_19580101-19580101_1659.log # no provenance info
-  logfile_path_in_run: <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily/run_19580101-19580101/log//fesom-recom1.4-initial-daily_fesom-recom_prepcompute_19580101-19580101_1659.log # no provenance info
-  relevant_filetypes:
-  - bin  # no provenance info
-  - config # no provenance info
-  - forcing # no provenance info
-  - input # no provenance info
-  - restart_in # no provenance info
-  file_movements:
-    bin:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:31,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:32,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:33,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:34,col:41
-    analysis:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    config:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    forcing:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    input:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    couple:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    log:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    mon:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    outdata:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    restart_in:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    restart_out:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    viz:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    ignore:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    scripts:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    unknown:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-  files_source: thisrun  # no provenance info
-  files_target: work # no provenance info
 dask:
   ntasks: 32  # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:155,col:13
   init_scheduler_cmd: srun --ntasks=1 --nodes=1 --cpus-per-task=1 dask scheduler --scheduler-file <TEST_DIR>/run/fesom-recom//fesom-recom1.4-initial-daily/run_19580101-19580101/work//dask_scheduler.json --interface ib0 # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:156,col:25
