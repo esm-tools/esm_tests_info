@@ -17,12 +17,12 @@ fesom:
   git-repository:
   - https://github.com/FESOM/fesom2.git  # <CONFIGS_PATH>/components/fesom/fesom-2.5.yaml,line:51,col:7
   contact: jan.streffing(at)awi.de, dmitry.sidorenko(at)awi.de, nikolay.koldunov(at)awi.de, miguel.andres-martinez(at)awi.de, paul.gierz(at)awi.de  # <CONFIGS_PATH>/components/fesom/fesom-2.5.yaml,line:52,col:14
-  restart_rate: 1 # <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml,line:40,col:19
-  restart_unit: d # <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml,line:41,col:19
-  restart_first: 1 # <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml,line:42,col:20
+  restart_rate: 1 # <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml,line:38,col:19
+  restart_unit: d # <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml,line:39,col:19
+  restart_first: 1 # <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml,line:40,col:20
   restart_flag: last # <CONFIGS_PATH>/components/fesom/fesom-2.5.yaml,line:58,col:19
   tar_binary_restarts: false # <CONFIGS_PATH>/components/fesom/fesom-2.5.yaml,line:60,col:26
-  time_step: 2400 # <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml,line:44,col:16
+  time_step: 2400 # <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml,line:42,col:16
   resolution: CORE2 # <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml,line:21,col:17
   comp_executable: fesom.x # <CONFIGS_PATH>/components/fesom/fesom-2.5.yaml,line:65,col:22
   executable: fesom # <CONFIGS_PATH>/components/fesom/fesom-2.5.yaml,line:66,col:17
@@ -212,10 +212,10 @@ fesom:
     namelist.io:
       nml_list:
         io_list:
-        - sst  # <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml,line:49,col:27
-        - 1 # <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml,line:49,col:34
-        - d # <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml,line:49,col:39
-        - 4 # <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml,line:49,col:44
+        - sst  # <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml,line:47,col:27
+        - 1 # <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml,line:47,col:34
+        - d # <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml,line:47,col:39
+        - 4 # <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml,line:47,col:44
     namelist.oce:
       oce_dyn:
         SPP: true  # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:429,col:54
@@ -356,7 +356,7 @@ fesom:
         script: Subjob_tripy.sh <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/outdata/fesom/ 2000-01-01T00:00:00 2000-01-02T00:00:00 2000-01-01T00:00:00 2000-01-04T00:00:00 /work/ollie/jstreffi/input/fesom2//core2/ <TEST_DIR>/run/awicm3/ awicm3-v3.2-TCO95L91-CORE2_initial NOT_SET False NOT_SET NOT_SET # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:95,col:25
         nproc: 1 # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:96,col:24
   lresume: false  # no provenance info
-  nproc: 288 # <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml,line:39,col:12
+  nproc: 288 # <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml,line:37,col:12
   omp_num_threads: 1 # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:361,col:26
   missing_owy: false # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:375,col:22
   model_dir: <TEST_DIR>/comp/awicm3/awicm3-v3.2/fesom-2.5 # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:386,col:20
@@ -517,6 +517,419 @@ fesom:
     mesh_diag: <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/log/fesom/fesom.mesh.diag.nc # no provenance info
   outdata_intermediate: {}
   restart_out_intermediate: {}
+general:
+  sections:
+    fesom: <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml  # no provenance info
+    computer: <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml # no provenance info
+    oifs: <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml # no provenance info
+    rnfmap: <CONFIGS_PATH>/setups/awicm3/awicm3.yaml # no provenance info
+    oasis3mct: <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml # no provenance info
+    xios: <CONFIGS_PATH>/setups/awicm3/awicm3.yaml # no provenance info
+    dask: <CONFIGS_PATH>/other_software/batch_system/slurm.yaml # no provenance info
+    awicm3: <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml # no provenance info
+    per_model_defaults: <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml # no provenance info
+  use_database: false  # <CONFIGS_PATH>/defaults/general.yaml,line:1,col:15
+  system_components:
+  - general  # <CONFIGS_PATH>/defaults/general.yaml,line:2,col:21
+  - dask # <CONFIGS_PATH>/defaults/general.yaml,line:2,col:32
+  - prev_run # no provenance info
+  other_components: []
+  standalone: false  # no provenance info
+  model: awicm3 # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:6,col:16
+  model_dir: <TEST_DIR>/comp/awicm3/awicm3-v3.2 # <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml,line:15,col:16
+  lresume: false # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:10,col:18
+  coupled_setup: true # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:11,col:24
+  available_versions:
+  - v3.0  # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:20,col:11
+  - v3.1 # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:21,col:11
+  - v3.1.1 # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:22,col:11
+  - v3.1.2 # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:23,col:11
+  - v3.1.3 # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:24,col:11
+  - v3.2 # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:25,col:11
+  - v3.2.1 # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:26,col:11
+  - v3.2.2 # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:27,col:11
+  - v3.3.0 # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:28,col:11
+  - v3.3.1 # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:29,col:11
+  - develop # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:30,col:11
+  - frontiers-xios # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:31,col:11
+  version: v3.2 # <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml,line:4,col:14
+  scenario: piControl # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:128,col:19
+  resolution: TCO95_CORE2 # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:129,col:21
+  postprocessing: false # <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml,line:14,col:21
+  post_time: 00:05:00 # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:131,col:20
+  compute_time: 01:00:00 # <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml,line:5,col:19
+  reusable_filetypes:
+  - input  # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:134,col:30
+  - bin # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:134,col:37
+  - src # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:134,col:42
+  prepcompute_recipe:
+  - compile_model  # <CONFIGS_PATH>/components/oifs/oifs.yaml,line:1562,col:10
+  - _show_simulation_info # <CONFIGS_PATH>/components/oifs/oifs.yaml,line:1563,col:10
+  - create_new_files # <CONFIGS_PATH>/components/oifs/oifs.yaml,line:1564,col:10
+  - create_empty_folders # <CONFIGS_PATH>/components/oifs/oifs.yaml,line:1565,col:10
+  - prepare_coupler_files # <CONFIGS_PATH>/components/oifs/oifs.yaml,line:1566,col:10
+  - assemble # <CONFIGS_PATH>/components/oifs/oifs.yaml,line:1567,col:10
+  - log_used_files # <CONFIGS_PATH>/components/oifs/oifs.yaml,line:1568,col:10
+  - _write_finalized_config # <CONFIGS_PATH>/components/oifs/oifs.yaml,line:1569,col:10
+  - wait_for_iterative_coupling # <CONFIGS_PATH>/components/oifs/oifs.yaml,line:1570,col:10
+  - copy_files_to_thisrun # <CONFIGS_PATH>/components/oifs/oifs.yaml,line:1571,col:10
+  - write_env # <CONFIGS_PATH>/components/oifs/oifs.yaml,line:1572,col:10
+  - preprocess # <CONFIGS_PATH>/components/oifs/oifs.yaml,line:1573,col:10
+  - modify_namelists # <CONFIGS_PATH>/components/oifs/oifs.yaml,line:1574,col:10
+  - modify_files # <CONFIGS_PATH>/components/oifs/oifs.yaml,line:1575,col:10
+  - copy_files_to_work # <CONFIGS_PATH>/components/oifs/oifs.yaml,line:1576,col:10
+  - report_missing_files # <CONFIGS_PATH>/components/oifs/oifs.yaml,line:1577,col:10
+  - compute_and_log_file_checksums # <CONFIGS_PATH>/components/oifs/oifs.yaml,line:1578,col:10
+  - database_entry # <CONFIGS_PATH>/components/oifs/oifs.yaml,line:1582,col:10
+  - oasis_rmp_rst_to_input # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:166,col:34
+  tidy_recipe:
+  - tidy_coupler  # <CONFIGS_PATH>/components/fesom/fesom-2.5.yaml,line:654,col:7
+  - tar_binary_restarts # <CONFIGS_PATH>/components/fesom/fesom-2.5.yaml,line:655,col:7
+  - assemble # <CONFIGS_PATH>/components/fesom/fesom-2.5.yaml,line:656,col:7
+  - check_for_unknown_files # <CONFIGS_PATH>/components/fesom/fesom-2.5.yaml,line:657,col:7
+  - log_used_files # <CONFIGS_PATH>/components/fesom/fesom-2.5.yaml,line:658,col:7
+  - throw_away_some_infiles # <CONFIGS_PATH>/components/fesom/fesom-2.5.yaml,line:659,col:7
+  - copy_stuff_back_from_work # <CONFIGS_PATH>/components/fesom/fesom-2.5.yaml,line:660,col:7
+  - copy_all_results_to_exp # <CONFIGS_PATH>/components/fesom/fesom-2.5.yaml,line:661,col:7
+  - clean_run_dir # <CONFIGS_PATH>/components/fesom/fesom-2.5.yaml,line:662,col:7
+  dr_hook_ignore_signals: -1  # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:157,col:33
+  valid_setup_names:
+  - general  # no provenance info
+  - computer # no provenance info
+  - dask # no provenance info
+  - oifs # no provenance info
+  - fesom # no provenance info
+  - xios # no provenance info
+  - rnfmap # no provenance info
+  - oasis3mct # no provenance info
+  valid_model_names:
+  - fesom  # no provenance info
+  - oifs # no provenance info
+  - rnfmap # no provenance info
+  - oasis3mct # no provenance info
+  - xios # no provenance info
+  major_version: v3.2  # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:73,col:28
+  esm_configs_dir: <CONFIGS_PATH>/ # no provenance info
+  esm_namelist_dir: <NAMELIST_PATH>/ # no provenance info
+  esm_runscript_dir: <RUNSCRIPT_PATH>/ # no provenance info
+  esm_couplings_dir: <COUPLINGS_PATH>/ # no provenance info
+  expid: awicm3-v3.2-TCO95L91-CORE2_initial # no provenance info
+  models:
+  - fesom  # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:14,col:19
+  - oifs # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:15,col:19
+  - rnfmap # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:16,col:19
+  - oasis3mct # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:17,col:19
+  - xios # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:77,col:15
+  account: None  # <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml,line:2,col:14
+  setup_name: awicm3 # <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml,line:3,col:17
+  initial_date: '2000-01-01T00:00:00' # no provenance info
+  final_date: '2000-01-04T00:00:00' # no provenance info
+  base_dir: <TEST_DIR>/run/awicm3/ # <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml,line:8,col:15
+  nday: 1 # no provenance info
+  nmonth: 0 # no provenance info
+  nyear: 0 # no provenance info
+  runscript_abspath: <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml # no provenance info
+  additional_files: []
+  runscript: awicm3-v3.2-TCO95L91-CORE2_initial.yaml  # no provenance info
+  debug: false # no provenance info
+  trace: false # no provenance info
+  task_log_files: false # no provenance info
+  verbose: false # no provenance info
+  contained_run: # no provenance info
+  open_run: true # no provenance info
+  check: true # no provenance info
+  modify_config_file: # no provenance info
+  last_jobtype: prepcompute # no provenance info
+  task: prepcompute # no provenance info
+  inspect: # no provenance info
+  launcher_pid: -666 # no provenance info
+  current_date: '2000-01-01T00:00:00' # no provenance info
+  exclude: # no provenance info
+  only: # no provenance info
+  run_number: 1 # no provenance info
+  update: false # no provenance info
+  update_filetypes: []
+  motd: false  # no provenance info
+  ignore_config_warnings: false # no provenance info
+  jobtype: prepcompute # no provenance info
+  use_venv: false # no provenance info
+  original_command: awicm3-v3.2-TCO95L91-CORE2_initial.yaml -e awicm3-v3.2-TCO95L91-CORE2_initial --open-run -c --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
+  started_from: <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/ # no provenance info
+  scriptname: awicm3-v3.2-TCO95L91-CORE2_initial.yaml # no provenance info
+  isinteractive: false # no provenance info
+  isresubmitted: true # no provenance info
+  execution_mode: run # no provenance info
+  experiment_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial # no provenance info
+  per_model_defaults: {}
+  iterative_coupled_model: ''  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:6,col:30
+  reset_calendar_to_last: false # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:7,col:29
+  profile: false # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:9,col:14
+  pre_recipe:
+    exclude_job_types:
+    - prepare  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:12,col:15
+    - prepexp # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:13,col:15
+    - observe # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:14,col:15
+    steps:
+    - initialize_dask_cluster  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:16,col:15
+  intermediate_movements:
+  - config  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:18,col:7
+  - bin # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:19,col:7
+  - input # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:20,col:7
+  compute_file_checksums: false  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:21,col:29
+  parallel_file_movements: dask # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:22,col:30
+  force_overwrite_in_file_movements: false # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:23,col:40
+  command_line_config:
+    runscript: awicm3-v3.2-TCO95L91-CORE2_initial.yaml  # no provenance info
+    debug: false # no provenance info
+    trace: false # no provenance info
+    task_log_files: false # no provenance info
+    verbose: false # no provenance info
+    contained_run: # no provenance info
+    open_run: true # no provenance info
+    expid: awicm3-v3.2-TCO95L91-CORE2_initial # no provenance info
+    check: true # no provenance info
+    modify_config_file: # no provenance info
+    last_jobtype: prepcompute # no provenance info
+    task: prepcompute # no provenance info
+    inspect: # no provenance info
+    launcher_pid: -666 # no provenance info
+    current_date: # no provenance info
+    exclude: # no provenance info
+    only: # no provenance info
+    run_number: # no provenance info
+    update: false # no provenance info
+    update_filetypes: []
+    motd: false  # no provenance info
+    ignore_config_warnings: false # no provenance info
+    jobtype: prepcompute # no provenance info
+    use_venv: false # no provenance info
+    original_command: awicm3-v3.2-TCO95L91-CORE2_initial.yaml -e awicm3-v3.2-TCO95L91-CORE2_initial --open-run -c --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
+    started_from: <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/ # no provenance info
+    scriptname: awicm3-v3.2-TCO95L91-CORE2_initial.yaml # no provenance info
+    runscript_abspath: <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml # no provenance info
+  couplings:
+  - fesom-2.5-awicm-3.2+oifs-43r3-awicm-3.2+xios-2.5  # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:75,col:15
+  include_models:
+  - xios  # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:77,col:15
+  oasis_with_yac: false  # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:78,col:29
+  xios_interp_order: 2 # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:79,col:32
+  pool_dir: /work/ollie/jstreffi/input # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:140,col:35
+  nhour: 0 # no provenance info
+  nminute: 0 # no provenance info
+  nsecond: 0 # no provenance info
+  leapyear: true # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:393,col:19
+  calendar: esm_calendar object with allowed leap years # no provenance info
+  delta_date:
+  - 0  # no provenance info
+  - 0 # no provenance info
+  - 1 # no provenance info
+  - 0 # no provenance info
+  - 0 # no provenance info
+  - 0 # no provenance info
+  start_date: '2000-01-01T00:00:00'  # no provenance info
+  prev_date: '1999-12-31T00:00:00' # no provenance info
+  next_date: '2000-01-02T00:00:00' # no provenance info
+  last_start_date: '1999-12-31T00:00:00' # no provenance info
+  end_date: '2000-01-01T00:00:00' # no provenance info
+  runtime:
+  - 0  # no provenance info
+  - 0 # no provenance info
+  - 1 # no provenance info
+  - 24 # no provenance info
+  - 1440 # no provenance info
+  - 86400 # no provenance info
+  total_runtime:
+  - 0  # no provenance info
+  - 0 # no provenance info
+  - 1 # no provenance info
+  - 24 # no provenance info
+  - 1440 # no provenance info
+  - 86400 # no provenance info
+  run_datestamp: 20000101-20000101  # no provenance info
+  last_run_datestamp: 19991231-19991231 # no provenance info
+  chunk_number: 1 # no provenance info
+  first_run_in_chunk: true # no provenance info
+  last_run_in_chunk: false # no provenance info
+  out_filetypes:
+  - analysis  # no provenance info
+  - log # no provenance info
+  - mon # no provenance info
+  - scripts # no provenance info
+  - ignore # no provenance info
+  - unknown # no provenance info
+  - outdata # no provenance info
+  - restart_out # no provenance info
+  in_filetypes:
+  - scripts  # no provenance info
+  - input # no provenance info
+  - forcing # no provenance info
+  - bin # no provenance info
+  - config # no provenance info
+  - restart_in # no provenance info
+  potentially_reusable_filetypes:
+  - analysis  # no provenance info
+  - config # no provenance info
+  - log # no provenance info
+  - mon # no provenance info
+  - couple # no provenance info
+  - scripts # no provenance info
+  - ignore # no provenance info
+  - unknown # no provenance info
+  - src # no provenance info
+  - scripts # no provenance info
+  - input # no provenance info
+  - forcing # no provenance info
+  - bin # no provenance info
+  - config # no provenance info
+  - restart_in # no provenance info
+  thisrun_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101  # no provenance info
+  experiment_analysis_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/analysis/ # no provenance info
+  experiment_config_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/config/ # no provenance info
+  experiment_log_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/log/ # no provenance info
+  experiment_mon_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/mon/ # no provenance info
+  experiment_couple_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/couple/ # no provenance info
+  experiment_scripts_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/scripts/ # no provenance info
+  experiment_ignore_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/ignore/ # no provenance info
+  experiment_unknown_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/unknown/ # no provenance info
+  experiment_src_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/src/ # no provenance info
+  all_filetypes:
+  - analysis  # no provenance info
+  - config # no provenance info
+  - log # no provenance info
+  - mon # no provenance info
+  - couple # no provenance info
+  - scripts # no provenance info
+  - ignore # no provenance info
+  - unknown # no provenance info
+  - src # no provenance info
+  - work # no provenance info
+  thisrun_analysis_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/analysis/  # no provenance info
+  thisrun_config_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/config/ # no provenance info
+  thisrun_log_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/log/ # no provenance info
+  thisrun_mon_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/mon/ # no provenance info
+  thisrun_couple_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/couple/ # no provenance info
+  thisrun_scripts_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/scripts/ # no provenance info
+  thisrun_ignore_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/ignore/ # no provenance info
+  thisrun_unknown_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/unknown/ # no provenance info
+  thisrun_src_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/src/ # no provenance info
+  thisrun_work_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work/ # no provenance info
+  work_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work/ # no provenance info
+  all_model_filetypes:
+  - analysis  # no provenance info
+  - bin # no provenance info
+  - config # no provenance info
+  - forcing # no provenance info
+  - input # no provenance info
+  - couple # no provenance info
+  - log # no provenance info
+  - mon # no provenance info
+  - outdata # no provenance info
+  - restart_in # no provenance info
+  - restart_out # no provenance info
+  - viz # no provenance info
+  - ignore # no provenance info
+  workflow:
+    subjob_clusters:
+      prepcompute:
+        subjobs:
+        - prepcompute_general  # no provenance info
+        run_before: compute  # no provenance info
+        submit_to_batch_system: false # no provenance info
+        batch_or_shell: SimulationSetup # no provenance info
+        order_in_cluster: sequential # no provenance info
+        nproc: 1 # no provenance info
+        next_submit:
+        - compute  # no provenance info
+        called_from: tidy  # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:86,col:32
+      compute:
+        subjobs:
+        - compute_general  # no provenance info
+        submit_to_batch_system: true  # no provenance info
+        batch_or_shell: batch # no provenance info
+        run_on_queue: mpp # <CONFIGS_PATH>/machines/ollie.yaml,line:17,col:27
+        run_before: tidy # no provenance info
+        order_in_cluster: sequential # no provenance info
+        nproc: 308 # no provenance info
+        next_submit:
+        - tidy  # no provenance info
+        called_from: prepcompute  # no provenance info
+      tidy:
+        subjobs:
+        - tidy_general  # no provenance info
+        run_after: compute  # no provenance info
+        submit_to_batch_system: false # no provenance info
+        batch_or_shell: SimulationSetup # no provenance info
+        order_in_cluster: sequential # no provenance info
+        nproc: 1 # no provenance info
+        next_submit:
+        - Tripy_Fesom  # no provenance info
+        - prepcompute # no provenance info
+        called_from: compute  # no provenance info
+      Tripy_Fesom:
+        subjobs:
+        - Tripy_Fesom_fesom_general  # no provenance info
+        submit_to_batch_system: true  # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:94,col:41
+        order_in_cluster: concurrent # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:90,col:35
+        batch_or_shell: batch # no provenance info
+        run_on_queue: smp # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:91,col:31
+        run_after: tidy # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:92,col:28
+        nproc: 1 # no provenance info
+        next_submit: []
+        called_from: tidy  # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:92,col:28
+    subjobs:
+      prepcompute_general:
+        nproc: 1  # no provenance info
+        run_before: compute # no provenance info
+        subjob_cluster: prepcompute # no provenance info
+      compute_general:
+        nproc: 308  # no provenance info
+        run_before: tidy # no provenance info
+        submit_to_batch_system: true # no provenance info
+        run_on_queue: mpp # <CONFIGS_PATH>/machines/ollie.yaml,line:17,col:27
+        subjob_cluster: compute # no provenance info
+      tidy_general:
+        nproc: 1  # no provenance info
+        run_after: compute # no provenance info
+        subjob_cluster: tidy # no provenance info
+      Tripy_Fesom_fesom_general:
+        batch_or_shell: batch  # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:89,col:33
+        order_in_cluster: concurrent # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:90,col:35
+        run_on_queue: smp # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:91,col:31
+        run_after: tidy # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:92,col:28
+        script_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/scripts/fesom # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:93,col:29
+        submit_to_batch_system: true # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:94,col:41
+        script: Subjob_tripy.sh <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/outdata/fesom/ 2000-01-01T00:00:00 2000-01-02T00:00:00 2000-01-01T00:00:00 2000-01-04T00:00:00 /work/ollie/jstreffi/input/fesom2//core2/ <TEST_DIR>/run/awicm3/ awicm3-v3.2-TCO95L91-CORE2_initial NOT_SET False NOT_SET NOT_SET # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:95,col:25
+        nproc: 1 # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:96,col:24
+        subjob_cluster: Tripy_Fesom # no provenance info
+    last_task_in_queue: tidy  # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:86,col:32
+    first_task_in_queue: prepcompute # no provenance info
+    next_run_triggered_by: tidy # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:86,col:32
+  submitted: false  # no provenance info
+  jobid: 1385 # no provenance info
+  batch: slurm # no provenance info
+  coupler_config_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/config/oasis3mct/ # no provenance info
+  coupler: oasis3mct # no provenance info
+  experiment_log_file: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/log//awicm3-v3.2-TCO95L91-CORE2_initial_awicm3.log # no provenance info
+  esm_tools_version: 6.62.4 # no provenance info
+  logfile_path: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/log//awicm3-v3.2-TCO95L91-CORE2_initial_awicm3_prepcompute_20000101-20000101_1385.log # no provenance info
+  logfile_path_in_run: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/log//awicm3-v3.2-TCO95L91-CORE2_initial_awicm3_prepcompute_20000101-20000101_1385.log # no provenance info
+  relevant_filetypes:
+  - bin  # no provenance info
+  - config # no provenance info
+  - forcing # no provenance info
+  - input # no provenance info
+  - restart_in # no provenance info
+  file_movements:
+    default:
+      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+    bin:
+      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:31,col:41
+      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:32,col:41
+      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:33,col:41
+      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:34,col:41
 computer:
   add_export_vars:
     LD_LIBRARY_PATH[(4)]: $LD_LIBRARY_PATH:<TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//lib/fesom/  # <CONFIGS_PATH>/components/fesom/fesom.env.yaml,line:3,col:31
@@ -777,18 +1190,18 @@ oifs:
   comp_command: export OIFS_TOPLEVEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-v3.2/oifs-43r3; cd make; ../fcm/bin/fcm make -v -j8 -f oifs.cfg ; chmod -R 700 .; git config core.fileMode false ; mv esm/oifs/bin/master.exe esm/oifs/bin/oifs # <CONFIGS_PATH>/components/oifs/oifs.yaml,line:243,col:23
   git-repository: https://gitlab.dkrz.de/ec-earth/oifs-43r3.git # <CONFIGS_PATH>/components/oifs/oifs.yaml,line:245,col:25
   install_bins: make/esm/oifs/bin/oifs # <CONFIGS_PATH>/components/oifs/oifs.yaml,line:246,col:23
-  input_expid: awi3 # <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml,line:57,col:18
-  resolution: TCO95 # <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml,line:52,col:17
-  levels: L91 # <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml,line:53,col:13
+  input_expid: awi3 # <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml,line:55,col:18
+  resolution: TCO95 # <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml,line:50,col:17
+  levels: L91 # <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml,line:51,col:13
   nlev: 91 # <CONFIGS_PATH>/components/oifs/oifs.yaml,line:374,col:11
-  prepifs_expid: aack # <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml,line:56,col:20
+  prepifs_expid: aack # <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml,line:54,col:20
   prepifs_startdate: '19820101' # <CONFIGS_PATH>/components/oifs/oifs.yaml,line:376,col:24
   mip: cmip6 # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:212,col:30
   o3_scheme: default # <CONFIGS_PATH>/components/oifs/oifs.yaml,line:378,col:16
   scenario: historical # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:176,col:19
   output: default # <CONFIGS_PATH>/components/oifs/oifs.yaml,line:380,col:13
-  nproc: 18 # <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml,line:74,col:12
-  wam: true # <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml,line:58,col:10
+  nproc: 18 # <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml,line:70,col:12
+  wam: true # <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml,line:56,col:10
   wam_2w: true # <CONFIGS_PATH>/components/oifs/oifs.yaml,line:390,col:13
   wam_step: 1 # <CONFIGS_PATH>/components/oifs/oifs.yaml,line:391,col:15
   read_icmcl: 0 # <CONFIGS_PATH>/components/oifs/oifs.yaml,line:392,col:17
@@ -1103,7 +1516,7 @@ oifs:
   - oasis_rmp_rst_to_input  # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:166,col:34
   restart_firstlast: last # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:172,col:28
   ocean_resolution: CORE2 # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:174,col:27
-  omp_num_threads: 2 # <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml,line:75,col:22
+  omp_num_threads: 2 # <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml,line:71,col:22
   res_level: TCO95L91 # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:314,col:20
   awicm3_fields:
   - A_Qns_oce  # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:315,col:25
@@ -1171,9 +1584,9 @@ oifs:
       grid: atmr  # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:321,col:27
     A_Calving:
       grid: atmr  # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:323,col:27
-  time_step: 3600 # <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml,line:55,col:16
+  time_step: 3600 # <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml,line:53,col:16
   slice_icml: '' # <CONFIGS_PATH>/components/oifs/oifs.yaml,line:1521,col:33
-  rnproc: 18 # <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml,line:61,col:21
+  rnproc: 18 # <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml,line:59,col:21
   branch: oifs-deck # <CONFIGS_PATH>/components/oifs/oifs.yaml,line:242,col:17
   nx: 40320 # <CONFIGS_PATH>/components/oifs/oifs.yaml,line:437,col:25
   oasis_grid_name: 96 # <CONFIGS_PATH>/components/oifs/oifs.yaml,line:444,col:38
@@ -1547,7 +1960,7 @@ rnfmap:
 oasis3mct:
   model: oasis3mct  # <CONFIGS_PATH>/components/oasis3mct/oasis3mct.yaml,line:2,col:12
   cf_name_dir: <TEST_DIR>/comp/awicm3/awicm3-v3.2/oasis # <CONFIGS_PATH>/components/oasis3mct/oasis3mct.yaml,line:4,col:18
-  time_step: 7200 # <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml,line:79,col:16
+  time_step: 7200 # <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml,line:75,col:16
   norestart: F # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:625,col:20
   use_lucia: false # <CONFIGS_PATH>/components/oasis3mct/oasis3mct.yaml,line:7,col:16
   mct_version: 4 # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:694,col:38
@@ -2325,473 +2738,6 @@ xios:
     context_ifs: <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/config/xios/context_ifs.xml # no provenance info
   ignore_intermediate:
     xios_registry: <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/ignore/xios/xios_registry.bin  # no provenance info
-general:
-  use_database: false  # <CONFIGS_PATH>/defaults/general.yaml,line:1,col:15
-  general:
-    system_components:
-    - general  # <CONFIGS_PATH>/defaults/general.yaml,line:4,col:23
-    - dask # <CONFIGS_PATH>/defaults/general.yaml,line:4,col:34
-  standalone: false  # no provenance info
-  model: awicm3 # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:6,col:16
-  model_dir: <TEST_DIR>/comp/awicm3/awicm3-v3.2 # <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml,line:15,col:16
-  lresume: false # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:10,col:18
-  coupled_setup: true # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:11,col:24
-  available_versions:
-  - v3.0  # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:20,col:11
-  - v3.1 # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:21,col:11
-  - v3.1.1 # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:22,col:11
-  - v3.1.2 # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:23,col:11
-  - v3.1.3 # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:24,col:11
-  - v3.2 # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:25,col:11
-  - v3.2.1 # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:26,col:11
-  - v3.2.2 # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:27,col:11
-  - v3.3.0 # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:28,col:11
-  - v3.3.1 # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:29,col:11
-  - develop # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:30,col:11
-  - frontiers-xios # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:31,col:11
-  version: v3.2 # <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml,line:4,col:14
-  scenario: piControl # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:128,col:19
-  resolution: TCO95_CORE2 # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:129,col:21
-  postprocessing: false # <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml,line:14,col:21
-  post_time: 00:05:00 # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:131,col:20
-  compute_time: 01:00:00 # <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml,line:5,col:19
-  reusable_filetypes:
-  - input  # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:134,col:30
-  - bin # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:134,col:37
-  - src # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:134,col:42
-  prepcompute_recipe:
-  - compile_model  # <CONFIGS_PATH>/components/oifs/oifs.yaml,line:1562,col:10
-  - _show_simulation_info # <CONFIGS_PATH>/components/oifs/oifs.yaml,line:1563,col:10
-  - create_new_files # <CONFIGS_PATH>/components/oifs/oifs.yaml,line:1564,col:10
-  - create_empty_folders # <CONFIGS_PATH>/components/oifs/oifs.yaml,line:1565,col:10
-  - prepare_coupler_files # <CONFIGS_PATH>/components/oifs/oifs.yaml,line:1566,col:10
-  - assemble # <CONFIGS_PATH>/components/oifs/oifs.yaml,line:1567,col:10
-  - log_used_files # <CONFIGS_PATH>/components/oifs/oifs.yaml,line:1568,col:10
-  - _write_finalized_config # <CONFIGS_PATH>/components/oifs/oifs.yaml,line:1569,col:10
-  - wait_for_iterative_coupling # <CONFIGS_PATH>/components/oifs/oifs.yaml,line:1570,col:10
-  - copy_files_to_thisrun # <CONFIGS_PATH>/components/oifs/oifs.yaml,line:1571,col:10
-  - write_env # <CONFIGS_PATH>/components/oifs/oifs.yaml,line:1572,col:10
-  - preprocess # <CONFIGS_PATH>/components/oifs/oifs.yaml,line:1573,col:10
-  - modify_namelists # <CONFIGS_PATH>/components/oifs/oifs.yaml,line:1574,col:10
-  - modify_files # <CONFIGS_PATH>/components/oifs/oifs.yaml,line:1575,col:10
-  - copy_files_to_work # <CONFIGS_PATH>/components/oifs/oifs.yaml,line:1576,col:10
-  - report_missing_files # <CONFIGS_PATH>/components/oifs/oifs.yaml,line:1577,col:10
-  - compute_and_log_file_checksums # <CONFIGS_PATH>/components/oifs/oifs.yaml,line:1578,col:10
-  - database_entry # <CONFIGS_PATH>/components/oifs/oifs.yaml,line:1582,col:10
-  - oasis_rmp_rst_to_input # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:166,col:34
-  tidy_recipe:
-  - tidy_coupler  # <CONFIGS_PATH>/components/fesom/fesom-2.5.yaml,line:654,col:7
-  - tar_binary_restarts # <CONFIGS_PATH>/components/fesom/fesom-2.5.yaml,line:655,col:7
-  - assemble # <CONFIGS_PATH>/components/fesom/fesom-2.5.yaml,line:656,col:7
-  - check_for_unknown_files # <CONFIGS_PATH>/components/fesom/fesom-2.5.yaml,line:657,col:7
-  - log_used_files # <CONFIGS_PATH>/components/fesom/fesom-2.5.yaml,line:658,col:7
-  - throw_away_some_infiles # <CONFIGS_PATH>/components/fesom/fesom-2.5.yaml,line:659,col:7
-  - copy_stuff_back_from_work # <CONFIGS_PATH>/components/fesom/fesom-2.5.yaml,line:660,col:7
-  - copy_all_results_to_exp # <CONFIGS_PATH>/components/fesom/fesom-2.5.yaml,line:661,col:7
-  - clean_run_dir # <CONFIGS_PATH>/components/fesom/fesom-2.5.yaml,line:662,col:7
-  dr_hook_ignore_signals: -1  # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:157,col:33
-  valid_setup_names:
-  - general  # no provenance info
-  - computer # no provenance info
-  - dask # no provenance info
-  - oifs # no provenance info
-  - fesom # no provenance info
-  - xios # no provenance info
-  - rnfmap # no provenance info
-  - oasis3mct # no provenance info
-  valid_model_names:
-  - fesom  # no provenance info
-  - oifs # no provenance info
-  - rnfmap # no provenance info
-  - oasis3mct # no provenance info
-  - xios # no provenance info
-  major_version: v3.2  # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:73,col:28
-  esm_configs_dir: <CONFIGS_PATH>/ # no provenance info
-  esm_namelist_dir: <NAMELIST_PATH>/ # no provenance info
-  esm_runscript_dir: <RUNSCRIPT_PATH>/ # no provenance info
-  esm_couplings_dir: <COUPLINGS_PATH>/ # no provenance info
-  expid: awicm3-v3.2-TCO95L91-CORE2_initial # no provenance info
-  models:
-  - fesom  # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:14,col:19
-  - oifs # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:15,col:19
-  - rnfmap # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:16,col:19
-  - oasis3mct # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:17,col:19
-  - xios # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:77,col:15
-  account: None  # <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml,line:2,col:14
-  setup_name: awicm3 # <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml,line:3,col:17
-  initial_date: '2000-01-01T00:00:00' # no provenance info
-  final_date: '2000-01-04T00:00:00' # no provenance info
-  base_dir: <TEST_DIR>/run/awicm3/ # <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml,line:8,col:15
-  nday: 1 # no provenance info
-  nmonth: 0 # no provenance info
-  nyear: 0 # no provenance info
-  runscript_abspath: <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml # no provenance info
-  additional_files: []
-  runscript: awicm3-v3.2-TCO95L91-CORE2_initial.yaml  # no provenance info
-  debug: false # no provenance info
-  trace: false # no provenance info
-  task_log_files: false # no provenance info
-  verbose: false # no provenance info
-  contained_run: # no provenance info
-  open_run: true # no provenance info
-  check: true # no provenance info
-  modify_config_file: # no provenance info
-  last_jobtype: prepcompute # no provenance info
-  task: prepcompute # no provenance info
-  inspect: # no provenance info
-  launcher_pid: -666 # no provenance info
-  current_date: '2000-01-01T00:00:00' # no provenance info
-  exclude: # no provenance info
-  only: # no provenance info
-  run_number: 1 # no provenance info
-  update: false # no provenance info
-  update_filetypes: []
-  motd: false  # no provenance info
-  ignore_config_warnings: false # no provenance info
-  jobtype: prepcompute # no provenance info
-  use_venv: false # no provenance info
-  original_command: awicm3-v3.2-TCO95L91-CORE2_initial.yaml -e awicm3-v3.2-TCO95L91-CORE2_initial --open-run -c --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
-  started_from: <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/ # no provenance info
-  scriptname: awicm3-v3.2-TCO95L91-CORE2_initial.yaml # no provenance info
-  isinteractive: false # no provenance info
-  isresubmitted: true # no provenance info
-  execution_mode: run # no provenance info
-  experiment_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial # no provenance info
-  per_model_defaults: {}
-  iterative_coupled_model: ''  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:6,col:30
-  reset_calendar_to_last: false # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:7,col:29
-  profile: false # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:9,col:14
-  pre_recipe:
-    exclude_job_types:
-    - prepare  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:12,col:15
-    - prepexp # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:13,col:15
-    - observe # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:14,col:15
-    steps:
-    - initialize_dask_cluster  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:16,col:15
-  intermediate_movements:
-  - config  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:18,col:7
-  - bin # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:19,col:7
-  - input # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:20,col:7
-  compute_file_checksums: false  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:21,col:29
-  parallel_file_movements: dask # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:22,col:30
-  force_overwrite_in_file_movements: false # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:23,col:40
-  command_line_config:
-    runscript: awicm3-v3.2-TCO95L91-CORE2_initial.yaml  # no provenance info
-    debug: false # no provenance info
-    trace: false # no provenance info
-    task_log_files: false # no provenance info
-    verbose: false # no provenance info
-    contained_run: # no provenance info
-    open_run: true # no provenance info
-    expid: awicm3-v3.2-TCO95L91-CORE2_initial # no provenance info
-    check: true # no provenance info
-    modify_config_file: # no provenance info
-    last_jobtype: prepcompute # no provenance info
-    task: prepcompute # no provenance info
-    inspect: # no provenance info
-    launcher_pid: -666 # no provenance info
-    current_date: # no provenance info
-    exclude: # no provenance info
-    only: # no provenance info
-    run_number: # no provenance info
-    update: false # no provenance info
-    update_filetypes: []
-    motd: false  # no provenance info
-    ignore_config_warnings: false # no provenance info
-    jobtype: prepcompute # no provenance info
-    use_venv: false # no provenance info
-    original_command: awicm3-v3.2-TCO95L91-CORE2_initial.yaml -e awicm3-v3.2-TCO95L91-CORE2_initial --open-run -c --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
-    started_from: <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/ # no provenance info
-    scriptname: awicm3-v3.2-TCO95L91-CORE2_initial.yaml # no provenance info
-    runscript_abspath: <TEST_DIR>/run/awicm3/awicm3-v3.2-TCO95L91-CORE2_initial/scripts/awicm3-v3.2-TCO95L91-CORE2_initial.yaml # no provenance info
-  couplings:
-  - fesom-2.5-awicm-3.2+oifs-43r3-awicm-3.2+xios-2.5  # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:75,col:15
-  include_models:
-  - xios  # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:77,col:15
-  oasis_with_yac: false  # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:78,col:29
-  xios_interp_order: 2 # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:79,col:32
-  pool_dir: /work/ollie/jstreffi/input # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:140,col:35
-  nhour: 0 # no provenance info
-  nminute: 0 # no provenance info
-  nsecond: 0 # no provenance info
-  leapyear: true # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:393,col:19
-  calendar: esm_calendar object with allowed leap years # no provenance info
-  delta_date:
-  - 0  # no provenance info
-  - 0 # no provenance info
-  - 1 # no provenance info
-  - 0 # no provenance info
-  - 0 # no provenance info
-  - 0 # no provenance info
-  start_date: '2000-01-01T00:00:00'  # no provenance info
-  prev_date: '1999-12-31T00:00:00' # no provenance info
-  next_date: '2000-01-02T00:00:00' # no provenance info
-  last_start_date: '1999-12-31T00:00:00' # no provenance info
-  end_date: '2000-01-01T00:00:00' # no provenance info
-  runtime:
-  - 0  # no provenance info
-  - 0 # no provenance info
-  - 1 # no provenance info
-  - 24 # no provenance info
-  - 1440 # no provenance info
-  - 86400 # no provenance info
-  total_runtime:
-  - 0  # no provenance info
-  - 0 # no provenance info
-  - 1 # no provenance info
-  - 24 # no provenance info
-  - 1440 # no provenance info
-  - 86400 # no provenance info
-  run_datestamp: 20000101-20000101  # no provenance info
-  last_run_datestamp: 19991231-19991231 # no provenance info
-  chunk_number: 1 # no provenance info
-  first_run_in_chunk: true # no provenance info
-  last_run_in_chunk: false # no provenance info
-  out_filetypes:
-  - analysis  # no provenance info
-  - log # no provenance info
-  - mon # no provenance info
-  - scripts # no provenance info
-  - ignore # no provenance info
-  - unknown # no provenance info
-  - outdata # no provenance info
-  - restart_out # no provenance info
-  in_filetypes:
-  - scripts  # no provenance info
-  - input # no provenance info
-  - forcing # no provenance info
-  - bin # no provenance info
-  - config # no provenance info
-  - restart_in # no provenance info
-  potentially_reusable_filetypes:
-  - analysis  # no provenance info
-  - config # no provenance info
-  - log # no provenance info
-  - mon # no provenance info
-  - couple # no provenance info
-  - scripts # no provenance info
-  - ignore # no provenance info
-  - unknown # no provenance info
-  - src # no provenance info
-  - scripts # no provenance info
-  - input # no provenance info
-  - forcing # no provenance info
-  - bin # no provenance info
-  - config # no provenance info
-  - restart_in # no provenance info
-  thisrun_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101  # no provenance info
-  experiment_analysis_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/analysis/ # no provenance info
-  experiment_config_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/config/ # no provenance info
-  experiment_log_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/log/ # no provenance info
-  experiment_mon_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/mon/ # no provenance info
-  experiment_couple_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/couple/ # no provenance info
-  experiment_scripts_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/scripts/ # no provenance info
-  experiment_ignore_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/ignore/ # no provenance info
-  experiment_unknown_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/unknown/ # no provenance info
-  experiment_src_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/src/ # no provenance info
-  all_filetypes:
-  - analysis  # no provenance info
-  - config # no provenance info
-  - log # no provenance info
-  - mon # no provenance info
-  - couple # no provenance info
-  - scripts # no provenance info
-  - ignore # no provenance info
-  - unknown # no provenance info
-  - src # no provenance info
-  - work # no provenance info
-  thisrun_analysis_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/analysis/  # no provenance info
-  thisrun_config_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/config/ # no provenance info
-  thisrun_log_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/log/ # no provenance info
-  thisrun_mon_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/mon/ # no provenance info
-  thisrun_couple_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/couple/ # no provenance info
-  thisrun_scripts_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/scripts/ # no provenance info
-  thisrun_ignore_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/ignore/ # no provenance info
-  thisrun_unknown_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/unknown/ # no provenance info
-  thisrun_src_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/src/ # no provenance info
-  thisrun_work_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work/ # no provenance info
-  work_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work/ # no provenance info
-  all_model_filetypes:
-  - analysis  # no provenance info
-  - bin # no provenance info
-  - config # no provenance info
-  - forcing # no provenance info
-  - input # no provenance info
-  - couple # no provenance info
-  - log # no provenance info
-  - mon # no provenance info
-  - outdata # no provenance info
-  - restart_in # no provenance info
-  - restart_out # no provenance info
-  - viz # no provenance info
-  - ignore # no provenance info
-  workflow:
-    subjob_clusters:
-      prepcompute:
-        subjobs:
-        - prepcompute_general  # no provenance info
-        run_before: compute  # no provenance info
-        submit_to_batch_system: false # no provenance info
-        batch_or_shell: SimulationSetup # no provenance info
-        order_in_cluster: sequential # no provenance info
-        nproc: 1 # no provenance info
-        next_submit:
-        - compute  # no provenance info
-        called_from: tidy  # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:86,col:32
-      compute:
-        subjobs:
-        - compute_general  # no provenance info
-        submit_to_batch_system: true  # no provenance info
-        batch_or_shell: batch # no provenance info
-        run_on_queue: mpp # <CONFIGS_PATH>/machines/ollie.yaml,line:17,col:27
-        run_before: tidy # no provenance info
-        order_in_cluster: sequential # no provenance info
-        nproc: 308 # no provenance info
-        next_submit:
-        - tidy  # no provenance info
-        called_from: prepcompute  # no provenance info
-      tidy:
-        subjobs:
-        - tidy_general  # no provenance info
-        run_after: compute  # no provenance info
-        submit_to_batch_system: false # no provenance info
-        batch_or_shell: SimulationSetup # no provenance info
-        order_in_cluster: sequential # no provenance info
-        nproc: 1 # no provenance info
-        next_submit:
-        - Tripy_Fesom  # no provenance info
-        - prepcompute # no provenance info
-        called_from: compute  # no provenance info
-      Tripy_Fesom:
-        subjobs:
-        - Tripy_Fesom_fesom_general  # no provenance info
-        submit_to_batch_system: true  # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:94,col:41
-        order_in_cluster: concurrent # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:90,col:35
-        batch_or_shell: batch # no provenance info
-        run_on_queue: smp # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:91,col:31
-        run_after: tidy # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:92,col:28
-        nproc: 1 # no provenance info
-        next_submit: []
-        called_from: tidy  # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:92,col:28
-    subjobs:
-      prepcompute_general:
-        nproc: 1  # no provenance info
-        run_before: compute # no provenance info
-        subjob_cluster: prepcompute # no provenance info
-      compute_general:
-        nproc: 308  # no provenance info
-        run_before: tidy # no provenance info
-        submit_to_batch_system: true # no provenance info
-        run_on_queue: mpp # <CONFIGS_PATH>/machines/ollie.yaml,line:17,col:27
-        subjob_cluster: compute # no provenance info
-      tidy_general:
-        nproc: 1  # no provenance info
-        run_after: compute # no provenance info
-        subjob_cluster: tidy # no provenance info
-      Tripy_Fesom_fesom_general:
-        batch_or_shell: batch  # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:89,col:33
-        order_in_cluster: concurrent # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:90,col:35
-        run_on_queue: smp # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:91,col:31
-        run_after: tidy # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:92,col:28
-        script_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/scripts/fesom # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:93,col:29
-        submit_to_batch_system: true # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:94,col:41
-        script: Subjob_tripy.sh <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/outdata/fesom/ 2000-01-01T00:00:00 2000-01-02T00:00:00 2000-01-01T00:00:00 2000-01-04T00:00:00 /work/ollie/jstreffi/input/fesom2//core2/ <TEST_DIR>/run/awicm3/ awicm3-v3.2-TCO95L91-CORE2_initial NOT_SET False NOT_SET NOT_SET # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:95,col:25
-        nproc: 1 # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:96,col:24
-        subjob_cluster: Tripy_Fesom # no provenance info
-    last_task_in_queue: tidy  # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:86,col:32
-    first_task_in_queue: prepcompute # no provenance info
-    next_run_triggered_by: tidy # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:86,col:32
-  submitted: false  # no provenance info
-  jobid: 1619 # no provenance info
-  batch: slurm # no provenance info
-  coupler_config_dir: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/config/oasis3mct/ # no provenance info
-  coupler: oasis3mct # no provenance info
-  experiment_log_file: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/log//awicm3-v3.2-TCO95L91-CORE2_initial_awicm3.log # no provenance info
-  esm_tools_version: 6.62.1 # no provenance info
-  logfile_path: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/log//awicm3-v3.2-TCO95L91-CORE2_initial_awicm3_prepcompute_20000101-20000101_1619.log # no provenance info
-  logfile_path_in_run: <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/log//awicm3-v3.2-TCO95L91-CORE2_initial_awicm3_prepcompute_20000101-20000101_1619.log # no provenance info
-  relevant_filetypes:
-  - bin  # no provenance info
-  - config # no provenance info
-  - forcing # no provenance info
-  - input # no provenance info
-  - restart_in # no provenance info
-  file_movements:
-    bin:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:31,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:32,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:33,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:34,col:41
-    analysis:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    config:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    forcing:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    input:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    couple:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    log:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    mon:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    outdata:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    restart_in:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    restart_out:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    viz:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    ignore:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    scripts:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-    unknown:
-      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
 dask:
   ntasks: 9  # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:155,col:13
   init_scheduler_cmd: srun --ntasks=1 --nodes=1 --cpus-per-task=1 dask scheduler --scheduler-file <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//dask_scheduler.json --interface ib0 # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:156,col:25
