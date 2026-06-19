@@ -544,6 +544,7 @@ general:
   system_components:
   - general  # <CONFIGS_PATH>/defaults/general.yaml,line:2,col:21
   - dask # <CONFIGS_PATH>/defaults/general.yaml,line:2,col:32
+  - conda # <CONFIGS_PATH>/defaults/general.yaml,line:2,col:40
   - prev_run # no provenance info
   other_components: []
   standalone: false  # no provenance info
@@ -916,14 +917,14 @@ general:
     first_task_in_queue: prepcompute # no provenance info
     next_run_triggered_by: tidy # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:86,col:32
   submitted: false  # no provenance info
-  jobid: 1333 # no provenance info
+  jobid: 1177 # no provenance info
   batch: slurm # no provenance info
   coupler_config_dir: <TEST_DIR>/run/awicm3//awicm3-v3.4-TCO95L91-CORE2_initial/run_20000101-20000101/config/oasis3mct/ # no provenance info
   coupler: oasis3mct # no provenance info
   experiment_log_file: <TEST_DIR>/run/awicm3//awicm3-v3.4-TCO95L91-CORE2_initial/log//awicm3-v3.4-TCO95L91-CORE2_initial_awicm3.log # no provenance info
-  esm_tools_version: 6.62.4 # no provenance info
-  logfile_path: <TEST_DIR>/run/awicm3//awicm3-v3.4-TCO95L91-CORE2_initial/log//awicm3-v3.4-TCO95L91-CORE2_initial_awicm3_prepcompute_20000101-20000101_1333.log # no provenance info
-  logfile_path_in_run: <TEST_DIR>/run/awicm3//awicm3-v3.4-TCO95L91-CORE2_initial/run_20000101-20000101/log//awicm3-v3.4-TCO95L91-CORE2_initial_awicm3_prepcompute_20000101-20000101_1333.log # no provenance info
+  esm_tools_version: 6.63.1 # no provenance info
+  logfile_path: <TEST_DIR>/run/awicm3//awicm3-v3.4-TCO95L91-CORE2_initial/log//awicm3-v3.4-TCO95L91-CORE2_initial_awicm3_prepcompute_20000101-20000101_1177.log # no provenance info
+  logfile_path_in_run: <TEST_DIR>/run/awicm3//awicm3-v3.4-TCO95L91-CORE2_initial/run_20000101-20000101/log//awicm3-v3.4-TCO95L91-CORE2_initial_awicm3_prepcompute_20000101-20000101_1177.log # no provenance info
   relevant_filetypes:
   - bin  # no provenance info
   - config # no provenance info
@@ -1081,7 +1082,9 @@ computer:
   model: computer # no provenance info
   merge_component_envs:
     compile: true  # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:996,col:22
-  heterogeneous_parallelization: true  # no provenance info
+  post_run_commands: unset SLURM_HOSTFILE # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:65,col:40
+  launched_with_conda: false # no provenance info
+  heterogeneous_parallelization: true # no provenance info
   nothing: much # <CONFIGS_PATH>/machines/ollie.yaml,line:42,col:30
   cpu_bind: none # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:59,col:23
   fc: '"mpiifort -mkl"' # <CONFIGS_PATH>/machines/ollie.yaml,line:130,col:25
@@ -1094,7 +1097,6 @@ computer:
   execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=none --multi-prog hostfile_srun # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:85,col:40
   debugger_flags_prelauncher: '' # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:95,col:45
   srun_execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=none --multi-prog hostfile_srun # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:63,col:45
-  post_run_commands: unset SLURM_HOSTFILE # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:65,col:40
 oifs:
   model: oifs  # <CONFIGS_PATH>/components/oifs/oifs.yaml,line:5,col:12
   executable: OpenIFS # <CONFIGS_PATH>/components/oifs/oifs.yaml,line:336,col:21

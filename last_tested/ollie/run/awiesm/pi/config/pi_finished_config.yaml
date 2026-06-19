@@ -1597,6 +1597,9 @@ computer:
   nnodes_envvar: SLURM_JOB_NUM_NODES # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:151,col:20
   nnodes: 1 # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:152,col:13
   model: computer # no provenance info
+  post_run_commands:
+  - '@conda_activate@'  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:55,col:11
+  launched_with_conda: false  # no provenance info
   heterogeneous_parallelization: false # no provenance info
   nothing: much # <CONFIGS_PATH>/machines/ollie.yaml,line:42,col:30
   cpu_bind: cores # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:79,col:23
@@ -1626,6 +1629,7 @@ general:
   system_components:
   - general  # <CONFIGS_PATH>/defaults/general.yaml,line:2,col:21
   - dask # <CONFIGS_PATH>/defaults/general.yaml,line:2,col:32
+  - conda # <CONFIGS_PATH>/defaults/general.yaml,line:2,col:40
   - prev_run # no provenance info
   other_components: []
   standalone: false  # no provenance info
@@ -1976,14 +1980,14 @@ general:
     first_task_in_queue: prepcompute # no provenance info
     next_run_triggered_by: tidy # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:86,col:32
   submitted: false  # no provenance info
-  jobid: 1654 # no provenance info
+  jobid: 1657 # no provenance info
   batch: slurm # no provenance info
   coupler_config_dir: <TEST_DIR>/run/awiesm//pi/run_18500101-18500101/config/oasis3mct/ # no provenance info
   coupler: oasis3mct # no provenance info
   experiment_log_file: <TEST_DIR>/run/awiesm//pi/log//pi_awiesm.log # no provenance info
-  esm_tools_version: 6.62.4 # no provenance info
-  logfile_path: <TEST_DIR>/run/awiesm//pi/log//pi_awiesm_prepcompute_18500101-18500101_1654.log # no provenance info
-  logfile_path_in_run: <TEST_DIR>/run/awiesm//pi/run_18500101-18500101/log//pi_awiesm_prepcompute_18500101-18500101_1654.log # no provenance info
+  esm_tools_version: 6.63.1 # no provenance info
+  logfile_path: <TEST_DIR>/run/awiesm//pi/log//pi_awiesm_prepcompute_18500101-18500101_1657.log # no provenance info
+  logfile_path_in_run: <TEST_DIR>/run/awiesm//pi/run_18500101-18500101/log//pi_awiesm_prepcompute_18500101-18500101_1657.log # no provenance info
   relevant_filetypes:
   - bin  # no provenance info
   - config # no provenance info

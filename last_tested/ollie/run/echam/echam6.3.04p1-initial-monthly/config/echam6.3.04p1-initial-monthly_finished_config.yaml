@@ -401,6 +401,7 @@ general:
   system_components:
   - general  # <CONFIGS_PATH>/defaults/general.yaml,line:2,col:21
   - dask # <CONFIGS_PATH>/defaults/general.yaml,line:2,col:32
+  - conda # <CONFIGS_PATH>/defaults/general.yaml,line:2,col:40
   - prev_run # no provenance info
   other_components: []
   standalone: true  # no provenance info
@@ -682,12 +683,12 @@ general:
     first_task_in_queue: prepcompute # no provenance info
     next_run_triggered_by: tidy # no provenance info
   submitted: false  # no provenance info
-  jobid: 1550 # no provenance info
+  jobid: 1746 # no provenance info
   batch: slurm # no provenance info
   experiment_log_file: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/log//echam6.3.04p1-initial-monthly_echam.log # no provenance info
-  esm_tools_version: 6.62.4 # no provenance info
-  logfile_path: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/log//echam6.3.04p1-initial-monthly_echam_prepcompute_20000101-20000131_1550.log # no provenance info
-  logfile_path_in_run: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/log//echam6.3.04p1-initial-monthly_echam_prepcompute_20000101-20000131_1550.log # no provenance info
+  esm_tools_version: 6.63.1 # no provenance info
+  logfile_path: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/log//echam6.3.04p1-initial-monthly_echam_prepcompute_20000101-20000131_1746.log # no provenance info
+  logfile_path_in_run: <TEST_DIR>/run/echam//echam6.3.04p1-initial-monthly/run_20000101-20000131/log//echam6.3.04p1-initial-monthly_echam_prepcompute_20000101-20000131_1746.log # no provenance info
   relevant_filetypes:
   - bin  # no provenance info
   - config # no provenance info
@@ -990,7 +991,10 @@ computer:
     ACCOUNT: None  # no provenance info
     ESM_TESTING_DIR: <TEST_DIR>/run/echam/ # no provenance info
     MODEL_DIR: <TEST_DIR>/comp/echam/echam-6.3.04p1 # no provenance info
-  heterogeneous_parallelization: false  # no provenance info
+  post_run_commands:
+  - '@conda_activate@'  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:55,col:11
+  launched_with_conda: false  # no provenance info
+  heterogeneous_parallelization: false # no provenance info
   nothing: much # <CONFIGS_PATH>/machines/ollie.yaml,line:42,col:30
   cpu_bind: cores # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:79,col:23
   srun_execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=cores --multi-prog hostfile_srun # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:80,col:37

@@ -91,7 +91,7 @@ unset SLURM_MEM_PER_CPU
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 2000-01-01T00:00:00 1496 - start" >> <TEST_DIR>/run/awicm3//awicm3-v3.1-TCO95L91-CORE2_initial/log//awicm3-v3.1-TCO95L91-CORE2_initial_awicm3.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 2000-01-01T00:00:00 1121 - start" >> <TEST_DIR>/run/awicm3//awicm3-v3.1-TCO95L91-CORE2_initial/log//awicm3-v3.1-TCO95L91-CORE2_initial_awicm3.log
 
 cd <TEST_DIR>/run/awicm3//awicm3-v3.1-TCO95L91-CORE2_initial/run_20000101-20000101/work/
 
@@ -125,7 +125,6 @@ for model in fesom oifs rnfmap oasis3mct xios ;do
 done
 
 time srun -l --kill-on-bad-exit=1 --cpu_bind=none --multi-prog hostfile_srun 2>&1 &
-unset SLURM_HOSTFILE
 
 # Call to esm_runscript to start subjobs:
 # ['tidy']
@@ -133,11 +132,12 @@ process=$!
 
 # Recover batch system environment variables
 source <TEST_DIR>/run/awicm3//awicm3-v3.1-TCO95L91-CORE2_initial/run_20000101-20000101/work//batch_system.env; rm <TEST_DIR>/run/awicm3//awicm3-v3.1-TCO95L91-CORE2_initial/run_20000101-20000101/work//batch_system.env
+unset SLURM_HOSTFILE
 
 # Comment the following line if you don't want esm_runscripts to restart:
 cd <TEST_DIR>/run/awicm3//awicm3-v3.1-TCO95L91-CORE2_initial/scripts/
 esm_runscripts awicm3-v3.1-TCO95L91-CORE2_initial.yaml -e awicm3-v3.1-TCO95L91-CORE2_initial -t observe_compute -p ${process} -s 20000101 -r 1 -v --last-jobtype prepcompute --open-run
 
-echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 2000-01-01T00:00:00 1496 - done" >> <TEST_DIR>/run/awicm3//awicm3-v3.1-TCO95L91-CORE2_initial/log//awicm3-v3.1-TCO95L91-CORE2_initial_awicm3.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 2000-01-01T00:00:00 1121 - done" >> <TEST_DIR>/run/awicm3//awicm3-v3.1-TCO95L91-CORE2_initial/log//awicm3-v3.1-TCO95L91-CORE2_initial_awicm3.log
 
 wait
