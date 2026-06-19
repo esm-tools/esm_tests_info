@@ -17,7 +17,6 @@ module load cdo/2.0.5
 module load nco/5.0.1
 module load git/2.35.2
 module load perl/5.35.0-gcc12.1.0
-module load python/3.9.12
 module list
 
 export LC_ALL=en_US.UTF-8

@@ -1446,7 +1446,7 @@ computer:
       _value: $(pwd)/lib/  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:660,col:21
       _execution_mode: compile # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:661,col:30
       _component: echam # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:662,col:25
-      _old_value: '"-L$NETCDFFROOT/lib -lnetcdff"' # <CONFIGS_PATH>/machines/albedo.yaml,line:206,col:27
+      _old_value: '"-L$NETCDFFROOT/lib -lnetcdff"' # <CONFIGS_PATH>/machines/albedo.yaml,line:213,col:27
     OASIS3MCTROOT:
       _value: $(pwd)/oasis/  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:664,col:21
       _execution_mode: compile # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:665,col:30
@@ -1488,61 +1488,61 @@ computer:
   additional_flags:
   - --qos=12h  # <CONFIGS_PATH>/machines/albedo.yaml,line:69,col:24
   - --comment='no-switch-enforce' # <CONFIGS_PATH>/machines/albedo.yaml,line:69,col:40
-  mkl_module: intel-oneapi-mkl/2022.1.0-gcc12.1.0  # <CONFIGS_PATH>/machines/albedo.yaml,line:71,col:17
-  mkl_root: /albedo/soft/sw/spack-sw/intel-oneapi-mkl/2022.1.0-akthm3n/mkl/2022.1.0 # <CONFIGS_PATH>/machines/albedo.yaml,line:72,col:15
-  tbb_root: /albedo/soft/sw/spack-sw/intel-oneapi-mkl/2022.1.0-akthm3n/tbb/latest # <CONFIGS_PATH>/machines/albedo.yaml,line:73,col:15
-  mpi_implementation: openmpi_2022 # <CONFIGS_PATH>/machines/albedo.yaml,line:75,col:25
-  compiler_suite: intel-oneapi # <CONFIGS_PATH>/machines/albedo.yaml,line:115,col:21
+  load_python: false  # <CONFIGS_PATH>/machines/albedo.yaml,line:71,col:18
+  mkl_module: intel-oneapi-mkl/2022.1.0-gcc12.1.0 # <CONFIGS_PATH>/machines/albedo.yaml,line:78,col:17
+  mkl_root: /albedo/soft/sw/spack-sw/intel-oneapi-mkl/2022.1.0-akthm3n/mkl/2022.1.0 # <CONFIGS_PATH>/machines/albedo.yaml,line:79,col:15
+  tbb_root: /albedo/soft/sw/spack-sw/intel-oneapi-mkl/2022.1.0-akthm3n/tbb/latest # <CONFIGS_PATH>/machines/albedo.yaml,line:80,col:15
+  mpi_implementation: openmpi_2022 # <CONFIGS_PATH>/machines/albedo.yaml,line:82,col:25
+  compiler_suite: intel-oneapi # <CONFIGS_PATH>/machines/albedo.yaml,line:122,col:21
   module_actions:
-  - purge  # <CONFIGS_PATH>/machines/albedo.yaml,line:154,col:11
-  - load cmake # <CONFIGS_PATH>/machines/albedo.yaml,line:156,col:11
-  - load intel-oneapi-compilers/2022.1.0 # <CONFIGS_PATH>/machines/albedo.yaml,line:158,col:11
-  - load intel-oneapi-mkl/2022.1.0-gcc12.1.0 # <CONFIGS_PATH>/machines/albedo.yaml,line:159,col:11
-  - load openmpi/4.1.3-intel2021.6.0 # <CONFIGS_PATH>/machines/albedo.yaml,line:161,col:11
-  - load udunits/2.2.28 # <CONFIGS_PATH>/machines/albedo.yaml,line:163,col:11
-  - load hdf5/1.12.2-openmpi4.1.3-intel2021.6.0 # <CONFIGS_PATH>/machines/albedo.yaml,line:164,col:11
-  - load netcdf-c/4.8.1-openmpi4.1.3-intel2021.6.0 # <CONFIGS_PATH>/machines/albedo.yaml,line:165,col:11
-  - load netcdf-fortran/4.5.4-openmpi4.1.3-intel2021.6.0 # <CONFIGS_PATH>/machines/albedo.yaml,line:166,col:11
-  - load netcdf-cxx4/4.3.1-openmpi4.1.3-intel2021.6.0 # <CONFIGS_PATH>/machines/albedo.yaml,line:167,col:11
-  - load eccodes/2.25.0-openmpi4.1.3-intel2021.6.0 # <CONFIGS_PATH>/machines/albedo.yaml,line:168,col:11
-  - load libaec/1.0.6-intel2021.6.0 # <CONFIGS_PATH>/machines/albedo.yaml,line:169,col:11
-  - load cdo/2.0.5 # <CONFIGS_PATH>/machines/albedo.yaml,line:171,col:11
-  - load nco/5.0.1 # <CONFIGS_PATH>/machines/albedo.yaml,line:172,col:11
-  - load git/2.35.2 # <CONFIGS_PATH>/machines/albedo.yaml,line:173,col:11
-  - load perl/5.35.0-gcc12.1.0 # <CONFIGS_PATH>/machines/albedo.yaml,line:174,col:11
-  - load python/3.9.12 # <CONFIGS_PATH>/machines/albedo.yaml,line:175,col:11
-  - list # <CONFIGS_PATH>/machines/albedo.yaml,line:177,col:11
+  - purge  # <CONFIGS_PATH>/machines/albedo.yaml,line:161,col:11
+  - load cmake # <CONFIGS_PATH>/machines/albedo.yaml,line:163,col:11
+  - load intel-oneapi-compilers/2022.1.0 # <CONFIGS_PATH>/machines/albedo.yaml,line:165,col:11
+  - load intel-oneapi-mkl/2022.1.0-gcc12.1.0 # <CONFIGS_PATH>/machines/albedo.yaml,line:166,col:11
+  - load openmpi/4.1.3-intel2021.6.0 # <CONFIGS_PATH>/machines/albedo.yaml,line:168,col:11
+  - load udunits/2.2.28 # <CONFIGS_PATH>/machines/albedo.yaml,line:170,col:11
+  - load hdf5/1.12.2-openmpi4.1.3-intel2021.6.0 # <CONFIGS_PATH>/machines/albedo.yaml,line:171,col:11
+  - load netcdf-c/4.8.1-openmpi4.1.3-intel2021.6.0 # <CONFIGS_PATH>/machines/albedo.yaml,line:172,col:11
+  - load netcdf-fortran/4.5.4-openmpi4.1.3-intel2021.6.0 # <CONFIGS_PATH>/machines/albedo.yaml,line:173,col:11
+  - load netcdf-cxx4/4.3.1-openmpi4.1.3-intel2021.6.0 # <CONFIGS_PATH>/machines/albedo.yaml,line:174,col:11
+  - load eccodes/2.25.0-openmpi4.1.3-intel2021.6.0 # <CONFIGS_PATH>/machines/albedo.yaml,line:175,col:11
+  - load libaec/1.0.6-intel2021.6.0 # <CONFIGS_PATH>/machines/albedo.yaml,line:176,col:11
+  - load cdo/2.0.5 # <CONFIGS_PATH>/machines/albedo.yaml,line:178,col:11
+  - load nco/5.0.1 # <CONFIGS_PATH>/machines/albedo.yaml,line:179,col:11
+  - load git/2.35.2 # <CONFIGS_PATH>/machines/albedo.yaml,line:180,col:11
+  - load perl/5.35.0-gcc12.1.0 # <CONFIGS_PATH>/machines/albedo.yaml,line:181,col:11
+  - list # <CONFIGS_PATH>/machines/albedo.yaml,line:184,col:11
   export_vars:
-    LC_ALL: en_US.UTF-8  # <CONFIGS_PATH>/machines/albedo.yaml,line:181,col:17
-    FC: mpif90 # <CONFIGS_PATH>/machines/albedo.yaml,line:184,col:13
-    F77: mpif90 # <CONFIGS_PATH>/machines/albedo.yaml,line:185,col:14
-    MPIFC: mpif90 # <CONFIGS_PATH>/machines/albedo.yaml,line:186,col:16
-    MPICC: mpicc # <CONFIGS_PATH>/machines/albedo.yaml,line:187,col:16
-    CC: mpicc # <CONFIGS_PATH>/machines/albedo.yaml,line:188,col:13
-    CXX: mpic++ # <CONFIGS_PATH>/machines/albedo.yaml,line:189,col:14
-    CPU_MODEL: AMD_EPYC_ZEN2 # <CONFIGS_PATH>/machines/albedo.yaml,line:191,col:20
-    FESOM_PLATFORM_STRATEGY: albedo # <CONFIGS_PATH>/machines/albedo.yaml,line:192,col:34
-    PERL5LIB: /albedo/soft/sw/spack-sw/perl-uri/1.72-epj7s32/lib/perl5:/albedo/soft/sw/spack-sw/perl/5.35.0-asf6m5t/lib # <CONFIGS_PATH>/machines/albedo.yaml,line:195,col:19
-    HDF5ROOT: /albedo/soft/sw/spack-sw/hdf5/1.12.2-mstdrjw/ # <CONFIGS_PATH>/machines/albedo.yaml,line:93,col:27
-    NETCDFROOT: /albedo/soft/sw/spack-sw/netcdf-c/4.8.1-vvxxdc3/ # <CONFIGS_PATH>/machines/albedo.yaml,line:94,col:29
-    NETCDFFROOT: /albedo/soft/sw/spack-sw/netcdf-fortran/4.5.4-uwfs3bu/ # <CONFIGS_PATH>/machines/albedo.yaml,line:95,col:30
-    ECCODESROOT: /albedo/soft/sw/spack-sw/eccodes/2.25.0-vn2k575/ # <CONFIGS_PATH>/machines/albedo.yaml,line:96,col:30
-    OASIS_NETCDF: $NETCDFROOT # <CONFIGS_PATH>/machines/albedo.yaml,line:203,col:23
-    OASIS_NETCDFF: $NETCDFFROOT # <CONFIGS_PATH>/machines/albedo.yaml,line:204,col:24
+    LC_ALL: en_US.UTF-8  # <CONFIGS_PATH>/machines/albedo.yaml,line:188,col:17
+    FC: mpif90 # <CONFIGS_PATH>/machines/albedo.yaml,line:191,col:13
+    F77: mpif90 # <CONFIGS_PATH>/machines/albedo.yaml,line:192,col:14
+    MPIFC: mpif90 # <CONFIGS_PATH>/machines/albedo.yaml,line:193,col:16
+    MPICC: mpicc # <CONFIGS_PATH>/machines/albedo.yaml,line:194,col:16
+    CC: mpicc # <CONFIGS_PATH>/machines/albedo.yaml,line:195,col:13
+    CXX: mpic++ # <CONFIGS_PATH>/machines/albedo.yaml,line:196,col:14
+    CPU_MODEL: AMD_EPYC_ZEN2 # <CONFIGS_PATH>/machines/albedo.yaml,line:198,col:20
+    FESOM_PLATFORM_STRATEGY: albedo # <CONFIGS_PATH>/machines/albedo.yaml,line:199,col:34
+    PERL5LIB: /albedo/soft/sw/spack-sw/perl-uri/1.72-epj7s32/lib/perl5:/albedo/soft/sw/spack-sw/perl/5.35.0-asf6m5t/lib # <CONFIGS_PATH>/machines/albedo.yaml,line:202,col:19
+    HDF5ROOT: /albedo/soft/sw/spack-sw/hdf5/1.12.2-mstdrjw/ # <CONFIGS_PATH>/machines/albedo.yaml,line:100,col:27
+    NETCDFROOT: /albedo/soft/sw/spack-sw/netcdf-c/4.8.1-vvxxdc3/ # <CONFIGS_PATH>/machines/albedo.yaml,line:101,col:29
+    NETCDFFROOT: /albedo/soft/sw/spack-sw/netcdf-fortran/4.5.4-uwfs3bu/ # <CONFIGS_PATH>/machines/albedo.yaml,line:102,col:30
+    ECCODESROOT: /albedo/soft/sw/spack-sw/eccodes/2.25.0-vn2k575/ # <CONFIGS_PATH>/machines/albedo.yaml,line:103,col:30
+    OASIS_NETCDF: $NETCDFROOT # <CONFIGS_PATH>/machines/albedo.yaml,line:210,col:23
+    OASIS_NETCDFF: $NETCDFFROOT # <CONFIGS_PATH>/machines/albedo.yaml,line:211,col:24
     OASIS3MCT_FC_LIB:
       _value: $(pwd)/lib/  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:660,col:21
       _execution_mode: compile # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:661,col:30
       _component: echam # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:662,col:25
-      _old_value: '"-L$NETCDFFROOT/lib -lnetcdff"' # <CONFIGS_PATH>/machines/albedo.yaml,line:206,col:27
-    MPIROOT: $(mpif90 -show | perl -lne 'm{ -I(.*?)/include } and print $1') # <CONFIGS_PATH>/machines/albedo.yaml,line:211,col:18
-    MPI_LIB: $(mpif90 -show |sed -e 's/^[^ ]*//' -e 's/-[I][^ ]*//g') # <CONFIGS_PATH>/machines/albedo.yaml,line:212,col:18
-    OMPI_MCA_io: romio321 # <CONFIGS_PATH>/machines/albedo.yaml,line:215,col:22
-    LAPACK_LIB: "'-L/albedo/soft/sw/spack-sw/intel-oneapi-mkl/2022.1.0-akthm3n/mkl/2022.1.0 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential -lm -ldl'" # <CONFIGS_PATH>/machines/albedo.yaml,line:221,col:21
-    TBBROOT: /albedo/soft/sw/spack-sw/intel-oneapi-mkl/2022.1.0-akthm3n/tbb/latest # <CONFIGS_PATH>/machines/albedo.yaml,line:224,col:18
-    LD_LIBRARY_PATH[(0)]: $HDF5ROOT/lib:$NETCDFROOT/lib:$NETCDFFROOT/lib:$LD_LIBRARY_PATH # <CONFIGS_PATH>/machines/albedo.yaml,line:226,col:31
-    LD_LIBRARY_PATH[(1)]: /albedo/soft/sw/spack-sw/intel-oneapi-mkl/2022.1.0-akthm3n/mkl/2022.1.0/lib/intel64:/albedo/soft/sw/spack-sw/intel-oneapi-mkl/2022.1.0-akthm3n/tbb/latest/lib/intel64/gcc4.8:$LD_LIBRARY_PATH # <CONFIGS_PATH>/machines/albedo.yaml,line:227,col:31
-    PATH[(1)]: $PERL5LIB/../bin:$PATH # <CONFIGS_PATH>/machines/albedo.yaml,line:229,col:20
-    PATH[(2)]: $PATH:$ECCODESROOT/bin # <CONFIGS_PATH>/machines/albedo.yaml,line:230,col:20
+      _old_value: '"-L$NETCDFFROOT/lib -lnetcdff"' # <CONFIGS_PATH>/machines/albedo.yaml,line:213,col:27
+    MPIROOT: $(mpif90 -show | perl -lne 'm{ -I(.*?)/include } and print $1') # <CONFIGS_PATH>/machines/albedo.yaml,line:218,col:18
+    MPI_LIB: $(mpif90 -show |sed -e 's/^[^ ]*//' -e 's/-[I][^ ]*//g') # <CONFIGS_PATH>/machines/albedo.yaml,line:219,col:18
+    OMPI_MCA_io: romio321 # <CONFIGS_PATH>/machines/albedo.yaml,line:222,col:22
+    LAPACK_LIB: "'-L/albedo/soft/sw/spack-sw/intel-oneapi-mkl/2022.1.0-akthm3n/mkl/2022.1.0 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential -lm -ldl'" # <CONFIGS_PATH>/machines/albedo.yaml,line:228,col:21
+    TBBROOT: /albedo/soft/sw/spack-sw/intel-oneapi-mkl/2022.1.0-akthm3n/tbb/latest # <CONFIGS_PATH>/machines/albedo.yaml,line:231,col:18
+    LD_LIBRARY_PATH[(0)]: $HDF5ROOT/lib:$NETCDFROOT/lib:$NETCDFFROOT/lib:$LD_LIBRARY_PATH # <CONFIGS_PATH>/machines/albedo.yaml,line:233,col:31
+    LD_LIBRARY_PATH[(1)]: /albedo/soft/sw/spack-sw/intel-oneapi-mkl/2022.1.0-akthm3n/mkl/2022.1.0/lib/intel64:/albedo/soft/sw/spack-sw/intel-oneapi-mkl/2022.1.0-akthm3n/tbb/latest/lib/intel64/gcc4.8:$LD_LIBRARY_PATH # <CONFIGS_PATH>/machines/albedo.yaml,line:234,col:31
+    PATH[(1)]: $PERL5LIB/../bin:$PATH # <CONFIGS_PATH>/machines/albedo.yaml,line:236,col:20
+    PATH[(2)]: $PATH:$ECCODESROOT/bin # <CONFIGS_PATH>/machines/albedo.yaml,line:237,col:20
     LD_LIBRARY_PATH[(100)]: <TEST_DIR>/run/awiesm//pi/run_18500101-18500101/work//lib/oasis/:$LD_LIBRARY_PATH # <CONFIGS_PATH>/components/oasis3mct/oasis3mct.env.yaml,line:33,col:41
     USER: <USER_ACCOUNT> # no provenance info
     OIFS_OASIS_BASE:
@@ -1615,23 +1615,24 @@ computer:
   - '@conda_activate@'  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:55,col:11
   launched_with_conda: true  # no provenance info
   heterogeneous_parallelization: false # no provenance info
-  cpu_bind: cores # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:79,col:23
+  load_python_command: []
+  cpu_bind: cores  # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:79,col:23
   srun_execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=cores --multi-prog hostfile_srun # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:80,col:37
-  mpi_module: openmpi/4.1.3-intel2021.6.0 # <CONFIGS_PATH>/machines/albedo.yaml,line:83,col:25
-  mpi_implementation_suffix: openmpi4.1.3 # <CONFIGS_PATH>/machines/albedo.yaml,line:84,col:40
-  hdf5_module: hdf5/1.12.2-openmpi4.1.3-intel2021.6.0 # <CONFIGS_PATH>/machines/albedo.yaml,line:85,col:26
-  netcdfc_module: netcdf-c/4.8.1-openmpi4.1.3-intel2021.6.0 # <CONFIGS_PATH>/machines/albedo.yaml,line:86,col:29
-  netcdff_module: netcdf-fortran/4.5.4-openmpi4.1.3-intel2021.6.0 # <CONFIGS_PATH>/machines/albedo.yaml,line:87,col:29
-  netcdfcxx_module: netcdf-cxx4/4.3.1-openmpi4.1.3-intel2021.6.0 # <CONFIGS_PATH>/machines/albedo.yaml,line:88,col:31
-  eccodes_module: eccodes/2.25.0-openmpi4.1.3-intel2021.6.0 # <CONFIGS_PATH>/machines/albedo.yaml,line:89,col:29
-  compiler_module: intel-oneapi-compilers/2022.1.0 # <CONFIGS_PATH>/machines/albedo.yaml,line:141,col:30
-  libaec_module: libaec/1.0.6-intel2021.6.0 # <CONFIGS_PATH>/machines/albedo.yaml,line:142,col:28
-  fc: mpif90 # <CONFIGS_PATH>/machines/albedo.yaml,line:144,col:17
-  f77: mpif90 # <CONFIGS_PATH>/machines/albedo.yaml,line:145,col:18
-  mpifc: mpif90 # <CONFIGS_PATH>/machines/albedo.yaml,line:146,col:20
-  mpicc: mpicc # <CONFIGS_PATH>/machines/albedo.yaml,line:147,col:20
-  cc: mpicc # <CONFIGS_PATH>/machines/albedo.yaml,line:148,col:17
-  cxx: mpic++ # <CONFIGS_PATH>/machines/albedo.yaml,line:149,col:18
+  mpi_module: openmpi/4.1.3-intel2021.6.0 # <CONFIGS_PATH>/machines/albedo.yaml,line:90,col:25
+  mpi_implementation_suffix: openmpi4.1.3 # <CONFIGS_PATH>/machines/albedo.yaml,line:91,col:40
+  hdf5_module: hdf5/1.12.2-openmpi4.1.3-intel2021.6.0 # <CONFIGS_PATH>/machines/albedo.yaml,line:92,col:26
+  netcdfc_module: netcdf-c/4.8.1-openmpi4.1.3-intel2021.6.0 # <CONFIGS_PATH>/machines/albedo.yaml,line:93,col:29
+  netcdff_module: netcdf-fortran/4.5.4-openmpi4.1.3-intel2021.6.0 # <CONFIGS_PATH>/machines/albedo.yaml,line:94,col:29
+  netcdfcxx_module: netcdf-cxx4/4.3.1-openmpi4.1.3-intel2021.6.0 # <CONFIGS_PATH>/machines/albedo.yaml,line:95,col:31
+  eccodes_module: eccodes/2.25.0-openmpi4.1.3-intel2021.6.0 # <CONFIGS_PATH>/machines/albedo.yaml,line:96,col:29
+  compiler_module: intel-oneapi-compilers/2022.1.0 # <CONFIGS_PATH>/machines/albedo.yaml,line:148,col:30
+  libaec_module: libaec/1.0.6-intel2021.6.0 # <CONFIGS_PATH>/machines/albedo.yaml,line:149,col:28
+  fc: mpif90 # <CONFIGS_PATH>/machines/albedo.yaml,line:151,col:17
+  f77: mpif90 # <CONFIGS_PATH>/machines/albedo.yaml,line:152,col:18
+  mpifc: mpif90 # <CONFIGS_PATH>/machines/albedo.yaml,line:153,col:20
+  mpicc: mpicc # <CONFIGS_PATH>/machines/albedo.yaml,line:154,col:20
+  cc: mpicc # <CONFIGS_PATH>/machines/albedo.yaml,line:155,col:17
+  cxx: mpic++ # <CONFIGS_PATH>/machines/albedo.yaml,line:156,col:18
   accounting_flag: --account=computing.computing # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:28,col:38
   launcher_flags: -l --kill-on-bad-exit=1 --cpu_bind=cores # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:84,col:37
   execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=cores --multi-prog hostfile_srun # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:85,col:40
@@ -2003,14 +2004,14 @@ general:
     first_task_in_queue: prepcompute # no provenance info
     next_run_triggered_by: tidy # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:86,col:32
   submitted: false  # no provenance info
-  jobid: 884476 # no provenance info
+  jobid: 3681542 # no provenance info
   batch: slurm # no provenance info
   coupler_config_dir: <TEST_DIR>/run/awiesm//pi/run_18500101-18500101/config/oasis3mct/ # no provenance info
   coupler: oasis3mct # no provenance info
   experiment_log_file: <TEST_DIR>/run/awiesm//pi/log//pi_awiesm.log # no provenance info
   esm_tools_version: 6.63.0 # no provenance info
-  logfile_path: <TEST_DIR>/run/awiesm//pi/log//pi_awiesm_prepcompute_18500101-18500101_884476.log # no provenance info
-  logfile_path_in_run: <TEST_DIR>/run/awiesm//pi/run_18500101-18500101/log//pi_awiesm_prepcompute_18500101-18500101_884476.log # no provenance info
+  logfile_path: <TEST_DIR>/run/awiesm//pi/log//pi_awiesm_prepcompute_18500101-18500101_3681542.log # no provenance info
+  logfile_path_in_run: <TEST_DIR>/run/awiesm//pi/run_18500101-18500101/log//pi_awiesm_prepcompute_18500101-18500101_3681542.log # no provenance info
   relevant_filetypes:
   - bin  # no provenance info
   - config # no provenance info

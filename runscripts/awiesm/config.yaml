@@ -11,10 +11,14 @@ run:
                     - "Coupling var not found"
                 files:
                     - "restart/echam/restart*.nc*"
-                    - "restart/fesom/fesom.*.oce.restart.nc*"
-                    - "restart/fesom/fesom.*.ice.restart.nc*"
                     - "outdata/echam/*"
-                    # no daily output - "outdata/fesom/*.fesom.*.nc"
+                    # Files specific to versions 2
+                    - "outdata/fesom/*.fesom.*.nc except [2.1]" # no daily output for 2.1
+                    - "restart/fesom/fesom.*.oce.restart.nc* except [2.6.2]"
+                    - "restart/fesom/fesom.*.ice.restart.nc* except [ 2.6.2]"
+                    # Files specific to version 2.6
+                    - "restart/fesom/fesom.*.oce.restart/*.nc in [2.6.2]"
+                    - "restart/fesom/fesom.*.ice.restart/*.nc in [2.6.2]"
         check: {}
 
 ignore_compare:
@@ -48,3 +52,4 @@ ignore_runscripts:
         - PI_ctrl_awiesm-2.1-wiso.yaml
         - awiesm-2.1_icebergs.yaml
         - pico.yaml
+        - pi-wiso.yaml

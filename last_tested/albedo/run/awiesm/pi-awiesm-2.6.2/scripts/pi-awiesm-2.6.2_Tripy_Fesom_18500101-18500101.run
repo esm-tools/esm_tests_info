@@ -2,8 +2,8 @@
 #SBATCH --partition=smp
 #SBATCH --time=02:00:00
 #SBATCH --ntasks=1
-#SBATCH --output=<TEST_DIR>/run/awiesm//pi/log/pi_awiesm_Tripy_Fesom_18500101-18500101_%j.log --error=<TEST_DIR>/run/awiesm//pi/log/pi_awiesm_Tripy_Fesom_18500101-18500101_%j.log
-#SBATCH --job-name=pi
+#SBATCH --output=<TEST_DIR>/run/awiesm//pi-awiesm-2.6.2/log/pi-awiesm-2.6.2_awiesm_Tripy_Fesom_18500101-18500101_%j.log --error=<TEST_DIR>/run/awiesm//pi-awiesm-2.6.2/log/pi-awiesm-2.6.2_awiesm_Tripy_Fesom_18500101-18500101_%j.log
+#SBATCH --job-name=pi-awiesm-2.6.2
 #SBATCH --account=computing.computing
 #SBATCH --mail-type=NONE
 #SBATCH --qos=12h
@@ -11,7 +11,7 @@
 #SBATCH --exclusive
 
 # Store batch system environment variables for later sourcing
-declare -p | grep -E "(SLURM)" > <TEST_DIR>/run/awiesm//pi/run_18500101-18500101/work//batch_system.env
+declare -p | grep -E "(SLURM)" > <TEST_DIR>/run/awiesm//pi-awiesm-2.6.2/run_18500101-18500101/work//batch_system.env
 
 module purge
 module load cmake
@@ -57,10 +57,11 @@ export LD_LIBRARY_PATH=$HDF5ROOT/lib:$NETCDFROOT/lib:$NETCDFFROOT/lib:$LD_LIBRAR
 export LD_LIBRARY_PATH=/albedo/soft/sw/spack-sw/intel-oneapi-mkl/2022.1.0-akthm3n/mkl/2022.1.0/lib/intel64:/albedo/soft/sw/spack-sw/intel-oneapi-mkl/2022.1.0-akthm3n/tbb/latest/lib/intel64/gcc4.8:$LD_LIBRARY_PATH
 export PATH=$PERL5LIB/../bin:$PATH
 export PATH=$PATH:$ECCODESROOT/bin
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:<TEST_DIR>/run/awiesm//pi-awiesm-2.6.2/run_18500101-18500101/work//lib/fesom/
 export USER=<USER_ACCOUNT>
 export ACCOUNT=computing.computing
 export ESM_TESTING_DIR=<TEST_DIR>/run/awiesm/
-export MODEL_DIR=<TEST_DIR>/comp/awiesm/awiesm-2.1
+export MODEL_DIR=<TEST_DIR>/comp/awiesm/awiesm-2.6.2
 export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 
 unset SLURM_MEM_PER_NODE
@@ -70,9 +71,9 @@ unset SLURM_MEM_PER_CPU
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | Tripy_Fesom_fesom 1 1850-01-01T00:00:00 44992751 - start" >> <TEST_DIR>/run/awiesm//pi/log//pi_awiesm.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | Tripy_Fesom_fesom 1 1850-01-01T00:00:00 45014450 - start" >> <TEST_DIR>/run/awiesm//pi-awiesm-2.6.2/log//pi-awiesm-2.6.2_awiesm.log
 
-cd <TEST_DIR>/run/awiesm//pi/run_18500101-18500101/work/
-time srun -l --kill-on-bad-exit=1 --cpu_bind=cores <TEST_DIR>/run/awiesm//pi/scripts/fesom/Subjob_tripy.sh <TEST_DIR>/run/awiesm//pi/outdata/fesom/ 1850-01-01T00:00:00 1850-01-02T00:00:00 1850-01-01T00:00:00 1850-01-04T00:00:00 /albedo/pool/FESOM2//core2/ <TEST_DIR>/run/awiesm/ pi conda False NOT_SET NOT_SET 2>&1 &
+cd <TEST_DIR>/run/awiesm//pi-awiesm-2.6.2/run_18500101-18500101/work/
+time srun -l --kill-on-bad-exit=1 --cpu_bind=cores <TEST_DIR>/run/awiesm//pi-awiesm-2.6.2/scripts/fesom/Subjob_tripy.sh <TEST_DIR>/run/awiesm//pi-awiesm-2.6.2/outdata/fesom/ 1850-01-01T00:00:00 1850-01-02T00:00:00 1850-01-01T00:00:00 1850-01-04T00:00:00 /albedo/pool/FESOM2//core2/ <TEST_DIR>/run/awiesm/ pi-awiesm-2.6.2 conda False NOT_SET NOT_SET 2>&1 &
 
 wait
