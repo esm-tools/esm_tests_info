@@ -6,7 +6,7 @@ general:
 
    compute_time: "00:15:00"
    initial_date: "1850-01-01T00:00:00"       # Initial exp. date
-   final_date: "1850-01-04T00:00:00"         # Final date of the experiment
+   final_date: "1850-01-03T00:00:00"         # Final date of the experiment
    postprocessing: 0
    nday: 1
 
@@ -35,3 +35,9 @@ nemo:
    #
 xios:
    nproc: 8
+oasis3mct:
+    # Needed so that the tests in the GitHub machines can run
+    # otherwise the tests fail
+    choose_general.check:
+        True:
+            ini_parent_dir: "${general.esm_configs_dir}/../src/esm_tests/resources/runscripts/foci/run_files4check_runs/foci-initial-piCtl-test_daily_restart_lowcpu/"

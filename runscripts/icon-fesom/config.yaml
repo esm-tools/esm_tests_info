@@ -1,0 +1,22 @@
+comp:
+        actual:
+                files:
+                    - "bin/icon"
+                    - "bin/fesom.x"
+        check: {}
+run:
+        actual:
+                errors:
+                    - "MISSING FILES"
+                files:
+                    - "outdata/icon/*_atm_2d_ml_*"
+                    - "outdata/icon/*_atm_3d_ml_*"
+                    - "outdata/icon/*_atm_mon_*"
+                    - "outdata/fesom/*.fesom.*.nc"
+                    - "restart/icon/*_restart_atm_*.mfr/*.nc"
+                    - "restart/fesom/fesom.*.oce.restart/*.nc"
+                    - "restart/fesom/fesom.*.ice.restart/*.nc"
+        check: {}
+computers:
+        - levante
+        - glogin

@@ -24,6 +24,8 @@ export NETCDFROOT=$NETCDF_DIR
 export NETCDF_Fortran_INCLUDE_DIRECTORIES=$NETCDFROOT/include
 export NETCDF_CXX_INCLUDE_DIRECTORIES=$NETCDFROOT/include
 export NETCDF_CXX_LIBRARIES=$NETCDFROOT/lib
+export OASIS_NETCDF=$NETCDF_DIR
+export OASIS_NETCDFF=$NETCDF_DIR
 export PERL5LIB=/usr/lib64/perl5
 export XML2ROOT=/usr
 export ZLIBROOT=/usr
@@ -38,6 +40,12 @@ export FC=ftn
 export CC=cc
 export CXX=CC
 export CRAYPE_LINK_TYPE=dynamic
+export OASIS_FFLAGS='-emf'
+export OASIS_CFLAGS="-fPIC"
+export CFLAGS="-fPIC"
+export CCFLAGS="-fPIC"
+export FFLAGS="-fPIC"
+export FCFLAGS="-fPIC"
 export OIFS_GRIB_API_INCLUDE="-I$ECCODESROOT/include"
 export OIFS_GRIB_API_LIB="-L$ECCODESROOT/lib -leccodes_f90 -leccodes"
 export OIFS_GRIB_INCLUDE="$OIFS_GRIB_API_INCLUDE"
@@ -63,10 +71,9 @@ export OIFS_CC=cc
 export OIFS_CFLAGS="-emf -O2 -hcpu=x86-skylake"
 export OIFS_CCDEFS="LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS"
 export OIFS_XIOS_LIB_NAME=cray-c++-rts
-export OASIS_FFLAGS=-emf
 export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 
 
-cd fesom-2.0
-mkdir -p build; cd build; cmake -DOIFS_COUPLED=ON -DFESOM_COUPLED=ON ..;   make install -j `nproc --all`
-cd ..
+pushd fesom-2.0
+mkdir -p build; cd build; cmake -DOIFS_COUPLED=ON -DFESOM_COUPLED=ON -DENABLE_OPENMP=ON -DOPENMP_REPRODUCIBLE=OFF -DDISABLE_MULTITHREADING=OFF -DCMAKE_INSTALL_PREFIX=../ ..;   make install -j `nproc --all`
+popd

@@ -1,0 +1,98 @@
+#computer:
+#    choose_computer.name:
+#       glogin:
+#            pool_dir: "/mnt/ceph-hdd/cold/shk00060/foci_input2/" 
+#            partition: "standard96:test"
+#            launcher: "mpirun"
+#            launcher_flags: "" 
+#       levante:
+#            pool_dir: "/work/bb0519/foci_input2/" 
+
+general:
+   use_venv: False
+   verbose: False
+   setup_name: "foci"
+   version: "moz"
+
+   compute_time: "00:15:00"
+   initial_date: "1850-01-01T00:00:00"       # Initial exp. date
+   final_date: "1850-01-03T00:00:00"         # Final date of the experiment
+   postprocessing: 0
+   nday: 1
+
+   # machine specific setup
+   account: !ENV ${ACCOUNT}
+   base_dir: !ENV ${ESM_TESTING_DIR}
+
+   lresume: True 
+   ini_parent_exp_id: "FOCI1.16-SW111"
+   ini_parent_date: "24991231"
+   ini_nemo_restart_steps: 11395584
+   ini_parent_dir: "${computer.pool_directories.focipool}/FOCI_RESTART/${ini_parent_exp_id}"
+
+foci:
+   model_dir: !ENV ${MODEL_DIR}
+
+oasis3mct:
+    coupling_time_step: 3600 
+    # Needed so that the tests in the GitHub machines can run
+    # otherwise the tests fail
+    choose_general.check:
+        True:
+            ini_parent_dir: "${general.esm_configs_dir}/../src/esm_tests/resources/runscripts/foci/run_files4check_runs/foci-moz-restart-pictrl_run/"
+
+echam:
+   resolution: "T63"
+   use_moz: true
+   lresume: ${general.lresume}
+   restart_rate: ${general.nday}
+   restart_unit: "days"
+   scenario: ${general.scenario}
+       #nproca: 32 
+       #nprocb: 24
+   nproca: 8 
+   nprocb: 4
+   namelist_changes:
+      namelist.echam:
+         runctl:
+            nproma: 32
+            ltimer: true
+   choose_general.run_number:
+        1:
+            remove_restartstreams:
+                - vphysc
+   
+nemo:
+   resolution: "ORCA05"
+   version: "ORCA05_LIM2_KCM_AOW_OASISMCT4"
+   nproc:  24 
+   add_namelist_changes:
+       namelist_cfg:
+           namrun:
+               nn_euler: 1
+           namsbc:
+               nn_fsbc: 2
+                   #namdyn_ldf:
+                   #rn_ahm_0_blp: -1.709e12
+           namtra_ldf:
+               rn_aht_0: 300
+                   #rn_aeiv_scale: 0.5
+           namsbc_cpl:
+               sn_rcv_rnf: ['none', 'no', '', '', '']
+               sn_rcv_emp: ['kcm_lim_2', 'no', '', '', '']
+           #namdyn_hpg:
+                   #ln_hpg_zps: false    #  z-coordinate - partial steps (interpolation), f if NLFS t else
+                   #ln_hpg_sco: true   #  s-coordinate (standard jacobian formulation), t if NLFS f else
+                   #ln_dynhpg_imp: false #  time stepping: semi-implicit time scheme  (T), f if NLFS t else
+           namdyn_hpg:
+                   ln_hpg_zps: true    #  z-coordinate - partial steps (interpolation), f if NLFS t else
+                   ln_hpg_sco: false  #  s-coordinate (standard jacobian formulation), t if NLFS f else
+                   ln_dynhpg_imp: true #  time stepping: semi-implicit time scheme  (T), f if NLFS t else
+       namelist_top_cfg:
+           namtrc_rad:
+               ln_trcrad: true
+           namtrc_ldf:
+               rn_ahtrc_0: 600 
+   
+xios:
+   nproc: 8

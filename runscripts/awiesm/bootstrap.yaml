@@ -24,10 +24,6 @@ awiesm:
 echam:
     restart_rate: 1
     restart_unit: "years"
-    input_sources:
-            jansurf: "/work/ollie/pool/FESOM/meshes_default/core/tarfilesT63/input/echam6/T63CORE2_jan_surf.nc"
-            vgratclim: "/work/ollie/pool/FESOM/meshes_default/core/tarfilesT63/input/echam6/T63CORE2_VGRATCLIM.nc"
-            vltclim: "/work/ollie/pool/FESOM/meshes_default/core/tarfilesT63/input/echam6/T63CORE2_VLTCLIM.nc"
     # Code for bootstrapping:
     add_input_sources:
         jansurf: "${general.esm_tests_pool}/nonstandard_forcings/bootstrap_files/initial_unit24.nc"

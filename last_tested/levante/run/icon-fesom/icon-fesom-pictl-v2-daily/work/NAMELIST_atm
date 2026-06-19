@@ -1,0 +1,339 @@
+&coupling_mode_nml
+    coupled_to_ocean = .true.
+    coupled_to_aero = .false.
+    coupled_to_o3 = .false.
+/
+
+&parallel_nml
+    nproma = 8
+    p_test_run = .false.
+    l_fast_sum = .false.
+    l_test_openmp = .false.
+    l_log_checks = .false.
+    num_io_procs = 4
+    pio_type = 1
+    num_restart_procs = 8
+    num_dist_array_replicas = 1
+/
+
+&grid_nml
+    dynamics_grid_filename = 'iconR02B04_DOM01.nc'
+    dynamics_parent_grid_id = 0, 1
+    lredgrid_phys = .false., .false.
+    radiation_grid_filename = ' '
+    lfeedback = .false.
+/
+
+&run_nml
+    num_lev = 90, 90
+    dtime = 450
+    modeltimestep = 'PT450S'
+    ldynamics = .true.
+    ltransport = .true.
+    iforcing = 3
+    ntracer = 5
+    ltimer = .true.
+    ltestcase = .false.
+    timers_level = 10
+    msg_level = 1
+    output = 'nml'
+    check_uuid_gracefully = .true.
+    restart_filename = 'icon-fesom-pictl-v2-daily_restart_atm_<rsttime>.mfr'
+/
+
+&dynamics_nml
+    iequations = 3
+    lcoriolis = .true.
+    divavg_cntrwgt = 0.5
+/
+
+&diffusion_nml
+    hdiff_order = 5
+    hdiff_efdt_ratio = 24.0
+    hdiff_smag_fac = 0.025
+    lhdiff_vn = .true.
+    lhdiff_temp = .true.
+    hdiff_multfac = 1.0
+    hdiff_tv_ratio = 1.0
+/
+
+&nwp_phy_nml
+    inwp_gscp = 1
+    inwp_convection = 1
+    inwp_radiation = 4
+    inwp_cldcover = 1
+    inwp_satad = 1
+    inwp_sso = 1
+    inwp_gwd = 1
+    latm_above_top = .false.
+    efdt_min_raylfric = 7200.0
+    itype_z0 = 2
+    icapdcycl = 3
+    icpl_aero_conv = 0
+    icpl_aero_gscp = 0
+    icpl_o3_tp = 1
+    dt_rad = 3600.0
+    dt_conv = 1800.0
+    dt_sso = 1800.0
+    dt_gwd = 1800.0
+    inwp_surface = 2
+    inwp_turb = 6
+/
+
+&nwp_tuning_nml
+    itune_albedo = 0
+    tune_zceff_min = 0.025
+    tune_gkdrag = 0.075
+    tune_gkwake = 1.5
+    tune_gfrcrit = 0.425
+    tune_dust_abs = 0.0
+    tune_box_liq_asy = 3.05
+    tune_box_liq = 0.05
+    tune_rcucov = 0.075
+    tune_rhebc_land = 0.825
+    tune_gust_factor = 7.0
+    icpl_turb_clc = 1
+    lcalib_clcov = .false.
+    tune_eiscrit = 7.0
+    tune_zvz0i = 0.85
+    tune_entrorg = 0.0029
+    tune_sc_eis = 7.0
+/
+
+&turbdiff_nml
+    tkhmin = 0.6
+    tkhmin_strat = 1.0
+    tkmmin = 0.75
+    tkmmin_strat = 4
+    alpha0 = 0.0123
+    alpha0_max = 0.0335
+    alpha1 = 0.125
+    pat_len = 750.0
+    c_diff = 0.2
+    rlam_heat = 10.0
+    rat_sea = 0.8
+    ltkesso = .true.
+    frcsmot = 0.2
+    imode_frcsmot = 2
+    itype_sher = 3
+    ltkeshs = .true.
+    a_hshr = 2.0
+    icldm_turb = 1
+    icldm_tran = 2
+/
+
+&transport_nml
+    ivadv_tracer = 3, 3, 3, 3, 3
+    itype_hlimit = 3, 4, 4, 4, 4, 0
+    ihadv_tracer = 32, 2, 2, 2, 2, 0
+/
+
+&interpol_nml
+    nudge_zone_width = 8
+    l_intp_c2l = .true.
+    rbf_scale_mode_ll = 2
+/
+
+&nonhydrostatic_nml
+    iadv_rhotheta = 2
+    ivctype = 2
+    itime_scheme = 4
+    exner_expol = 0.333
+    vwind_offctr = 0.2
+    damp_height = 44000.0
+    rayleigh_coeff = 0.5001
+    divdamp_order = 24
+    divdamp_type = 32
+    divdamp_fac = 0.004
+    divdamp_trans_start = 12500
+    divdamp_trans_end = 17500
+    igradp_method = 3
+    l_zdiffu_t = .true.
+    thslp_zdiffu = 0.02
+    thhgtd_zdiffu = 125.0
+    htop_moist_proc = 22500.0
+    hbot_qvsubstep = 16000.0
+/
+
+&sea_ice_nml
+    albedow_sim = '0.066_wp'
+    albedow = '0.085_wp'
+    albs = '0.83_wp'
+    albsm = '0.77_wp'
+    albi = '0.70_wp'
+    albim = '0.68_wp'
+    cd_ia = '1.20e-3_wp'
+    t_heat_base = '-2.0_wp'
+    hci_layer = '0.25_wp'
+/
+
+&sleve_nml
+    min_lay_thckn = 20.0
+    max_lay_thckn = 400.0
+    htop_thcknlimit = 14000.0
+    top_height = 75000.0
+    stretch_fac = 0.9
+    decay_scale_1 = 4000.0
+    decay_scale_2 = 2500.0
+    decay_exp = 1.2
+    flat_height = 16000.0
+/
+
+&io_nml
+    lflux_avg = .false.
+    itype_pres_msl = 5
+    itype_rh = 1
+    inextra_3d = 3
+    inextra_2d = 10
+    restart_write_mode = 'joint procs multifile'
+    lkeep_in_sync = .true.
+    lnetcdf_flt64_output = .false.
+/
+
+&initicon_nml
+    ifs2icon_filename = 'ifs2icon.nc'
+    filetype = 4
+/
+
+&output_nml
+    filetype = 4
+    output_start = '1850-01-01T00:00:00'
+    output_end = '1850-01-02T00:00:00'
+    output_interval = 'P01D'
+    file_interval = 'P50Y'
+    mode = 1
+    remap = 0
+    output_grid = .false.
+    output_filename = 'icon_zmc_ml'
+    filename_format = '<output_filename>_<datetime2>'
+    ml_varlist = 'z_mc', 'z_ifc'
+/
+
+&output_nml
+    filetype = 4
+    output_start = '1850-01-01T00:00:00'
+    output_end = '1850-01-02T00:00:00'
+    output_interval = 'P01D'
+    file_interval = 'P50Y'
+    mode = 1
+    operation = 'mean'
+    remap = 0
+    include_last = .false.
+    output_grid = .false.
+    output_filename = 'icon_atm_mon'
+    filename_format = '<output_filename>_<datetime2>'
+    ml_varlist = 'tas_gmean', 'rsdt_gmean', 'rsut_gmean', 'rlut_gmean',
+                 'radtop_gmean', 'prec_gmean', 'evap_gmean', 'pme_gmean'
+/
+
+&output_nml
+    output_start = '1850-01-01T00:00:00'
+    output_end = '1850-01-02T00:00:00'
+    output_interval = 'P01D'
+    file_interval = 'P50Y'
+    filetype = 4
+    dom = -1
+    mode = 1
+    include_last = .false.
+    output_filename = 'icon_atm_2d_ml'
+    filename_format = '<output_filename>_<datetime2>'
+    output_grid = .true.
+    remap = 0
+    operation = 'mean'
+    ml_varlist = 'pres_msl', 'pres_sfc', 'sod_t', 'sou_t', 'thb_t', 't_s',
+                 'clct', 'tot_prec_rate', 'tqv', 'tqv_dia', 'tqc_dia', 'tqi_dia',
+                 'umfl_s', 'vmfl_s', 'sp_10m', 't_2m', 'sob_t', 'thb_t',
+                 'sob_s', 'thb_s', 'shfl_s', 'lhfl_s', 'qhfl_s', 'snow_con_rate',
+                 'snow_gsp_rate', 'ice_gsp_rate', 'qifl_s', 't_seasfc',
+                 'fr_land', 'fr_seaice', 'condhf_ice', 't_ice', 'h_ice',
+                 'albvisdif', 'albvisdir', 'albnirdif', 'albnirdir'
+/
+
+&output_nml
+    output_start = '1850-01-01T00:00:00'
+    output_end = '1850-01-02T00:00:00'
+    output_interval = 'P01D'
+    file_interval = 'P50Y'
+    filetype = 4
+    dom = -1
+    mode = 1
+    include_last = .false.
+    output_filename = 'icon_atm_3d_ml'
+    filename_format = '<output_filename>_<datetime2>'
+    output_grid = .true.
+    remap = 0
+    operation = 'mean'
+    ml_varlist = 'pres', 'geopot', 'temp', 'u', 'v', 'qv', 'rh', 'clc',
+                 'tot_qc_dia', 'tot_qi_dia'
+/
+
+&dbg_index_nml
+    idbg_mxmn = 1
+    idbg_val = 0
+    idbg_slev = 1
+    idbg_elev = 3
+/
+
+&extpar_nml
+    itopo = 1
+    n_iter_smooth_topo = 1
+    heightdiff_threshold = 3000.0
+/
+
+&lnd_nml
+    nlev_snow = 3
+    lmulti_snow = .false.
+    itype_heatcond = 3
+    idiag_snowfrac = 20
+    lsnowtile = .true.
+    llake = .true.
+    itype_lndtbl = 4
+    itype_evsl = 4
+    itype_trvg = 3
+    itype_root = 2
+    cwimax_ml = 0.0005
+    c_soil = 1.25
+    c_soil_urb = 0.5
+    itype_snowevap = 2
+    lprog_albsi = .true.
+    lseaice = .true.
+    hice_min = 0.05
+    hice_max = 10.0
+    sstice_mode = 1
+    ntiles = 1
+/
+
+&turb_vdiff_nml
+    fsl = 0.8
+    pr0 = 0.68
+    f_theta_limit_fraction = 0.25
+    f_theta_decay = 1.0
+/
+
+&radiation_nml
+    irad_o3 = 7
+    irad_aero = 12
+    izenith = 4
+    albedo_type = 2
+    vmr_co2 = 0.0002843
+    vmr_ch4 = 8.082e-07
+    vmr_n2o = 2.73e-07
+    vmr_o2 = 0.20946
+    vmr_cfc11 = 0.0
+    vmr_cfc12 = 0.0
+    direct_albedo = 4
+    direct_albedo_water = 3
+    albedo_whitecap = 1
+    ecrad_llw_cloud_scat = .true.
+    ecrad_data_path = '<TEST_DIR>/comp/icon-fesom/icon-fesom-v2.0/icon/externals/ecrad/data/'
+/
+
+&meteogram_output_nml
+    lmeteogram_enabled = .false., .false.
+    n0_mtgrm = 0
+    ninc_mtgrm = 2, 4
+    ldistributed = .false., .false.
+    stationlist_tot = 50.0, 8.6, 'Frankfurt-Flughafen', 52.26, 14.313, 'Lindenberg_Obs',
+                      52.1873, 13.9894, 'Waldstation_Kehrigk', 52.1215,
+                      14.1077, 'Falkenberg'
+/

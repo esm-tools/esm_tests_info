@@ -141,7 +141,7 @@ computer:
     time_flag: --time=00:08:00
     use_hyperthreading: false
 debug_info:
-    loaded_from_file: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/scripts/fesom2.0-initial-monthly.yaml
+    loaded_from_file: <TEST_DIR>/run/fesom/fesom2.0-initial-monthly/scripts/fesom2.0-initial-monthly.yaml
 defaults:
     clean_command: rm -rf build CMakeCache.txt
     comp_command: mkdir -p build; cd build; cmake ..;   make install -j `nproc --all`
@@ -165,11 +165,11 @@ fesom:
     asforcing: CORE2
     bin_dir: <TEST_DIR>/comp/fesom/fesom-2.0/bin
     bin_intermediate:
-        fesom: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/bin/fesom/fesom
+        fesom: <TEST_DIR>/run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/bin/fesom/fesom
     bin_sources:
         fesom: <TEST_DIR>/comp/fesom/fesom-2.0/bin/fesom.x
     bin_targets:
-        fesom: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/work/fesom
+        fesom: <TEST_DIR>/run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/work/fesom
     branch: 2.0.2
     branchoff: false
     clean_command: rm -rf build CMakeCache.txt
@@ -177,12 +177,12 @@ fesom:
     comp_command: mkdir -p build; cd build; cmake ..;   make install -j `nproc --all`
     comp_executable: fesom.x
     config_intermediate:
-        config: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/config/fesom/namelist.config
-        fesom.clock: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/config/fesom/fesom.clock
-        forcing: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/config/fesom/namelist.forcing
-        ice: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/config/fesom/namelist.ice
-        io: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/config/fesom/namelist.io
-        oce: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/config/fesom/namelist.oce
+        config: <TEST_DIR>/run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/config/fesom/namelist.config
+        fesom.clock: <TEST_DIR>/run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/config/fesom/fesom.clock
+        forcing: <TEST_DIR>/run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/config/fesom/namelist.forcing
+        ice: <TEST_DIR>/run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/config/fesom/namelist.ice
+        io: <TEST_DIR>/run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/config/fesom/namelist.io
+        oce: <TEST_DIR>/run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/config/fesom/namelist.oce
     config_sources:
         config: <HOME_DIR>/esm_tools/namelists//fesom2/2.0//namelist.config
         fesom.clock: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/config/fesom//fesom.clock
@@ -191,12 +191,12 @@ fesom:
         io: <HOME_DIR>/esm_tools/namelists//fesom2/2.0//namelist.io
         oce: <HOME_DIR>/esm_tools/namelists//fesom2/2.0//namelist.oce
     config_targets:
-        config: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/work/namelist.config
-        fesom.clock: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/work/fesom.clock
-        forcing: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/work/namelist.forcing
-        ice: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/work/namelist.ice
-        io: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/work/namelist.io
-        oce: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/work/namelist.oce
+        config: <TEST_DIR>/run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/work/namelist.config
+        fesom.clock: <TEST_DIR>/run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/work/fesom.clock
+        forcing: <TEST_DIR>/run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/work/namelist.forcing
+        ice: <TEST_DIR>/run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/work/namelist.ice
+        io: <TEST_DIR>/run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/work/namelist.io
+        oce: <TEST_DIR>/run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/work/namelist.oce
     contact: dmitry.sidorenko(at)awi.de, nikolay.koldunov(at)awi.de, miguel.andres-martinez(at)awi.de, paul.gierz(at)awi.de
     coupling_fields:
         enth_oce:
@@ -393,14 +393,14 @@ fesom:
     lasttime: 84600
     leapyear: false
     log_intermediate:
-        clock: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/log/fesom/fesom.clock
-        mesh_diag: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/log/fesom/fesom.mesh.diag.nc
+        clock: <TEST_DIR>/run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/log/fesom/fesom.clock
+        mesh_diag: <TEST_DIR>/run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/log/fesom/fesom.mesh.diag.nc
     log_sources:
         clock: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/work//fesom.clock
         mesh_diag: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/work//fesom.mesh.diag.nc
     log_targets:
-        clock: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/log/fesom/fesom.clock
-        mesh_diag: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/log/fesom/fesom.mesh.diag.nc
+        clock: <TEST_DIR>/run/fesom/fesom2.0-initial-monthly/log/fesom/fesom.clock
+        mesh_diag: <TEST_DIR>/run/fesom/fesom2.0-initial-monthly/log/fesom/fesom.mesh.diag.nc
     lresume: false
     mesh_dir: /scratch/usr/hbkawi/FESOM2/meshes/core2/
     mesh_rotated: false
@@ -478,8 +478,8 @@ fesom:
     restart_first: 1
     restart_flag: last
     restart_out_intermediate:
-        ice_restart: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/restart/fesom/fesom.2001.ice.restart.nc
-        oce_restart: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/restart/fesom/fesom.2001.oce.restart.nc
+        ice_restart: <TEST_DIR>/run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/restart/fesom/fesom.2001.ice.restart.nc
+        oce_restart: <TEST_DIR>/run/fesom/fesom2.0-initial-monthly/run_20010101-20010131/restart/fesom/fesom.2001.oce.restart.nc
     restart_out_sources:
         ice_restart: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/work//fesom.2001.ice.restart.nc
         oce_restart: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/work//fesom.2001.oce.restart.nc
@@ -491,8 +491,8 @@ fesom:
         par_ice_restart: '*.nc'
         par_oce_restart: '*.nc'
     restart_out_targets:
-        ice_restart: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/restart/fesom/fesom.2001.ice.restart.nc
-        oce_restart: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/restart/fesom/fesom.2001.oce.restart.nc
+        ice_restart: <TEST_DIR>/run/fesom/fesom2.0-initial-monthly/restart/fesom/fesom.2001.ice.restart.nc
+        oce_restart: <TEST_DIR>/run/fesom/fesom2.0-initial-monthly/restart/fesom/fesom.2001.oce.restart.nc
     restart_rate: 1
     restart_unit: m
     setup_dir: <TEST_DIR>/comp/fesom/fesom-2.0
@@ -565,9 +565,9 @@ general:
         original_command: fesom2.0-initial-monthly.yaml -e fesom2.0-initial-monthly --open-run -c --no-motd --last-jobtype prepcompute
         profile: false
         run_number: null
-        runscript_abspath: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/scripts/fesom2.0-initial-monthly.yaml
+        runscript_abspath: <TEST_DIR>/run/fesom/fesom2.0-initial-monthly/scripts/fesom2.0-initial-monthly.yaml
         scriptname: fesom2.0-initial-monthly.yaml
-        started_from: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/scripts/
+        started_from: <TEST_DIR>/run/fesom/fesom2.0-initial-monthly/scripts/
         update: false
         update_filetypes: []
         use_venv: false
@@ -754,7 +754,7 @@ general:
     run_datestamp: 20010101-20010131
     run_number: 1
     run_or_compile: runtime
-    runscript_abspath: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/scripts/fesom2.0-initial-monthly.yaml
+    runscript_abspath: <TEST_DIR>/run/fesom/fesom2.0-initial-monthly/scripts/fesom2.0-initial-monthly.yaml
     runtime:
     - 0
     - 1
@@ -766,7 +766,7 @@ general:
     setup_name: fesom
     standalone: true
     start_date: '2001-01-01T00:00:00'
-    started_from: <TEST_DIR>run/fesom/fesom2.0-initial-monthly/scripts/
+    started_from: <TEST_DIR>/run/fesom/fesom2.0-initial-monthly/scripts/
     submitted: false
     thisrun_analysis_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/analysis/
     thisrun_config_dir: <TEST_DIR>/run/fesom//fesom2.0-initial-monthly/run_20010101-20010131/config/

@@ -7,6 +7,9 @@
 #SBATCH --mail-type=NONE
 #SBATCH --exclusive
 
+# Store batch system environment variables for later sourcing
+declare -p | grep -E "(SLURM)" > <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/work//batch_system.env
+
 source /etc/profile.d/modules.sh
 module purge
 module load cmake
@@ -38,6 +41,8 @@ export NETCDFROOT=$NETCDF_DIR
 export NETCDF_Fortran_INCLUDE_DIRECTORIES=$NETCDFROOT/include
 export NETCDF_CXX_INCLUDE_DIRECTORIES=$NETCDFROOT/include
 export NETCDF_CXX_LIBRARIES=$NETCDFROOT/lib
+export OASIS_NETCDF=$NETCDF_DIR
+export OASIS_NETCDFF=$NETCDF_DIR
 export PERL5LIB=/usr/lib64/perl5
 export LAPACK_LIB="-lmkl_intel_lp64 -lmkl_core -mkl=sequential -lpthread -lm -ldl"
 export LAPACK_LIB_DEFAULT="-L/global/AWIsoft/intel/2018/compilers_and_libraries_2018.5.274/linux/mkl/lib/intel64 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential"
@@ -46,6 +51,7 @@ export ZLIBROOT=/usr
 export MPIROOT=${I_MPI_ROOT}/intel64
 export MPI_LIB=$(mpiifort -show |sed -e 's/^[^ ]*//' -e 's/-[I][^ ]*//g')
 export PATH=/work/ollie/jhegewal/sw/cmake/bin:$PATH
+export LD_LIBRARY_PATH=<TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/work//lib/oasis/:$LD_LIBRARY_PATH
 export AWI_FESOM_YAML='{'output_schedules': [{'vars': ['restart'], 'unit': 'm', 'first': 1, 'rate': 1}, {'vars': ['flice', 'fsitherm', 'opottemptend', 'pbo', 'relax_salt', 'rho', 'sidmassevapsubl', 'sidmasssi', 'sidmassth', 'sidmasstranx', 'sidmasstrany', 'sifllatstop', 'sisnconc', 'sisnmass', 'sisnthick', 'sispeed', 'sistrxdtop', 'sistrxubot', 'sistrydtop', 'sistryubot', 'thdgr', 'thdgrsn', 'u2o', 'uhice', 'uhsnow', 'urho', 'uso', 'uto', 'uv', 'v2o', 'vhice', 'vhsnow', 'virtual_salt', 'volo', 'vrho', 'vso', 'vto', 'w2o', 'wfo', 'wso', 'wto', 'zossq'], 'unit': 'y', 'first': 1, 'rate': 1}, {'vars': ['evap', 'evs', 'hfds', 'lwrd', 'mlotst', 'olat', 'olwout', 'omldamax', 'osen', 'prlq', 'prsn', 'rsdo', 'runoff', 'shum', 'siarean', 'siareas', 'sic', 'siextentn', 'siextents', 'sithick', 'sitimefrac', 'siu', 'siv', 'sivol', 'sivoln', 'sivols', 'so', 'soga', 'sos', 'tair', 'tauuo', 'tauvo', 'thetao', 'thetaoga', 'tos', 'tso', 'uo', 'uwind', 'vo', 'vwind', 'wnet', 'wo', 'zos'], 'unit': 'm', 'rate': 1}, {'vars': [], 'unit': 'd', 'rate': 1}, {'vars': [], 'unit': 's', 'rate': 12}]}'
 export ACCOUNT=None
 export ESM_TESTING_DIR=<TEST_DIR>/run/awicm/
@@ -59,18 +65,22 @@ unset SLURM_MEM_PER_CPU
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 1850-01-01T00:00:00 1547 - start >> <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/log//awicm1-CMIP6-initial-monthly_awicm.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1850-01-01T00:00:00 1725 - start" >> <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/log//awicm1-CMIP6-initial-monthly_awicm.log
 
 cd <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/work/
 time srun -l --kill-on-bad-exit=1 --cpu_bind=cores --multi-prog hostfile_srun 2>&1 &
 
 # Call to esm_runscript to start subjobs:
 # ['tidy']
-process=$! 
+process=$!
+
+# Recover batch system environment variables
+source <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/work//batch_system.env; rm <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/run_18500101-18500131/work//batch_system.env
+
 # Comment the following line if you don't want esm_runscripts to restart:
 cd <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/scripts/
-esm_runscripts awicm1-CMIP6-initial-monthly.yaml -e awicm1-CMIP6-initial-monthly -t observe_compute -p ${process} -s 18500101 -r 1 -v  --last-jobtype prepcompute --open-run
+esm_runscripts awicm1-CMIP6-initial-monthly.yaml -e awicm1-CMIP6-initial-monthly -t observe_compute -p ${process} -s 18500101 -r 1 -v --last-jobtype prepcompute --open-run
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 1850-01-01T00:00:00 1547 - done >> <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/log//awicm1-CMIP6-initial-monthly_awicm.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1850-01-01T00:00:00 1725 - done" >> <TEST_DIR>/run/awicm//awicm1-CMIP6-initial-monthly/log//awicm1-CMIP6-initial-monthly_awicm.log
 
 wait

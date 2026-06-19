@@ -2,8 +2,10 @@ comp:
         actual:
                 files:
                     - "bin/fesom*"
-                    - "bin/oifs"
+                    - "bin/oifs except [develop]"
+                    - "bin/OpenIFS in [develop]"
                     - "bin/rnfma"
+                    - "bin/xios.x except [v3.0]"
         check: {}
 run:
         actual:
@@ -32,10 +34,10 @@ run:
                     - "restart/oifs/*/rcf"
                     - "restart/oifs/*/srf*"
                     - "restart/oifs/*/waminfo*"
-                    - "outdata/oifs/*/ICMGG* except [frontiers-xios, v3.1.1, v3.2]"
-                    - "outdata/oifs/*/ICMSH* except [frontiers-xios, v3.1.1, v3.2]"
-                    - "outdata/oifs/*/ICMUA* except [frontiers-xios, v3.1.1, v3.2]"
-                    - "outdata/oifs/atm_remapped* in [frontiers-xios, v3.1.1, v3.2]"
+                    - "outdata/oifs/*/ICMGG* in [v3.0]"
+                    - "outdata/oifs/*/ICMSH* in [v3.0]"
+                    - "outdata/oifs/*/ICMUA* in [v3.0]"
+                    - "outdata/oifs/atm_remapped* except [v3.0]"
                     - "outdata/fesom/*.fesom.*.nc"
         check: {}
 computers:

@@ -4,9 +4,12 @@
 #SBATCH --nodes=4
 #SBATCH --output=<TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/log/awicm3-v3.2-TCO95L91-CORE2_initial_awicm3_compute_20000101-20000101_%j.log --error=<TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/log/awicm3-v3.2-TCO95L91-CORE2_initial_awicm3_compute_20000101-20000101_%j.log
 #SBATCH --job-name=awicm3-v3.2-TCO95L91-CORE2_initial
-#SBATCH --account=ab0246
+#SBATCH --account=None
 #SBATCH --mail-type=NONE
 #SBATCH --exclusive
+
+# Store batch system environment variables for later sourcing
+declare -p | grep -E "(SLURM)" > <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//batch_system.env
 
 module purge
 module load git/2.31.1-gcc-11.2.0
@@ -49,16 +52,28 @@ export CC=mpicc
 export CXX=mpicxx
 export MPIROOT="$(mpif90 -show | perl -lne 'm{ -I(.*?)/include } and print $1')"
 export MPI_LIB="$(mpif90 -show |sed -e 's/^[^ ]*//' -e 's/-[I][^ ]*//g')"
+export MPI_HOME=$MPIROOT
+export MPI_ROOT=$MPIROOT
+export mpi_ROOT=$MPIROOT
+export MPI_DIR=$MPIROOT
+export mpi_DIR=$MPIROOT
 export IO_LIB_ROOT=/work/ab0246/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0
 export HDF5ROOT=/sw/spack-levante/hdf5-1.12.1-tvymb5
 export HDF5_C_INCLUDE_DIRECTORIES=$HDF5_ROOT/include
 export HDF5_ROOT=$HDF5ROOT
 export NETCDFFROOT=/sw/spack-levante/netcdf-fortran-4.5.3-k6xq5g
-export NETCDFROOT=/sw/spack-levante/netcdf-c-4.8.1-2k3cmu
 export NETCDF_Fortran_INCLUDE_DIRECTORIES=$NETCDFFROOT/include
+export NetCDF_Fortran_ROOT=$NETCDFFROOT
+export NETCDF_ROOT=$NETCDFFROOT
+export NETCDFROOT=/sw/spack-levante/netcdf-c-4.8.1-2k3cmu
 export NETCDF_C_INCLUDE_DIRECTORIES=$NETCDFROOT/include
 export NETCDF_CXX_INCLUDE_DIRECTORIES=$NETCDFROOT/include
 export NETCDF_CXX_LIBRARIES=$NETCDFROOT/lib
+export NetCDF_C_ROOT=$NETCDFROOT
+export NETCDF_PATH=$NETCDFROOT
+export ECCODESROOT=$IO_LIB_ROOT
+export OASIS_NETCDF=$NETCDFROOT
+export OASIS_NETCDFF=$NETCDFFROOT
 export PSMPIFLAGS="-lrt -lm -ldl"
 export LAPACK_LIB='-mkl=sequential'
 export ZLIBROOT=/usr
@@ -67,8 +82,8 @@ export PERL5LIB=/usr/lib64/perl5
 export LD_LIBRARY_PATH=$HDF5ROOT/lib:$NETCDFROOT/lib:$NETCDFFROOT/lib:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/sw/spack-levante/intel-oneapi-mkl-2022.0.1-ttdktf/mkl/2022.0.1/lib/intel64:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/sw/spack-levante/intel-oneapi-mpi-2021.5.0-mrcss7/mpi/2021.5.0/libfabric/lib:$LD_LIBRARY_PATH
-export SZIPROOT=/sw/spack-levante/libaec-1.0.5-gij7yv
-export ECCODESROOT=/work/ab0246/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:<TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//lib/fesom/
+export LD_LIBRARY_PATH=<TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//lib/oasis/:$LD_LIBRARY_PATH
 export PATH=$ECCODESROOT/bin:$PATH
 export LD_LIBRARY_PATH=$ECCODESROOT/lib:$LD_LIBRARY_PATH
 export OIFS_FFIXED=""
@@ -76,13 +91,14 @@ export GRIB_SAMPLES_PATH="$ECCODESROOT/share/eccodes/ifs_samples/grib1_mlgrib2"
 export DR_HOOK_IGNORE_SIGNALS=-1
 export OMP_SCHEDULE=STATIC
 export OMP_STACKSIZE=128M
-export ACCOUNT=ab0246
-export ESM_TESTING_DIR=<TEST_DIR>/run/awicm3/
-export MODEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-v3.2
 export FESOM_USE_CPLNG="active"
 export ECE_CPL_NEMO_LIM="false"
 export ECE_CPL_FESOM_FESIM="true"
 export ECE_AWI_CPL_FESOM="true"
+export USER=<USER_ACCOUNT>
+export ACCOUNT=None
+export ESM_TESTING_DIR=<TEST_DIR>/run/awicm3/
+export MODEL_DIR=<TEST_DIR>/comp/awicm3/awicm3-v3.2
 export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 
 unset SLURM_DISTRIBUTION
@@ -94,7 +110,7 @@ unset SLURM_ARBITRARY_NODELIST
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 1059417 - start >> <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/log//awicm3-v3.2-TCO95L91-CORE2_initial_awicm3.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 2000-01-01T00:00:00 1501 - start" >> <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/log//awicm3-v3.2-TCO95L91-CORE2_initial_awicm3.log
 
 cd <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work/
 
@@ -131,11 +147,16 @@ time srun -l --hint=nomultithread --multi-prog hostfile_srun 2>&1 &
 
 # Call to esm_runscript to start subjobs:
 # ['tidy']
-process=$! 
+process=$!
+
+# Recover batch system environment variables
+source <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//batch_system.env; rm <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work//batch_system.env
+unset SLURM_HOSTFILE
+
 # Comment the following line if you don't want esm_runscripts to restart:
 cd <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/scripts/
-esm_runscripts awicm3-v3.2-TCO95L91-CORE2_initial.yaml -e awicm3-v3.2-TCO95L91-CORE2_initial -t observe_compute -p ${process} -s 20000101 -r 1 -v  --last-jobtype prepcompute --open-run
+esm_runscripts awicm3-v3.2-TCO95L91-CORE2_initial.yaml -e awicm3-v3.2-TCO95L91-CORE2_initial -t observe_compute -p ${process} -s 20000101 -r 1 -v --last-jobtype prepcompute --open-run
 
-echo $(date +"%a %b  %e %T %Y") : compute 1 2000-01-01T00:00:00 1059417 - done >> <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/log//awicm3-v3.2-TCO95L91-CORE2_initial_awicm3.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 2000-01-01T00:00:00 1501 - done" >> <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/log//awicm3-v3.2-TCO95L91-CORE2_initial_awicm3.log
 
 wait

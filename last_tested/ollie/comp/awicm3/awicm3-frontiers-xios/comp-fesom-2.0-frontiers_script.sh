@@ -17,6 +17,8 @@ module load git
 module list
 module unload intel.mpi
 module load intel.mpi
+module unload netcdf
+module load netcdf/4.4.1.1_intel_mpi
 module purge
 module load intel.mpi/2021.3.0 intel.compiler cmake
 
@@ -34,6 +36,8 @@ export NETCDFROOT=$IO_LIB_ROOT
 export NETCDF_Fortran_INCLUDE_DIRECTORIES=$NETCDFFROOT/include
 export NETCDF_CXX_INCLUDE_DIRECTORIES=$NETCDFROOT/include
 export NETCDF_CXX_LIBRARIES=$NETCDFROOT/lib
+export OASIS_NETCDF=$NETCDF_DIR
+export OASIS_NETCDFF=$NETCDF_DIR
 export PERL5LIB=/usr/lib64/perl5
 export LAPACK_LIB="-lmkl_intel_lp64 -lmkl_core -mkl=sequential -lpthread -lm -ldl"
 export LAPACK_LIB_DEFAULT="-L$MKLROOT/lib/intel64 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential"
@@ -42,6 +46,12 @@ export ZLIBROOT=/usr
 export MPIROOT=${I_MPI_ROOT}/intel64
 export MPI_LIB=$(mpiifort -show |sed -e 's/^[^ ]*//' -e 's/-[I][^ ]*//g')
 export PATH=/work/ollie/jhegewal/sw/cmake/bin:$PATH
+export OASIS_FFLAGS="-fPIC"
+export OASIS_CFLAGS="-fPIC"
+export CFLAGS="-fPIC"
+export CCFLAGS="-fPIC"
+export FFLAGS="-fPIC"
+export FCFLAGS="-fPIC"
 export LD_LIBRARY_PATH=$IO_LIB_ROOT/lib:$LD_LIBRARY_PATH
 export SZIPROOT=$IO_LIB_ROOT
 export HDF5_ROOT=$HDF5ROOT
@@ -73,13 +83,13 @@ export OIFS_CFLAGS="-fp-model precise -O3 -xCORE_AVX2 -g -traceback -qopt-report
 export OIFS_CCDEFS="LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS _OPENMP"
 export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 
-unset SLURM_MEM_PER_NODE
-unset SLURM_MEM_PER_CPU
 unset SLURM_DISTRIBUTION
 unset SLURM_NTASKS
 unset SLURM_NPROCS
 unset SLURM_ARBITRARY_NODELIST
+unset SLURM_MEM_PER_NODE
+unset SLURM_MEM_PER_CPU
 
-cd fesom-2.0
-mkdir -p build; cd build; cmake -DOIFS_COUPLED=ON -DFESOM_COUPLED=ON ..;   make install -j `nproc --all`
-cd ..
+pushd fesom-2.0
+mkdir -p build; cd build; cmake -DOIFS_COUPLED=ON -DFESOM_COUPLED=ON -DENABLE_OPENMP=ON -DOPENMP_REPRODUCIBLE=OFF -DDISABLE_MULTITHREADING=OFF -DCMAKE_INSTALL_PREFIX=../ ..;   make install -j `nproc --all`
+popd

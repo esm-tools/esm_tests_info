@@ -1,0 +1,242 @@
+###############################################################################
+#
+#      Input file for OASIS3-MCT
+#
+#      TODO: replace with new placeholders from git
+#      $Id: namcouple.tmpl 8278 2015-12-11 15:35:05Z m221078 $
+#
+#      This version is for use with ECHAM6 fluxes and
+#      surface conditions computed in MPIOM.
+#
+#      The file will be edited in the run-script to update it for the
+#      actual integration period and grid dimensions.
+#
+###############################################################################
+#
+#      Input delimiters have to occupy position 1 to 9 !
+#      No blank lines allowed !
+#      Length of input lines <= 80 !
+#
+#% set oce_seq = 1
+#% set atm_seq = 1
+#
+###############################################################################
+#
+# NFIELDS : total number of fields being exchanged.
+#
+ $NFIELDS
+           19 
+ $END
+#
+###############################################################################
+#
+# NBMODEL : number of models and their names (CHAR*6).
+#
+ $NBMODEL
+# cfk in detached mode xios.x is an  extra executable for oasis3mct 
+            %{nmod} oceanx echam6 %{xios}   
+ $END
+#
+###############################################################################
+#
+# RUNTIME (<I8)
+#         total simulated time for the actual run in seconds
+#         the value will be set before the actual integration
+#
+ $RUNTIME
+           %runtime
+ $END
+#
+###############################################################################
+# -1 enables lucia log files for load balancing
+ $NLOGPRT
+           %{nlogprt} %{nlogprt_lucia}
+ $END
+#
+###############################################################################
+#
+###############################################################################
+#
+ $STRINGS
+#
+###############################################################################
+# OCEAN --->>> ATMOSPHERE
+######################
+# Field 1 Sea ice fraction [tenth;tenth] 
+OIceFrac AIceFrac 298 %{oce2atm_interval} 3 sstocean %{field_status} 
+%{oce_grid_size_x} %{oce_grid_size_y} %{atm_grid_size_x} %{atm_grid_size_y} opat atmo LAG=%{oce_time_step} SEQ=%{oce_seq}
+P  2  P  0
+LOCTRANS SCRIPR MAPPING
+AVERAGE
+CONSERV LR SCALAR LATITUDE 40 FRACNNEI FIRST
+rmp_opat_to_atmo_CONSERV_FRACNNEI_%{atm_res}_ORCA05.nc dst
+###############################################################################
+# Field 2 Weighted sea surface temperature / Sea_surface_temperature [K;K]
+O_SSTSST A_SSTSST 1 %{oce2atm_interval} 3 sstocean %{field_status}
+%{oce_grid_size_x} %{oce_grid_size_y} %{atm_grid_size_x} %{atm_grid_size_y} opat atmo LAG=%{oce_time_step} SEQ=%{oce_seq}
+P 2 P 0
+LOCTRANS SCRIPR MAPPING
+AVERAGE 
+CONSERV LR SCALAR LATITUDE 40 FRACNNEI FIRST
+rmp_opat_to_atmo_CONSERV_FRACNNEI_%{atm_res}_ORCA05.nc dst
+###############################################################################
+# Field 3 Sea ice temperature [K;K]
+O_TepIce A_TepIce 34 %{oce2atm_interval} 3 sstocean %{field_status}
+%{oce_grid_size_x} %{oce_grid_size_y} %{atm_grid_size_x} %{atm_grid_size_y} opat atmo LAG=%{oce_time_step} SEQ=%{oce_seq}
+P 2 P 0
+LOCTRANS SCRIPR MAPPING
+AVERAGE 
+CONSERV LR SCALAR LATITUDE 40 FRACNNEI FIRST
+rmp_opat_to_atmo_CONSERV_FRACNNEI_%{atm_res}_ORCA05.nc dst
+###############################################################################
+# Field 4 Sea ice thickness [m;m]
+O_IceTck A_IceTck 308 %{oce2atm_interval} 3 sstocean %{field_status}
+%{oce_grid_size_x} %{oce_grid_size_y} %{atm_grid_size_x} %{atm_grid_size_y} opat atmo LAG=%{oce_time_step} SEQ=%{oce_seq}
+P 2 P 0
+LOCTRANS SCRIPR MAPPING
+AVERAGE
+CONSERV LR SCALAR LATITUDE 40 FRACNNEI FIRST
+rmp_opat_to_atmo_CONSERV_FRACNNEI_%{atm_res}_ORCA05.nc dst
+###############################################################################
+# Field 5 Snow thickness over ice [m;m]
+O_SnwTck A_SnwTck 378 %{oce2atm_interval} 3 sstocean %{field_status}
+%{oce_grid_size_x} %{oce_grid_size_y} %{atm_grid_size_x} %{atm_grid_size_y} opat atmo LAG=%{oce_time_step} SEQ=%{oce_seq}
+P 2 P 0
+LOCTRANS SCRIPR MAPPING 
+AVERAGE
+CONSERV LR SCALAR LATITUDE 40 FRACNNEI FIRST
+rmp_opat_to_atmo_CONSERV_FRACNNEI_%{atm_res}_ORCA05.nc dst
+###############################################################################
+# Field 6 U-velocity [m/s;m/s]
+O_OCurx1 A_OCurx1 47 %{oce2atm_interval} 3 sstocean %{field_status}
+%{oce_grid_size_x} %{oce_grid_size_y} %{atm_grid_size_x} %{atm_grid_size_y} opat atmo LAG=%{oce_time_step} SEQ=%{oce_seq} 
+P 2 P 0
+LOCTRANS SCRIPR MAPPING 
+AVERAGE
+CONSERV LR SCALAR LATITUDE 40 FRACNNEI FIRST
+rmp_opat_to_atmo_CONSERV_FRACNNEI_%{atm_res}_ORCA05.nc dst
+###############################################################################
+# Field 7 V-velocity [m/s;m/s]
+O_OCury1 A_OCury1 48 %{oce2atm_interval} 3 sstocean %{field_status}
+%{oce_grid_size_x} %{oce_grid_size_y} %{atm_grid_size_x} %{atm_grid_size_y} opat atmo LAG=%{oce_time_step} SEQ=%{oce_seq} 
+P 2 P 0
+LOCTRANS SCRIPR MAPPING
+AVERAGE
+CONSERV LR SCALAR LATITUDE 40 FRACNNEI FIRST
+rmp_opat_to_atmo_CONSERV_FRACNNEI_%{atm_res}_ORCA05.nc dst
+###############################################################################
+# ATMOSPHERE --->>> OCEAN
+###############################################################################
+# Field 1 Eastward wind stress over ocean [pa;pa]
+A_OTaux1 O_OTaux1 50 %{oce2atm_interval} 3 flxatmos %{field_status_atm}
+%{atm_grid_size_x} %{atm_grid_size_y} %{oce_grid_size_x} %{oce_grid_size_y} atmo opat LAG=%{atm_time_step} SEQ=%{atm_seq}
+P 0 P 2
+LOCTRANS SCRIPR MAPPING 
+INSTANT
+BICUBIC D SCALAR LATITUDE 40
+rmp_atmo_to_opat_BICUBIC_D_%{atm_res}_ORCA05.nc src
+###############################################################################
+# Field 2 Northward wind stress over ocean [pa;pa] 
+A_OTauy1 O_OTauy1 51 %{oce2atm_interval} 3 flxatmos %{field_status_atm}
+%{atm_grid_size_x} %{atm_grid_size_y} %{oce_grid_size_x} %{oce_grid_size_y} atmo opat LAG=%{atm_time_step} SEQ=%{atm_seq}
+P 0 P 2
+LOCTRANS SCRIPR MAPPING 
+INSTANT
+BICUBIC D SCALAR LATITUDE 40
+rmp_atmo_to_opat_BICUBIC_D_%{atm_res}_ORCA05.nc src
+###############################################################################
+# Field 3 Eastward wind stress over ice [pa;pa]
+A_ITaux1 O_ITaux1 52 %{oce2atm_interval} 3 flxatmos %{field_status_atm}
+%{atm_grid_size_x} %{atm_grid_size_y} %{oce_grid_size_x} %{oce_grid_size_y} atmo opat LAG=%{atm_time_step} SEQ=%{atm_seq}
+P 0 P 2
+LOCTRANS SCRIPR MAPPING 
+INSTANT
+BICUBIC D SCALAR LATITUDE 40
+rmp_atmo_to_opat_BICUBIC_D_%{atm_res}_ORCA05.nc src
+###############################################################################
+# Field 4 Northward wind stress over ice [pa;pa]
+A_ITauy1 O_ITauy1 53 %{oce2atm_interval} 3 flxatmos %{field_status_atm}
+%{atm_grid_size_x} %{atm_grid_size_y} %{oce_grid_size_x} %{oce_grid_size_y} atmo opat LAG=%{atm_time_step} SEQ=%{atm_seq}
+P 0 P 2
+LOCTRANS SCRIPR MAPPING 
+INSTANT
+BICUBIC D SCALAR LATITUDE 40
+rmp_atmo_to_opat_BICUBIC_D_%{atm_res}_ORCA05.nc src
+###############################################################################
+# Field 5 Solar heat flux over ice [W/m**2;W/m**2]
+A_QsrIce O_QsrIce 7 %{oce2atm_interval} 3 flxatmos %{field_status_atm}
+%{atm_grid_size_x} %{atm_grid_size_y} %{oce_grid_size_x} %{oce_grid_size_y} atmo opac LAG=%{atm_time_step} SEQ=%{atm_seq}
+P 0 P 2
+LOCTRANS SCRIPR MAPPING
+INSTANT
+CONSERV D SCALAR LATITUDE 40 FRACNNEI FIRST
+rmp_atmo_to_opac_CONSERV_FRACNNEI_D_%{atm_res}_ORCA05.nc src
+###############################################################################
+# Field 6 Total solar heat flux over water and ice [W/m**2;W/m**2]
+A_QsrMix O_QsrMix 7 %{oce2atm_interval} 4 flxatmos %{field_status_atm}
+%{atm_grid_size_x} %{atm_grid_size_y} %{oce_grid_size_x} %{oce_grid_size_y} atmo opac LAG=%{atm_time_step} SEQ=%{atm_seq}
+P 0 P 2
+LOCTRANS SCRIPR MAPPING CONSERV
+INSTANT
+CONSERV D SCALAR LATITUDE 40 FRACNNEI FIRST
+rmp_atmo_to_opac_CONSERV_FRACNNEI_D_%{atm_res}_ORCA05.nc src
+GLBPOS
+###############################################################################
+# Field 7 Non-solar heat flux over ice [W/m**2;W/m**2]
+A_QnsIce O_QnsIce 6 %{oce2atm_interval} 3 flxatmos %{field_status_atm}
+%{atm_grid_size_x} %{atm_grid_size_y} %{oce_grid_size_x} %{oce_grid_size_y} atmo opac LAG=%{atm_time_step} SEQ=%{atm_seq}
+P 0 P 2
+LOCTRANS SCRIPR MAPPING
+INSTANT
+CONSERV D SCALAR LATITUDE 40 FRACNNEI FIRST
+rmp_atmo_to_opac_CONSERV_FRACNNEI_D_%{atm_res}_ORCA05.nc src
+###############################################################################
+# Field 8 Total non-solar heat flux over water and ice [W/m**2;W/m**2]
+A_QnsMix O_QnsMix 6 %{oce2atm_interval} 4 flxatmos %{field_status_atm}
+%{atm_grid_size_x} %{atm_grid_size_y} %{oce_grid_size_x} %{oce_grid_size_y} atmo opac LAG=%{atm_time_step} SEQ=%{atm_seq}
+P 0 P 2
+LOCTRANS SCRIPR MAPPING CONSERV
+INSTANT
+CONSERV D SCALAR LATITUDE 40 FRACNNEI FIRST
+rmp_atmo_to_opac_CONSERV_FRACNNEI_D_%{atm_res}_ORCA05.nc src
+GLBPOS
+###############################################################################
+# Field 9 Total P-E over water and ice [kg/m**/s;kg/m**2/s]
+ATotRain OTotRain 29 %{oce2atm_interval} 4 flxatmos %{field_status_atm}
+%{atm_grid_size_x} %{atm_grid_size_y} %{oce_grid_size_x} %{oce_grid_size_y} atmo opac LAG=%{atm_time_step} SEQ=%{atm_seq}
+P 0 P 2
+LOCTRANS SCRIPR MAPPING CONSERV
+INSTANT
+CONSERV D SCALAR LATITUDE 40 FRACNNEI FIRST
+rmp_atmo_to_opac_CONSERV_FRACNNEI_D_%{atm_res}_ORCA05.nc src
+#GLBPOS
+GLOBAL
+###############################################################################
+# Field 10 Solid precipitation [kg/m**2/s;kg/m**2/s]
+ATotSnow OTotSnow 40 %{oce2atm_interval} 3 flxatmos %{field_status_atm}
+%{atm_grid_size_x} %{atm_grid_size_y} %{oce_grid_size_x} %{oce_grid_size_y} atmo opac LAG=%{atm_time_step} SEQ=%{atm_seq}
+P 0 P 2
+LOCTRANS SCRIPR MAPPING
+INSTANT
+CONSERV D SCALAR LATITUDE 40 FRACNNEI FIRST
+rmp_atmo_to_opac_CONSERV_FRACNNEI_D_%{atm_res}_ORCA05.nc src
+###############################################################################
+# Field 11 Sublimination [kg/m**2/s;kg/m**2/s]
+AIceEvap OIceEvap 41 %{oce2atm_interval} 3 flxatmos %{field_status_atm}
+%{atm_grid_size_x} %{atm_grid_size_y} %{oce_grid_size_x} %{oce_grid_size_y} atmo opac LAG=%{atm_time_step} SEQ=%{atm_seq}
+P 0 P 2
+LOCTRANS SCRIPR MAPPING
+INSTANT
+CONSERV D SCALAR LATITUDE 40 FRACNNEI FIRST
+rmp_atmo_to_opac_CONSERV_FRACNNEI_D_%{atm_res}_ORCA05.nc src
+###############################################################################
+# Field 12 Non solar heat flux derivative [W/m**2/K;W/m**2/K]
+A_dQnsdT O_dQnsdT 35 %{oce2atm_interval} 3 flxatmos %{field_status_atm}
+%{atm_grid_size_x} %{atm_grid_size_y} %{oce_grid_size_x} %{oce_grid_size_y} atmo opac LAG=%{atm_time_step} SEQ=%{atm_seq}
+P 0 P 2
+LOCTRANS SCRIPR MAPPING 
+INSTANT
+CONSERV D SCALAR LATITUDE 40 FRACNNEI FIRST
+rmp_atmo_to_opac_CONSERV_FRACNNEI_D_%{atm_res}_ORCA05.nc src
+###############################################################################
+ $END

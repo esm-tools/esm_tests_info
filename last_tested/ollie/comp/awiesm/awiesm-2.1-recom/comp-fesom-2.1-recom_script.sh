@@ -32,6 +32,8 @@ export NETCDFROOT=$NETCDF_DIR
 export NETCDF_Fortran_INCLUDE_DIRECTORIES=$NETCDFROOT/include
 export NETCDF_CXX_INCLUDE_DIRECTORIES=$NETCDFROOT/include
 export NETCDF_CXX_LIBRARIES=$NETCDFROOT/lib
+export OASIS_NETCDF=$NETCDF_DIR
+export OASIS_NETCDFF=$NETCDF_DIR
 export PERL5LIB=/usr/lib64/perl5
 export LAPACK_LIB="-lmkl_intel_lp64 -lmkl_core -mkl=sequential -lpthread -lm -ldl"
 export LAPACK_LIB_DEFAULT="-L/global/AWIsoft/intel/2018/compilers_and_libraries_2018.5.274/linux/mkl/lib/intel64 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential"
@@ -40,12 +42,12 @@ export ZLIBROOT=/usr
 export MPIROOT=${I_MPI_ROOT}/intel64
 export MPI_LIB=$(mpiifort -show |sed -e 's/^[^ ]*//' -e 's/-[I][^ ]*//g')
 export PATH=/work/ollie/jhegewal/sw/cmake/bin:$PATH
-export taken2from=fesom2_compile
+export USER=<USER_ACCOUNT>
 export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 
 unset SLURM_MEM_PER_NODE
 unset SLURM_MEM_PER_CPU
 
-cd fesom-2.1
+pushd fesom-2.1
 mkdir -p build; cd build; cmake -DFESOM_COUPLED=ON -DRECOM_COUPLED=ON ..; make install -j `nproc --all`
-cd ..
+popd

@@ -1,0 +1,25 @@
+&namicerun
+    cn_icerst_in = 'FOCI1.16-SW111_11395584_restart_ice_24991231_global'
+    cn_icerst_indir = '/work/bb0519/foci_input2/FOCI_RESTART/FOCI1.16-SW111/nemo//'
+    cn_icerst_out = 'restart_ice_18500101'
+    cn_icerst_outdir = '<TEST_DIR>/run/foci//foci-moz-restart-pictrl_run/restart/nemo//'
+/
+
+&namiceini
+    ln_limini = .false.
+    hninn = 0.1
+    hginn = 2.0
+/
+
+&namicedyn
+    pstar = 15000.0
+    rn_creepl = 2e-08
+    nn_nevp = 360
+    telast = 3600
+    testlimrhg = 10
+/
+
+&namicethd
+    hiccrit = 0.3, 0.6
+    parsub = 0.0
+/

@@ -17,16 +17,62 @@ run:
                 files:
                     - "outdata/echam/*_echam"
                     - "outdata/jsbach/*_jsbach"
-                    - "outdata/nemo/mesh_mask_*"
                     - "restart/echam/restart_*nc"
                     - "restart/jsbach/restart_*nc"
                     - "restart/hdmodel/restart_*nc"
                     - "restart/nemo/*_restart_*"
                     - "restart/nemo/*_restart_ice_*"
                     - "restart/nemo/*_restart_trc_*"
-                    - "restart/oasis3mct/flxatmos"
-                    - "restart/oasis3mct/sstocean"
+                    - "restart/oasis3mct/flxatmos*"
+                    - "restart/oasis3mct/sstocean*"
         check: {}
+
+ignore_compare:
+    foci-initial-piCtl-test_daily_restart_lowcpu:
+        finished_config:
+            - "sstocean: .*/sstocean_18491231-18491231"
+            - "flxatmos: .*/flxatmos_18491231-18491231"
+            - "ini_parent_dir: .*/run_files4check_runs/foci-initial-piCtl-test_daily_restart_lowcpu/"
+            - "ini_parent_dir: .*/OASIS3_ECHAM6T63_ORCA05/input/T63_ORCA05//"
+            - "parent_restart_dir: .*/OASIS3_ECHAM6T63_ORCA05/input/T63_ORCA05//"
+            - "parent_restart_dir: .*/run_files4check_runs/foci-initial-piCtl-test_daily_restart_lowcpu/"
+            - "ini_restart_dir: .*/OASIS3_ECHAM6T63_ORCA05/input/T63_ORCA05//"
+            - "ini_restart_dir: .*/run_files4check_runs/foci-initial-piCtl-test_daily_restart_lowcpu/"
+    foci-initial-ssp-scenario:
+        finished_config:
+            - "sstocean: .*/sstocean_18491231-18491231"
+            - "flxatmos: .*/flxatmos_18491231-18491231"
+            - "ini_parent_dir: .*/OASIS3_ECHAM6T63_ORCA05/input/T63_ORCA05//"
+            - "parent_restart_dir: .*/run_files4check_runs/foci-initial-ssp-scenario/"
+            - "parent_restart_dir: .*/OASIS3_ECHAM6T63_ORCA05/input/T63_ORCA05//"
+            - "ini_restart_dir: .*/OASIS3_ECHAM6T63_ORCA05/input/T63_ORCA05/"
+            - "ini_restart_dir: .*/run_files4check_runs/foci-initial-ssp-scenario/"
+            - "ini_parent_dir: .*/run_files4check_runs/foci-initial-ssp-scenario/"
+    foci-mops-lmu-pictl-daily_restart_lowcpu:
+        finished_config:
+            - "sstocean: .*/sstocean_FOCI1.20.0-CC103_piControl_ESM_250y_spinup2099_20491231"
+            - "flxatmos: .*/flxatmos_FOCI1.20.0-CC103_piControl_ESM_250y_spinup2099_20491231"
+            - "ini_parent_dir: .*/FOCI1.20.0-CC103_piControl_ESM_250y_spinup2099/oasis3mct/"
+            - "ini_parent_dir: .*/run_files4check_runs/foci-mops-lmu-pictl-daily_restart_lowcpu/"
+            - "parent_restart_dir: .*/FOCI1.20.0-CC103_piControl_ESM_250y_spinup2099/oasis3mct/"
+            - "parent_restart_dir: .*/run_files4check_runs/foci-mops-lmu-pictl-daily_restart_lowcpu/"
+    foci-mops-ssp-scenario-restart-2014-ESM:
+        finished_config:
+            - "sstocean: .*/sstocean_FOCI1.20.0-CC105_RCP_ESM_spinup2099_20141231"
+            - "flxatmos: .*/flxatmos_FOCI1.20.0-CC105_RCP_ESM_spinup2099_20141231"
+            - "ini_parent_dir: .*/FOCI1.20.0-CC105_RCP_ESM_spinup2099/oasis3mct/"
+            - "ini_parent_dir: .*/run_files4check_runs/foci-mops-ssp-scenario-restart-2014-ESM/"
+            - "parent_restart_dir: .*/FOCI1.20.0-CC105_RCP_ESM_spinup2099/oasis3mct/"
+            - "parent_restart_dir: .*/run_files4check_runs/foci-mops-ssp-scenario-restart-2014-ESM/"
+    foci-moz-restart-pictrl_run:
+        finished_config:
+            - "sstocean: .*/sstocean_FOCI1.16-SW111_24991231"
+            - "flxatmos: .*/flxatmos_FOCI1.16-SW111_24991231"
+            - "ini_parent_dir: .*/FOCI1.16-SW111/oasis3mct/"
+            - "ini_parent_dir: .*/run_files4check_runs/foci-moz-restart-pictrl_run/"
+            - "parent_restart_dir: .*/FOCI1.16-SW111/oasis3mct/"
+            - "parent_restart_dir: .*/run_files4check_runs/foci-moz-restart-pictrl_run/"
+
 computers:
-        - blogin
+        - levante
         - glogin

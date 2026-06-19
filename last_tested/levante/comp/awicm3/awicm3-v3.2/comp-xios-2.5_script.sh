@@ -11,7 +11,6 @@ module load openmpi/4.1.2-intel-2021.5.0
 module load netcdf-c/4.8.1-openmpi-4.1.2-intel-2021.5.0
 module load netcdf-fortran/4.5.3-openmpi-4.1.2-intel-2021.5.0
 module load hdf5/1.12.1-openmpi-4.1.2-intel-2021.5.0
-module load libaec/1.0.5-intel-2021.5.0
 
 export LC_ALL=en_US.UTF-8
 export CPU_MODEL=AMD_EPYC_ZEN3
@@ -37,16 +36,28 @@ export CC=mpicc
 export CXX=mpicxx
 export MPIROOT="$(mpif90 -show | perl -lne 'm{ -I(.*?)/include } and print $1')"
 export MPI_LIB="$(mpif90 -show |sed -e 's/^[^ ]*//' -e 's/-[I][^ ]*//g')"
+export MPI_HOME=$MPIROOT
+export MPI_ROOT=$MPIROOT
+export mpi_ROOT=$MPIROOT
+export MPI_DIR=$MPIROOT
+export mpi_DIR=$MPIROOT
 export IO_LIB_ROOT=/work/ab0246/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0
 export HDF5ROOT=/sw/spack-levante/hdf5-1.12.1-tvymb5
 export HDF5_C_INCLUDE_DIRECTORIES=$HDF5_ROOT/include
 export HDF5_ROOT=$HDF5ROOT
 export NETCDFFROOT=/sw/spack-levante/netcdf-fortran-4.5.3-k6xq5g
-export NETCDFROOT=/sw/spack-levante/netcdf-c-4.8.1-2k3cmu
 export NETCDF_Fortran_INCLUDE_DIRECTORIES=$NETCDFFROOT/include
+export NetCDF_Fortran_ROOT=$NETCDFFROOT
+export NETCDF_ROOT=$NETCDFFROOT
+export NETCDFROOT=/sw/spack-levante/netcdf-c-4.8.1-2k3cmu
 export NETCDF_C_INCLUDE_DIRECTORIES=$NETCDFROOT/include
 export NETCDF_CXX_INCLUDE_DIRECTORIES=$NETCDFROOT/include
 export NETCDF_CXX_LIBRARIES=$NETCDFROOT/lib
+export NetCDF_C_ROOT=$NETCDFROOT
+export NETCDF_PATH=$NETCDFROOT
+export ECCODESROOT=$IO_LIB_ROOT
+export OASIS_NETCDF=$NETCDFROOT
+export OASIS_NETCDFF=$NETCDFFROOT
 export PSMPIFLAGS="-lrt -lm -ldl"
 export LAPACK_LIB='-mkl=sequential'
 export ZLIBROOT=/usr
@@ -55,8 +66,13 @@ export PERL5LIB=/usr/lib64/perl5
 export LD_LIBRARY_PATH=$HDF5ROOT/lib:$NETCDFROOT/lib:$NETCDFFROOT/lib:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/sw/spack-levante/intel-oneapi-mkl-2022.0.1-ttdktf/mkl/2022.0.1/lib/intel64:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/sw/spack-levante/intel-oneapi-mpi-2021.5.0-mrcss7/mpi/2021.5.0/libfabric/lib:$LD_LIBRARY_PATH
-export SZIPROOT=/sw/spack-levante/libaec-1.0.5-gij7yv
-export ECCODESROOT=/work/ab0246/HPC_libraries/intel-oneapi-compilers/2022.0.1-gcc-11.2.0/openmpi/4.1.2-intel-2021.5.0
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/on/a/road/to/nowwhere/test/run_20000101-20001231/work//lib/fesom/
+export OASIS_FFLAGS="-fPIC"
+export OASIS_CFLAGS="-fPIC"
+export CFLAGS="-fPIC"
+export CCFLAGS="-fPIC"
+export FFLAGS="-fPIC"
+export FCFLAGS="-fPIC"
 export ESM_NETCDF_C_DIR=$NETCDFROOT
 export ESM_NETCDF_F_DIR=$NETCDFFROOT
 export OIFS_GRIB_API_INCLUDE="-I$ECCODESROOT/include"
@@ -66,8 +82,8 @@ export OIFS_GRIB_LIB="$OIFS_GRIB_API_LIB"
 export OIFS_GRIB_API_BIN="$ECCODESROOT/bin"
 export LAPACK_LIB_DEFAULT="-L$MKLROOT/lib/intel64 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential"
 export OIFS_OASIS_BASE=$(pwd)/oasis
-export OIFS_OASIS_INCLUDE="-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu"
-export OIFS_OASIS_LIB="-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu -lpsmile -lmct -lmpeu -lscrip"
+export OIFS_OASIS_INCLUDE="-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu "
+export OIFS_OASIS_LIB="-L$OIFS_OASIS_BASE/build/lib/psmile -L$OIFS_OASIS_BASE/build/lib/psmile/scrip -L$OIFS_OASIS_BASE/build/lib/psmile/mct -L$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu  -lpsmile -lmct -lmpeu -lscrip -qmkl"
 export OIFS_NETCDF_INCLUDE="-I$NETCDFROOT/include"
 export OIFS_NETCDF_LIB="-L$NETCDFROOT/lib -lnetcdf"
 export OIFS_NETCDFF_INCLUDE="-I$NETCDFFROOT/include"
@@ -81,7 +97,7 @@ export OIFS_LFLAGS="$OIFS_MPI_LIB -qopenmp"
 export OIFS_CC=$CC
 export OIFS_CFLAGS="-fp-model precise -O3 -g -traceback -qopt-report=0 -fpe0 -qopenmp -march=core-avx2 -mtune=core-avx2"
 export OIFS_CCDEFS="LINUX LITTLE INTEGER_IS_INT _ABI64 BLAS _OPENMP"
-export OASIS_FFLAGS="-march=core-avx2 -mtune=core-avx2"
+export USER=<USER_ACCOUNT>
 export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 
 unset SLURM_DISTRIBUTION
@@ -89,6 +105,6 @@ unset SLURM_NTASKS
 unset SLURM_NPROCS
 unset SLURM_ARBITRARY_NODELIST
 
-cd xios
-export XIOS_TOPLEVEL=<TEST_DIR>comp/awicm3/awicm3-v3.2/xios; ./make_xios --arch ESMTOOLS_levante_oasis_intel --netcdf_lib netcdf4_par --use_oasis oasis3_mct --job 24 --prod; cp bin/xios_server.exe bin/xios.x
-cd ..
+pushd xios
+export XIOS_TOPLEVEL=<TEST_DIR>/comp/awicm3/awicm3-v3.2/xios; ./make_xios --arch ESMTOOLS_levante_oasis_intel --netcdf_lib netcdf4_par --use_oasis oasis3_mct --job 24 --prod; cp bin/xios_server.exe bin/xios.x
+popd
