@@ -100,7 +100,7 @@ export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 2015-01-01T00:00:00 1959 - start" >> <TEST_DIR>/run/foci//foci-mops-ssp-scenario-restart-2014-ESM/log//foci-mops-ssp-scenario-restart-2014-ESM_foci.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 2015-01-01T00:00:00 1286 - start" >> <TEST_DIR>/run/foci//foci-mops-ssp-scenario-restart-2014-ESM/log//foci-mops-ssp-scenario-restart-2014-ESM_foci.log
 
 cd <TEST_DIR>/run/foci//foci-mops-ssp-scenario-restart-2014-ESM/run_20150101-20150101/work/
 time srun -l --cpu-bind=cores --distribution=cyclic:cyclic --hint=nomultithread --multi-prog hostfile_srun 2>&1 &
@@ -116,6 +116,6 @@ source <TEST_DIR>/run/foci//foci-mops-ssp-scenario-restart-2014-ESM/run_20150101
 cd <TEST_DIR>/run/foci//foci-mops-ssp-scenario-restart-2014-ESM/scripts/
 esm_runscripts foci-mops-ssp-scenario-restart-2014-ESM.yaml -e foci-mops-ssp-scenario-restart-2014-ESM -t observe_compute -p ${process} -s 20150101 -r 1 -v --last-jobtype prepcompute --open-run
 
-echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 2015-01-01T00:00:00 1959 - done" >> <TEST_DIR>/run/foci//foci-mops-ssp-scenario-restart-2014-ESM/log//foci-mops-ssp-scenario-restart-2014-ESM_foci.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 2015-01-01T00:00:00 1286 - done" >> <TEST_DIR>/run/foci//foci-mops-ssp-scenario-restart-2014-ESM/log//foci-mops-ssp-scenario-restart-2014-ESM_foci.log
 
 wait

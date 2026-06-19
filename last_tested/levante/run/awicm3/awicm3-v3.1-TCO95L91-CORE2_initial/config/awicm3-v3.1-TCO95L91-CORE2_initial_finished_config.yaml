@@ -406,6 +406,7 @@ general:
   system_components:
   - general  # <CONFIGS_PATH>/defaults/general.yaml,line:2,col:21
   - dask # <CONFIGS_PATH>/defaults/general.yaml,line:2,col:32
+  - conda # <CONFIGS_PATH>/defaults/general.yaml,line:2,col:40
   - prev_run # no provenance info
   other_components: []
   standalone: false  # no provenance info
@@ -757,14 +758,14 @@ general:
     first_task_in_queue: prepcompute # no provenance info
     next_run_triggered_by: tidy # no provenance info
   submitted: false  # no provenance info
-  jobid: 1623 # no provenance info
+  jobid: 1351 # no provenance info
   batch: slurm # no provenance info
   coupler_config_dir: <TEST_DIR>/run/awicm3//awicm3-v3.1-TCO95L91-CORE2_initial/run_20000101-20000101/config/oasis3mct/ # no provenance info
   coupler: oasis3mct # no provenance info
   experiment_log_file: <TEST_DIR>/run/awicm3//awicm3-v3.1-TCO95L91-CORE2_initial/log//awicm3-v3.1-TCO95L91-CORE2_initial_awicm3.log # no provenance info
-  esm_tools_version: 6.62.4 # no provenance info
-  logfile_path: <TEST_DIR>/run/awicm3//awicm3-v3.1-TCO95L91-CORE2_initial/log//awicm3-v3.1-TCO95L91-CORE2_initial_awicm3_prepcompute_20000101-20000101_1623.log # no provenance info
-  logfile_path_in_run: <TEST_DIR>/run/awicm3//awicm3-v3.1-TCO95L91-CORE2_initial/run_20000101-20000101/log//awicm3-v3.1-TCO95L91-CORE2_initial_awicm3_prepcompute_20000101-20000101_1623.log # no provenance info
+  esm_tools_version: 6.63.1 # no provenance info
+  logfile_path: <TEST_DIR>/run/awicm3//awicm3-v3.1-TCO95L91-CORE2_initial/log//awicm3-v3.1-TCO95L91-CORE2_initial_awicm3_prepcompute_20000101-20000101_1351.log # no provenance info
+  logfile_path_in_run: <TEST_DIR>/run/awicm3//awicm3-v3.1-TCO95L91-CORE2_initial/run_20000101-20000101/log//awicm3-v3.1-TCO95L91-CORE2_initial_awicm3_prepcompute_20000101-20000101_1351.log # no provenance info
   relevant_filetypes:
   - bin  # no provenance info
   - config # no provenance info
@@ -1809,6 +1810,8 @@ computer:
     ACCOUNT: None  # no provenance info
     ESM_TESTING_DIR: <TEST_DIR>/run/awicm3/ # no provenance info
     MODEL_DIR: <TEST_DIR>/comp/awicm3/awicm3-v3.1.1 # no provenance info
+  post_run_commands: unset SLURM_HOSTFILE # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:65,col:40
+  launched_with_conda: false # no provenance info
   heterogeneous_parallelization: true # no provenance info
   load_python_command: []
   lib_aec: '' # <CONFIGS_PATH>/machines/levante.yaml,line:154,col:22
@@ -1834,7 +1837,6 @@ computer:
   execution_command: srun -l --hint=nomultithread --multi-prog hostfile_srun # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:85,col:40
   debugger_flags_prelauncher: '' # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:95,col:45
   srun_execution_command: srun -l --hint=nomultithread --multi-prog hostfile_srun # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:63,col:45
-  post_run_commands: unset SLURM_HOSTFILE # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:65,col:40
 oasis3mct:
   model: oasis3mct  # <CONFIGS_PATH>/components/oasis3mct/oasis3mct.yaml,line:2,col:12
   cf_name_dir: <TEST_DIR>/comp/awicm3/awicm3-v3.1.1/oasis # <CONFIGS_PATH>/components/oasis3mct/oasis3mct.yaml,line:4,col:18

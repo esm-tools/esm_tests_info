@@ -1410,6 +1410,9 @@ computer:
   nnodes: 1 # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:152,col:13
   model: computer # no provenance info
   additional_flags: --threads-per-core=2 # <TEST_DIR>/run/icon-fesom/icon-fesom-pictl-v2-daily/scripts/icon-fesom-pictl-v2-daily.yaml,line:3,col:23
+  post_run_commands:
+  - '@conda_activate@'  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:55,col:11
+  launched_with_conda: false  # no provenance info
   heterogeneous_parallelization: false # no provenance info
   load_python_command: []
   lib_aec: ''  # <CONFIGS_PATH>/machines/levante.yaml,line:154,col:22
@@ -1447,6 +1450,7 @@ general:
   system_components:
   - general  # <CONFIGS_PATH>/defaults/general.yaml,line:2,col:21
   - dask # <CONFIGS_PATH>/defaults/general.yaml,line:2,col:32
+  - conda # <CONFIGS_PATH>/defaults/general.yaml,line:2,col:40
   - prev_run # no provenance info
   other_components: []
   standalone: false  # no provenance info
@@ -1773,14 +1777,14 @@ general:
     first_task_in_queue: prepcompute # no provenance info
     next_run_triggered_by: tidy # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:86,col:32
   submitted: false  # no provenance info
-  jobid: 1669 # no provenance info
+  jobid: 1218 # no provenance info
   batch: slurm # no provenance info
   coupler_config_dir: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/run_18500101-18500101/config/yac/ # no provenance info
   coupler: yac # no provenance info
   experiment_log_file: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/log//icon-fesom-pictl-v2-daily_icon-fesom.log # no provenance info
-  esm_tools_version: 6.62.4 # no provenance info
-  logfile_path: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/log//icon-fesom-pictl-v2-daily_icon-fesom_prepcompute_18500101-18500101_1669.log # no provenance info
-  logfile_path_in_run: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/run_18500101-18500101/log//icon-fesom-pictl-v2-daily_icon-fesom_prepcompute_18500101-18500101_1669.log # no provenance info
+  esm_tools_version: 6.63.1 # no provenance info
+  logfile_path: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/log//icon-fesom-pictl-v2-daily_icon-fesom_prepcompute_18500101-18500101_1218.log # no provenance info
+  logfile_path_in_run: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/run_18500101-18500101/log//icon-fesom-pictl-v2-daily_icon-fesom_prepcompute_18500101-18500101_1218.log # no provenance info
   relevant_filetypes:
   - bin  # no provenance info
   - config # no provenance info

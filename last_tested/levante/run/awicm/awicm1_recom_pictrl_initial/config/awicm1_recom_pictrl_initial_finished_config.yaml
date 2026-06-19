@@ -1862,7 +1862,10 @@ computer:
     ACCOUNT: None  # no provenance info
     ESM_TESTING_DIR: <TEST_DIR>/run/awicm/ # no provenance info
     MODEL_DIR: <TEST_DIR>/comp/awicm/awicm-1.0-recom # no provenance info
-  heterogeneous_parallelization: false  # no provenance info
+  post_run_commands:
+  - '@conda_activate@'  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:55,col:11
+  launched_with_conda: false  # no provenance info
+  heterogeneous_parallelization: false # no provenance info
   load_python_command: []
   lib_aec: ''  # <CONFIGS_PATH>/machines/levante.yaml,line:154,col:22
   lib_tbbmalloc: '' # <CONFIGS_PATH>/machines/levante.yaml,line:164,col:28
@@ -1898,6 +1901,7 @@ general:
   system_components:
   - general  # <CONFIGS_PATH>/defaults/general.yaml,line:2,col:21
   - dask # <CONFIGS_PATH>/defaults/general.yaml,line:2,col:32
+  - conda # <CONFIGS_PATH>/defaults/general.yaml,line:2,col:40
   - prev_run # no provenance info
   other_components: []
   standalone: false  # no provenance info
@@ -2208,14 +2212,14 @@ general:
     first_task_in_queue: prepcompute # no provenance info
     next_run_triggered_by: tidy # no provenance info
   submitted: false  # no provenance info
-  jobid: 1324 # no provenance info
+  jobid: 2081 # no provenance info
   batch: slurm # no provenance info
   coupler_config_dir: <TEST_DIR>/run/awicm//awicm1_recom_pictrl_initial/run_18500101-18500131/config/oasis3mct/ # no provenance info
   coupler: oasis3mct # no provenance info
   experiment_log_file: <TEST_DIR>/run/awicm//awicm1_recom_pictrl_initial/log//awicm1_recom_pictrl_initial_awicm.log # no provenance info
-  esm_tools_version: 6.62.4 # no provenance info
-  logfile_path: <TEST_DIR>/run/awicm//awicm1_recom_pictrl_initial/log//awicm1_recom_pictrl_initial_awicm_prepcompute_18500101-18500131_1324.log # no provenance info
-  logfile_path_in_run: <TEST_DIR>/run/awicm//awicm1_recom_pictrl_initial/run_18500101-18500131/log//awicm1_recom_pictrl_initial_awicm_prepcompute_18500101-18500131_1324.log # no provenance info
+  esm_tools_version: 6.63.1 # no provenance info
+  logfile_path: <TEST_DIR>/run/awicm//awicm1_recom_pictrl_initial/log//awicm1_recom_pictrl_initial_awicm_prepcompute_18500101-18500131_2081.log # no provenance info
+  logfile_path_in_run: <TEST_DIR>/run/awicm//awicm1_recom_pictrl_initial/run_18500101-18500131/log//awicm1_recom_pictrl_initial_awicm_prepcompute_18500101-18500131_2081.log # no provenance info
   relevant_filetypes:
   - bin  # no provenance info
   - config # no provenance info

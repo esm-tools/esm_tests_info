@@ -1806,7 +1806,10 @@ computer:
     ACCOUNT: None # no provenance info
     ESM_TESTING_DIR: <TEST_DIR>/run/foci/ # no provenance info
     MODEL_DIR: <TEST_DIR>/comp/foci/foci-mops_lmu # no provenance info
-  heterogeneous_parallelization: false  # no provenance info
+  post_run_commands:
+  - '@conda_activate@'  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:55,col:11
+  launched_with_conda: false  # no provenance info
+  heterogeneous_parallelization: false # no provenance info
   load_python_command: []
   lib_aec: '$AEC_ROOT/lib:'  # <CONFIGS_PATH>/machines/levante.yaml,line:147,col:22
   lib_tbbmalloc: '$TBBMALLOC_DIR:' # <CONFIGS_PATH>/machines/levante.yaml,line:159,col:28
@@ -1844,6 +1847,7 @@ general:
   system_components:
   - general  # <CONFIGS_PATH>/defaults/general.yaml,line:2,col:21
   - dask # <CONFIGS_PATH>/defaults/general.yaml,line:2,col:32
+  - conda # <CONFIGS_PATH>/defaults/general.yaml,line:2,col:40
   - prev_run # no provenance info
   other_components:
   - nemobasemodel  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:6,col:7
@@ -2202,14 +2206,14 @@ general:
     first_task_in_queue: prepcompute # no provenance info
     next_run_triggered_by: tidy # no provenance info
   submitted: false  # no provenance info
-  jobid: 2023 # no provenance info
+  jobid: 1263 # no provenance info
   batch: slurm # no provenance info
   coupler_config_dir: <TEST_DIR>/run/foci//foci-mops-lmu-pictl-daily_restart_lowcpu/run_18500101-18500101/config/oasis3mct/ # no provenance info
   coupler: oasis3mct # no provenance info
   experiment_log_file: <TEST_DIR>/run/foci//foci-mops-lmu-pictl-daily_restart_lowcpu/log//foci-mops-lmu-pictl-daily_restart_lowcpu_foci.log # no provenance info
-  esm_tools_version: 6.62.4 # no provenance info
-  logfile_path: <TEST_DIR>/run/foci//foci-mops-lmu-pictl-daily_restart_lowcpu/log//foci-mops-lmu-pictl-daily_restart_lowcpu_foci_prepcompute_18500101-18500101_2023.log # no provenance info
-  logfile_path_in_run: <TEST_DIR>/run/foci//foci-mops-lmu-pictl-daily_restart_lowcpu/run_18500101-18500101/log//foci-mops-lmu-pictl-daily_restart_lowcpu_foci_prepcompute_18500101-18500101_2023.log # no provenance info
+  esm_tools_version: 6.63.1 # no provenance info
+  logfile_path: <TEST_DIR>/run/foci//foci-mops-lmu-pictl-daily_restart_lowcpu/log//foci-mops-lmu-pictl-daily_restart_lowcpu_foci_prepcompute_18500101-18500101_1263.log # no provenance info
+  logfile_path_in_run: <TEST_DIR>/run/foci//foci-mops-lmu-pictl-daily_restart_lowcpu/run_18500101-18500101/log//foci-mops-lmu-pictl-daily_restart_lowcpu_foci_prepcompute_18500101-18500101_1263.log # no provenance info
   relevant_filetypes:
   - bin  # no provenance info
   - config # no provenance info
@@ -7548,8 +7552,8 @@ jsbach:
     config:
       init_to_exp: copy  # <CONFIGS_PATH>/setups/foci/foci.yaml,line:575,col:28
       run_to_work: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:576,col:28
-      exp_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:573,col:31
-      work_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:573,col:31
+      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
     forcing:
       init_to_exp: link  # <CONFIGS_PATH>/setups/foci/foci.yaml,line:578,col:31
       exp_to_run: link # <CONFIGS_PATH>/setups/foci/foci.yaml,line:578,col:31
@@ -7581,45 +7585,45 @@ jsbach:
       run_to_work: move # <CONFIGS_PATH>/setups/foci/foci.yaml,line:588,col:31
       work_to_run: move # <CONFIGS_PATH>/setups/foci/foci.yaml,line:588,col:31
     analysis:
-      init_to_exp: copy  # <CONFIGS_PATH>/setups/foci/foci.yaml,line:573,col:31
-      exp_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:573,col:31
-      run_to_work: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:573,col:31
-      work_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:573,col:31
+      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
     bin:
       init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:31,col:41
       exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:32,col:41
       run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:33,col:41
       work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:34,col:41
     couple:
-      init_to_exp: copy  # <CONFIGS_PATH>/setups/foci/foci.yaml,line:573,col:31
-      exp_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:573,col:31
-      run_to_work: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:573,col:31
-      work_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:573,col:31
+      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
     mon:
-      init_to_exp: copy  # <CONFIGS_PATH>/setups/foci/foci.yaml,line:573,col:31
-      exp_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:573,col:31
-      run_to_work: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:573,col:31
-      work_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:573,col:31
+      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
     viz:
-      init_to_exp: copy  # <CONFIGS_PATH>/setups/foci/foci.yaml,line:573,col:31
-      exp_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:573,col:31
-      run_to_work: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:573,col:31
-      work_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:573,col:31
+      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
     ignore:
-      init_to_exp: copy  # <CONFIGS_PATH>/setups/foci/foci.yaml,line:573,col:31
-      exp_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:573,col:31
-      run_to_work: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:573,col:31
-      work_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:573,col:31
+      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
     scripts:
-      init_to_exp: copy  # <CONFIGS_PATH>/setups/foci/foci.yaml,line:573,col:31
-      exp_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:573,col:31
-      run_to_work: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:573,col:31
-      work_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:573,col:31
+      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
     unknown:
-      init_to_exp: copy  # <CONFIGS_PATH>/setups/foci/foci.yaml,line:573,col:31
-      exp_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:573,col:31
-      run_to_work: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:573,col:31
-      work_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:573,col:31
+      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
   ini_parent_date: '20491231'  # <TEST_DIR>/run/foci/foci-mops-lmu-pictl-daily_restart_lowcpu/scripts/foci-mops-lmu-pictl-daily_restart_lowcpu.yaml,line:92,col:22
   ini_parent_dir: /work/bb0519/foci_input2/FOCI_RESTART/FOCI1.20.0-CC103_piControl_ESM_250y_spinup2099/jsbach_12tiles/ # <TEST_DIR>/run/foci/foci-mops-lmu-pictl-daily_restart_lowcpu/scripts/foci-mops-lmu-pictl-daily_restart_lowcpu.yaml,line:93,col:20
   namelist_changes:
