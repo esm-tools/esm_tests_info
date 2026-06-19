@@ -3079,6 +3079,9 @@ computer:
     ESM_TESTING_DIR: <TEST_DIR>/run/awicm/ # no provenance info
     MODEL_DIR: <TEST_DIR>/comp/awicm/awicm-1.0-recom # no provenance info
   jobtype: prepcompute  # no provenance info
+  post_run_commands:
+  - '@conda_activate@'  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:55,col:11
+  launched_with_conda: false  # no provenance info
   heterogeneous_parallelization: false # no provenance info
   cpu_bind: cores # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:79,col:23
   srun_execution_command: srun -l --kill-on-bad-exit=1 --cpu_bind=cores --multi-prog hostfile_srun # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:80,col:37
@@ -3119,6 +3122,7 @@ general:
   system_components:
   - general  # <CONFIGS_PATH>/defaults/general.yaml,line:2,col:21
   - dask # <CONFIGS_PATH>/defaults/general.yaml,line:2,col:32
+  - conda # <CONFIGS_PATH>/defaults/general.yaml,line:2,col:40
   - prev_run # no provenance info
   other_components: []
   standalone: false  # no provenance info
@@ -3431,14 +3435,14 @@ general:
     first_task_in_queue: prepcompute # no provenance info
     next_run_triggered_by: tidy # no provenance info
   submitted: false  # no provenance info
-  jobid: 1260 # no provenance info
+  jobid: 1564 # no provenance info
   batch: slurm # no provenance info
   coupler_config_dir: <TEST_DIR>/run/awicm//awicm1_recom_ssp585/run_20150101-20150131/config/oasis3mct/ # no provenance info
   coupler: oasis3mct # no provenance info
   experiment_log_file: <TEST_DIR>/run/awicm//awicm1_recom_ssp585/log//awicm1_recom_ssp585_awicm.log # no provenance info
-  esm_tools_version: 6.62.4 # no provenance info
-  logfile_path: <TEST_DIR>/run/awicm//awicm1_recom_ssp585/log//awicm1_recom_ssp585_awicm_prepcompute_20150101-20150131_1260.log # no provenance info
-  logfile_path_in_run: <TEST_DIR>/run/awicm//awicm1_recom_ssp585/run_20150101-20150131/log//awicm1_recom_ssp585_awicm_prepcompute_20150101-20150131_1260.log # no provenance info
+  esm_tools_version: 6.63.1 # no provenance info
+  logfile_path: <TEST_DIR>/run/awicm//awicm1_recom_ssp585/log//awicm1_recom_ssp585_awicm_prepcompute_20150101-20150131_1564.log # no provenance info
+  logfile_path_in_run: <TEST_DIR>/run/awicm//awicm1_recom_ssp585/run_20150101-20150131/log//awicm1_recom_ssp585_awicm_prepcompute_20150101-20150131_1564.log # no provenance info
   relevant_filetypes:
   - bin  # no provenance info
   - config # no provenance info
