@@ -110,14 +110,14 @@ echam:
     License: Please make sure you have a license to use ECHAM. Otherwise downloading ECHAM will already fail. To use the repository on either gitlab.dkrz.de/modular_esm/echam6.git or gitlab.awi.de/paleodyn/models/echam6.git, please register for the MPI-ESM user forum at https://code.mpimet.mpg.de/projects/mpi-esm-license and send a screenshot of yourself logged in to the forum to either paul.gierz@awi.de, miguel.andres-martinez@awi.de, or nadine.wieters@awi.de. Note also that you can otherwise ignore the instructions on that page, just the registration and login screen shot is the relevant part for obtaining the license. # <CONFIGS_PATH>/components/echam/echam.yaml,line:140,col:21
   standalone_model: true # <CONFIGS_PATH>/components/echam/echam.yaml,line:147,col:23
   executable: echam6 # <CONFIGS_PATH>/components/echam/echam.yaml,line:153,col:17
-  version: 6.3.05p2-awiesm-2.1 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:196,col:34
+  version: 6.3.05p2-awiesm-2.1 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:197,col:34
   resolution: T63 # <CONFIGS_PATH>/components/echam/echam.yaml,line:155,col:17
-  scenario: PI-CTRL # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:165,col:19
+  scenario: PI-CTRL # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:166,col:19
   scenario_type: PI-CTRL # <CONFIGS_PATH>/components/echam/echam.yaml,line:157,col:20
   postprocessing_stream: BOT ATM LOG # <CONFIGS_PATH>/components/echam/echam.yaml,line:158,col:28
   yr_perp_off: false # <CONFIGS_PATH>/components/echam/echam.yaml,line:159,col:18
   transient_advance_forcing: false # <CONFIGS_PATH>/components/echam/echam.yaml,line:160,col:32
-  ocean_resolution: CORE2 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:183,col:27
+  ocean_resolution: CORE2 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:184,col:27
   disturbance: 1.000001 # <CONFIGS_PATH>/components/echam/echam.yaml,line:162,col:18
   lresume: false # no provenance info
   use_moz: false # <CONFIGS_PATH>/components/echam/echam.yaml,line:164,col:14
@@ -129,31 +129,31 @@ echam:
   pseudo_start_date: '1850-01-01T00:00:00' # <CONFIGS_PATH>/components/echam/echam.yaml,line:197,col:24
   pseudo_end_date: '1850-01-02T00:00:00' # <CONFIGS_PATH>/components/echam/echam.yaml,line:198,col:22
   pseudo_resume_date: '1850-01-01T00:00:00' # <CONFIGS_PATH>/components/echam/echam.yaml,line:199,col:25
-  restart_rate: 1 # <TEST_DIR>/run/awiesm/pi/scripts/pi.yaml,line:29,col:19
-  restart_unit: days # <TEST_DIR>/run/awiesm/pi/scripts/pi.yaml,line:30,col:19
-  restart_firstlast: first # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:166,col:28
-  setup_dir: <TEST_DIR>/comp/awiesm/awiesm-2.1 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:182,col:20
+  restart_rate: 1 # <TEST_DIR>/run/awiesm/pi/scripts/pi.yaml,line:27,col:19
+  restart_unit: days # <TEST_DIR>/run/awiesm/pi/scripts/pi.yaml,line:28,col:19
+  restart_firstlast: first # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:167,col:28
+  setup_dir: <TEST_DIR>/comp/awiesm/awiesm-2.1 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:183,col:20
   bin_dir: <TEST_DIR>/comp/awiesm/awiesm-2.1/bin # <CONFIGS_PATH>/components/echam/echam.yaml,line:213,col:14
   pool_dir: /pool/data/ECHAM6/ # <CONFIGS_PATH>/components/echam/echam.yaml,line:214,col:15
   input_dir: /pool/data/ECHAM6//input/r0008 # <CONFIGS_PATH>/components/echam/echam.yaml,line:215,col:16
-  adj_input_dir: /pool/data/ECHAM6//FESOM2/MESHES_FESOM2.1//core2//tarfilesT63/input/echam6 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:180,col:24
+  adj_input_dir: /pool/data/ECHAM6//FESOM2/MESHES_FESOM2.1//core2//tarfilesT63/input/echam6 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:181,col:24
   forcing_dir: /pool/data/ECHAM6//input/r0008/T63 # <CONFIGS_PATH>/components/echam/echam.yaml,line:217,col:18
   greenhouse_dir: /pool/data/ECHAM6/ # <CONFIGS_PATH>/components/echam/echam.yaml,line:218,col:21
-  namelist_dir: <NAMELIST_PATH>/echam/6.3.05p2-awiesm-2.1/production # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:197,col:39
+  namelist_dir: <NAMELIST_PATH>/echam/6.3.05p2-awiesm-2.1/production # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:198,col:39
   switch: 1 # <CONFIGS_PATH>/components/echam/echam.yaml,line:221,col:13
   value: echam switch # <CONFIGS_PATH>/components/echam/echam.yaml,line:225,col:28
-  with_icb: false # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:189,col:19
+  with_icb: false # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:190,col:19
   icb_code: true # <CONFIGS_PATH>/components/echam/echam.yaml,line:280,col:31
-  with_wiso: false # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:187,col:20
+  with_wiso: false # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:188,col:20
   wiso_code: true # <CONFIGS_PATH>/components/echam/echam.yaml,line:279,col:32
   with_lco2_emis: false # <CONFIGS_PATH>/components/echam/echam.yaml,line:234,col:21
-  nprocar: 0 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:243,col:34
-  nprocbr: 0 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:244,col:34
-  npromar: 8 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:245,col:34
-  nproca: 24 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:239,col:33
-  nprocb: 24 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:240,col:33
-  lrad_async: false # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:246,col:37
-  lrestart_from_old: false # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:247,col:44
+  nprocar: 0 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:248,col:34
+  nprocbr: 0 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:249,col:34
+  npromar: 8 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:250,col:34
+  nproca: 24 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:244,col:33
+  nprocb: 24 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:245,col:33
+  lrad_async: false # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:251,col:37
+  lrestart_from_old: false # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:252,col:44
   scenario_is_ssp: false # <CONFIGS_PATH>/components/echam/echam.yaml,line:499,col:22
   allow_hist2ssp_transition: false # <CONFIGS_PATH>/components/echam/echam.yaml,line:500,col:32
   bin_sources:
@@ -358,7 +358,7 @@ echam:
         - 0 # no provenance info
         nproma: 8  # no provenance info
         npromar: 0 # no provenance info
-        lcouple: true # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:170,col:42
+        lcouple: true # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:171,col:42
         getocean:
         - 1  # no provenance info
         - days # no provenance info
@@ -457,7 +457,7 @@ echam:
         - 1 # <CONFIGS_PATH>/components/echam/echam.yaml,line:976,col:39
         - 1 # <CONFIGS_PATH>/components/echam/echam.yaml,line:977,col:39
         lresume: false  # <CONFIGS_PATH>/components/echam/echam.yaml,line:978,col:38
-        lcouple: true # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:170,col:42
+        lcouple: true # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:171,col:42
         delta_time: 450 # <CONFIGS_PATH>/components/echam/echam.yaml,line:980,col:41
         putrerun:
         - 1  # <CONFIGS_PATH>/components/echam/echam.yaml,line:982,col:39
@@ -548,12 +548,12 @@ echam:
   input_sources:
     cldoptprops: /pool/data/ECHAM6//input/r0008/ECHAM6_CldOptProps.nc  # <CONFIGS_PATH>/components/echam/echam.datasets.yaml,line:5,col:28
     janspec: /pool/data/ECHAM6//input/r0008/T63/T63L47_jan_spec.nc # <CONFIGS_PATH>/components/echam/echam.datasets.yaml,line:6,col:24
-    jansurf: /work/ab0995/a270152/testing_pool/nonstandard_pool_files/fesom/mesh_CORE2_finaltopo_mean/tarfilesT63/input/echam6/T63CORE2_jan_surf.nc # <TEST_DIR>/run/awiesm/pi/scripts/pi.yaml,line:32,col:18
+    jansurf: /work/ab0995/a270152/testing_pool/nonstandard_pool_files/fesom/mesh_CORE2_finaltopo_mean/tarfilesT63/input/echam6/T63CORE2_jan_surf.nc # <TEST_DIR>/run/awiesm/pi/scripts/pi.yaml,line:30,col:18
     rrtmglw: /pool/data/ECHAM6//input/r0008/rrtmg_lw.nc # <CONFIGS_PATH>/components/echam/echam.datasets.yaml,line:8,col:24
     rrtmgsw: /pool/data/ECHAM6//input/r0008/rrtmg_sw.nc # <CONFIGS_PATH>/components/echam/echam.datasets.yaml,line:9,col:24
     tslclim: /pool/data/ECHAM6//input/r0008/T63/T63_TSLCLIM.nc # <CONFIGS_PATH>/components/echam/echam.datasets.yaml,line:10,col:24
-    vgratclim: /work/ab0995/a270152/testing_pool/nonstandard_pool_files/fesom/mesh_CORE2_finaltopo_mean/tarfilesT63/input/echam6/T63CORE2_VGRATCLIM.nc # <TEST_DIR>/run/awiesm/pi/scripts/pi.yaml,line:33,col:20
-    vltclim: /work/ab0995/a270152/testing_pool/nonstandard_pool_files/fesom/mesh_CORE2_finaltopo_mean/tarfilesT63/input/echam6/T63CORE2_VLTCLIM.nc # <TEST_DIR>/run/awiesm/pi/scripts/pi.yaml,line:34,col:18
+    vgratclim: /work/ab0995/a270152/testing_pool/nonstandard_pool_files/fesom/mesh_CORE2_finaltopo_mean/tarfilesT63/input/echam6/T63CORE2_VGRATCLIM.nc # <TEST_DIR>/run/awiesm/pi/scripts/pi.yaml,line:31,col:20
+    vltclim: /work/ab0995/a270152/testing_pool/nonstandard_pool_files/fesom/mesh_CORE2_finaltopo_mean/tarfilesT63/input/echam6/T63CORE2_VLTCLIM.nc # <TEST_DIR>/run/awiesm/pi/scripts/pi.yaml,line:32,col:18
   ozone_source_file_scenario: PI-CTRL # <CONFIGS_PATH>/components/echam/echam.datasets.yaml,line:16,col:33
   forcing_sources:
     aerocoarse_year_1850: /pool/data/ECHAM6//input/r0008/T63/aero/T63_aeropt_kinne_sw_b14_coa.nc  # <CONFIGS_PATH>/components/echam/echam.datasets.yaml,line:35,col:29
@@ -710,16 +710,16 @@ echam:
   - jsbach  # <CONFIGS_PATH>/components/echam/echam.yaml,line:150,col:15
   - hdmodel # <CONFIGS_PATH>/components/echam/echam.yaml,line:151,col:15
   hosing_correction: false  # <CONFIGS_PATH>/components/echam/echam.yaml,line:191,col:40
-  model_dir: <TEST_DIR>/comp/awiesm/awiesm-2.1/echam-6.3.05p2 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:204,col:36
+  model_dir: <TEST_DIR>/comp/awiesm/awiesm-2.1/echam-6.3.05p2 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:205,col:36
   concurrent_radiation_code: true # <CONFIGS_PATH>/components/echam/echam.yaml,line:281,col:48
   repo_tag: not_applicable # <CONFIGS_PATH>/components/echam/echam.yaml,line:282,col:31
   dataset: r0008 # <CONFIGS_PATH>/components/echam/echam.yaml,line:283,col:30
-  configure_opts: --with-coupler=oasis3-mct # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:261,col:33
+  configure_opts: --with-coupler=oasis3-mct # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:266,col:33
   levels: L47 # <CONFIGS_PATH>/components/echam/echam.yaml,line:260,col:29
   time_step: 450 # <CONFIGS_PATH>/components/echam/echam.yaml,line:261,col:32
   _nx: 192 # <CONFIGS_PATH>/components/echam/echam.yaml,line:262,col:26
   _ny: 96 # <CONFIGS_PATH>/components/echam/echam.yaml,line:263,col:26
-  namelist_type: production # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:176,col:32
+  namelist_type: production # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:177,col:32
   restart_in_modifications:
     echam:
     - vdate <--set_global_attr-- 18500101  # no provenance info
@@ -935,7 +935,7 @@ echam:
   lwiso: false # <CONFIGS_PATH>/components/echam/echam.yaml,line:671,col:28
   nwiso: 0 # <CONFIGS_PATH>/components/echam/echam.yaml,line:704,col:44
   lwiso_rerun: false # <CONFIGS_PATH>/components/echam/echam.yaml,line:705,col:50
-  leapyear: true # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:328,col:19
+  leapyear: true # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:333,col:19
   experiment_analysis_dir: <TEST_DIR>/run/awiesm//pi/analysis/echam/ # no provenance info
   thisrun_analysis_dir: <TEST_DIR>/run/awiesm//pi/run_18500101-18500101/analysis/echam/ # no provenance info
   all_filetypes:
@@ -1349,7 +1349,7 @@ echam:
         - 0 # no provenance info
         nproma: 8  # no provenance info
         npromar: 0 # no provenance info
-        lcouple: true # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:170,col:42
+        lcouple: true # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:171,col:42
         getocean:
         - 1  # no provenance info
         - days # no provenance info
@@ -1435,26 +1435,26 @@ computer:
   add_export_vars:
     USER: <USER_ACCOUNT>  # no provenance info
     OIFS_OASIS_BASE:
-      _value: $(pwd)/oasis  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:652,col:21
-      _execution_mode: compile # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:653,col:30
-      _component: echam # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:654,col:25
+      _value: $(pwd)/oasis  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:657,col:21
+      _execution_mode: compile # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:658,col:30
+      _component: echam # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:659,col:25
     OIFS_OASIS_INCLUDE:
-      _value: '"-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu"'  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:656,col:21
-      _execution_mode: compile # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:657,col:30
-      _component: echam # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:658,col:25
+      _value: '"-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu"'  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:661,col:21
+      _execution_mode: compile # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:662,col:30
+      _component: echam # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:663,col:25
     OASIS3MCT_FC_LIB:
-      _value: $(pwd)/lib/  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:660,col:21
-      _execution_mode: compile # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:661,col:30
-      _component: echam # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:662,col:25
+      _value: $(pwd)/lib/  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:665,col:21
+      _execution_mode: compile # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:666,col:30
+      _component: echam # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:667,col:25
       _old_value: '"-L$NETCDFFROOT/lib -lnetcdff"' # <CONFIGS_PATH>/machines/levante.yaml,line:349,col:35
     OASIS3MCTROOT:
-      _value: $(pwd)/oasis/  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:664,col:21
-      _execution_mode: compile # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:665,col:30
-      _component: echam # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:666,col:25
+      _value: $(pwd)/oasis/  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:669,col:21
+      _execution_mode: compile # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:670,col:30
+      _component: echam # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:671,col:25
     configure_opts:
-      _value: --with-coupler=oasis3-mct  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:668,col:21
-      _execution_mode: compile # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:669,col:30
-      _component: echam # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:670,col:25
+      _value: --with-coupler=oasis3-mct  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:673,col:21
+      _execution_mode: compile # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:674,col:30
+      _component: echam # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:675,col:25
     ACCOUNT: None  # no provenance info
     ESM_TESTING_DIR: <TEST_DIR>/run/awiesm/ # no provenance info
     MODEL_DIR: <TEST_DIR>/comp/awiesm/awiesm-2.1 # no provenance info
@@ -1551,9 +1551,9 @@ computer:
     LAPACK_LIB: "'-mkl=sequential'" # <CONFIGS_PATH>/machines/levante.yaml,line:342,col:29
     ZLIBROOT: /usr # <CONFIGS_PATH>/machines/levante.yaml,line:345,col:27
     OASIS3MCT_FC_LIB:
-      _value: $(pwd)/lib/  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:660,col:21
-      _execution_mode: compile # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:661,col:30
-      _component: echam # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:662,col:25
+      _value: $(pwd)/lib/  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:665,col:21
+      _execution_mode: compile # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:666,col:30
+      _component: echam # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:667,col:25
       _old_value: '"-L$NETCDFFROOT/lib -lnetcdff"' # <CONFIGS_PATH>/machines/levante.yaml,line:349,col:35
     PERL5LIB: /usr/lib64/perl5 # <CONFIGS_PATH>/machines/levante.yaml,line:352,col:27
     LD_LIBRARY_PATH[(0)]: $HDF5ROOT/lib:$NETCDFROOT/lib:$NETCDFFROOT/lib:$LD_LIBRARY_PATH # <CONFIGS_PATH>/machines/levante.yaml,line:354,col:39
@@ -1561,21 +1561,21 @@ computer:
     LD_LIBRARY_PATH[(2)]: /sw/spack-levante/intel-oneapi-mpi-2021.5.0-mrcss7/mpi/2021.5.0/libfabric/lib:$LD_LIBRARY_PATH # <CONFIGS_PATH>/machines/levante.yaml,line:360,col:39
     USER: <USER_ACCOUNT> # no provenance info
     OIFS_OASIS_BASE:
-      _value: $(pwd)/oasis  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:652,col:21
-      _execution_mode: compile # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:653,col:30
-      _component: echam # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:654,col:25
+      _value: $(pwd)/oasis  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:657,col:21
+      _execution_mode: compile # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:658,col:30
+      _component: echam # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:659,col:25
     OIFS_OASIS_INCLUDE:
-      _value: '"-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu"'  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:656,col:21
-      _execution_mode: compile # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:657,col:30
-      _component: echam # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:658,col:25
+      _value: '"-I$OIFS_OASIS_BASE/build/lib/psmile -I$OIFS_OASIS_BASE/build/lib/psmile/scrip -I$OIFS_OASIS_BASE/build/lib/psmile/mct -I$OIFS_OASIS_BASE/build/lib/psmile/mct/mpeu"'  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:661,col:21
+      _execution_mode: compile # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:662,col:30
+      _component: echam # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:663,col:25
     OASIS3MCTROOT:
-      _value: $(pwd)/oasis/  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:664,col:21
-      _execution_mode: compile # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:665,col:30
-      _component: echam # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:666,col:25
+      _value: $(pwd)/oasis/  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:669,col:21
+      _execution_mode: compile # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:670,col:30
+      _component: echam # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:671,col:25
     configure_opts:
-      _value: --with-coupler=oasis3-mct  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:668,col:21
-      _execution_mode: compile # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:669,col:30
-      _component: echam # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:670,col:25
+      _value: --with-coupler=oasis3-mct  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:673,col:21
+      _execution_mode: compile # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:674,col:30
+      _component: echam # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:675,col:25
     ACCOUNT: None  # no provenance info
     ESM_TESTING_DIR: <TEST_DIR>/run/awiesm/ # no provenance info
     MODEL_DIR: <TEST_DIR>/comp/awiesm/awiesm-2.1 # no provenance info
@@ -1686,15 +1686,16 @@ general:
   - 2.1-paleodyn-2.5 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:94,col:11
   - 2.6 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:95,col:11
   - 2.6.1 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:96,col:11
+  - 2.6.2 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:97,col:11
   with_wiso: false # <TEST_DIR>/run/awiesm/pi/scripts/pi.yaml,line:11,col:16
-  with_pico: false # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:138,col:20
-  with_icb: false # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:139,col:19
-  with_bootstrap: false # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:140,col:25
-  iterative_coupling: false # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:141,col:29
-  scenario: PI-CTRL # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:143,col:19
-  resolution: T63_CORE2 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:144,col:21
-  postprocessing: false # <TEST_DIR>/run/awiesm/pi/scripts/pi.yaml,line:25,col:21
-  post_time: 00:05:00 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:146,col:20
+  with_pico: false # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:139,col:20
+  with_icb: false # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:140,col:19
+  with_bootstrap: false # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:141,col:25
+  iterative_coupling: false # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:142,col:29
+  scenario: PI-CTRL # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:144,col:19
+  resolution: T63_CORE2 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:145,col:21
+  postprocessing: false # <TEST_DIR>/run/awiesm/pi/scripts/pi.yaml,line:23,col:21
+  post_time: 00:05:00 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:147,col:20
   valid_setup_names:
   - general  # no provenance info
   - computer # no provenance info
@@ -1710,7 +1711,7 @@ general:
   - oasis3mct # no provenance info
   - jsbach # no provenance info
   - hdmodel # no provenance info
-  with_recom: false # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:123,col:25
+  with_recom: false # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:124,col:25
   esm_configs_dir: <CONFIGS_PATH>/ # no provenance info
   esm_namelist_dir: <NAMELIST_PATH>/ # no provenance info
   esm_runscript_dir: <RUNSCRIPT_PATH>/ # no provenance info
@@ -1722,7 +1723,7 @@ general:
   - oasis3mct # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:87,col:19
   account: None  # <TEST_DIR>/run/awiesm/pi/scripts/pi.yaml,line:2,col:14
   setup_name: awiesm # <TEST_DIR>/run/awiesm/pi/scripts/pi.yaml,line:3,col:17
-  compute_time: 02:00:00 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:149,col:39
+  compute_time: 02:00:00 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:150,col:39
   initial_date: '1850-01-01T00:00:00' # no provenance info
   final_date: '1850-01-04T00:00:00' # no provenance info
   base_dir: <TEST_DIR>/run/awiesm/ # <TEST_DIR>/run/awiesm/pi/scripts/pi.yaml,line:7,col:15
@@ -1761,7 +1762,7 @@ general:
   isinteractive: false # no provenance info
   isresubmitted: true # no provenance info
   execution_mode: run # no provenance info
-  model_dir: <TEST_DIR>/comp/awiesm/awiesm-2.1 # <TEST_DIR>/run/awiesm/pi/scripts/pi.yaml,line:26,col:16
+  model_dir: <TEST_DIR>/comp/awiesm/awiesm-2.1 # <TEST_DIR>/run/awiesm/pi/scripts/pi.yaml,line:24,col:16
   experiment_dir: <TEST_DIR>/run/awiesm//pi # no provenance info
   per_model_defaults: {}
   iterative_coupled_model: ''  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:6,col:30
@@ -1811,8 +1812,8 @@ general:
     scriptname: pi.yaml # no provenance info
     runscript_abspath: <TEST_DIR>/run/awiesm/pi/scripts/pi.yaml # no provenance info
   couplings:
-  - fesom-2.1-awiesm-2.1+echam-6.3.05p2-awiesm-2.1  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:121,col:15
-  fesom_Dflags: -DFESOM_COUPLED=ON  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:122,col:27
+  - fesom-2.1-awiesm-2.1+echam-6.3.05p2-awiesm-2.1  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:122,col:15
+  fesom_Dflags: -DFESOM_COUPLED=ON  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:123,col:27
   prepcompute_recipe:
   - compile_model  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:60,col:19
   - _show_simulation_info # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:61,col:19
@@ -1831,11 +1832,11 @@ general:
   - compute_and_log_file_checksums # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:74,col:19
   - _write_finalized_config # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:77,col:19
   - database_entry # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:78,col:19
-  project_base: /work/ab0995/a270152/testing_pool/nonstandard_pool_files/fesom/mesh_CORE2_finaltopo_mean/tarfilesT63  # <TEST_DIR>/run/awiesm/pi/scripts/pi.yaml,line:20,col:27
+  project_base: /work/ab0995/a270152/testing_pool/nonstandard_pool_files/fesom/mesh_CORE2_finaltopo_mean/tarfilesT63  # <TEST_DIR>/run/awiesm/pi/scripts/pi.yaml,line:18,col:27
   nhour: 0 # no provenance info
   nminute: 0 # no provenance info
   nsecond: 0 # no provenance info
-  leapyear: true # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:328,col:19
+  leapyear: true # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:333,col:19
   calendar: esm_calendar object with allowed leap years # no provenance info
   delta_date:
   - 0  # no provenance info
@@ -2023,14 +2024,14 @@ general:
     first_task_in_queue: prepcompute # no provenance info
     next_run_triggered_by: tidy # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:86,col:32
   submitted: false  # no provenance info
-  jobid: 1851 # no provenance info
+  jobid: 1871 # no provenance info
   batch: slurm # no provenance info
   coupler_config_dir: <TEST_DIR>/run/awiesm//pi/run_18500101-18500101/config/oasis3mct/ # no provenance info
   coupler: oasis3mct # no provenance info
   experiment_log_file: <TEST_DIR>/run/awiesm//pi/log//pi_awiesm.log # no provenance info
-  esm_tools_version: 6.63.1 # no provenance info
-  logfile_path: <TEST_DIR>/run/awiesm//pi/log//pi_awiesm_prepcompute_18500101-18500101_1851.log # no provenance info
-  logfile_path_in_run: <TEST_DIR>/run/awiesm//pi/run_18500101-18500101/log//pi_awiesm_prepcompute_18500101-18500101_1851.log # no provenance info
+  esm_tools_version: 6.63.0 # no provenance info
+  logfile_path: <TEST_DIR>/run/awiesm//pi/log//pi_awiesm_prepcompute_18500101-18500101_1871.log # no provenance info
+  logfile_path_in_run: <TEST_DIR>/run/awiesm//pi/run_18500101-18500101/log//pi_awiesm_prepcompute_18500101-18500101_1871.log # no provenance info
   relevant_filetypes:
   - bin  # no provenance info
   - config # no provenance info
@@ -2053,16 +2054,16 @@ general:
 fesom:
   model: fesom  # <CONFIGS_PATH>/components/fesom/fesom-2.1.yaml,line:5,col:12
   branch: 2.1-awiesm-2.1 # <CONFIGS_PATH>/components/fesom/fesom-2.1.yaml,line:34,col:17
-  version: 2.1-awiesm-2.1 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:321,col:18
+  version: 2.1-awiesm-2.1 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:326,col:18
   type: ocean # <CONFIGS_PATH>/components/fesom/fesom-2.1.yaml,line:8,col:11
-  comp_command: mkdir -p build; cd build; cmake -DFESOM_COUPLED=ON ..; make install -j `nproc --all` # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:322,col:23
+  comp_command: mkdir -p build; cd build; cmake -DFESOM_COUPLED=ON ..; make install -j `nproc --all` # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:327,col:23
   clean_command: rm -rf build CMakeCache.txt # <CONFIGS_PATH>/components/fesom/fesom-2.1.yaml,line:11,col:20
   required_plugins:
   - git+https://github.com/esm-tools-plugins/tar_binary_restarts  # <CONFIGS_PATH>/components/fesom/fesom-2.1.yaml,line:14,col:7
   use_icebergs: false # <CONFIGS_PATH>/components/fesom/fesom-2.1.yaml,line:17,col:19
   use_icesheet_coupling: false # <CONFIGS_PATH>/components/fesom/fesom-2.1.yaml,line:18,col:28
   icb_code: true # <CONFIGS_PATH>/components/fesom/fesom-2.1.yaml,line:37,col:19
-  with_wiso: false # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:330,col:20
+  with_wiso: false # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:335,col:20
   with_recom: false # <CONFIGS_PATH>/components/fesom/fesom-2.1.yaml,line:24,col:17
   wiso_code: true # <CONFIGS_PATH>/components/fesom/fesom-2.1.yaml,line:36,col:20
   destination: fesom-2.1 # <CONFIGS_PATH>/components/fesom/fesom-2.1.yaml,line:58,col:18
@@ -2070,9 +2071,9 @@ fesom:
   git-repository:
   - https://github.com/FESOM/fesom2.git  # <CONFIGS_PATH>/components/fesom/fesom-2.1.yaml,line:61,col:7
   contact: dmitry.sidorenko(at)awi.de, nikolay.koldunov(at)awi.de, miguel.andres-martinez(at)awi.de, paul.gierz(at)awi.de  # <CONFIGS_PATH>/components/fesom/fesom-2.1.yaml,line:62,col:14
-  restart_rate: 1 # <TEST_DIR>/run/awiesm/pi/scripts/pi.yaml,line:40,col:19
-  restart_unit: d # <TEST_DIR>/run/awiesm/pi/scripts/pi.yaml,line:41,col:19
-  restart_first: 1 # <TEST_DIR>/run/awiesm/pi/scripts/pi.yaml,line:42,col:20
+  restart_rate: 1 # <TEST_DIR>/run/awiesm/pi/scripts/pi.yaml,line:38,col:19
+  restart_unit: d # <TEST_DIR>/run/awiesm/pi/scripts/pi.yaml,line:39,col:19
+  restart_first: 1 # <TEST_DIR>/run/awiesm/pi/scripts/pi.yaml,line:40,col:20
   restart_flag: last # <CONFIGS_PATH>/components/fesom/fesom-2.1.yaml,line:68,col:19
   tar_binary_restarts: false # <CONFIGS_PATH>/components/fesom/fesom-2.1.yaml,line:70,col:26
   time_step: 1800 # <CONFIGS_PATH>/components/fesom/fesom-2.1.yaml,line:72,col:16
@@ -2084,15 +2085,15 @@ fesom:
   with_part_format: false # <CONFIGS_PATH>/components/fesom/fesom-2.1.yaml,line:80,col:23
   time_dimension: time # <CONFIGS_PATH>/components/fesom/fesom-2.1.yaml,line:81,col:21
   pool_dir: /pool/data/AWICM/ # <CONFIGS_PATH>/components/fesom/fesom-2.1.yaml,line:89,col:23
-  setup_dir: <TEST_DIR>/comp/awiesm/awiesm-2.1 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:401,col:20
+  setup_dir: <TEST_DIR>/comp/awiesm/awiesm-2.1 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:406,col:20
   bin_dir: <TEST_DIR>/comp/awiesm/awiesm-2.1/bin # <CONFIGS_PATH>/components/fesom/fesom-2.1.yaml,line:98,col:14
   climate_data_dir: /pool/data/AWICM//FESOM2/INITIAL/phc3.0/ # <CONFIGS_PATH>/components/fesom/fesom-2.1.yaml,line:90,col:31
-  forcing_data_dir: remove_from_namelist # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:399,col:27
+  forcing_data_dir: remove_from_namelist # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:404,col:27
   mesh_base_dir: /pool/data/AWICM//FESOM2/MESHES_FESOM2.1/ # <CONFIGS_PATH>/components/fesom/fesom-2.1.yaml,line:92,col:28
   ini_data_dir: /pool/data/AWICM//pool-data/ # <CONFIGS_PATH>/components/fesom/fesom-2.1.yaml,line:102,col:19
-  namelist_dir: <TEST_DIR>/comp/awiesm/awiesm-2.1/fesom-2.1/config/ # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:377,col:39
-  opbnd_dir: remove_from_namelist # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:397,col:20
-  tide_forcing_dir: remove_from_namelist # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:398,col:27
+  namelist_dir: <TEST_DIR>/comp/awiesm/awiesm-2.1/fesom-2.1/config/ # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:382,col:39
+  opbnd_dir: remove_from_namelist # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:402,col:20
+  tide_forcing_dir: remove_from_namelist # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:403,col:27
   steps_per_day: 48 # <CONFIGS_PATH>/components/fesom/fesom-2.1.yaml,line:108,col:20
   asforcing: JRA55 # <CONFIGS_PATH>/components/fesom/fesom-2.1.yaml,line:110,col:16
   namelists:
@@ -2116,7 +2117,7 @@ fesom:
         restart_length_unit: d # <CONFIGS_PATH>/components/fesom/fesom-2.1.yaml,line:351,col:50
         logfile_outfreq: 960 # no provenance info
       ale_def:
-        which_ale: zstar  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:406,col:44
+        which_ale: zstar  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:411,col:44
         use_partial_cell: true # no provenance info
       geometry:
         cartesian: false  # no provenance info
@@ -2203,7 +2204,7 @@ fesom:
         nm_sss_data_file: remove_from_namelist//JRA55-do-v1.4.0//PHC2_salx.nc # <CONFIGS_PATH>/components/fesom/fesom-2.1.yaml,line:408,col:47
         sss_data_source: CORE2 # <CONFIGS_PATH>/components/fesom/fesom-2.1.yaml,line:411,col:46
       pico:
-        use_pico: false  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:448,col:29
+        use_pico: false  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:453,col:29
     namelist.oce:
       oce_dyn:
         c_d: 0.0025  # no provenance info
@@ -2223,7 +2224,7 @@ fesom:
         w_max_cfl: 1.0 # no provenance info
         spp: false # no provenance info
         fer_gm: true # no provenance info
-        k_gm_max: 2000 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:417,col:43
+        k_gm_max: 2000 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:422,col:43
         k_gm_min: 2.0 # no provenance info
         k_gm_bvref: 2 # no provenance info
         k_gm_rampmax: -1.0 # no provenance info
@@ -2255,9 +2256,9 @@ fesom:
         kv0_const: true # no provenance info
         double_diffusion: false # no provenance info
         k_ver: 1e-05 # no provenance info
-        k_hor: 3000 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:414,col:40
+        k_hor: 3000 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:419,col:40
         surf_relax_t: 0.0 # no provenance info
-        surf_relax_s: 0 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:413,col:47
+        surf_relax_s: 0 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:418,col:47
         balance_salt_water: true # no provenance info
         clim_relax: 0.0 # no provenance info
         ref_sss_local: true # no provenance info
@@ -2285,7 +2286,7 @@ fesom:
         - temp # no provenance info
         t_insitu: true # no provenance info
       boundary:
-        restore_s_surf: 0  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:419,col:49
+        restore_s_surf: 0  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:424,col:49
     namelist.ice:
       ice_dyn:
         whichevp: 0  # no provenance info
@@ -2736,7 +2737,7 @@ fesom:
         restart_length: 1  # <CONFIGS_PATH>/components/fesom/fesom-2.1.yaml,line:350,col:45
         restart_length_unit: d # <CONFIGS_PATH>/components/fesom/fesom-2.1.yaml,line:351,col:50
       ale_def:
-        which_ale: zstar  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:406,col:44
+        which_ale: zstar  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:411,col:44
       icebergs:
         use_icebergs: false  # <CONFIGS_PATH>/components/fesom/fesom-2.1.yaml,line:417,col:39
         use_icesheet_coupling: false # <CONFIGS_PATH>/components/fesom/fesom-2.1.yaml,line:418,col:48
@@ -2796,15 +2797,15 @@ fesom:
         runoff_data_source: CORE2 # <CONFIGS_PATH>/components/fesom/fesom-2.1.yaml,line:410,col:49
         sss_data_source: CORE2 # <CONFIGS_PATH>/components/fesom/fesom-2.1.yaml,line:411,col:46
       pico:
-        use_pico: false  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:448,col:29
+        use_pico: false  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:453,col:29
     namelist.oce:
       oce_tra:
-        surf_relax_s: 0  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:413,col:47
-        K_hor: 3000 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:414,col:40
+        surf_relax_s: 0  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:418,col:47
+        K_hor: 3000 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:419,col:40
       oce_dyn:
-        K_gm_max: 2000  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:417,col:43
+        K_gm_max: 2000  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:422,col:43
       boundary:
-        restore_s_surf: 0  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:419,col:49
+        restore_s_surf: 0  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:424,col:49
   use_landice_water: false # <CONFIGS_PATH>/components/fesom/fesom-2.1.yaml,line:421,col:24
   lasttime: 84600 # <CONFIGS_PATH>/components/fesom/fesom-2.1.yaml,line:444,col:15
   currentday: 1 # <CONFIGS_PATH>/components/fesom/fesom-2.1.yaml,line:445,col:17
@@ -2911,13 +2912,13 @@ fesom:
         submit_to_batch_system: true # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:94,col:41
         script: Subjob_tripy.sh <TEST_DIR>/run/awiesm//pi/outdata/fesom/ 1850-01-01T00:00:00 1850-01-02T00:00:00 1850-01-01T00:00:00 1850-01-04T00:00:00 /pool/data/AWICM//FESOM2/MESHES_FESOM2.1//core2/ <TEST_DIR>/run/awiesm/ pi python3 True modvis.dkrz.de /var/www/projects/None/<USER_ACCOUNT>/pi # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:95,col:25
         nproc: 1 # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:96,col:24
-  leapyear: true  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:328,col:19
-  with_pico: false # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:331,col:20
-  with_icb: false # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:333,col:19
-  model_dir: <TEST_DIR>/comp/awiesm/awiesm-2.1/fesom-2.1 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:400,col:20
+  leapyear: true  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:333,col:19
+  with_pico: false # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:336,col:20
+  with_icb: false # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:338,col:19
+  model_dir: <TEST_DIR>/comp/awiesm/awiesm-2.1/fesom-2.1 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:405,col:20
   lresume: false # no provenance info
-  nproc: 256 # <TEST_DIR>/run/awiesm/pi/scripts/pi.yaml,line:46,col:20
-  ALE_scheme: zstar # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:376,col:37
+  nproc: 256 # <TEST_DIR>/run/awiesm/pi/scripts/pi.yaml,line:44,col:20
+  ALE_scheme: zstar # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:381,col:37
   nx: 126858 # <CONFIGS_PATH>/components/fesom/fesom-2.1.yaml,line:125,col:25
   mesh_dir: /pool/data/AWICM//FESOM2/MESHES_FESOM2.1//core2/ # <CONFIGS_PATH>/components/fesom/fesom-2.1.yaml,line:126,col:31
   daynew: 1 # <CONFIGS_PATH>/components/fesom/fesom-2.1.yaml,line:324,col:29
@@ -2975,9 +2976,9 @@ fesom:
   sss_data_file: PHC2_salx.nc # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:177,col:32
   runoff_data_source: CORE2 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:179,col:37
   sss_data_source: CORE2 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:180,col:34
-  K_gm_max: 2000 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:459,col:27
-  K_hor: 3000 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:460,col:24
-  K_gm: remove_from_namelist # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:461,col:23
+  K_gm_max: 2000 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:464,col:27
+  K_hor: 3000 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:465,col:24
+  K_gm: remove_from_namelist # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:466,col:23
   starttime: 0 # <CONFIGS_PATH>/components/fesom/fesom-2.1.yaml,line:448,col:32
   startday: 1 # <CONFIGS_PATH>/components/fesom/fesom-2.1.yaml,line:449,col:31
   experiment_analysis_dir: <TEST_DIR>/run/awiesm//pi/analysis/fesom/ # no provenance info
@@ -3090,7 +3091,7 @@ fesom:
         restart_length_unit: d # <CONFIGS_PATH>/components/fesom/fesom-2.1.yaml,line:351,col:50
         logfile_outfreq: 960 # no provenance info
       ale_def:
-        which_ale: zstar  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:406,col:44
+        which_ale: zstar  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:411,col:44
         use_partial_cell: true # no provenance info
       geometry:
         cartesian: false  # no provenance info
@@ -3177,7 +3178,7 @@ fesom:
         nm_sss_data_file: remove_from_namelist//JRA55-do-v1.4.0//PHC2_salx.nc # <CONFIGS_PATH>/components/fesom/fesom-2.1.yaml,line:408,col:47
         sss_data_source: CORE2 # <CONFIGS_PATH>/components/fesom/fesom-2.1.yaml,line:411,col:46
       pico:
-        use_pico: false  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:448,col:29
+        use_pico: false  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:453,col:29
     namelist.oce:
       oce_dyn:
         c_d: 0.0025  # no provenance info
@@ -3197,7 +3198,7 @@ fesom:
         w_max_cfl: 1.0 # no provenance info
         spp: false # no provenance info
         fer_gm: true # no provenance info
-        k_gm_max: 2000 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:417,col:43
+        k_gm_max: 2000 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:422,col:43
         k_gm_min: 2.0 # no provenance info
         k_gm_bvref: 2 # no provenance info
         k_gm_rampmax: -1.0 # no provenance info
@@ -3229,9 +3230,9 @@ fesom:
         kv0_const: true # no provenance info
         double_diffusion: false # no provenance info
         k_ver: 1e-05 # no provenance info
-        k_hor: 3000 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:414,col:40
+        k_hor: 3000 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:419,col:40
         surf_relax_t: 0.0 # no provenance info
-        surf_relax_s: 0 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:413,col:47
+        surf_relax_s: 0 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:418,col:47
         balance_salt_water: true # no provenance info
         clim_relax: 0.0 # no provenance info
         ref_sss_local: true # no provenance info
@@ -3259,7 +3260,7 @@ fesom:
         - temp # no provenance info
         t_insitu: true # no provenance info
       boundary:
-        restore_s_surf: 0  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:419,col:49
+        restore_s_surf: 0  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:424,col:49
     namelist.ice:
       ice_dyn:
         whichevp: 0  # no provenance info
@@ -3562,7 +3563,7 @@ oasis3mct:
   time_step: 900 # <CONFIGS_PATH>/components/oasis3mct/oasis3mct.yaml,line:5,col:16
   norestart: F # <CONFIGS_PATH>/components/oasis3mct/oasis3mct.yaml,line:6,col:16
   use_lucia: false # <CONFIGS_PATH>/components/oasis3mct/oasis3mct.yaml,line:7,col:16
-  mct_version: 2.8 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:515,col:22
+  mct_version: 2.8 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:520,col:22
   git-repository: https://gitlab.dkrz.de/modular_esm/oasis3-mct.git # <CONFIGS_PATH>/components/oasis3mct/oasis3mct.yaml,line:9,col:21
   contact: miguel.andres-martinez(at)awi.de, paul.gierz(at)awi.de # <CONFIGS_PATH>/components/oasis3mct/oasis3mct.yaml,line:10,col:14
   metadata:
@@ -3626,80 +3627,80 @@ oasis3mct:
     a2o_flux_recv: <TEST_DIR>/run/awiesm//pi/run_18500101-18500101/work//a2o_flux_recv # no provenance info
   ignore_sources:
     nout: <TEST_DIR>/run/awiesm//pi/run_18500101-18500101/work//nout.000000  # no provenance info
-  model_dir: <TEST_DIR>/comp/awiesm/awiesm-2.1/oasis # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:514,col:20
+  model_dir: <TEST_DIR>/comp/awiesm/awiesm-2.1/oasis # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:519,col:20
   process_ordering:
-  - fesom  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:518,col:19
-  - echam # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:519,col:19
-  include_env_from_component_files: false  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:521,col:43
-  a2o_lag: 450 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:523,col:18
-  o2a_lag: 1800 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:524,col:18
-  a2o_seq: 2 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:525,col:18
-  coupling_time_step: 3600 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:527,col:29
+  - fesom  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:523,col:19
+  - echam # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:524,col:19
+  include_env_from_component_files: false  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:526,col:43
+  a2o_lag: 450 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:528,col:18
+  o2a_lag: 1800 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:529,col:18
+  a2o_seq: 2 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:530,col:18
+  coupling_time_step: 3600 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:532,col:29
   coupling_target_fields:
     o2a_flux:
-    - sst_atmo:sit_atmo:sie_atmo <--distwgt-- sst_feom:sit_feom:sie_feom  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:537,col:27
-    - snt_atmo <--distwgt-- snt_feom # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:538,col:27
+    - sst_atmo:sit_atmo:sie_atmo <--distwgt-- sst_feom:sit_feom:sie_feom  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:542,col:27
+    - snt_atmo <--distwgt-- snt_feom # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:543,col:27
     a2o_flux:
-    - taux_oce:tauy_oce:taux_ico:tauy_ico <--bicubic-- taux_atm:tauy_atm:taux_ica:tauy_ica  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:541,col:27
-    - prec_oce <--distwgt-- prec_atm # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:542,col:27
-    - snow_oce <--distwgt-- snow_atm # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:543,col:27
-    - evap_oce <--distwgt-- evap_atm # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:544,col:27
-    - subl_oce <--distwgt-- subl_atm # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:545,col:27
-    - heat_oce <--distwgt-- heat_atm # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:546,col:27
-    - heat_ico <--distwgt-- heat_ica # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:547,col:27
-    - heat_swo <--distwgt-- heat_swa # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:548,col:27
-    - hydr_oce <--distwgt-- hydr_atm # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:549,col:27
+    - taux_oce:tauy_oce:taux_ico:tauy_ico <--bicubic-- taux_atm:tauy_atm:taux_ica:tauy_ica  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:546,col:27
+    - prec_oce <--distwgt-- prec_atm # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:547,col:27
+    - snow_oce <--distwgt-- snow_atm # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:548,col:27
+    - evap_oce <--distwgt-- evap_atm # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:549,col:27
+    - subl_oce <--distwgt-- subl_atm # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:550,col:27
+    - heat_oce <--distwgt-- heat_atm # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:551,col:27
+    - heat_ico <--distwgt-- heat_ica # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:552,col:27
+    - heat_swo <--distwgt-- heat_swa # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:553,col:27
+    - hydr_oce <--distwgt-- hydr_atm # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:554,col:27
   coupling_directions:
     feom->atmo:
-      lag: 1800  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:595,col:30
-      seq: 2 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:596,col:30
+      lag: 1800  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:600,col:30
+      seq: 2 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:601,col:30
     atmo->feom:
-      lag: 450  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:598,col:30
-      seq: 2 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:599,col:30
+      lag: 450  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:603,col:30
+      seq: 2 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:604,col:30
   coupling_methods:
     distwgt:
-      time_transformation: instant  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:604,col:46
+      time_transformation: instant  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:609,col:46
       remapping:
         distwgt:
-          search_bin: latitude  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:607,col:53
-          nb_of_search_bins: 15 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:608,col:60
-          nb_of_neighbours: 6 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:609,col:59
+          search_bin: latitude  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:612,col:53
+          nb_of_search_bins: 15 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:613,col:60
+          nb_of_neighbours: 6 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:614,col:59
     bicubic:
-      time_transformation: instant  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:611,col:46
+      time_transformation: instant  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:616,col:46
       remapping:
         bicubic:
-          search_bin: latitude  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:614,col:53
-          nb_of_search_bins: 15 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:615,col:60
+          search_bin: latitude  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:619,col:53
+          nb_of_search_bins: 15 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:620,col:60
   add_restart_out_files:
-    rmp_a2f_B: rmp_a2f_B  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:618,col:28
-    rmp_a2f_D: rmp_a2f_D # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:619,col:28
-    rmp_f2a_D: rmp_f2a_D # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:620,col:28
+    rmp_a2f_B: rmp_a2f_B  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:623,col:28
+    rmp_a2f_D: rmp_a2f_D # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:624,col:28
+    rmp_f2a_D: rmp_f2a_D # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:625,col:28
   add_restart_out_in_work:
-    rmp_a2f_B: rmp_atmo_to_feom_BICUBIC.nc  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:623,col:28
-    rmp_a2f_D: rmp_atmo_to_feom_DISTWGT.nc # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:624,col:28
-    rmp_f2a_D: rmp_feom_to_atmo_DISTWGT.nc # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:625,col:28
-  add_restart_out_sources:
     rmp_a2f_B: rmp_atmo_to_feom_BICUBIC.nc  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:628,col:28
     rmp_a2f_D: rmp_atmo_to_feom_DISTWGT.nc # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:629,col:28
     rmp_f2a_D: rmp_feom_to_atmo_DISTWGT.nc # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:630,col:28
+  add_restart_out_sources:
+    rmp_a2f_B: rmp_atmo_to_feom_BICUBIC.nc  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:633,col:28
+    rmp_a2f_D: rmp_atmo_to_feom_DISTWGT.nc # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:634,col:28
+    rmp_f2a_D: rmp_feom_to_atmo_DISTWGT.nc # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:635,col:28
   add_restart_in_files:
-    rmp_a2f_B: rmp_a2f_B  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:633,col:28
-    rmp_a2f_D: rmp_a2f_D # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:634,col:28
-    rmp_f2a_D: rmp_f2a_D # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:635,col:28
+    rmp_a2f_B: rmp_a2f_B  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:638,col:28
+    rmp_a2f_D: rmp_a2f_D # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:639,col:28
+    rmp_f2a_D: rmp_f2a_D # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:640,col:28
   add_restart_in_in_work:
-    rmp_a2f_B: rmp_atmo_to_feom_BICUBIC.nc  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:638,col:28
-    rmp_a2f_D: rmp_atmo_to_feom_DISTWGT.nc # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:639,col:28
-    rmp_f2a_D: rmp_feom_to_atmo_DISTWGT.nc # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:640,col:28
-  add_restart_in_sources:
     rmp_a2f_B: rmp_atmo_to_feom_BICUBIC.nc  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:643,col:28
     rmp_a2f_D: rmp_atmo_to_feom_DISTWGT.nc # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:644,col:28
     rmp_f2a_D: rmp_feom_to_atmo_DISTWGT.nc # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:645,col:28
+  add_restart_in_sources:
+    rmp_a2f_B: rmp_atmo_to_feom_BICUBIC.nc  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:648,col:28
+    rmp_a2f_D: rmp_atmo_to_feom_DISTWGT.nc # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:649,col:28
+    rmp_f2a_D: rmp_feom_to_atmo_DISTWGT.nc # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:650,col:28
   lresume: false  # no provenance info
   branch: v2.8 # <CONFIGS_PATH>/components/oasis3mct/oasis3mct.yaml,line:71,col:17
   yac_libs: '' # <CONFIGS_PATH>/components/oasis3mct/oasis3mct.env.yaml,line:42,col:27
   yac_inc_path: '' # <CONFIGS_PATH>/components/oasis3mct/oasis3mct.env.yaml,line:43,col:31
   yac_lib_path: '' # <CONFIGS_PATH>/components/oasis3mct/oasis3mct.env.yaml,line:44,col:31
-  leapyear: true # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:328,col:19
+  leapyear: true # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:333,col:19
   experiment_analysis_dir: <TEST_DIR>/run/awiesm//pi/analysis/oasis3mct/ # no provenance info
   thisrun_analysis_dir: <TEST_DIR>/run/awiesm//pi/run_18500101-18500101/analysis/oasis3mct/ # no provenance info
   all_filetypes:
@@ -3983,20 +3984,20 @@ jsbach:
   license_text: "Please make sure you have a licence to use echam.In case you are\nunsure, please contact redmine...." # <CONFIGS_PATH>/components/jsbach/jsbach.yaml,line:13,col:19
   pool_dir: /pool/data/JSBACH # <CONFIGS_PATH>/components/jsbach/jsbach.yaml,line:17,col:15
   input_dir: /pool/data/JSBACH/input/r0010 # <CONFIGS_PATH>/components/jsbach/jsbach.yaml,line:18,col:16
-  adj_input_dir: /pool/data/AWICM//FESOM2/MESHES_FESOM2.1//core2//tarfilesT63/input/jsbach # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:296,col:24
+  adj_input_dir: /pool/data/AWICM//FESOM2/MESHES_FESOM2.1//core2//tarfilesT63/input/jsbach # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:301,col:24
   cover_fract_dir: /pool/data/JSBACH/input/r0010/T63/land_use_maps/ # <CONFIGS_PATH>/components/jsbach/jsbach.yaml,line:20,col:22
   pool_dir_couple: /pool/data/AWICM/JSBACH # <CONFIGS_PATH>/components/jsbach/jsbach.yaml,line:23,col:22
   input_dir_couple: /pool/data/AWICM/JSBACH/input/r0010 # <CONFIGS_PATH>/components/jsbach/jsbach.yaml,line:27,col:23
-  dynamic_vegetations: true # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:294,col:30
+  dynamic_vegetations: true # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:299,col:30
   tiles: 11 # <CONFIGS_PATH>/components/jsbach/jsbach.yaml,line:30,col:12
-  version: 3.2 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:310,col:18
+  version: 3.2 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:315,col:18
   dataset: r0010 # <CONFIGS_PATH>/components/jsbach/jsbach.yaml,line:117,col:30
   scenario: PI-CTRL # <CONFIGS_PATH>/components/jsbach/jsbach.yaml,line:33,col:15
   scenario_type: PI-CTRL # <CONFIGS_PATH>/components/jsbach/jsbach.yaml,line:34,col:20
   config_sources:
     namelist.jsbach: <NAMELIST_PATH>/jsbach/3.20/PI-CTRL/dynveg/namelist.jsbach  # <CONFIGS_PATH>/components/jsbach/jsbach.yaml,line:37,col:32
   no_dynveg_file_ending: _no-dynveg # <CONFIGS_PATH>/components/jsbach/jsbach.yaml,line:40,col:28
-  dynveg_file_ending: _dynveg # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:295,col:29
+  dynveg_file_ending: _dynveg # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:300,col:29
   Ndepo_cmip6: Ndepo_hist_scenario # <CONFIGS_PATH>/components/jsbach/jsbach.yaml,line:320,col:18
   Ndepo_path: '' # <CONFIGS_PATH>/components/jsbach/jsbach.yaml,line:321,col:17
   popdens_cmip6: popdens # <CONFIGS_PATH>/components/jsbach/jsbach.yaml,line:322,col:20
@@ -4076,7 +4077,7 @@ jsbach:
         use_roughness_lai: true # no provenance info
         use_roughness_oro: false # no provenance info
         veg_at_1200: false # no provenance info
-        use_dynveg: true # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:309,col:41
+        use_dynveg: true # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:314,col:41
         use_disturbance: true # no provenance info
         with_nitrogen: true # no provenance info
         lcc_forcing_type: transitions # no provenance info
@@ -4087,7 +4088,7 @@ jsbach:
         nsoil: 5  # no provenance info
       hydrology_ctl:
         diag_water_budget: true  # no provenance info
-        lgfw: false # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:307,col:39
+        lgfw: false # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:312,col:39
       cbalance_ctl:
         read_ndepo: true  # no provenance info
       disturbance_ctl:
@@ -4117,7 +4118,7 @@ jsbach:
   hist_extend_scenario: ssp370 # <CONFIGS_PATH>/components/jsbach/jsbach.datasets.yaml,line:9,col:27
   input_sources:
     lctlib: <TEST_DIR>/comp/awiesm/awiesm-2.1/echam-6.3.05p2/lctlib_nlct21.def  # <CONFIGS_PATH>/components/jsbach/jsbach.datasets.yaml,line:12,col:21
-    jsbach: /work/ab0995/a270152/testing_pool/nonstandard_pool_files/fesom/mesh_CORE2_finaltopo_mean/tarfilesT63/input/jsbach/jsbach_T63CORE2_11tiles_5layers_1850.nc # <TEST_DIR>/run/awiesm/pi/scripts/pi.yaml,line:37,col:22
+    jsbach: /work/ab0995/a270152/testing_pool/nonstandard_pool_files/fesom/mesh_CORE2_finaltopo_mean/tarfilesT63/input/jsbach/jsbach_T63CORE2_11tiles_5layers_1850.nc # <TEST_DIR>/run/awiesm/pi/scripts/pi.yaml,line:35,col:22
   forcing_sources:
     a_nd_file: /pool/data/JSBACH/input/r0010/T63/spitfire/a_nd_T63.nc  # <CONFIGS_PATH>/components/jsbach/jsbach.datasets.yaml,line:85,col:42
     lightning: /pool/data/JSBACH/input/r0010/T63/spitfire/LISOTD_HRMC_V2.2_T63.nc # <CONFIGS_PATH>/components/jsbach/jsbach.datasets.yaml,line:86,col:42
@@ -4131,16 +4132,16 @@ jsbach:
   namelist_changes:
     namelist.jsbach:
       hydrology_ctl:
-        lgfw: false  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:307,col:39
+        lgfw: false  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:312,col:39
       jsbach_ctl:
-        use_dynveg: true  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:309,col:41
+        use_dynveg: true  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:314,col:41
   ssp_num: # <CONFIGS_PATH>/components/jsbach/jsbach.yaml,line:354,col:30
   Ndepo_sufix: '' # <CONFIGS_PATH>/components/jsbach/jsbach.yaml,line:355,col:34
   from_iterative_coupling_choose: <NOT_SPECIFIED> # <CONFIGS_PATH>/components/jsbach/jsbach.yaml,line:238,col:69
   namelist_dir: <NAMELIST_PATH>/jsbach/3.20/PI-CTRL/dynveg # <CONFIGS_PATH>/components/jsbach/jsbach.yaml,line:120,col:51
   dynveg: _dynveg # <CONFIGS_PATH>/components/jsbach/jsbach.yaml,line:121,col:45
   jsbachnc_file_ending: _dynveg # <CONFIGS_PATH>/components/jsbach/jsbach.yaml,line:122,col:59
-  leapyear: true # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:328,col:19
+  leapyear: true # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:333,col:19
   experiment_analysis_dir: <TEST_DIR>/run/awiesm//pi/analysis/jsbach/ # no provenance info
   thisrun_analysis_dir: <TEST_DIR>/run/awiesm//pi/run_18500101-18500101/analysis/jsbach/ # no provenance info
   all_filetypes:
@@ -4381,7 +4382,7 @@ jsbach:
         use_roughness_lai: true # no provenance info
         use_roughness_oro: false # no provenance info
         veg_at_1200: false # no provenance info
-        use_dynveg: true # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:309,col:41
+        use_dynveg: true # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:314,col:41
         use_disturbance: true # no provenance info
         with_nitrogen: true # no provenance info
         lcc_forcing_type: transitions # no provenance info
@@ -4392,7 +4393,7 @@ jsbach:
         nsoil: 5  # no provenance info
       hydrology_ctl:
         diag_water_budget: true  # no provenance info
-        lgfw: false # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:307,col:39
+        lgfw: false # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:312,col:39
       cbalance_ctl:
         read_ndepo: true  # no provenance info
       disturbance_ctl:
@@ -4433,7 +4434,7 @@ hdmodel:
   ini_restart_dir: <TEST_DIR>/run/awiesm//pi/restart/echam//../hdmodel/ # <CONFIGS_PATH>/components/hdmodel/hdmodel.inherit.yaml,line:7,col:22
   ini_parent_exp_id: pi # <CONFIGS_PATH>/components/hdmodel/hdmodel.inherit.yaml,line:8,col:24
   from_general_with_wiso_choose: <NOT_SPECIFIED> # <CONFIGS_PATH>/components/hdmodel/hdmodel.yaml,line:81,col:48
-  leapyear: true # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:328,col:19
+  leapyear: true # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:333,col:19
   experiment_analysis_dir: <TEST_DIR>/run/awiesm//pi/analysis/hdmodel/ # no provenance info
   thisrun_analysis_dir: <TEST_DIR>/run/awiesm//pi/run_18500101-18500101/analysis/hdmodel/ # no provenance info
   all_filetypes:
@@ -4586,7 +4587,7 @@ dask:
   actions:
   - parallel_file_movements  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:50,col:11
 recom:
-  not_used: ''  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:509,col:35
+  not_used: ''  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:514,col:35
 defaults:
   clean_command: rm -rf build CMakeCache.txt  # <CONFIGS_PATH>/defaults/download_and_compile.yaml,line:1,col:16
   comp_command: mkdir -p build; cd build; cmake ..;   make install -j `nproc --all` # <CONFIGS_PATH>/defaults/download_and_compile.yaml,line:2,col:15
