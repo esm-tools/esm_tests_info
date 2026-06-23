@@ -2,8 +2,8 @@
 #SBATCH --partition=mpp
 #SBATCH --time=02:00:00
 #SBATCH --ntasks=832
-#SBATCH --output=<TEST_DIR>/run/awiesm//pi/log/pi_awiesm_compute_18500101-18500101_%j.log --error=<TEST_DIR>/run/awiesm//pi/log/pi_awiesm_compute_18500101-18500101_%j.log
-#SBATCH --job-name=pi
+#SBATCH --output=<TEST_DIR>/run/awiesm//pi-awiesm-2.6/log/pi-awiesm-2.6_awiesm_compute_18500101-18500101_%j.log --error=<TEST_DIR>/run/awiesm//pi-awiesm-2.6/log/pi-awiesm-2.6_awiesm_compute_18500101-18500101_%j.log
+#SBATCH --job-name=pi-awiesm-2.6
 #SBATCH --account=None
 #SBATCH --mail-type=NONE
 #SBATCH --qos=12h
@@ -11,7 +11,7 @@
 #SBATCH --exclusive
 
 # Store batch system environment variables for later sourcing
-declare -p | grep -E "(SLURM)" > <TEST_DIR>/run/awiesm//pi/run_18500101-18500101/work//batch_system.env
+declare -p | grep -E "(SLURM)" > <TEST_DIR>/run/awiesm//pi-awiesm-2.6/run_18500101-18500101/work//batch_system.env
 
 module purge
 module load cmake
@@ -57,10 +57,11 @@ export LD_LIBRARY_PATH=$HDF5ROOT/lib:$NETCDFROOT/lib:$NETCDFFROOT/lib:$LD_LIBRAR
 export LD_LIBRARY_PATH=/albedo/soft/sw/spack-sw/intel-oneapi-mkl/2022.1.0-akthm3n/mkl/2022.1.0/lib/intel64:/albedo/soft/sw/spack-sw/intel-oneapi-mkl/2022.1.0-akthm3n/tbb/latest/lib/intel64/gcc4.8:$LD_LIBRARY_PATH
 export PATH=$PERL5LIB/../bin:$PATH
 export PATH=$PATH:$ECCODESROOT/bin
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:<TEST_DIR>/run/awiesm//pi-awiesm-2.6/run_18500101-18500101/work//lib/fesom/
 export USER=<USER_ACCOUNT>
 export ACCOUNT=None
 export ESM_TESTING_DIR=<TEST_DIR>/run/awiesm/
-export MODEL_DIR=<TEST_DIR>/comp/awiesm/awiesm-2.1
+export MODEL_DIR=<TEST_DIR>/comp/awiesm/awiesm-2.6.2
 export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 
 unset SLURM_MEM_PER_NODE
@@ -70,9 +71,9 @@ unset SLURM_MEM_PER_CPU
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1850-01-01T00:00:00 627 - start" >> <TEST_DIR>/run/awiesm//pi/log//pi_awiesm.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1850-01-01T00:00:00 605 - start" >> <TEST_DIR>/run/awiesm//pi-awiesm-2.6/log//pi-awiesm-2.6_awiesm.log
 
-cd <TEST_DIR>/run/awiesm//pi/run_18500101-18500101/work/
+cd <TEST_DIR>/run/awiesm//pi-awiesm-2.6/run_18500101-18500101/work/
 time srun -l --kill-on-bad-exit=1 --cpu_bind=cores --multi-prog hostfile_srun 2>&1 &
 
 # Call to esm_runscript to start subjobs:
@@ -80,12 +81,12 @@ time srun -l --kill-on-bad-exit=1 --cpu_bind=cores --multi-prog hostfile_srun 2>
 process=$!
 
 # Recover batch system environment variables
-source <TEST_DIR>/run/awiesm//pi/run_18500101-18500101/work//batch_system.env; rm <TEST_DIR>/run/awiesm//pi/run_18500101-18500101/work//batch_system.env
+source <TEST_DIR>/run/awiesm//pi-awiesm-2.6/run_18500101-18500101/work//batch_system.env; rm <TEST_DIR>/run/awiesm//pi-awiesm-2.6/run_18500101-18500101/work//batch_system.env
 
 # Comment the following line if you don't want esm_runscripts to restart:
-cd <TEST_DIR>/run/awiesm//pi/scripts/
-esm_runscripts pi.yaml -e pi -t observe_compute -p ${process} -s 18500101 -r 1 -v --last-jobtype prepcompute --open-run
+cd <TEST_DIR>/run/awiesm//pi-awiesm-2.6/scripts/
+esm_runscripts pi-awiesm-2.6.yaml -e pi-awiesm-2.6 -t observe_compute -p ${process} -s 18500101 -r 1 -v --last-jobtype prepcompute --open-run
 
-echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1850-01-01T00:00:00 627 - done" >> <TEST_DIR>/run/awiesm//pi/log//pi_awiesm.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1850-01-01T00:00:00 605 - done" >> <TEST_DIR>/run/awiesm//pi-awiesm-2.6/log//pi-awiesm-2.6_awiesm.log
 
 wait
