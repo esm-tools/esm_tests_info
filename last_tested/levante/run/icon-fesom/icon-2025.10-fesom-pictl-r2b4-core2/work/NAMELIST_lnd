@@ -1,0 +1,82 @@
+&jsb_model_nml
+    usecase = 'jsbach_pfts'
+    npft = 11
+    use_lakes = .true.
+    fract_filename = 'bc_land_frac.nc'
+    init_from_ifs = .false.
+/
+
+&jsb_seb_nml
+    bc_filename = 'bc_land_phys.nc'
+    ic_filename = 'ic_land_soil.nc'
+/
+
+&jsb_rad_nml
+    use_alb_veg_simple = .false.
+    bc_filename = 'bc_land_phys.nc'
+    ic_filename = 'ic_land_soil.nc'
+/
+
+&jsb_turb_nml
+    bc_filename = 'bc_land_phys.nc'
+    ic_filename = 'ic_land_soil.nc'
+/
+
+&jsb_sse_nml
+    l_heat_cap_map = .false.
+    l_heat_cond_map = .false.
+    l_heat_cap_dyn = .false.
+    l_heat_cond_dyn = .false.
+    l_snow = .true.
+    l_dynsnow = .true.
+    l_freeze = .true.
+    l_supercool = .true.
+    bc_filename = 'bc_land_soil.nc'
+    ic_filename = 'ic_land_soil.nc'
+/
+
+&jsb_hydro_nml
+    l_organic = .false.
+    bc_filename = 'bc_land_soil.nc'
+    ic_filename = 'ic_land_soil.nc'
+    bc_sso_filename = 'bc_land_sso.nc'
+/
+
+&jsb_assimi_nml
+    active = .true.
+/
+
+&jsb_pheno_nml
+    active = .true.
+    scheme = 'logrop'
+    bc_filename = 'bc_land_phys.nc'
+    ic_filename = 'ic_land_soil.nc'
+/
+
+&jsb_carbon_nml
+    active = .false.
+    bc_filename = ''
+    ic_filename = ''
+/
+
+&jsb_fuel_nml
+    active = .false.
+    fuel_algorithm = 1
+/
+
+&jsb_disturb_nml
+    active = .false.
+    ic_filename = 'ic_land_soil.nc'
+    bc_filename = 'bc_land_phys.nc'
+    fire_algorithm = 1
+    windbreak_algorithm = 1
+    lburn_pasture = .false.
+/
+
+&jsb_hd_nml
+    active = .true.
+    routing_scheme = 'full'
+    bc_filename = 'bc_land_hd.nc'
+    diag_water_budget = .true.
+    debug_hd = .false.
+/
