@@ -48,5 +48,5 @@ export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 
 
 pushd nemo-ORCA05_LIM2_FOCI_MOPS_OASISMCT4/CONFIG/ORCA05_LIM2_FOCI_MOPS_OASISMCT4
-export NEMO_TOPLEVEL=<TEST_DIR>/comp/foci/foci-mops_oasismct4/nemo-ORCA05_LIM2_FOCI_MOPS_OASISMCT4/CONFIG/ORCA05_LIM2_FOCI_MOPS_OASISMCT4/../../ ; cp cfg.inc ../cfg.txt ; cd ../ ; ./makenemo -n ORCA05_LIM2_FOCI_MOPS_OASISMCT4 -m ESMTOOLS_generic_oasis_intel -j 24; cp -p ORCA05_LIM2_FOCI_MOPS_OASISMCT4/BLD/bin/nemo.exe ORCA05_LIM2_FOCI_MOPS_OASISMCT4/BLD/bin/oceanx ; cd ..
+export NEMO_TOPLEVEL=/mnt/lustre-grete/workspaces/ws/shk00060/<USER_ACCOUNT>/-esm-experiments-rzg/esm-tests/comp/foci/foci-mops_oasismct4/nemo-ORCA05_LIM2_FOCI_MOPS_OASISMCT4/CONFIG/ORCA05_LIM2_FOCI_MOPS_OASISMCT4/../../ ; cp cfg.inc ../cfg.txt ; cd ../ ; ./makenemo -n ORCA05_LIM2_FOCI_MOPS_OASISMCT4 -m ESMTOOLS_generic_oasis_intel -j 24; cp -p ORCA05_LIM2_FOCI_MOPS_OASISMCT4/BLD/bin/nemo.exe ORCA05_LIM2_FOCI_MOPS_OASISMCT4/BLD/bin/oceanx ; cd ..
 popd

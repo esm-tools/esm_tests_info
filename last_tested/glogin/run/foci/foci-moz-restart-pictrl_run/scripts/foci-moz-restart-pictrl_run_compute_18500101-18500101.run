@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --partition=standard96
+#SBATCH --partition=standard96s
 #SBATCH --time=00:15:00
 #SBATCH --ntasks=64
 #SBATCH --output=<TEST_DIR>/run/foci//foci-moz-restart-pictrl_run/log/foci-moz-restart-pictrl_run_foci_compute_18500101-18500101_%j.log --error=<TEST_DIR>/run/foci//foci-moz-restart-pictrl_run/log/foci-moz-restart-pictrl_run_foci_compute_18500101-18500101_%j.log
@@ -68,7 +68,7 @@ export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1850-01-01T00:00:00 2808452 - start" >> <TEST_DIR>/run/foci//foci-moz-restart-pictrl_run/log//foci-moz-restart-pictrl_run_foci.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1850-01-01T00:00:00 999047 - start" >> <TEST_DIR>/run/foci//foci-moz-restart-pictrl_run/log//foci-moz-restart-pictrl_run_foci.log
 
 cd <TEST_DIR>/run/foci//foci-moz-restart-pictrl_run/run_18500101-18500101/work/
 time mpirun  $(cat hostfile_srun) 2>&1 &
@@ -79,11 +79,14 @@ process=$!
 
 # Recover batch system environment variables
 source <TEST_DIR>/run/foci//foci-moz-restart-pictrl_run/run_18500101-18500101/work//batch_system.env; rm <TEST_DIR>/run/foci//foci-moz-restart-pictrl_run/run_18500101-18500101/work//batch_system.env
+# Activate conda environment
+source /home/sebastian.wahl01/<USER_ACCOUNT>/miniforge3/bin/activate
+conda activate /home/sebastian.wahl01/<USER_ACCOUNT>/miniforge3/envs/esm-tools
 
 # Comment the following line if you don't want esm_runscripts to restart:
 cd <TEST_DIR>/run/foci//foci-moz-restart-pictrl_run/scripts/
 esm_runscripts foci-moz-restart-pictrl_run.yaml -e foci-moz-restart-pictrl_run -t observe_compute -p ${process} -s 18500101 -r 1 -v --last-jobtype prepcompute --open-run
 
-echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1850-01-01T00:00:00 2808452 - done" >> <TEST_DIR>/run/foci//foci-moz-restart-pictrl_run/log//foci-moz-restart-pictrl_run_foci.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1850-01-01T00:00:00 999047 - done" >> <TEST_DIR>/run/foci//foci-moz-restart-pictrl_run/log//foci-moz-restart-pictrl_run_foci.log
 
 wait

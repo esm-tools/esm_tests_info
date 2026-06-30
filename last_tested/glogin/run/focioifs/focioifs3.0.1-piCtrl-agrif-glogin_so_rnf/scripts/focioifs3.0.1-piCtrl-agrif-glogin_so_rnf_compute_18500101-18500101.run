@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --partition=standard96
+#SBATCH --partition=standard96s
 #SBATCH --time=00:30:00
 #SBATCH --ntasks=985
 #SBATCH --output=<TEST_DIR>/run/focioifs//focioifs3.0.1-piCtrl-agrif-glogin_so_rnf/log/focioifs3.0.1-piCtrl-agrif-glogin_so_rnf_focioifs_compute_18500101-18500101_%j.log --error=<TEST_DIR>/run/focioifs//focioifs3.0.1-piCtrl-agrif-glogin_so_rnf/log/focioifs3.0.1-piCtrl-agrif-glogin_so_rnf_focioifs_compute_18500101-18500101_%j.log
@@ -53,12 +53,12 @@ export NETCDF_CXX_INCLUDE_DIRECTORIES=$NETCDFROOT/include
 export OASIS3MCT_FC_LIB="-L$NETCDFFROOT/lib -lnetcdff"
 export OASIS_NETCDF=$NETCDFROOT
 export OASIS_NETCDFF=$NETCDFFROOT
-export LD_LIBRARY_PATH=<TEST_DIR>/run/focioifs//focioifs3.0.1-piCtrl-agrif-glogin_so_rnf/run_18500101-18500101/work//lib/oasis/:$LD_LIBRARY_PATH
 export OIFS_FFIXED=
 export GRIB_SAMPLES_PATH=$ECCODESROOT/share/eccodes/ifs_samples/grib1_mlgrib2/
 export DR_HOOK_IGNORE_SIGNALS=-1
 export OMP_SCHEDULE=STATIC
 export OMP_STACKSIZE=128M
+export LD_LIBRARY_PATH=<TEST_DIR>/run/focioifs//focioifs3.0.1-piCtrl-agrif-glogin_so_rnf/run_18500101-18500101/work//lib/oasis/:$LD_LIBRARY_PATH
 export FOCI_USE_CPLNG=active
 export FESOM_USE_CPLNG=no
 export ECE_USE_CPLNG=no
@@ -72,7 +72,7 @@ export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1850-01-01T00:00:00 2809304 - start" >> <TEST_DIR>/run/focioifs//focioifs3.0.1-piCtrl-agrif-glogin_so_rnf/log//focioifs3.0.1-piCtrl-agrif-glogin_so_rnf_focioifs.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1850-01-01T00:00:00 102730 - start" >> <TEST_DIR>/run/focioifs//focioifs3.0.1-piCtrl-agrif-glogin_so_rnf/log//focioifs3.0.1-piCtrl-agrif-glogin_so_rnf_focioifs.log
 
 cd <TEST_DIR>/run/focioifs//focioifs3.0.1-piCtrl-agrif-glogin_so_rnf/run_18500101-18500101/work/
 time mpirun  $(cat hostfile_srun) 2>&1 &
@@ -88,6 +88,6 @@ source <TEST_DIR>/run/focioifs//focioifs3.0.1-piCtrl-agrif-glogin_so_rnf/run_185
 cd <TEST_DIR>/run/focioifs//focioifs3.0.1-piCtrl-agrif-glogin_so_rnf/scripts/
 esm_runscripts focioifs3.0.1-piCtrl-agrif-glogin_so_rnf.yaml -e focioifs3.0.1-piCtrl-agrif-glogin_so_rnf -t observe_compute -p ${process} -s 18500101 -r 1 -v --last-jobtype prepcompute --open-run
 
-echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1850-01-01T00:00:00 2809304 - done" >> <TEST_DIR>/run/focioifs//focioifs3.0.1-piCtrl-agrif-glogin_so_rnf/log//focioifs3.0.1-piCtrl-agrif-glogin_so_rnf_focioifs.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1850-01-01T00:00:00 102730 - done" >> <TEST_DIR>/run/focioifs//focioifs3.0.1-piCtrl-agrif-glogin_so_rnf/log//focioifs3.0.1-piCtrl-agrif-glogin_so_rnf_focioifs.log
 
 wait

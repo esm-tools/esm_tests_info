@@ -48,5 +48,5 @@ export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 
 
 pushd nemo-ORCA05_LIM2_KCM_AOW/CONFIG/ORCA05_LIM2_KCM_AOW
-export NEMO_TOPLEVEL=<TEST_DIR>/comp/foci/foci-default/nemo-ORCA05_LIM2_KCM_AOW/CONFIG/ORCA05_LIM2_KCM_AOW/../../ ; cp cfg.inc ../cfg.txt ; cd ../ ; ./makenemo -n ORCA05_LIM2_KCM_AOW -m ESMTOOLS_generic_oasis_intel -j 24; cp -p ORCA05_LIM2_KCM_AOW/BLD/bin/nemo.exe ORCA05_LIM2_KCM_AOW/BLD/bin/oceanx ; cd ..
+export NEMO_TOPLEVEL=/mnt/lustre-grete/workspaces/ws/shk00060/<USER_ACCOUNT>/-esm-experiments-rzg/esm-tests/comp/foci/foci-default/nemo-ORCA05_LIM2_KCM_AOW/CONFIG/ORCA05_LIM2_KCM_AOW/../../ ; cp cfg.inc ../cfg.txt ; cd ../ ; ./makenemo -n ORCA05_LIM2_KCM_AOW -m ESMTOOLS_generic_oasis_intel -j 24; cp -p ORCA05_LIM2_KCM_AOW/BLD/bin/nemo.exe ORCA05_LIM2_KCM_AOW/BLD/bin/oceanx ; cd ..
 popd

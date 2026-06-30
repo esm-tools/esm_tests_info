@@ -44,5 +44,5 @@ export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 
 
 pushd xios
-export XIOS_TOPLEVEL=<TEST_DIR>/comp/focioifs/focioifs-agrif-3.0/xios; ./make_xios --arch ESMTOOLS_generic_oasis_intel --netcdf_lib netcdf4_par --full --use_oasis oasis3_mct --job 24; cp bin/xios_server.exe bin/xios.x
+export XIOS_TOPLEVEL=/mnt/lustre-grete/workspaces/ws/shk00060/<USER_ACCOUNT>/-esm-experiments-rzg/esm-tests/comp/focioifs/focioifs-agrif-3.0/xios; ./make_xios --arch ESMTOOLS_generic_oasis_intel --netcdf_lib netcdf4_par --full --use_oasis oasis3_mct --job 24; cp bin/xios_server.exe bin/xios.x
 popd

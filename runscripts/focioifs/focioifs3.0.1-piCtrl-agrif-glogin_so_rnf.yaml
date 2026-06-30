@@ -2,6 +2,9 @@
 # Runscript to run FOCI-OpenIFS with VIKING10
 # on glogin
 #
+computer: 
+   partition: "standard96s:test" 
+
 general:
    use_venv: False
    verbose: False 
@@ -27,9 +30,6 @@ general:
    pool_dir: ${computer.pool_directories.focipool} 
    
    postprocessing: 0
-   
-computer: 
-   partition: "standard96" 
 
 focioifs:
    model_dir: !ENV ${MODEL_DIR}
@@ -38,6 +38,7 @@ focioifs:
 oifs:
    pool_dir: ${computer.pool_directories.focipool} 
    version: "43r3"
+   destination: "oifs-43r3-foci30"   
    major_version: "43r3"
    with_xios: True
    scenario: "piControl"

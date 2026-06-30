@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --partition=standard96:test
+#SBATCH --partition=standard96s
 #SBATCH --time=00:15:00
 #SBATCH --ntasks=1008
 #SBATCH --output=<TEST_DIR>/run/foci//foci-agrif-mops-restart-pictl_run_daily/log/foci-agrif-mops-restart-pictl_run_daily_foci_compute_19000101-19000101_%j.log --error=<TEST_DIR>/run/foci//foci-agrif-mops-restart-pictl_run_daily/log/foci-agrif-mops-restart-pictl_run_daily_foci_compute_19000101-19000101_%j.log
@@ -69,7 +69,7 @@ export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1900-01-01T00:00:00 2804633 - start" >> <TEST_DIR>/run/foci//foci-agrif-mops-restart-pictl_run_daily/log//foci-agrif-mops-restart-pictl_run_daily_foci.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1900-01-01T00:00:00 4104016 - start" >> <TEST_DIR>/run/foci//foci-agrif-mops-restart-pictl_run_daily/log//foci-agrif-mops-restart-pictl_run_daily_foci.log
 
 cd <TEST_DIR>/run/foci//foci-agrif-mops-restart-pictl_run_daily/run_19000101-19000101/work/
 time mpirun  $(cat hostfile_srun) 2>&1 &
@@ -85,6 +85,6 @@ source <TEST_DIR>/run/foci//foci-agrif-mops-restart-pictl_run_daily/run_19000101
 cd <TEST_DIR>/run/foci//foci-agrif-mops-restart-pictl_run_daily/scripts/
 esm_runscripts foci-agrif-mops-restart-pictl_run_daily.yaml -e foci-agrif-mops-restart-pictl_run_daily -t observe_compute -p ${process} -s 19000101 -r 1 -v --last-jobtype prepcompute --open-run
 
-echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1900-01-01T00:00:00 2804633 - done" >> <TEST_DIR>/run/foci//foci-agrif-mops-restart-pictl_run_daily/log//foci-agrif-mops-restart-pictl_run_daily_foci.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1900-01-01T00:00:00 4104016 - done" >> <TEST_DIR>/run/foci//foci-agrif-mops-restart-pictl_run_daily/log//foci-agrif-mops-restart-pictl_run_daily_foci.log
 
 wait
