@@ -15,11 +15,14 @@ run:
                     - "restart/fesom/fesom.*.ice.nc in [1.4]"
                     # Files specific to versions 2
                     - "outdata/fesom/*.fesom.*.nc except [1.4]"
-                    - "restart/fesom/fesom.*.oce.restart.nc* except [1.4, 2.6]"
-                    - "restart/fesom/fesom.*.ice.restart.nc* except [1.4, 2.6]"
+                    - "restart/fesom/fesom.*.oce.restart.nc* except [1.4, 2.6, 2.7]"
+                    - "restart/fesom/fesom.*.ice.restart.nc* except [1.4, 2.6, 2.7]"
                     # Files specific to version 2.6
                     - "restart/fesom/fesom.*.oce.restart/*.nc in [2.6]"
                     - "restart/fesom/fesom.*.ice.restart/*.nc in [2.6]"
+                    # Files specific to version 2.7
+                    - "restart/fesom/fesom.*.oce.restart/*.nc in [2.7]"
+                    - "restart/fesom/fesom.*.ice.restart/*.nc in [2.7]"
         check: {}
 computers:
         - ollie
