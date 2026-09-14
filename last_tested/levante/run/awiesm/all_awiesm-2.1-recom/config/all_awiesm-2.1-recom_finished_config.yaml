@@ -2236,14 +2236,14 @@ general:
     first_task_in_queue: prepcompute # no provenance info
     next_run_triggered_by: tidy # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:86,col:32
   submitted: false  # no provenance info
-  jobid: 1805 # no provenance info
+  jobid: 1326 # no provenance info
   batch: slurm # no provenance info
   coupler_config_dir: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010101/config/oasis3mct/ # no provenance info
   coupler: oasis3mct # no provenance info
   experiment_log_file: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/log//all_awiesm-2.1-recom_awiesm.log # no provenance info
-  esm_tools_version: 6.63.0 # no provenance info
-  logfile_path: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/log//all_awiesm-2.1-recom_awiesm_prepcompute_20010101-20010101_1805.log # no provenance info
-  logfile_path_in_run: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010101/log//all_awiesm-2.1-recom_awiesm_prepcompute_20010101-20010101_1805.log # no provenance info
+  esm_tools_version: 6.66.6 # no provenance info
+  logfile_path: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/log//all_awiesm-2.1-recom_awiesm_prepcompute_20010101-20010101_1326.log # no provenance info
+  logfile_path_in_run: <TEST_DIR>/run/awiesm//all_awiesm-2.1-recom/run_20010101-20010101/log//all_awiesm-2.1-recom_awiesm_prepcompute_20010101-20010101_1326.log # no provenance info
   relevant_filetypes:
   - bin  # no provenance info
   - config # no provenance info
@@ -3169,55 +3169,57 @@ fesom:
     fesom.clock:
     - <--append-- 0.0000000000000 1 2001  # <CONFIGS_PATH>/components/fesom/fesom-2.1.yaml,line:458,col:39
     - <--append-- 0.0000000000000 1 2001 # <CONFIGS_PATH>/components/fesom/fesom-2.1.yaml,line:459,col:39
-  forcing_folder: CORE2  # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:66,col:33
-  Ce_atm_oce: 0.00175 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:68,col:29
-  Ch_atm_oce: 0.00175 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:69,col:29
-  Cd_atm_oce: 0.001 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:70,col:29
-  Ce_atm_ice: 0.00175 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:71,col:29
-  Ch_atm_ice: 0.00175 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:72,col:29
-  Cd_atm_ice: 0.0012 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:73,col:29
-  AOMIP_drag_coeff: false # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:75,col:35
-  ncar_bulk_formulae: true # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:76,col:37
-  ncar_bulk_z_wind: 10 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:77,col:35
-  ncar_bulk_z_tair: 10 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:78,col:35
-  ncar_bulk_z_shum: 10 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:79,col:35
-  xwind_prefix: u_10. # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:81,col:31
-  ywind_prefix: v_10. # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:82,col:31
-  humi_prefix: q_10. # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:83,col:30
-  qsr_prefix: ncar_rad. # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:84,col:29
-  qlw_prefix: ncar_rad. # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:85,col:29
-  tair_prefix: t_10. # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:86,col:30
-  prec_prefix: ncar_precip. # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:87,col:30
-  snow_prefix: ncar_precip. # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:88,col:30
-  mslp_prefix: slp. # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:89,col:30
-  nm_xwind_var: U_10_MOD # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:91,col:31
-  nm_ywind_var: V_10_MOD # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:92,col:31
-  nm_humi_var: Q_10_MOD # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:93,col:30
-  nm_qsr_var: SWDN_MOD # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:94,col:29
-  nm_qlw_var: LWDN_MOD # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:95,col:29
-  nm_tair_var: T_10_MOD # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:96,col:30
-  nm_prec_var: RAIN # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:97,col:30
-  nm_snow_var: SNOW # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:98,col:30
-  nm_mslp_var: SLP # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:99,col:30
-  nm_nc_iyear: 1948 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:101,col:30
-  nm_nc_imm: 1 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:102,col:28
-  nm_nc_idd: 1 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:103,col:28
-  nm_nc_freq: 1 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:104,col:29
-  nm_nc_tmid: 1 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:105,col:29
-  l_xwind: true # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:106,col:26
-  l_ywind: true # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:107,col:26
-  l_humi: true # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:108,col:25
-  l_qsr: true # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:109,col:24
-  l_qlw: true # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:110,col:24
-  l_tair: true # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:111,col:25
-  l_prec: true # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:112,col:25
-  l_mslp: false # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:113,col:25
-  l_cloud: false # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:114,col:26
-  l_snow: true # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:115,col:25
-  runoff_file: runoff.nc # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:117,col:30
-  sss_data_file: PHC2_salx.nc # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:118,col:32
-  runoff_data_source: CORE2 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:120,col:37
-  sss_data_source: CORE2 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:121,col:34
+  forcing_folder: CORE2  # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:68,col:33
+  Ce_atm_oce: 0.00175 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:70,col:29
+  Ch_atm_oce: 0.00175 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:71,col:29
+  Cd_atm_oce: 0.001 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:72,col:29
+  Ce_atm_ice: 0.00175 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:73,col:29
+  Ch_atm_ice: 0.00175 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:74,col:29
+  Cd_atm_ice: 0.0012 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:75,col:29
+  AOMIP_drag_coeff: false # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:77,col:35
+  ncar_bulk_formulae: true # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:78,col:37
+  ncar_bulk_z_wind: 10 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:79,col:35
+  ncar_bulk_z_tair: 10 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:80,col:35
+  ncar_bulk_z_shum: 10 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:81,col:35
+  xwind_prefix: u_10. # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:83,col:31
+  ywind_prefix: v_10. # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:84,col:31
+  humi_prefix: q_10. # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:85,col:30
+  qsr_prefix: ncar_rad. # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:86,col:29
+  qlw_prefix: ncar_rad. # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:87,col:29
+  tair_prefix: t_10. # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:88,col:30
+  prec_prefix: ncar_precip. # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:89,col:30
+  snow_prefix: ncar_precip. # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:90,col:30
+  mslp_prefix: slp. # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:91,col:30
+  nm_xwind_var: U_10_MOD # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:93,col:31
+  nm_ywind_var: V_10_MOD # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:94,col:31
+  nm_humi_var: Q_10_MOD # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:95,col:30
+  nm_qsr_var: SWDN_MOD # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:96,col:29
+  nm_qlw_var: LWDN_MOD # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:97,col:29
+  nm_tair_var: T_10_MOD # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:98,col:30
+  nm_prec_var: RAIN # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:99,col:30
+  nm_snow_var: SNOW # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:100,col:30
+  nm_mslp_var: SLP # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:101,col:30
+  nm_nc_iyear: 1948 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:103,col:30
+  nm_nc_imm: 1 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:104,col:28
+  nm_nc_idd: 1 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:105,col:28
+  nm_nc_freq: 1 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:106,col:29
+  nm_nc_tmid: 1 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:107,col:29
+  l_xwind: true # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:108,col:26
+  l_ywind: true # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:109,col:26
+  l_humi: true # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:110,col:25
+  l_qsr: true # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:111,col:24
+  l_qlw: true # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:112,col:24
+  l_tair: true # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:113,col:25
+  l_prec: true # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:114,col:25
+  l_mslp: false # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:115,col:25
+  l_cloud: false # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:116,col:26
+  l_snow: true # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:117,col:25
+  runoff_file: runoff.nc # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:119,col:30
+  sss_data_file: PHC2_salx.nc # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:120,col:32
+  chl_data_file: Sweeney_2005.nc # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:121,col:32
+  runoff_data_source: CORE2 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:123,col:37
+  sss_data_source: CORE2 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:124,col:34
+  chl_data_source: Sweeney # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:125,col:34
   K_gm_max: 2000 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:464,col:27
   K_hor: 3000 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:465,col:24
   K_gm: remove_from_namelist # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:466,col:23

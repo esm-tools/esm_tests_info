@@ -679,7 +679,7 @@ icon:
         output_interval: P01D  # <TEST_DIR>/run/icon-fesom/icon-fesom-pictl-v2-daily/scripts/icon-fesom-pictl-v2-daily.yaml,line:83,col:30
         file_interval: P50Y # <TEST_DIR>/run/icon-fesom/icon-fesom-pictl-v2-daily/scripts/icon-fesom-pictl-v2-daily.yaml,line:85,col:28
   init_from_ifs: true  # <CONFIGS_PATH>/components/icon/icon.yaml,line:276,col:25
-  leapyear: true # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:124,col:27
+  leapyear: true # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:128,col:27
   experiment_analysis_dir: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/analysis/icon/ # no provenance info
   thisrun_analysis_dir: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/run_18500101-18500101/analysis/icon/ # no provenance info
   all_filetypes:
@@ -1586,7 +1586,7 @@ general:
   nhour: 0 # no provenance info
   nminute: 0 # no provenance info
   nsecond: 0 # no provenance info
-  leapyear: true # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:124,col:27
+  leapyear: true # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:128,col:27
   calendar: esm_calendar object with allowed leap years # no provenance info
   delta_date:
   - 0  # no provenance info
@@ -1777,14 +1777,14 @@ general:
     first_task_in_queue: prepcompute # no provenance info
     next_run_triggered_by: tidy # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:86,col:32
   submitted: false  # no provenance info
-  jobid: 1234 # no provenance info
+  jobid: 1251 # no provenance info
   batch: slurm # no provenance info
   coupler_config_dir: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/run_18500101-18500101/config/yac/ # no provenance info
   coupler: yac # no provenance info
   experiment_log_file: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/log//icon-fesom-pictl-v2-daily_icon-fesom.log # no provenance info
-  esm_tools_version: 6.63.0 # no provenance info
-  logfile_path: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/log//icon-fesom-pictl-v2-daily_icon-fesom_prepcompute_18500101-18500101_1234.log # no provenance info
-  logfile_path_in_run: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/run_18500101-18500101/log//icon-fesom-pictl-v2-daily_icon-fesom_prepcompute_18500101-18500101_1234.log # no provenance info
+  esm_tools_version: 6.66.6 # no provenance info
+  logfile_path: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/log//icon-fesom-pictl-v2-daily_icon-fesom_prepcompute_18500101-18500101_1251.log # no provenance info
+  logfile_path_in_run: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/run_18500101-18500101/log//icon-fesom-pictl-v2-daily_icon-fesom_prepcompute_18500101-18500101_1251.log # no provenance info
   relevant_filetypes:
   - bin  # no provenance info
   - config # no provenance info
@@ -1819,55 +1819,55 @@ fesom:
   with_recom: false # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:21,col:17
   required_plugins:
   - git+https://github.com/esm-tools-plugins/tar_binary_restarts  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:24,col:7
-  destination: fesom-2.6  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:86,col:18
-  install_bins: bin/fesom.x # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:87,col:19
+  destination: fesom-2.6  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:90,col:18
+  install_bins: bin/fesom.x # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:91,col:19
   git-repository:
-  - https://github.com/FESOM/fesom2.git  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:89,col:7
-  contact: jan.streffing(at)awi.de, patrick.scholz(at)awi.de miguel.andres-martinez(at)awi.de, paul.gierz(at)awi.de  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:90,col:14
+  - https://github.com/FESOM/fesom2.git  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:93,col:7
+  contact: jan.streffing(at)awi.de, patrick.scholz(at)awi.de miguel.andres-martinez(at)awi.de, paul.gierz(at)awi.de  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:94,col:14
   restart_rate: 1 # <TEST_DIR>/run/icon-fesom/icon-fesom-pictl-v2-daily/scripts/icon-fesom-pictl-v2-daily.yaml,line:91,col:18
   restart_unit: d # <TEST_DIR>/run/icon-fesom/icon-fesom-pictl-v2-daily/scripts/icon-fesom-pictl-v2-daily.yaml,line:90,col:18
-  restart_first: 12 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:94,col:20
-  restart_flag: last # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:95,col:19
-  tar_binary_restarts: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:97,col:26
-  time_step: 1800 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:99,col:16
-  resolution: CORE2 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:100,col:17
-  comp_executable: fesom.x # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:102,col:22
-  executable: fesom # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:103,col:17
-  mesh_rotated: false # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:105,col:19
-  old_mesh_format: false # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:106,col:22
-  with_part_format: false # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:107,col:23
-  time_dimension: time # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:108,col:21
-  pool_dir: /pool/data/AWICM/ # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:114,col:23
-  setup_dir: <TEST_DIR>/comp/icon-fesom/icon-fesom-v2.0/fesom-2.6 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:122,col:16
-  bin_dir: <TEST_DIR>/comp/icon-fesom/icon-fesom-v2.0/fesom-2.6/bin # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:123,col:14
-  climate_data_dir: /pool/data/AWICM//FESOM2/INITIAL/phc3.0/ # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:115,col:31
-  forcing_data_dir: /pool/data/AWICM//FESOM2/FORCING/ # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:116,col:31
-  mesh_base_dir: /pool/data/AWICM//FESOM2/MESHES_FESOM2.1/ # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:117,col:28
-  ini_data_dir: /pool/data/AWICM//pool-data/ # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:127,col:19
-  namelist_dir: <NAMELIST_PATH>/fesom2/2.6.2-yac/ # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:128,col:19
-  opbnd_dir: somepath # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:130,col:16
-  tide_forcing_dir: somepath # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:131,col:23
-  steps_per_day: 48 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:133,col:20
-  asforcing: JRA55 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:135,col:16
+  restart_first: 12 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:98,col:20
+  restart_flag: last # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:99,col:19
+  tar_binary_restarts: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:101,col:26
+  time_step: 1800 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:103,col:16
+  resolution: CORE2 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:104,col:17
+  comp_executable: fesom.x # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:106,col:22
+  executable: fesom # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:107,col:17
+  mesh_rotated: false # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:109,col:19
+  old_mesh_format: false # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:110,col:22
+  with_part_format: false # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:111,col:23
+  time_dimension: time # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:112,col:21
+  pool_dir: /pool/data/AWICM/ # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:118,col:23
+  setup_dir: <TEST_DIR>/comp/icon-fesom/icon-fesom-v2.0/fesom-2.6 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:126,col:16
+  bin_dir: <TEST_DIR>/comp/icon-fesom/icon-fesom-v2.0/fesom-2.6/bin # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:127,col:14
+  climate_data_dir: /pool/data/AWICM//FESOM2/INITIAL/phc3.0/ # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:119,col:31
+  forcing_data_dir: /pool/data/AWICM//FESOM2/FORCING/ # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:120,col:31
+  mesh_base_dir: /pool/data/AWICM//FESOM2/MESHES_FESOM2.1/ # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:121,col:28
+  ini_data_dir: /pool/data/AWICM//pool-data/ # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:131,col:19
+  namelist_dir: <NAMELIST_PATH>/fesom2/2.6.2-yac/ # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:132,col:19
+  opbnd_dir: somepath # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:134,col:16
+  tide_forcing_dir: somepath # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:135,col:23
+  steps_per_day: 48 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:137,col:20
+  asforcing: JRA55 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:139,col:16
   namelists:
     namelist.config:
       modelname:
         runid: fesom  # no provenance info
       timestep:
-        step_per_day: 48  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:468,col:43
-        run_length: 1 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:469,col:41
-        run_length_unit: d # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:470,col:46
+        step_per_day: 48  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:472,col:43
+        run_length: 1 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:473,col:41
+        run_length_unit: d # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:474,col:46
       clockinit:
         timenew: 0.0  # no provenance info
-        daynew: 1 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:459,col:37
-        yearnew: 1850 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:460,col:38
+        daynew: 1 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:463,col:37
+        yearnew: 1850 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:464,col:38
       paths:
-        meshpath: /pool/data/AWICM//FESOM2/MESHES_FESOM2.1//core2/  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:464,col:39
-        climatedatapath: /pool/data/AWICM//FESOM2/INITIAL/phc3.0/ # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:465,col:46
-        resultpath: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/run_18500101-18500101/work/ # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:466,col:41
+        meshpath: /pool/data/AWICM//FESOM2/MESHES_FESOM2.1//core2/  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:468,col:39
+        climatedatapath: /pool/data/AWICM//FESOM2/INITIAL/phc3.0/ # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:469,col:46
+        resultpath: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/run_18500101-18500101/work/ # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:470,col:41
       restart_log:
-        restart_length: 1  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:472,col:45
-        restart_length_unit: d # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:473,col:50
+        restart_length: 1  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:476,col:45
+        restart_length_unit: d # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:477,col:50
         raw_restart_length: 1 # no provenance info
         raw_restart_length_unit: y # no provenance info
         bin_restart_length: 1 # no provenance info
@@ -1886,7 +1886,7 @@ fesom:
         betaeuler: 15.0 # no provenance info
         gammaeuler: -90.0 # no provenance info
       calendar:
-        include_fleapyear: true  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:462,col:48
+        include_fleapyear: true  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:466,col:48
       run_config:
         use_ice: true  # no provenance info
         use_cavity: false # no provenance info
@@ -1895,23 +1895,23 @@ fesom:
         use_sw_pene: true # no provenance info
         flag_debug: false # no provenance info
         use_transit: false # no provenance info
-        lwiso: false # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:480,col:36
+        lwiso: false # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:484,col:36
       machine:
         n_levels: 2  # no provenance info
         n_part:
         - 5  # no provenance info
         - 128 # no provenance info
       icebergs:
-        use_icesheet_coupling: false  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:483,col:52
+        use_icesheet_coupling: false  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:487,col:52
         ib_num: 1 # no provenance info
-        use_icebergs: false # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:482,col:43
-        steps_per_ib_step: 8 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:484,col:48
+        use_icebergs: false # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:486,col:43
+        steps_per_ib_step: 8 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:488,col:48
         ib_async_mode: 0 # no provenance info
       inout:
-        restartflag: last  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:475,col:42
-        output_length: 1 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:476,col:44
-        output_length_unit: d # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:477,col:49
-        restart_length: 1 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:478,col:45
+        restartflag: last  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:479,col:42
+        output_length: 1 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:480,col:44
+        output_length_unit: d # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:481,col:49
+        restart_length: 1 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:482,col:45
     namelist.cvmix:
       param_tke:
         tke_c_k: 0.1  # no provenance info
@@ -1985,19 +1985,19 @@ fesom:
         wsplit_maxcfl: 1.0 # no provenance info
     namelist.forcing:
       forcing_exchange_coeff:
-        ce_atm_oce: 0.00175  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:490,col:41
-        ch_atm_oce: 0.00175 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:491,col:41
-        cd_atm_oce: 0.001 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:492,col:41
-        ce_atm_ice: 0.00175 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:493,col:41
-        ch_atm_ice: 0.00175 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:494,col:41
-        cd_atm_ice: 0.0012 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:495,col:41
+        ce_atm_oce: 0.00175  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:494,col:41
+        ch_atm_oce: 0.00175 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:495,col:41
+        cd_atm_oce: 0.001 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:496,col:41
+        ce_atm_ice: 0.00175 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:497,col:41
+        ch_atm_ice: 0.00175 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:498,col:41
+        cd_atm_ice: 0.0012 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:499,col:41
         swind: 0.0 # no provenance info
       forcing_bulk:
-        aomip_drag_coeff: false  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:498,col:47
-        ncar_bulk_formulae: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:499,col:49
-        ncar_bulk_z_wind: 10 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:500,col:47
-        ncar_bulk_z_tair: 10 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:501,col:47
-        ncar_bulk_z_shum: 10 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:502,col:47
+        aomip_drag_coeff: false  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:502,col:47
+        ncar_bulk_formulae: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:503,col:49
+        ncar_bulk_z_wind: 10 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:504,col:47
+        ncar_bulk_z_tair: 10 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:505,col:47
+        ncar_bulk_z_shum: 10 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:506,col:47
       land_ice:
         use_landice_water: false  # no provenance info
         landice_start_mon: 5 # no provenance info
@@ -2009,50 +2009,50 @@ fesom:
         age_tracer_path: ./mesh/ # no provenance info
         age_start_year: 2000 # no provenance info
       nam_sbc:
-        nm_xwind_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//uas.  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:505,col:44
-        nm_ywind_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//vas. # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:506,col:44
+        nm_xwind_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//uas.  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:509,col:44
+        nm_ywind_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//vas. # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:510,col:44
         nm_xstre_file: /pool/data/AWICM/FESOM2/FORCING/JRA55-do-v1.4.0/uas. # no provenance info
         nm_ystre_file: /pool/data/AWICM/FESOM2/FORCING/JRA55-do-v1.4.0/vas. # no provenance info
-        nm_humi_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//huss. # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:507,col:43
-        nm_qsr_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//rsds. # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:508,col:42
-        nm_qlw_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//rlds. # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:509,col:42
-        nm_tair_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//tas. # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:510,col:43
-        nm_prec_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//prra. # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:511,col:43
-        nm_snow_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//prsn. # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:512,col:43
-        nm_mslp_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//psl. # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:513,col:43
-        nm_xwind_var: uas # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:515,col:43
-        nm_ywind_var: vas # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:516,col:43
+        nm_humi_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//huss. # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:511,col:43
+        nm_qsr_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//rsds. # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:512,col:42
+        nm_qlw_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//rlds. # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:513,col:42
+        nm_tair_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//tas. # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:514,col:43
+        nm_prec_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//prra. # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:515,col:43
+        nm_snow_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//prsn. # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:516,col:43
+        nm_mslp_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//psl. # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:517,col:43
+        nm_xwind_var: uas # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:519,col:43
+        nm_ywind_var: vas # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:520,col:43
         nm_xstre_var: uas # no provenance info
         nm_ystre_var: vas # no provenance info
-        nm_humi_var: huss # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:517,col:42
-        nm_qsr_var: rsds # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:518,col:41
-        nm_qlw_var: rlds # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:519,col:41
-        nm_tair_var: tas # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:520,col:42
-        nm_prec_var: prra # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:521,col:42
-        nm_snow_var: prsn # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:522,col:42
-        nm_mslp_var: psl # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:523,col:42
-        nm_nc_iyear: 1900 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:525,col:42
-        nm_nc_imm: 1 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:526,col:40
-        nm_nc_idd: 1 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:527,col:40
-        nm_nc_freq: 1 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:528,col:41
-        nm_nc_tmid: 0 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:529,col:41
-        l_xwind: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:530,col:38
-        l_ywind: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:531,col:38
+        nm_humi_var: huss # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:521,col:42
+        nm_qsr_var: rsds # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:522,col:41
+        nm_qlw_var: rlds # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:523,col:41
+        nm_tair_var: tas # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:524,col:42
+        nm_prec_var: prra # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:525,col:42
+        nm_snow_var: prsn # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:526,col:42
+        nm_mslp_var: psl # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:527,col:42
+        nm_nc_iyear: 1900 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:529,col:42
+        nm_nc_imm: 1 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:530,col:40
+        nm_nc_idd: 1 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:531,col:40
+        nm_nc_freq: 1 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:532,col:41
+        nm_nc_tmid: 0 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:533,col:41
+        l_xwind: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:534,col:38
+        l_ywind: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:535,col:38
         l_xstre: false # no provenance info
         l_ystre: false # no provenance info
-        l_humi: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:532,col:37
-        l_qsr: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:533,col:36
-        l_qlw: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:534,col:36
-        l_tair: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:535,col:37
-        l_prec: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:536,col:37
-        l_mslp: false # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:537,col:37
-        l_cloud: false # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:538,col:38
-        l_snow: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:539,col:37
-        runoff_data_source: CORE2 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:544,col:49
-        nm_runoff_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//CORE2_runoff.nc # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:541,col:45
+        l_humi: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:536,col:37
+        l_qsr: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:537,col:36
+        l_qlw: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:538,col:36
+        l_tair: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:539,col:37
+        l_prec: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:540,col:37
+        l_mslp: false # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:541,col:37
+        l_cloud: false # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:542,col:38
+        l_snow: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:543,col:37
+        runoff_data_source: CORE2 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:548,col:49
+        nm_runoff_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//CORE2_runoff.nc # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:545,col:45
         runoff_climatology: true # no provenance info
-        sss_data_source: CORE2 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:545,col:46
-        nm_sss_data_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//PHC2_salx.nc # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:542,col:47
+        sss_data_source: CORE2 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:549,col:46
+        nm_sss_data_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//PHC2_salx.nc # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:546,col:47
         chl_data_source: Sweeney # no provenance info
         nm_chl_data_file: /pool/data/AWICM/FESOM2/FORCING/Sweeney/Sweeney_2005.nc # no provenance info
         chl_const: 0.1 # no provenance info
@@ -2061,14 +2061,14 @@ fesom:
         runoff_radius: 500000.0 # no provenance info
     namelist.ice:
       ice_dyn:
-        whichevp: 0  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:548,col:39
+        whichevp: 0  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:552,col:39
         pstar: 30000.0 # no provenance info
         ellipse: 2.0 # no provenance info
         c_pressure: 20.0 # no provenance info
         delta_min: 1e-11 # no provenance info
         evp_rheol_steps: 120 # no provenance info
-        alpha_evp: 250 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:549,col:40
-        beta_evp: 250 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:550,col:39
+        alpha_evp: 250 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:553,col:40
+        beta_evp: 250 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:554,col:39
         c_aevp: 0.15 # no provenance info
         cd_oce_ice: 0.0045 # no provenance info
         ice_gamma_fct: 0.5 # no provenance info
@@ -2440,7 +2440,7 @@ fesom:
         arg_0: 0.01 # no provenance info
         decay14: 3.8561e-12 # no provenance info
         decay39: 8.1708e-11 # no provenance info
-  whichEVP: 0 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:149,col:15
+  whichEVP: 0 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:153,col:15
   restart_out_sources: {}
   outdata_sources: {}
   outdata_targets: {}
@@ -2449,55 +2449,55 @@ fesom:
     mesh_diag: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/run_18500101-18500101/work//fesom.mesh.diag.nc # no provenance info
   file_movements:
     fesom_raw_restart_in:
-      init_to_exp: move  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:412,col:37
-      exp_to_run: move # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:412,col:37
-      run_to_work: move # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:412,col:37
-      work_to_run: move # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:412,col:37
-    fesom_raw_restart_out:
-      init_to_exp: move  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:414,col:37
-      exp_to_run: move # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:414,col:37
-      run_to_work: move # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:414,col:37
-      work_to_run: move # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:414,col:37
-    fesom_raw_restart_info_in:
       init_to_exp: move  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:416,col:37
       exp_to_run: move # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:416,col:37
       run_to_work: move # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:416,col:37
       work_to_run: move # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:416,col:37
-    fesom_raw_restart_info_out:
+    fesom_raw_restart_out:
       init_to_exp: move  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:418,col:37
       exp_to_run: move # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:418,col:37
       run_to_work: move # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:418,col:37
       work_to_run: move # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:418,col:37
-    fesom_raw_restart_tar_out:
+    fesom_raw_restart_info_in:
       init_to_exp: move  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:420,col:37
       exp_to_run: move # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:420,col:37
       run_to_work: move # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:420,col:37
       work_to_run: move # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:420,col:37
-    fesom_bin_restart_in:
+    fesom_raw_restart_info_out:
       init_to_exp: move  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:422,col:37
       exp_to_run: move # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:422,col:37
       run_to_work: move # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:422,col:37
       work_to_run: move # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:422,col:37
-    fesom_bin_restart_out:
+    fesom_raw_restart_tar_out:
       init_to_exp: move  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:424,col:37
       exp_to_run: move # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:424,col:37
       run_to_work: move # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:424,col:37
       work_to_run: move # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:424,col:37
-    fesom_bin_restart_info_in:
+    fesom_bin_restart_in:
       init_to_exp: move  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:426,col:37
       exp_to_run: move # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:426,col:37
       run_to_work: move # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:426,col:37
       work_to_run: move # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:426,col:37
-    fesom_bin_restart_info_out:
+    fesom_bin_restart_out:
       init_to_exp: move  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:428,col:37
       exp_to_run: move # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:428,col:37
       run_to_work: move # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:428,col:37
       work_to_run: move # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:428,col:37
-    fesom_bin_restart_tar_out:
+    fesom_bin_restart_info_in:
       init_to_exp: move  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:430,col:37
       exp_to_run: move # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:430,col:37
       run_to_work: move # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:430,col:37
       work_to_run: move # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:430,col:37
+    fesom_bin_restart_info_out:
+      init_to_exp: move  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:432,col:37
+      exp_to_run: move # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:432,col:37
+      run_to_work: move # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:432,col:37
+      work_to_run: move # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:432,col:37
+    fesom_bin_restart_tar_out:
+      init_to_exp: move  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:434,col:37
+      exp_to_run: move # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:434,col:37
+      run_to_work: move # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:434,col:37
+      work_to_run: move # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:434,col:37
     input:
       init_to_exp: link  # <CONFIGS_PATH>/setups/icon-fesom/icon-fesom.yaml,line:50,col:26
       exp_to_run: link # <CONFIGS_PATH>/setups/icon-fesom/icon-fesom.yaml,line:50,col:26
@@ -2573,188 +2573,188 @@ fesom:
       exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
       run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
       work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
-  branchoff: false  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:438,col:16
+  branchoff: false  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:442,col:16
   namelist_changes:
     namelist.config:
       clockinit:
-        daynew: 1  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:459,col:37
-        yearnew: 1850 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:460,col:38
+        daynew: 1  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:463,col:37
+        yearnew: 1850 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:464,col:38
       calendar:
-        include_fleapyear: true  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:462,col:48
+        include_fleapyear: true  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:466,col:48
       paths:
-        MeshPath: /pool/data/AWICM//FESOM2/MESHES_FESOM2.1//core2/  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:464,col:39
-        ClimateDataPath: /pool/data/AWICM//FESOM2/INITIAL/phc3.0/ # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:465,col:46
-        ResultPath: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/run_18500101-18500101/work/ # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:466,col:41
+        MeshPath: /pool/data/AWICM//FESOM2/MESHES_FESOM2.1//core2/  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:468,col:39
+        ClimateDataPath: /pool/data/AWICM//FESOM2/INITIAL/phc3.0/ # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:469,col:46
+        ResultPath: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/run_18500101-18500101/work/ # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:470,col:41
       timestep:
-        step_per_day: 48  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:468,col:43
-        run_length: 1 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:469,col:41
-        run_length_unit: d # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:470,col:46
+        step_per_day: 48  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:472,col:43
+        run_length: 1 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:473,col:41
+        run_length_unit: d # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:474,col:46
       restart_log:
-        restart_length: 1  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:472,col:45
-        restart_length_unit: d # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:473,col:50
+        restart_length: 1  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:476,col:45
+        restart_length_unit: d # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:477,col:50
       inout:
-        restartflag: last  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:475,col:42
-        output_length: 1 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:476,col:44
-        output_length_unit: d # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:477,col:49
-        restart_length: 1 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:478,col:45
+        restartflag: last  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:479,col:42
+        output_length: 1 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:480,col:44
+        output_length_unit: d # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:481,col:49
+        restart_length: 1 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:482,col:45
       run_config:
-        lwiso: false  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:480,col:36
+        lwiso: false  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:484,col:36
       icebergs:
-        use_icebergs: false  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:482,col:43
-        use_icesheet_coupling: false # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:483,col:52
-        steps_per_ib_step: 8 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:484,col:48
+        use_icebergs: false  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:486,col:43
+        use_icesheet_coupling: false # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:487,col:52
+        steps_per_ib_step: 8 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:488,col:48
     namelist.forcing:
       forcing_exchange_coeff:
-        Ce_atm_oce: 0.00175  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:490,col:41
-        Ch_atm_oce: 0.00175 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:491,col:41
-        Cd_atm_oce: 0.001 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:492,col:41
-        Ce_atm_ice: 0.00175 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:493,col:41
-        Ch_atm_ice: 0.00175 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:494,col:41
-        Cd_atm_ice: 0.0012 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:495,col:41
+        Ce_atm_oce: 0.00175  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:494,col:41
+        Ch_atm_oce: 0.00175 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:495,col:41
+        Cd_atm_oce: 0.001 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:496,col:41
+        Ce_atm_ice: 0.00175 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:497,col:41
+        Ch_atm_ice: 0.00175 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:498,col:41
+        Cd_atm_ice: 0.0012 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:499,col:41
       forcing_bulk:
-        AOMIP_drag_coeff: false  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:498,col:47
-        ncar_bulk_formulae: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:499,col:49
-        ncar_bulk_z_wind: 10 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:500,col:47
-        ncar_bulk_z_tair: 10 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:501,col:47
-        ncar_bulk_z_shum: 10 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:502,col:47
+        AOMIP_drag_coeff: false  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:502,col:47
+        ncar_bulk_formulae: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:503,col:49
+        ncar_bulk_z_wind: 10 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:504,col:47
+        ncar_bulk_z_tair: 10 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:505,col:47
+        ncar_bulk_z_shum: 10 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:506,col:47
       nam_sbc:
-        nm_xwind_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//uas.  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:505,col:44
-        nm_ywind_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//vas. # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:506,col:44
-        nm_humi_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//huss. # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:507,col:43
-        nm_qsr_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//rsds. # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:508,col:42
-        nm_qlw_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//rlds. # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:509,col:42
-        nm_tair_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//tas. # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:510,col:43
-        nm_prec_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//prra. # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:511,col:43
-        nm_snow_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//prsn. # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:512,col:43
-        nm_mslp_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//psl. # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:513,col:43
-        nm_xwind_var: uas # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:515,col:43
-        nm_ywind_var: vas # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:516,col:43
-        nm_humi_var: huss # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:517,col:42
-        nm_qsr_var: rsds # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:518,col:41
-        nm_qlw_var: rlds # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:519,col:41
-        nm_tair_var: tas # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:520,col:42
-        nm_prec_var: prra # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:521,col:42
-        nm_snow_var: prsn # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:522,col:42
-        nm_mslp_var: psl # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:523,col:42
-        nm_nc_iyear: 1900 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:525,col:42
-        nm_nc_imm: 1 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:526,col:40
-        nm_nc_idd: 1 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:527,col:40
-        nm_nc_freq: 1 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:528,col:41
-        nm_nc_tmid: 0 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:529,col:41
-        l_xwind: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:530,col:38
-        l_ywind: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:531,col:38
-        l_humi: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:532,col:37
-        l_qsr: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:533,col:36
-        l_qlw: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:534,col:36
-        l_tair: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:535,col:37
-        l_prec: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:536,col:37
-        l_mslp: false # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:537,col:37
-        l_cloud: false # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:538,col:38
-        l_snow: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:539,col:37
-        nm_runoff_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//CORE2_runoff.nc # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:541,col:45
-        nm_sss_data_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//PHC2_salx.nc # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:542,col:47
-        runoff_data_source: CORE2 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:544,col:49
-        sss_data_source: CORE2 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:545,col:46
+        nm_xwind_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//uas.  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:509,col:44
+        nm_ywind_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//vas. # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:510,col:44
+        nm_humi_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//huss. # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:511,col:43
+        nm_qsr_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//rsds. # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:512,col:42
+        nm_qlw_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//rlds. # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:513,col:42
+        nm_tair_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//tas. # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:514,col:43
+        nm_prec_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//prra. # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:515,col:43
+        nm_snow_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//prsn. # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:516,col:43
+        nm_mslp_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//psl. # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:517,col:43
+        nm_xwind_var: uas # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:519,col:43
+        nm_ywind_var: vas # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:520,col:43
+        nm_humi_var: huss # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:521,col:42
+        nm_qsr_var: rsds # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:522,col:41
+        nm_qlw_var: rlds # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:523,col:41
+        nm_tair_var: tas # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:524,col:42
+        nm_prec_var: prra # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:525,col:42
+        nm_snow_var: prsn # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:526,col:42
+        nm_mslp_var: psl # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:527,col:42
+        nm_nc_iyear: 1900 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:529,col:42
+        nm_nc_imm: 1 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:530,col:40
+        nm_nc_idd: 1 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:531,col:40
+        nm_nc_freq: 1 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:532,col:41
+        nm_nc_tmid: 0 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:533,col:41
+        l_xwind: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:534,col:38
+        l_ywind: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:535,col:38
+        l_humi: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:536,col:37
+        l_qsr: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:537,col:36
+        l_qlw: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:538,col:36
+        l_tair: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:539,col:37
+        l_prec: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:540,col:37
+        l_mslp: false # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:541,col:37
+        l_cloud: false # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:542,col:38
+        l_snow: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:543,col:37
+        nm_runoff_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//CORE2_runoff.nc # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:545,col:45
+        nm_sss_data_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//PHC2_salx.nc # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:546,col:47
+        runoff_data_source: CORE2 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:548,col:49
+        sss_data_source: CORE2 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:549,col:46
     namelist.ice:
       ice_dyn:
-        whichEVP: 0  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:548,col:39
-        alpha_evp: 250 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:549,col:40
-        beta_evp: 250 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:550,col:39
-  use_landice_water: false # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:552,col:24
-  lasttime: 84600 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:576,col:15
-  currentday: 1 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:577,col:17
+        whichEVP: 0  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:552,col:39
+        alpha_evp: 250 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:553,col:40
+        beta_evp: 250 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:554,col:39
+  use_landice_water: false # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:556,col:24
+  lasttime: 84600 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:580,col:15
+  currentday: 1 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:581,col:17
   bin_sources:
-    bin: <TEST_DIR>/comp/icon-fesom/icon-fesom-v2.0/fesom-2.6/bin/fesom.x  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:603,col:18
-    lib: <TEST_DIR>/comp/icon-fesom/icon-fesom-v2.0/fesom-2.6/build/lib/libfesom.so # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:604,col:18
+    bin: <TEST_DIR>/comp/icon-fesom/icon-fesom-v2.0/fesom-2.6/bin/fesom.x  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:607,col:18
+    lib: <TEST_DIR>/comp/icon-fesom/icon-fesom-v2.0/fesom-2.6/build/lib/libfesom.so # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:608,col:18
   config_sources:
-    config: <NAMELIST_PATH>/fesom2/2.6.2-yac//namelist.config  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:619,col:28
-    cvmix: <NAMELIST_PATH>/fesom2/2.6.2-yac//namelist.cvmix # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:620,col:28
-    dyn: <NAMELIST_PATH>/fesom2/2.6.2-yac//namelist.dyn # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:621,col:28
-    nml_forcing: <NAMELIST_PATH>/fesom2/2.6.2-yac//namelist.forcing # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:622,col:28
-    ice: <NAMELIST_PATH>/fesom2/2.6.2-yac//namelist.ice # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:623,col:28
-    icepack: <NAMELIST_PATH>/fesom2/2.6.2-yac//namelist.icepack # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:624,col:28
-    io: <NAMELIST_PATH>/fesom2/2.6.2-yac//namelist.io # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:625,col:28
-    oce: <NAMELIST_PATH>/fesom2/2.6.2-yac//namelist.oce # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:626,col:28
-    tra: <NAMELIST_PATH>/fesom2/2.6.2-yac//namelist.tra # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:627,col:28
-    transit: <NAMELIST_PATH>/fesom2/2.6.2-yac//namelist.transit # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:628,col:28
+    config: <NAMELIST_PATH>/fesom2/2.6.2-yac//namelist.config  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:623,col:28
+    cvmix: <NAMELIST_PATH>/fesom2/2.6.2-yac//namelist.cvmix # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:624,col:28
+    dyn: <NAMELIST_PATH>/fesom2/2.6.2-yac//namelist.dyn # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:625,col:28
+    nml_forcing: <NAMELIST_PATH>/fesom2/2.6.2-yac//namelist.forcing # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:626,col:28
+    ice: <NAMELIST_PATH>/fesom2/2.6.2-yac//namelist.ice # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:627,col:28
+    icepack: <NAMELIST_PATH>/fesom2/2.6.2-yac//namelist.icepack # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:628,col:28
+    io: <NAMELIST_PATH>/fesom2/2.6.2-yac//namelist.io # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:629,col:28
+    oce: <NAMELIST_PATH>/fesom2/2.6.2-yac//namelist.oce # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:630,col:28
+    tra: <NAMELIST_PATH>/fesom2/2.6.2-yac//namelist.tra # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:631,col:28
+    transit: <NAMELIST_PATH>/fesom2/2.6.2-yac//namelist.transit # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:632,col:28
     fesom.clock: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/run_18500101-18500101/config/fesom//fesom.clock # no provenance info
   coupling_fields:
     sst_feom:
-      grid: feom  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:644,col:27
-    sit_feom:
-      grid: feom  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:646,col:27
-    sie_feom:
       grid: feom  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:648,col:27
-    snt_feom:
+    sit_feom:
       grid: feom  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:650,col:27
-    u_feom:
+    sie_feom:
       grid: feom  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:652,col:27
-    v_feom:
+    snt_feom:
       grid: feom  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:654,col:27
-    taux_oce:
+    u_feom:
       grid: feom  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:656,col:27
-    tauy_oce:
+    v_feom:
       grid: feom  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:658,col:27
-    taux_ico:
+    taux_oce:
       grid: feom  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:660,col:27
-    tauy_ico:
+    tauy_oce:
       grid: feom  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:662,col:27
-    prec_oce:
+    taux_ico:
       grid: feom  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:664,col:27
-    snow_oce:
+    tauy_ico:
       grid: feom  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:666,col:27
-    evap_oce:
+    prec_oce:
       grid: feom  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:668,col:27
-    subl_oce:
+    snow_oce:
       grid: feom  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:670,col:27
-    heat_oce:
+    evap_oce:
       grid: feom  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:672,col:27
-    heat_ico:
+    subl_oce:
       grid: feom  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:674,col:27
-    heat_swo:
+    heat_oce:
       grid: feom  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:676,col:27
-    hydr_oce:
+    heat_ico:
       grid: feom  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:678,col:27
-    calv_oce:
+    heat_swo:
       grid: feom  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:680,col:27
-    enth_oce:
+    hydr_oce:
       grid: feom  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:682,col:27
-    u10w_oce:
+    calv_oce:
       grid: feom  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:684,col:27
-    v10w_oce:
+    enth_oce:
       grid: feom  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:686,col:27
+    u10w_oce:
+      grid: feom  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:688,col:27
+    v10w_oce:
+      grid: feom  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:690,col:27
   wiso_fields:
-  - o18w_oce  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:690,col:15
-  - hdow_oce # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:691,col:15
-  - o16w_oce # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:692,col:15
-  - o18i_oce # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:693,col:15
-  - hdoi_oce # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:694,col:15
-  - o16i_oce # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:695,col:15
-  - w1_oce # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:696,col:15
-  - w2_oce # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:697,col:15
-  - w3_oce # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:698,col:15
-  - i1_oce # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:699,col:15
-  - i2_oce # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:700,col:15
-  - i3_oce # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:701,col:15
+  - o18w_oce  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:694,col:15
+  - hdow_oce # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:695,col:15
+  - o16w_oce # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:696,col:15
+  - o18i_oce # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:697,col:15
+  - hdoi_oce # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:698,col:15
+  - o16i_oce # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:699,col:15
+  - w1_oce # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:700,col:15
+  - w2_oce # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:701,col:15
+  - w3_oce # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:702,col:15
+  - i1_oce # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:703,col:15
+  - i2_oce # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:704,col:15
+  - i3_oce # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:705,col:15
   grids:
     feom:
-      name: feom  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:717,col:27
-      nx: 126858 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:718,col:25
-      ny: 1 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:719,col:25
-      oasis_grid_type: U # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:720,col:38
-      oyac_grid_type: GC # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:721,col:37
-      oyac_io_per_node: 4 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:722,col:39
-      number_of_overlapping_points: 0 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:723,col:51
+      name: feom  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:721,col:27
+      nx: 126858 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:722,col:25
+      ny: 1 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:723,col:25
+      oasis_grid_type: U # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:724,col:38
+      oyac_grid_type: GC # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:725,col:37
+      oyac_io_per_node: 4 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:726,col:39
+      number_of_overlapping_points: 0 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:727,col:51
   tidy_recipe:
-  - tidy_coupler  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:735,col:7
-  - tar_binary_restarts # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:736,col:7
-  - assemble # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:737,col:7
-  - check_for_unknown_files # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:738,col:7
-  - log_used_files # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:739,col:7
-  - throw_away_some_infiles # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:740,col:7
-  - copy_stuff_back_from_work # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:741,col:7
-  - copy_all_results_to_exp # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:742,col:7
-  - clean_run_dir # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:743,col:7
+  - tidy_coupler  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:739,col:7
+  - tar_binary_restarts # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:740,col:7
+  - assemble # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:741,col:7
+  - check_for_unknown_files # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:742,col:7
+  - log_used_files # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:743,col:7
+  - throw_away_some_infiles # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:744,col:7
+  - copy_stuff_back_from_work # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:745,col:7
+  - copy_all_results_to_exp # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:746,col:7
+  - clean_run_dir # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:747,col:7
   vis_project: None # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:59,col:18
   vis_user: <USER_ACCOUNT> # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:60,col:15
   vis_server: modvis.dkrz.de # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:68,col:25
@@ -2791,70 +2791,72 @@ fesom:
   add_input_in_work:
     fesom_griddes: core2_griddes_elements.nc  # <TEST_DIR>/run/icon-fesom/icon-fesom-pictl-v2-daily/scripts/icon-fesom-pictl-v2-daily.yaml,line:98,col:23
   lresume: false  # no provenance info
-  nx: 126858 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:153,col:25
-  mesh_dir: /pool/data/AWICM//FESOM2/MESHES_FESOM2.1//core2/ # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:154,col:31
-  alpha_evp: 250 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:157,col:32
-  beta_evp: 250 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:158,col:31
-  daynew: 1 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:446,col:29
-  yearnew: 1850 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:447,col:30
+  nx: 126858 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:157,col:25
+  mesh_dir: /pool/data/AWICM//FESOM2/MESHES_FESOM2.1//core2/ # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:158,col:31
+  alpha_evp: 250 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:161,col:32
+  beta_evp: 250 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:162,col:31
+  daynew: 1 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:450,col:29
+  yearnew: 1850 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:451,col:30
   create_config:
     fesom.clock:
-    - <--append-- 0.0000000000000 1 1850  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:590,col:39
-    - <--append-- 0.0000000000000 1 1850 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:591,col:39
-  leapyear: true  # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:124,col:27
-  forcing_folder: /JRA55-do-v1.4.0/ # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:125,col:33
-  Ce_atm_oce: 0.00175 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:127,col:29
-  Ch_atm_oce: 0.00175 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:128,col:29
-  Cd_atm_oce: 0.001 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:129,col:29
-  Ce_atm_ice: 0.00175 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:130,col:29
-  Ch_atm_ice: 0.00175 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:131,col:29
-  Cd_atm_ice: 0.0012 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:132,col:29
-  AOMIP_drag_coeff: false # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:134,col:35
-  ncar_bulk_formulae: true # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:135,col:37
-  ncar_bulk_z_wind: 10 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:136,col:35
-  ncar_bulk_z_tair: 10 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:137,col:35
-  ncar_bulk_z_shum: 10 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:138,col:35
-  xwind_prefix: uas. # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:140,col:31
-  ywind_prefix: vas. # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:141,col:31
-  humi_prefix: huss. # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:142,col:30
-  qsr_prefix: rsds. # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:143,col:29
-  qlw_prefix: rlds. # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:144,col:29
-  tair_prefix: tas. # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:145,col:30
-  prec_prefix: prra. # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:146,col:30
-  snow_prefix: prsn. # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:147,col:30
-  mslp_prefix: psl. # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:148,col:30
-  nm_xwind_var: uas # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:150,col:31
-  nm_ywind_var: vas # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:151,col:31
-  nm_humi_var: huss # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:152,col:30
-  nm_qsr_var: rsds # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:153,col:29
-  nm_qlw_var: rlds # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:154,col:29
-  nm_tair_var: tas # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:155,col:30
-  nm_prec_var: prra # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:156,col:30
-  nm_snow_var: prsn # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:157,col:30
-  nm_mslp_var: psl # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:158,col:30
-  nm_nc_iyear: 1900 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:160,col:30
-  nm_nc_imm: 1 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:161,col:28
-  nm_nc_idd: 1 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:162,col:28
-  nm_nc_freq: 1 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:163,col:29
-  nm_nc_tmid: 0 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:164,col:29
-  l_xwind: true # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:165,col:26
-  l_ywind: true # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:166,col:26
-  l_humi: true # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:167,col:25
-  l_qsr: true # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:168,col:24
-  l_qlw: true # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:169,col:24
-  l_tair: true # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:170,col:25
-  l_prec: true # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:171,col:25
-  l_mslp: false # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:172,col:25
-  l_cloud: false # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:173,col:26
-  l_snow: true # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:174,col:25
-  runoff_file: CORE2_runoff.nc # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:176,col:30
-  sss_data_file: PHC2_salx.nc # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:177,col:32
-  runoff_data_source: CORE2 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:179,col:37
-  sss_data_source: CORE2 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:180,col:34
+    - <--append-- 0.0000000000000 1 1850  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:594,col:39
+    - <--append-- 0.0000000000000 1 1850 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:595,col:39
+  leapyear: true  # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:128,col:27
+  forcing_folder: /JRA55-do-v1.4.0/ # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:129,col:33
+  Ce_atm_oce: 0.00175 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:131,col:29
+  Ch_atm_oce: 0.00175 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:132,col:29
+  Cd_atm_oce: 0.001 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:133,col:29
+  Ce_atm_ice: 0.00175 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:134,col:29
+  Ch_atm_ice: 0.00175 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:135,col:29
+  Cd_atm_ice: 0.0012 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:136,col:29
+  AOMIP_drag_coeff: false # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:138,col:35
+  ncar_bulk_formulae: true # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:139,col:37
+  ncar_bulk_z_wind: 10 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:140,col:35
+  ncar_bulk_z_tair: 10 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:141,col:35
+  ncar_bulk_z_shum: 10 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:142,col:35
+  xwind_prefix: uas. # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:144,col:31
+  ywind_prefix: vas. # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:145,col:31
+  humi_prefix: huss. # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:146,col:30
+  qsr_prefix: rsds. # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:147,col:29
+  qlw_prefix: rlds. # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:148,col:29
+  tair_prefix: tas. # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:149,col:30
+  prec_prefix: prra. # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:150,col:30
+  snow_prefix: prsn. # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:151,col:30
+  mslp_prefix: psl. # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:152,col:30
+  nm_xwind_var: uas # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:154,col:31
+  nm_ywind_var: vas # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:155,col:31
+  nm_humi_var: huss # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:156,col:30
+  nm_qsr_var: rsds # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:157,col:29
+  nm_qlw_var: rlds # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:158,col:29
+  nm_tair_var: tas # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:159,col:30
+  nm_prec_var: prra # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:160,col:30
+  nm_snow_var: prsn # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:161,col:30
+  nm_mslp_var: psl # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:162,col:30
+  nm_nc_iyear: 1900 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:164,col:30
+  nm_nc_imm: 1 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:165,col:28
+  nm_nc_idd: 1 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:166,col:28
+  nm_nc_freq: 1 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:167,col:29
+  nm_nc_tmid: 0 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:168,col:29
+  l_xwind: true # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:169,col:26
+  l_ywind: true # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:170,col:26
+  l_humi: true # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:171,col:25
+  l_qsr: true # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:172,col:24
+  l_qlw: true # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:173,col:24
+  l_tair: true # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:174,col:25
+  l_prec: true # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:175,col:25
+  l_mslp: false # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:176,col:25
+  l_cloud: false # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:177,col:26
+  l_snow: true # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:178,col:25
+  runoff_file: CORE2_runoff.nc # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:180,col:30
+  sss_data_file: PHC2_salx.nc # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:181,col:32
+  chl_data_file: Sweeney_2005.nc # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:182,col:32
+  runoff_data_source: CORE2 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:184,col:37
+  sss_data_source: CORE2 # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:185,col:34
+  chl_data_source: Sweeney # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:186,col:34
   input_sources:
     fesom_griddes: /work/bb0519/foci_input2/ICON-FESOM/YAC/core2_griddes_elements.nc  # <TEST_DIR>/run/icon-fesom/icon-fesom-pictl-v2-daily/scripts/icon-fesom-pictl-v2-daily.yaml,line:96,col:23
-  starttime: 0 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:580,col:32
-  startday: 1 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:581,col:31
+  starttime: 0 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:584,col:32
+  startday: 1 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:585,col:31
   experiment_analysis_dir: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/analysis/fesom/ # no provenance info
   thisrun_analysis_dir: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/run_18500101-18500101/analysis/fesom/ # no provenance info
   all_filetypes:
@@ -2958,20 +2960,20 @@ fesom:
       modelname:
         runid: fesom  # no provenance info
       timestep:
-        step_per_day: 48  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:468,col:43
-        run_length: 1 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:469,col:41
-        run_length_unit: d # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:470,col:46
+        step_per_day: 48  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:472,col:43
+        run_length: 1 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:473,col:41
+        run_length_unit: d # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:474,col:46
       clockinit:
         timenew: 0.0  # no provenance info
-        daynew: 1 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:459,col:37
-        yearnew: 1850 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:460,col:38
+        daynew: 1 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:463,col:37
+        yearnew: 1850 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:464,col:38
       paths:
-        meshpath: /pool/data/AWICM//FESOM2/MESHES_FESOM2.1//core2/  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:464,col:39
-        climatedatapath: /pool/data/AWICM//FESOM2/INITIAL/phc3.0/ # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:465,col:46
-        resultpath: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/run_18500101-18500101/work/ # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:466,col:41
+        meshpath: /pool/data/AWICM//FESOM2/MESHES_FESOM2.1//core2/  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:468,col:39
+        climatedatapath: /pool/data/AWICM//FESOM2/INITIAL/phc3.0/ # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:469,col:46
+        resultpath: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/run_18500101-18500101/work/ # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:470,col:41
       restart_log:
-        restart_length: 1  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:472,col:45
-        restart_length_unit: d # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:473,col:50
+        restart_length: 1  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:476,col:45
+        restart_length_unit: d # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:477,col:50
         raw_restart_length: 1 # no provenance info
         raw_restart_length_unit: y # no provenance info
         bin_restart_length: 1 # no provenance info
@@ -2990,7 +2992,7 @@ fesom:
         betaeuler: 15.0 # no provenance info
         gammaeuler: -90.0 # no provenance info
       calendar:
-        include_fleapyear: true  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:462,col:48
+        include_fleapyear: true  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:466,col:48
       run_config:
         use_ice: true  # no provenance info
         use_cavity: false # no provenance info
@@ -2999,23 +3001,23 @@ fesom:
         use_sw_pene: true # no provenance info
         flag_debug: false # no provenance info
         use_transit: false # no provenance info
-        lwiso: false # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:480,col:36
+        lwiso: false # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:484,col:36
       machine:
         n_levels: 2  # no provenance info
         n_part:
         - 5  # no provenance info
         - 128 # no provenance info
       icebergs:
-        use_icesheet_coupling: false  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:483,col:52
+        use_icesheet_coupling: false  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:487,col:52
         ib_num: 1 # no provenance info
-        use_icebergs: false # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:482,col:43
-        steps_per_ib_step: 8 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:484,col:48
+        use_icebergs: false # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:486,col:43
+        steps_per_ib_step: 8 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:488,col:48
         ib_async_mode: 0 # no provenance info
       inout:
-        restartflag: last  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:475,col:42
-        output_length: 1 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:476,col:44
-        output_length_unit: d # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:477,col:49
-        restart_length: 1 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:478,col:45
+        restartflag: last  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:479,col:42
+        output_length: 1 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:480,col:44
+        output_length_unit: d # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:481,col:49
+        restart_length: 1 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:482,col:45
     namelist.cvmix:
       param_tke:
         tke_c_k: 0.1  # no provenance info
@@ -3089,19 +3091,19 @@ fesom:
         wsplit_maxcfl: 1.0 # no provenance info
     namelist.forcing:
       forcing_exchange_coeff:
-        ce_atm_oce: 0.00175  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:490,col:41
-        ch_atm_oce: 0.00175 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:491,col:41
-        cd_atm_oce: 0.001 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:492,col:41
-        ce_atm_ice: 0.00175 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:493,col:41
-        ch_atm_ice: 0.00175 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:494,col:41
-        cd_atm_ice: 0.0012 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:495,col:41
+        ce_atm_oce: 0.00175  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:494,col:41
+        ch_atm_oce: 0.00175 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:495,col:41
+        cd_atm_oce: 0.001 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:496,col:41
+        ce_atm_ice: 0.00175 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:497,col:41
+        ch_atm_ice: 0.00175 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:498,col:41
+        cd_atm_ice: 0.0012 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:499,col:41
         swind: 0.0 # no provenance info
       forcing_bulk:
-        aomip_drag_coeff: false  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:498,col:47
-        ncar_bulk_formulae: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:499,col:49
-        ncar_bulk_z_wind: 10 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:500,col:47
-        ncar_bulk_z_tair: 10 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:501,col:47
-        ncar_bulk_z_shum: 10 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:502,col:47
+        aomip_drag_coeff: false  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:502,col:47
+        ncar_bulk_formulae: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:503,col:49
+        ncar_bulk_z_wind: 10 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:504,col:47
+        ncar_bulk_z_tair: 10 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:505,col:47
+        ncar_bulk_z_shum: 10 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:506,col:47
       land_ice:
         use_landice_water: false  # no provenance info
         landice_start_mon: 5 # no provenance info
@@ -3113,50 +3115,50 @@ fesom:
         age_tracer_path: ./mesh/ # no provenance info
         age_start_year: 2000 # no provenance info
       nam_sbc:
-        nm_xwind_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//uas.  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:505,col:44
-        nm_ywind_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//vas. # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:506,col:44
+        nm_xwind_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//uas.  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:509,col:44
+        nm_ywind_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//vas. # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:510,col:44
         nm_xstre_file: /pool/data/AWICM/FESOM2/FORCING/JRA55-do-v1.4.0/uas. # no provenance info
         nm_ystre_file: /pool/data/AWICM/FESOM2/FORCING/JRA55-do-v1.4.0/vas. # no provenance info
-        nm_humi_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//huss. # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:507,col:43
-        nm_qsr_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//rsds. # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:508,col:42
-        nm_qlw_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//rlds. # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:509,col:42
-        nm_tair_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//tas. # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:510,col:43
-        nm_prec_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//prra. # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:511,col:43
-        nm_snow_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//prsn. # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:512,col:43
-        nm_mslp_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//psl. # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:513,col:43
-        nm_xwind_var: uas # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:515,col:43
-        nm_ywind_var: vas # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:516,col:43
+        nm_humi_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//huss. # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:511,col:43
+        nm_qsr_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//rsds. # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:512,col:42
+        nm_qlw_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//rlds. # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:513,col:42
+        nm_tair_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//tas. # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:514,col:43
+        nm_prec_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//prra. # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:515,col:43
+        nm_snow_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//prsn. # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:516,col:43
+        nm_mslp_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//psl. # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:517,col:43
+        nm_xwind_var: uas # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:519,col:43
+        nm_ywind_var: vas # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:520,col:43
         nm_xstre_var: uas # no provenance info
         nm_ystre_var: vas # no provenance info
-        nm_humi_var: huss # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:517,col:42
-        nm_qsr_var: rsds # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:518,col:41
-        nm_qlw_var: rlds # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:519,col:41
-        nm_tair_var: tas # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:520,col:42
-        nm_prec_var: prra # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:521,col:42
-        nm_snow_var: prsn # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:522,col:42
-        nm_mslp_var: psl # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:523,col:42
-        nm_nc_iyear: 1900 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:525,col:42
-        nm_nc_imm: 1 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:526,col:40
-        nm_nc_idd: 1 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:527,col:40
-        nm_nc_freq: 1 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:528,col:41
-        nm_nc_tmid: 0 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:529,col:41
-        l_xwind: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:530,col:38
-        l_ywind: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:531,col:38
+        nm_humi_var: huss # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:521,col:42
+        nm_qsr_var: rsds # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:522,col:41
+        nm_qlw_var: rlds # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:523,col:41
+        nm_tair_var: tas # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:524,col:42
+        nm_prec_var: prra # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:525,col:42
+        nm_snow_var: prsn # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:526,col:42
+        nm_mslp_var: psl # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:527,col:42
+        nm_nc_iyear: 1900 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:529,col:42
+        nm_nc_imm: 1 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:530,col:40
+        nm_nc_idd: 1 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:531,col:40
+        nm_nc_freq: 1 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:532,col:41
+        nm_nc_tmid: 0 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:533,col:41
+        l_xwind: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:534,col:38
+        l_ywind: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:535,col:38
         l_xstre: false # no provenance info
         l_ystre: false # no provenance info
-        l_humi: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:532,col:37
-        l_qsr: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:533,col:36
-        l_qlw: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:534,col:36
-        l_tair: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:535,col:37
-        l_prec: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:536,col:37
-        l_mslp: false # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:537,col:37
-        l_cloud: false # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:538,col:38
-        l_snow: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:539,col:37
-        runoff_data_source: CORE2 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:544,col:49
-        nm_runoff_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//CORE2_runoff.nc # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:541,col:45
+        l_humi: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:536,col:37
+        l_qsr: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:537,col:36
+        l_qlw: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:538,col:36
+        l_tair: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:539,col:37
+        l_prec: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:540,col:37
+        l_mslp: false # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:541,col:37
+        l_cloud: false # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:542,col:38
+        l_snow: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:543,col:37
+        runoff_data_source: CORE2 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:548,col:49
+        nm_runoff_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//CORE2_runoff.nc # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:545,col:45
         runoff_climatology: true # no provenance info
-        sss_data_source: CORE2 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:545,col:46
-        nm_sss_data_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//PHC2_salx.nc # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:542,col:47
+        sss_data_source: CORE2 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:549,col:46
+        nm_sss_data_file: /pool/data/AWICM//FESOM2/FORCING///JRA55-do-v1.4.0//PHC2_salx.nc # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:546,col:47
         chl_data_source: Sweeney # no provenance info
         nm_chl_data_file: /pool/data/AWICM/FESOM2/FORCING/Sweeney/Sweeney_2005.nc # no provenance info
         chl_const: 0.1 # no provenance info
@@ -3165,14 +3167,14 @@ fesom:
         runoff_radius: 500000.0 # no provenance info
     namelist.ice:
       ice_dyn:
-        whichevp: 0  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:548,col:39
+        whichevp: 0  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:552,col:39
         pstar: 30000.0 # no provenance info
         ellipse: 2.0 # no provenance info
         c_pressure: 20.0 # no provenance info
         delta_min: 1e-11 # no provenance info
         evp_rheol_steps: 120 # no provenance info
-        alpha_evp: 250 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:549,col:40
-        beta_evp: 250 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:550,col:39
+        alpha_evp: 250 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:553,col:40
+        beta_evp: 250 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:554,col:39
         c_aevp: 0.15 # no provenance info
         cd_oce_ice: 0.0045 # no provenance info
         ice_gamma_fct: 0.5 # no provenance info
@@ -3558,7 +3560,7 @@ yac:
   input_sources:
     coupling_yaml: /work/bb0519/foci_input2/ICON-FESOM/ICON/yac_pre_v3.9.1/coupling.yaml  # <TEST_DIR>/run/icon-fesom/icon-fesom-pictl-v2-daily/scripts/icon-fesom-pictl-v2-daily.yaml,line:43,col:23
   lresume: false  # no provenance info
-  leapyear: true # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:124,col:27
+  leapyear: true # <CONFIGS_PATH>/components/fesom/fesom.forcing.yaml,line:128,col:27
   experiment_analysis_dir: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/analysis/yac/ # no provenance info
   thisrun_analysis_dir: <TEST_DIR>/run/icon-fesom//icon-fesom-pictl-v2-daily/run_18500101-18500101/analysis/yac/ # no provenance info
   all_filetypes:

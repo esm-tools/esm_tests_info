@@ -26,7 +26,7 @@ general:
   esm_runscript_dir: <RUNSCRIPT_PATH>/ # no provenance info
   esm_couplings_dir: <COUPLINGS_PATH>/ # no provenance info
   expid: fesom2.7-initial-monthly-levante # no provenance info
-  account: ab0246 # <TEST_DIR>/run/fesom/fesom2.7-initial-monthly-levante/scripts/fesom2.7-initial-monthly-levante.yaml,line:2,col:18
+  account: None # <TEST_DIR>/run/fesom/fesom2.7-initial-monthly-levante/scripts/fesom2.7-initial-monthly-levante.yaml,line:2,col:18
   setup_name: fesom # <TEST_DIR>/run/fesom/fesom2.7-initial-monthly-levante/scripts/fesom2.7-initial-monthly-levante.yaml,line:3,col:21
   comp_version: 2.7 # <TEST_DIR>/run/fesom/fesom2.7-initial-monthly-levante/scripts/fesom2.7-initial-monthly-levante.yaml,line:4,col:23
   version: 2.7 # <TEST_DIR>/run/fesom/fesom2.7-initial-monthly-levante/scripts/fesom2.7-initial-monthly-levante.yaml,line:5,col:18
@@ -47,7 +47,7 @@ general:
   verbose: false # no provenance info
   contained_run: # no provenance info
   open_run: true # no provenance info
-  check: false # no provenance info
+  check: true # no provenance info
   modify_config_file: # no provenance info
   last_jobtype: prepcompute # no provenance info
   task: prepcompute # no provenance info
@@ -62,7 +62,7 @@ general:
   motd: false  # no provenance info
   ignore_config_warnings: false # no provenance info
   jobtype: prepcompute # no provenance info
-  original_command: fesom2.7-initial-monthly-levante.yaml -e fesom2.7-initial-monthly-levante --open-run --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
+  original_command: fesom2.7-initial-monthly-levante.yaml -e fesom2.7-initial-monthly-levante --open-run -c --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
   started_from: <TEST_DIR>/run/fesom/fesom2.7-initial-monthly-levante/scripts/ # no provenance info
   scriptname: fesom2.7-initial-monthly-levante.yaml # no provenance info
   isinteractive: false # no provenance info
@@ -96,7 +96,7 @@ general:
     contained_run: # no provenance info
     open_run: true # no provenance info
     expid: fesom2.7-initial-monthly-levante # no provenance info
-    check: false # no provenance info
+    check: true # no provenance info
     modify_config_file: # no provenance info
     last_jobtype: prepcompute # no provenance info
     task: prepcompute # no provenance info
@@ -112,7 +112,7 @@ general:
     ignore_config_warnings: false # no provenance info
     jobtype: prepcompute # no provenance info
     use_venv: false # no provenance info
-    original_command: fesom2.7-initial-monthly-levante.yaml -e fesom2.7-initial-monthly-levante --open-run --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
+    original_command: fesom2.7-initial-monthly-levante.yaml -e fesom2.7-initial-monthly-levante --open-run -c --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
     started_from: <TEST_DIR>/run/fesom/fesom2.7-initial-monthly-levante/scripts/ # no provenance info
     scriptname: fesom2.7-initial-monthly-levante.yaml # no provenance info
     runscript_abspath: <TEST_DIR>/run/fesom/fesom2.7-initial-monthly-levante/scripts/fesom2.7-initial-monthly-levante.yaml # no provenance info
@@ -288,12 +288,12 @@ general:
     first_task_in_queue: prepcompute # no provenance info
     next_run_triggered_by: tidy # no provenance info
   submitted: false  # no provenance info
-  jobid: 3670570 # no provenance info
+  jobid: 1467 # no provenance info
   batch: slurm # no provenance info
   experiment_log_file: <TEST_DIR>/run/fesom//fesom2.7-initial-monthly-levante/log//fesom2.7-initial-monthly-levante_fesom.log # no provenance info
   esm_tools_version: 6.66.6 # no provenance info
-  logfile_path: <TEST_DIR>/run/fesom//fesom2.7-initial-monthly-levante/log//fesom2.7-initial-monthly-levante_fesom_prepcompute_19580101-19580101_3670570.log # no provenance info
-  logfile_path_in_run: <TEST_DIR>/run/fesom//fesom2.7-initial-monthly-levante/run_19580101-19580101/log//fesom2.7-initial-monthly-levante_fesom_prepcompute_19580101-19580101_3670570.log # no provenance info
+  logfile_path: <TEST_DIR>/run/fesom//fesom2.7-initial-monthly-levante/log//fesom2.7-initial-monthly-levante_fesom_prepcompute_19580101-19580101_1467.log # no provenance info
+  logfile_path_in_run: <TEST_DIR>/run/fesom//fesom2.7-initial-monthly-levante/run_19580101-19580101/log//fesom2.7-initial-monthly-levante_fesom_prepcompute_19580101-19580101_1467.log # no provenance info
   relevant_filetypes:
   - bin  # no provenance info
   - config # no provenance info
@@ -411,7 +411,7 @@ computer:
     LD_LIBRARY_PATH[(1)]: /sw/spack-levante/intel-oneapi-mkl-2022.0.1-ttdktf/mkl/2022.0.1/lib/intel64:$LD_LIBRARY_PATH # <CONFIGS_PATH>/machines/levante.yaml,line:357,col:39
     LD_LIBRARY_PATH[(2)]: /sw/spack-levante/intel-oneapi-mpi-2021.5.0-mrcss7/mpi/2021.5.0/libfabric/lib:$LD_LIBRARY_PATH # <CONFIGS_PATH>/machines/levante.yaml,line:360,col:39
     LD_LIBRARY_PATH[(4)]: $LD_LIBRARY_PATH:<TEST_DIR>/run/fesom//fesom2.7-initial-monthly-levante/run_19580101-19580101/work//lib/fesom/ # <CONFIGS_PATH>/components/fesom/fesom.env.yaml,line:3,col:31
-    ACCOUNT: ab0246 # no provenance info
+    ACCOUNT: None # no provenance info
     ESM_TESTING_DIR: <TEST_DIR>/run/fesom/ # no provenance info
     MODEL_DIR: <TEST_DIR>/comp/fesom/fesom-2.7 # no provenance info
   load_python: false  # <CONFIGS_PATH>/machines/levante.yaml,line:137,col:18
@@ -470,7 +470,7 @@ computer:
   model: computer # no provenance info
   add_export_vars:
     LD_LIBRARY_PATH[(4)]: $LD_LIBRARY_PATH:<TEST_DIR>/run/fesom//fesom2.7-initial-monthly-levante/run_19580101-19580101/work//lib/fesom/  # <CONFIGS_PATH>/components/fesom/fesom.env.yaml,line:3,col:31
-    ACCOUNT: ab0246 # no provenance info
+    ACCOUNT: None # no provenance info
     ESM_TESTING_DIR: <TEST_DIR>/run/fesom/ # no provenance info
     MODEL_DIR: <TEST_DIR>/comp/fesom/fesom-2.7 # no provenance info
   post_run_commands:
@@ -490,7 +490,7 @@ computer:
   libaec_version: 1.0.5-intel-2021.5.0 # <CONFIGS_PATH>/machines/levante.yaml,line:304,col:29
   libaec_path: /sw/spack-levante/libaec-1.0.5-gij7yv # <CONFIGS_PATH>/machines/levante.yaml,line:305,col:26
   tbb_path: /sw/spack-levante/intel-oneapi-compilers-2022.0.1-an2cbq/tbb/2021.5.0 # <CONFIGS_PATH>/machines/levante.yaml,line:306,col:23
-  accounting_flag: --account=ab0246 # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:28,col:38
+  accounting_flag: --account=None # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:28,col:38
   cpu_bind: cores # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:79,col:23
   srun_execution_command: srun -l --hint=nomultithread --multi-prog hostfile_srun # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:80,col:37
   hyperthreading_flag: --ntasks-per-core=1 # <CONFIGS_PATH>/machines/levante.yaml,line:33,col:58
