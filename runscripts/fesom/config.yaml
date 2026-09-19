@@ -29,3 +29,12 @@ computers:
         - levante
         #- albedo
         - blogin
+ignore_runscripts:
+        # fesom2.7-initial-monthly-levante.yaml is levante-only: it hardcodes
+        # the levante pool/mesh dirs under /work/ab0246 and only defines nproc
+        # under choose_computer.name: levante. There is no baseline for it on
+        # any other machine either.
+        ollie:
+                - fesom2.7-initial-monthly-levante.yaml
+        blogin:
+                - fesom2.7-initial-monthly-levante.yaml
