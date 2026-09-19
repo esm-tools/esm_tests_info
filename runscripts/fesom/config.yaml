@@ -15,14 +15,17 @@ run:
                     - "restart/fesom/fesom.*.ice.nc in [1.4]"
                     # Files specific to versions 2
                     - "outdata/fesom/*.fesom.*.nc except [1.4]"
-                    - "restart/fesom/fesom.*.oce.restart.nc* except [1.4, 2.6, 2.7]"
-                    - "restart/fesom/fesom.*.ice.restart.nc* except [1.4, 2.6, 2.7]"
+                    - "restart/fesom/fesom.*.oce.restart.nc* except [1.4, 2.6, 2.7, 2.8]"
+                    - "restart/fesom/fesom.*.ice.restart.nc* except [1.4, 2.6, 2.7, 2.8]"
                     # Files specific to version 2.6
                     - "restart/fesom/fesom.*.oce.restart/*.nc in [2.6]"
                     - "restart/fesom/fesom.*.ice.restart/*.nc in [2.6]"
                     # Files specific to version 2.7
                     - "restart/fesom/fesom.*.oce.restart/*.nc in [2.7]"
                     - "restart/fesom/fesom.*.ice.restart/*.nc in [2.7]"
+                    # Files specific to version 2.8 (same layout as 2.6/2.7)
+                    - "restart/fesom/fesom.*.oce.restart/*.nc in [2.8]"
+                    - "restart/fesom/fesom.*.ice.restart/*.nc in [2.8]"
         check: {}
 computers:
         - ollie
@@ -36,5 +39,7 @@ ignore_runscripts:
         # any other machine either.
         ollie:
                 - fesom2.7-initial-monthly-levante.yaml
+                - fesom2.8-initial-monthly-levante.yaml
         blogin:
                 - fesom2.7-initial-monthly-levante.yaml
+                - fesom2.8-initial-monthly-levante.yaml
