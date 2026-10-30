@@ -1461,10 +1461,10 @@ general:
   - oasis3mct # no provenance info
   - jsbach # no provenance info
   - hdmodel # no provenance info
-  esm_configs_dir: <CONFIGS_PATH>/  # no provenance info
-  esm_namelist_dir: <NAMELIST_PATH>/ # no provenance info
-  esm_runscript_dir: <RUNSCRIPT_PATH>/ # no provenance info
-  esm_couplings_dir: <COUPLINGS_PATH>/ # no provenance info
+  esm_configs_dir: <CONFIGS_PATH>  # no provenance info
+  esm_namelist_dir: <NAMELIST_PATH> # no provenance info
+  esm_runscript_dir: <RUNSCRIPT_PATH> # no provenance info
+  esm_couplings_dir: <COUPLINGS_PATH> # no provenance info
   expid: foci-mops-ssp-scenario-restart-2014-ESM # no provenance info
   models:
   - echam  # <CONFIGS_PATH>/setups/foci/foci.yaml,line:25,col:19
@@ -1538,8 +1538,9 @@ general:
   update_filetypes: []
   motd: false  # no provenance info
   ignore_config_warnings: false # no provenance info
+  computer_name: levante # no provenance info
   jobtype: prepcompute # no provenance info
-  original_command: foci-mops-ssp-scenario-restart-2014-ESM.yaml -e foci-mops-ssp-scenario-restart-2014-ESM --open-run -c --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
+  original_command: foci-mops-ssp-scenario-restart-2014-ESM.yaml -e foci-mops-ssp-scenario-restart-2014-ESM --open-run -c --computer levante --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
   started_from: <TEST_DIR>/run/foci/foci-mops-ssp-scenario-restart-2014-ESM/scripts/ # no provenance info
   scriptname: foci-mops-ssp-scenario-restart-2014-ESM.yaml # no provenance info
   isinteractive: false # no provenance info
@@ -1588,9 +1589,10 @@ general:
     update_filetypes: []
     motd: false  # no provenance info
     ignore_config_warnings: false # no provenance info
+    computer_name: levante # no provenance info
     jobtype: prepcompute # no provenance info
     use_venv: false # no provenance info
-    original_command: foci-mops-ssp-scenario-restart-2014-ESM.yaml -e foci-mops-ssp-scenario-restart-2014-ESM --open-run -c --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
+    original_command: foci-mops-ssp-scenario-restart-2014-ESM.yaml -e foci-mops-ssp-scenario-restart-2014-ESM --open-run -c --computer levante --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
     started_from: <TEST_DIR>/run/foci/foci-mops-ssp-scenario-restart-2014-ESM/scripts/ # no provenance info
     scriptname: foci-mops-ssp-scenario-restart-2014-ESM.yaml # no provenance info
     runscript_abspath: <TEST_DIR>/run/foci/foci-mops-ssp-scenario-restart-2014-ESM/scripts/foci-mops-ssp-scenario-restart-2014-ESM.yaml # no provenance info
@@ -1770,14 +1772,14 @@ general:
     first_task_in_queue: prepcompute # no provenance info
     next_run_triggered_by: tidy # no provenance info
   submitted: false  # no provenance info
-  jobid: 1715 # no provenance info
+  jobid: 452 # no provenance info
   batch: slurm # no provenance info
   coupler_config_dir: <TEST_DIR>/run/foci//foci-mops-ssp-scenario-restart-2014-ESM/run_20150101-20150101/config/oasis3mct/ # no provenance info
   coupler: oasis3mct # no provenance info
   experiment_log_file: <TEST_DIR>/run/foci//foci-mops-ssp-scenario-restart-2014-ESM/log//foci-mops-ssp-scenario-restart-2014-ESM_foci.log # no provenance info
-  esm_tools_version: 6.66.6 # no provenance info
-  logfile_path: <TEST_DIR>/run/foci//foci-mops-ssp-scenario-restart-2014-ESM/log//foci-mops-ssp-scenario-restart-2014-ESM_foci_prepcompute_20150101-20150101_1715.log # no provenance info
-  logfile_path_in_run: <TEST_DIR>/run/foci//foci-mops-ssp-scenario-restart-2014-ESM/run_20150101-20150101/log//foci-mops-ssp-scenario-restart-2014-ESM_foci_prepcompute_20150101-20150101_1715.log # no provenance info
+  esm_tools_version: 6.70.0 # no provenance info
+  logfile_path: <TEST_DIR>/run/foci//foci-mops-ssp-scenario-restart-2014-ESM/log//foci-mops-ssp-scenario-restart-2014-ESM_foci_prepcompute_20150101-20150101_452.log # no provenance info
+  logfile_path_in_run: <TEST_DIR>/run/foci//foci-mops-ssp-scenario-restart-2014-ESM/run_20150101-20150101/log//foci-mops-ssp-scenario-restart-2014-ESM_foci_prepcompute_20150101-20150101_452.log # no provenance info
   relevant_filetypes:
   - bin  # no provenance info
   - config # no provenance info
@@ -3957,8 +3959,8 @@ hdmodel:
     config:
       init_to_exp: copy  # <CONFIGS_PATH>/setups/foci/foci.yaml,line:534,col:28
       run_to_work: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:535,col:28
-      exp_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:532,col:31
-      work_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:532,col:31
+      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
     forcing:
       init_to_exp: link  # <CONFIGS_PATH>/setups/foci/foci.yaml,line:537,col:31
       exp_to_run: link # <CONFIGS_PATH>/setups/foci/foci.yaml,line:537,col:31
@@ -3990,45 +3992,45 @@ hdmodel:
       run_to_work: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:547,col:31
       work_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:547,col:31
     analysis:
-      init_to_exp: copy  # <CONFIGS_PATH>/setups/foci/foci.yaml,line:532,col:31
-      exp_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:532,col:31
-      run_to_work: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:532,col:31
-      work_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:532,col:31
+      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
     bin:
       init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:31,col:41
       exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:32,col:41
       run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:33,col:41
       work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:34,col:41
     couple:
-      init_to_exp: copy  # <CONFIGS_PATH>/setups/foci/foci.yaml,line:532,col:31
-      exp_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:532,col:31
-      run_to_work: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:532,col:31
-      work_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:532,col:31
+      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
     mon:
-      init_to_exp: copy  # <CONFIGS_PATH>/setups/foci/foci.yaml,line:532,col:31
-      exp_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:532,col:31
-      run_to_work: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:532,col:31
-      work_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:532,col:31
+      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
     viz:
-      init_to_exp: copy  # <CONFIGS_PATH>/setups/foci/foci.yaml,line:532,col:31
-      exp_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:532,col:31
-      run_to_work: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:532,col:31
-      work_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:532,col:31
+      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
     ignore:
-      init_to_exp: copy  # <CONFIGS_PATH>/setups/foci/foci.yaml,line:532,col:31
-      exp_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:532,col:31
-      run_to_work: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:532,col:31
-      work_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:532,col:31
+      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
     scripts:
-      init_to_exp: copy  # <CONFIGS_PATH>/setups/foci/foci.yaml,line:532,col:31
-      exp_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:532,col:31
-      run_to_work: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:532,col:31
-      work_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:532,col:31
+      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
     unknown:
-      init_to_exp: copy  # <CONFIGS_PATH>/setups/foci/foci.yaml,line:532,col:31
-      exp_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:532,col:31
-      run_to_work: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:532,col:31
-      work_to_run: copy # <CONFIGS_PATH>/setups/foci/foci.yaml,line:532,col:31
+      init_to_exp: copy  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      exp_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      run_to_work: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
+      work_to_run: copy # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:29,col:41
   leapyear: true  # <CONFIGS_PATH>/components/nemo/nemo.yaml,line:2497,col:19
   experiment_analysis_dir: <TEST_DIR>/run/foci//foci-mops-ssp-scenario-restart-2014-ESM/analysis/hdmodel/ # no provenance info
   thisrun_analysis_dir: <TEST_DIR>/run/foci//foci-mops-ssp-scenario-restart-2014-ESM/run_20150101-20150101/analysis/hdmodel/ # no provenance info

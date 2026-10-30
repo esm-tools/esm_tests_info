@@ -1,0 +1,32 @@
+&dynamics_visc
+    visc_gamma0 = 0.003
+    visc_gamma1 = 0.1
+    visc_gamma2 = 0.285
+    visc_easybsreturn = 1.5
+    visc_gamma0_h = 0.0
+    visc_gamma1_h = 0.0
+    opt_visc = 5
+    check_opt_visc = .true.
+    use_ivertvisc = .true.
+/
+
+&dynamics_general
+    momadv_opt = 2
+    use_freeslip = .false.
+    use_wsplit = .false.
+    wsplit_maxcfl = 1.0
+    ldiag_ke = .false.
+    ab_order = 2
+    soltol = 1e-05
+    maxiter = 2000
+    precond_variant = 1
+    use_ssh_se_subcycl = .false.
+    se_btsteps = 50
+    se_bttheta = 0.14
+    se_bottdrag = .true.
+    se_bdrag_si = .true.
+    se_visc = .true.
+    se_visc_gamma0 = 10
+    se_visc_gamma1 = 19500
+    se_visc_gamma2 = 0
+/

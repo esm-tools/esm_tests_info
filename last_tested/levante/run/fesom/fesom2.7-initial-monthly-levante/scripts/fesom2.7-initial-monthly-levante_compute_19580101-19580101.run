@@ -94,7 +94,7 @@ export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1958-01-01T00:00:00 1467 - start" >> <TEST_DIR>/run/fesom//fesom2.7-initial-monthly-levante/log//fesom2.7-initial-monthly-levante_fesom.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1958-01-01T00:00:00 562 - start" >> <TEST_DIR>/run/fesom//fesom2.7-initial-monthly-levante/log//fesom2.7-initial-monthly-levante_fesom.log
 
 cd <TEST_DIR>/run/fesom//fesom2.7-initial-monthly-levante/run_19580101-19580101/work/
 time srun -l --hint=nomultithread --multi-prog hostfile_srun 2>&1 &
@@ -108,8 +108,8 @@ source <TEST_DIR>/run/fesom//fesom2.7-initial-monthly-levante/run_19580101-19580
 
 # Comment the following line if you don't want esm_runscripts to restart:
 cd <TEST_DIR>/run/fesom//fesom2.7-initial-monthly-levante/scripts/
-esm_runscripts fesom2.7-initial-monthly-levante.yaml -e fesom2.7-initial-monthly-levante -t observe_compute -p ${process} -s 19580101 -r 1 -v --last-jobtype prepcompute --open-run
+esm_runscripts fesom2.7-initial-monthly-levante.yaml -e fesom2.7-initial-monthly-levante -t observe_compute -p ${process} -s 19580101 -r 1 -v --last-jobtype prepcompute --open-run --computer levante
 
-echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1958-01-01T00:00:00 1467 - done" >> <TEST_DIR>/run/fesom//fesom2.7-initial-monthly-levante/log//fesom2.7-initial-monthly-levante_fesom.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1958-01-01T00:00:00 562 - done" >> <TEST_DIR>/run/fesom//fesom2.7-initial-monthly-levante/log//fesom2.7-initial-monthly-levante_fesom.log
 
 wait
