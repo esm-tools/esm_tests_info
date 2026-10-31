@@ -544,9 +544,9 @@ general:
     rnfmap: <CONFIGS_PATH>/setups/awicm3/awicm3.yaml # no provenance info
     oasis3mct: <TEST_DIR>/run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/scripts/awicm3-v3.3-TCO95L91-CORE2_initial.yaml # no provenance info
     xios: <TEST_DIR>/run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/scripts/awicm3-v3.3-TCO95L91-CORE2_initial.yaml # no provenance info
+    dask: <CONFIGS_PATH>/other_software/batch_system/pbs.yaml # no provenance info
     awicm3: <TEST_DIR>/run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/scripts/awicm3-v3.3-TCO95L91-CORE2_initial.yaml # no provenance info
     per_model_defaults: <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml # no provenance info
-    dask: <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml # no provenance info
   use_database: false  # <CONFIGS_PATH>/defaults/general.yaml,line:1,col:15
   system_components:
   - general  # <CONFIGS_PATH>/defaults/general.yaml,line:2,col:21
@@ -616,6 +616,7 @@ general:
   valid_setup_names:
   - general  # no provenance info
   - computer # no provenance info
+  - dask # no provenance info
   - oifs # no provenance info
   - fesom # no provenance info
   - xios # no provenance info
@@ -931,7 +932,7 @@ general:
   coupler_config_dir: <TEST_DIR>/run/awicm3//awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/config/oasis3mct/ # no provenance info
   coupler: oasis3mct # no provenance info
   experiment_log_file: <TEST_DIR>/run/awicm3//awicm3-v3.3-TCO95L91-CORE2_initial/log//awicm3-v3.3-TCO95L91-CORE2_initial_awicm3.log # no provenance info
-  esm_tools_version: 6.70.0 # no provenance info
+  esm_tools_version: 6.70.1 # no provenance info
   logfile_path: <TEST_DIR>/run/awicm3//awicm3-v3.3-TCO95L91-CORE2_initial/log//awicm3-v3.3-TCO95L91-CORE2_initial_awicm3_prepcompute_20000101-20000101_884.log # no provenance info
   logfile_path_in_run: <TEST_DIR>/run/awicm3//awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/log//awicm3-v3.3-TCO95L91-CORE2_initial_awicm3_prepcompute_20000101-20000101_884.log # no provenance info
   relevant_filetypes:
@@ -1008,31 +1009,33 @@ computer:
   - load nco/4.9.4 # <CONFIGS_PATH>/machines/aleph.yaml,line:71,col:15
   - load proj4/5.1.0 # <CONFIGS_PATH>/machines/aleph.yaml,line:72,col:15
   - load python/3.9.1 # <CONFIGS_PATH>/machines/aleph.yaml,line:73,col:15
-  - list # <CONFIGS_PATH>/machines/aleph.yaml,line:74,col:15
+  - load git/2.40.0 # <CONFIGS_PATH>/machines/aleph.yaml,line:74,col:15
+  - list # <CONFIGS_PATH>/machines/aleph.yaml,line:75,col:15
   export_vars:
-    LC_ALL: en_US.UTF-8  # <CONFIGS_PATH>/machines/aleph.yaml,line:77,col:21
-    HDF5ROOT: $HDF5_ROOT # <CONFIGS_PATH>/machines/aleph.yaml,line:79,col:23
-    NETCDFFROOT: $NETCDF_DIR # <CONFIGS_PATH>/machines/aleph.yaml,line:81,col:26
-    NETCDFROOT: $NETCDF_DIR # <CONFIGS_PATH>/machines/aleph.yaml,line:82,col:25
-    NETCDF_Fortran_INCLUDE_DIRECTORIES: $NETCDFROOT/include # <CONFIGS_PATH>/machines/aleph.yaml,line:83,col:49
-    NETCDF_CXX_INCLUDE_DIRECTORIES: $NETCDFROOT/include # <CONFIGS_PATH>/machines/aleph.yaml,line:84,col:45
-    NETCDF_CXX_LIBRARIES: $NETCDFROOT/lib # <CONFIGS_PATH>/machines/aleph.yaml,line:85,col:35
-    OASIS_NETCDF: $NETCDF_DIR # <CONFIGS_PATH>/machines/aleph.yaml,line:88,col:27
-    OASIS_NETCDFF: $NETCDF_DIR # <CONFIGS_PATH>/machines/aleph.yaml,line:89,col:28
-    PERL5LIB: /usr/lib64/perl5 # <CONFIGS_PATH>/machines/aleph.yaml,line:91,col:23
-    XML2ROOT: /usr # <CONFIGS_PATH>/machines/aleph.yaml,line:94,col:23
-    ZLIBROOT: /usr # <CONFIGS_PATH>/machines/aleph.yaml,line:95,col:23
-    TMPDIR: /tmp # <CONFIGS_PATH>/machines/aleph.yaml,line:96,col:21
-    PMI_LABEL_ERROUT: 1 # <CONFIGS_PATH>/machines/aleph.yaml,line:98,col:31
-    ECCODESROOT: /proj/awiiccp/software/ecmwf/eccodes_cce_mpich # <CONFIGS_PATH>/machines/aleph.yaml,line:100,col:26
-    MPICH_MAX_THREAD_SAFETY: multiple # <CONFIGS_PATH>/machines/aleph.yaml,line:103,col:38
-    MPICH_CRAY_OPT_THREAD_SYNC: 0 # <CONFIGS_PATH>/machines/aleph.yaml,line:104,col:41
-    MPICH_OPT_THREAD_SYNC: 0 # <CONFIGS_PATH>/machines/aleph.yaml,line:105,col:36
-    ENABLE_ALEPH_CRAYMPICH_WORKAROUNDS: '' # <CONFIGS_PATH>/machines/aleph.yaml,line:108,col:49
-    FC: ftn # <CONFIGS_PATH>/machines/aleph.yaml,line:109,col:17
-    CC: cc # <CONFIGS_PATH>/machines/aleph.yaml,line:110,col:17
-    CXX: CC # <CONFIGS_PATH>/machines/aleph.yaml,line:111,col:18
-    CRAYPE_LINK_TYPE: dynamic # <CONFIGS_PATH>/machines/aleph.yaml,line:114,col:31
+    LC_ALL: en_US.UTF-8  # <CONFIGS_PATH>/machines/aleph.yaml,line:78,col:21
+    HDF5ROOT: $HDF5_ROOT # <CONFIGS_PATH>/machines/aleph.yaml,line:80,col:23
+    NETCDFFROOT: $NETCDF_DIR # <CONFIGS_PATH>/machines/aleph.yaml,line:82,col:26
+    NETCDFROOT: $NETCDF_DIR # <CONFIGS_PATH>/machines/aleph.yaml,line:83,col:25
+    NETCDF_Fortran_INCLUDE_DIRECTORIES: $NETCDFROOT/include # <CONFIGS_PATH>/machines/aleph.yaml,line:84,col:49
+    NETCDF_CXX_INCLUDE_DIRECTORIES: $NETCDFROOT/include # <CONFIGS_PATH>/machines/aleph.yaml,line:85,col:45
+    NETCDF_CXX_LIBRARIES: $NETCDFROOT/lib # <CONFIGS_PATH>/machines/aleph.yaml,line:86,col:35
+    OASIS_NETCDF: $NETCDF_DIR # <CONFIGS_PATH>/machines/aleph.yaml,line:89,col:27
+    OASIS_NETCDFF: $NETCDF_DIR # <CONFIGS_PATH>/machines/aleph.yaml,line:90,col:28
+    PERL5LIB: /usr/lib64/perl5 # <CONFIGS_PATH>/machines/aleph.yaml,line:92,col:23
+    XML2ROOT: /usr # <CONFIGS_PATH>/machines/aleph.yaml,line:95,col:23
+    ZLIBROOT: /usr # <CONFIGS_PATH>/machines/aleph.yaml,line:96,col:23
+    TMPDIR: /tmp # <CONFIGS_PATH>/machines/aleph.yaml,line:97,col:21
+    PMI_LABEL_ERROUT: 1 # <CONFIGS_PATH>/machines/aleph.yaml,line:99,col:31
+    ECCODESROOT: /proj/awiiccp/software/ecmwf/eccodes_cce_mpich # <CONFIGS_PATH>/machines/aleph.yaml,line:101,col:26
+    MPICH_MAX_THREAD_SAFETY: multiple # <CONFIGS_PATH>/machines/aleph.yaml,line:104,col:38
+    MPICH_CRAY_OPT_THREAD_SYNC: 0 # <CONFIGS_PATH>/machines/aleph.yaml,line:105,col:41
+    MPICH_OPT_THREAD_SYNC: 0 # <CONFIGS_PATH>/machines/aleph.yaml,line:106,col:36
+    ENABLE_ALEPH_CRAYMPICH_WORKAROUNDS: '' # <CONFIGS_PATH>/machines/aleph.yaml,line:109,col:49
+    GIT_PYTHON_REFRESH: quiet # <CONFIGS_PATH>/machines/aleph.yaml,line:110,col:33
+    FC: ftn # <CONFIGS_PATH>/machines/aleph.yaml,line:112,col:17
+    CC: cc # <CONFIGS_PATH>/machines/aleph.yaml,line:113,col:17
+    CXX: CC # <CONFIGS_PATH>/machines/aleph.yaml,line:114,col:18
+    CRAYPE_LINK_TYPE: dynamic # <CONFIGS_PATH>/machines/aleph.yaml,line:117,col:31
     LD_LIBRARY_PATH[(100)]: <TEST_DIR>/run/awicm3//awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work//lib/oasis/:$LD_LIBRARY_PATH # <CONFIGS_PATH>/components/oasis3mct/oasis3mct.env.yaml,line:33,col:41
     FESOM_USE_CPLNG: '"active"' # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:1030,col:38
     ECE_CPL_NEMO_LIM: '"false"' # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:1031,col:39
@@ -1047,9 +1050,9 @@ computer:
     ACCOUNT: None # no provenance info
     ESM_TESTING_DIR: <TEST_DIR>/run/awicm3/ # no provenance info
     MODEL_DIR: <TEST_DIR>/comp/awicm3/awicm3-v3.3.0 # no provenance info
-  label_format: '"[@MODEL@]%l:"' # <CONFIGS_PATH>/machines/aleph.yaml,line:116,col:19
-  launcher_flags_per_component: -n @nproc@ -N @nproc_per_node@ -d @cpus_per_proc@ env OMP_NUM_THREADS=@omp_num_threads@ env PMI_LABEL_ERROUT_FORMAT="[@MODEL@]%l:" # <CONFIGS_PATH>/machines/aleph.yaml,line:117,col:35
-  launcher_flags: -n @nproc@ -N @nproc_per_node@ -d @cpus_per_proc@ env OMP_NUM_THREADS=@omp_num_threads@ env PMI_LABEL_ERROUT_FORMAT="[@MODEL@]%l:" # <CONFIGS_PATH>/machines/aleph.yaml,line:120,col:21
+  label_format: '"[@MODEL@]%l:"' # <CONFIGS_PATH>/machines/aleph.yaml,line:119,col:19
+  launcher_flags_per_component: -n @nproc@ -N @nproc_per_node@ -d @cpus_per_proc@ env OMP_NUM_THREADS=@omp_num_threads@ env PMI_LABEL_ERROUT_FORMAT="[@MODEL@]%l:" # <CONFIGS_PATH>/machines/aleph.yaml,line:120,col:35
+  launcher_flags: -n @nproc@ -N @nproc_per_node@ -d @cpus_per_proc@ env OMP_NUM_THREADS=@omp_num_threads@ env PMI_LABEL_ERROUT_FORMAT="[@MODEL@]%l:" # <CONFIGS_PATH>/machines/aleph.yaml,line:123,col:21
   header_start: '#PBS' # <CONFIGS_PATH>/other_software/batch_system/pbs.yaml,line:6,col:19
   submit: qsub # <CONFIGS_PATH>/other_software/batch_system/pbs.yaml,line:7,col:13
   launcher: aprun # <CONFIGS_PATH>/other_software/batch_system/pbs.yaml,line:8,col:15
@@ -1083,6 +1086,8 @@ computer:
       method: kill # <CONFIGS_PATH>/other_software/batch_system/pbs.yaml,line:76,col:29
       message: 'PBS ERROR: pbs ended with an error, exiting.' # <CONFIGS_PATH>/other_software/batch_system/pbs.yaml,line:77,col:30
       file: <TEST_DIR>/run/awicm3//awicm3-v3.3-TCO95L91-CORE2_initial/log/awicm3-v3.3-TCO95L91-CORE2_initial_awicm3_execution_20000101-20000101_@jobid@.log # <CONFIGS_PATH>/other_software/batch_system/pbs.yaml,line:78,col:27
+  nnodes_envvar: PBS_NUM_NODES # <CONFIGS_PATH>/other_software/batch_system/pbs.yaml,line:80,col:20
+  nnodes: 1 # <CONFIGS_PATH>/other_software/batch_system/pbs.yaml,line:81,col:13
   model: computer # no provenance info
   taskset: true # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:994,col:18
   merge_component_envs:
@@ -2731,11 +2736,13 @@ xios:
     context_ifs: <TEST_DIR>/run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/config/xios/context_ifs.xml # no provenance info
   ignore_intermediate:
     xios_registry: <TEST_DIR>/run/awicm3/awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/ignore/xios/xios_registry.bin  # no provenance info
-defaults:
-  clean_command: rm -rf build CMakeCache.txt  # <CONFIGS_PATH>/defaults/download_and_compile.yaml,line:1,col:16
-  comp_command: mkdir -p build; cd build; cmake ..;   make install -j `nproc --all` # <CONFIGS_PATH>/defaults/download_and_compile.yaml,line:2,col:15
 dask:
-  scheduler_json_name: dask_scheduler.json  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:37,col:26
+  interconnect_interface: ipogif0  # <CONFIGS_PATH>/machines/aleph.yaml,line:129,col:29
+  tasks_per_node: 10 # <CONFIGS_PATH>/other_software/batch_system/pbs.yaml,line:86,col:21
+  ntasks: 10 # <CONFIGS_PATH>/other_software/batch_system/pbs.yaml,line:87,col:13
+  init_scheduler_cmd: aprun -n 1 -N 1 -d 1 env GIT_PYTHON_REFRESH=quiet GIT_PYTHON_GIT_EXECUTABLE=/opt/ibs/git/2.40.0/GNU/48/bin/git dask scheduler --scheduler-file <TEST_DIR>/run/awicm3//awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work//dask_scheduler.json --interface ipogif0 # <CONFIGS_PATH>/other_software/batch_system/pbs.yaml,line:88,col:25
+  init_workers_cmd: aprun -n 10 -N 10 -d 1 env GIT_PYTHON_REFRESH=quiet GIT_PYTHON_GIT_EXECUTABLE=/opt/ibs/git/2.40.0/GNU/48/bin/git dask worker --scheduler-file <TEST_DIR>/run/awicm3//awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work//dask_scheduler.json --nthreads 1 --nworkers 1 --interface ipogif0 # <CONFIGS_PATH>/other_software/batch_system/pbs.yaml,line:91,col:23
+  scheduler_json_name: dask_scheduler.json # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:37,col:26
   scheduler_json: <TEST_DIR>/run/awicm3//awicm3-v3.3-TCO95L91-CORE2_initial/run_20000101-20000101/work//dask_scheduler.json # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:38,col:21
   client_timeout: 0.05 # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:39,col:21
   workers_timeout: 5 # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:40,col:22
@@ -2748,3 +2755,6 @@ dask:
     scheduler_json: dask_scheduler.json  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:47,col:25
   actions:
   - parallel_file_movements  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:50,col:11
+defaults:
+  clean_command: rm -rf build CMakeCache.txt  # <CONFIGS_PATH>/defaults/download_and_compile.yaml,line:1,col:16
+  comp_command: mkdir -p build; cd build; cmake ..;   make install -j `nproc --all` # <CONFIGS_PATH>/defaults/download_and_compile.yaml,line:2,col:15
