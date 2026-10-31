@@ -765,7 +765,7 @@ general:
   coupler_config_dir: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/config/oasis3mct/ # no provenance info
   coupler: oasis3mct # no provenance info
   experiment_log_file: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/log//awicm3-frontiers-xios-TCO159L91-CORE2_initial_awicm3.log # no provenance info
-  esm_tools_version: 6.71.0 # no provenance info
+  esm_tools_version: 6.71.1 # no provenance info
   logfile_path: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/log//awicm3-frontiers-xios-TCO159L91-CORE2_initial_awicm3_prepcompute_20000101-20000101_884.log # no provenance info
   logfile_path_in_run: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/log//awicm3-frontiers-xios-TCO159L91-CORE2_initial_awicm3_prepcompute_20000101-20000101_884.log # no provenance info
   relevant_filetypes:
@@ -2351,7 +2351,7 @@ xios:
     Authors: Yann Meurdesoif (yann.meurdesoif@cea.fr) # <CONFIGS_PATH>/components/xios/xios.yaml,line:15,col:22
     Website: https://portal.enes.org/models/software-tools/xios # <CONFIGS_PATH>/components/xios/xios.yaml,line:16,col:22
     License: Please make sure you have a licence to use XIOS. In case you are unsure, please contact redmine... # <CONFIGS_PATH>/components/xios/xios.yaml,line:18,col:21
-  archfile: ESMTOOLS_generic_oasis_intel  # <CONFIGS_PATH>/components/xios/xios.yaml,line:192,col:23
+  archfile: ESMTOOLS_generic_oasis_intel  # <CONFIGS_PATH>/components/xios/xios.yaml,line:193,col:23
   available_versions:
   - 2.0_r982_ogcm  # <CONFIGS_PATH>/components/xios/xios.yaml,line:25,col:7
   - 2.0_r982 # <CONFIGS_PATH>/components/xios/xios.yaml,line:26,col:7
@@ -2364,31 +2364,32 @@ xios:
   - 2.5_r2777 # <CONFIGS_PATH>/components/xios/xios.yaml,line:33,col:7
   - 2.5_r1910_oifs # <CONFIGS_PATH>/components/xios/xios.yaml,line:34,col:7
   - 2.5_r1910_ogcm # <CONFIGS_PATH>/components/xios/xios.yaml,line:35,col:7
-  - 2.5_smhi # <CONFIGS_PATH>/components/xios/xios.yaml,line:36,col:7
-  - 2.5_ece # <CONFIGS_PATH>/components/xios/xios.yaml,line:37,col:7
-  - 3.0_trunk # <CONFIGS_PATH>/components/xios/xios.yaml,line:38,col:7
-  branch: 2.5_r1910  # <CONFIGS_PATH>/components/xios/xios.yaml,line:194,col:17
-  clean_command: rm -rf bin lib obj ppsrc cfg done etc flags inc tmp # <CONFIGS_PATH>/components/xios/xios.yaml,line:258,col:20
-  comp_command: export XIOS_TOPLEVEL=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios; ./make_xios --arch ESMTOOLS_generic_oasis_intel --netcdf_lib netcdf4_par --full --use_oasis oasis3_mct --job 24; cp bin/xios_server.exe bin/xios.x # <CONFIGS_PATH>/components/xios/xios.yaml,line:259,col:19
-  destination: xios # <CONFIGS_PATH>/components/xios/xios.yaml,line:261,col:18
-  git-repository: https://git.geomar.de/foci/src/xios.git # <CONFIGS_PATH>/components/xios/xios.yaml,line:262,col:21
-  contact: jan.streffing(at)awi.de, miguel.andres-martinez(at)awi.de # <CONFIGS_PATH>/components/xios/xios.yaml,line:263,col:14
-  install_bins: bin/xios.x # <CONFIGS_PATH>/components/xios/xios.yaml,line:264,col:19
-  use_oasis: --use_oasis oasis3_mct # <CONFIGS_PATH>/components/xios/xios.yaml,line:193,col:20
-  setup_dir: <TEST_DIR>/comp/awicm3/awicm3-frontiers-xios # <CONFIGS_PATH>/components/xios/xios.yaml,line:269,col:16
-  bin_dir: <TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/bin # <CONFIGS_PATH>/components/xios/xios.yaml,line:270,col:14
+  - 2.5-ece_ogcm # <CONFIGS_PATH>/components/xios/xios.yaml,line:36,col:7
+  - 2.5_smhi # <CONFIGS_PATH>/components/xios/xios.yaml,line:37,col:7
+  - 2.5_ece # <CONFIGS_PATH>/components/xios/xios.yaml,line:38,col:7
+  - 3.0_trunk # <CONFIGS_PATH>/components/xios/xios.yaml,line:39,col:7
+  branch: 2.5_r1910  # <CONFIGS_PATH>/components/xios/xios.yaml,line:195,col:17
+  clean_command: rm -rf bin lib obj ppsrc cfg done etc flags inc tmp # <CONFIGS_PATH>/components/xios/xios.yaml,line:284,col:20
+  comp_command: export XIOS_TOPLEVEL=<TEST_DIR>/comp/awicm3/awicm3-frontiers-xios; ./make_xios --arch ESMTOOLS_generic_oasis_intel --netcdf_lib netcdf4_par --full --use_oasis oasis3_mct --job 24; cp bin/xios_server.exe bin/xios.x # <CONFIGS_PATH>/components/xios/xios.yaml,line:285,col:19
+  destination: xios # <CONFIGS_PATH>/components/xios/xios.yaml,line:287,col:18
+  git-repository: https://git.geomar.de/foci/src/xios.git # <CONFIGS_PATH>/components/xios/xios.yaml,line:288,col:21
+  contact: jan.streffing(at)awi.de, miguel.andres-martinez(at)awi.de # <CONFIGS_PATH>/components/xios/xios.yaml,line:289,col:14
+  install_bins: bin/xios.x # <CONFIGS_PATH>/components/xios/xios.yaml,line:290,col:19
+  use_oasis: --use_oasis oasis3_mct # <CONFIGS_PATH>/components/xios/xios.yaml,line:194,col:20
+  setup_dir: <TEST_DIR>/comp/awicm3/awicm3-frontiers-xios # <CONFIGS_PATH>/components/xios/xios.yaml,line:295,col:16
+  bin_dir: <TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/bin # <CONFIGS_PATH>/components/xios/xios.yaml,line:296,col:14
   config_sources:
-    io_def: <NAMELIST_PATH>/oifs/43r3/xios//iodef.xml  # <CONFIGS_PATH>/components/xios/xios.yaml,line:405,col:21
+    io_def: <NAMELIST_PATH>/oifs/43r3/xios//iodef.xml  # <CONFIGS_PATH>/components/xios/xios.yaml,line:431,col:21
     context_ifs: <NAMELIST_PATH>/oifs/43r3/xios//context_ifs.xml.j2 # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:550,col:30
     domain_def: <NAMELIST_PATH>/oifs/43r3/xios//domain_def.xml.j2 # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:551,col:29
-    field_def: <NAMELIST_PATH>/oifs/43r3/xios//field_def.xml # <CONFIGS_PATH>/components/xios/xios.yaml,line:402,col:24
+    field_def: <NAMELIST_PATH>/oifs/43r3/xios//field_def.xml # <CONFIGS_PATH>/components/xios/xios.yaml,line:428,col:24
     file_def: <NAMELIST_PATH>/oifs/43r3/xios//file_def.xml.j2 # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:552,col:27
-    axis_def: <NAMELIST_PATH>/oifs/43r3/xios//axis_def.xml # <CONFIGS_PATH>/components/xios/xios.yaml,line:406,col:23
-    grid_def: <NAMELIST_PATH>/oifs/43r3/xios//grid_def.xml # <CONFIGS_PATH>/components/xios/xios.yaml,line:407,col:23
+    axis_def: <NAMELIST_PATH>/oifs/43r3/xios//axis_def.xml # <CONFIGS_PATH>/components/xios/xios.yaml,line:432,col:23
+    grid_def: <NAMELIST_PATH>/oifs/43r3/xios//grid_def.xml # <CONFIGS_PATH>/components/xios/xios.yaml,line:433,col:23
   ignore_sources:
     xios_registry: <TEST_DIR>/run/awicm3//awicm3-frontiers-xios-TCO159L91-CORE2_initial/run_20000101-20000101/work//xios_registry.bin  # no provenance info
   bin_sources:
-    server: <TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/bin/xios.x  # <CONFIGS_PATH>/components/xios/xios.yaml,line:431,col:21
+    server: <TEST_DIR>/comp/awicm3/awicm3-frontiers-xios/bin/xios.x  # <CONFIGS_PATH>/components/xios/xios.yaml,line:457,col:21
   interpolation_order: 2  # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:555,col:46
   compression_level: 0 # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:556,col:44
   regular_res_lat: 192 # <CONFIGS_PATH>/setups/awicm3/awicm3.yaml,line:547,col:26
