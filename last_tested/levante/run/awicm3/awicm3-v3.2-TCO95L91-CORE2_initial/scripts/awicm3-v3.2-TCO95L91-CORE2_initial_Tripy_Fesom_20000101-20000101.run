@@ -110,7 +110,7 @@ unset SLURM_ARBITRARY_NODELIST
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | Tripy_Fesom_fesom 1 2000-01-01T00:00:00 23682109 - start" >> <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/log//awicm3-v3.2-TCO95L91-CORE2_initial_awicm3.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | Tripy_Fesom_fesom 1 2000-01-01T00:00:00 25490029 - start" >> <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/log//awicm3-v3.2-TCO95L91-CORE2_initial_awicm3.log
 
 cd <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/run_20000101-20000101/work/
 time srun -l <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/scripts/fesom/Subjob_tripy.sh <TEST_DIR>/run/awicm3//awicm3-v3.2-TCO95L91-CORE2_initial/outdata/fesom/ 2000-01-01T00:00:00 2000-01-02T00:00:00 2000-01-01T00:00:00 2000-01-04T00:00:00 /work/ab0246/a270092/input/fesom2//core2/ <TEST_DIR>/run/awicm3/ awicm3-v3.2-TCO95L91-CORE2_initial python3 True modvis.dkrz.de /var/www/projects/ab0246/<USER_ACCOUNT>/awicm3-v3.2-TCO95L91-CORE2_initial 2>&1 &

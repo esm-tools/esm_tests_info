@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --partition=compute
-#SBATCH --time=00:30:00
+#SBATCH --time=02:00:00
 #SBATCH --ntasks=1
 #SBATCH --output=<TEST_DIR>/run/awiesm//pi/log/pi_awiesm_Tripy_Fesom_18500101-18500101_%j.log --error=<TEST_DIR>/run/awiesm//pi/log/pi_awiesm_Tripy_Fesom_18500101-18500101_%j.log
 #SBATCH --job-name=pi
@@ -94,7 +94,7 @@ export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | Tripy_Fesom_fesom 1 1850-01-01T00:00:00 23682192 - start" >> <TEST_DIR>/run/awiesm//pi/log//pi_awiesm.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | Tripy_Fesom_fesom 1 1850-01-01T00:00:00 25490132 - start" >> <TEST_DIR>/run/awiesm//pi/log//pi_awiesm.log
 
 cd <TEST_DIR>/run/awiesm//pi/run_18500101-18500101/work/
 time srun -l <TEST_DIR>/run/awiesm//pi/scripts/fesom/Subjob_tripy.sh <TEST_DIR>/run/awiesm//pi/outdata/fesom/ 1850-01-01T00:00:00 1850-01-02T00:00:00 1850-01-01T00:00:00 1850-01-04T00:00:00 /pool/data/AWICM//FESOM2/MESHES_FESOM2.1//core2/ <TEST_DIR>/run/awiesm/ pi python3 True modvis.dkrz.de /var/www/projects/ab0246/<USER_ACCOUNT>/pi 2>&1 &

@@ -1,0 +1,47 @@
+general:
+    account: !ENV ${ACCOUNT}
+    setup_name: "awiesm"
+    compute_time: "00:30:00"
+    initial_date: "1850-01-01T00:00:00"       # Initial exp. date
+    final_date: "1850-01-04T00:00:00"         # Final date of the experiment
+    base_dir: !ENV ${ESM_TESTING_DIR}
+    nday: 1
+    nmonth: 0
+    nyear: 0
+    with_wiso: False
+    use_venv: False
+    version: "2.6.2"
+    description: >
+      Basic AWIESM Test for PI
+    choose_computer.name:
+        levante:
+            project_base: "/work/ab0995/a270152/testing_pool/nonstandard_pool_files/fesom/mesh_CORE2_finaltopo_mean/tarfilesT63"
+        albedo:
+            project_base: "/albedo/pool/FESOM/meshes_default/core/tarfilesT63"
+
+awiesm:
+    postprocessing: false
+    model_dir: !ENV ${MODEL_DIR}
+
+echam:
+    restart_rate: 1
+    restart_unit: "days"
+    input_sources:
+        jansurf: "${general.project_base}/input/echam6/T63CORE2_jan_surf.nc"
+        vgratclim: "${general.project_base}/input/echam6/T63CORE2_VGRATCLIM.nc"
+        vltclim: "${general.project_base}/input/echam6/T63CORE2_VLTCLIM.nc"
+jsbach:
+    input_sources:
+        jsbach_1850: "${general.project_base}/input/jsbach/jsbach_T63CORE2_11tiles_5layers_1850.nc"
+
+fesom:
+    restart_rate: 1
+    restart_unit: "d"
+    restart_first: 1
+
+    choose_computer.name:
+        levante:
+            nproc: 256
+        albedo:
+            nproc: 256
+            mesh_base_dir: /albedo/pool/FESOM2/

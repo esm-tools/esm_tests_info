@@ -15,6 +15,7 @@ module load fftw/2.1.5.9
 module load nco/4.9.4
 module load proj4/5.1.0
 module load python/3.9.1
+module load git/2.40.0
 module list
 
 export LC_ALL=en_US.UTF-8
@@ -36,6 +37,7 @@ export MPICH_MAX_THREAD_SAFETY=multiple
 export MPICH_CRAY_OPT_THREAD_SYNC=0
 export MPICH_OPT_THREAD_SYNC=0
 export ENABLE_ALEPH_CRAYMPICH_WORKAROUNDS=
+export GIT_PYTHON_REFRESH=quiet
 export FC=ftn
 export CC=cc
 export CXX=CC

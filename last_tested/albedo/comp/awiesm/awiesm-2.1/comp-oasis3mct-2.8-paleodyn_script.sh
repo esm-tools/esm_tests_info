@@ -12,11 +12,11 @@ module load netcdf-c/4.8.1-openmpi4.1.3-intel2021.6.0
 module load netcdf-fortran/4.5.4-openmpi4.1.3-intel2021.6.0
 module load netcdf-cxx4/4.3.1-openmpi4.1.3-intel2021.6.0
 module load eccodes/2.25.0-openmpi4.1.3-intel2021.6.0
+module load libaec/1.0.6-intel2021.6.0
 module load cdo/2.0.5
 module load nco/5.0.1
 module load git/2.35.2
 module load perl/5.35.0-gcc12.1.0
-module load python/3.9.12
 module list
 
 export LC_ALL=en_US.UTF-8
@@ -38,8 +38,11 @@ export OASIS_NETCDFF=$NETCDFFROOT
 export OASIS3MCT_FC_LIB="-L$NETCDFFROOT/lib -lnetcdff"
 export MPIROOT=$(mpif90 -show | perl -lne 'm{ -I(.*?)/include } and print $1')
 export MPI_LIB=$(mpif90 -show |sed -e 's/^[^ ]*//' -e 's/-[I][^ ]*//g')
+export OMPI_MCA_io=romio321
 export LAPACK_LIB='-L/albedo/soft/sw/spack-sw/intel-oneapi-mkl/2022.1.0-akthm3n/mkl/2022.1.0 -lmkl_intel_lp64 -lmkl_core -lmkl_sequential -lm -ldl'
-export LD_LIBRARY_PATH=/albedo/soft/sw/spack-sw/intel-oneapi-mkl/2022.1.0-akthm3n/mkl/2022.1.0/lib/intel64:$LD_LIBRARY_PATH
+export TBBROOT=/albedo/soft/sw/spack-sw/intel-oneapi-mkl/2022.1.0-akthm3n/tbb/latest
+export LD_LIBRARY_PATH=$HDF5ROOT/lib:$NETCDFROOT/lib:$NETCDFFROOT/lib:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/albedo/soft/sw/spack-sw/intel-oneapi-mkl/2022.1.0-akthm3n/mkl/2022.1.0/lib/intel64:/albedo/soft/sw/spack-sw/intel-oneapi-mkl/2022.1.0-akthm3n/tbb/latest/lib/intel64/gcc4.8:$LD_LIBRARY_PATH
 export PATH=$PERL5LIB/../bin:$PATH
 export PATH=$PATH:$ECCODESROOT/bin
 export USER=<USER_ACCOUNT>
