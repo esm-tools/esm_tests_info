@@ -6,6 +6,9 @@
     ldiag_turbflux = .false.
     ldiag_salt3d = .false.
     ldiag_dmoc = .false.
+    ldiag_diapmix = .false.
+    diap_call_freq = 1
+    diap_call_freq_unit = 'd'
     ldiag_dvd = .false.
     ldiag_forc = .false.
     ldiag_extflds = .false.
@@ -13,6 +16,7 @@
     ldiag_trflx = .false.
     ldiag_uvw_sqr = .false.
     ldiag_trgrd_xyz = .false.
+    ldiag_cmor = .false.
 /
 
 &nml_general
@@ -23,15 +27,15 @@
 
 &nml_list
     io_list = 'sst       ', 1, 'm', 4, 'sss       ', 1, 'm', 4, 'ssh       ',
-              1, 'm', 4, 'uice      ', 1, 'd', 4, 'vice      ', 1, 'd',
+              1, 'm', 4, 'uice      ', 1, 'm', 4, 'vice      ', 1, 'm',
               4, 'a_ice     ', 1, 'm', 4, 'm_ice     ', 1, 'm', 4, 'm_snow    ',
               1, 'm', 4, 'MLD1      ', 1, 'm', 4, 'MLD2      ', 1, 'm',
               4, 'MLD3      ', 1, 'm', 4, 'tx_sur    ', 1, 'm', 4, 'ty_sur    ',
               1, 'm', 4, 'temp      ', 1, 'm', 4, 'salt      ', 1, 'm',
-              8, 'N2        ', 1, 'y', 4, 'Kv        ', 1, 'y', 4, 'u         ',
-              1, 'y', 4, 'v         ', 1, 'y', 4, 'unod      ', 1, 'y',
-              4, 'vnod      ', 1, 'y', 4, 'w         ', 1, 'y', 4, 'Av        ',
-              1, 'y', 4, 'bolus_u   ', 1, 'y', 4, 'bolus_v   ', 1, 'y',
-              4, 'bolus_w   ', 1, 'y', 4, 'fw        ', 1, 'm', 4, 'fh        ',
-              1, 'm', 4, 'otracers  ', 1, 'y', 4
+              8, 'N2        ', 1, 'm', 4, 'Kv        ', 1, 'm', 4, 'u         ',
+              1, 'm', 4, 'v         ', 1, 'm', 4, 'unod      ', 1, 'm',
+              4, 'vnod      ', 1, 'm', 4, 'w         ', 1, 'm', 4, 'Av        ',
+              1, 'm', 4, 'bolus_u   ', 1, 'm', 4, 'bolus_v   ', 1, 'm',
+              4, 'bolus_w   ', 1, 'm', 4, 'fw        ', 1, 'm', 4, 'fh        ',
+              1, 'm', 4, 'otracers  ', 1, 'm', 4
 /

@@ -4,7 +4,7 @@
 #SBATCH --nodes=13
 #SBATCH --output=<TEST_DIR>/run/awiesm3//awiesm3-develop-levante-TL255L91-CORE2_1d/log/awiesm3-develop-levante-TL255L91-CORE2_1d_awiesm3_compute_19000101-19000101_%j.log --error=<TEST_DIR>/run/awiesm3//awiesm3-develop-levante-TL255L91-CORE2_1d/log/awiesm3-develop-levante-TL255L91-CORE2_1d_awiesm3_compute_19000101-19000101_%j.log
 #SBATCH --job-name=awiesm3-develop-levante-TL255L91-CORE2_1d
-#SBATCH --account=None
+#SBATCH --account=ab0246
 #SBATCH --mail-type=NONE
 #SBATCH --exclusive
 
@@ -97,7 +97,7 @@ export NETCDF_C_DIR=$NETCDFROOT
 export NETCDF_F_DIR=$NETCDFFROOT
 export OASIS_DIR=../../../oasis/arch_ecearth/
 export USER=<USER_ACCOUNT>
-export ACCOUNT=None
+export ACCOUNT=ab0246
 export ESM_TESTING_DIR=<TEST_DIR>/run/awiesm3/
 export MODEL_DIR=<TEST_DIR>/comp/awiesm3/awiesm3-develop
 export ENVIRONMENT_SET_BY_ESMTOOLS=TRUE
@@ -111,7 +111,7 @@ unset SLURM_ARBITRARY_NODELIST
 ulimit -s unlimited
 # 3...2...1...Liftoff!
 
-echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1900-01-01T00:00:00 884 - start" >> <TEST_DIR>/run/awiesm3//awiesm3-develop-levante-TL255L91-CORE2_1d/log//awiesm3-develop-levante-TL255L91-CORE2_1d_awiesm3.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1900-01-01T00:00:00 1593713 - start" >> <TEST_DIR>/run/awiesm3//awiesm3-develop-levante-TL255L91-CORE2_1d/log//awiesm3-develop-levante-TL255L91-CORE2_1d_awiesm3.log
 
 cd <TEST_DIR>/run/awiesm3//awiesm3-develop-levante-TL255L91-CORE2_1d/run_19000101-19000101/work/
 
@@ -121,30 +121,9 @@ export SLURM_HOSTFILE=<TEST_DIR>/run/awiesm3//awiesm3-develop-levante-TL255L91-C
 IFS=$'\n'; set -f
 listnodes=($(< <( scontrol show hostnames $SLURM_JOB_NODELIST )))
 unset IFS; set +f
-rank=0
-current_core=0
-current_core_mpi=0
-mpi_tasks_fesom=256
-omp_threads_fesom=1
-mpi_tasks_oifs=512
-omp_threads_oifs=2
-mpi_tasks_rnfmap=1
-omp_threads_rnfmap=128
-mpi_tasks_lpj_guess=8
-omp_threads_lpj_guess=8
-mpi_tasks_xios=4
-omp_threads_xios=32
-for model in fesom oifs rnfmap lpj_guess oasis3mct xios ;do
-    eval nb_of_cores=\${mpi_tasks_${model}}
-    eval nb_of_cores=$((${nb_of_cores}-1))
-    for nb_proc_mpi in `seq 0 ${nb_of_cores}`; do
-        (( index_host = current_core / 128 ))
-        host_value=${listnodes[${index_host}]}
-        (( slot =  current_core % 128 ))
-        echo $host_value >> hostlist
-        (( current_core = current_core + omp_threads_${model} ))
-    done
-done
+while read node_index first_core; do
+    echo ${listnodes[${node_index}]} >> hostlist
+done < <TEST_DIR>/run/awiesm3//awiesm3-develop-levante-TL255L91-CORE2_1d/run_19000101-19000101/work//rank_placement
 
 time srun -l --hint=nomultithread --multi-prog hostfile_srun 2>&1 &
 
@@ -160,6 +139,6 @@ unset SLURM_HOSTFILE
 cd <TEST_DIR>/run/awiesm3//awiesm3-develop-levante-TL255L91-CORE2_1d/scripts/
 esm_runscripts awiesm3-develop-levante-TL255L91-CORE2_1d.yaml -e awiesm3-develop-levante-TL255L91-CORE2_1d -t observe_compute -p ${process} -s 19000101 -r 1 -v --last-jobtype prepcompute --open-run --computer levante
 
-echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1900-01-01T00:00:00 884 - done" >> <TEST_DIR>/run/awiesm3//awiesm3-develop-levante-TL255L91-CORE2_1d/log//awiesm3-develop-levante-TL255L91-CORE2_1d_awiesm3.log
+echo " $(date +"%Y-%m-%d %H:%M:%S.%3N") | PROGRESS | compute 1 1900-01-01T00:00:00 1593713 - done" >> <TEST_DIR>/run/awiesm3//awiesm3-develop-levante-TL255L91-CORE2_1d/log//awiesm3-develop-levante-TL255L91-CORE2_1d_awiesm3.log
 
 wait
