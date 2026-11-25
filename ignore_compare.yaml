@@ -19,3 +19,11 @@ finished_config:
     - "  logfile_path_in_run: "
 finished_config_dicts:
     - "files_missing_when_preparing_run"
+# Not an ignore list: strings left untouched when user-specific info is replaced by
+# placeholders (e.g. ``<USER_ACCOUNT>``), for all models. Use it for hard-coded paths
+# that contain the username of the test-pool owner, so they are not substituted when
+# the tests run as that user. Models can add more in ``runscripts/<model>/config.yaml``
+# (``protected_strings``).
+protected_strings:
+    - "/work/ab0995/a270152/testing_pool"
+    - "/work/ab0246/a270152/pool"
