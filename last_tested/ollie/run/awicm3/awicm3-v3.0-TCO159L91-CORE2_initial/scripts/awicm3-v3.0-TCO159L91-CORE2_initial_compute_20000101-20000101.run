@@ -99,26 +99,9 @@ export SLURM_HOSTFILE=<TEST_DIR>/run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial
 IFS=$'\n'; set -f
 listnodes=($(< <( scontrol show hostnames $SLURM_JOB_NODELIST )))
 unset IFS; set +f
-rank=0
-current_core=0
-current_core_mpi=0
-mpi_tasks_fesom=288
-omp_threads_fesom=1
-mpi_tasks_oifs=18
-omp_threads_oifs=2
-mpi_tasks_rnfmap=1
-omp_threads_rnfmap=36
-for model in fesom oifs rnfmap oasis3mct ;do
-    eval nb_of_cores=\${mpi_tasks_${model}}
-    eval nb_of_cores=$((${nb_of_cores}-1))
-    for nb_proc_mpi in `seq 0 ${nb_of_cores}`; do
-        (( index_host = current_core / 36 ))
-        host_value=${listnodes[${index_host}]}
-        (( slot =  current_core % 36 ))
-        echo $host_value >> hostlist
-        (( current_core = current_core + omp_threads_${model} ))
-    done
-done
+while read node_index first_core; do
+    echo ${listnodes[${node_index}]} >> hostlist
+done < <TEST_DIR>/run/awicm3//awicm3-v3.0-TCO159L91-CORE2_initial/run_20000101-20000101/work//rank_placement
 
 time srun -l --kill-on-bad-exit=1 --cpu_bind=none --multi-prog hostfile_srun 2>&1 &
 

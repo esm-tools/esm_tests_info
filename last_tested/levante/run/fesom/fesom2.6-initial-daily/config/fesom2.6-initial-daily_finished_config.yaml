@@ -26,7 +26,7 @@ general:
   esm_runscript_dir: <RUNSCRIPT_PATH> # no provenance info
   esm_couplings_dir: <COUPLINGS_PATH> # no provenance info
   expid: fesom2.6-initial-daily # no provenance info
-  account: ab0246 # <TEST_DIR>/run/fesom/fesom2.6-initial-daily/scripts/fesom2.6-initial-daily.yaml,line:4,col:18
+  account: None # <TEST_DIR>/run/fesom/fesom2.6-initial-daily/scripts/fesom2.6-initial-daily.yaml,line:4,col:18
   setup_name: fesom # <TEST_DIR>/run/fesom/fesom2.6-initial-daily/scripts/fesom2.6-initial-daily.yaml,line:5,col:21
   comp_version: 2.6 # <TEST_DIR>/run/fesom/fesom2.6-initial-daily/scripts/fesom2.6-initial-daily.yaml,line:6,col:23
   version: 2.6.12 # <TEST_DIR>/run/fesom/fesom2.6-initial-daily/scripts/fesom2.6-initial-daily.yaml,line:7,col:18
@@ -47,7 +47,7 @@ general:
   verbose: false # no provenance info
   contained_run: # no provenance info
   open_run: true # no provenance info
-  check: false # no provenance info
+  check: true # no provenance info
   modify_config_file: # no provenance info
   last_jobtype: prepcompute # no provenance info
   task: prepcompute # no provenance info
@@ -63,7 +63,7 @@ general:
   ignore_config_warnings: false # no provenance info
   computer_name: levante # no provenance info
   jobtype: prepcompute # no provenance info
-  original_command: fesom2.6-initial-daily.yaml -e fesom2.6-initial-daily --open-run --computer levante --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
+  original_command: fesom2.6-initial-daily.yaml -e fesom2.6-initial-daily --open-run -c --computer levante --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
   started_from: <TEST_DIR>/run/fesom/fesom2.6-initial-daily/scripts/ # no provenance info
   scriptname: fesom2.6-initial-daily.yaml # no provenance info
   isinteractive: false # no provenance info
@@ -97,7 +97,7 @@ general:
     contained_run: # no provenance info
     open_run: true # no provenance info
     expid: fesom2.6-initial-daily # no provenance info
-    check: false # no provenance info
+    check: true # no provenance info
     modify_config_file: # no provenance info
     last_jobtype: prepcompute # no provenance info
     task: prepcompute # no provenance info
@@ -114,7 +114,7 @@ general:
     computer_name: levante # no provenance info
     jobtype: prepcompute # no provenance info
     use_venv: false # no provenance info
-    original_command: fesom2.6-initial-daily.yaml -e fesom2.6-initial-daily --open-run --computer levante --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
+    original_command: fesom2.6-initial-daily.yaml -e fesom2.6-initial-daily --open-run -c --computer levante --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
     started_from: <TEST_DIR>/run/fesom/fesom2.6-initial-daily/scripts/ # no provenance info
     scriptname: fesom2.6-initial-daily.yaml # no provenance info
     runscript_abspath: <TEST_DIR>/run/fesom/fesom2.6-initial-daily/scripts/fesom2.6-initial-daily.yaml # no provenance info
@@ -290,12 +290,12 @@ general:
     first_task_in_queue: prepcompute # no provenance info
     next_run_triggered_by: tidy # no provenance info
   submitted: false  # no provenance info
-  jobid: 1603833 # no provenance info
+  jobid: 562 # no provenance info
   batch: slurm # no provenance info
   experiment_log_file: <TEST_DIR>/run/fesom//fesom2.6-initial-daily/log//fesom2.6-initial-daily_fesom.log # no provenance info
-  esm_tools_version: 6.71.3 # no provenance info
-  logfile_path: <TEST_DIR>/run/fesom//fesom2.6-initial-daily/log//fesom2.6-initial-daily_fesom_prepcompute_19580101-19580101_1603833.log # no provenance info
-  logfile_path_in_run: <TEST_DIR>/run/fesom//fesom2.6-initial-daily/run_19580101-19580101/log//fesom2.6-initial-daily_fesom_prepcompute_19580101-19580101_1603833.log # no provenance info
+  esm_tools_version: 6.71.5 # no provenance info
+  logfile_path: <TEST_DIR>/run/fesom//fesom2.6-initial-daily/log//fesom2.6-initial-daily_fesom_prepcompute_19580101-19580101_562.log # no provenance info
+  logfile_path_in_run: <TEST_DIR>/run/fesom//fesom2.6-initial-daily/run_19580101-19580101/log//fesom2.6-initial-daily_fesom_prepcompute_19580101-19580101_562.log # no provenance info
   relevant_filetypes:
   - bin  # no provenance info
   - config # no provenance info
@@ -414,7 +414,7 @@ computer:
     LD_LIBRARY_PATH[(2)]: /sw/spack-levante/intel-oneapi-mpi-2021.5.0-mrcss7/mpi/2021.5.0/libfabric/lib:$LD_LIBRARY_PATH # <CONFIGS_PATH>/machines/levante.yaml,line:360,col:39
     LD_LIBRARY_PATH[(4)]: $LD_LIBRARY_PATH:<TEST_DIR>/run/fesom//fesom2.6-initial-daily/run_19580101-19580101/work//lib/fesom/ # <CONFIGS_PATH>/components/fesom/fesom.env.yaml,line:3,col:31
     USER: <USER_ACCOUNT> # no provenance info
-    ACCOUNT: ab0246 # no provenance info
+    ACCOUNT: None # no provenance info
     ESM_TESTING_DIR: <TEST_DIR>/run/fesom/ # no provenance info
     MODEL_DIR: <TEST_DIR>/comp/fesom/fesom-2.6 # no provenance info
   load_python: false  # <CONFIGS_PATH>/machines/levante.yaml,line:137,col:18
@@ -474,12 +474,12 @@ computer:
   add_export_vars:
     LD_LIBRARY_PATH[(4)]: $LD_LIBRARY_PATH:<TEST_DIR>/run/fesom//fesom2.6-initial-daily/run_19580101-19580101/work//lib/fesom/  # <CONFIGS_PATH>/components/fesom/fesom.env.yaml,line:3,col:31
     USER: <USER_ACCOUNT> # no provenance info
-    ACCOUNT: ab0246 # no provenance info
+    ACCOUNT: None # no provenance info
     ESM_TESTING_DIR: <TEST_DIR>/run/fesom/ # no provenance info
     MODEL_DIR: <TEST_DIR>/comp/fesom/fesom-2.6 # no provenance info
   post_run_commands:
   - '@conda_activate@'  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:55,col:11
-  launched_with_conda: true  # no provenance info
+  launched_with_conda: false  # no provenance info
   heterogeneous_parallelization: false # no provenance info
   load_python_command: []
   lib_aec: ''  # <CONFIGS_PATH>/machines/levante.yaml,line:154,col:22
@@ -494,7 +494,7 @@ computer:
   libaec_version: 1.0.5-intel-2021.5.0 # <CONFIGS_PATH>/machines/levante.yaml,line:304,col:29
   libaec_path: /sw/spack-levante/libaec-1.0.5-gij7yv # <CONFIGS_PATH>/machines/levante.yaml,line:305,col:26
   tbb_path: /sw/spack-levante/intel-oneapi-compilers-2022.0.1-an2cbq/tbb/2021.5.0 # <CONFIGS_PATH>/machines/levante.yaml,line:306,col:23
-  accounting_flag: --account=ab0246 # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:28,col:38
+  accounting_flag: --account=None # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:28,col:38
   cpu_bind: cores # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:79,col:23
   srun_execution_command: srun -l --hint=nomultithread --multi-prog hostfile_srun # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:80,col:37
   hyperthreading_flag: --ntasks-per-core=1 # <CONFIGS_PATH>/machines/levante.yaml,line:33,col:58
@@ -564,150 +564,35 @@ fesom:
   asforcing: JRA55 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:139,col:16
   namelists:
     namelist.config:
-      modelname:
-        runid: fesom  # no provenance info
-      timestep:
-        step_per_day: 48  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:472,col:43
-        run_length: 1 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:473,col:41
-        run_length_unit: d # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:474,col:46
       clockinit:
-        timenew: 0.0  # no provenance info
-        daynew: 1 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:463,col:37
+        daynew: 1  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:463,col:37
         yearnew: 1958 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:464,col:38
+      calendar:
+        include_fleapyear: true  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:466,col:48
       paths:
         meshpath: /work/ab0246/a270092/input/fesom2/core2/  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:468,col:39
         climatedatapath: /work/ab0246/a270092/input//FESOM2/INITIAL/phc3.0/ # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:469,col:46
         resultpath: <TEST_DIR>/run/fesom//fesom2.6-initial-daily/run_19580101-19580101/work/ # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:470,col:41
+      timestep:
+        step_per_day: 48  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:472,col:43
+        run_length: 1 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:473,col:41
+        run_length_unit: d # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:474,col:46
       restart_log:
         restart_length: 1  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:476,col:45
         restart_length_unit: d # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:477,col:50
-        raw_restart_length: 1 # no provenance info
-        raw_restart_length_unit: y # no provenance info
-        bin_restart_length: 1 # no provenance info
-        bin_restart_length_unit: y # no provenance info
-        logfile_outfreq: 960 # no provenance info
-      ale_def:
-        which_ale: zstar  # no provenance info
-        use_partial_cell: true # no provenance info
-      geometry:
-        cartesian: false  # no provenance info
-        fplane: false # no provenance info
-        cyclic_length: 360 # no provenance info
-        rotated_grid: true # no provenance info
-        force_rotation: true # no provenance info
-        alphaeuler: 50.0 # no provenance info
-        betaeuler: 15.0 # no provenance info
-        gammaeuler: -90.0 # no provenance info
-      calendar:
-        include_fleapyear: true  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:466,col:48
-      run_config:
-        use_ice: true  # no provenance info
-        use_cavity: false # no provenance info
-        use_cavity_partial_cell: false # no provenance info
-        use_floatice: false # no provenance info
-        use_sw_pene: true # no provenance info
-        flag_debug: false # no provenance info
-        use_transit: false # no provenance info
-        lwiso: false # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:484,col:36
-      machine:
-        n_levels: 2  # no provenance info
-        n_part:
-        - 12  # no provenance info
-        - 36 # no provenance info
-      icebergs:
-        use_icesheet_coupling: false  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:487,col:52
-        ib_num: 1 # no provenance info
-        use_icebergs: false # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:486,col:43
-        steps_per_ib_step: 8 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:488,col:48
-        ib_async_mode: 0 # no provenance info
       inout:
         restartflag: last  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:479,col:42
         output_length: 1 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:480,col:44
         output_length_unit: d # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:481,col:49
         restart_length: 1 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:482,col:45
-    namelist.cvmix:
-      param_tke:
-        tke_c_k: 0.1  # no provenance info
-        tke_c_eps: 0.7 # no provenance info
-        tke_alpha: 30.0 # no provenance info
-        tke_mxl_min: 1e-08 # no provenance info
-        tke_kappam_min: 0.0 # no provenance info
-        tke_kappam_max: 100.0 # no provenance info
-        tke_cd: 3.75 # no provenance info
-        tke_surf_min: 0.0001 # no provenance info
-        tke_min: 1e-06 # no provenance info
-        tke_mxl_choice: 2 # no provenance info
-        tke_dolangmuir: false # no provenance info
-      param_idemix:
-        idemix_tau_v: 172800.0  # no provenance info
-        idemix_tau_h: 1296000.0 # no provenance info
-        idemix_gamma: 1.57 # no provenance info
-        idemix_jstar: 5.0 # no provenance info
-        idemix_mu0: 0.33333333 # no provenance info
-        idemix_sforcusage: 0.2 # no provenance info
-        idemix_n_hor_iwe_prop_iter: 5 # no provenance info
-        idemix_surforc_file: /work/ollie/clidyn/forcing/IDEMIX/fourier_smooth_2005_cfsr_inert_rgrid.nc # no provenance info
-        idemix_surforc_vname: var706 # no provenance info
-        idemix_botforc_file: /work/ollie/clidyn/forcing/IDEMIX/tidal_energy_gx1v6_20090205_rgrid.nc # no provenance info
-        idemix_botforc_vname: wave_dissipation # no provenance info
-      param_pp:
-        pp_use_fesompp: true  # no provenance info
-        pp_av0: 0.01 # no provenance info
-        pp_alpha: 5.0 # no provenance info
-        pp_exp: 2.0 # no provenance info
-        pp_avbckg: 0.0001 # no provenance info
-        pp_kvbckg: 1e-05 # no provenance info
-        pp_use_nonconstkvb: true # no provenance info
-      param_kpp:
-        kpp_use_fesomkpp: false  # no provenance info
-        kpp_use_enhancekv: true # no provenance info
-        kpp_use_compekman: true # no provenance info
-        kpp_use_monob: true # no provenance info
-        kpp_interptype_ri: linear # no provenance info
-        kpp_interptype_atobl: LMD94 # no provenance info
-        kpp_matchtechc: ParabolicNonLocal # no provenance info
-        kpp_internalmix: KPP # no provenance info
-        kpp_reduce_tauuice: false # no provenance info
-        kpp_av0: 0.005 # no provenance info
-        kpp_kv0: 0.005 # no provenance info
-        kpp_ri0: 0.7 # no provenance info
-        kpp_pp_av0: 0.01 # no provenance info
-        kpp_use_nonconstkvb: true # no provenance info
-        kpp_avbckg: 0.0001 # no provenance info
-        kpp_kvbckg: 1e-05 # no provenance info
-      param_tidal:
-        tidal_mixscheme: Simmons  # no provenance info
-        tidal_efficiency: 0.2 # no provenance info
-        tidal_vert_decayscale: 500.0 # no provenance info
-        tidal_max_coeff: 0.005 # no provenance info
-        tidal_lcl_mixfrac: 0.33 # no provenance info
-        tidal_depth_cutoff: 0.0 # no provenance info
-        tidal_botforc_file: /albedo/work/projects/p_pool_fesom1/fesom2.0/forcing/idemix/tidal_energy_gx1v6_20090205_rgrid.nc # no provenance info
-    namelist.dyn:
-      dynamics_visc:
-        visc_gamma0: 0.003  # no provenance info
-        visc_gamma1: 0.1 # no provenance info
-        visc_gamma2: 0.285 # no provenance info
-        visc_easybsreturn: 1.5 # no provenance info
-        opt_visc: 5 # no provenance info
-        check_opt_visc: true # no provenance info
-        use_ivertvisc: true # no provenance info
-      dynamics_general:
-        momadv_opt: 2  # no provenance info
-        use_freeslip: false # no provenance info
-        use_wsplit: false # no provenance info
-        wsplit_maxcfl: 1.0 # no provenance info
-        ldiag_ke: false # no provenance info
-        ab_order: 2 # no provenance info
-        use_ssh_se_subcycl: false # no provenance info
-        se_btsteps: 50 # no provenance info
-        se_bttheta: 0.14 # no provenance info
-        se_bottdrag: true # no provenance info
-        se_bdrag_si: true # no provenance info
-        se_visc: true # no provenance info
-        se_visc_gamma0: 10 # no provenance info
-        se_visc_gamma1: 19500 # no provenance info
-        se_visc_gamma2: 0 # no provenance info
+      run_config:
+        lwiso: false  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:484,col:36
+      icebergs:
+        use_icebergs: false  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:486,col:43
+        use_icesheet_coupling: false # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:487,col:52
+        steps_per_ib_step: 8 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:488,col:48
+    namelist.cvmix: {}
+    namelist.dyn: {}
     namelist.forcing:
       forcing_exchange_coeff:
         ce_atm_oce: 0.00175  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:494,col:41
@@ -716,28 +601,15 @@ fesom:
         ce_atm_ice: 0.00175 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:497,col:41
         ch_atm_ice: 0.00175 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:498,col:41
         cd_atm_ice: 0.0012 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:499,col:41
-        swind: 0.0 # no provenance info
       forcing_bulk:
         aomip_drag_coeff: false  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:502,col:47
         ncar_bulk_formulae: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:503,col:49
         ncar_bulk_z_wind: 10 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:504,col:47
         ncar_bulk_z_tair: 10 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:505,col:47
         ncar_bulk_z_shum: 10 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:506,col:47
-      land_ice:
-        use_landice_water: false  # no provenance info
-        landice_start_mon: 5 # no provenance info
-        landice_end_mon: 10 # no provenance info
-        fwf_path: ./mesh/ # no provenance info
-      age_tracer:
-        use_age_tracer: false  # no provenance info
-        use_age_mask: false # no provenance info
-        age_tracer_path: ./mesh/ # no provenance info
-        age_start_year: 2000 # no provenance info
       nam_sbc:
         nm_xwind_file: /work/ab0246/a270092/input//FESOM2/FORCING///JRA55-do-v1.4.0//uas.  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:509,col:44
         nm_ywind_file: /work/ab0246/a270092/input//FESOM2/FORCING///JRA55-do-v1.4.0//vas. # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:510,col:44
-        nm_xstre_file: /pool/data/AWICM/FESOM2/FORCING/JRA55-do-v1.4.0/uas. # no provenance info
-        nm_ystre_file: /pool/data/AWICM/FESOM2/FORCING/JRA55-do-v1.4.0/vas. # no provenance info
         nm_humi_file: /work/ab0246/a270092/input//FESOM2/FORCING///JRA55-do-v1.4.0//huss. # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:511,col:43
         nm_qsr_file: /work/ab0246/a270092/input//FESOM2/FORCING///JRA55-do-v1.4.0//rsds. # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:512,col:42
         nm_qlw_file: /work/ab0246/a270092/input//FESOM2/FORCING///JRA55-do-v1.4.0//rlds. # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:513,col:42
@@ -747,8 +619,6 @@ fesom:
         nm_mslp_file: /work/ab0246/a270092/input//FESOM2/FORCING///JRA55-do-v1.4.0//psl. # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:517,col:43
         nm_xwind_var: uas # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:519,col:43
         nm_ywind_var: vas # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:520,col:43
-        nm_xstre_var: uas # no provenance info
-        nm_ystre_var: vas # no provenance info
         nm_humi_var: huss # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:521,col:42
         nm_qsr_var: rsds # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:522,col:41
         nm_qlw_var: rlds # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:523,col:41
@@ -763,8 +633,6 @@ fesom:
         nm_nc_tmid: 0 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:533,col:41
         l_xwind: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:534,col:38
         l_ywind: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:535,col:38
-        l_xstre: false # no provenance info
-        l_ystre: false # no provenance info
         l_humi: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:536,col:37
         l_qsr: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:537,col:36
         l_qlw: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:538,col:36
@@ -773,411 +641,20 @@ fesom:
         l_mslp: false # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:541,col:37
         l_cloud: false # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:542,col:38
         l_snow: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:543,col:37
-        runoff_data_source: CORE2 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:548,col:49
         nm_runoff_file: /work/ab0246/a270092/input//FESOM2/FORCING///JRA55-do-v1.4.0//CORE2_runoff.nc # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:545,col:45
-        sss_data_source: CORE2 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:549,col:46
         nm_sss_data_file: /work/ab0246/a270092/input//FESOM2/FORCING///JRA55-do-v1.4.0//PHC2_salx.nc # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:546,col:47
-        chl_data_source: None # no provenance info
-        nm_chl_data_file: /pool/data/AWICM/FESOM2/FORCING/JRA55-do-v1.4.0/Sweeney/Sweeney_2005.nc # no provenance info
-        chl_const: 0.1 # no provenance info
-        use_runoff_mapper: false # no provenance info
-        runoff_basins_file: runoff_maps_regular.nc # no provenance info
-        runoff_radius: 500000.0 # no provenance info
+        runoff_data_source: CORE2 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:548,col:49
+        sss_data_source: CORE2 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:549,col:46
     namelist.ice:
       ice_dyn:
         whichevp: 0  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:552,col:39
-        pstar: 30000.0 # no provenance info
-        ellipse: 2.0 # no provenance info
-        c_pressure: 20.0 # no provenance info
-        delta_min: 1e-11 # no provenance info
-        evp_rheol_steps: 120 # no provenance info
         alpha_evp: 250 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:553,col:40
         beta_evp: 250 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:554,col:39
-        c_aevp: 0.15 # no provenance info
-        cd_oce_ice: 0.0055 # no provenance info
-        ice_gamma_fct: 0.5 # no provenance info
-        ice_diff: 0.0 # no provenance info
-        theta_io: 0.0 # no provenance info
-        ice_ave_steps: 1 # no provenance info
-      ice_therm:
-        sice: 4.0  # no provenance info
-        iclasses: 7 # no provenance info
-        h0: 0.5 # no provenance info
-        h0_s: 0.5 # no provenance info
-        hmin: 0.01 # no provenance info
-        armin: 0.01 # no provenance info
-        emiss_ice: 0.97 # no provenance info
-        emiss_wat: 0.97 # no provenance info
-        albsn: 0.81 # no provenance info
-        albsnm: 0.77 # no provenance info
-        albi: 0.7 # no provenance info
-        albim: 0.68 # no provenance info
-        albw: 0.1 # no provenance info
-        con: 2.1656 # no provenance info
-        consn: 0.31 # no provenance info
-        snowdist: true # no provenance info
-        new_iclasses: false # no provenance info
-        open_water_albedo: 0 # no provenance info
-        c_melt: 0.5 # no provenance info
-        h_cutoff: 3.0 # no provenance info
-    namelist.icepack:
-      env_nml:
-        nicecat: 5  # no provenance info
-        nfsdcat: 1 # no provenance info
-        nicelyr: 4 # no provenance info
-        nsnwlyr: 4 # no provenance info
-        ntraero: 0 # no provenance info
-        trzaero: 0 # no provenance info
-        tralg: 0 # no provenance info
-        trdoc: 0 # no provenance info
-        trdic: 0 # no provenance info
-        trdon: 0 # no provenance info
-        trfed: 0 # no provenance info
-        trfep: 0 # no provenance info
-        nbgclyr: 0 # no provenance info
-        trbgcz: 0 # no provenance info
-        trzs: 0 # no provenance info
-        trbri: 0 # no provenance info
-        trage: 0 # no provenance info
-        trfy: 0 # no provenance info
-        trlvl: 0 # no provenance info
-        trpnd: 0 # no provenance info
-        trbgcs: 0 # no provenance info
-        ndtd: 1 # no provenance info
-      grid_nml:
-        kcatbound: 1  # no provenance info
-      tracer_nml:
-        tr_iage: false  # no provenance info
-        tr_fy: false # no provenance info
-        tr_lvl: false # no provenance info
-        tr_pond_cesm: false # no provenance info
-        tr_pond_topo: false # no provenance info
-        tr_pond_lvl: false # no provenance info
-        tr_aero: false # no provenance info
-        tr_fsd: false # no provenance info
-      thermo_nml:
-        kitd: 1  # no provenance info
-        ktherm: 1 # no provenance info
-        conduct: bubbly # no provenance info
-        a_rapid_mode: 0.0005 # no provenance info
-        rac_rapid_mode: 10.0 # no provenance info
-        aspect_rapid_mode: 1.0 # no provenance info
-        dsdt_slow_mode: -5e-08 # no provenance info
-        phi_c_slow_mode: 0.05 # no provenance info
-        phi_i_mushy: 0.85 # no provenance info
-        ksno: 0.3 # no provenance info
-      shortwave_nml:
-        shortwave: ccsm3  # no provenance info
-        albedo_type: ccsm3 # no provenance info
-        albicev: 0.78 # no provenance info
-        albicei: 0.36 # no provenance info
-        albsnowv: 0.98 # no provenance info
-        albsnowi: 0.7 # no provenance info
-        albocn: 0.1 # no provenance info
-        ahmax: 0.3 # no provenance info
-        r_ice: 0.0 # no provenance info
-        r_pnd: 0.0 # no provenance info
-        r_snw: 1.5 # no provenance info
-        dt_mlt: 1.5 # no provenance info
-        rsnw_mlt: 1500.0 # no provenance info
-        kalg: 0.6 # no provenance info
-      ponds_nml:
-        hp1: 0.01  # no provenance info
-        hs0: 0.0 # no provenance info
-        hs1: 0.03 # no provenance info
-        dpscale: 0.001 # no provenance info
-        frzpnd: hlid # no provenance info
-        rfracmin: 0.15 # no provenance info
-        rfracmax: 1.0 # no provenance info
-        pndaspect: 0.8 # no provenance info
-      forcing_nml:
-        formdrag: false  # no provenance info
-        atmbndy: default # no provenance info
-        calc_strair: true # no provenance info
-        calc_tsfc: true # no provenance info
-        highfreq: false # no provenance info
-        natmiter: 5 # no provenance info
-        ustar_min: 0.0005 # no provenance info
-        emissivity: 0.95 # no provenance info
-        fbot_xfer_type: constant # no provenance info
-        update_ocn_f: true # no provenance info
-        l_mpond_fresh: false # no provenance info
-        tfrz_option: linear_salt # no provenance info
-        oceanmixed_ice: true # no provenance info
-        wave_spec_type: none # no provenance info
-      dynamics_nml:
-        kstrength: 1  # no provenance info
-        krdg_partic: 1 # no provenance info
-        krdg_redist: 1 # no provenance info
-        mu_rdg: 3 # no provenance info
-        cf: 17.0 # no provenance info
-        p_star: 27000.0 # no provenance info
-        c_star: 20.0 # no provenance info
-      nml_list_icepack:
-        io_list_icepack:
-        - 'aicen     '  # no provenance info
-        - 1 # no provenance info
-        - m # no provenance info
-        - 4 # no provenance info
-        - 'vicen     ' # no provenance info
-        - 1 # no provenance info
-        - m # no provenance info
-        - 4 # no provenance info
-        - 'vsnon     ' # no provenance info
-        - 1 # no provenance info
-        - m # no provenance info
-        - 4 # no provenance info
-    namelist.io:
-      diag_list:
-        ldiag_solver: false  # no provenance info
-        lcurt_stress_surf: false # no provenance info
-        ldiag_curl_vel3: false # no provenance info
-        ldiag_ri: false # no provenance info
-        ldiag_turbflux: false # no provenance info
-        ldiag_salt3d: false # no provenance info
-        ldiag_dmoc: false # no provenance info
-        ldiag_dvd: false # no provenance info
-        ldiag_forc: false # no provenance info
-        ldiag_extflds: false # no provenance info
-        ldiag_destine: false # no provenance info
-        ldiag_trflx: false # no provenance info
-        ldiag_uvw_sqr: false # no provenance info
-        ldiag_trgrd_xyz: false # no provenance info
-      nml_general:
-        io_listsize: 120  # no provenance info
-        vec_autorotate: false # no provenance info
-        compression_level: 1 # no provenance info
-      nml_list:
-        io_list:
-        - 'sst       '  # no provenance info
-        - 1 # no provenance info
-        - m # no provenance info
-        - 4 # no provenance info
-        - 'sss       ' # no provenance info
-        - 1 # no provenance info
-        - m # no provenance info
-        - 4 # no provenance info
-        - 'ssh       ' # no provenance info
-        - 1 # no provenance info
-        - m # no provenance info
-        - 4 # no provenance info
-        - 'uice      ' # no provenance info
-        - 1 # no provenance info
-        - d # no provenance info
-        - 4 # no provenance info
-        - 'vice      ' # no provenance info
-        - 1 # no provenance info
-        - d # no provenance info
-        - 4 # no provenance info
-        - 'a_ice     ' # no provenance info
-        - 1 # no provenance info
-        - m # no provenance info
-        - 4 # no provenance info
-        - 'm_ice     ' # no provenance info
-        - 1 # no provenance info
-        - m # no provenance info
-        - 4 # no provenance info
-        - 'm_snow    ' # no provenance info
-        - 1 # no provenance info
-        - m # no provenance info
-        - 4 # no provenance info
-        - 'MLD1      ' # no provenance info
-        - 1 # no provenance info
-        - m # no provenance info
-        - 4 # no provenance info
-        - 'MLD2      ' # no provenance info
-        - 1 # no provenance info
-        - m # no provenance info
-        - 4 # no provenance info
-        - 'MLD3      ' # no provenance info
-        - 1 # no provenance info
-        - m # no provenance info
-        - 4 # no provenance info
-        - 'tx_sur    ' # no provenance info
-        - 1 # no provenance info
-        - m # no provenance info
-        - 4 # no provenance info
-        - 'ty_sur    ' # no provenance info
-        - 1 # no provenance info
-        - m # no provenance info
-        - 4 # no provenance info
-        - 'temp      ' # no provenance info
-        - 1 # no provenance info
-        - m # no provenance info
-        - 4 # no provenance info
-        - 'salt      ' # no provenance info
-        - 1 # no provenance info
-        - m # no provenance info
-        - 8 # no provenance info
-        - 'N2        ' # no provenance info
-        - 1 # no provenance info
-        - y # no provenance info
-        - 4 # no provenance info
-        - 'Kv        ' # no provenance info
-        - 1 # no provenance info
-        - y # no provenance info
-        - 4 # no provenance info
-        - 'u         ' # no provenance info
-        - 1 # no provenance info
-        - y # no provenance info
-        - 4 # no provenance info
-        - 'v         ' # no provenance info
-        - 1 # no provenance info
-        - y # no provenance info
-        - 4 # no provenance info
-        - 'unod      ' # no provenance info
-        - 1 # no provenance info
-        - y # no provenance info
-        - 4 # no provenance info
-        - 'vnod      ' # no provenance info
-        - 1 # no provenance info
-        - y # no provenance info
-        - 4 # no provenance info
-        - 'w         ' # no provenance info
-        - 1 # no provenance info
-        - y # no provenance info
-        - 4 # no provenance info
-        - 'Av        ' # no provenance info
-        - 1 # no provenance info
-        - y # no provenance info
-        - 4 # no provenance info
-        - 'bolus_u   ' # no provenance info
-        - 1 # no provenance info
-        - y # no provenance info
-        - 4 # no provenance info
-        - 'bolus_v   ' # no provenance info
-        - 1 # no provenance info
-        - y # no provenance info
-        - 4 # no provenance info
-        - 'bolus_w   ' # no provenance info
-        - 1 # no provenance info
-        - y # no provenance info
-        - 4 # no provenance info
-        - 'fw        ' # no provenance info
-        - 1 # no provenance info
-        - m # no provenance info
-        - 4 # no provenance info
-        - 'fh        ' # no provenance info
-        - 1 # no provenance info
-        - m # no provenance info
-        - 4 # no provenance info
-        - 'otracers  ' # no provenance info
-        - 1 # no provenance info
-        - y # no provenance info
-        - 4 # no provenance info
-    namelist.oce:
-      oce_dyn:
-        c_d: 0.0025  # no provenance info
-        a_ver: 0.0001 # no provenance info
-        scale_area: 5800000000.0 # no provenance info
-        spp: false # no provenance info
-        fer_gm: true # no provenance info
-        k_gm_max: 2000.0 # no provenance info
-        k_gm_min: 2.0 # no provenance info
-        k_gm_bvref: 2 # no provenance info
-        k_gm_rampmax: -1.0 # no provenance info
-        k_gm_rampmin: -1.0 # no provenance info
-        k_gm_resscalorder: 1 # no provenance info
-        scaling_ferreira: false # no provenance info
-        scaling_rossby: false # no provenance info
-        scaling_resolution: true # no provenance info
-        scaling_fesom14: false # no provenance info
-        redi: true # no provenance info
-        visc_sh_limit: 0.005 # no provenance info
-        mix_scheme: KPP # no provenance info
-        ricr: 0.3 # no provenance info
-        concv: 1.6 # no provenance info
-    namelist.tra:
-      tracer_listsize:
-        num_tracers: 100  # no provenance info
-      tracer_list:
-        nml_tracer_list:
-        - 1  # no provenance info
-        - MFCT # no provenance info
-        - QR4C # no provenance info
-        - 'FCT ' # no provenance info
-        - 1.0 # no provenance info
-        - 1.0 # no provenance info
-        - 2 # no provenance info
-        - MFCT # no provenance info
-        - QR4C # no provenance info
-        - 'FCT ' # no provenance info
-        - 1.0 # no provenance info
-        - 1.0 # no provenance info
-      tracer_init3d:
-        n_ic3d: 2  # no provenance info
-        idlist:
-        - 2  # no provenance info
-        - 1 # no provenance info
-        filelist:
-        - phc3.0_winter.nc  # no provenance info
-        - phc3.0_winter.nc # no provenance info
-        varlist:
-        - salt  # no provenance info
-        - temp # no provenance info
-        t_insitu: true # no provenance info
-      tracer_init2d:
-        n_ic2d: 3  # no provenance info
-        idlist:
-        - 1  # no provenance info
-        - 2 # no provenance info
-        - 3 # no provenance info
-        filelist:
-        - a_ice.nc  # no provenance info
-        - m_ice.nc # no provenance info
-        - m_snow.nc # no provenance info
-        varlist:
-        - a_ice  # no provenance info
-        - m_ice # no provenance info
-        - m_snow # no provenance info
-        ini_ice_from_file: false  # no provenance info
-      tracer_general:
-        smooth_bh_tra: false  # no provenance info
-        gamma0_tra: 0.0005 # no provenance info
-        gamma1_tra: 0.0125 # no provenance info
-        gamma2_tra: 0.0 # no provenance info
-        i_vert_diff: true # no provenance info
-        ab_order: 2 # no provenance info
-      tracer_phys:
-        use_momix: true  # no provenance info
-        momix_lat: -50.0 # no provenance info
-        momix_kv: 0.01 # no provenance info
-        use_instabmix: true # no provenance info
-        instabmix_kv: 0.1 # no provenance info
-        use_windmix: false # no provenance info
-        windmix_kv: 0.001 # no provenance info
-        windmix_nl: 2 # no provenance info
-        diff_sh_limit: 0.005 # no provenance info
-        kv0_const: true # no provenance info
-        double_diffusion: false # no provenance info
-        k_ver: 1e-05 # no provenance info
-        k_hor: 3000.0 # no provenance info
-        surf_relax_t: 0.0 # no provenance info
-        surf_relax_s: 1.929e-06 # no provenance info
-        balance_salt_water: true # no provenance info
-        clim_relax: 0.0 # no provenance info
-        ref_sss_local: true # no provenance info
-        ref_sss: 34.0 # no provenance info
-    namelist.transit:
-      transit_param:
-        l_r14c: false  # no provenance info
-        l_r39ar: false # no provenance info
-        l_f11: false # no provenance info
-        l_f12: false # no provenance info
-        l_sf6: false # no provenance info
-        anthro_transit: false # no provenance info
-        paleo_transit: false # no provenance info
-        length_transit: 1 # no provenance info
-        ti_start_transit: 1 # no provenance info
-        ifile_transit: /work/ab0246/a270108/fesom2_recom_config/input-for-awiesm/Table_CO2_isoC_CFCs1112_SF6.txt # no provenance info
-        r14c_a: 1.0 # no provenance info
-        r39ar_a: 1.0 # no provenance info
-        xarg_a: 0.00934 # no provenance info
-        xco2_a: 0.00028432 # no provenance info
-        dic_0: 2.0 # no provenance info
-        arg_0: 0.01 # no provenance info
-        decay14: 3.8561e-12 # no provenance info
-        decay39: 8.1708e-11 # no provenance info
+    namelist.icepack: {}
+    namelist.io: {}
+    namelist.oce: {}
+    namelist.tra: {}
+    namelist.transit: {}
   whichEVP: 0 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:153,col:15
   restart_out_sources: {}
   outdata_sources: {}
@@ -1494,10 +971,10 @@ fesom:
   - copy_all_results_to_exp # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:746,col:7
   - clean_run_dir # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:747,col:7
   with_tripyview: false # <TEST_DIR>/run/fesom/fesom2.6-initial-daily/scripts/fesom2.6-initial-daily.yaml,line:29,col:25
-  vis_project: ab0246 # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:60,col:18
+  vis_project: None # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:60,col:18
   vis_user: <USER_ACCOUNT> # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:61,col:15
   vis_server: modvis.dkrz.de # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:69,col:25
-  vis_publicdir: /var/www/projects/ab0246/<USER_ACCOUNT>/fesom2.6-initial-daily # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:70,col:28
+  vis_publicdir: /var/www/projects/None/<USER_ACCOUNT>/fesom2.6-initial-daily # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:70,col:28
   vis_sync: true # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:71,col:23
   tripyview_conda_module: python3 # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:72,col:37
   scripts_files:
@@ -1672,150 +1149,35 @@ fesom:
   restart_out_intermediate: {}
   namelist_objs:
     namelist.config:
-      modelname:
-        runid: fesom  # no provenance info
-      timestep:
-        step_per_day: 48  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:472,col:43
-        run_length: 1 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:473,col:41
-        run_length_unit: d # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:474,col:46
       clockinit:
-        timenew: 0.0  # no provenance info
-        daynew: 1 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:463,col:37
+        daynew: 1  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:463,col:37
         yearnew: 1958 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:464,col:38
+      calendar:
+        include_fleapyear: true  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:466,col:48
       paths:
         meshpath: /work/ab0246/a270092/input/fesom2/core2/  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:468,col:39
         climatedatapath: /work/ab0246/a270092/input//FESOM2/INITIAL/phc3.0/ # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:469,col:46
         resultpath: <TEST_DIR>/run/fesom//fesom2.6-initial-daily/run_19580101-19580101/work/ # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:470,col:41
+      timestep:
+        step_per_day: 48  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:472,col:43
+        run_length: 1 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:473,col:41
+        run_length_unit: d # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:474,col:46
       restart_log:
         restart_length: 1  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:476,col:45
         restart_length_unit: d # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:477,col:50
-        raw_restart_length: 1 # no provenance info
-        raw_restart_length_unit: y # no provenance info
-        bin_restart_length: 1 # no provenance info
-        bin_restart_length_unit: y # no provenance info
-        logfile_outfreq: 960 # no provenance info
-      ale_def:
-        which_ale: zstar  # no provenance info
-        use_partial_cell: true # no provenance info
-      geometry:
-        cartesian: false  # no provenance info
-        fplane: false # no provenance info
-        cyclic_length: 360 # no provenance info
-        rotated_grid: true # no provenance info
-        force_rotation: true # no provenance info
-        alphaeuler: 50.0 # no provenance info
-        betaeuler: 15.0 # no provenance info
-        gammaeuler: -90.0 # no provenance info
-      calendar:
-        include_fleapyear: true  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:466,col:48
-      run_config:
-        use_ice: true  # no provenance info
-        use_cavity: false # no provenance info
-        use_cavity_partial_cell: false # no provenance info
-        use_floatice: false # no provenance info
-        use_sw_pene: true # no provenance info
-        flag_debug: false # no provenance info
-        use_transit: false # no provenance info
-        lwiso: false # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:484,col:36
-      machine:
-        n_levels: 2  # no provenance info
-        n_part:
-        - 12  # no provenance info
-        - 36 # no provenance info
-      icebergs:
-        use_icesheet_coupling: false  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:487,col:52
-        ib_num: 1 # no provenance info
-        use_icebergs: false # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:486,col:43
-        steps_per_ib_step: 8 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:488,col:48
-        ib_async_mode: 0 # no provenance info
       inout:
         restartflag: last  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:479,col:42
         output_length: 1 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:480,col:44
         output_length_unit: d # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:481,col:49
         restart_length: 1 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:482,col:45
-    namelist.cvmix:
-      param_tke:
-        tke_c_k: 0.1  # no provenance info
-        tke_c_eps: 0.7 # no provenance info
-        tke_alpha: 30.0 # no provenance info
-        tke_mxl_min: 1e-08 # no provenance info
-        tke_kappam_min: 0.0 # no provenance info
-        tke_kappam_max: 100.0 # no provenance info
-        tke_cd: 3.75 # no provenance info
-        tke_surf_min: 0.0001 # no provenance info
-        tke_min: 1e-06 # no provenance info
-        tke_mxl_choice: 2 # no provenance info
-        tke_dolangmuir: false # no provenance info
-      param_idemix:
-        idemix_tau_v: 172800.0  # no provenance info
-        idemix_tau_h: 1296000.0 # no provenance info
-        idemix_gamma: 1.57 # no provenance info
-        idemix_jstar: 5.0 # no provenance info
-        idemix_mu0: 0.33333333 # no provenance info
-        idemix_sforcusage: 0.2 # no provenance info
-        idemix_n_hor_iwe_prop_iter: 5 # no provenance info
-        idemix_surforc_file: /work/ollie/clidyn/forcing/IDEMIX/fourier_smooth_2005_cfsr_inert_rgrid.nc # no provenance info
-        idemix_surforc_vname: var706 # no provenance info
-        idemix_botforc_file: /work/ollie/clidyn/forcing/IDEMIX/tidal_energy_gx1v6_20090205_rgrid.nc # no provenance info
-        idemix_botforc_vname: wave_dissipation # no provenance info
-      param_pp:
-        pp_use_fesompp: true  # no provenance info
-        pp_av0: 0.01 # no provenance info
-        pp_alpha: 5.0 # no provenance info
-        pp_exp: 2.0 # no provenance info
-        pp_avbckg: 0.0001 # no provenance info
-        pp_kvbckg: 1e-05 # no provenance info
-        pp_use_nonconstkvb: true # no provenance info
-      param_kpp:
-        kpp_use_fesomkpp: false  # no provenance info
-        kpp_use_enhancekv: true # no provenance info
-        kpp_use_compekman: true # no provenance info
-        kpp_use_monob: true # no provenance info
-        kpp_interptype_ri: linear # no provenance info
-        kpp_interptype_atobl: LMD94 # no provenance info
-        kpp_matchtechc: ParabolicNonLocal # no provenance info
-        kpp_internalmix: KPP # no provenance info
-        kpp_reduce_tauuice: false # no provenance info
-        kpp_av0: 0.005 # no provenance info
-        kpp_kv0: 0.005 # no provenance info
-        kpp_ri0: 0.7 # no provenance info
-        kpp_pp_av0: 0.01 # no provenance info
-        kpp_use_nonconstkvb: true # no provenance info
-        kpp_avbckg: 0.0001 # no provenance info
-        kpp_kvbckg: 1e-05 # no provenance info
-      param_tidal:
-        tidal_mixscheme: Simmons  # no provenance info
-        tidal_efficiency: 0.2 # no provenance info
-        tidal_vert_decayscale: 500.0 # no provenance info
-        tidal_max_coeff: 0.005 # no provenance info
-        tidal_lcl_mixfrac: 0.33 # no provenance info
-        tidal_depth_cutoff: 0.0 # no provenance info
-        tidal_botforc_file: /albedo/work/projects/p_pool_fesom1/fesom2.0/forcing/idemix/tidal_energy_gx1v6_20090205_rgrid.nc # no provenance info
-    namelist.dyn:
-      dynamics_visc:
-        visc_gamma0: 0.003  # no provenance info
-        visc_gamma1: 0.1 # no provenance info
-        visc_gamma2: 0.285 # no provenance info
-        visc_easybsreturn: 1.5 # no provenance info
-        opt_visc: 5 # no provenance info
-        check_opt_visc: true # no provenance info
-        use_ivertvisc: true # no provenance info
-      dynamics_general:
-        momadv_opt: 2  # no provenance info
-        use_freeslip: false # no provenance info
-        use_wsplit: false # no provenance info
-        wsplit_maxcfl: 1.0 # no provenance info
-        ldiag_ke: false # no provenance info
-        ab_order: 2 # no provenance info
-        use_ssh_se_subcycl: false # no provenance info
-        se_btsteps: 50 # no provenance info
-        se_bttheta: 0.14 # no provenance info
-        se_bottdrag: true # no provenance info
-        se_bdrag_si: true # no provenance info
-        se_visc: true # no provenance info
-        se_visc_gamma0: 10 # no provenance info
-        se_visc_gamma1: 19500 # no provenance info
-        se_visc_gamma2: 0 # no provenance info
+      run_config:
+        lwiso: false  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:484,col:36
+      icebergs:
+        use_icebergs: false  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:486,col:43
+        use_icesheet_coupling: false # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:487,col:52
+        steps_per_ib_step: 8 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:488,col:48
+    namelist.cvmix: {}
+    namelist.dyn: {}
     namelist.forcing:
       forcing_exchange_coeff:
         ce_atm_oce: 0.00175  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:494,col:41
@@ -1824,28 +1186,15 @@ fesom:
         ce_atm_ice: 0.00175 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:497,col:41
         ch_atm_ice: 0.00175 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:498,col:41
         cd_atm_ice: 0.0012 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:499,col:41
-        swind: 0.0 # no provenance info
       forcing_bulk:
         aomip_drag_coeff: false  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:502,col:47
         ncar_bulk_formulae: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:503,col:49
         ncar_bulk_z_wind: 10 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:504,col:47
         ncar_bulk_z_tair: 10 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:505,col:47
         ncar_bulk_z_shum: 10 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:506,col:47
-      land_ice:
-        use_landice_water: false  # no provenance info
-        landice_start_mon: 5 # no provenance info
-        landice_end_mon: 10 # no provenance info
-        fwf_path: ./mesh/ # no provenance info
-      age_tracer:
-        use_age_tracer: false  # no provenance info
-        use_age_mask: false # no provenance info
-        age_tracer_path: ./mesh/ # no provenance info
-        age_start_year: 2000 # no provenance info
       nam_sbc:
         nm_xwind_file: /work/ab0246/a270092/input//FESOM2/FORCING///JRA55-do-v1.4.0//uas.  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:509,col:44
         nm_ywind_file: /work/ab0246/a270092/input//FESOM2/FORCING///JRA55-do-v1.4.0//vas. # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:510,col:44
-        nm_xstre_file: /pool/data/AWICM/FESOM2/FORCING/JRA55-do-v1.4.0/uas. # no provenance info
-        nm_ystre_file: /pool/data/AWICM/FESOM2/FORCING/JRA55-do-v1.4.0/vas. # no provenance info
         nm_humi_file: /work/ab0246/a270092/input//FESOM2/FORCING///JRA55-do-v1.4.0//huss. # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:511,col:43
         nm_qsr_file: /work/ab0246/a270092/input//FESOM2/FORCING///JRA55-do-v1.4.0//rsds. # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:512,col:42
         nm_qlw_file: /work/ab0246/a270092/input//FESOM2/FORCING///JRA55-do-v1.4.0//rlds. # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:513,col:42
@@ -1855,8 +1204,6 @@ fesom:
         nm_mslp_file: /work/ab0246/a270092/input//FESOM2/FORCING///JRA55-do-v1.4.0//psl. # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:517,col:43
         nm_xwind_var: uas # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:519,col:43
         nm_ywind_var: vas # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:520,col:43
-        nm_xstre_var: uas # no provenance info
-        nm_ystre_var: vas # no provenance info
         nm_humi_var: huss # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:521,col:42
         nm_qsr_var: rsds # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:522,col:41
         nm_qlw_var: rlds # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:523,col:41
@@ -1871,8 +1218,6 @@ fesom:
         nm_nc_tmid: 0 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:533,col:41
         l_xwind: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:534,col:38
         l_ywind: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:535,col:38
-        l_xstre: false # no provenance info
-        l_ystre: false # no provenance info
         l_humi: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:536,col:37
         l_qsr: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:537,col:36
         l_qlw: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:538,col:36
@@ -1881,411 +1226,20 @@ fesom:
         l_mslp: false # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:541,col:37
         l_cloud: false # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:542,col:38
         l_snow: true # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:543,col:37
-        runoff_data_source: CORE2 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:548,col:49
         nm_runoff_file: /work/ab0246/a270092/input//FESOM2/FORCING///JRA55-do-v1.4.0//CORE2_runoff.nc # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:545,col:45
-        sss_data_source: CORE2 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:549,col:46
         nm_sss_data_file: /work/ab0246/a270092/input//FESOM2/FORCING///JRA55-do-v1.4.0//PHC2_salx.nc # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:546,col:47
-        chl_data_source: None # no provenance info
-        nm_chl_data_file: /pool/data/AWICM/FESOM2/FORCING/JRA55-do-v1.4.0/Sweeney/Sweeney_2005.nc # no provenance info
-        chl_const: 0.1 # no provenance info
-        use_runoff_mapper: false # no provenance info
-        runoff_basins_file: runoff_maps_regular.nc # no provenance info
-        runoff_radius: 500000.0 # no provenance info
+        runoff_data_source: CORE2 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:548,col:49
+        sss_data_source: CORE2 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:549,col:46
     namelist.ice:
       ice_dyn:
         whichevp: 0  # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:552,col:39
-        pstar: 30000.0 # no provenance info
-        ellipse: 2.0 # no provenance info
-        c_pressure: 20.0 # no provenance info
-        delta_min: 1e-11 # no provenance info
-        evp_rheol_steps: 120 # no provenance info
         alpha_evp: 250 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:553,col:40
         beta_evp: 250 # <CONFIGS_PATH>/components/fesom/fesom-2.6.yaml,line:554,col:39
-        c_aevp: 0.15 # no provenance info
-        cd_oce_ice: 0.0055 # no provenance info
-        ice_gamma_fct: 0.5 # no provenance info
-        ice_diff: 0.0 # no provenance info
-        theta_io: 0.0 # no provenance info
-        ice_ave_steps: 1 # no provenance info
-      ice_therm:
-        sice: 4.0  # no provenance info
-        iclasses: 7 # no provenance info
-        h0: 0.5 # no provenance info
-        h0_s: 0.5 # no provenance info
-        hmin: 0.01 # no provenance info
-        armin: 0.01 # no provenance info
-        emiss_ice: 0.97 # no provenance info
-        emiss_wat: 0.97 # no provenance info
-        albsn: 0.81 # no provenance info
-        albsnm: 0.77 # no provenance info
-        albi: 0.7 # no provenance info
-        albim: 0.68 # no provenance info
-        albw: 0.1 # no provenance info
-        con: 2.1656 # no provenance info
-        consn: 0.31 # no provenance info
-        snowdist: true # no provenance info
-        new_iclasses: false # no provenance info
-        open_water_albedo: 0 # no provenance info
-        c_melt: 0.5 # no provenance info
-        h_cutoff: 3.0 # no provenance info
-    namelist.icepack:
-      env_nml:
-        nicecat: 5  # no provenance info
-        nfsdcat: 1 # no provenance info
-        nicelyr: 4 # no provenance info
-        nsnwlyr: 4 # no provenance info
-        ntraero: 0 # no provenance info
-        trzaero: 0 # no provenance info
-        tralg: 0 # no provenance info
-        trdoc: 0 # no provenance info
-        trdic: 0 # no provenance info
-        trdon: 0 # no provenance info
-        trfed: 0 # no provenance info
-        trfep: 0 # no provenance info
-        nbgclyr: 0 # no provenance info
-        trbgcz: 0 # no provenance info
-        trzs: 0 # no provenance info
-        trbri: 0 # no provenance info
-        trage: 0 # no provenance info
-        trfy: 0 # no provenance info
-        trlvl: 0 # no provenance info
-        trpnd: 0 # no provenance info
-        trbgcs: 0 # no provenance info
-        ndtd: 1 # no provenance info
-      grid_nml:
-        kcatbound: 1  # no provenance info
-      tracer_nml:
-        tr_iage: false  # no provenance info
-        tr_fy: false # no provenance info
-        tr_lvl: false # no provenance info
-        tr_pond_cesm: false # no provenance info
-        tr_pond_topo: false # no provenance info
-        tr_pond_lvl: false # no provenance info
-        tr_aero: false # no provenance info
-        tr_fsd: false # no provenance info
-      thermo_nml:
-        kitd: 1  # no provenance info
-        ktherm: 1 # no provenance info
-        conduct: bubbly # no provenance info
-        a_rapid_mode: 0.0005 # no provenance info
-        rac_rapid_mode: 10.0 # no provenance info
-        aspect_rapid_mode: 1.0 # no provenance info
-        dsdt_slow_mode: -5e-08 # no provenance info
-        phi_c_slow_mode: 0.05 # no provenance info
-        phi_i_mushy: 0.85 # no provenance info
-        ksno: 0.3 # no provenance info
-      shortwave_nml:
-        shortwave: ccsm3  # no provenance info
-        albedo_type: ccsm3 # no provenance info
-        albicev: 0.78 # no provenance info
-        albicei: 0.36 # no provenance info
-        albsnowv: 0.98 # no provenance info
-        albsnowi: 0.7 # no provenance info
-        albocn: 0.1 # no provenance info
-        ahmax: 0.3 # no provenance info
-        r_ice: 0.0 # no provenance info
-        r_pnd: 0.0 # no provenance info
-        r_snw: 1.5 # no provenance info
-        dt_mlt: 1.5 # no provenance info
-        rsnw_mlt: 1500.0 # no provenance info
-        kalg: 0.6 # no provenance info
-      ponds_nml:
-        hp1: 0.01  # no provenance info
-        hs0: 0.0 # no provenance info
-        hs1: 0.03 # no provenance info
-        dpscale: 0.001 # no provenance info
-        frzpnd: hlid # no provenance info
-        rfracmin: 0.15 # no provenance info
-        rfracmax: 1.0 # no provenance info
-        pndaspect: 0.8 # no provenance info
-      forcing_nml:
-        formdrag: false  # no provenance info
-        atmbndy: default # no provenance info
-        calc_strair: true # no provenance info
-        calc_tsfc: true # no provenance info
-        highfreq: false # no provenance info
-        natmiter: 5 # no provenance info
-        ustar_min: 0.0005 # no provenance info
-        emissivity: 0.95 # no provenance info
-        fbot_xfer_type: constant # no provenance info
-        update_ocn_f: true # no provenance info
-        l_mpond_fresh: false # no provenance info
-        tfrz_option: linear_salt # no provenance info
-        oceanmixed_ice: true # no provenance info
-        wave_spec_type: none # no provenance info
-      dynamics_nml:
-        kstrength: 1  # no provenance info
-        krdg_partic: 1 # no provenance info
-        krdg_redist: 1 # no provenance info
-        mu_rdg: 3 # no provenance info
-        cf: 17.0 # no provenance info
-        p_star: 27000.0 # no provenance info
-        c_star: 20.0 # no provenance info
-      nml_list_icepack:
-        io_list_icepack:
-        - 'aicen     '  # no provenance info
-        - 1 # no provenance info
-        - m # no provenance info
-        - 4 # no provenance info
-        - 'vicen     ' # no provenance info
-        - 1 # no provenance info
-        - m # no provenance info
-        - 4 # no provenance info
-        - 'vsnon     ' # no provenance info
-        - 1 # no provenance info
-        - m # no provenance info
-        - 4 # no provenance info
-    namelist.io:
-      diag_list:
-        ldiag_solver: false  # no provenance info
-        lcurt_stress_surf: false # no provenance info
-        ldiag_curl_vel3: false # no provenance info
-        ldiag_ri: false # no provenance info
-        ldiag_turbflux: false # no provenance info
-        ldiag_salt3d: false # no provenance info
-        ldiag_dmoc: false # no provenance info
-        ldiag_dvd: false # no provenance info
-        ldiag_forc: false # no provenance info
-        ldiag_extflds: false # no provenance info
-        ldiag_destine: false # no provenance info
-        ldiag_trflx: false # no provenance info
-        ldiag_uvw_sqr: false # no provenance info
-        ldiag_trgrd_xyz: false # no provenance info
-      nml_general:
-        io_listsize: 120  # no provenance info
-        vec_autorotate: false # no provenance info
-        compression_level: 1 # no provenance info
-      nml_list:
-        io_list:
-        - 'sst       '  # no provenance info
-        - 1 # no provenance info
-        - m # no provenance info
-        - 4 # no provenance info
-        - 'sss       ' # no provenance info
-        - 1 # no provenance info
-        - m # no provenance info
-        - 4 # no provenance info
-        - 'ssh       ' # no provenance info
-        - 1 # no provenance info
-        - m # no provenance info
-        - 4 # no provenance info
-        - 'uice      ' # no provenance info
-        - 1 # no provenance info
-        - d # no provenance info
-        - 4 # no provenance info
-        - 'vice      ' # no provenance info
-        - 1 # no provenance info
-        - d # no provenance info
-        - 4 # no provenance info
-        - 'a_ice     ' # no provenance info
-        - 1 # no provenance info
-        - m # no provenance info
-        - 4 # no provenance info
-        - 'm_ice     ' # no provenance info
-        - 1 # no provenance info
-        - m # no provenance info
-        - 4 # no provenance info
-        - 'm_snow    ' # no provenance info
-        - 1 # no provenance info
-        - m # no provenance info
-        - 4 # no provenance info
-        - 'MLD1      ' # no provenance info
-        - 1 # no provenance info
-        - m # no provenance info
-        - 4 # no provenance info
-        - 'MLD2      ' # no provenance info
-        - 1 # no provenance info
-        - m # no provenance info
-        - 4 # no provenance info
-        - 'MLD3      ' # no provenance info
-        - 1 # no provenance info
-        - m # no provenance info
-        - 4 # no provenance info
-        - 'tx_sur    ' # no provenance info
-        - 1 # no provenance info
-        - m # no provenance info
-        - 4 # no provenance info
-        - 'ty_sur    ' # no provenance info
-        - 1 # no provenance info
-        - m # no provenance info
-        - 4 # no provenance info
-        - 'temp      ' # no provenance info
-        - 1 # no provenance info
-        - m # no provenance info
-        - 4 # no provenance info
-        - 'salt      ' # no provenance info
-        - 1 # no provenance info
-        - m # no provenance info
-        - 8 # no provenance info
-        - 'N2        ' # no provenance info
-        - 1 # no provenance info
-        - y # no provenance info
-        - 4 # no provenance info
-        - 'Kv        ' # no provenance info
-        - 1 # no provenance info
-        - y # no provenance info
-        - 4 # no provenance info
-        - 'u         ' # no provenance info
-        - 1 # no provenance info
-        - y # no provenance info
-        - 4 # no provenance info
-        - 'v         ' # no provenance info
-        - 1 # no provenance info
-        - y # no provenance info
-        - 4 # no provenance info
-        - 'unod      ' # no provenance info
-        - 1 # no provenance info
-        - y # no provenance info
-        - 4 # no provenance info
-        - 'vnod      ' # no provenance info
-        - 1 # no provenance info
-        - y # no provenance info
-        - 4 # no provenance info
-        - 'w         ' # no provenance info
-        - 1 # no provenance info
-        - y # no provenance info
-        - 4 # no provenance info
-        - 'Av        ' # no provenance info
-        - 1 # no provenance info
-        - y # no provenance info
-        - 4 # no provenance info
-        - 'bolus_u   ' # no provenance info
-        - 1 # no provenance info
-        - y # no provenance info
-        - 4 # no provenance info
-        - 'bolus_v   ' # no provenance info
-        - 1 # no provenance info
-        - y # no provenance info
-        - 4 # no provenance info
-        - 'bolus_w   ' # no provenance info
-        - 1 # no provenance info
-        - y # no provenance info
-        - 4 # no provenance info
-        - 'fw        ' # no provenance info
-        - 1 # no provenance info
-        - m # no provenance info
-        - 4 # no provenance info
-        - 'fh        ' # no provenance info
-        - 1 # no provenance info
-        - m # no provenance info
-        - 4 # no provenance info
-        - 'otracers  ' # no provenance info
-        - 1 # no provenance info
-        - y # no provenance info
-        - 4 # no provenance info
-    namelist.oce:
-      oce_dyn:
-        c_d: 0.0025  # no provenance info
-        a_ver: 0.0001 # no provenance info
-        scale_area: 5800000000.0 # no provenance info
-        spp: false # no provenance info
-        fer_gm: true # no provenance info
-        k_gm_max: 2000.0 # no provenance info
-        k_gm_min: 2.0 # no provenance info
-        k_gm_bvref: 2 # no provenance info
-        k_gm_rampmax: -1.0 # no provenance info
-        k_gm_rampmin: -1.0 # no provenance info
-        k_gm_resscalorder: 1 # no provenance info
-        scaling_ferreira: false # no provenance info
-        scaling_rossby: false # no provenance info
-        scaling_resolution: true # no provenance info
-        scaling_fesom14: false # no provenance info
-        redi: true # no provenance info
-        visc_sh_limit: 0.005 # no provenance info
-        mix_scheme: KPP # no provenance info
-        ricr: 0.3 # no provenance info
-        concv: 1.6 # no provenance info
-    namelist.tra:
-      tracer_listsize:
-        num_tracers: 100  # no provenance info
-      tracer_list:
-        nml_tracer_list:
-        - 1  # no provenance info
-        - MFCT # no provenance info
-        - QR4C # no provenance info
-        - 'FCT ' # no provenance info
-        - 1.0 # no provenance info
-        - 1.0 # no provenance info
-        - 2 # no provenance info
-        - MFCT # no provenance info
-        - QR4C # no provenance info
-        - 'FCT ' # no provenance info
-        - 1.0 # no provenance info
-        - 1.0 # no provenance info
-      tracer_init3d:
-        n_ic3d: 2  # no provenance info
-        idlist:
-        - 2  # no provenance info
-        - 1 # no provenance info
-        filelist:
-        - phc3.0_winter.nc  # no provenance info
-        - phc3.0_winter.nc # no provenance info
-        varlist:
-        - salt  # no provenance info
-        - temp # no provenance info
-        t_insitu: true # no provenance info
-      tracer_init2d:
-        n_ic2d: 3  # no provenance info
-        idlist:
-        - 1  # no provenance info
-        - 2 # no provenance info
-        - 3 # no provenance info
-        filelist:
-        - a_ice.nc  # no provenance info
-        - m_ice.nc # no provenance info
-        - m_snow.nc # no provenance info
-        varlist:
-        - a_ice  # no provenance info
-        - m_ice # no provenance info
-        - m_snow # no provenance info
-        ini_ice_from_file: false  # no provenance info
-      tracer_general:
-        smooth_bh_tra: false  # no provenance info
-        gamma0_tra: 0.0005 # no provenance info
-        gamma1_tra: 0.0125 # no provenance info
-        gamma2_tra: 0.0 # no provenance info
-        i_vert_diff: true # no provenance info
-        ab_order: 2 # no provenance info
-      tracer_phys:
-        use_momix: true  # no provenance info
-        momix_lat: -50.0 # no provenance info
-        momix_kv: 0.01 # no provenance info
-        use_instabmix: true # no provenance info
-        instabmix_kv: 0.1 # no provenance info
-        use_windmix: false # no provenance info
-        windmix_kv: 0.001 # no provenance info
-        windmix_nl: 2 # no provenance info
-        diff_sh_limit: 0.005 # no provenance info
-        kv0_const: true # no provenance info
-        double_diffusion: false # no provenance info
-        k_ver: 1e-05 # no provenance info
-        k_hor: 3000.0 # no provenance info
-        surf_relax_t: 0.0 # no provenance info
-        surf_relax_s: 1.929e-06 # no provenance info
-        balance_salt_water: true # no provenance info
-        clim_relax: 0.0 # no provenance info
-        ref_sss_local: true # no provenance info
-        ref_sss: 34.0 # no provenance info
-    namelist.transit:
-      transit_param:
-        l_r14c: false  # no provenance info
-        l_r39ar: false # no provenance info
-        l_f11: false # no provenance info
-        l_f12: false # no provenance info
-        l_sf6: false # no provenance info
-        anthro_transit: false # no provenance info
-        paleo_transit: false # no provenance info
-        length_transit: 1 # no provenance info
-        ti_start_transit: 1 # no provenance info
-        ifile_transit: /work/ab0246/a270108/fesom2_recom_config/input-for-awiesm/Table_CO2_isoC_CFCs1112_SF6.txt # no provenance info
-        r14c_a: 1.0 # no provenance info
-        r39ar_a: 1.0 # no provenance info
-        xarg_a: 0.00934 # no provenance info
-        xco2_a: 0.00028432 # no provenance info
-        dic_0: 2.0 # no provenance info
-        arg_0: 0.01 # no provenance info
-        decay14: 3.8561e-12 # no provenance info
-        decay39: 8.1708e-11 # no provenance info
+    namelist.icepack: {}
+    namelist.io: {}
+    namelist.oce: {}
+    namelist.tra: {}
+    namelist.transit: {}
 defaults:
   clean_command: rm -rf build CMakeCache.txt  # <CONFIGS_PATH>/defaults/download_and_compile.yaml,line:1,col:16
   comp_command: mkdir -p build; cd build; cmake ..;   make install -j `nproc --all` # <CONFIGS_PATH>/defaults/download_and_compile.yaml,line:2,col:15

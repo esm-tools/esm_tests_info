@@ -1455,7 +1455,7 @@ computer:
       _value: --with-coupler=oasis3-mct  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:673,col:21
       _execution_mode: compile # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:674,col:30
       _component: echam # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:675,col:25
-    ACCOUNT: ab0246  # no provenance info
+    ACCOUNT: None  # no provenance info
     ESM_TESTING_DIR: <TEST_DIR>/run/awiesm/ # no provenance info
     MODEL_DIR: <TEST_DIR>/comp/awiesm/awiesm-2.1 # no provenance info
   name: levante  # <CONFIGS_PATH>/machines/levante.yaml,line:4,col:11
@@ -1576,7 +1576,7 @@ computer:
       _value: --with-coupler=oasis3-mct  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:673,col:21
       _execution_mode: compile # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:674,col:30
       _component: echam # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:675,col:25
-    ACCOUNT: ab0246  # no provenance info
+    ACCOUNT: None  # no provenance info
     ESM_TESTING_DIR: <TEST_DIR>/run/awiesm/ # no provenance info
     MODEL_DIR: <TEST_DIR>/comp/awiesm/awiesm-2.1 # no provenance info
   load_python: false  # <CONFIGS_PATH>/machines/levante.yaml,line:137,col:18
@@ -1635,7 +1635,7 @@ computer:
   model: computer # no provenance info
   post_run_commands:
   - '@conda_activate@'  # <CONFIGS_PATH>/esm_software/esm_runscripts/defaults.yaml,line:55,col:11
-  launched_with_conda: true  # no provenance info
+  launched_with_conda: false  # no provenance info
   heterogeneous_parallelization: false # no provenance info
   load_python_command: []
   lib_aec: ''  # <CONFIGS_PATH>/machines/levante.yaml,line:154,col:22
@@ -1650,7 +1650,7 @@ computer:
   libaec_version: 1.0.5-intel-2021.5.0 # <CONFIGS_PATH>/machines/levante.yaml,line:304,col:29
   libaec_path: /sw/spack-levante/libaec-1.0.5-gij7yv # <CONFIGS_PATH>/machines/levante.yaml,line:305,col:26
   tbb_path: /sw/spack-levante/intel-oneapi-compilers-2022.0.1-an2cbq/tbb/2021.5.0 # <CONFIGS_PATH>/machines/levante.yaml,line:306,col:23
-  accounting_flag: --account=ab0246 # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:28,col:38
+  accounting_flag: --account=None # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:28,col:38
   cpu_bind: cores # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:79,col:23
   srun_execution_command: srun -l --hint=nomultithread --multi-prog hostfile_srun # <CONFIGS_PATH>/other_software/batch_system/slurm.yaml,line:80,col:37
   hyperthreading_flag: --ntasks-per-core=1 # <CONFIGS_PATH>/machines/levante.yaml,line:33,col:58
@@ -1721,7 +1721,7 @@ general:
   - echam  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:85,col:19
   - fesom # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:86,col:19
   - oasis3mct # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:87,col:19
-  account: ab0246  # <TEST_DIR>/run/awiesm/pico/scripts/pico.yaml,line:2,col:14
+  account: None  # <TEST_DIR>/run/awiesm/pico/scripts/pico.yaml,line:2,col:14
   setup_name: awiesm # <TEST_DIR>/run/awiesm/pico/scripts/pico.yaml,line:3,col:17
   compute_time: 02:00:00 # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:150,col:39
   initial_date: '1850-01-01T00:00:00' # no provenance info
@@ -1742,7 +1742,7 @@ general:
   verbose: false # no provenance info
   contained_run: # no provenance info
   open_run: true # no provenance info
-  check: false # no provenance info
+  check: true # no provenance info
   modify_config_file: # no provenance info
   last_jobtype: prepcompute # no provenance info
   task: prepcompute # no provenance info
@@ -1758,7 +1758,7 @@ general:
   ignore_config_warnings: false # no provenance info
   computer_name: levante # no provenance info
   jobtype: prepcompute # no provenance info
-  original_command: pico.yaml -e pico --open-run --computer levante --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
+  original_command: pico.yaml -e pico --open-run -c --computer levante --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
   started_from: <TEST_DIR>/run/awiesm/pico/scripts/ # no provenance info
   scriptname: pico.yaml # no provenance info
   isinteractive: false # no provenance info
@@ -1793,7 +1793,7 @@ general:
     contained_run: # no provenance info
     open_run: true # no provenance info
     expid: pico # no provenance info
-    check: false # no provenance info
+    check: true # no provenance info
     modify_config_file: # no provenance info
     last_jobtype: prepcompute # no provenance info
     task: prepcompute # no provenance info
@@ -1810,7 +1810,7 @@ general:
     computer_name: levante # no provenance info
     jobtype: prepcompute # no provenance info
     use_venv: false # no provenance info
-    original_command: pico.yaml -e pico --open-run --computer levante --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
+    original_command: pico.yaml -e pico --open-run -c --computer levante --no-motd --last-jobtype prepcompute -t prepcompute # no provenance info
     started_from: <TEST_DIR>/run/awiesm/pico/scripts/ # no provenance info
     scriptname: pico.yaml # no provenance info
     runscript_abspath: <TEST_DIR>/run/awiesm/pico/scripts/pico.yaml # no provenance info
@@ -2019,21 +2019,21 @@ general:
         run_after: tidy # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:95,col:36
         script_dir: <TEST_DIR>/run/awiesm//pico/scripts/fesom # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:96,col:37
         submit_to_batch_system: true # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:97,col:49
-        script: Subjob_tripy.sh <TEST_DIR>/run/awiesm//pico/outdata/fesom/ 1850-01-01T00:00:00 1850-01-02T00:00:00 1850-01-01T00:00:00 1850-01-04T00:00:00 /pool/data/AWICM//FESOM2/MESHES_FESOM2.1//core2/ <TEST_DIR>/run/awiesm/ pico python3 True modvis.dkrz.de /var/www/projects/ab0246/<USER_ACCOUNT>/pico # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:98,col:33
+        script: Subjob_tripy.sh <TEST_DIR>/run/awiesm//pico/outdata/fesom/ 1850-01-01T00:00:00 1850-01-02T00:00:00 1850-01-01T00:00:00 1850-01-04T00:00:00 /pool/data/AWICM//FESOM2/MESHES_FESOM2.1//core2/ <TEST_DIR>/run/awiesm/ pico python3 True modvis.dkrz.de /var/www/projects/None/<USER_ACCOUNT>/pico # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:98,col:33
         nproc: 1 # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:99,col:32
         subjob_cluster: Tripy_Fesom # no provenance info
     last_task_in_queue: tidy  # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:89,col:40
     first_task_in_queue: prepcompute # no provenance info
     next_run_triggered_by: tidy # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:89,col:40
   submitted: false  # no provenance info
-  jobid: 1590284 # no provenance info
+  jobid: 560 # no provenance info
   batch: slurm # no provenance info
   coupler_config_dir: <TEST_DIR>/run/awiesm//pico/run_18500101-18500101/config/oasis3mct/ # no provenance info
   coupler: oasis3mct # no provenance info
   experiment_log_file: <TEST_DIR>/run/awiesm//pico/log//pico_awiesm.log # no provenance info
-  esm_tools_version: 6.71.3 # no provenance info
-  logfile_path: <TEST_DIR>/run/awiesm//pico/log//pico_awiesm_prepcompute_18500101-18500101_1590284.log # no provenance info
-  logfile_path_in_run: <TEST_DIR>/run/awiesm//pico/run_18500101-18500101/log//pico_awiesm_prepcompute_18500101-18500101_1590284.log # no provenance info
+  esm_tools_version: 6.71.5 # no provenance info
+  logfile_path: <TEST_DIR>/run/awiesm//pico/log//pico_awiesm_prepcompute_18500101-18500101_560.log # no provenance info
+  logfile_path_in_run: <TEST_DIR>/run/awiesm//pico/run_18500101-18500101/log//pico_awiesm_prepcompute_18500101-18500101_560.log # no provenance info
   relevant_filetypes:
   - bin  # no provenance info
   - config # no provenance info
@@ -2888,10 +2888,10 @@ fesom:
   - copy_all_results_to_exp # <CONFIGS_PATH>/components/fesom/fesom-2.1.yaml,line:626,col:11
   - clean_run_dir # <CONFIGS_PATH>/components/fesom/fesom-2.1.yaml,line:627,col:11
   with_tripyview: true # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:59,col:21
-  vis_project: ab0246 # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:60,col:18
+  vis_project: None # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:60,col:18
   vis_user: <USER_ACCOUNT> # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:61,col:15
   vis_server: modvis.dkrz.de # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:69,col:25
-  vis_publicdir: /var/www/projects/ab0246/<USER_ACCOUNT>/pico # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:70,col:28
+  vis_publicdir: /var/www/projects/None/<USER_ACCOUNT>/pico # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:70,col:28
   vis_sync: true # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:71,col:23
   tripyview_conda_module: python3 # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:72,col:37
   scripts_files:
@@ -2979,7 +2979,7 @@ fesom:
         run_after: tidy # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:95,col:36
         script_dir: <TEST_DIR>/run/awiesm//pico/scripts/fesom # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:96,col:37
         submit_to_batch_system: true # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:97,col:49
-        script: Subjob_tripy.sh <TEST_DIR>/run/awiesm//pico/outdata/fesom/ 1850-01-01T00:00:00 1850-01-02T00:00:00 1850-01-01T00:00:00 1850-01-04T00:00:00 /pool/data/AWICM//FESOM2/MESHES_FESOM2.1//core2/ <TEST_DIR>/run/awiesm/ pico python3 True modvis.dkrz.de /var/www/projects/ab0246/<USER_ACCOUNT>/pico # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:98,col:33
+        script: Subjob_tripy.sh <TEST_DIR>/run/awiesm//pico/outdata/fesom/ 1850-01-01T00:00:00 1850-01-02T00:00:00 1850-01-01T00:00:00 1850-01-04T00:00:00 /pool/data/AWICM//FESOM2/MESHES_FESOM2.1//core2/ <TEST_DIR>/run/awiesm/ pico python3 True modvis.dkrz.de /var/www/projects/None/<USER_ACCOUNT>/pico # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:98,col:33
         nproc: 1 # <CONFIGS_PATH>/components/fesom/fesom.tripyview.yaml,line:99,col:32
   forcing_sources:
     pico_forcing: /work/ollie/mandresm/testing_pool/nonstandard_forcings/pico/test.dat  # <CONFIGS_PATH>/setups/awiesm/awiesm.yaml,line:444,col:34
@@ -3589,7 +3589,6 @@ oasis3mct:
   bin_sources: {}
   config_sources:
     namcouple: <TEST_DIR>/run/awiesm//pico/run_18500101-18500101/config/oasis3mct//namcouple  # no provenance info
-    cf_glob_0: <TEST_DIR>/comp/awiesm/awiesm-2.1/oasis/cf_name_table.txt # no provenance info
   version: 2.8 # <CONFIGS_PATH>/components/oasis3mct/oasis3mct.yaml,line:44,col:14
   available_versions:
   - foci  # <CONFIGS_PATH>/components/oasis3mct/oasis3mct.yaml,line:47,col:7
@@ -3870,7 +3869,6 @@ oasis3mct:
   bin_targets: {}
   config_targets:
     namcouple: <TEST_DIR>/run/awiesm/pico/run_18500101-18500101/work/namcouple  # no provenance info
-    cf_glob_0: <TEST_DIR>/run/awiesm/pico/run_18500101-18500101/work/cf_name_table.txt # no provenance info
   log_targets:
     nout: <TEST_DIR>/run/awiesm/pico/log/oasis3mct/nout.000000  # no provenance info
     debug_r1: <TEST_DIR>/run/awiesm/pico/log/oasis3mct/debug.root.01 # no provenance info
@@ -3935,7 +3933,6 @@ oasis3mct:
   bin_intermediate: {}
   config_intermediate:
     namcouple: <TEST_DIR>/run/awiesm/pico/run_18500101-18500101/config/oasis3mct/namcouple  # no provenance info
-    cf_glob_0: <TEST_DIR>/run/awiesm/pico/run_18500101-18500101/config/oasis3mct/cf_name_table.txt # no provenance info
   log_intermediate:
     nout: <TEST_DIR>/run/awiesm/pico/run_18500101-18500101/log/oasis3mct/nout.000000  # no provenance info
     debug_r1: <TEST_DIR>/run/awiesm/pico/run_18500101-18500101/log/oasis3mct/debug.root.01 # no provenance info
